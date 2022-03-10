@@ -59,8 +59,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The optional capacity commitment ID. Capacity commitment name will be
  *  generated automatically if this field is empty. This field must only contain
- *  lower case alphanumeric characters or dash. Max length is 64 characters.
- *  NOTE: this ID won't be kept if the capacity commitment is split or merged.
+ *  lower case alphanumeric characters or dashes. The first and last character
+ *  cannot be a dash. Max length is 64 characters. NOTE: this ID won't be kept
+ *  if the capacity commitment is split or merged.
  */
 @property(nonatomic, copy, nullable) NSString *capacityCommitmentId;
 
@@ -267,7 +268,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Output only. The resource name of the capacity commitment, e.g.,
- *  `projects/myproject/locations/US/capacityCommitments/123`
+ *  `projects/myproject/locations/US/capacityCommitments/123` For the commitment
+ *  id, it must only contain lower case alphanumeric characters or dashes.It
+ *  must start with a letter and must not end with a dash. Its maximum length is
+ *  64 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -289,7 +293,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRBigQueryReservation_CapacityCommitment to include
  *    in the query.
  *  @param name Output only. The resource name of the capacity commitment, e.g.,
- *    `projects/myproject/locations/US/capacityCommitments/123`
+ *    `projects/myproject/locations/US/capacityCommitments/123` For the
+ *    commitment id, it must only contain lower case alphanumeric characters or
+ *    dashes.It must start with a letter and must not end with a dash. Its
+ *    maximum length is 64 characters.
  *
  *  @return GTLRBigQueryReservationQuery_ProjectsLocationsCapacityCommitmentsPatch
  */
@@ -407,7 +414,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The optional assignment ID. Assignment name will be generated automatically
  *  if this field is empty. This field must only contain lower case alphanumeric
- *  characters or dash. Max length is 64 characters.
+ *  characters or dashes. Max length is 64 characters.
  */
 @property(nonatomic, copy, nullable) NSString *assignmentId;
 
@@ -615,8 +622,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  The reservation ID. This field must only contain lower case alphanumeric
- *  characters or dash. Max length is 64 characters.
+ *  The reservation ID. It must only contain lower case alphanumeric characters
+ *  or dashes.It must start with a letter and must not end with a dash. Its
+ *  maximum length is 64 characters.
  */
 @property(nonatomic, copy, nullable) NSString *reservationId;
 
@@ -757,7 +765,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The resource name of the reservation, e.g., `projects/ * /locations/ *
- *  /reservations/team1-prod`.
+ *  /reservations/team1-prod`. For the reservation id, it must only contain
+ *  lower case alphanumeric characters or dashes.It must start with a letter and
+ *  must not end with a dash. Its maximum length is 64 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -776,7 +786,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRBigQueryReservation_Reservation to include in the
  *    query.
  *  @param name The resource name of the reservation, e.g., `projects/ *
- *    /locations/ * /reservations/team1-prod`.
+ *    /locations/ * /reservations/team1-prod`. For the reservation id, it must
+ *    only contain lower case alphanumeric characters or dashes.It must start
+ *    with a letter and must not end with a dash. Its maximum length is 64
+ *    characters.
  *
  *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationsPatch
  */

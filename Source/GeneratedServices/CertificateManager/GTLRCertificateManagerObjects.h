@@ -417,8 +417,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  A Hostname (FQDN, e.g. example.com) or a wildcard hostname expression
- *  (*.example.com) for a set of hostnames with common suffix. Used as Server
+ *  A Hostname (FQDN, e.g. `example.com`) or a wildcard hostname expression
+ *  (`*.example.com`) for a set of hostnames with common suffix. Used as Server
  *  Name Indication (SNI) for selecting a proper certificate.
  */
 @property(nonatomic, copy, nullable) NSString *hostname;
@@ -502,8 +502,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 /**
  *  Required. Immutable. A domain which is being authorized. A DnsAuthorization
  *  resource covers a single domain and its wildcard, e.g. authorization for
- *  "example.com" can be used to issue certificates for "example.com" and
- *  "*.example.com".
+ *  `example.com` can be used to issue certificates for `example.com` and
+ *  `*.example.com`.
  */
 @property(nonatomic, copy, nullable) NSString *domain;
 
@@ -546,7 +546,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 
 /**
  *  Output only. Fully qualified name of the DNS Resource Record. e.g.
- *  "_acme-challenge.example.com."
+ *  `_acme-challenge.example.com`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

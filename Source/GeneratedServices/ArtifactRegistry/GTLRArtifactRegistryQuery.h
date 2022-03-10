@@ -22,7 +22,6 @@
 #endif
 
 @class GTLRArtifactRegistry_ImportAptArtifactsRequest;
-@class GTLRArtifactRegistry_ImportGooGetArtifactsRequest;
 @class GTLRArtifactRegistry_ImportYumArtifactsRequest;
 @class GTLRArtifactRegistry_ProjectSettings;
 @class GTLRArtifactRegistry_Repository;
@@ -30,7 +29,6 @@
 @class GTLRArtifactRegistry_Tag;
 @class GTLRArtifactRegistry_TestIamPermissionsRequest;
 @class GTLRArtifactRegistry_UploadAptArtifactRequest;
-@class GTLRArtifactRegistry_UploadGooGetArtifactRequest;
 @class GTLRArtifactRegistry_UploadYumArtifactRequest;
 
 // Generated comments include content from the discovery document; avoid them
@@ -80,37 +78,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @end
 
 /**
- *  Gets the latest state of a long-running operation. Clients can use this
- *  method to poll the operation result at intervals as recommended by the API
- *  service.
- *
- *  Method: artifactregistry.operations.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
- *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
- */
-@interface GTLRArtifactRegistryQuery_OperationsGet : GTLRArtifactRegistryQuery
-
-/** The name of the operation resource. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRArtifactRegistry_Operation.
- *
- *  Gets the latest state of a long-running operation. Clients can use this
- *  method to poll the operation result at intervals as recommended by the API
- *  service.
- *
- *  @param name The name of the operation resource.
- *
- *  @return GTLRArtifactRegistryQuery_OperationsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
  *  Retrieves the Settings for the Project.
  *
  *  Method: artifactregistry.projects.getProjectSettings
@@ -132,6 +99,37 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *  @param name Required. The name of the projectSettings resource.
  *
  *  @return GTLRArtifactRegistryQuery_ProjectsGetProjectSettings
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: artifactregistry.projects.locations.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsOperationsGet : GTLRArtifactRegistryQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsOperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -399,6 +397,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
+/** The field to order the results by. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
 /** The maximum number of files to return. */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -407,7 +408,10 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** The name of the parent resource whose files will be listed. */
+/**
+ *  The name of the repository whose files will be listed. For example:
+ *  "projects/p1/locations/us-central1/repositories/repo1
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -415,7 +419,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *
  *  Lists files.
  *
- *  @param parent The name of the parent resource whose files will be listed.
+ *  @param parent The name of the repository whose files will be listed. For
+ *    example: "projects/p1/locations/us-central1/repositories/repo1
  *
  *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesList
  *
@@ -497,81 +502,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
- *  Imports GooGet artifacts. The returned Operation will complete once the
- *  resources are imported. Package, Version, and File resources are created
- *  based on the imported artifacts. Imported artifacts that conflict with
- *  existing resources are ignored.
- *
- *  Method: artifactregistry.projects.locations.repositories.gooGetArtifacts.import
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
- */
-@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGooGetArtifactsImport : GTLRArtifactRegistryQuery
-
-/** The name of the parent resource where the artifacts will be imported. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRArtifactRegistry_Operation.
- *
- *  Imports GooGet artifacts. The returned Operation will complete once the
- *  resources are imported. Package, Version, and File resources are created
- *  based on the imported artifacts. Imported artifacts that conflict with
- *  existing resources are ignored.
- *
- *  @param object The @c GTLRArtifactRegistry_ImportGooGetArtifactsRequest to
- *    include in the query.
- *  @param parent The name of the parent resource where the artifacts will be
- *    imported.
- *
- *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGooGetArtifactsImport
- */
-+ (instancetype)queryWithObject:(GTLRArtifactRegistry_ImportGooGetArtifactsRequest *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Directly uploads a GooGet artifact. The returned Operation will complete
- *  once the resources are uploaded. Package, Version, and File resources are
- *  created based on the imported artifact. Imported artifacts that conflict
- *  with existing resources are ignored.
- *
- *  Method: artifactregistry.projects.locations.repositories.googetArtifacts.upload
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
- */
-@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGoogetArtifactsUpload : GTLRArtifactRegistryQuery
-
-/** The name of the parent resource where the artifacts will be uploaded. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRArtifactRegistry_UploadGooGetArtifactMediaResponse.
- *
- *  Directly uploads a GooGet artifact. The returned Operation will complete
- *  once the resources are uploaded. Package, Version, and File resources are
- *  created based on the imported artifact. Imported artifacts that conflict
- *  with existing resources are ignored.
- *
- *  @param object The @c GTLRArtifactRegistry_UploadGooGetArtifactRequest to
- *    include in the query.
- *  @param parent The name of the parent resource where the artifacts will be
- *    uploaded.
- *  @param uploadParameters The media to include in this query. Accepted MIME
- *    type: * / *
- *
- *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGoogetArtifactsUpload
- */
-+ (instancetype)queryWithObject:(GTLRArtifactRegistry_UploadGooGetArtifactRequest *)object
-                         parent:(NSString *)parent
-               uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
 
 @end
 

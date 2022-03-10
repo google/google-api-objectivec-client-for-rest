@@ -1309,10 +1309,16 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Inc
  */
 @interface GTLRGmail_ModifyMessageRequest : GTLRObject
 
-/** A list of IDs of labels to add to this message. */
+/**
+ *  A list of IDs of labels to add to this message. You can add up to 100 labels
+ *  with each update.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *addLabelIds;
 
-/** A list IDs of labels to remove from this message. */
+/**
+ *  A list IDs of labels to remove from this message. You can remove up to 100
+ *  labels with each update.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *removeLabelIds;
 
 @end
@@ -1323,10 +1329,16 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Inc
  */
 @interface GTLRGmail_ModifyThreadRequest : GTLRObject
 
-/** A list of IDs of labels to add to this thread. */
+/**
+ *  A list of IDs of labels to add to this thread. You can add up to 100 labels
+ *  with each update.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *addLabelIds;
 
-/** A list of IDs of labels to remove from this thread. */
+/**
+ *  A list of IDs of labels to remove from this thread. You can remove up to 100
+ *  labels with each update.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *removeLabelIds;
 
 @end

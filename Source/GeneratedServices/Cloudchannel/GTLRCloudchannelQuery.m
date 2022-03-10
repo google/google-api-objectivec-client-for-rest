@@ -158,7 +158,7 @@ NSString * const kGTLRCloudchannelViewUnspecified = @"UNSPECIFIED";
 
 @implementation GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -661,7 +661,7 @@ NSString * const kGTLRCloudchannelViewUnspecified = @"UNSPECIFIED";
 
 @implementation GTLRCloudchannelQuery_AccountsCustomersList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

@@ -989,7 +989,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportJob_State_PendingGenerati
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_AttestationFormatUnspecified;
 /**
  *  Cavium HSM attestation compressed with gzip. Note that this format is
- *  defined by Cavium and subject to change at any time.
+ *  defined by Cavium and subject to change at any time. See
+ *  https://www.marvell.com/products/security-solutions/nitrox-hs-adapters/software-key-attestation.html.
  *
  *  Value: "CAVIUM_V1_COMPRESSED"
  */
@@ -2926,8 +2927,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *        Not specified. (Value: "ATTESTATION_FORMAT_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_KeyOperationAttestation_Format_CaviumV1Compressed
  *        Cavium HSM attestation compressed with gzip. Note that this format is
- *        defined by Cavium and subject to change at any time. (Value:
- *        "CAVIUM_V1_COMPRESSED")
+ *        defined by Cavium and subject to change at any time. See
+ *        https://www.marvell.com/products/security-solutions/nitrox-hs-adapters/software-key-attestation.html.
+ *        (Value: "CAVIUM_V1_COMPRESSED")
  *    @arg @c kGTLRCloudKMS_KeyOperationAttestation_Format_CaviumV2Compressed
  *        Cavium HSM attestation V2 compressed with gzip. This is a new format
  *        introduced in Cavium's version 3.2-08. (Value: "CAVIUM_V2_COMPRESSED")
@@ -3722,7 +3724,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 
 /**
  *  Required. A list of leaf server certificates used to authenticate HTTPS
- *  connections to the EKM replica.
+ *  connections to the EKM replica. Currently, a maximum of 10 Certificate is
+ *  supported.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudKMS_Certificate *> *serverCertificates;
 

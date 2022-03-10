@@ -123,6 +123,25 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 
 @end
 
+@implementation GTLRIamQuery_LocationsWorkforcePoolsSubjectsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRIamQuery_LocationsWorkforcePoolsSubjectsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Operation class];
+  query.loggingName = @"iam.locations.workforcePools.subjects.operations.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRIamQuery_OrganizationsRolesCreate
 
 @dynamic parent;
@@ -477,6 +496,25 @@ NSString * const kGTLRIamViewFull  = @"FULL";
   query.name = name;
   query.expectedObjectClass = [GTLRIam_WorkloadIdentityPoolProvider class];
   query.loggingName = @"iam.projects.locations.workloadIdentityPools.providers.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersKeysOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersKeysOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Operation class];
+  query.loggingName = @"iam.projects.locations.workloadIdentityPools.providers.keys.operations.get";
   return query;
 }
 

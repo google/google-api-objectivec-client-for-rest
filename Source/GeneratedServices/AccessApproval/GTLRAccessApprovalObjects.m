@@ -17,6 +17,7 @@
 NSString * const kGTLRAccessApproval_AccessReason_Type_CustomerInitiatedSupport = @"CUSTOMER_INITIATED_SUPPORT";
 NSString * const kGTLRAccessApproval_AccessReason_Type_GoogleInitiatedReview = @"GOOGLE_INITIATED_REVIEW";
 NSString * const kGTLRAccessApproval_AccessReason_Type_GoogleInitiatedService = @"GOOGLE_INITIATED_SERVICE";
+NSString * const kGTLRAccessApproval_AccessReason_Type_ThirdPartyDataRequest = @"THIRD_PARTY_DATA_REQUEST";
 NSString * const kGTLRAccessApproval_AccessReason_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRAccessApproval_EnrolledService.enrollmentLevel
@@ -71,7 +72,7 @@ NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_EnrollmentL
 //
 
 @implementation GTLRAccessApproval_ApproveDecision
-@dynamic approveTime, expireTime;
+@dynamic approveTime, autoApproved, expireTime, signatureInfo;
 @end
 
 
@@ -147,11 +148,22 @@ NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_EnrollmentL
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAccessApproval_ServiceAccount
+//
+
+@implementation GTLRAccessApproval_ServiceAccount
+@dynamic accountEmail, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAccessApproval_Settings
 //
 
 @implementation GTLRAccessApproval_Settings
-@dynamic enrolledAncestor, enrolledServices, name, notificationEmails;
+@dynamic activeKeyVersion, ancestorHasActiveKeyVersion, enrolledAncestor,
+         enrolledServices, invalidKeyVersion, name, notificationEmails;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -161,4 +173,14 @@ NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_EnrollmentL
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessApproval_SignatureInfo
+//
+
+@implementation GTLRAccessApproval_SignatureInfo
+@dynamic customerKmsKeyVersion, googlePublicKeyPem, signature;
 @end

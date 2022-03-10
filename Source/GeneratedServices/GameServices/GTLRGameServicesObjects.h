@@ -357,8 +357,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_DataAccessOptions_LogMode_L
 // GTLRGameServices_KubernetesClusterState.installationState
 
 /**
- *  The combination of Agones and Kubernetes versions is supported by Google
- *  Cloud Game Servers.
+ *  Both the Agones and Kubernetes versions are supported by Google Cloud Game
+ *  Servers and Agones and Kubernetes versions are compatible.
  *
  *  Value: "AGONES_KUBERNETES_VERSION_SUPPORTED"
  */
@@ -393,7 +393,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_KubernetesClusterState_Inst
  */
 FOUNDATION_EXTERN NSString * const kGTLRGameServices_KubernetesClusterState_InstallationState_AgonesVersionUnsupported;
 /**
- *  The default value. This value is used if the state is omitted.
+ *  The default installation state. This value is used if the state is omitted.
  *
  *  Value: "INSTALLATION_STATE_UNSPECIFIED"
  */
@@ -407,7 +407,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_KubernetesClusterState_Inst
 FOUNDATION_EXTERN NSString * const kGTLRGameServices_KubernetesClusterState_InstallationState_KubernetesVersionUnrecognized;
 /**
  *  Failed to read or verify the version of Agones or Kubernetes. See
- *  version_installed_error_message for details.
+ *  `version_installed_error_message` for details.
  *
  *  Value: "VERSION_VERIFICATION_FAILED"
  */
@@ -923,8 +923,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 
 /**
- *  DeployedFleetStatus has details about the Agones fleets such as how many are
- *  running, how many allocated, and so on.
+ *  DeployedFleetStatus has details about the Agones fleets, such as how many
+ *  are running, how many are allocated, and so on.
  */
 @interface GTLRGameServices_DeployedFleetStatus : GTLRObject
 
@@ -1048,8 +1048,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @interface GTLRGameServices_FleetConfig : GTLRObject
 
 /**
- *  Agones fleet spec. Example spec:
- *  `https://agones.dev/site/docs/reference/fleet/`.
+ *  Agones fleet spec (see [example
+ *  spec](https://agones.dev/site/docs/reference/fleet/)).
  */
 @property(nonatomic, copy, nullable) NSString *fleetSpec;
 
@@ -1065,8 +1065,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @interface GTLRGameServices_GameServerCluster : GTLRObject
 
 /**
- *  Output only. The state of the Kubernetes cluster, this will be available if
- *  'view' is set to `FULL` in the relevant List/Get/Preview request.
+ *  Output only. The state of the Kubernetes cluster in preview. This will be
+ *  available if view is set to FULL in the relevant list/get/preview request.
  */
 @property(nonatomic, strong, nullable) GTLRGameServices_KubernetesClusterState *clusterState;
 
@@ -1086,7 +1086,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** ETag of the resource. */
+/**
+ *  Used to perform consistent read-modify-write updates. If not set, a blind
+ *  "overwrite" update happens.
+ */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
@@ -1098,9 +1101,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 /**
  *  Required. The resource name of the game server cluster, in the following
  *  form:
- *  `projects/{project}/locations/{location}/realms/{realm}/gameServerClusters/{cluster}`.
+ *  `projects/{project}/locations/{locationId}/realms/{realmId}/gameServerClusters/{gameServerClusterId}`.
  *  For example,
- *  `projects/my-project/locations/{location}/realms/zanzibar/gameServerClusters/my-onprem-cluster`.
+ *  `projects/my-project/locations/global/realms/zanzibar/gameServerClusters/my-gke-cluster`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1172,7 +1175,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
  *  The resource name of the game server config, in the following form:
- *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/configs/{config}`.
+ *  `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}/configs/{configId}`.
  *  For example,
  *  `projects/my-project/locations/global/gameServerDeployments/my-game/configs/my-config`.
  */
@@ -1223,13 +1226,16 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Human readable description of the game server delpoyment.
+ *  Human readable description of the game server deployment.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** ETag of the resource. */
+/**
+ *  Used to perform consistent read-modify-write updates. If not set, a blind
+ *  "overwrite" update happens.
+ */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
@@ -1240,7 +1246,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
  *  The resource name of the game server deployment, in the following form:
- *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}`.
+ *  `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}`.
  *  For example,
  *  `projects/my-project/locations/global/gameServerDeployments/my-deployment`.
  */
@@ -1294,7 +1300,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 /**
  *  The resource name of the game server deployment rollout, in the following
  *  form:
- *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/rollout`.
+ *  `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}/rollout`.
  *  For example,
  *  `projects/my-project/locations/global/gameServerDeployments/my-deployment/rollout`.
  */
@@ -1313,8 +1319,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
  *  The full or partial name of a GKE cluster, using one of the following forms:
- *  * `projects/{project}/locations/{location}/clusters/{cluster}` *
- *  `locations/{location}/clusters/{cluster}` * `{cluster}` If project and
+ *  * `projects/{project}/locations/{locationId}/clusters/{cluster}` *
+ *  `locations/{locationId}/clusters/{cluster}` * `{cluster}` If project and
  *  location are not specified, the project and location of the
  *  GameServerCluster resource are used to generate the full name of the GKE
  *  cluster.
@@ -1346,9 +1352,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *
  *  Likely values:
  *    @arg @c kGTLRGameServices_KubernetesClusterState_InstallationState_AgonesKubernetesVersionSupported
- *        The combination of Agones and Kubernetes versions is supported by
- *        Google Cloud Game Servers. (Value:
- *        "AGONES_KUBERNETES_VERSION_SUPPORTED")
+ *        Both the Agones and Kubernetes versions are supported by Google Cloud
+ *        Game Servers and Agones and Kubernetes versions are compatible.
+ *        (Value: "AGONES_KUBERNETES_VERSION_SUPPORTED")
  *    @arg @c kGTLRGameServices_KubernetesClusterState_InstallationState_AgonesKubernetesVersionUnsupported
  *        The installed version of Agones is supported by Google Cloud Game
  *        Servers, but the installed version of Kubernetes is not recommended or
@@ -1364,15 +1370,15 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *        The installed version of Agones is not supported by Google Cloud Game
  *        Servers. (Value: "AGONES_VERSION_UNSUPPORTED")
  *    @arg @c kGTLRGameServices_KubernetesClusterState_InstallationState_InstallationStateUnspecified
- *        The default value. This value is used if the state is omitted. (Value:
- *        "INSTALLATION_STATE_UNSPECIFIED")
+ *        The default installation state. This value is used if the state is
+ *        omitted. (Value: "INSTALLATION_STATE_UNSPECIFIED")
  *    @arg @c kGTLRGameServices_KubernetesClusterState_InstallationState_KubernetesVersionUnrecognized
  *        The server version of Kubernetes cluster is not recognized because the
  *        API server didn't return parsable version info on path/version.
  *        (Value: "KUBERNETES_VERSION_UNRECOGNIZED")
  *    @arg @c kGTLRGameServices_KubernetesClusterState_InstallationState_VersionVerificationFailed
  *        Failed to read or verify the version of Agones or Kubernetes. See
- *        version_installed_error_message for details. (Value:
+ *        `version_installed_error_message` for details. (Value:
  *        "VERSION_VERIFICATION_FAILED")
  */
 @property(nonatomic, copy, nullable) NSString *installationState;
@@ -1385,10 +1391,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, copy, nullable) NSString *kubernetesVersionInstalled;
 
 /**
- *  Output only. The cloud provider type reported by the first node's providerID
- *  in the list of nodes on the Kubernetes endpoint. On Kubernetes platforms
- *  that support zero-node clusters (like GKE-on-GCP), the provider type will be
- *  empty.
+ *  Output only. The cloud provider type reported by the first node's
+ *  `providerID` in the list of nodes on the Kubernetes endpoint. On Kubernetes
+ *  platforms that support zero-node clusters (like GKE-on-GCP), the provider
+ *  type will be empty.
  */
 @property(nonatomic, copy, nullable) NSString *provider;
 
@@ -1955,9 +1961,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @interface GTLRGameServices_PreviewCreateGameServerClusterResponse : GTLRObject
 
 /**
- *  Output only. The state of the Kubernetes cluster in preview, this will be
- *  available if 'view' is set to `FULL` in the relevant List/Get/Preview
- *  request.
+ *  Output only. The state of the Kubernetes cluster in preview. This will be
+ *  available if view is set to FULL in the relevant list/get/preview request.
  */
 @property(nonatomic, strong, nullable) GTLRGameServices_KubernetesClusterState *clusterState;
 
@@ -2047,7 +2052,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** ETag of the resource. */
+/**
+ *  Used to perform consistent read-modify-write updates. If not set, a blind
+ *  "overwrite" update happens.
+ */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** The labels associated with this realm. Each label is a key-value pair. */
@@ -2055,15 +2063,15 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
  *  The resource name of the realm, in the following form:
- *  `projects/{project}/locations/{location}/realms/{realm}`. For example,
- *  `projects/my-project/locations/{location}/realms/my-realm`.
+ *  `projects/{project}/locations/{locationId}/realms/{realmId}`. For example,
+ *  `projects/my-project/locations/global/realms/my-realm`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. Time zone where all policies targeting this realm are evaluated.
- *  The value of this field must be from the IANA time zone database:
- *  https://www.iana.org/time-zones.
+ *  The value of this field must be from the [IANA time zone
+ *  database](https://www.iana.org/time-zones).
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
 
@@ -2173,15 +2181,15 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @interface GTLRGameServices_ScalingConfig : GTLRObject
 
 /**
- *  Required. Agones fleet autoscaler spec. Example spec:
- *  https://agones.dev/site/docs/reference/fleetautoscaler/
+ *  Required. Agones fleet autoscaler spec (see [example
+ *  spec](https://agones.dev/site/docs/reference/fleetautoscaler/)).
  */
 @property(nonatomic, copy, nullable) NSString *fleetAutoscalerSpec;
 
-/** Required. The name of the Scaling Config */
+/** Required. The name of the scaling config. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The schedules to which this Scaling Config applies. */
+/** The schedules to which this scaling config applies. */
 @property(nonatomic, strong, nullable) NSArray<GTLRGameServices_Schedule *> *schedules;
 
 /**
@@ -2197,9 +2205,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 /**
  *  The schedule of a recurring or one time event. The event's time span is
  *  specified by start_time and end_time. If the scheduled event's timespan is
- *  larger than the cron_spec + cron_job_duration, the event will be recurring.
- *  If only cron_spec + cron_job_duration are specified, the event is effective
- *  starting at the local time specified by cron_spec, and is recurring. ```
+ *  larger than cron_spec added with cron_job_duration, the event is recurring.
+ *  If only cron_spec and cron_job_duration are specified, the event starts at
+ *  the local time specified by cron_spec, and is recurring. ```
  *  start_time|-------[cron job]-------[cron job]-------[cron job]---|end_time
  *  cron job: cron spec start time + duration ```
  */
@@ -2213,8 +2221,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
  *  The cron definition of the scheduled event. See
- *  https://en.wikipedia.org/wiki/Cron. Cron spec specifies the local time as
- *  defined by the realm.
+ *  https://en.wikipedia.org/wiki/Cron. The cron spec specifies the local time
+ *  as defined by the realm.
  */
 @property(nonatomic, copy, nullable) NSString *cronSpec;
 
@@ -2258,12 +2266,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
  *  The game server config resource. Uses the form:
- *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment_id}/configs/{config_id}`.
+ *  `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}/configs/{configId}`.
  */
 @property(nonatomic, copy, nullable) NSString *gameServerConfigName;
 
 /**
- *  The name of the Agones leet config or Agones scaling config used to derive
+ *  The name of the Agones fleet config or Agones scaling config used to derive
  *  the Agones fleet or Agones autoscaler spec.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2328,13 +2336,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
  *  The game server cluster name. Uses the form:
- *  `projects/{project}/locations/{location}/realms/{realm}/gameServerClusters/{cluster}`.
+ *  `projects/{project}/locations/{locationId}/realms/{realmId}/gameServerClusters/{gameServerClusterId}`.
  */
 @property(nonatomic, copy, nullable) NSString *gameServerClusterName;
 
 /**
  *  The game server deployment name. Uses the form:
- *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment_id}`.
+ *  `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}`.
  */
 @property(nonatomic, copy, nullable) NSString *gameServerDeploymentName;
 

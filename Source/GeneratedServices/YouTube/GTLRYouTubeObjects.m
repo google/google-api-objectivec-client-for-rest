@@ -74,6 +74,7 @@ NSString * const kGTLRYouTube_CdnSettings_FrameRate_X60fps   = @"60fps";
 NSString * const kGTLRYouTube_CdnSettings_IngestionType_Dash   = @"dash";
 NSString * const kGTLRYouTube_CdnSettings_IngestionType_Hls    = @"hls";
 NSString * const kGTLRYouTube_CdnSettings_IngestionType_Rtmp   = @"rtmp";
+NSString * const kGTLRYouTube_CdnSettings_IngestionType_Srt    = @"srt";
 NSString * const kGTLRYouTube_CdnSettings_IngestionType_Webrtc = @"webrtc";
 
 // GTLRYouTube_CdnSettings.resolution

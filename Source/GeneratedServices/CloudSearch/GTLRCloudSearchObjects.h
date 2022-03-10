@@ -23,11 +23,15 @@
 #endif
 
 @class GTLRCloudSearch_AclInfo;
+@class GTLRCloudSearch_AppId;
 @class GTLRCloudSearch_AuditLoggingSettings;
+@class GTLRCloudSearch_AvatarInfo;
 @class GTLRCloudSearch_BooleanOperatorOptions;
 @class GTLRCloudSearch_BooleanPropertyOptions;
 @class GTLRCloudSearch_CompositeFilter;
 @class GTLRCloudSearch_ContextAttribute;
+@class GTLRCloudSearch_CustomEmoji;
+@class GTLRCloudSearch_CustomerId;
 @class GTLRCloudSearch_CustomerIndexStats;
 @class GTLRCloudSearch_CustomerQueryStats;
 @class GTLRCloudSearch_CustomerSearchApplicationStats;
@@ -42,6 +46,7 @@
 @class GTLRCloudSearch_DateValues;
 @class GTLRCloudSearch_DebugOptions;
 @class GTLRCloudSearch_DisplayedProperty;
+@class GTLRCloudSearch_DmId;
 @class GTLRCloudSearch_DoubleOperatorOptions;
 @class GTLRCloudSearch_DoublePropertyOptions;
 @class GTLRCloudSearch_DoubleValues;
@@ -50,6 +55,7 @@
 @class GTLRCloudSearch_DriveMimeTypeRestrict;
 @class GTLRCloudSearch_DriveTimeSpanRestrict;
 @class GTLRCloudSearch_EmailAddress;
+@class GTLRCloudSearch_Emoji;
 @class GTLRCloudSearch_EnumOperatorOptions;
 @class GTLRCloudSearch_EnumPropertyOptions;
 @class GTLRCloudSearch_EnumValuePair;
@@ -64,6 +70,7 @@
 @class GTLRCloudSearch_FilterOptions;
 @class GTLRCloudSearch_FreshnessOptions;
 @class GTLRCloudSearch_GoogleDocsResultInfo;
+@class GTLRCloudSearch_GroupId;
 @class GTLRCloudSearch_GSuitePrincipal;
 @class GTLRCloudSearch_HtmlOperatorOptions;
 @class GTLRCloudSearch_HtmlPropertyOptions;
@@ -134,6 +141,7 @@
 @class GTLRCloudSearch_SourceCrowdingConfig;
 @class GTLRCloudSearch_SourceResultCount;
 @class GTLRCloudSearch_SourceScoringConfig;
+@class GTLRCloudSearch_SpaceId;
 @class GTLRCloudSearch_SpellResult;
 @class GTLRCloudSearch_Status;
 @class GTLRCloudSearch_Status_Details_Item;
@@ -149,6 +157,7 @@
 @class GTLRCloudSearch_TypeInfo;
 @class GTLRCloudSearch_UnmappedIdentity;
 @class GTLRCloudSearch_UploadItemRef;
+@class GTLRCloudSearch_UserId;
 @class GTLRCloudSearch_Value;
 @class GTLRCloudSearch_ValueFilter;
 @class GTLRCloudSearch_VideoInfo;
@@ -206,6 +215,66 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AclInfo_Scope_PublicWithLink
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AclInfo_Scope_TeamDrive;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppId.appType
+
+/**
+ *  3P APP eg. external Bots(Asana Bot), 1P Bots(Drive Bot).
+ *
+ *  Value: "APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_AppType_App;
+/** Value: "APP_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_AppType_AppTypeUnspecified;
+/**
+ *  1P APP eg. Tasks, Meet, Docs, Calendar..
+ *
+ *  Value: "GSUITE_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_AppType_GsuiteApp;
+/**
+ *  Asynchronous messages via an incoming webhook.
+ *
+ *  Value: "INCOMING_WEBHOOK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_AppType_IncomingWebhook;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppId.gsuiteAppType
+
+/** Value: "ACTIVITY_FEED_APP" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_ActivityFeedApp;
+/**
+ *  TODO (b/220205747): replace the above FILE_SUGGESTION_APP in the future.
+ *
+ *  Value: "ASSISTIVE_SUGGESTION_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_AssistiveSuggestionApp;
+/** Value: "CALENDAR_APP" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_CalendarApp;
+/** Value: "CONTACTS_APP" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_ContactsApp;
+/** Value: "DOCS_APP" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_DocsApp;
+/** Value: "DRIVE_APP" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_DriveApp;
+/**
+ *  Powered by Bullseye
+ *
+ *  Value: "FILE_SUGGESTION_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_FileSuggestionApp;
+/** Value: "GSUITE_APP_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_GsuiteAppTypeUnspecified;
+/** Value: "MEET_APP" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_MeetApp;
+/** Value: "SHEETS_APP" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_SheetsApp;
+/** Value: "SLIDES_APP" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_SlidesApp;
+/** Value: "TASKS_APP" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_TasksApp;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudSearch_CompositeFilter.logicOperator
 
 /**
@@ -222,6 +291,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CompositeFilter_LogicOperato
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CompositeFilter_LogicOperator_Not;
 /** Value: "OR" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CompositeFilter_LogicOperator_Or;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_CustomEmoji.state
+
+/**
+ *  Emoji is removed everywhere and is not available to end-users.
+ *
+ *  Value: "EMOJI_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CustomEmoji_State_EmojiDeleted;
+/**
+ *  Emoji is visible and available to be used, subject to access control
+ *  requirements.
+ *
+ *  Value: "EMOJI_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CustomEmoji_State_EmojiEnabled;
+/**
+ *  Emoji is hidden from pickers, so new usages are not allowed, but is not
+ *  removed from existing embeddings.
+ *
+ *  Value: "EMOJI_HIDDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CustomEmoji_State_EmojiHidden;
+/** Value: "EMOJI_STATE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CustomEmoji_State_EmojiStateUnspecified;
+/**
+ *  Emoji can no longer be used (e.g. due to a shortcode conflict), but is not
+ *  removed from existing embeddings.
+ *
+ *  Value: "EMOJI_SYSTEM_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CustomEmoji_State_EmojiSystemDisabled;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_DriveFollowUpRestrict.type
@@ -1005,6 +1107,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SourceScoringConfig_SourceIm
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SourceScoringConfig_SourceImportance_Low;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudSearch_SpaceInfo.userMembershipState
+
+/**
+ *  This state should never be stored in Spanner. It is a state for responses to
+ *  the clients to indicate that membership mutations have failed and the member
+ *  is in its previous state.
+ *
+ *  Value: "MEMBER_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SpaceInfo_UserMembershipState_MemberFailed;
+/**
+ *  An invitation to the space has been sent
+ *
+ *  Value: "MEMBER_INVITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SpaceInfo_UserMembershipState_MemberInvited;
+/**
+ *  User has joined the space
+ *
+ *  Value: "MEMBER_JOINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SpaceInfo_UserMembershipState_MemberJoined;
+/**
+ *  User is not a member
+ *
+ *  Value: "MEMBER_NOT_A_MEMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SpaceInfo_UserMembershipState_MemberNotAMember;
+/**
+ *  Default state, do not use
+ *
+ *  Value: "MEMBER_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SpaceInfo_UserMembershipState_MemberUnknown;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudSearch_UnmappedIdentity.resolutionStatusCode
 
 /**
@@ -1046,6 +1184,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  Value: "TOO_MANY_MAPPINGS_FOUND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyMappingsFound;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_UserId.type
+
+/** Value: "BOT" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Bot;
+/**
+ *  Notes on HUMAN type: 1) Leaving UserId.UserType field empty will return
+ *  HUMAN as default value. This is expected because all the existing UserIds
+ *  are without explicitly setting UserType, most of which are HUMAN Ids. For
+ *  Bot Ids we will always set BOT in UserType field. 2) DO NOT explicitly set
+ *  HUMAN as type. This is a proto2 issue, that a UserId with explicitly set
+ *  default value HUMAN as type is NOT equal to an id without setting the field.
+ *  aka. UserId id1 = UserId.newBuilder()
+ *  .setId("dummy").setType(UserType.HUMAN).build(); UserId id2 =
+ *  UserId.newBuilder().setId("dummy").build(); AssertThat(id1).isNotEqual(id2);
+ *  AssertThat(id2.getType()).isEqualTo(UserType.HUMAN);
+ *
+ *  Value: "HUMAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 
 /**
  *  Next tag: 4
@@ -1089,6 +1248,68 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
+ *  Identifier of an App.
+ */
+@interface GTLRCloudSearch_AppId : GTLRObject
+
+/**
+ *  Enum indicating the type of App this is.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppId_AppType_App 3P APP eg. external Bots(Asana
+ *        Bot), 1P Bots(Drive Bot). (Value: "APP")
+ *    @arg @c kGTLRCloudSearch_AppId_AppType_AppTypeUnspecified Value
+ *        "APP_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRCloudSearch_AppId_AppType_GsuiteApp 1P APP eg. Tasks, Meet,
+ *        Docs, Calendar.. (Value: "GSUITE_APP")
+ *    @arg @c kGTLRCloudSearch_AppId_AppType_IncomingWebhook Asynchronous
+ *        messages via an incoming webhook. (Value: "INCOMING_WEBHOOK")
+ */
+@property(nonatomic, copy, nullable) NSString *appType;
+
+/**
+ *  Enum indicating which 1P App this is when app_type is GSUITE_APP. Determined
+ *  & set by the 1P API as a convenience for all users of this identifier(Eg.
+ *  clients, chime, backend etc.) to map to 1P properties.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_ActivityFeedApp Value
+ *        "ACTIVITY_FEED_APP"
+ *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_AssistiveSuggestionApp TODO
+ *        (b/220205747): replace the above FILE_SUGGESTION_APP in the future.
+ *        (Value: "ASSISTIVE_SUGGESTION_APP")
+ *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_CalendarApp Value
+ *        "CALENDAR_APP"
+ *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_ContactsApp Value
+ *        "CONTACTS_APP"
+ *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_DocsApp Value "DOCS_APP"
+ *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_DriveApp Value "DRIVE_APP"
+ *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_FileSuggestionApp Powered by
+ *        Bullseye (Value: "FILE_SUGGESTION_APP")
+ *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_GsuiteAppTypeUnspecified
+ *        Value "GSUITE_APP_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_MeetApp Value "MEET_APP"
+ *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_SheetsApp Value "SHEETS_APP"
+ *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_SlidesApp Value "SLIDES_APP"
+ *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_TasksApp Value "TASKS_APP"
+ */
+@property(nonatomic, copy, nullable) NSString *gsuiteAppType;
+
+/**
+ *  Numeric identifier of the App. Set to Project number for 1/3P Apps. For
+ *  Webhook, this is WebhookId. Determined & set by the 1P API from App
+ *  credentials on the side channel.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+@end
+
+
+/**
  *  Represents the settings for Cloud audit logging
  */
 @interface GTLRCloudSearch_AuditLoggingSettings : GTLRObject
@@ -1123,6 +1344,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  CustomerService. Format: projects/{project_id}
  */
 @property(nonatomic, copy, nullable) NSString *project;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_AvatarInfo
+ */
+@interface GTLRCloudSearch_AvatarInfo : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_Emoji *emoji;
 
 @end
 
@@ -1219,6 +1450,97 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  be normalized (lower-cased) before being matched.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  Proto representation of a custom emoji. May be used in both APIs and in
+ *  Spanner, but certain fields should be restricted to one or the other. See
+ *  the per-field documentation for details. NEXT_TAG: 11
+ */
+@interface GTLRCloudSearch_CustomEmoji : GTLRObject
+
+/**
+ *  ID for the underlying image data in Blobstore. This field should *only* be
+ *  present in Spanner or within the server, but should not be exposed in public
+ *  APIs.
+ */
+@property(nonatomic, copy, nullable) NSString *blobId;
+
+/**
+ *  Time when the Emoji was created, in microseconds. This field may be present
+ *  in Spanner, within the server, or in public APIs.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createTimeMicros;
+
+/** This field should *never* be persisted to Spanner. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_UserId *creatorUserId;
+
+/** This field should *never* be persisted to Spanner. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_CustomerId *ownerCustomerId;
+
+/**
+ *  Opaque token that clients use to construct the URL for accessing the custom
+ *  emoji’s image data. This field is intended for API consumption, and should
+ *  *never* be persisted to Spanner.
+ */
+@property(nonatomic, copy, nullable) NSString *readToken;
+
+/**
+ *  User-provided, human-readable ID for the custom emoji. Users are expected to
+ *  observe this field in the UI instead of the UUID. This shortcode should be
+ *  unique within an organization, but has no global uniqueness guarantees,
+ *  unlike the UUID. This field should *never* be persisted to Spanner.
+ */
+@property(nonatomic, copy, nullable) NSString *shortcode;
+
+/**
+ *  Snapshot of the current state of the emoji, which may differ from the
+ *  source-of-truth in the CustomEmojis table. This field should *never* be
+ *  persisted to Spanner.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_CustomEmoji_State_EmojiDeleted Emoji is removed
+ *        everywhere and is not available to end-users. (Value: "EMOJI_DELETED")
+ *    @arg @c kGTLRCloudSearch_CustomEmoji_State_EmojiEnabled Emoji is visible
+ *        and available to be used, subject to access control requirements.
+ *        (Value: "EMOJI_ENABLED")
+ *    @arg @c kGTLRCloudSearch_CustomEmoji_State_EmojiHidden Emoji is hidden
+ *        from pickers, so new usages are not allowed, but is not removed from
+ *        existing embeddings. (Value: "EMOJI_HIDDEN")
+ *    @arg @c kGTLRCloudSearch_CustomEmoji_State_EmojiStateUnspecified Value
+ *        "EMOJI_STATE_UNSPECIFIED"
+ *    @arg @c kGTLRCloudSearch_CustomEmoji_State_EmojiSystemDisabled Emoji can
+ *        no longer be used (e.g. due to a shortcode conflict), but is not
+ *        removed from existing embeddings. (Value: "EMOJI_SYSTEM_DISABLED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  updateTimeMicros
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *updateTimeMicros;
+
+/**
+ *  Unique key for a custom emoji resource. Required. This field is *always*
+ *  populated.
+ */
+@property(nonatomic, copy, nullable) NSString *uuid;
+
+@end
+
+
+/**
+ *  Represents a GSuite customer ID. Obfuscated with CustomerIdObfuscator.
+ */
+@interface GTLRCloudSearch_CustomerId : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 @end
 
@@ -1621,6 +1943,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
+ *  GTLRCloudSearch_DmId
+ */
+@interface GTLRCloudSearch_DmId : GTLRObject
+
+/** Unique server assigned Id, per Direct Message Space. */
+@property(nonatomic, copy, nullable) NSString *dmId;
+
+@end
+
+
+/**
  *  Used to provide a search operator for double properties. This is optional.
  *  Search operators let users restrict the query to specific fields relevant to
  *  the type of item being searched.
@@ -1768,12 +2101,70 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
+ *  This is the proto for holding space level scoring information. This data is
+ *  used for logging in query-api server and for testing purposes.
+ */
+@interface GTLRCloudSearch_DynamiteSpacesScoringInfo : GTLRObject
+
+/**
+ *  finalScore
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *finalScore;
+
+/**
+ *  freshnessScore
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *freshnessScore;
+
+/**
+ *  messageScore
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *messageScore;
+
+/**
+ *  spaceAgeInDays
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *spaceAgeInDays;
+
+/**
+ *  topicalityScore
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *topicalityScore;
+
+@end
+
+
+/**
  *  A person's email address.
  */
 @interface GTLRCloudSearch_EmailAddress : GTLRObject
 
 /** The email address. */
 @property(nonatomic, copy, nullable) NSString *emailAddress;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_Emoji
+ */
+@interface GTLRCloudSearch_Emoji : GTLRObject
+
+/** A custom emoji. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_CustomEmoji *customEmoji;
+
+/** A basic emoji represented by a unicode string. */
+@property(nonatomic, copy, nullable) NSString *unicode;
 
 @end
 
@@ -2351,6 +2742,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /** The visibility indicator in the UI will be based upon this. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_ShareScope *shareScope;
+
+@end
+
+
+/**
+ *  Id representing a group that could be a space, a chat, or a direct message
+ *  space. Which ID is set here will determine which group
+ */
+@interface GTLRCloudSearch_GroupId : GTLRObject
+
+/** Unique, immutable ID of the Direct Message Space */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_DmId *dmId;
+
+/** Unique, immutable ID of the Space */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_SpaceId *spaceId;
 
 @end
 
@@ -4716,8 +5122,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) NSNumber *pageSize;
 
 /**
- *  The raw query string. See supported search operators in the [Cloud search
- *  Cheat Sheet](https://support.google.com/a/users/answer/9299929)
+ *  The raw query string. See supported search operators in the [Narrow your
+ *  search with
+ *  operators](https://support.google.com/cloudsearch/answer/6172299)
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -5042,6 +5449,72 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *        "LOW"
  */
 @property(nonatomic, copy, nullable) NSString *sourceImportance;
+
+@end
+
+
+/**
+ *  Primary key for Space resource.
+ */
+@interface GTLRCloudSearch_SpaceId : GTLRObject
+
+/** Unique, immutable ID of the Space */
+@property(nonatomic, copy, nullable) NSString *spaceId;
+
+@end
+
+
+/**
+ *  Defines the representation of a single matching space.
+ */
+@interface GTLRCloudSearch_SpaceInfo : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AvatarInfo *avatarInfo;
+@property(nonatomic, copy, nullable) NSString *avatarUrl;
+
+/**
+ *  descriptionProperty
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_GroupId *groupId;
+
+/**
+ *  Whether this is an external space outside of user's organization
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isExternal;
+
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  numMembers
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numMembers;
+
+/**
+ *  searching user's membership state in this space
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_SpaceInfo_UserMembershipState_MemberFailed This
+ *        state should never be stored in Spanner. It is a state for responses
+ *        to the clients to indicate that membership mutations have failed and
+ *        the member is in its previous state. (Value: "MEMBER_FAILED")
+ *    @arg @c kGTLRCloudSearch_SpaceInfo_UserMembershipState_MemberInvited An
+ *        invitation to the space has been sent (Value: "MEMBER_INVITED")
+ *    @arg @c kGTLRCloudSearch_SpaceInfo_UserMembershipState_MemberJoined User
+ *        has joined the space (Value: "MEMBER_JOINED")
+ *    @arg @c kGTLRCloudSearch_SpaceInfo_UserMembershipState_MemberNotAMember
+ *        User is not a member (Value: "MEMBER_NOT_A_MEMBER")
+ *    @arg @c kGTLRCloudSearch_SpaceInfo_UserMembershipState_MemberUnknown
+ *        Default state, do not use (Value: "MEMBER_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *userMembershipState;
 
 @end
 
@@ -5449,6 +5922,55 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /** Name of the content reference. The maximum length is 2048 characters. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Primary key for User resource.
+ */
+@interface GTLRCloudSearch_UserId : GTLRObject
+
+/**
+ *  Opaque, server-assigned ID of the User.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Optional. Identifier of the App involved (directly or on behalf of a human
+ *  creator) in creating this message. This is not set if the user posted a
+ *  message directly, but is used in the case of, for example, a message being
+ *  generated by a 1P integration based on a user action (creating an event,
+ *  creating a task etc). This should only be used on the BE. For clients,
+ *  please use the field in the FE message proto instead
+ *  (google3/apps/dynamite/v1/frontend/api/message.proto?q=origin_app_id).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppId *originAppId;
+
+/**
+ *  Clients do not need to send UserType to Backend, but Backend will always
+ *  send this field to clients per the following rule: 1. For HUMAN Ids, the
+ *  field is empty but by default .getType() will return HUMAN. 2. For BOT Ids,
+ *  the field is ALWAYS set to BOT.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_UserId_Type_Bot Value "BOT"
+ *    @arg @c kGTLRCloudSearch_UserId_Type_Human Notes on HUMAN type: 1) Leaving
+ *        UserId.UserType field empty will return HUMAN as default value. This
+ *        is expected because all the existing UserIds are without explicitly
+ *        setting UserType, most of which are HUMAN Ids. For Bot Ids we will
+ *        always set BOT in UserType field. 2) DO NOT explicitly set HUMAN as
+ *        type. This is a proto2 issue, that a UserId with explicitly set
+ *        default value HUMAN as type is NOT equal to an id without setting the
+ *        field. aka. UserId id1 = UserId.newBuilder()
+ *        .setId("dummy").setType(UserType.HUMAN).build(); UserId id2 =
+ *        UserId.newBuilder().setId("dummy").build();
+ *        AssertThat(id1).isNotEqual(id2);
+ *        AssertThat(id2.getType()).isEqualTo(UserType.HUMAN); (Value: "HUMAN")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

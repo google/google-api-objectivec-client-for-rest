@@ -47,12 +47,9 @@
 @class GTLRCloudBuild_GitHubEnterpriseSecrets;
 @class GTLRCloudBuild_GitHubEventsConfig;
 @class GTLRCloudBuild_GitRepoSource;
-@class GTLRCloudBuild_GoogleDevtoolsCloudbuildV1BuildOptionsPoolOptionWorkerConfig;
 @class GTLRCloudBuild_Hash;
 @class GTLRCloudBuild_HttpBody_Extensions_Item;
 @class GTLRCloudBuild_HTTPDelivery;
-@class GTLRCloudBuild_HybridPoolConfig;
-@class GTLRCloudBuild_HybridWorkerConfig;
 @class GTLRCloudBuild_InlineSecret;
 @class GTLRCloudBuild_InlineSecret_EnvMap;
 @class GTLRCloudBuild_NetworkConfig;
@@ -527,6 +524,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_FailureInfo_Type_UserBuildSte
 // GTLRCloudBuild_GitFileSource.repoType
 
 /**
+ *  A Bitbucket Server-hosted repo.
+ *
+ *  Value: "BITBUCKET_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_GitFileSource_RepoType_BitbucketServer;
+/**
  *  A Google Cloud Source Repositories-hosted repo.
  *
  *  Value: "CLOUD_SOURCE_REPOSITORIES"
@@ -549,6 +552,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_GitFileSource_RepoType_Unknow
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_GitRepoSource.repoType
 
+/**
+ *  A Bitbucket Server-hosted repo.
+ *
+ *  Value: "BITBUCKET_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_BitbucketServer;
 /**
  *  A Google Cloud Source Repositories-hosted repo.
  *
@@ -2221,6 +2230,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  */
 @interface GTLRCloudBuild_GitFileSource : GTLRObject
 
+/**
+ *  The full resource name of the bitbucket server config. Format:
+ *  `projects/{project}/locations/{location}/bitbucketServerConfigs/{id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *bitbucketServerConfig;
+
+/**
+ *  The full resource name of the github enterprise config. Format:
+ *  `projects/{project}/locations/{location}/githubEnterpriseConfigs/{id}`.
+ *  `projects/{project}/githubEnterpriseConfigs/{id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *githubEnterpriseConfig;
+
 /** The path of the file, with the repo root as the root of the path. */
 @property(nonatomic, copy, nullable) NSString *path;
 
@@ -2228,6 +2250,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  See RepoType above.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudBuild_GitFileSource_RepoType_BitbucketServer A Bitbucket
+ *        Server-hosted repo. (Value: "BITBUCKET_SERVER")
  *    @arg @c kGTLRCloudBuild_GitFileSource_RepoType_CloudSourceRepositories A
  *        Google Cloud Source Repositories-hosted repo. (Value:
  *        "CLOUD_SOURCE_REPOSITORIES")
@@ -2403,6 +2427,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  */
 @interface GTLRCloudBuild_GitRepoSource : GTLRObject
 
+/**
+ *  The full resource name of the bitbucket server config. Format:
+ *  `projects/{project}/locations/{location}/bitbucketServerConfigs/{id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *bitbucketServerConfig;
+
+/**
+ *  The full resource name of the github enterprise config. Format:
+ *  `projects/{project}/locations/{location}/githubEnterpriseConfigs/{id}`.
+ *  `projects/{project}/githubEnterpriseConfigs/{id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *githubEnterpriseConfig;
+
 /** The branch or tag to use. Must start with "refs/" (required). */
 @property(nonatomic, copy, nullable) NSString *ref;
 
@@ -2410,6 +2447,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  See RepoType below.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudBuild_GitRepoSource_RepoType_BitbucketServer A Bitbucket
+ *        Server-hosted repo. (Value: "BITBUCKET_SERVER")
  *    @arg @c kGTLRCloudBuild_GitRepoSource_RepoType_CloudSourceRepositories A
  *        Google Cloud Source Repositories-hosted repo. (Value:
  *        "CLOUD_SOURCE_REPOSITORIES")
@@ -2423,38 +2462,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 
 /** The URI of the repo (required). */
 @property(nonatomic, copy, nullable) NSString *uri;
-
-@end
-
-
-/**
- *  Configuration per workload for both Private Pools and Hybrid Pools.
- */
-@interface GTLRCloudBuild_GoogleDevtoolsCloudbuildV1BuildOptionsPoolOptionWorkerConfig : GTLRObject
-
-/**
- *  The disk size (in GB) which is requested for the build container. If unset,
- *  a value of 10 GB will be used.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
-
-/**
- *  The memory (in GB) which is requested for the build container. If unset, a
- *  value of 4 GB will be used.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *memoryGb;
-
-/**
- *  The number of vCPUs which are requested for the build container. If unset, a
- *  value of 1 will be used.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *vcpuCount;
 
 @end
 
@@ -2586,59 +2593,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 
 /** The URI to which JSON-containing HTTP POST requests should be sent. */
 @property(nonatomic, copy, nullable) NSString *uri;
-
-@end
-
-
-/**
- *  Configuration for a Hybrid Worker Pool Next ID: 6
- */
-@interface GTLRCloudBuild_HybridPoolConfig : GTLRObject
-
-/**
- *  Default settings which will be applied to builds on this worker pool if they
- *  are not specified in the build request.
- */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_HybridWorkerConfig *defaultWorkerConfig;
-
-/**
- *  Required. Immutable. The Anthos/GKE Hub membership of the cluster which will
- *  run the actual build operations. Example:
- *  projects/{project}/locations/{location}/memberships/{cluster_name}
- */
-@property(nonatomic, copy, nullable) NSString *membership;
-
-@end
-
-
-/**
- *  These settings can be applied to a user's build operations. Next ID: 4
- */
-@interface GTLRCloudBuild_HybridWorkerConfig : GTLRObject
-
-/**
- *  The disk size (in GB) which is requested for the build container. Defaults
- *  to 10 GB.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
-
-/**
- *  The memory (in GB) which is requested for the build container. Defaults to 4
- *  GB.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *memoryGb;
-
-/**
- *  The number of vCPUs which are requested for the build container. Defaults to
- *  1.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *vcpuCount;
 
 @end
 
@@ -3130,9 +3084,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Configuration per workload. */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_GoogleDevtoolsCloudbuildV1BuildOptionsPoolOptionWorkerConfig *workerConfig;
-
 @end
 
 
@@ -3457,6 +3408,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 
 /** Required. ID of the trigger. */
 @property(nonatomic, copy, nullable) NSString *triggerId;
+
+@end
+
+
+/**
+ *  Represents the custom metadata of the RunWorkflow long-running operation.
+ */
+@interface GTLRCloudBuild_RunWorkflowCustomOperationMetadata : GTLRObject
+
+/** Output only. API version used to start the operation. */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. ID of the pipeline run created by RunWorkflow. */
+@property(nonatomic, copy, nullable) NSString *pipelineRunId;
+
+/**
+ *  Output only. Identifies whether the user has requested cancellation of the
+ *  operation. Operations that have successfully been cancelled have
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
+
+/**
+ *  Output only. Server-defined resource path for the target of the operation.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/** Output only. Name of the verb executed by the operation. */
+@property(nonatomic, copy, nullable) NSString *verb;
 
 @end
 
@@ -4008,9 +3997,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
-
-/** Hybrid pool configuration */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_HybridPoolConfig *hybridPoolConfig;
 
 /**
  *  Output only. The resource name of the `WorkerPool`, with format

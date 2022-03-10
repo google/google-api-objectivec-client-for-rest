@@ -542,7 +542,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
 
 
 /**
- *  A Google Cloud Redis instance.
+ *  A Memorystore for Redis instance.
  */
 @interface GTLRCloudRedis_Instance : GTLRObject
 
@@ -689,8 +689,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
 @property(nonatomic, strong, nullable) NSNumber *readEndpointPort;
 
 /**
- *  Optional. Read replica mode. Can only be specified when trying to create the
- *  instance.
+ *  Optional. Read replicas mode for the instance. Defaults to
+ *  READ_REPLICAS_DISABLED.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRedis_Instance_ReadReplicasMode_ReadReplicasDisabled If
@@ -748,12 +748,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
 @property(nonatomic, copy, nullable) NSString *reservedIpRange;
 
 /**
- *  Optional. Additional ip ranges for node placement, beyond those specified in
- *  reserved_ip_range. At most 1 secondary IP range is supported. The mask value
- *  must not exceed /28. Not supported for BASIC tier. Updates can only add new
- *  ranges, once added ranges cannot be changed or deleted. Values in this list
- *  cannot overlap with the reserved_ip_range. Not supported during instance
- *  creation.
+ *  Optional. Additional IP range for node placement. Required when enabling
+ *  read replicas on an existing instance. For DIRECT_PEERING mode value must be
+ *  a CIDR range of size /28, or "auto". For PRIVATE_SERVICE_ACCESS mode value
+ *  must be the name of an allocated address range associated with the private
+ *  service access connection, or "auto".
  */
 @property(nonatomic, copy, nullable) NSString *secondaryIpRange;
 

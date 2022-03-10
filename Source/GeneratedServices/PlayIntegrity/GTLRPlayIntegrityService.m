@@ -10,6 +10,15 @@
 
 #import "GTLRPlayIntegrity.h"
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+NSString * const kGTLRAuthScopePlayIntegrity = @"https://www.googleapis.com/auth/playintegrity";
+
+// ----------------------------------------------------------------------------
+//   GTLRPlayIntegrityService
+//
+
 @implementation GTLRPlayIntegrityService
 
 - (instancetype)init {

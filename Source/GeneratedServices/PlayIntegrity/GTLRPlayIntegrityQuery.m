@@ -10,8 +10,37 @@
 
 #import "GTLRPlayIntegrityQuery.h"
 
+#import "GTLRPlayIntegrityObjects.h"
+
 @implementation GTLRPlayIntegrityQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRPlayIntegrityQuery_V1DecodeIntegrityToken
+
+@dynamic packageName;
+
++ (instancetype)queryWithObject:(GTLRPlayIntegrity_DecodeIntegrityTokenRequest *)object
+                    packageName:(NSString *)packageName {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"v1/{+packageName}:decodeIntegrityToken";
+  GTLRPlayIntegrityQuery_V1DecodeIntegrityToken *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.expectedObjectClass = [GTLRPlayIntegrity_DecodeIntegrityTokenResponse class];
+  query.loggingName = @"playintegrity.decodeIntegrityToken";
+  return query;
+}
 
 @end

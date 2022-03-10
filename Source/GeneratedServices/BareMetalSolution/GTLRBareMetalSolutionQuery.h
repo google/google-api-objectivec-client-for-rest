@@ -23,9 +23,12 @@
 
 @class GTLRBareMetalSolution_Instance;
 @class GTLRBareMetalSolution_Network;
+@class GTLRBareMetalSolution_NfsShare;
 @class GTLRBareMetalSolution_ResetInstanceRequest;
 @class GTLRBareMetalSolution_RestoreVolumeSnapshotRequest;
 @class GTLRBareMetalSolution_SnapshotSchedulePolicy;
+@class GTLRBareMetalSolution_StartInstanceRequest;
+@class GTLRBareMetalSolution_SubmitProvisioningConfigRequest;
 @class GTLRBareMetalSolution_Volume;
 @class GTLRBareMetalSolution_VolumeSnapshot;
 
@@ -216,6 +219,35 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Starts a server that was shutdown.
+ *
+ *  Method: baremetalsolution.projects.locations.instances.start
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesStart : GTLRBareMetalSolutionQuery
+
+/** Required. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_Operation.
+ *
+ *  Starts a server that was shutdown.
+ *
+ *  @param object The @c GTLRBareMetalSolution_StartInstanceRequest to include
+ *    in the query.
+ *  @param name Required. Name of the resource.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesStart
+ */
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_StartInstanceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Lists information about the supported locations for this service.
  *
  *  Method: baremetalsolution.projects.locations.list
@@ -333,6 +365,34 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  List all Networks (and used IPs for each Network) in the vendor account
+ *  associated with the specified project.
+ *
+ *  Method: baremetalsolution.projects.locations.networks.listNetworkUsage
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsNetworksListNetworkUsage : GTLRBareMetalSolutionQuery
+
+/** Required. Parent value (project and location). */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_ListNetworkUsageResponse.
+ *
+ *  List all Networks (and used IPs for each Network) in the vendor account
+ *  associated with the specified project.
+ *
+ *  @param location Required. Parent value (project and location).
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsNetworksListNetworkUsage
+ */
++ (instancetype)queryWithLocation:(NSString *)location;
+
+@end
+
+/**
  *  Update details of a single network.
  *
  *  Method: baremetalsolution.projects.locations.networks.patch
@@ -373,6 +433,183 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRBareMetalSolution_Network *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Get details of a single NFS share.
+ *
+ *  Method: baremetalsolution.projects.locations.nfsShares.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsNfsSharesGet : GTLRBareMetalSolutionQuery
+
+/** Required. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_NfsShare.
+ *
+ *  Get details of a single NFS share.
+ *
+ *  @param name Required. Name of the resource.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsNfsSharesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List NFS shares.
+ *
+ *  Method: baremetalsolution.projects.locations.nfsShares.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsNfsSharesList : GTLRBareMetalSolutionQuery
+
+/** List filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Requested page size. The server might return fewer items than requested. If
+ *  unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A token identifying a page of results from the server. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent value for ListNfsSharesRequest. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_ListNfsSharesResponse.
+ *
+ *  List NFS shares.
+ *
+ *  @param parent Required. Parent value for ListNfsSharesRequest.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsNfsSharesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update details of a single NFS share.
+ *
+ *  Method: baremetalsolution.projects.locations.nfsShares.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsNfsSharesPatch : GTLRBareMetalSolutionQuery
+
+/** Output only. The name of the NFS share. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to update. The only currently supported fields are:
+ *  `labels`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_Operation.
+ *
+ *  Update details of a single NFS share.
+ *
+ *  @param object The @c GTLRBareMetalSolution_NfsShare to include in the query.
+ *  @param name Output only. The name of the NFS share.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsNfsSharesPatch
+ */
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_NfsShare *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Submit a provisiong configuration for a given project.
+ *
+ *  Method: baremetalsolution.projects.locations.provisioningConfigs.submit
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsProvisioningConfigsSubmit : GTLRBareMetalSolutionQuery
+
+/**
+ *  Required. The parent project and location containing the ProvisioningConfig.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_SubmitProvisioningConfigResponse.
+ *
+ *  Submit a provisiong configuration for a given project.
+ *
+ *  @param object The @c GTLRBareMetalSolution_SubmitProvisioningConfigRequest
+ *    to include in the query.
+ *  @param parent Required. The parent project and location containing the
+ *    ProvisioningConfig.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsProvisioningConfigsSubmit
+ */
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_SubmitProvisioningConfigRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  List the budget details to provision resources on a given project.
+ *
+ *  Method: baremetalsolution.projects.locations.provisioningQuotas.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsProvisioningQuotasList : GTLRBareMetalSolutionQuery
+
+/**
+ *  Requested page size. The server might return fewer items than requested. If
+ *  unspecified, server will pick an appropriate default. Notice that page_size
+ *  field is not supported and won't be respected in the API request for now,
+ *  will be updated when pagination is supported.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A token identifying a page of results from the server. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent value for ListProvisioningQuotasRequest. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_ListProvisioningQuotasResponse.
+ *
+ *  List the budget details to provision resources on a given project.
+ *
+ *  @param parent Required. Parent value for ListProvisioningQuotasRequest.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsProvisioningQuotasList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -696,6 +933,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The list of fields to update. The only currently supported fields are:
  *  `snapshot_auto_delete_behavior` `snapshot_schedule_policy_name` 'labels'
+ *  'requested_size_gib'
  *
  *  String format is a comma-separated list of fields.
  */

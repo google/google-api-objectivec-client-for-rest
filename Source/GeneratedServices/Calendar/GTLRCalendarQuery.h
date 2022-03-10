@@ -97,12 +97,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesAll;
  *  Value: "externalOnly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesExternalOnly;
-/**
- *  No notifications are sent. For calendar migration tasks, consider using the
- *  Events.import method instead.
- *
- *  Value: "none"
- */
+/** Value: "none" */
 FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 
 // ----------------------------------------------------------------------------
@@ -1268,9 +1263,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *        (Value: "all")
  *    @arg @c kGTLRCalendarSendUpdatesExternalOnly Notifications are sent to
  *        non-Google Calendar guests only. (Value: "externalOnly")
- *    @arg @c kGTLRCalendarSendUpdatesNone No notifications are sent. For
- *        calendar migration tasks, consider using the Events.import method
- *        instead. (Value: "none")
+ *    @arg @c kGTLRCalendarSendUpdatesNone No notifications are sent. Warning:
+ *        Using the value none can have significant adverse effects, including
+ *        events not syncing to external calendars or events being lost
+ *        altogether for some users. For calendar migration tasks, consider
+ *        using the events.import method instead. (Value: "none")
  */
 @property(nonatomic, copy, nullable) NSString *sendUpdates;
 

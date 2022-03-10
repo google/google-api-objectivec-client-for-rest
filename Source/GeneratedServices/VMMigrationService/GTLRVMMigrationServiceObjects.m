@@ -120,6 +120,12 @@ NSString * const kGTLRVMMigrationService_SchedulingNodeAffinity_OperatorProperty
 NSString * const kGTLRVMMigrationService_SchedulingNodeAffinity_OperatorProperty_NotIn = @"NOT_IN";
 NSString * const kGTLRVMMigrationService_SchedulingNodeAffinity_OperatorProperty_OperatorUnspecified = @"OPERATOR_UNSPECIFIED";
 
+// GTLRVMMigrationService_UpgradeStatus.state
+NSString * const kGTLRVMMigrationService_UpgradeStatus_State_Failed = @"FAILED";
+NSString * const kGTLRVMMigrationService_UpgradeStatus_State_Running = @"RUNNING";
+NSString * const kGTLRVMMigrationService_UpgradeStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_UpgradeStatus_State_Succeeded = @"SUCCEEDED";
+
 // GTLRVMMigrationService_UtilizationReport.state
 NSString * const kGTLRVMMigrationService_UtilizationReport_State_Creating = @"CREATING";
 NSString * const kGTLRVMMigrationService_UtilizationReport_State_Failed = @"FAILED";
@@ -155,11 +161,31 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_ApplianceVersion
+//
+
+@implementation GTLRVMMigrationService_ApplianceVersion
+@dynamic critical, releaseNotesUri, uri, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_AppliedLicense
 //
 
 @implementation GTLRVMMigrationService_AppliedLicense
 @dynamic osLicense, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_AvailableUpdates
+//
+
+@implementation GTLRVMMigrationService_AvailableUpdates
+@dynamic inPlaceUpdate, newDeployableAppliance;
 @end
 
 
@@ -345,8 +371,9 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_DatacenterConnector
-@dynamic bucket, createTime, error, name, registrationId, serviceAccount, state,
-         stateTime, updateTime, version;
+@dynamic applianceInfrastructureVersion, applianceSoftwareVersion,
+         availableVersions, bucket, createTime, error, name, registrationId,
+         serviceAccount, state, stateTime, updateTime, upgradeStatus, version;
 @end
 
 
@@ -963,6 +990,26 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_UpgradeApplianceRequest
+//
+
+@implementation GTLRVMMigrationService_UpgradeApplianceRequest
+@dynamic requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_UpgradeStatus
+//
+
+@implementation GTLRVMMigrationService_UpgradeStatus
+@dynamic error, previousVersion, startTime, state, version;
 @end
 
 

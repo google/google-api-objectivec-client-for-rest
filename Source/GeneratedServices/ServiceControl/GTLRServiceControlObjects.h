@@ -54,6 +54,13 @@
 @class GTLRServiceControl_Status_Details_Item;
 @class GTLRServiceControl_ThirdPartyPrincipal;
 @class GTLRServiceControl_ThirdPartyPrincipal_ThirdPartyClaims;
+@class GTLRServiceControl_V2HttpRequest;
+@class GTLRServiceControl_V2LogEntry_Labels;
+@class GTLRServiceControl_V2LogEntry_MonitoredResourceLabels;
+@class GTLRServiceControl_V2LogEntry_ProtoPayload;
+@class GTLRServiceControl_V2LogEntry_StructPayload;
+@class GTLRServiceControl_V2LogEntryOperation;
+@class GTLRServiceControl_V2LogEntrySourceLocation;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -61,6 +68,68 @@
 #pragma clang diagnostic ignored "-Wdocumentation"
 
 NS_ASSUME_NONNULL_BEGIN
+
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRServiceControl_V2LogEntry.severity
+
+/**
+ *  (700) A person must take an action immediately.
+ *
+ *  Value: "ALERT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2LogEntry_Severity_Alert;
+/**
+ *  (600) Critical events cause more severe problems or outages.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2LogEntry_Severity_Critical;
+/**
+ *  (100) Debug or trace information.
+ *
+ *  Value: "DEBUG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2LogEntry_Severity_Debug;
+/**
+ *  (0) The log entry has no assigned severity level.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2LogEntry_Severity_Default;
+/**
+ *  (800) One or more systems are unusable.
+ *
+ *  Value: "EMERGENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2LogEntry_Severity_Emergency;
+/**
+ *  (500) Error events are likely to cause problems.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2LogEntry_Severity_Error;
+/**
+ *  (200) Routine information, such as ongoing status or performance.
+ *
+ *  Value: "INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2LogEntry_Severity_Info;
+/**
+ *  (300) Normal but significant events, such as start up, shut down, or a
+ *  configuration change.
+ *
+ *  Value: "NOTICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2LogEntry_Severity_Notice;
+/**
+ *  (400) Warning events might cause problems.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2LogEntry_Severity_Warning;
 
 /**
  *  This message defines attributes associated with API operations, such as a
@@ -1185,6 +1254,343 @@ NS_ASSUME_NONNULL_BEGIN
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRServiceControl_ThirdPartyPrincipal_ThirdPartyClaims : GTLRObject
+@end
+
+
+/**
+ *  A common proto for logging HTTP requests. Only contains semantics defined by
+ *  the HTTP specification. Product-specific logging information MUST be defined
+ *  in a separate message.
+ */
+@interface GTLRServiceControl_V2HttpRequest : GTLRObject
+
+/**
+ *  The number of HTTP response bytes inserted into cache. Set only when a cache
+ *  fill was attempted.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cacheFillBytes;
+
+/**
+ *  Whether or not an entity was served from cache (with or without validation).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cacheHit;
+
+/**
+ *  Whether or not a cache lookup was attempted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cacheLookup;
+
+/**
+ *  Whether or not the response was validated with the origin server before
+ *  being served from cache. This field is only meaningful if `cache_hit` is
+ *  True.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cacheValidatedWithOriginServer;
+
+/**
+ *  The request processing latency on the server, from the time the request was
+ *  received until the response was sent.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *latency;
+
+/**
+ *  Protocol used for the request. Examples: "HTTP/1.1", "HTTP/2", "websocket"
+ */
+@property(nonatomic, copy, nullable) NSString *protocol;
+
+/**
+ *  The referer URL of the request, as defined in [HTTP/1.1 Header Field
+ *  Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+ */
+@property(nonatomic, copy, nullable) NSString *referer;
+
+/**
+ *  The IP address (IPv4 or IPv6) of the client that issued the HTTP request.
+ *  Examples: `"192.168.1.1"`, `"FE80::0202:B3FF:FE1E:8329"`.
+ */
+@property(nonatomic, copy, nullable) NSString *remoteIp;
+
+/** The request method. Examples: `"GET"`, `"HEAD"`, `"PUT"`, `"POST"`. */
+@property(nonatomic, copy, nullable) NSString *requestMethod;
+
+/**
+ *  The size of the HTTP request message in bytes, including the request headers
+ *  and the request body.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestSize;
+
+/**
+ *  The scheme (http, https), the host name, the path, and the query portion of
+ *  the URL that was requested. Example:
+ *  `"http://example.com/some/info?color=red"`.
+ */
+@property(nonatomic, copy, nullable) NSString *requestUrl;
+
+/**
+ *  The size of the HTTP response message sent back to the client, in bytes,
+ *  including the response headers and the response body.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *responseSize;
+
+/**
+ *  The IP address (IPv4 or IPv6) of the origin server that the request was sent
+ *  to.
+ */
+@property(nonatomic, copy, nullable) NSString *serverIp;
+
+/**
+ *  The response code indicating the status of the response. Examples: 200, 404.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *status;
+
+/**
+ *  The user agent sent by the client. Example: `"Mozilla/4.0 (compatible; MSIE
+ *  6.0; Windows 98; Q312461; .NET CLR 1.0.3705)"`.
+ */
+@property(nonatomic, copy, nullable) NSString *userAgent;
+
+@end
+
+
+/**
+ *  An individual log entry.
+ */
+@interface GTLRServiceControl_V2LogEntry : GTLRObject
+
+/**
+ *  Optional. Information about the HTTP request associated with this log entry,
+ *  if applicable.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_V2HttpRequest *httpRequest;
+
+/**
+ *  A unique ID for the log entry used for deduplication. If omitted, the
+ *  implementation will generate one based on operation_id.
+ */
+@property(nonatomic, copy, nullable) NSString *insertId;
+
+/**
+ *  A set of user-defined (key, value) data that provides additional information
+ *  about the log entry.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_V2LogEntry_Labels *labels;
+
+/**
+ *  A set of user-defined (key, value) data that provides additional information
+ *  about the moniotored resource that the log entry belongs to.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_V2LogEntry_MonitoredResourceLabels *monitoredResourceLabels;
+
+/**
+ *  Required. The log to which this log entry belongs. Examples: `"syslog"`,
+ *  `"book_log"`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Information about an operation associated with the log entry, if
+ *  applicable.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_V2LogEntryOperation *operation;
+
+/**
+ *  The log entry payload, represented as a protocol buffer that is expressed as
+ *  a JSON object. The only accepted type currently is AuditLog.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_V2LogEntry_ProtoPayload *protoPayload;
+
+/**
+ *  The severity of the log entry. The default value is `LogSeverity.DEFAULT`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceControl_V2LogEntry_Severity_Alert (700) A person must
+ *        take an action immediately. (Value: "ALERT")
+ *    @arg @c kGTLRServiceControl_V2LogEntry_Severity_Critical (600) Critical
+ *        events cause more severe problems or outages. (Value: "CRITICAL")
+ *    @arg @c kGTLRServiceControl_V2LogEntry_Severity_Debug (100) Debug or trace
+ *        information. (Value: "DEBUG")
+ *    @arg @c kGTLRServiceControl_V2LogEntry_Severity_Default (0) The log entry
+ *        has no assigned severity level. (Value: "DEFAULT")
+ *    @arg @c kGTLRServiceControl_V2LogEntry_Severity_Emergency (800) One or
+ *        more systems are unusable. (Value: "EMERGENCY")
+ *    @arg @c kGTLRServiceControl_V2LogEntry_Severity_Error (500) Error events
+ *        are likely to cause problems. (Value: "ERROR")
+ *    @arg @c kGTLRServiceControl_V2LogEntry_Severity_Info (200) Routine
+ *        information, such as ongoing status or performance. (Value: "INFO")
+ *    @arg @c kGTLRServiceControl_V2LogEntry_Severity_Notice (300) Normal but
+ *        significant events, such as start up, shut down, or a configuration
+ *        change. (Value: "NOTICE")
+ *    @arg @c kGTLRServiceControl_V2LogEntry_Severity_Warning (400) Warning
+ *        events might cause problems. (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+/**
+ *  Optional. Source code location information associated with the log entry, if
+ *  any.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_V2LogEntrySourceLocation *sourceLocation;
+
+/**
+ *  The log entry payload, represented as a structure that is expressed as a
+ *  JSON object.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_V2LogEntry_StructPayload *structPayload;
+
+/** The log entry payload, represented as a Unicode string (UTF-8). */
+@property(nonatomic, copy, nullable) NSString *textPayload;
+
+/**
+ *  The time the event described by the log entry occurred. If omitted, defaults
+ *  to operation start time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
+
+/**
+ *  Optional. Resource name of the trace associated with the log entry, if any.
+ *  If this field contains a relative resource name, you can assume the name is
+ *  relative to `//tracing.googleapis.com`. Example:
+ *  `projects/my-projectid/traces/06796866738c859f2f19b7cfb3214824`
+ */
+@property(nonatomic, copy, nullable) NSString *trace;
+
+@end
+
+
+/**
+ *  A set of user-defined (key, value) data that provides additional information
+ *  about the log entry.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceControl_V2LogEntry_Labels : GTLRObject
+@end
+
+
+/**
+ *  A set of user-defined (key, value) data that provides additional information
+ *  about the moniotored resource that the log entry belongs to.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceControl_V2LogEntry_MonitoredResourceLabels : GTLRObject
+@end
+
+
+/**
+ *  The log entry payload, represented as a protocol buffer that is expressed as
+ *  a JSON object. The only accepted type currently is AuditLog.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceControl_V2LogEntry_ProtoPayload : GTLRObject
+@end
+
+
+/**
+ *  The log entry payload, represented as a structure that is expressed as a
+ *  JSON object.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceControl_V2LogEntry_StructPayload : GTLRObject
+@end
+
+
+/**
+ *  Additional information about a potentially long-running operation with which
+ *  a log entry is associated.
+ */
+@interface GTLRServiceControl_V2LogEntryOperation : GTLRObject
+
+/**
+ *  Optional. Set this to True if this is the first log entry in the operation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *first;
+
+/**
+ *  Optional. An arbitrary operation identifier. Log entries with the same
+ *  identifier are assumed to be part of the same operation.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Optional. Set this to True if this is the last log entry in the operation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *last;
+
+/**
+ *  Optional. An arbitrary producer identifier. The combination of `id` and
+ *  `producer` must be globally unique. Examples for `producer`:
+ *  `"MyDivision.MyBigCompany.com"`, `"github.com/MyProject/MyApplication"`.
+ */
+@property(nonatomic, copy, nullable) NSString *producer;
+
+@end
+
+
+/**
+ *  Additional information about the source code location that produced the log
+ *  entry.
+ */
+@interface GTLRServiceControl_V2LogEntrySourceLocation : GTLRObject
+
+/**
+ *  Optional. Source file name. Depending on the runtime environment, this might
+ *  be a simple name or a fully-qualified name.
+ */
+@property(nonatomic, copy, nullable) NSString *file;
+
+/**
+ *  Optional. Human-readable name of the function or method being invoked, with
+ *  optional context such as the class or package name. This information may be
+ *  used in contexts such as the logs viewer, where a file and line number are
+ *  less meaningful. The format can vary by language. For example:
+ *  `qual.if.ied.Class.method` (Java), `dir/package.func` (Go), `function`
+ *  (Python).
+ */
+@property(nonatomic, copy, nullable) NSString *function;
+
+/**
+ *  Optional. Line within the source file. 1-based; 0 indicates no line number
+ *  available.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *line;
+
 @end
 
 NS_ASSUME_NONNULL_END

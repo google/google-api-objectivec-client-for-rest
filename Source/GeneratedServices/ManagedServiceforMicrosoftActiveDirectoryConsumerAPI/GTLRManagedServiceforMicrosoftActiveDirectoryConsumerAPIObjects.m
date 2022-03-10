@@ -15,6 +15,18 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backup.state
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backup_State_Active = @"ACTIVE";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backup_State_Creating = @"CREATING";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backup_State_Deleting = @"DELETING";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backup_State_Failed = @"FAILED";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backup_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backup.type
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backup_Type_OnDemand = @"ON_DEMAND";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backup_Type_Scheduled = @"SCHEDULED";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backup_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain.state
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain_State_Creating = @"CREATING";
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain_State_Deleting = @"DELETING";
@@ -99,6 +111,30 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_AttachTrustRequest
 @dynamic trust;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backup
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backup
+@dynamic createTime, labels, name, state, statusMessage, type, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backup_Labels
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backup_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -284,10 +320,11 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 //
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance
-@dynamic consumerDefinedName, createTime, labels, maintenancePolicyNames,
-         maintenanceSchedules, maintenanceSettings, name, producerMetadata,
-         provisionedResources, slmInstanceTemplate, sloMetadata,
-         softwareVersions, state, tenantProjectId, updateTime;
+@dynamic consumerDefinedName, createTime, instanceType, labels,
+         maintenancePolicyNames, maintenanceSchedules, maintenanceSettings,
+         name, notificationParameters, producerMetadata, provisionedResources,
+         slmInstanceTemplate, sloMetadata, softwareVersions, state,
+         tenantProjectId, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -336,6 +373,20 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 
 + (Class)classForAdditionalProperties {
   return [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_NotificationParameters
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_NotificationParameters
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -484,6 +535,29 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings
 @dynamic certificate, certificatePassword, certificatePfx, name, state,
          updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ListBackupsResponse
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ListBackupsResponse
+@dynamic backups, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backups" : [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backup class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"backups";
+}
+
 @end
 
 
@@ -808,6 +882,16 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ResetAdminPasswordResponse
 @dynamic password;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_RestoreDomainRequest
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_RestoreDomainRequest
+@dynamic backupId;
 @end
 
 

@@ -772,8 +772,8 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_DiscoveryOccurrence
-@dynamic analysisStatus, analysisStatusError, continuousAnalysis, cpe,
-         lastScanTime;
+@dynamic analysisStatus, analysisStatusError, archiveTime, continuousAnalysis,
+         cpe, lastScanTime;
 @end
 
 

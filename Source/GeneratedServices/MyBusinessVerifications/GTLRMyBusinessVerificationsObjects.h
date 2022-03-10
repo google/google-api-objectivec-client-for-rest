@@ -45,6 +45,30 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRMyBusinessVerifications_ComplyWithGuidelines.recommendationReason
+
+/**
+ *  The business location is disabled. To fix this issue, consult the [Help
+ *  Center article](https://support.google.com/business/answer/9334246).
+ *
+ *  Value: "BUSINESS_LOCATION_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_ComplyWithGuidelines_RecommendationReason_BusinessLocationDisabled;
+/**
+ *  The business location is suspended. To fix this issue, consult the [Help
+ *  Center article](https://support.google.com/business/answer/4569145).
+ *
+ *  Value: "BUSINESS_LOCATION_SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_ComplyWithGuidelines_RecommendationReason_BusinessLocationSuspended;
+/**
+ *  Not specified.
+ *
+ *  Value: "RECOMMENDATION_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_ComplyWithGuidelines_RecommendationReason_RecommendationReasonUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRMyBusinessVerifications_Verification.method
 
 /**
@@ -279,11 +303,29 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRe
 
 /**
  *  Indicates that the location fails to comply with our
- *  [guidelines](https://support.google.com/business/answer/3038177). To fix
- *  this issue, consult the [Help Center
- *  Article](https://support.google.com/business/answer/4569145).
+ *  [guidelines](https://support.google.com/business/answer/3038177).
  */
 @interface GTLRMyBusinessVerifications_ComplyWithGuidelines : GTLRObject
+
+/**
+ *  The reason why the location is being recommended to comply with guidelines.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessVerifications_ComplyWithGuidelines_RecommendationReason_BusinessLocationDisabled
+ *        The business location is disabled. To fix this issue, consult the
+ *        [Help Center
+ *        article](https://support.google.com/business/answer/9334246). (Value:
+ *        "BUSINESS_LOCATION_DISABLED")
+ *    @arg @c kGTLRMyBusinessVerifications_ComplyWithGuidelines_RecommendationReason_BusinessLocationSuspended
+ *        The business location is suspended. To fix this issue, consult the
+ *        [Help Center
+ *        article](https://support.google.com/business/answer/4569145). (Value:
+ *        "BUSINESS_LOCATION_SUSPENDED")
+ *    @arg @c kGTLRMyBusinessVerifications_ComplyWithGuidelines_RecommendationReason_RecommendationReasonUnspecified
+ *        Not specified. (Value: "RECOMMENDATION_REASON_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *recommendationReason;
+
 @end
 
 
@@ -533,8 +575,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRe
 /**
  *  Required. CLDR region code of the country/region of the address. This is
  *  never inferred and it is up to the user to ensure the value is correct. See
- *  http://cldr.unicode.org/ and
- *  http://www.unicode.org/cldr/charts/30/supplemental/territory_information.html
+ *  https://cldr.unicode.org/ and
+ *  https://www.unicode.org/cldr/charts/30/supplemental/territory_information.html
  *  for details. Example: "CH" for Switzerland.
  */
 @property(nonatomic, copy, nullable) NSString *regionCode;

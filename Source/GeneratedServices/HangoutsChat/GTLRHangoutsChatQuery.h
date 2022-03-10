@@ -4,7 +4,7 @@
 // API:
 //   Google Chat API (chat/v1)
 // Description:
-//   Enables bots to fetch information and perform actions in Google Chat.
+//   Enables apps to fetch information and perform actions in Google Chat.
 //   Authentication using a service account is a prerequisite for using the
 //   Google Chat REST API.
 // Documentation:
@@ -56,9 +56,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. A unique request ID for this message. If a message has already
- *  been created in the space with this request ID, the subsequent request will
- *  return the existing message and no new message will be created.
+ *  Optional. A unique request ID for this message. Specifying an existing
+ *  request ID returns the message created with that ID instead of creating a
+ *  new message.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -105,9 +105,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. A unique request ID for this message. If a message has already
- *  been created in the space with this request ID, the subsequent request will
- *  return the existing message and no new message will be created.
+ *  Optional. A unique request ID for this message. Specifying an existing
+ *  request ID returns the message created with that ID instead of creating a
+ *  new message.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -154,9 +154,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. A unique request ID for this message. If a message has already
- *  been created in the space with this request ID, the subsequent request will
- *  return the existing message and no new message will be created.
+ *  Optional. A unique request ID for this message. Specifying an existing
+ *  request ID returns the message created with that ID instead of creating a
+ *  new message.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -244,9 +244,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. A unique request ID for this message. If a message has already
- *  been created in the space with this request ID, the subsequent request will
- *  return the existing message and no new message will be created.
+ *  Optional. A unique request ID for this message. Specifying an existing
+ *  request ID returns the message created with that ID instead of creating a
+ *  new message.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -293,9 +293,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. A unique request ID for this message. If a message has already
- *  been created in the space with this request ID, the subsequent request will
- *  return the existing message and no new message will be created.
+ *  Optional. A unique request ID for this message. Specifying an existing
+ *  request ID returns the message created with that ID instead of creating a
+ *  new message.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -342,9 +342,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. A unique request ID for this message. If a message has already
- *  been created in the space with this request ID, the subsequent request will
- *  return the existing message and no new message will be created.
+ *  Optional. A unique request ID for this message. Specifying an existing
+ *  request ID returns the message created with that ID instead of creating a
+ *  new message.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -513,8 +513,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRHangoutsChatQuery_SpacesMessagesAttachmentsGet : GTLRHangoutsChatQuery
 
 /**
- *  Resource name of the attachment, in the form "spaces/ * /messages/ *
- *  /attachments/ *".
+ *  Required. Resource name of the attachment, in the form "spaces/ * /messages/
+ *  * /attachments/ *".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -524,8 +524,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the metadata of a message attachment. The attachment data is fetched
  *  using the media API.
  *
- *  @param name Resource name of the attachment, in the form "spaces/ *
- *    /messages/ * /attachments/ *".
+ *  @param name Required. Resource name of the attachment, in the form "spaces/
+ *    * /messages/ * /attachments/ *".
  *
  *  @return GTLRHangoutsChatQuery_SpacesMessagesAttachmentsGet
  */
@@ -547,9 +547,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. A unique request ID for this message. If a message has already
- *  been created in the space with this request ID, the subsequent request will
- *  return the existing message and no new message will be created.
+ *  Optional. A unique request ID for this message. Specifying an existing
+ *  request ID returns the message created with that ID instead of creating a
+ *  new message.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -652,8 +652,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The field paths to be updated, comma separated if there are
- *  multiple. Currently supported field paths: * text * cards *
- *  gsuite_message_integration_render_data * attachment
+ *  multiple. Currently supported field paths: * text * cards * attachment
  *
  *  String format is a comma-separated list of fields.
  */
@@ -690,9 +689,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. A unique request ID for this message. If a message has already
- *  been created in the space with this request ID, the subsequent request will
- *  return the existing message and no new message will be created.
+ *  Optional. A unique request ID for this message. Specifying an existing
+ *  request ID returns the message created with that ID instead of creating a
+ *  new message.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 

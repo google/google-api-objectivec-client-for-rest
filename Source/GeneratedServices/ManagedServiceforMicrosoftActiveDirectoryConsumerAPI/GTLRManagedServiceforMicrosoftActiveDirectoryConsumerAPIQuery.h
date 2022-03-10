@@ -23,6 +23,7 @@
 #endif
 
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_AttachTrustRequest;
+@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backup;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CancelOperationRequest;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DetachTrustRequest;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain;
@@ -30,6 +31,7 @@
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ReconfigureTrustRequest;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ResetAdminPasswordRequest;
+@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_RestoreDomainRequest;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SetIamPolicyRequest;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_TestIamPermissionsRequest;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ValidateTrustRequest;
@@ -112,6 +114,346 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_AttachTrustRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a Backup for a domain.
+ *
+ *  Method: managedidentities.projects.locations.global.domains.backups.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsBackupsCreate : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  Required. Backup Id, unique name to identify the backups with the following
+ *  restrictions: * Must be lowercase letters, numbers, and hyphens * Must start
+ *  with a letter. * Must contain between 1-63 characters. * Must end with a
+ *  number or a letter. * Must be unique within the domain.
+ */
+@property(nonatomic, copy, nullable) NSString *backupId;
+
+/**
+ *  Required. The domain resource name using the form:
+ *  `projects/{project_id}/locations/global/domains/{domain_name}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation.
+ *
+ *  Creates a Backup for a domain.
+ *
+ *  @param object The @c
+ *    GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backup to include
+ *    in the query.
+ *  @param parent Required. The domain resource name using the form:
+ *    `projects/{project_id}/locations/global/domains/{domain_name}`
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsBackupsCreate
+ */
++ (instancetype)queryWithObject:(GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backup *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes identified Backup.
+ *
+ *  Method: managedidentities.projects.locations.global.domains.backups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsBackupsDelete : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  Required. The backup resource name using the form:
+ *  `projects/{project_id}/locations/global/domains/{domain_name}/backups/{backup_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation.
+ *
+ *  Deletes identified Backup.
+ *
+ *  @param name Required. The backup resource name using the form:
+ *    `projects/{project_id}/locations/global/domains/{domain_name}/backups/{backup_id}`
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsBackupsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single Backup.
+ *
+ *  Method: managedidentities.projects.locations.global.domains.backups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsBackupsGet : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  Required. The backup resource name using the form:
+ *  `projects/{project_id}/locations/global/domains/{domain_name}/backups/{backup_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backup.
+ *
+ *  Gets details of a single Backup.
+ *
+ *  @param name Required. The backup resource name using the form:
+ *    `projects/{project_id}/locations/global/domains/{domain_name}/backups/{backup_id}`
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsBackupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: managedidentities.projects.locations.global.domains.backups.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsBackupsGetIamPolicy : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsBackupsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists Backup in a given project.
+ *
+ *  Method: managedidentities.projects.locations.global.domains.backups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsBackupsList : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/** Optional. Filter specifying constraints of a list operation. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specifies the ordering of results following syntax at
+ *  https://cloud.google.com/apis/design/design_patterns#sorting_order.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of items to return. If not specified, a default
+ *  value of 1000 will be used by the service. Regardless of the page_size
+ *  value, the response may include a partial list and a caller should only rely
+ *  on response's next_page_token to determine if there are more instances left
+ *  to be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The `next_page_token` value returned from a previous List request,
+ *  if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The domain resource name using the form:
+ *  `projects/{project_id}/locations/global/domains/{domain_name}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ListBackupsResponse.
+ *
+ *  Lists Backup in a given project.
+ *
+ *  @param parent Required. The domain resource name using the form:
+ *    `projects/{project_id}/locations/global/domains/{domain_name}`
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsBackupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the labels for specified Backup.
+ *
+ *  Method: managedidentities.projects.locations.global.domains.backups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsBackupsPatch : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  Output only. The unique name of the Backup in the form of
+ *  `projects/{project_id}/locations/global/domains/{domain_name}/backups/{name}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Mask of fields to update. At least one path must be supplied in
+ *  this field. The elements of the repeated paths field may only include these
+ *  fields from Backup: * `labels`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation.
+ *
+ *  Updates the labels for specified Backup.
+ *
+ *  @param object The @c
+ *    GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backup to include
+ *    in the query.
+ *  @param name Output only. The unique name of the Backup in the form of
+ *    `projects/{project_id}/locations/global/domains/{domain_name}/backups/{name}`
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsBackupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Backup *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: managedidentities.projects.locations.global.domains.backups.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsBackupsSetIamPolicy : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c
+ *    GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SetIamPolicyRequest
+ *    to include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsBackupsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: managedidentities.projects.locations.global.domains.backups.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsBackupsTestIamPermissions : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c
+ *    GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_TestIamPermissionsRequest
+ *    to include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsBackupsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 
@@ -512,6 +854,38 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsResetAdminPassword
  */
 + (instancetype)queryWithObject:(GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ResetAdminPasswordRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  RestoreDomain restores domain backup mentioned in the RestoreDomainRequest
+ *
+ *  Method: managedidentities.projects.locations.global.domains.restore
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsRestore : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/** Required. Resource name for the domain to which the backup belongs */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation.
+ *
+ *  RestoreDomain restores domain backup mentioned in the RestoreDomainRequest
+ *
+ *  @param object The @c
+ *    GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_RestoreDomainRequest
+ *    to include in the query.
+ *  @param name Required. Resource name for the domain to which the backup
+ *    belongs
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsRestore
+ */
++ (instancetype)queryWithObject:(GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_RestoreDomainRequest *)object
                            name:(NSString *)name;
 
 @end

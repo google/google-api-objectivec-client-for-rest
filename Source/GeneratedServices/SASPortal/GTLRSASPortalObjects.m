@@ -213,7 +213,8 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecif
 //
 
 @implementation GTLRSASPortal_DeviceMetadata
-@dynamic antennaModel, commonChannelGroup, interferenceCoordinationGroup;
+@dynamic antennaModel, commonChannelGroup, interferenceCoordinationGroup,
+         nrqzValidated, nrqzValidation;
 @end
 
 
@@ -431,6 +432,16 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecif
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSASPortal_NrqzValidation
+//
+
+@implementation GTLRSASPortal_NrqzValidation
+@dynamic caseId, cpiId, latitude, longitude;
 @end
 
 

@@ -52,6 +52,7 @@
 @class GTLRContainer_HorizontalPodAutoscaling;
 @class GTLRContainer_HttpCacheControlResponseHeader;
 @class GTLRContainer_HttpLoadBalancing;
+@class GTLRContainer_IdentityServiceConfig;
 @class GTLRContainer_ILBSubsettingConfig;
 @class GTLRContainer_IntraNodeVisibilityConfig;
 @class GTLRContainer_IPAllocationPolicy;
@@ -76,6 +77,7 @@
 @class GTLRContainer_NetworkConfig;
 @class GTLRContainer_NetworkPolicy;
 @class GTLRContainer_NetworkPolicyConfig;
+@class GTLRContainer_NetworkTags;
 @class GTLRContainer_NodeConfig;
 @class GTLRContainer_NodeConfig_Labels;
 @class GTLRContainer_NodeConfig_Metadata;
@@ -84,6 +86,7 @@
 @class GTLRContainer_NodeManagement;
 @class GTLRContainer_NodeNetworkConfig;
 @class GTLRContainer_NodePool;
+@class GTLRContainer_NodePoolAutoConfig;
 @class GTLRContainer_NodePoolAutoscaling;
 @class GTLRContainer_NodePoolDefaults;
 @class GTLRContainer_NodeTaint;
@@ -1392,13 +1395,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_NodeManagement *management;
 
 /**
- *  Minimum CPU platform to be used for NAP created node pools. The instance may
- *  be scheduled on the specified or newer CPU platform. Applicable values are
- *  the friendly names of CPU platforms, such as minCpuPlatform: Intel Haswell
- *  or minCpuPlatform: Intel Sandy Bridge. For more information, read [how to
- *  specify min CPU
+ *  Deprecated. Minimum CPU platform to be used for NAP created node pools. The
+ *  instance may be scheduled on the specified or newer CPU platform. Applicable
+ *  values are the friendly names of CPU platforms, such as minCpuPlatform:
+ *  Intel Haswell or minCpuPlatform: Intel Sandy Bridge. For more information,
+ *  read [how to specify min CPU
  *  platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform)
- *  To unset the min cpu platform field pass "automatic" as field value.
+ *  This field is deprecated, min_cpu_platform should be specified using
+ *  cloud.google.com/requested-min-cpu-platform label selector on the pod. To
+ *  unset the min cpu platform field pass "automatic" as field value.
  */
 @property(nonatomic, copy, nullable) NSString *minCpuPlatform;
 
@@ -1684,6 +1689,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
+/** Configuration for Identity Service component. */
+@property(nonatomic, strong, nullable) GTLRContainer_IdentityServiceConfig *identityServiceConfig;
+
 /**
  *  The initial Kubernetes version for this cluster. Valid versions are those
  *  found in validMasterVersions returned by getServerConfig. The version can be
@@ -1834,6 +1842,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nodeIpv4CidrSize;
+
+/**
+ *  Node pool configs that apply to all auto-provisioned node pools in autopilot
+ *  clusters and node auto-provisioning enabled clusters.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_NodePoolAutoConfig *nodePoolAutoConfig;
 
 /**
  *  Default NodePool settings for the entire cluster. These settings are
@@ -2061,6 +2075,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** The desired GCFS config for the cluster */
 @property(nonatomic, strong, nullable) GTLRContainer_GcfsConfig *desiredGcfsConfig;
 
+/** The desired Identity Service component configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_IdentityServiceConfig *desiredIdentityServiceConfig;
+
 /**
  *  The desired image type for the node pool. NOTE: Set the "desired_node_pool"
  *  field as well.
@@ -2132,6 +2149,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  versions.
  */
 @property(nonatomic, copy, nullable) NSString *desiredMonitoringService;
+
+/**
+ *  The desired network tags that apply to all auto-provisioned node pools in
+ *  autopilot clusters and node auto-provisioning enabled clusters.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_NetworkTags *desiredNodePoolAutoConfigNetworkTags;
 
 /**
  *  Autoscaler configuration for the node pool specified in
@@ -2667,6 +2690,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disabled;
+
+@end
+
+
+/**
+ *  IdentityServiceConfig is configuration for Identity Service which allows
+ *  customers to use external identity providers with the K8S API
+ */
+@interface GTLRContainer_IdentityServiceConfig : GTLRObject
+
+/**
+ *  Whether to enable the Identity Service component
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -3413,6 +3452,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  Collection of Compute Engine network tags that can be applied to a node's
+ *  underlying VM instance.
+ */
+@interface GTLRContainer_NetworkTags : GTLRObject
+
+/** List of network tags. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+@end
+
+
+/**
  *  Parameters that describe the nodes in a cluster.
  */
 @interface GTLRContainer_NodeConfig : GTLRObject
@@ -3574,6 +3625,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Shielded Instance options. */
 @property(nonatomic, strong, nullable) GTLRContainer_ShieldedInstanceConfig *shieldedInstanceConfig;
+
+/**
+ *  Spot flag for enabling Spot VM, which is a rebrand of the existing
+ *  preemptible flag.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *spot;
 
 /**
  *  The list of instance tags applied to all nodes. Tags are used to identify
@@ -3877,6 +3936,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** The version of the Kubernetes of this node. */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Node pool configs that apply to all auto-provisioned node pools in autopilot
+ *  clusters and node auto-provisioning enabled clusters.
+ */
+@interface GTLRContainer_NodePoolAutoConfig : GTLRObject
+
+/**
+ *  The list of instance tags applied to all nodes. Tags are used to identify
+ *  valid sources or targets for network firewalls and are specified by the
+ *  client during cluster creation. Each tag within the list must comply with
+ *  RFC1035.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_NetworkTags *networkTags;
 
 @end
 

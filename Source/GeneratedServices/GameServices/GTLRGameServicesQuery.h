@@ -44,21 +44,24 @@ NS_ASSUME_NONNULL_BEGIN
 // view
 
 /**
- *  Include basic information of a GameServerCluster resource and omit
- *  `cluster_state`. This is the default value (for ListGameServerClusters,
- *  GetGameServerCluster and PreviewCreateGameServerCluster).
+ *  Includes basic information of a GameServerCluster resource and omits
+ *  `cluster_state`. This is the default value (for methods
+ *  ListGameServerClusters, GetGameServerCluster, and
+ *  PreviewCreateGameServerCluster).
  *
  *  Value: "BASIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewBasic;
 /**
- *  Include everything.
+ *  Include basic information of a GameServerCluster resource as well as
+ *  `cluster_state`.
  *
  *  Value: "FULL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewFull;
 /**
- *  The default / unset value. The API will default to the BASIC view.
+ *  If the value is not set, Google Cloud Game Servers defaults to the `BASIC`
+ *  view.
  *
  *  Value: "GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED"
  */
@@ -90,12 +93,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsConfigsCreate : GTLRGameServicesQuery
 
-/** Required. The ID of the game server config resource to be created. */
+/** Required. The ID of the game server config resource to create. */
 @property(nonatomic, copy, nullable) NSString *configId;
 
 /**
  *  Required. The parent resource name, in the following form:
- *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/`.
+ *  `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}/`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -109,7 +112,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *  @param object The @c GTLRGameServices_GameServerConfig to include in the
  *    query.
  *  @param parent Required. The parent resource name, in the following form:
- *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/`.
+ *    `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}/`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsConfigsCreate
  */
@@ -119,8 +122,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 @end
 
 /**
- *  Deletes a single game server config. The deletion will fail if the game
- *  server config is referenced in a game server deployment rollout.
+ *  Deletes a single game server config. The deletion fails if the game server
+ *  config is referenced in a game server deployment rollout.
  *
  *  Method: gameservices.projects.locations.gameServerDeployments.configs.delete
  *
@@ -132,19 +135,19 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 /**
  *  Required. The name of the game server config to delete, in the following
  *  form:
- *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/configs/{config}`.
+ *  `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}/configs/{configId}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRGameServices_Operation.
  *
- *  Deletes a single game server config. The deletion will fail if the game
- *  server config is referenced in a game server deployment rollout.
+ *  Deletes a single game server config. The deletion fails if the game server
+ *  config is referenced in a game server deployment rollout.
  *
  *  @param name Required. The name of the game server config to delete, in the
  *    following form:
- *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/configs/{config}`.
+ *    `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}/configs/{configId}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsConfigsDelete
  */
@@ -165,7 +168,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 /**
  *  Required. The name of the game server config to retrieve, in the following
  *  form:
- *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/configs/{config}`.
+ *  `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}/configs/{configId}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -176,7 +179,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *
  *  @param name Required. The name of the game server config to retrieve, in the
  *    following form:
- *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/configs/{config}`.
+ *    `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}/configs/{configId}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsConfigsGet
  */
@@ -195,20 +198,23 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsConfigsList : GTLRGameServicesQuery
 
-/** Optional. The filter to apply to list results. */
+/**
+ *  Optional. The filter to apply to list results (see
+ *  [Filtering](https://google.aip.dev/160)).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. Specifies the ordering of results following syntax at
- *  https://cloud.google.com/apis/design/design_patterns#sorting_order.
+ *  Optional. Specifies the ordering of results following [Cloud API
+ *  syntax](https://cloud.google.com/apis/design/design_patterns#sorting_order).
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional. The maximum number of items to return. If unspecified, server will
- *  pick an appropriate default. Server may return fewer items than requested. A
- *  caller should only rely on response's next_page_token to determine if there
- *  are more GameServerConfigs left to be queried.
+ *  Optional. The maximum number of items to return. If unspecified, the server
+ *  picks an appropriate default. The server may return fewer items than
+ *  requested. A caller should only rely on response's next_page_token to
+ *  determine if there are more GameServerConfigs left to be queried.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -220,7 +226,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 
 /**
  *  Required. The parent resource name, in the following form:
- *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/configs/
+ *  `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}/configs/
  *  *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -232,7 +238,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *  deployment.
  *
  *  @param parent Required. The parent resource name, in the following form:
- *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/configs/
+ *    `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}/configs/
  *    *`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsConfigsList
@@ -255,12 +261,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsCreate : GTLRGameServicesQuery
 
-/** Required. The ID of the game server delpoyment resource to be created. */
+/** Required. The ID of the game server deployment resource to create. */
 @property(nonatomic, copy, nullable) NSString *deploymentId;
 
 /**
  *  Required. The parent resource name, in the following form:
- *  `projects/{project}/locations/{location}`.
+ *  `projects/{project}/locations/{locationId}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -272,7 +278,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *  @param object The @c GTLRGameServices_GameServerDeployment to include in the
  *    query.
  *  @param parent Required. The parent resource name, in the following form:
- *    `projects/{project}/locations/{location}`.
+ *    `projects/{project}/locations/{locationId}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsCreate
  */
@@ -292,9 +298,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsDelete : GTLRGameServicesQuery
 
 /**
- *  Required. The name of the game server delpoyment to delete, in the following
+ *  Required. The name of the game server deployment to delete, in the following
  *  form:
- *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}`.
+ *  `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -303,9 +309,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *
  *  Deletes a single game server deployment.
  *
- *  @param name Required. The name of the game server delpoyment to delete, in
+ *  @param name Required. The name of the game server deployment to delete, in
  *    the following form:
- *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}`.
+ *    `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsDelete
  */
@@ -326,8 +332,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsFetchDeploymentState : GTLRGameServicesQuery
 
 /**
- *  Required. The name of the game server delpoyment, in the following form:
- *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}`.
+ *  Required. The name of the game server deployment, in the following form:
+ *  `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -340,9 +346,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *
  *  @param object The @c GTLRGameServices_FetchDeploymentStateRequest to include
  *    in the query.
- *  @param name Required. The name of the game server delpoyment, in the
+ *  @param name Required. The name of the game server deployment, in the
  *    following form:
- *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}`.
+ *    `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsFetchDeploymentState
  */
@@ -362,9 +368,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsGet : GTLRGameServicesQuery
 
 /**
- *  Required. The name of the game server delpoyment to retrieve, in the
+ *  Required. The name of the game server deployment to retrieve, in the
  *  following form:
- *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}`.
+ *  `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -373,9 +379,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *
  *  Gets details of a single game server deployment.
  *
- *  @param name Required. The name of the game server delpoyment to retrieve, in
+ *  @param name Required. The name of the game server deployment to retrieve, in
  *    the following form:
- *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}`.
+ *    `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsGet
  */
@@ -431,7 +437,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 @end
 
 /**
- *  Gets details a single game server deployment rollout.
+ *  Gets details of a single game server deployment rollout.
  *
  *  Method: gameservices.projects.locations.gameServerDeployments.getRollout
  *
@@ -441,20 +447,20 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsGetRollout : GTLRGameServicesQuery
 
 /**
- *  Required. The name of the game server delpoyment to retrieve, in the
+ *  Required. The name of the game server deployment rollout to retrieve, in the
  *  following form:
- *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/rollout`.
+ *  `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}/rollout`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRGameServices_GameServerDeploymentRollout.
  *
- *  Gets details a single game server deployment rollout.
+ *  Gets details of a single game server deployment rollout.
  *
- *  @param name Required. The name of the game server delpoyment to retrieve, in
- *    the following form:
- *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/rollout`.
+ *  @param name Required. The name of the game server deployment rollout to
+ *    retrieve, in the following form:
+ *    `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}/rollout`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsGetRollout
  */
@@ -472,32 +478,35 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsList : GTLRGameServicesQuery
 
-/** Optional. The filter to apply to list results. */
+/**
+ *  Optional. The filter to apply to list results (see
+ *  [Filtering](https://google.aip.dev/160)).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. Specifies the ordering of results following syntax at
- *  https://cloud.google.com/apis/design/design_patterns#sorting_order.
+ *  Optional. Specifies the ordering of results following [Cloud API
+ *  syntax](https://cloud.google.com/apis/design/design_patterns#sorting_order).
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Optional. The maximum number of items to return. If unspecified, the server
- *  will pick an appropriate default. The server may return fewer items than
- *  requested. A caller should only rely on response's next_page_token to
+ *  picks an appropriate default. The server may return fewer items than
+ *  requested. A caller should only rely on the response's next_page_token to
  *  determine if there are more GameServerDeployments left to be queried.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. The next_page_token value returned from a previous List request,
+ *  Optional. The next_page_token value returned from a previous list request,
  *  if any.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. The parent resource name, in the following form:
- *  `projects/{project}/locations/{location}`.
+ *  `projects/{project}/locations/{locationId}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -507,7 +516,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *  Lists game server deployments in a given project and location.
  *
  *  @param parent Required. The parent resource name, in the following form:
- *    `projects/{project}/locations/{location}`.
+ *    `projects/{project}/locations/{locationId}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsList
  *
@@ -531,16 +540,16 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 
 /**
  *  The resource name of the game server deployment, in the following form:
- *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}`.
+ *  `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}`.
  *  For example,
  *  `projects/my-project/locations/global/gameServerDeployments/my-deployment`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Mask of fields to update. At least one path must be supplied in
- *  this field. For the `FieldMask` definition, see
- *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+ *  Required. The update mask to apply to the resource. At least one path must
+ *  be supplied in this field. For more information, see the [`FieldMask`
+ *  definition](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask).
  *
  *  String format is a comma-separated list of fields.
  */
@@ -555,7 +564,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *    query.
  *  @param name The resource name of the game server deployment, in the
  *    following form:
- *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}`.
+ *    `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}`.
  *    For example,
  *    `projects/my-project/locations/global/gameServerDeployments/my-deployment`.
  *
@@ -580,7 +589,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 /**
  *  The resource name of the game server deployment rollout, in the following
  *  form:
- *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/rollout`.
+ *  `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}/rollout`.
  *  For example,
  *  `projects/my-project/locations/global/gameServerDeployments/my-deployment/rollout`.
  */
@@ -593,9 +602,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 @property(nonatomic, strong, nullable) GTLRDateTime *previewTime;
 
 /**
- *  Optional. Mask of fields to update. At least one path must be supplied in
- *  this field. For the `FieldMask` definition, see
- *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+ *  Optional. The update mask to apply to the resource. At least one path must
+ *  be supplied in this field. For more information, see the [`FieldMask`
+ *  definition](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask).
  *
  *  String format is a comma-separated list of fields.
  */
@@ -611,7 +620,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *    in the query.
  *  @param name The resource name of the game server deployment rollout, in the
  *    following form:
- *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/rollout`.
+ *    `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}/rollout`.
  *    For example,
  *    `projects/my-project/locations/global/gameServerDeployments/my-deployment/rollout`.
  *
@@ -704,11 +713,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 
 /**
  *  Patches a single game server deployment rollout. The method will not return
- *  an error if the update does not affect any existing realms. For example - if
- *  the default_game_server_config is changed but all existing realms use the
- *  override, that is valid. Similarly, if a non existing realm is explicitly
- *  called out in game_server_config_overrides field, that will also not result
- *  in an error.
+ *  an error if the update does not affect any existing realms. For example, the
+ *  following cases will not return an error: * The default_game_server_config
+ *  is changed but all existing realms use the override. * A non-existing realm
+ *  is explicitly called out in the game_server_config_overrides field.
  *
  *  Method: gameservices.projects.locations.gameServerDeployments.updateRollout
  *
@@ -720,16 +728,16 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 /**
  *  The resource name of the game server deployment rollout, in the following
  *  form:
- *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/rollout`.
+ *  `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}/rollout`.
  *  For example,
  *  `projects/my-project/locations/global/gameServerDeployments/my-deployment/rollout`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Mask of fields to update. At least one path must be supplied in
- *  this field. For the `FieldMask` definition, see
- *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+ *  Required. The update mask to apply to the resource. At least one path must
+ *  be supplied in this field. For more information, see the [`FieldMask`
+ *  definition](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask).
  *
  *  String format is a comma-separated list of fields.
  */
@@ -739,17 +747,16 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *  Fetches a @c GTLRGameServices_Operation.
  *
  *  Patches a single game server deployment rollout. The method will not return
- *  an error if the update does not affect any existing realms. For example - if
- *  the default_game_server_config is changed but all existing realms use the
- *  override, that is valid. Similarly, if a non existing realm is explicitly
- *  called out in game_server_config_overrides field, that will also not result
- *  in an error.
+ *  an error if the update does not affect any existing realms. For example, the
+ *  following cases will not return an error: * The default_game_server_config
+ *  is changed but all existing realms use the override. * A non-existing realm
+ *  is explicitly called out in the game_server_config_overrides field.
  *
  *  @param object The @c GTLRGameServices_GameServerDeploymentRollout to include
  *    in the query.
  *  @param name The resource name of the game server deployment rollout, in the
  *    following form:
- *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/rollout`.
+ *    `projects/{project}/locations/{locationId}/gameServerDeployments/{deploymentId}/rollout`.
  *    For example,
  *    `projects/my-project/locations/global/gameServerDeployments/my-deployment/rollout`.
  *
@@ -1015,11 +1022,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 
 /**
  *  Required. The parent resource name, in the following form:
- *  `projects/{project}/locations/{location}`.
+ *  `projects/{project}/locations/{locationId}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/** Required. The ID of the realm resource to be created. */
+/** Required. The ID of the realm resource to create. */
 @property(nonatomic, copy, nullable) NSString *realmId;
 
 /**
@@ -1029,7 +1036,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *
  *  @param object The @c GTLRGameServices_Realm to include in the query.
  *  @param parent Required. The parent resource name, in the following form:
- *    `projects/{project}/locations/{location}`.
+ *    `projects/{project}/locations/{locationId}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsCreate
  */
@@ -1050,7 +1057,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 
 /**
  *  Required. The name of the realm to delete, in the following form:
- *  `projects/{project}/locations/{location}/realms/{realm}`.
+ *  `projects/{project}/locations/{locationId}/realms/{realmId}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1060,7 +1067,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *  Deletes a single realm.
  *
  *  @param name Required. The name of the realm to delete, in the following
- *    form: `projects/{project}/locations/{location}/realms/{realm}`.
+ *    form: `projects/{project}/locations/{locationId}/realms/{realmId}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsDelete
  */
@@ -1078,12 +1085,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersCreate : GTLRGameServicesQuery
 
-/** Required. The ID of the game server cluster resource to be created. */
+/** Required. The ID of the game server cluster resource to create. */
 @property(nonatomic, copy, nullable) NSString *gameServerClusterId;
 
 /**
  *  Required. The parent resource name, in the following form:
- *  `projects/{project}/locations/{location}/realms/{realm-id}`.
+ *  `projects/{project}/locations/{locationId}/realms/{realmId}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1095,7 +1102,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *  @param object The @c GTLRGameServices_GameServerCluster to include in the
  *    query.
  *  @param parent Required. The parent resource name, in the following form:
- *    `projects/{project}/locations/{location}/realms/{realm-id}`.
+ *    `projects/{project}/locations/{locationId}/realms/{realmId}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersCreate
  */
@@ -1117,7 +1124,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 /**
  *  Required. The name of the game server cluster to delete, in the following
  *  form:
- *  `projects/{project}/locations/{location}/gameServerClusters/{cluster}`.
+ *  `projects/{project}/locations/{locationId}/gameServerClusters/{gameServerClusterId}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1128,7 +1135,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *
  *  @param name Required. The name of the game server cluster to delete, in the
  *    following form:
- *    `projects/{project}/locations/{location}/gameServerClusters/{cluster}`.
+ *    `projects/{project}/locations/{locationId}/gameServerClusters/{gameServerClusterId}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersDelete
  */
@@ -1149,7 +1156,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 /**
  *  Required. The name of the game server cluster to retrieve, in the following
  *  form:
- *  `projects/{project}/locations/{location}/realms/{realm-id}/gameServerClusters/{cluster}`.
+ *  `projects/{project}/locations/{locationId}/realms/{realmId}/gameServerClusters/{gameServerClusterId}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1158,18 +1165,20 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *  specified, the `cluster_state` field is also returned in the
  *  GameServerCluster object, which includes the state of the referenced
  *  Kubernetes cluster such as versions and provider info. The default/unset
- *  value is GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED, same as BASIC, which does not
- *  return the `cluster_state` field.
+ *  value is `GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED`, the same as `BASIC`, which
+ *  does not return the `cluster_state` field.
  *
  *  Likely values:
- *    @arg @c kGTLRGameServicesViewGameServerClusterViewUnspecified The default
- *        / unset value. The API will default to the BASIC view. (Value:
- *        "GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED")
- *    @arg @c kGTLRGameServicesViewBasic Include basic information of a
- *        GameServerCluster resource and omit `cluster_state`. This is the
- *        default value (for ListGameServerClusters, GetGameServerCluster and
- *        PreviewCreateGameServerCluster). (Value: "BASIC")
- *    @arg @c kGTLRGameServicesViewFull Include everything. (Value: "FULL")
+ *    @arg @c kGTLRGameServicesViewGameServerClusterViewUnspecified If the value
+ *        is not set, Google Cloud Game Servers defaults to the `BASIC` view.
+ *        (Value: "GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRGameServicesViewBasic Includes basic information of a
+ *        GameServerCluster resource and omits `cluster_state`. This is the
+ *        default value (for methods ListGameServerClusters,
+ *        GetGameServerCluster, and PreviewCreateGameServerCluster). (Value:
+ *        "BASIC")
+ *    @arg @c kGTLRGameServicesViewFull Include basic information of a
+ *        GameServerCluster resource as well as `cluster_state`. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -1180,7 +1189,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *
  *  @param name Required. The name of the game server cluster to retrieve, in
  *    the following form:
- *    `projects/{project}/locations/{location}/realms/{realm-id}/gameServerClusters/{cluster}`.
+ *    `projects/{project}/locations/{locationId}/realms/{realmId}/gameServerClusters/{gameServerClusterId}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersGet
  */
@@ -1198,32 +1207,35 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersList : GTLRGameServicesQuery
 
-/** Optional. The filter to apply to list results. */
+/**
+ *  Optional. The filter to apply to list results (see
+ *  [Filtering](https://google.aip.dev/160)).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. Specifies the ordering of results following syntax at
- *  https://cloud.google.com/apis/design/design_patterns#sorting_order.
+ *  Optional. Specifies the ordering of results following [Cloud API
+ *  syntax](https://cloud.google.com/apis/design/design_patterns#sorting_order).
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Optional. The maximum number of items to return. If unspecified, the server
- *  will pick an appropriate default. The server may return fewer items than
+ *  picks an appropriate default. The server may return fewer items than
  *  requested. A caller should only rely on response's next_page_token to
  *  determine if there are more GameServerClusters left to be queried.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. The next_page_token value returned from a previous List request,
+ *  Optional. The next_page_token value returned from a previous list request,
  *  if any.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. The parent resource name, in the following form:
- *  "projects/{project}/locations/{location}/realms/{realm}".
+ *  `projects/{project}/locations/{locationId}/realms/{realmId}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1232,18 +1244,20 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *  specified, the `cluster_state` field is also returned in the
  *  GameServerCluster object, which includes the state of the referenced
  *  Kubernetes cluster such as versions and provider info. The default/unset
- *  value is GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED, same as BASIC, which does not
- *  return the `cluster_state` field.
+ *  value is `GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED`, the same as `BASIC`, which
+ *  does not return the `cluster_state` field.
  *
  *  Likely values:
- *    @arg @c kGTLRGameServicesViewGameServerClusterViewUnspecified The default
- *        / unset value. The API will default to the BASIC view. (Value:
- *        "GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED")
- *    @arg @c kGTLRGameServicesViewBasic Include basic information of a
- *        GameServerCluster resource and omit `cluster_state`. This is the
- *        default value (for ListGameServerClusters, GetGameServerCluster and
- *        PreviewCreateGameServerCluster). (Value: "BASIC")
- *    @arg @c kGTLRGameServicesViewFull Include everything. (Value: "FULL")
+ *    @arg @c kGTLRGameServicesViewGameServerClusterViewUnspecified If the value
+ *        is not set, Google Cloud Game Servers defaults to the `BASIC` view.
+ *        (Value: "GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRGameServicesViewBasic Includes basic information of a
+ *        GameServerCluster resource and omits `cluster_state`. This is the
+ *        default value (for methods ListGameServerClusters,
+ *        GetGameServerCluster, and PreviewCreateGameServerCluster). (Value:
+ *        "BASIC")
+ *    @arg @c kGTLRGameServicesViewFull Include basic information of a
+ *        GameServerCluster resource as well as `cluster_state`. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -1253,7 +1267,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *  Lists game server clusters in a given project and location.
  *
  *  @param parent Required. The parent resource name, in the following form:
- *    "projects/{project}/locations/{location}/realms/{realm}".
+ *    `projects/{project}/locations/{locationId}/realms/{realmId}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersList
  *
@@ -1278,16 +1292,16 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 /**
  *  Required. The resource name of the game server cluster, in the following
  *  form:
- *  `projects/{project}/locations/{location}/realms/{realm}/gameServerClusters/{cluster}`.
+ *  `projects/{project}/locations/{locationId}/realms/{realmId}/gameServerClusters/{gameServerClusterId}`.
  *  For example,
- *  `projects/my-project/locations/{location}/realms/zanzibar/gameServerClusters/my-onprem-cluster`.
+ *  `projects/my-project/locations/global/realms/zanzibar/gameServerClusters/my-gke-cluster`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Mask of fields to update. At least one path must be supplied in
- *  this field. For the `FieldMask` definition, see
- *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+ *  Required. The update mask to apply to the resource. At least one path must
+ *  be supplied in this field. For more information, see the [`FieldMask`
+ *  definition](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask).
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1302,9 +1316,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *    query.
  *  @param name Required. The resource name of the game server cluster, in the
  *    following form:
- *    `projects/{project}/locations/{location}/realms/{realm}/gameServerClusters/{cluster}`.
+ *    `projects/{project}/locations/{locationId}/realms/{realmId}/gameServerClusters/{gameServerClusterId}`.
  *    For example,
- *    `projects/my-project/locations/{location}/realms/zanzibar/gameServerClusters/my-onprem-cluster`.
+ *    `projects/my-project/locations/global/realms/zanzibar/gameServerClusters/my-gke-cluster`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersPatch
  */
@@ -1324,12 +1338,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersPreviewCreate : GTLRGameServicesQuery
 
-/** Required. The ID of the game server cluster resource to be created. */
+/** Required. The ID of the game server cluster resource to create. */
 @property(nonatomic, copy, nullable) NSString *gameServerClusterId;
 
 /**
  *  Required. The parent resource name, in the following form:
- *  `projects/{project}/locations/{location}/realms/{realm}`.
+ *  `projects/{project}/locations/{locationId}/realms/{realmId}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1337,18 +1351,20 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 @property(nonatomic, strong, nullable) GTLRDateTime *previewTime;
 
 /**
- *  Optional. This field is deprecated, preview will always return
+ *  Optional. This field is deprecated. Preview will always return
  *  KubernetesClusterState.
  *
  *  Likely values:
- *    @arg @c kGTLRGameServicesViewGameServerClusterViewUnspecified The default
- *        / unset value. The API will default to the BASIC view. (Value:
- *        "GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED")
- *    @arg @c kGTLRGameServicesViewBasic Include basic information of a
- *        GameServerCluster resource and omit `cluster_state`. This is the
- *        default value (for ListGameServerClusters, GetGameServerCluster and
- *        PreviewCreateGameServerCluster). (Value: "BASIC")
- *    @arg @c kGTLRGameServicesViewFull Include everything. (Value: "FULL")
+ *    @arg @c kGTLRGameServicesViewGameServerClusterViewUnspecified If the value
+ *        is not set, Google Cloud Game Servers defaults to the `BASIC` view.
+ *        (Value: "GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRGameServicesViewBasic Includes basic information of a
+ *        GameServerCluster resource and omits `cluster_state`. This is the
+ *        default value (for methods ListGameServerClusters,
+ *        GetGameServerCluster, and PreviewCreateGameServerCluster). (Value:
+ *        "BASIC")
+ *    @arg @c kGTLRGameServicesViewFull Include basic information of a
+ *        GameServerCluster resource as well as `cluster_state`. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -1361,7 +1377,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *  @param object The @c GTLRGameServices_GameServerCluster to include in the
  *    query.
  *  @param parent Required. The parent resource name, in the following form:
- *    `projects/{project}/locations/{location}/realms/{realm}`.
+ *    `projects/{project}/locations/{locationId}/realms/{realmId}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersPreviewCreate
  */
@@ -1383,7 +1399,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 /**
  *  Required. The name of the game server cluster to delete, in the following
  *  form:
- *  `projects/{project}/locations/{location}/gameServerClusters/{cluster}`.
+ *  `projects/{project}/locations/{locationId}/gameServerClusters/{gameServerClusterId}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1397,7 +1413,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *
  *  @param name Required. The name of the game server cluster to delete, in the
  *    following form:
- *    `projects/{project}/locations/{location}/gameServerClusters/{cluster}`.
+ *    `projects/{project}/locations/{locationId}/gameServerClusters/{gameServerClusterId}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersPreviewDelete
  */
@@ -1418,9 +1434,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 /**
  *  Required. The resource name of the game server cluster, in the following
  *  form:
- *  `projects/{project}/locations/{location}/realms/{realm}/gameServerClusters/{cluster}`.
+ *  `projects/{project}/locations/{locationId}/realms/{realmId}/gameServerClusters/{gameServerClusterId}`.
  *  For example,
- *  `projects/my-project/locations/{location}/realms/zanzibar/gameServerClusters/my-onprem-cluster`.
+ *  `projects/my-project/locations/global/realms/zanzibar/gameServerClusters/my-gke-cluster`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1429,8 +1445,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 
 /**
  *  Required. Mask of fields to update. At least one path must be supplied in
- *  this field. For the `FieldMask` definition, see
- *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+ *  this field. For more information, see the [`FieldMask`
+ *  definition](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask).
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1445,9 +1461,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *    query.
  *  @param name Required. The resource name of the game server cluster, in the
  *    following form:
- *    `projects/{project}/locations/{location}/realms/{realm}/gameServerClusters/{cluster}`.
+ *    `projects/{project}/locations/{locationId}/realms/{realmId}/gameServerClusters/{gameServerClusterId}`.
  *    For example,
- *    `projects/my-project/locations/{location}/realms/zanzibar/gameServerClusters/my-onprem-cluster`.
+ *    `projects/my-project/locations/global/realms/zanzibar/gameServerClusters/my-gke-cluster`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersPreviewUpdate
  */
@@ -1468,7 +1484,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 
 /**
  *  Required. The name of the realm to retrieve, in the following form:
- *  `projects/{project}/locations/{location}/realms/{realm}`.
+ *  `projects/{project}/locations/{locationId}/realms/{realmId}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1478,7 +1494,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *  Gets details of a single realm.
  *
  *  @param name Required. The name of the realm to retrieve, in the following
- *    form: `projects/{project}/locations/{location}/realms/{realm}`.
+ *    form: `projects/{project}/locations/{locationId}/realms/{realmId}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsGet
  */
@@ -1496,32 +1512,35 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsRealmsList : GTLRGameServicesQuery
 
-/** Optional. The filter to apply to list results. */
+/**
+ *  Optional. The filter to apply to list results (see
+ *  [Filtering](https://google.aip.dev/160)).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. Specifies the ordering of results following syntax at
- *  https://cloud.google.com/apis/design/design_patterns#sorting_order.
+ *  Optional. Specifies the ordering of results following [Cloud API
+ *  syntax](https://cloud.google.com/apis/design/design_patterns#sorting_order).
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional. The maximum number of items to return. If unspecified, server will
- *  pick an appropriate default. Server may return fewer items than requested. A
- *  caller should only rely on response's next_page_token to determine if there
- *  are more realms left to be queried.
+ *  Optional. The maximum number of items to return. If unspecified, the server
+ *  picks an appropriate default. The server may return fewer items than
+ *  requested. A caller should only rely on the response's next_page_token to
+ *  determine if there are more realms left to be queried.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. The next_page_token value returned from a previous List request,
+ *  Optional. The next_page_token value returned from a previous list request,
  *  if any.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. The parent resource name, in the following form:
- *  `projects/{project}/locations/{location}`.
+ *  `projects/{project}/locations/{locationId}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1531,7 +1550,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *  Lists realms in a given project and location.
  *
  *  @param parent Required. The parent resource name, in the following form:
- *    `projects/{project}/locations/{location}`.
+ *    `projects/{project}/locations/{locationId}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsList
  *
@@ -1555,15 +1574,15 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 
 /**
  *  The resource name of the realm, in the following form:
- *  `projects/{project}/locations/{location}/realms/{realm}`. For example,
- *  `projects/my-project/locations/{location}/realms/my-realm`.
+ *  `projects/{project}/locations/{locationId}/realms/{realmId}`. For example,
+ *  `projects/my-project/locations/global/realms/my-realm`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The update mask applies to the resource. For the `FieldMask`
- *  definition, see
- *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+ *  Required. The update mask to apply to the resource. For more information,
+ *  see the [`FieldMask`
+ *  definition](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask).
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1576,8 +1595,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *
  *  @param object The @c GTLRGameServices_Realm to include in the query.
  *  @param name The resource name of the realm, in the following form:
- *    `projects/{project}/locations/{location}/realms/{realm}`. For example,
- *    `projects/my-project/locations/{location}/realms/my-realm`.
+ *    `projects/{project}/locations/{locationId}/realms/{realmId}`. For example,
+ *    `projects/my-project/locations/global/realms/my-realm`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsPatch
  */
@@ -1598,8 +1617,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 
 /**
  *  The resource name of the realm, in the following form:
- *  `projects/{project}/locations/{location}/realms/{realm}`. For example,
- *  `projects/my-project/locations/{location}/realms/my-realm`.
+ *  `projects/{project}/locations/{locationId}/realms/{realmId}`. For example,
+ *  `projects/my-project/locations/global/realms/my-realm`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1607,9 +1626,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 @property(nonatomic, strong, nullable) GTLRDateTime *previewTime;
 
 /**
- *  Required. The update mask applies to the resource. For the `FieldMask`
- *  definition, see
- *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+ *  Required. The update mask to apply to the resource. For more information,
+ *  see the [`FieldMask`
+ *  definition](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask).
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1622,8 +1641,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *
  *  @param object The @c GTLRGameServices_Realm to include in the query.
  *  @param name The resource name of the realm, in the following form:
- *    `projects/{project}/locations/{location}/realms/{realm}`. For example,
- *    `projects/my-project/locations/{location}/realms/my-realm`.
+ *    `projects/{project}/locations/{locationId}/realms/{realmId}`. For example,
+ *    `projects/my-project/locations/global/realms/my-realm`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsPreviewUpdate
  */

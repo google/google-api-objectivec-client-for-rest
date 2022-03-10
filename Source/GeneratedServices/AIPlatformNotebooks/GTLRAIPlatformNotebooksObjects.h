@@ -22,12 +22,14 @@
 
 @class GTLRAIPlatformNotebooks_AcceleratorConfig;
 @class GTLRAIPlatformNotebooks_Binding;
+@class GTLRAIPlatformNotebooks_BootImage;
 @class GTLRAIPlatformNotebooks_ContainerImage;
 @class GTLRAIPlatformNotebooks_DataprocParameters;
 @class GTLRAIPlatformNotebooks_Disk;
 @class GTLRAIPlatformNotebooks_EncryptionConfig;
 @class GTLRAIPlatformNotebooks_Environment;
 @class GTLRAIPlatformNotebooks_Event;
+@class GTLRAIPlatformNotebooks_Event_Details;
 @class GTLRAIPlatformNotebooks_Execution;
 @class GTLRAIPlatformNotebooks_ExecutionTemplate;
 @class GTLRAIPlatformNotebooks_ExecutionTemplate_Labels;
@@ -172,11 +174,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Ty
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Event_Type_EventTypeUnspecified;
 /**
+ *  The instance / runtime health is available. This event indicates that
+ *  instance / runtime health information.
+ *
+ *  Value: "HEALTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Event_Type_Health;
+/**
+ *  The instance / runtime is available. This event indicates that instance /
+ *  runtime underlying compute is operational.
+ *
+ *  Value: "HEARTBEAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Event_Type_Heartbeat;
+/**
  *  The instance / runtime is idle
  *
  *  Value: "IDLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Event_Type_Idle;
+/**
+ *  The instance / runtime is available. This event allows instance / runtime to
+ *  send Host maintenance information to Control Plane.
+ *  https://cloud.google.com/compute/docs/gpus/gpu-host-maintenance
+ *
+ *  Value: "MAINTENANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Event_Type_Maintenance;
 
 // ----------------------------------------------------------------------------
 // GTLRAIPlatformNotebooks_Execution.state
@@ -595,6 +619,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_
 // GTLRAIPlatformNotebooks_Runtime.healthState
 
 /**
+ *  The runtime has not installed health monitoring agent. Applies to ACTIVE
+ *  state.
+ *
+ *  Value: "AGENT_NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Runtime_HealthState_AgentNotInstalled;
+/**
+ *  The runtime health monitoring agent is not running. Applies to ACTIVE state.
+ *
+ *  Value: "AGENT_NOT_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Runtime_HealthState_AgentNotRunning;
+/**
  *  The runtime substate is unknown.
  *
  *  Value: "HEALTH_STATE_UNSPECIFIED"
@@ -759,6 +796,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorCo
  *  Value: "RUNTIME_ACCESS_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeAccessConfig_AccessType_RuntimeAccessTypeUnspecified;
+/**
+ *  Service Account mode. In Service Account mode, Runtime creator will specify
+ *  a SA that exists in the consumer project. Using Runtime Service Account
+ *  field. Users accessing the Runtime need ActAs (Service Account User)
+ *  permission.
+ *
+ *  Value: "SERVICE_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeAccessConfig_AccessType_ServiceAccount;
 /**
  *  Single user login.
  *
@@ -1201,6 +1247,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 
 /**
+ *  Definition of the boot image used by the Runtime. Used to facilitate runtime
+ *  upgradeability.
+ */
+@interface GTLRAIPlatformNotebooks_BootImage : GTLRObject
+@end
+
+
+/**
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRAIPlatformNotebooks_CancelOperationRequest : GTLRObject
@@ -1412,6 +1466,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  */
 @interface GTLRAIPlatformNotebooks_Event : GTLRObject
 
+/** Optional. Event details. This field is used to pass event information. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_Event_Details *details;
+
 /** Event report time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
 
@@ -1421,11 +1478,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  Likely values:
  *    @arg @c kGTLRAIPlatformNotebooks_Event_Type_EventTypeUnspecified Event is
  *        not specified. (Value: "EVENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAIPlatformNotebooks_Event_Type_Health The instance / runtime
+ *        health is available. This event indicates that instance / runtime
+ *        health information. (Value: "HEALTH")
+ *    @arg @c kGTLRAIPlatformNotebooks_Event_Type_Heartbeat The instance /
+ *        runtime is available. This event indicates that instance / runtime
+ *        underlying compute is operational. (Value: "HEARTBEAT")
  *    @arg @c kGTLRAIPlatformNotebooks_Event_Type_Idle The instance / runtime is
  *        idle (Value: "IDLE")
+ *    @arg @c kGTLRAIPlatformNotebooks_Event_Type_Maintenance The instance /
+ *        runtime is available. This event allows instance / runtime to send
+ *        Host maintenance information to Control Plane.
+ *        https://cloud.google.com/compute/docs/gpus/gpu-host-maintenance
+ *        (Value: "MAINTENANCE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
+@end
+
+
+/**
+ *  Optional. Event details. This field is used to pass event information.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAIPlatformNotebooks_Event_Details : GTLRObject
 @end
 
 
@@ -1639,6 +1719,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
+/**
+ *  The name of a Vertex AI [Tensorboard] resource to which this execution will
+ *  upload Tensorboard logs. Format:
+ *  `projects/{project}/locations/{location}/tensorboards/{tensorboard}`
+ */
+@property(nonatomic, copy, nullable) NSString *tensorboard;
+
 /** Parameters used in Vertex AI JobType executions. */
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_VertexAIParameters *vertexAiParameters;
 
@@ -1815,11 +1902,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  */
 @property(nonatomic, copy, nullable) NSString *bootDiskType;
 
+/**
+ *  Optional. Flag to enable ip forwarding or not, default false/off.
+ *  https://cloud.google.com/vpc/docs/using-routes#canipforward
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canIpForward;
+
 /** Use a container image to start the notebook instance. */
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_ContainerImage *containerImage;
 
 /** Output only. Instance creation time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. Email address of entity that sent original CreateInstance
+ *  request.
+ */
+@property(nonatomic, copy, nullable) NSString *creator;
 
 /**
  *  Specify a custom Cloud Storage path where the GPU driver is stored. If not
@@ -2885,14 +2986,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 
 /**
- *  Request for reseting a notebook instance
+ *  Request for resetting a notebook instance
  */
 @interface GTLRAIPlatformNotebooks_ResetInstanceRequest : GTLRObject
 @end
 
 
 /**
- *  Request for reseting a Managed Notebook Runtime.
+ *  Request for resetting a Managed Notebook Runtime.
  */
 @interface GTLRAIPlatformNotebooks_ResetRuntimeRequest : GTLRObject
 @end
@@ -2927,6 +3028,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  Output only. Runtime health_state.
  *
  *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_Runtime_HealthState_AgentNotInstalled The
+ *        runtime has not installed health monitoring agent. Applies to ACTIVE
+ *        state. (Value: "AGENT_NOT_INSTALLED")
+ *    @arg @c kGTLRAIPlatformNotebooks_Runtime_HealthState_AgentNotRunning The
+ *        runtime health monitoring agent is not running. Applies to ACTIVE
+ *        state. (Value: "AGENT_NOT_RUNNING")
  *    @arg @c kGTLRAIPlatformNotebooks_Runtime_HealthState_HealthStateUnspecified
  *        The runtime substate is unknown. (Value: "HEALTH_STATE_UNSPECIFIED")
  *    @arg @c kGTLRAIPlatformNotebooks_Runtime_HealthState_Healthy The runtime
@@ -3055,6 +3162,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  Likely values:
  *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAccessConfig_AccessType_RuntimeAccessTypeUnspecified
  *        Unspecified access. (Value: "RUNTIME_ACCESS_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAccessConfig_AccessType_ServiceAccount
+ *        Service Account mode. In Service Account mode, Runtime creator will
+ *        specify a SA that exists in the consumer project. Using Runtime
+ *        Service Account field. Users accessing the Runtime need ActAs (Service
+ *        Account User) permission. (Value: "SERVICE_ACCOUNT")
  *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAccessConfig_AccessType_SingleUser
  *        Single user login. (Value: "SINGLE_USER")
  */
@@ -3158,7 +3270,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  Specifies the selection and configuration of software inside the runtime.
  *  The properties to set on runtime. Properties keys are specified in
  *  `key:value` format, for example: * `idle_shutdown: true` *
- *  `idle_shutdown_timeout: 180` * `report-system-health: true`
+ *  `idle_shutdown_timeout: 180` * `enable_health_monitoring: true`
  */
 @interface GTLRAIPlatformNotebooks_RuntimeSoftwareConfig : GTLRObject
 
@@ -3190,11 +3302,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 @property(nonatomic, strong, nullable) NSNumber *idleShutdownTimeout;
 
 /**
- *  Install Nvidia Driver automatically.
+ *  Install Nvidia Driver automatically. Default: True
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *installGpuDriver;
+
+/**
+ *  Optional. Use a list of container images to use as Kernels in the notebook
+ *  instance.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAIPlatformNotebooks_ContainerImage *> *kernels;
 
 /**
  *  Cron expression in UTC timezone, used to schedule instance auto upgrade.
@@ -3208,6 +3326,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  (`gs://path-to-file/file-name`).
  */
 @property(nonatomic, copy, nullable) NSString *postStartupScript;
+
+/**
+ *  Output only. Bool indicating whether an newer image is available in an image
+ *  family.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *upgradeable;
 
 @end
 
@@ -3866,8 +3992,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  */
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_RuntimeAcceleratorConfig *acceleratorConfig;
 
+/** Optional. Boot image metadata used for runtime upgradeability. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_BootImage *bootImage;
+
 /**
- *  Optional. Use a list of container images to start the notebook instance.
+ *  Optional. Use a list of container images to use as Kernels in the notebook
+ *  instance.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAIPlatformNotebooks_ContainerImage *> *containerImages;
 
@@ -3947,6 +4077,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *        VIRTIO (Value: "VIRTIO_NET")
  */
 @property(nonatomic, copy, nullable) NSString *nicType;
+
+/**
+ *  Optional. Reserved IP Range name is used for VPC Peering. The subnetwork
+ *  allocation will use the range *name* if it's assigned. Example:
+ *  managed-notebooks-range-c PEERING_RANGE_NAME_3=managed-notebooks-range-c
+ *  gcloud compute addresses create $PEERING_RANGE_NAME_3 \\ --global \\
+ *  --prefix-length=24 \\ --description="Google Cloud Managed Notebooks Range 24
+ *  c" \\ --network=$NETWORK \\ --addresses=192.168.0.0 \\ --purpose=VPC_PEERING
+ *  Field value will be: `managed-notebooks-range-c`
+ */
+@property(nonatomic, copy, nullable) NSString *reservedIpRange;
 
 /** Optional. Shielded VM Instance configuration settings. */
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_RuntimeShieldedInstanceConfig *shieldedInstanceConfig;

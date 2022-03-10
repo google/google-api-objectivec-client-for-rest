@@ -31,25 +31,6 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
 
 @end
 
-@implementation GTLRArtifactRegistryQuery_OperationsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRArtifactRegistryQuery_OperationsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRArtifactRegistry_Operation class];
-  query.loggingName = @"artifactregistry.operations.get";
-  return query;
-}
-
-@end
-
 @implementation GTLRArtifactRegistryQuery_ProjectsGetProjectSettings
 
 @dynamic name;
@@ -64,6 +45,25 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
   query.name = name;
   query.expectedObjectClass = [GTLRArtifactRegistry_ProjectSettings class];
   query.loggingName = @"artifactregistry.projects.getProjectSettings";
+  return query;
+}
+
+@end
+
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRArtifactRegistryQuery_ProjectsLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRArtifactRegistry_Operation class];
+  query.loggingName = @"artifactregistry.projects.locations.operations.get";
   return query;
 }
 
@@ -230,7 +230,7 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
 
 @implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -284,62 +284,6 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
   query.resource = resource;
   query.expectedObjectClass = [GTLRArtifactRegistry_Policy class];
   query.loggingName = @"artifactregistry.projects.locations.repositories.getIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGooGetArtifactsImport
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRArtifactRegistry_ImportGooGetArtifactsRequest *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/gooGetArtifacts:import";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGooGetArtifactsImport *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRArtifactRegistry_Operation class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.gooGetArtifacts.import";
-  return query;
-}
-
-@end
-
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGoogetArtifactsUpload
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRArtifactRegistry_UploadGooGetArtifactRequest *)object
-                         parent:(NSString *)parent
-               uploadParameters:(GTLRUploadParameters *)uploadParameters {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/googetArtifacts:create";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGoogetArtifactsUpload *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.uploadParameters = uploadParameters;
-  query.expectedObjectClass = [GTLRArtifactRegistry_UploadGooGetArtifactMediaResponse class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.googetArtifacts.upload";
   return query;
 }
 

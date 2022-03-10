@@ -81,6 +81,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerStatusLive;
 FOUNDATION_EXTERN NSString * const kGTLRBloggerStatusPending;
 /** Value: "SCHEDULED" */
 FOUNDATION_EXTERN NSString * const kGTLRBloggerStatusScheduled;
+/** Value: "SOFT_TRASHED" */
+FOUNDATION_EXTERN NSString * const kGTLRBloggerStatusSoftTrashed;
 /** Value: "SPAM" */
 FOUNDATION_EXTERN NSString * const kGTLRBloggerStatusSpam;
 
@@ -700,6 +702,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *  Likely values:
  *    @arg @c kGTLRBloggerStatusLive Value "LIVE"
  *    @arg @c kGTLRBloggerStatusDraft Value "DRAFT"
+ *    @arg @c kGTLRBloggerStatusSoftTrashed Value "SOFT_TRASHED"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *status;
 
@@ -1109,6 +1112,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @arg @c kGTLRBloggerStatusLive Value "LIVE"
  *    @arg @c kGTLRBloggerStatusDraft Value "DRAFT"
  *    @arg @c kGTLRBloggerStatusScheduled Value "SCHEDULED"
+ *    @arg @c kGTLRBloggerStatusSoftTrashed Value "SOFT_TRASHED"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *status;
 
@@ -1428,6 +1432,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @arg @c kGTLRBloggerStatusLive Value "LIVE"
  *    @arg @c kGTLRBloggerStatusDraft Value "DRAFT"
  *    @arg @c kGTLRBloggerStatusScheduled Value "SCHEDULED"
+ *    @arg @c kGTLRBloggerStatusSoftTrashed Value "SOFT_TRASHED"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *status;
 

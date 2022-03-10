@@ -453,7 +453,10 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Maximum number of results to return. Maximum and default are 100. */
+/**
+ *  Maximum number of results to return. Default value is 100. Maximum value is
+ *  200.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /** Token to specify next page in the list. */

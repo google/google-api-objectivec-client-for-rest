@@ -27,6 +27,7 @@
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentId;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentIdGCSManagedDocumentId;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3ImportDocumentsMetadataIndividualImportStatus;
+@class GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataUpdatedDocument;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadataDatasetValidation;
 @class GTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata;
@@ -48,6 +49,7 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageLine;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageMatrix;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageParagraph;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageSymbol;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageTable;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageTableTableCell;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageTableTableRow;
@@ -88,6 +90,7 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageLine;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageMatrix;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageParagraph;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageSymbol;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageTable;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageTableTableCell;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageTableTableRow;
@@ -134,6 +137,7 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLine;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageMatrix;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageParagraph;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageSymbol;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTable;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTableTableCell;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTableTableRow;
@@ -1714,6 +1718,56 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
+ *  The metadata proto of ResyncDataset method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
+
+/**
+ *  Returns the newly added document Cloud Storage prefix if the documents are
+ *  founded in Cloud Storage while not in Document Service storage.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataUpdatedDocument *> *newlyAddedDocuments;
+
+@end
+
+
+/**
+ *  The proto for updated document in resync pipeline.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataUpdatedDocument : GTLRObject
+
+/**
+ *  The prefix of cloud storage, identifies the destination document which
+ *  should be updated by resync pipeline.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationPrefix;
+
+/**
+ *  The prefix of cloud storage, identifies the original document which should
+ *  be updated by resync pipeline.
+ */
+@property(nonatomic, copy, nullable) NSString *sourcePrefix;
+
+/**
+ *  The final status of the documents which should be updated by resync
+ *  pipeline.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleRpcStatus *status;
+
+@end
+
+
+/**
+ *  The response proto of ResyncDataset method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetResponse : GTLRObject
+@end
+
+
+/**
  *  The revision reference specifies which revision on the document to read.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference : GTLRObject
@@ -2098,7 +2152,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentEntity *> *entities;
 
-/** Relationship among Document.entities. */
+/** Placeholder. Relationship among Document.entities. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentEntityRelation *> *entityRelations;
 
 /** Any error that occurred while processing this document. */
@@ -2114,7 +2168,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** Visual page layout for the Document. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPage *> *pages;
 
-/** Revision history of this document. */
+/** Placeholder. Revision history of this document. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentRevision *> *revisions;
 
 /**
@@ -2127,13 +2181,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, copy, nullable) NSString *text;
 
 /**
- *  A list of text corrections made to [Document.text]. This is usually used for
- *  annotating corrections to OCR mistakes. Text changes for a given revision
- *  may not overlap with each other.
+ *  Placeholder. A list of text corrections made to [Document.text]. This is
+ *  usually used for annotating corrections to OCR mistakes. Text changes for a
+ *  given revision may not overlap with each other.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentTextChange *> *textChanges;
 
-/** Styles for the Document.text. */
+/** Placeholder. Styles for the Document.text. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentStyle *> *textStyles;
 
 /**
@@ -2358,6 +2412,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** The history of this page. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance *provenance;
 
+/** A list of visually detected symbols on the page. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageSymbol *> *symbols;
+
 /** A list of visually detected tables on the page. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageTable *> *tables;
 
@@ -2481,7 +2538,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /**
  *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
  *  information, see
- *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+ *  https://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -2708,6 +2765,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /** The history of this annotation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance *provenance;
+
+@end
+
+
+/**
+ *  A detected symbol.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageSymbol : GTLRObject
+
+/** A list of detected languages together with confidence. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage *> *detectedLanguages;
+
+/** Layout for Symbol. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageLayout *layout;
 
 @end
 
@@ -3079,7 +3150,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  Contains the content of the text span so that users do not have to look it
- *  up in the text_segments.
+ *  up in the text_segments. It is always populated for formFields.
  */
 @property(nonatomic, copy, nullable) NSString *content;
 
@@ -3358,7 +3429,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentEntity *> *entities;
 
-/** Relationship among Document.entities. */
+/** Placeholder. Relationship among Document.entities. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentEntityRelation *> *entityRelations;
 
 /** Any error that occurred while processing this document. */
@@ -3377,7 +3448,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** Visual page layout for the Document. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPage *> *pages;
 
-/** Revision history of this document. */
+/** Placeholder. Revision history of this document. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentRevision *> *revisions;
 
 /**
@@ -3390,13 +3461,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, copy, nullable) NSString *text;
 
 /**
- *  A list of text corrections made to [Document.text]. This is usually used for
- *  annotating corrections to OCR mistakes. Text changes for a given revision
- *  may not overlap with each other.
+ *  Placeholder. A list of text corrections made to [Document.text]. This is
+ *  usually used for annotating corrections to OCR mistakes. Text changes for a
+ *  given revision may not overlap with each other.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentTextChange *> *textChanges;
 
-/** Styles for the Document.text. */
+/** Placeholder. Styles for the Document.text. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentStyle *> *textStyles;
 
 /**
@@ -3652,6 +3723,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** The history of this page. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance *provenance;
 
+/** A list of visually detected symbols on the page. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageSymbol *> *symbols;
+
 /** A list of visually detected tables on the page. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageTable *> *tables;
 
@@ -3775,7 +3849,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /**
  *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
  *  information, see
- *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+ *  https://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -4002,6 +4076,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /** The history of this annotation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance *provenance;
+
+@end
+
+
+/**
+ *  A detected symbol.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageSymbol : GTLRObject
+
+/** A list of detected languages together with confidence. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage *> *detectedLanguages;
+
+/** Layout for Symbol. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageLayout *layout;
 
 @end
 
@@ -4373,7 +4461,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  Contains the content of the text span so that users do not have to look it
- *  up in the text_segments.
+ *  up in the text_segments. It is always populated for formFields.
  */
 @property(nonatomic, copy, nullable) NSString *content;
 
@@ -5104,7 +5192,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentEntity *> *entities;
 
-/** Relationship among Document.entities. */
+/** Placeholder. Relationship among Document.entities. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentEntityRelation *> *entityRelations;
 
 /** Any error that occurred while processing this document. */
@@ -5120,7 +5208,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** Visual page layout for the Document. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPage *> *pages;
 
-/** Revision history of this document. */
+/** Placeholder. Revision history of this document. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentRevision *> *revisions;
 
 /**
@@ -5133,13 +5221,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, copy, nullable) NSString *text;
 
 /**
- *  A list of text corrections made to [Document.text]. This is usually used for
- *  annotating corrections to OCR mistakes. Text changes for a given revision
- *  may not overlap with each other.
+ *  Placeholder. A list of text corrections made to [Document.text]. This is
+ *  usually used for annotating corrections to OCR mistakes. Text changes for a
+ *  given revision may not overlap with each other.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentTextChange *> *textChanges;
 
-/** Styles for the Document.text. */
+/** Placeholder. Styles for the Document.text. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentStyle *> *textStyles;
 
 /**
@@ -5387,6 +5475,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** The history of this page. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance;
 
+/** A list of visually detected symbols on the page. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageSymbol *> *symbols;
+
 /** A list of visually detected tables on the page. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTable *> *tables;
 
@@ -5510,7 +5601,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /**
  *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
  *  information, see
- *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+ *  https://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -5737,6 +5828,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /** The history of this annotation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance;
+
+@end
+
+
+/**
+ *  A detected symbol.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageSymbol : GTLRObject
+
+/** A list of detected languages together with confidence. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDetectedLanguage *> *detectedLanguages;
+
+/** Layout for Symbol. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout *layout;
 
 @end
 
@@ -6108,7 +6213,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  Contains the content of the text span so that users do not have to look it
- *  up in the text_segments.
+ *  up in the text_segments. It is always populated for formFields.
  */
 @property(nonatomic, copy, nullable) NSString *content;
 
@@ -6418,7 +6523,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/** The processor type, e.g., INVOICE_PARSING, W2_PARSING, etc. */
+/**
+ *  The processor type, e.g., OCR_PROCESSOR, INVOICE_PROCESSOR, etc. To get a
+ *  list of processors types, see FetchProcessorTypes.
+ */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -6528,6 +6636,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /** The display name of the processor version. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/** The KMS key name used for encryption. */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+/** The KMS key version with which data is encrypted. */
+@property(nonatomic, copy, nullable) NSString *kmsKeyVersionName;
 
 /**
  *  The resource name of the processor version. Format:
@@ -7099,7 +7213,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  GTLRDocument_GoogleTypeDate
+ *  Represents a whole or partial calendar date, such as a birthday. The time of
+ *  day and time zone are either specified elsewhere or are insignificant. The
+ *  date is relative to the Gregorian Calendar. This can represent one of the
+ *  following: * A full date, with non-zero year, month, and day values * A
+ *  month and day, with a zero year (e.g., an anniversary) * A year on its own,
+ *  with a zero month and a zero day * A year and month, with a zero day (e.g.,
+ *  a credit card expiration date) Related types: * google.type.TimeOfDay *
+ *  google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLRDocument_GoogleTypeDate : GTLRObject
 
@@ -7333,8 +7454,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /**
  *  Required. CLDR region code of the country/region of the address. This is
  *  never inferred and it is up to the user to ensure the value is correct. See
- *  http://cldr.unicode.org/ and
- *  http://www.unicode.org/cldr/charts/30/supplemental/territory_information.html
+ *  https://cldr.unicode.org/ and
+ *  https://www.unicode.org/cldr/charts/30/supplemental/territory_information.html
  *  for details. Example: "CH" for Switzerland.
  */
 @property(nonatomic, copy, nullable) NSString *regionCode;

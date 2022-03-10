@@ -548,6 +548,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1PrepareS
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails_ConcurrencyMode_Optimistic;
 /**
+ *  Optimistic concurrency with entity groups.
+ *
+ *  Value: "OPTIMISTIC_WITH_ENTITY_GROUPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails_ConcurrencyMode_OptimisticWithEntityGroups;
+/**
  *  Pessimistic concurrency.
  *
  *  Value: "PESSIMISTIC"
@@ -569,6 +575,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Redirect
  *  Value: "OPTIMISTIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails_ConcurrencyMode_Optimistic;
+/**
+ *  Optimistic concurrency with entity groups.
+ *
+ *  Value: "OPTIMISTIC_WITH_ENTITY_GROUPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails_ConcurrencyMode_OptimisticWithEntityGroups;
 /**
  *  Pessimistic concurrency.
  *
@@ -1735,6 +1747,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *        Unspecified. (Value: "CONCURRENCY_MODE_UNSPECIFIED")
  *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails_ConcurrencyMode_Optimistic
  *        Optimistic concurrency. (Value: "OPTIMISTIC")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails_ConcurrencyMode_OptimisticWithEntityGroups
+ *        Optimistic concurrency with entity groups. (Value:
+ *        "OPTIMISTIC_WITH_ENTITY_GROUPS")
  *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails_ConcurrencyMode_Pessimistic
  *        Pessimistic concurrency. (Value: "PESSIMISTIC")
  */
@@ -1780,6 +1795,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *        Unspecified. (Value: "CONCURRENCY_MODE_UNSPECIFIED")
  *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails_ConcurrencyMode_Optimistic
  *        Optimistic concurrency. (Value: "OPTIMISTIC")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails_ConcurrencyMode_OptimisticWithEntityGroups
+ *        Optimistic concurrency with entity groups. (Value:
+ *        "OPTIMISTIC_WITH_ENTITY_GROUPS")
  *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails_ConcurrencyMode_Pessimistic
  *        Pessimistic concurrency. (Value: "PESSIMISTIC")
  */

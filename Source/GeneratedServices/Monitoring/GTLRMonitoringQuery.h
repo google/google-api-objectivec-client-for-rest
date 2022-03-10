@@ -703,8 +703,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @end
 
 /**
- *  Lists time series that match a filter. This method does not require a
- *  Workspace.
+ *  Lists time series that match a filter.
  *
  *  Method: monitoring.folders.timeSeries.list
  *
@@ -1296,8 +1295,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  Fetches a @c GTLRMonitoring_ListTimeSeriesResponse.
  *
- *  Lists time series that match a filter. This method does not require a
- *  Workspace.
+ *  Lists time series that match a filter.
  *
  *  @param name Required. The project
  *    (https://cloud.google.com/monitoring/api/v3#project_name), organization or
@@ -1312,8 +1310,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @end
 
 /**
- *  Lists time series that match a filter. This method does not require a
- *  Workspace.
+ *  Lists time series that match a filter.
  *
  *  Method: monitoring.organizations.timeSeries.list
  *
@@ -1905,8 +1902,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  Fetches a @c GTLRMonitoring_ListTimeSeriesResponse.
  *
- *  Lists time series that match a filter. This method does not require a
- *  Workspace.
+ *  Lists time series that match a filter.
  *
  *  @param name Required. The project
  *    (https://cloud.google.com/monitoring/api/v3#project_name), organization or
@@ -2581,7 +2577,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @end
 
 /**
- *  Gets a single metric descriptor. This method does not require a Workspace.
+ *  Gets a single metric descriptor.
  *
  *  Method: monitoring.projects.metricDescriptors.get
  *
@@ -2604,7 +2600,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  Fetches a @c GTLRMonitoring_MetricDescriptor.
  *
- *  Gets a single metric descriptor. This method does not require a Workspace.
+ *  Gets a single metric descriptor.
  *
  *  @param name Required. The metric descriptor on which to execute the request.
  *    The format is:
@@ -2619,8 +2615,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @end
 
 /**
- *  Lists metric descriptors that match a filter. This method does not require a
- *  Workspace.
+ *  Lists metric descriptors that match a filter.
  *
  *  Method: monitoring.projects.metricDescriptors.list
  *
@@ -2662,8 +2657,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  Fetches a @c GTLRMonitoring_ListMetricDescriptorsResponse.
  *
- *  Lists metric descriptors that match a filter. This method does not require a
- *  Workspace.
+ *  Lists metric descriptors that match a filter.
  *
  *  @param name Required. The project
  *    (https://cloud.google.com/monitoring/api/v3#project_name) on which to
@@ -2680,8 +2674,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @end
 
 /**
- *  Gets a single monitored resource descriptor. This method does not require a
- *  Workspace.
+ *  Gets a single monitored resource descriptor.
  *
  *  Method: monitoring.projects.monitoredResourceDescriptors.get
  *
@@ -2703,8 +2696,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  Fetches a @c GTLRMonitoring_MonitoredResourceDescriptor.
  *
- *  Gets a single monitored resource descriptor. This method does not require a
- *  Workspace.
+ *  Gets a single monitored resource descriptor.
  *
  *  @param name Required. The monitored resource descriptor to get. The format
  *    is:
@@ -2718,8 +2710,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @end
 
 /**
- *  Lists monitored resource descriptors that match a filter. This method does
- *  not require a Workspace.
+ *  Lists monitored resource descriptors that match a filter.
  *
  *  Method: monitoring.projects.monitoredResourceDescriptors.list
  *
@@ -2760,8 +2751,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  Fetches a @c GTLRMonitoring_ListMonitoredResourceDescriptorsResponse.
  *
- *  Lists monitored resource descriptors that match a filter. This method does
- *  not require a Workspace.
+ *  Lists monitored resource descriptors that match a filter.
  *
  *  @param name Required. The project
  *    (https://cloud.google.com/monitoring/api/v3#project_name) on which to
@@ -3347,8 +3337,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @end
 
 /**
- *  Lists time series that match a filter. This method does not require a
- *  Workspace.
+ *  Lists time series that match a filter.
  *
  *  Method: monitoring.projects.timeSeries.list
  *
@@ -3940,8 +3929,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  Fetches a @c GTLRMonitoring_ListTimeSeriesResponse.
  *
- *  Lists time series that match a filter. This method does not require a
- *  Workspace.
+ *  Lists time series that match a filter.
  *
  *  @param name Required. The project
  *    (https://cloud.google.com/monitoring/api/v3#project_name), organization or
@@ -3956,8 +3944,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @end
 
 /**
- *  Queries time series using Monitoring Query Language. This method does not
- *  require a Workspace.
+ *  Queries time series using Monitoring Query Language.
  *
  *  Method: monitoring.projects.timeSeries.query
  *
@@ -3978,8 +3965,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  Fetches a @c GTLRMonitoring_QueryTimeSeriesResponse.
  *
- *  Queries time series using Monitoring Query Language. This method does not
- *  require a Workspace.
+ *  Queries time series using Monitoring Query Language.
  *
  *  @param object The @c GTLRMonitoring_QueryTimeSeriesRequest to include in the
  *    query.

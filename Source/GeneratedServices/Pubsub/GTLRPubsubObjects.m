@@ -560,9 +560,10 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 //
 
 @implementation GTLRPubsub_Subscription
-@dynamic ackDeadlineSeconds, deadLetterPolicy, detached, enableMessageOrdering,
-         expirationPolicy, filter, labels, messageRetentionDuration, name,
-         pushConfig, retainAckedMessages, retryPolicy, state, topic,
+@dynamic ackDeadlineSeconds, deadLetterPolicy, detached,
+         enableExactlyOnceDelivery, enableMessageOrdering, expirationPolicy,
+         filter, labels, messageRetentionDuration, name, pushConfig,
+         retainAckedMessages, retryPolicy, state, topic,
          topicMessageRetentionDuration;
 @end
 

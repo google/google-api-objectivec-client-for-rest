@@ -27,6 +27,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+/**
+ *  Authorization scope: Private Service:
+ *  https://www.googleapis.com/auth/playintegrity
+ *
+ *  Value "https://www.googleapis.com/auth/playintegrity"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePlayIntegrity;
+
+// ----------------------------------------------------------------------------
+//   GTLRPlayIntegrityService
+//
+
 /**
  *  Service for executing Google Play Integrity API queries.
  *

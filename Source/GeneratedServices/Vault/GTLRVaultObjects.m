@@ -704,7 +704,7 @@ NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemails = @"VOICEMAILS";
 //
 
 @implementation GTLRVault_MailExportOptions
-@dynamic exportFormat, showConfidentialModeContent;
+@dynamic exportFormat, showConfidentialModeContent, useNewExport;
 @end
 
 

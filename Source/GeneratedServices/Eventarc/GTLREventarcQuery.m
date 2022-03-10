@@ -424,7 +424,7 @@
 
 @implementation GTLREventarcQuery_ProjectsLocationsTriggersList
 
-@dynamic orderBy, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

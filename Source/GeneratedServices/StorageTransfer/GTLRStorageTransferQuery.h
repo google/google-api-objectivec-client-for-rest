@@ -558,7 +558,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Not used. */
+/**
+ *  Required. The name of the type being listed; must be `transferOperations`.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** The list page size. The max allowed value is 256. */
@@ -573,7 +575,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists transfer operations. Operations are ordered by their creation time in
  *  reverse chronological order.
  *
- *  @param name Not used.
+ *  @param name Required. The name of the type being listed; must be
+ *    `transferOperations`.
  *  @param filter Required. A list of query parameters specified as JSON text in
  *    the form of: `{"projectId":"my_project_id",
  *    "jobNames":["jobid1","jobid2",...],

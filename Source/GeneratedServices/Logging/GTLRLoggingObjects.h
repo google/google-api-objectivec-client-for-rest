@@ -44,6 +44,7 @@
 @class GTLRLogging_LogMetric;
 @class GTLRLogging_LogMetric_LabelExtractors;
 @class GTLRLogging_LogSink;
+@class GTLRLogging_LogSplit;
 @class GTLRLogging_LogView;
 @class GTLRLogging_MetricDescriptor;
 @class GTLRLogging_MetricDescriptorMetadata;
@@ -328,7 +329,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_Vers
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -348,7 +349,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Alp
 FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
- *  information, see the “Deprecation Policy” section of our Terms of Service
+ *  information, see the "Deprecation Policy" section of our Terms of Service
  *  (https://cloud.google.com/terms/) and the Google Cloud Platform Subject to
  *  the Deprecation Policy (https://cloud.google.com/terms/deprecation)
  *  documentation.
@@ -479,7 +480,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptor_ValueType_Value
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -499,7 +500,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchS
 FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
- *  information, see the “Deprecation Policy” section of our Terms of Service
+ *  information, see the "Deprecation Policy" section of our Terms of Service
  *  (https://cloud.google.com/terms/) and the Google Cloud Platform Subject to
  *  the Deprecation Policy (https://cloud.google.com/terms/deprecation)
  *  documentation.
@@ -551,7 +552,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchS
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -571,7 +572,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
 FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
- *  information, see the “Deprecation Policy” section of our Terms of Service
+ *  information, see the "Deprecation Policy" section of our Terms of Service
  *  (https://cloud.google.com/terms/) and the Google Cloud Platform Subject to
  *  the Deprecation Policy (https://cloud.google.com/terms/deprecation)
  *  documentation.
@@ -1719,6 +1720,12 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  */
 @property(nonatomic, copy, nullable) NSString *spanId;
 
+/**
+ *  Optional. Information indicating this LogEntry is part of a sequence of
+ *  multiple log entries split from a single LogEntry.
+ */
+@property(nonatomic, strong, nullable) GTLRLogging_LogSplit *split;
+
 /** The log entry payload, represented as a Unicode string (UTF-8). */
 @property(nonatomic, copy, nullable) NSString *textPayload;
 
@@ -2261,6 +2268,38 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
+ *  Additional information used to correlate multiple log entries. Used when a
+ *  single LogEntry would exceed the Google Cloud Logging size limit and is
+ *  split across multiple log entries.
+ */
+@interface GTLRLogging_LogSplit : GTLRObject
+
+/**
+ *  The index of this LogEntry in the sequence of split log entries. Log entries
+ *  are given |index| values 0, 1, ..., n-1 for a sequence of n log entries.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
+
+/**
+ *  The total number of log entries that the original LogEntry was split into.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSplits;
+
+/**
+ *  A globally unique identifier for all log entries in a sequence of split log
+ *  entries. All log entries with the same |LogSplit.uid| are assumed to be part
+ *  of the same sequence of split log entries.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+@end
+
+
+/**
  *  Describes a view over log entries in a bucket.
  */
 @interface GTLRLogging_LogView : GTLRObject
@@ -2336,7 +2375,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *        use. By Alpha, all significant design issues are resolved and we are
  *        in the process of verifying functionality. Alpha customers need to
  *        apply for access, agree to applicable terms, and have their projects
- *        allowlisted. Alpha releases don’t have to be feature complete, no SLAs
+ *        allowlisted. Alpha releases don't have to be feature complete, no SLAs
  *        are provided, and there are no technical support obligations, but they
  *        will be far enough along that customers can actually use them in test
  *        environments or for limited-use tests -- just like they would in
@@ -2349,7 +2388,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *        production use cases. (Value: "BETA")
  *    @arg @c kGTLRLogging_MetricDescriptor_LaunchStage_Deprecated Deprecated
  *        features are scheduled to be shut down and removed. For more
- *        information, see the “Deprecation Policy” section of our Terms of
+ *        information, see the "Deprecation Policy" section of our Terms of
  *        Service (https://cloud.google.com/terms/) and the Google Cloud
  *        Platform Subject to the Deprecation Policy
  *        (https://cloud.google.com/terms/deprecation) documentation. (Value:
@@ -2514,7 +2553,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *        widespread use. By Alpha, all significant design issues are resolved
  *        and we are in the process of verifying functionality. Alpha customers
  *        need to apply for access, agree to applicable terms, and have their
- *        projects allowlisted. Alpha releases don’t have to be feature
+ *        projects allowlisted. Alpha releases don't have to be feature
  *        complete, no SLAs are provided, and there are no technical support
  *        obligations, but they will be far enough along that customers can
  *        actually use them in test environments or for limited-use tests --
@@ -2527,7 +2566,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *        production use cases. (Value: "BETA")
  *    @arg @c kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Deprecated
  *        Deprecated features are scheduled to be shut down and removed. For
- *        more information, see the “Deprecation Policy” section of our Terms of
+ *        more information, see the "Deprecation Policy" section of our Terms of
  *        Service (https://cloud.google.com/terms/) and the Google Cloud
  *        Platform Subject to the Deprecation Policy
  *        (https://cloud.google.com/terms/deprecation) documentation. (Value:
@@ -2654,7 +2693,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *        for widespread use. By Alpha, all significant design issues are
  *        resolved and we are in the process of verifying functionality. Alpha
  *        customers need to apply for access, agree to applicable terms, and
- *        have their projects allowlisted. Alpha releases don’t have to be
+ *        have their projects allowlisted. Alpha releases don't have to be
  *        feature complete, no SLAs are provided, and there are no technical
  *        support obligations, but they will be far enough along that customers
  *        can actually use them in test environments or for limited-use tests --
@@ -2667,7 +2706,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *        limited production use cases. (Value: "BETA")
  *    @arg @c kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Deprecated
  *        Deprecated features are scheduled to be shut down and removed. For
- *        more information, see the “Deprecation Policy” section of our Terms of
+ *        more information, see the "Deprecation Policy" section of our Terms of
  *        Service (https://cloud.google.com/terms/) and the Google Cloud
  *        Platform Subject to the Deprecation Policy
  *        (https://cloud.google.com/terms/deprecation) documentation. (Value:
@@ -3031,6 +3070,38 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableDefaultSink;
+
+/**
+ *  Optional. The resource name for the configured Cloud KMS key.KMS key name
+ *  format:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION]/keyRings/[KEYRING]/cryptoKeys/[KEY]"
+ *  For
+ *  example:"projects/my-project/locations/us-central1/keyRings/my-ring/cryptoKeys/my-key"To
+ *  enable CMEK for the Log Router, set this field to a valid kms_key_name for
+ *  which the associated service account has the required
+ *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key.The
+ *  Cloud KMS key used by the Log Router can be updated by changing the
+ *  kms_key_name to a new valid key name. Encryption operations that are in
+ *  progress will be completed with the key that was in use when they started.
+ *  Decryption operations will be completed using the key that was used at the
+ *  time of encryption unless access to that key has been revoked.To disable
+ *  CMEK for the Log Router, set this field to an empty string.See Enabling CMEK
+ *  for Log Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+/**
+ *  Output only. The service account that will be used by the Log Router to
+ *  access your Cloud KMS key.Before enabling CMEK for Log Router, you must
+ *  first assign the role roles/cloudkms.cryptoKeyEncrypterDecrypter to the
+ *  service account that the Log Router will use to access your Cloud KMS key.
+ *  Use GetSettings to obtain the service account ID.See Enabling CMEK for Log
+ *  Router (https://cloud.google.com/logging/docs/routing/managed-encryption)
+ *  for more information.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsServiceAccountId;
 
 /** Output only. The resource name of the settings. */
 @property(nonatomic, copy, nullable) NSString *name;

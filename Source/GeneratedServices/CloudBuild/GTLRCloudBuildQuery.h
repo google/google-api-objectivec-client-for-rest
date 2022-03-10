@@ -347,7 +347,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The parent of the collection of `Builds`. Format:
- *  `projects/{project}/locations/location`
+ *  `projects/{project}/locations/{location}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1150,7 +1150,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The parent of the collection of `Builds`. Format:
- *  `projects/{project}/locations/location`
+ *  `projects/{project}/locations/{location}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1164,7 +1164,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  in-progress, or may have finished successfully or unsuccessfully.
  *
  *  @param parent The parent of the collection of `Builds`. Format:
- *    `projects/{project}/locations/location`
+ *    `projects/{project}/locations/{location}`
  *
  *  @return GTLRCloudBuildQuery_ProjectsLocationsBuildsList
  *

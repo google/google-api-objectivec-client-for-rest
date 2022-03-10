@@ -300,7 +300,7 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
 //
 
 @implementation GTLRCloudDeploy_GkeCluster
-@dynamic cluster;
+@dynamic cluster, internalIp;
 @end
 
 

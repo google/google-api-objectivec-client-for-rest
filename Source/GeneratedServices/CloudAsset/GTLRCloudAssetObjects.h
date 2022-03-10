@@ -30,6 +30,7 @@
 @class GTLRCloudAsset_ConditionContext;
 @class GTLRCloudAsset_ConditionEvaluation;
 @class GTLRCloudAsset_Date;
+@class GTLRCloudAsset_EffectiveIamPolicy;
 @class GTLRCloudAsset_Explanation;
 @class GTLRCloudAsset_Explanation_MatchedPermissions;
 @class GTLRCloudAsset_Expr;
@@ -93,6 +94,7 @@
 @class GTLRCloudAsset_PartitionSpec;
 @class GTLRCloudAsset_Permissions;
 @class GTLRCloudAsset_Policy;
+@class GTLRCloudAsset_PolicyInfo;
 @class GTLRCloudAsset_PubsubDestination;
 @class GTLRCloudAsset_QueryContent;
 @class GTLRCloudAsset_RelatedAsset;
@@ -1099,6 +1101,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
+ *  A response message for AssetService.BatchGetEffectiveIamPolicies.
+ */
+@interface GTLRCloudAsset_BatchGetEffectiveIamPoliciesResponse : GTLRObject
+
+/**
+ *  The effective policies for a batch of resources. Note that the results order
+ *  is the same as the order of BatchGetEffectiveIamPoliciesRequest.names. When
+ *  a resource does not have any effective IAM policies, its corresponding
+ *  policy_result will contain empty EffectiveIamPolicy.policies.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_EffectiveIamPolicy *> *policyResults;
+
+@end
+
+
+/**
  *  A BigQuery destination for exporting assets to.
  */
 @interface GTLRCloudAsset_BigQueryDestination : GTLRObject
@@ -1107,7 +1125,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  Required. The BigQuery dataset in format
  *  "projects/projectId/datasets/datasetId", to which the snapshot result should
  *  be exported. If this dataset does not exist, the export call returns an
- *  INVALID_ARGUMENT error.
+ *  INVALID_ARGUMENT error. Setting the `contentType` for `exportAssets`
+ *  determines the
+ *  [schema](/asset-inventory/docs/exporting-to-bigquery#bigquery-schema) of the
+ *  BigQuery table. Setting `separateTablesPerAssetType` to `TRUE` also
+ *  influences the schema.
  */
 @property(nonatomic, copy, nullable) NSString *dataset;
 
@@ -1301,11 +1323,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  Represents a whole or partial calendar date, such as a birthday. The time of
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
- *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day, with a zero year (e.g., an anniversary) * A year on its own,
- *  with a zero month and a zero day * A year and month, with a zero day (e.g.,
- *  a credit card expiration date) Related types: * google.type.TimeOfDay *
- *  google.type.DateTime * google.protobuf.Timestamp
+ *  following: * A full date, with non-zero year, month, and day values. * A
+ *  month and day, with a zero year (for example, an anniversary). * A year on
+ *  its own, with a zero month and a zero day. * A year and month, with a zero
+ *  day (for example, a credit card expiration date). Related types: *
+ *  google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLRCloudAsset_Date : GTLRObject
 
@@ -1333,6 +1355,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *year;
+
+@end
+
+
+/**
+ *  The effective IAM policies on one resource.
+ */
+@interface GTLRCloudAsset_EffectiveIamPolicy : GTLRObject
+
+/**
+ *  The [full_resource_name]
+ *  (https://cloud.google.com/asset-inventory/docs/resource-name-format) for
+ *  which the policies are computed. This is one of the
+ *  BatchGetEffectiveIamPoliciesRequest.names the caller provides in the
+ *  request.
+ */
+@property(nonatomic, copy, nullable) NSString *fullResourceName;
+
+/**
+ *  The effective policies for the full_resource_name. These policies include
+ *  the policy set on the full_resource_name and those set on its parents and
+ *  ancestors up to the BatchGetEffectiveIamPoliciesRequest.scope. Note that
+ *  these policies are not filtered according to the resource type of the
+ *  full_resource_name. These policies are hierarchically ordered by
+ *  PolicyInfo.attached_resource starting from full_resource_name itself to its
+ *  parents and ancestors, such that policies[i]'s PolicyInfo.attached_resource
+ *  is the child of policies[i+1]'s PolicyInfo.attached_resource, if
+ *  policies[i+1] exists.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_PolicyInfo *> *policies;
 
 @end
 
@@ -3985,6 +4037,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  The IAM policy and its attached resource.
+ */
+@interface GTLRCloudAsset_PolicyInfo : GTLRObject
+
+/** The full resource name the policy is directly attached to. */
+@property(nonatomic, copy, nullable) NSString *attachedResource;
+
+/** The IAM policy that's directly attached to the attached_resource. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_Policy *policy;
 
 @end
 

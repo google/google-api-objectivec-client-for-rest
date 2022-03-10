@@ -398,15 +398,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
  */
 @property(nonatomic, strong, nullable) NSNumber *googleSupport;
 
-/**
- *  Output only. An ID representing the user that was authenticated when the
- *  corresponding action was taken. This will be an email address, if one is
- *  available, or some other unique ID. See
- *  https://cloud.google.com/docs/authentication for more information on types
- *  of authentication.
- */
-@property(nonatomic, copy, nullable) NSString *principalId;
-
 @end
 
 
@@ -910,21 +901,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 @interface GTLRCloudSupport_Escalation : GTLRObject
 
 /**
- *  Output only. The user or Google Support agent initiated this escalation.
- */
-@property(nonatomic, strong, nullable) GTLRCloudSupport_Actor *actor;
-
-/** Output only. The time when this escalation event was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
  *  Required. A free text description to accompany the `reason` field above.
  *  Provides additional context on why the case is being escalated.
  */
 @property(nonatomic, copy, nullable) NSString *justification;
-
-/** Output only. The resource name for the escalation event. */
-@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. The reason why the Case is being escalated.

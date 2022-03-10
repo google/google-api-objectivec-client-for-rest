@@ -263,6 +263,34 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Retrieves the service account that is used by Access Approval to access KMS
+ *  keys for signing approved approval requests.
+ *
+ *  Method: accessapproval.folders.getServiceAccount
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
+ */
+@interface GTLRAccessApprovalQuery_FoldersGetServiceAccount : GTLRAccessApprovalQuery
+
+/** Name of the AccessApprovalServiceAccount to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAccessApproval_ServiceAccount.
+ *
+ *  Retrieves the service account that is used by Access Approval to access KMS
+ *  keys for signing approved approval requests.
+ *
+ *  @param name Name of the AccessApprovalServiceAccount to retrieve.
+ *
+ *  @return GTLRAccessApprovalQuery_FoldersGetServiceAccount
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Updates the settings associated with a project, folder, or organization.
  *  Settings to update are determined by the value of field_mask.
  *
@@ -536,6 +564,34 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Retrieves the service account that is used by Access Approval to access KMS
+ *  keys for signing approved approval requests.
+ *
+ *  Method: accessapproval.organizations.getServiceAccount
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
+ */
+@interface GTLRAccessApprovalQuery_OrganizationsGetServiceAccount : GTLRAccessApprovalQuery
+
+/** Name of the AccessApprovalServiceAccount to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAccessApproval_ServiceAccount.
+ *
+ *  Retrieves the service account that is used by Access Approval to access KMS
+ *  keys for signing approved approval requests.
+ *
+ *  @param name Name of the AccessApprovalServiceAccount to retrieve.
+ *
+ *  @return GTLRAccessApprovalQuery_OrganizationsGetServiceAccount
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Updates the settings associated with a project, folder, or organization.
  *  Settings to update are determined by the value of field_mask.
  *
@@ -803,6 +859,34 @@ NS_ASSUME_NONNULL_BEGIN
  *    "{projects|folders|organizations}/{id}/accessApprovalSettings"
  *
  *  @return GTLRAccessApprovalQuery_ProjectsGetAccessApprovalSettings
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves the service account that is used by Access Approval to access KMS
+ *  keys for signing approved approval requests.
+ *
+ *  Method: accessapproval.projects.getServiceAccount
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
+ */
+@interface GTLRAccessApprovalQuery_ProjectsGetServiceAccount : GTLRAccessApprovalQuery
+
+/** Name of the AccessApprovalServiceAccount to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAccessApproval_ServiceAccount.
+ *
+ *  Retrieves the service account that is used by Access Approval to access KMS
+ *  keys for signing approved approval requests.
+ *
+ *  @param name Name of the AccessApprovalServiceAccount to retrieve.
+ *
+ *  @return GTLRAccessApprovalQuery_ProjectsGetServiceAccount
  */
 + (instancetype)queryWithName:(NSString *)name;
 

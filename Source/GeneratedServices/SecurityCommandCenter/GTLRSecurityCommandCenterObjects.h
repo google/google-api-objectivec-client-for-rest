@@ -37,6 +37,7 @@
 @class GTLRSecurityCommandCenter_Folder;
 @class GTLRSecurityCommandCenter_Geolocation;
 @class GTLRSecurityCommandCenter_GetPolicyOptions;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExternalSystem;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding;
@@ -906,6 +907,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_LocalAccounts;
 /**
+ *  T1556
+ *
+ *  Value: "MODIFY_AUTHENTICATION_PROCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ModifyAuthenticationProcess;
+/**
  *  T1578
  *
  *  Value: "MODIFY_CLOUD_COMPUTE_INFRASTRUCTURE"
@@ -1171,6 +1178,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "LOCAL_ACCOUNTS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_LocalAccounts;
+/**
+ *  T1556
+ *
+ *  Value: "MODIFY_AUTHENTICATION_PROCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ModifyAuthenticationProcess;
 /**
  *  T1578
  *
@@ -1630,6 +1643,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  *  https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-34527
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Reference *> *references;
+
+/**
+ *  Whether upstream fix is available for the CVE.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *upstreamFixAvailable;
 
 @end
 
@@ -2228,6 +2248,84 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 
 
 /**
+ *  Configures how to deliver Findings to BigQuery Instance.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport : GTLRObject
+
+/**
+ *  Output only. The time at which the big query export was created. This field
+ *  is set by the server and will be ignored if provided on export on creation.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The dataset to write findings' updates to. Its format is
+ *  "projects/[project_id]/datasets/[bigquery_dataset_id]". BigQuery Dataset
+ *  unique ID must contain only letters (a-z, A-Z), numbers (0-9), or
+ *  underscores (_).
+ */
+@property(nonatomic, copy, nullable) NSString *dataset;
+
+/**
+ *  The description of the export (max of 1024 characters).
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Expression that defines the filter to apply across create/update events of
+ *  findings. The expression is a list of zero or more restrictions combined via
+ *  logical operators `AND` and `OR`. Parentheses are supported, and `OR` has
+ *  higher precedence than `AND`. Restrictions have the form ` ` and may have a
+ *  `-` character in front of them to indicate negation. The fields map to those
+ *  defined in the corresponding resource. The supported operators are: * `=`
+ *  for all value types. * `>`, `<`, `>=`, `<=` for integer values. * `:`,
+ *  meaning substring matching, for strings. The supported value types are: *
+ *  string literals in quotes. * integer literals without quotes. * boolean
+ *  literals `true` and `false` without quotes. Please see the proto
+ *  documentation in the finding
+ *  (https://source.corp.google.com/piper///depot/google3/google/cloud/securitycenter/v1/finding.proto)
+ *  and in the ListFindingsRequest for valid filter syntax.
+ *  (https://source.corp.google.com/piper///depot/google3/google/cloud/securitycenter/v1/securitycenter_service.proto).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Output only. Email address of the user who last edited the big query export.
+ *  This field is set by the server and will be ignored if provided on export
+ *  creation or update.
+ */
+@property(nonatomic, copy, nullable) NSString *mostRecentEditor;
+
+/**
+ *  The relative resource name of this export. See:
+ *  https://cloud.google.com/apis/design/resource_names#relative_resource_name.
+ *  Example format:
+ *  "organizations/{organization_id}/bigQueryExports/{export_id}" Example
+ *  format: "folders/{folder_id}/bigQueryExports/{export_id}" Example format:
+ *  "projects/{project_id}/bigQueryExports/{export_id}" This field is provided
+ *  in responses, and is ignored when provided in create requests.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The service account that needs permission to create table,
+ *  upload data to the big query dataset.
+ */
+@property(nonatomic, copy, nullable) NSString *principal;
+
+/**
+ *  Output only. The most recent time at which the big export was updated. This
+ *  field is set by the server and will be ignored if provided on export
+ *  creation or update.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  The response to a BulkMute request. Contains the LRO information.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BulkMuteFindingsResponse : GTLRObject
@@ -2255,9 +2353,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 
 /**
  *  External System Name e.g. jira, demisto, etc. e.g.:
- *  organizations/1234/sources/5678/findings/123456/externalSystems/jira
- *  folders/1234/sources/5678/findings/123456/externalSystems/jira
- *  projects/1234/sources/5678/findings/123456/externalSystems/jira
+ *  `organizations/1234/sources/5678/findings/123456/externalSystems/jira`
+ *  `folders/1234/sources/5678/findings/123456/externalSystems/jira`
+ *  `projects/1234/sources/5678/findings/123456/externalSystems/jira`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2552,7 +2650,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 /** The full resource name of project that the resource belongs to. */
 @property(nonatomic, copy, nullable) NSString *project;
 
-/** The human readable name of project that the resource belongs to. */
+/** The project id that the resource belongs to. */
 @property(nonatomic, copy, nullable) NSString *projectDisplayName;
 
 @end
@@ -2674,7 +2772,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 /** The full resource name of project that the resource belongs to. */
 @property(nonatomic, copy, nullable) NSString *project;
 
-/** The human readable name of project that the resource belongs to. */
+/** The project id that the resource belongs to. */
 @property(nonatomic, copy, nullable) NSString *projectDisplayName;
 
 /** The full resource type of the resource. */
@@ -3120,6 +3218,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 
 
 /**
+ *  Response message for listing BigQuery exports.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "bigQueryExports" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRSecurityCommandCenter_ListBigQueryExportsResponse : GTLRCollectionObject
+
+/**
+ *  The BigQuery exports from the specified parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport *> *bigQueryExports;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for listing findings.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3352,9 +3477,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  *  The MITRE ATT&CK technique most closely represented by this finding, if any.
  *  primary_techniques is a repeated field because there are multiple levels of
  *  MITRE ATT&CK techniques. If the technique most closely represented by this
- *  finding is a sub-technique (e.g. SCANNING_IP_BLOCKS), both the sub-technique
- *  and its parent technique(s) will be listed (e.g. SCANNING_IP_BLOCKS,
- *  ACTIVE_SCANNING).
+ *  finding is a sub-technique (e.g. `SCANNING_IP_BLOCKS`), both the
+ *  sub-technique and its parent technique(s) will be listed (e.g.
+ *  `SCANNING_IP_BLOCKS`, `ACTIVE_SCANNING`).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *primaryTechniques;
 
@@ -3648,7 +3773,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 /** The full resource name of resource's parent. */
 @property(nonatomic, copy, nullable) NSString *parentName;
 
-/** The human readable name of project that the resource belongs to. */
+/** The project id that the resource belongs to. */
 @property(nonatomic, copy, nullable) NSString *projectDisplayName;
 
 /** The full resource name of project that the resource belongs to. */

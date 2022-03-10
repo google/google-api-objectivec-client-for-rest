@@ -89,6 +89,11 @@ NSString * const kGTLRStorageTransfer_MetadataOptions_TemporaryHold_TemporaryHol
 NSString * const kGTLRStorageTransfer_MetadataOptions_TemporaryHold_TemporaryHoldSkip = @"TEMPORARY_HOLD_SKIP";
 NSString * const kGTLRStorageTransfer_MetadataOptions_TemporaryHold_TemporaryHoldUnspecified = @"TEMPORARY_HOLD_UNSPECIFIED";
 
+// GTLRStorageTransfer_MetadataOptions.timeCreated
+NSString * const kGTLRStorageTransfer_MetadataOptions_TimeCreated_TimeCreatedPreserveAsCustomTime = @"TIME_CREATED_PRESERVE_AS_CUSTOM_TIME";
+NSString * const kGTLRStorageTransfer_MetadataOptions_TimeCreated_TimeCreatedSkip = @"TIME_CREATED_SKIP";
+NSString * const kGTLRStorageTransfer_MetadataOptions_TimeCreated_TimeCreatedUnspecified = @"TIME_CREATED_UNSPECIFIED";
+
 // GTLRStorageTransfer_MetadataOptions.uid
 NSString * const kGTLRStorageTransfer_MetadataOptions_Uid_UidNumber = @"UID_NUMBER";
 NSString * const kGTLRStorageTransfer_MetadataOptions_Uid_UidSkip = @"UID_SKIP";
@@ -365,7 +370,8 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 //
 
 @implementation GTLRStorageTransfer_MetadataOptions
-@dynamic acl, gid, kmsKey, mode, storageClass, symlink, temporaryHold, uid;
+@dynamic acl, gid, kmsKey, mode, storageClass, symlink, temporaryHold,
+         timeCreated, uid;
 @end
 
 

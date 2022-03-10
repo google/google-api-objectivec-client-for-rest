@@ -7743,6 +7743,422 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_NetworkFirewallPoliciesAddAssociation
+
+@dynamic firewallPolicy, project, replaceExistingAssociation, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyAssociation *)object
+                        project:(NSString *)project
+                 firewallPolicy:(NSString *)firewallPolicy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/firewallPolicies/{firewallPolicy}/addAssociation";
+  GTLRComputeQuery_NetworkFirewallPoliciesAddAssociation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.networkFirewallPolicies.addAssociation";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkFirewallPoliciesAddRule
+
+@dynamic firewallPolicy, maxPriority, minPriority, project, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyRule *)object
+                        project:(NSString *)project
+                 firewallPolicy:(NSString *)firewallPolicy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/firewallPolicies/{firewallPolicy}/addRule";
+  GTLRComputeQuery_NetworkFirewallPoliciesAddRule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.networkFirewallPolicies.addRule";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkFirewallPoliciesCloneRules
+
+@dynamic firewallPolicy, project, requestId, sourceFirewallPolicy;
+
++ (instancetype)queryWithProject:(NSString *)project
+                  firewallPolicy:(NSString *)firewallPolicy {
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/firewallPolicies/{firewallPolicy}/cloneRules";
+  GTLRComputeQuery_NetworkFirewallPoliciesCloneRules *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.networkFirewallPolicies.cloneRules";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkFirewallPoliciesDelete
+
+@dynamic firewallPolicy, project, requestId;
+
++ (instancetype)queryWithProject:(NSString *)project
+                  firewallPolicy:(NSString *)firewallPolicy {
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/firewallPolicies/{firewallPolicy}";
+  GTLRComputeQuery_NetworkFirewallPoliciesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.networkFirewallPolicies.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkFirewallPoliciesGet
+
+@dynamic firewallPolicy, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                  firewallPolicy:(NSString *)firewallPolicy {
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/firewallPolicies/{firewallPolicy}";
+  GTLRComputeQuery_NetworkFirewallPoliciesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_FirewallPolicy class];
+  query.loggingName = @"compute.networkFirewallPolicies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkFirewallPoliciesGetAssociation
+
+@dynamic firewallPolicy, name, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                  firewallPolicy:(NSString *)firewallPolicy {
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/firewallPolicies/{firewallPolicy}/getAssociation";
+  GTLRComputeQuery_NetworkFirewallPoliciesGetAssociation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_FirewallPolicyAssociation class];
+  query.loggingName = @"compute.networkFirewallPolicies.getAssociation";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkFirewallPoliciesGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, project, resource;
+
++ (instancetype)queryWithProject:(NSString *)project
+                        resource:(NSString *)resource {
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/firewallPolicies/{resource}/getIamPolicy";
+  GTLRComputeQuery_NetworkFirewallPoliciesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.networkFirewallPolicies.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkFirewallPoliciesGetRule
+
+@dynamic firewallPolicy, priority, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                  firewallPolicy:(NSString *)firewallPolicy {
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/firewallPolicies/{firewallPolicy}/getRule";
+  GTLRComputeQuery_NetworkFirewallPoliciesGetRule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_FirewallPolicyRule class];
+  query.loggingName = @"compute.networkFirewallPolicies.getRule";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkFirewallPoliciesInsert
+
+@dynamic project, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicy *)object
+                        project:(NSString *)project {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"projects/{project}/global/firewallPolicies";
+  GTLRComputeQuery_NetworkFirewallPoliciesInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.networkFirewallPolicies.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkFirewallPoliciesList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"projects/{project}/global/firewallPolicies";
+  GTLRComputeQuery_NetworkFirewallPoliciesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_FirewallPolicyList class];
+  query.loggingName = @"compute.networkFirewallPolicies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkFirewallPoliciesPatch
+
+@dynamic firewallPolicy, project, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicy *)object
+                        project:(NSString *)project
+                 firewallPolicy:(NSString *)firewallPolicy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/firewallPolicies/{firewallPolicy}";
+  GTLRComputeQuery_NetworkFirewallPoliciesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.networkFirewallPolicies.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkFirewallPoliciesPatchRule
+
+@dynamic firewallPolicy, priority, project, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyRule *)object
+                        project:(NSString *)project
+                 firewallPolicy:(NSString *)firewallPolicy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/firewallPolicies/{firewallPolicy}/patchRule";
+  GTLRComputeQuery_NetworkFirewallPoliciesPatchRule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.networkFirewallPolicies.patchRule";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkFirewallPoliciesRemoveAssociation
+
+@dynamic firewallPolicy, name, project, requestId;
+
++ (instancetype)queryWithProject:(NSString *)project
+                  firewallPolicy:(NSString *)firewallPolicy {
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/firewallPolicies/{firewallPolicy}/removeAssociation";
+  GTLRComputeQuery_NetworkFirewallPoliciesRemoveAssociation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.networkFirewallPolicies.removeAssociation";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkFirewallPoliciesRemoveRule
+
+@dynamic firewallPolicy, priority, project, requestId;
+
++ (instancetype)queryWithProject:(NSString *)project
+                  firewallPolicy:(NSString *)firewallPolicy {
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/firewallPolicies/{firewallPolicy}/removeRule";
+  GTLRComputeQuery_NetworkFirewallPoliciesRemoveRule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.networkFirewallPolicies.removeRule";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkFirewallPoliciesSetIamPolicy
+
+@dynamic project, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_GlobalSetPolicyRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/firewallPolicies/{resource}/setIamPolicy";
+  GTLRComputeQuery_NetworkFirewallPoliciesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.networkFirewallPolicies.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworkFirewallPoliciesTestIamPermissions
+
+@dynamic project, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/firewallPolicies/{resource}/testIamPermissions";
+  GTLRComputeQuery_NetworkFirewallPoliciesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_TestPermissionsResponse class];
+  query.loggingName = @"compute.networkFirewallPolicies.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_NetworksAddPeering
 
 @dynamic network, project, requestId;
@@ -11579,6 +11995,484 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.region = region;
   query.expectedObjectClass = [GTLRCompute_NetworkEndpointGroupList class];
   query.loggingName = @"compute.regionNetworkEndpointGroups.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNetworkFirewallPoliciesAddAssociation
+
+@dynamic firewallPolicy, project, region, replaceExistingAssociation, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyAssociation *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                 firewallPolicy:(NSString *)firewallPolicy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/firewallPolicies/{firewallPolicy}/addAssociation";
+  GTLRComputeQuery_RegionNetworkFirewallPoliciesAddAssociation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionNetworkFirewallPolicies.addAssociation";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNetworkFirewallPoliciesAddRule
+
+@dynamic firewallPolicy, maxPriority, minPriority, project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyRule *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                 firewallPolicy:(NSString *)firewallPolicy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/firewallPolicies/{firewallPolicy}/addRule";
+  GTLRComputeQuery_RegionNetworkFirewallPoliciesAddRule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionNetworkFirewallPolicies.addRule";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNetworkFirewallPoliciesCloneRules
+
+@dynamic firewallPolicy, project, region, requestId, sourceFirewallPolicy;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  firewallPolicy:(NSString *)firewallPolicy {
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/firewallPolicies/{firewallPolicy}/cloneRules";
+  GTLRComputeQuery_RegionNetworkFirewallPoliciesCloneRules *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionNetworkFirewallPolicies.cloneRules";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNetworkFirewallPoliciesDelete
+
+@dynamic firewallPolicy, project, region, requestId;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  firewallPolicy:(NSString *)firewallPolicy {
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/firewallPolicies/{firewallPolicy}";
+  GTLRComputeQuery_RegionNetworkFirewallPoliciesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionNetworkFirewallPolicies.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNetworkFirewallPoliciesGet
+
+@dynamic firewallPolicy, project, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  firewallPolicy:(NSString *)firewallPolicy {
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/firewallPolicies/{firewallPolicy}";
+  GTLRComputeQuery_RegionNetworkFirewallPoliciesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_FirewallPolicy class];
+  query.loggingName = @"compute.regionNetworkFirewallPolicies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNetworkFirewallPoliciesGetAssociation
+
+@dynamic firewallPolicy, name, project, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  firewallPolicy:(NSString *)firewallPolicy {
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/firewallPolicies/{firewallPolicy}/getAssociation";
+  GTLRComputeQuery_RegionNetworkFirewallPoliciesGetAssociation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_FirewallPolicyAssociation class];
+  query.loggingName = @"compute.regionNetworkFirewallPolicies.getAssociation";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNetworkFirewallPoliciesGetEffectiveFirewalls
+
+@dynamic network, project, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                         network:(NSString *)network {
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/firewallPolicies/getEffectiveFirewalls";
+  GTLRComputeQuery_RegionNetworkFirewallPoliciesGetEffectiveFirewalls *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.network = network;
+  query.expectedObjectClass = [GTLRCompute_RegionNetworkFirewallPoliciesGetEffectiveFirewallsResponse class];
+  query.loggingName = @"compute.regionNetworkFirewallPolicies.getEffectiveFirewalls";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNetworkFirewallPoliciesGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, project, region, resource;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                        resource:(NSString *)resource {
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/firewallPolicies/{resource}/getIamPolicy";
+  GTLRComputeQuery_RegionNetworkFirewallPoliciesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.regionNetworkFirewallPolicies.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNetworkFirewallPoliciesGetRule
+
+@dynamic firewallPolicy, priority, project, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  firewallPolicy:(NSString *)firewallPolicy {
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/firewallPolicies/{firewallPolicy}/getRule";
+  GTLRComputeQuery_RegionNetworkFirewallPoliciesGetRule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_FirewallPolicyRule class];
+  query.loggingName = @"compute.regionNetworkFirewallPolicies.getRule";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNetworkFirewallPoliciesInsert
+
+@dynamic project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicy *)object
+                        project:(NSString *)project
+                         region:(NSString *)region {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/firewallPolicies";
+  GTLRComputeQuery_RegionNetworkFirewallPoliciesInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionNetworkFirewallPolicies.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNetworkFirewallPoliciesList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region {
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/firewallPolicies";
+  GTLRComputeQuery_RegionNetworkFirewallPoliciesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_FirewallPolicyList class];
+  query.loggingName = @"compute.regionNetworkFirewallPolicies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNetworkFirewallPoliciesPatch
+
+@dynamic firewallPolicy, project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicy *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                 firewallPolicy:(NSString *)firewallPolicy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/firewallPolicies/{firewallPolicy}";
+  GTLRComputeQuery_RegionNetworkFirewallPoliciesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionNetworkFirewallPolicies.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNetworkFirewallPoliciesPatchRule
+
+@dynamic firewallPolicy, priority, project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyRule *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                 firewallPolicy:(NSString *)firewallPolicy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/firewallPolicies/{firewallPolicy}/patchRule";
+  GTLRComputeQuery_RegionNetworkFirewallPoliciesPatchRule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionNetworkFirewallPolicies.patchRule";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNetworkFirewallPoliciesRemoveAssociation
+
+@dynamic firewallPolicy, name, project, region, requestId;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  firewallPolicy:(NSString *)firewallPolicy {
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/firewallPolicies/{firewallPolicy}/removeAssociation";
+  GTLRComputeQuery_RegionNetworkFirewallPoliciesRemoveAssociation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionNetworkFirewallPolicies.removeAssociation";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNetworkFirewallPoliciesRemoveRule
+
+@dynamic firewallPolicy, priority, project, region, requestId;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  firewallPolicy:(NSString *)firewallPolicy {
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/firewallPolicies/{firewallPolicy}/removeRule";
+  GTLRComputeQuery_RegionNetworkFirewallPoliciesRemoveRule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionNetworkFirewallPolicies.removeRule";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNetworkFirewallPoliciesSetIamPolicy
+
+@dynamic project, region, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_RegionSetPolicyRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/firewallPolicies/{resource}/setIamPolicy";
+  GTLRComputeQuery_RegionNetworkFirewallPoliciesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.regionNetworkFirewallPolicies.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNetworkFirewallPoliciesTestIamPermissions
+
+@dynamic project, region, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/firewallPolicies/{resource}/testIamPermissions";
+  GTLRComputeQuery_RegionNetworkFirewallPoliciesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_TestPermissionsResponse class];
+  query.loggingName = @"compute.regionNetworkFirewallPolicies.testIamPermissions";
   return query;
 }
 

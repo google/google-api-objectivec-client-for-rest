@@ -27,6 +27,7 @@
 @class GTLRAccessApproval_DismissDecision;
 @class GTLRAccessApproval_EnrolledService;
 @class GTLRAccessApproval_ResourceProperties;
+@class GTLRAccessApproval_SignatureInfo;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -65,6 +66,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_GoogleI
  *  Value: "GOOGLE_INITIATED_SERVICE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_GoogleInitiatedService;
+/**
+ *  The principal was compelled to access customer data in order to respond to a
+ *  legal third party data request or process, including legal processes from
+ *  customers themselves.
+ *
+ *  Value: "THIRD_PARTY_DATA_REQUEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_ThirdPartyDataRequest;
 /**
  *  Default value for proto, shouldn't be used.
  *
@@ -145,6 +154,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
  *        used to confirm that customers are not affected by a suspected service
  *        issue or to remediate a reversible system issue. (Value:
  *        "GOOGLE_INITIATED_SERVICE")
+ *    @arg @c kGTLRAccessApproval_AccessReason_Type_ThirdPartyDataRequest The
+ *        principal was compelled to access customer data in order to respond to
+ *        a legal third party data request or process, including legal processes
+ *        from customers themselves. (Value: "THIRD_PARTY_DATA_REQUEST")
  *    @arg @c kGTLRAccessApproval_AccessReason_Type_TypeUnspecified Default
  *        value for proto, shouldn't be used. (Value: "TYPE_UNSPECIFIED")
  */
@@ -223,8 +236,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
 /** The time at which approval was granted. */
 @property(nonatomic, strong, nullable) GTLRDateTime *approveTime;
 
+/**
+ *  True when the request has been auto-approved.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoApproved;
+
 /** The time at which the approval expires. */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/** The signature for the ApprovalRequest and details on how it was signed. */
+@property(nonatomic, strong, nullable) GTLRAccessApproval_SignatureInfo *signatureInfo;
 
 @end
 
@@ -245,7 +268,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
 @property(nonatomic, strong, nullable) GTLRDateTime *dismissTime;
 
 /**
- *  This field will be true if the ApprovalRequest was implcitly dismissed due
+ *  This field will be true if the ApprovalRequest was implicitly dismissed due
  *  to inaction by the access approval approvers (the request is not acted on by
  *  the approvers before the exiration time).
  *
@@ -355,9 +378,46 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
 
 
 /**
+ *  Access Approval service account related to a project/folder/organization.
+ */
+@interface GTLRAccessApproval_ServiceAccount : GTLRObject
+
+/** Email address of the service account. */
+@property(nonatomic, copy, nullable) NSString *accountEmail;
+
+/**
+ *  The resource name of the Access Approval service account. Format is one of:
+ *  * "projects/{project}/serviceAccount" * "folders/{folder}/serviceAccount" *
+ *  "organizations/{organization}/serviceAccount"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Settings on a Project/Folder/Organization related to Access Approval.
  */
 @interface GTLRAccessApproval_Settings : GTLRObject
+
+/**
+ *  The asymmetric crypto key version to use for signing approval requests.
+ *  Empty active_key_version indicates that a Google-managed key should be used
+ *  for signing. This property will be ignored if set by an ancestor of this
+ *  resource, and new non-empty values may not be set.
+ */
+@property(nonatomic, copy, nullable) NSString *activeKeyVersion;
+
+/**
+ *  Output only. This field is read only (not settable via
+ *  UpdateAccessApprovalSettings method). If the field is true, that indicates
+ *  that an ancestor of this Project or Folder has set active_key_version (this
+ *  field will always be unset for the organization since organizations do not
+ *  have ancestors).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ancestorHasActiveKeyVersion;
 
 /**
  *  Output only. This field is read only (not settable via
@@ -384,6 +444,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
 @property(nonatomic, strong, nullable) NSArray<GTLRAccessApproval_EnrolledService *> *enrolledServices;
 
 /**
+ *  Output only. This field is read only (not settable via
+ *  UpdateAccessApprovalSettings method). If the field is true, that indicates
+ *  that there is some configuration issue with the active_key_version
+ *  configured at this level in the resource hierarchy (e.g. it doesn't exist or
+ *  the Access Approval service account doesn't have the correct permissions on
+ *  it, etc.) This key version is not necessarily the effective key version at
+ *  this level, as key versions are inherited top-down.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *invalidKeyVersion;
+
+/**
  *  The resource name of the settings. Format is one of: *
  *  "projects/{project}/accessApprovalSettings" *
  *  "folders/{folder}/accessApprovalSettings" *
@@ -398,6 +471,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
  *  maximum of 50 email addresses are allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *notificationEmails;
+
+@end
+
+
+/**
+ *  Information about the digital signature of the resource.
+ */
+@interface GTLRAccessApproval_SignatureInfo : GTLRObject
+
+/** The resource name of the customer CryptoKeyVersion used for signing. */
+@property(nonatomic, copy, nullable) NSString *customerKmsKeyVersion;
+
+/**
+ *  The public key for the Google default signing, encoded in PEM format. The
+ *  signature was created using a private key which may be verified using this
+ *  public key.
+ */
+@property(nonatomic, copy, nullable) NSString *googlePublicKeyPem;
+
+/**
+ *  The digital signature.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *signature;
 
 @end
 

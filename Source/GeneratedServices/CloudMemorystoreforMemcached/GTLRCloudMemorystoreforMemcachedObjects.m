@@ -182,10 +182,11 @@ NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_UpdateCh
 //
 
 @implementation GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance
-@dynamic consumerDefinedName, createTime, labels, maintenancePolicyNames,
-         maintenanceSchedules, maintenanceSettings, name, producerMetadata,
-         provisionedResources, slmInstanceTemplate, sloMetadata,
-         softwareVersions, state, tenantProjectId, updateTime;
+@dynamic consumerDefinedName, createTime, instanceType, labels,
+         maintenancePolicyNames, maintenanceSchedules, maintenanceSettings,
+         name, notificationParameters, producerMetadata, provisionedResources,
+         slmInstanceTemplate, sloMetadata, softwareVersions, state,
+         tenantProjectId, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -234,6 +235,20 @@ NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_UpdateCh
 
 + (Class)classForAdditionalProperties {
   return [GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_NotificationParameters
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_NotificationParameters
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

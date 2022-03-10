@@ -111,7 +111,7 @@ NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateT
 //
 
 @implementation GTLRFirebaseManagement_AndroidApp
-@dynamic appId, displayName, name, packageName, projectId;
+@dynamic apiKeyId, appId, displayName, name, packageName, projectId;
 @end
 
 
@@ -185,7 +185,8 @@ NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateT
 //
 
 @implementation GTLRFirebaseManagement_IosApp
-@dynamic appId, appStoreId, bundleId, displayName, name, projectId, teamId;
+@dynamic apiKeyId, appId, appStoreId, bundleId, displayName, name, projectId,
+         teamId;
 @end
 
 
@@ -524,7 +525,7 @@ NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateT
 //
 
 @implementation GTLRFirebaseManagement_WebApp
-@dynamic appId, appUrls, displayName, name, projectId, webId;
+@dynamic apiKeyId, appId, appUrls, displayName, name, projectId, webId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

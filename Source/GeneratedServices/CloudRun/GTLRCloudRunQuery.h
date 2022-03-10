@@ -5,8 +5,9 @@
 //   Cloud Run Admin API (run/v2)
 // Description:
 //   Deploy and manage user provided container images that scale automatically
-//   based on incoming requests. The Cloud Run Admin API follows the Knative
-//   Serving API specification.
+//   based on incoming requests. The Cloud Run Admin API v1 follows the Knative
+//   Serving API specification, while v2 is aligned with Google Cloud AIP-based
+//   API standards, as described in https://google.aip.dev/.
 // Documentation:
 //   https://cloud.google.com/run/
 
@@ -123,16 +124,28 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsOperationsList : GTLRCloudRunQuery
 
-/** The standard list filter. */
+/**
+ *  Optional. A filter for matching the completed or in-progress operations. The
+ *  supported formats of *filter* are: To query for only completed operations:
+ *  done:true To query for only ongoing operations: done:false Must be empty to
+ *  query for all of the latest operations for the given parent project.
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** The name of the operation's parent resource. */
+/** Required. To query for all of the operations for a project. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of records that should be returned. Requested page size
+ *  cannot exceed 100. If not set or set to less than or equal to 0, the default
+ *  page size is 100. .
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  Token identifying which result to start with, which is returned by a
+ *  previous list call.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -148,7 +161,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  users must ensure the name binding is the parent resource, without the
  *  operations collection id.
  *
- *  @param name The name of the operation's parent resource.
+ *  @param name Required. To query for all of the operations for a project.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsOperationsList
  *
@@ -346,7 +359,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The location and project to list resources on. Format:
+ *  Required. The location and project to list resources on. Location must be a
+ *  valid GCP region, and may not be the "-" wildcard. Format:
  *  projects/{projectnumber}/locations/{location}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -362,6 +376,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  List Services.
  *
  *  @param parent Required. The location and project to list resources on.
+ *    Location must be a valid GCP region, and may not be the "-" wildcard.
  *    Format: projects/{projectnumber}/locations/{location}
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsServicesList

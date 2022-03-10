@@ -2415,7 +2415,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  The Compute Engine zone that the failover instance is currently serving from
  *  for a regional instance. This value could be different from the zone that
  *  was specified when the instance was created if the instance has failed over
- *  to its secondary/failover zone. Reserved for future use.
+ *  to its secondary/failover zone.
  */
 @property(nonatomic, copy, nullable) NSString *secondaryGceZone;
 
@@ -3416,7 +3416,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  The preferred Compute Engine zone for the secondary/failover (for example:
- *  us-central1-a, us-central1-b, etc.). Reserved for future use.
+ *  us-central1-a, us-central1-b, etc.).
  */
 @property(nonatomic, copy, nullable) NSString *secondaryZone;
 

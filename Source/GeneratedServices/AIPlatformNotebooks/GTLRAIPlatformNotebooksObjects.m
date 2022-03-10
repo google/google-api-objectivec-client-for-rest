@@ -29,7 +29,10 @@ NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_TpuV3 = @"TPU_V
 
 // GTLRAIPlatformNotebooks_Event.type
 NSString * const kGTLRAIPlatformNotebooks_Event_Type_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRAIPlatformNotebooks_Event_Type_Health    = @"HEALTH";
+NSString * const kGTLRAIPlatformNotebooks_Event_Type_Heartbeat = @"HEARTBEAT";
 NSString * const kGTLRAIPlatformNotebooks_Event_Type_Idle      = @"IDLE";
+NSString * const kGTLRAIPlatformNotebooks_Event_Type_Maintenance = @"MAINTENANCE";
 
 // GTLRAIPlatformNotebooks_Execution.state
 NSString * const kGTLRAIPlatformNotebooks_Execution_State_Cancelled = @"CANCELLED";
@@ -113,6 +116,8 @@ NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservation
 NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRAIPlatformNotebooks_Runtime.healthState
+NSString * const kGTLRAIPlatformNotebooks_Runtime_HealthState_AgentNotInstalled = @"AGENT_NOT_INSTALLED";
+NSString * const kGTLRAIPlatformNotebooks_Runtime_HealthState_AgentNotRunning = @"AGENT_NOT_RUNNING";
 NSString * const kGTLRAIPlatformNotebooks_Runtime_HealthState_HealthStateUnspecified = @"HEALTH_STATE_UNSPECIFIED";
 NSString * const kGTLRAIPlatformNotebooks_Runtime_HealthState_Healthy = @"HEALTHY";
 NSString * const kGTLRAIPlatformNotebooks_Runtime_HealthState_Unhealthy = @"UNHEALTHY";
@@ -144,6 +149,7 @@ NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_TpuV3 = 
 
 // GTLRAIPlatformNotebooks_RuntimeAccessConfig.accessType
 NSString * const kGTLRAIPlatformNotebooks_RuntimeAccessConfig_AccessType_RuntimeAccessTypeUnspecified = @"RUNTIME_ACCESS_TYPE_UNSPECIFIED";
+NSString * const kGTLRAIPlatformNotebooks_RuntimeAccessConfig_AccessType_ServiceAccount = @"SERVICE_ACCOUNT";
 NSString * const kGTLRAIPlatformNotebooks_RuntimeAccessConfig_AccessType_SingleUser = @"SINGLE_USER";
 
 // GTLRAIPlatformNotebooks_Schedule.state
@@ -235,6 +241,15 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_BootImage
+//
+
+@implementation GTLRAIPlatformNotebooks_BootImage
 @end
 
 
@@ -334,7 +349,21 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 //
 
 @implementation GTLRAIPlatformNotebooks_Event
-@dynamic reportTime, type;
+@dynamic details, reportTime, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_Event_Details
+//
+
+@implementation GTLRAIPlatformNotebooks_Event_Details
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -363,7 +392,7 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 @dynamic acceleratorConfig, containerImageUri, dataprocParameters,
          inputNotebookFile, jobType, kernelSpec, labels, masterType,
          outputNotebookFolder, parameters, paramsYamlFile, scaleTier,
-         serviceAccount, vertexAiParameters;
+         serviceAccount, tensorboard, vertexAiParameters;
 @end
 
 
@@ -436,14 +465,14 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 //
 
 @implementation GTLRAIPlatformNotebooks_Instance
-@dynamic acceleratorConfig, bootDiskSizeGb, bootDiskType, containerImage,
-         createTime, customGpuDriverPath, dataDiskSizeGb, dataDiskType,
-         diskEncryption, disks, installGpuDriver, instanceOwners, kmsKey,
-         labels, machineType, metadata, name, network, nicType, noProxyAccess,
-         noPublicIp, noRemoveDataDisk, postStartupScript, proxyUri,
-         reservationAffinity, serviceAccount, serviceAccountScopes,
-         shieldedInstanceConfig, state, subnet, tags, updateTime,
-         upgradeHistory, vmImage;
+@dynamic acceleratorConfig, bootDiskSizeGb, bootDiskType, canIpForward,
+         containerImage, createTime, creator, customGpuDriverPath,
+         dataDiskSizeGb, dataDiskType, diskEncryption, disks, installGpuDriver,
+         instanceOwners, kmsKey, labels, machineType, metadata, name, network,
+         nicType, noProxyAccess, noPublicIp, noRemoveDataDisk,
+         postStartupScript, proxyUri, reservationAffinity, serviceAccount,
+         serviceAccountScopes, shieldedInstanceConfig, state, subnet, tags,
+         updateTime, upgradeHistory, vmImage;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1002,8 +1031,16 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 
 @implementation GTLRAIPlatformNotebooks_RuntimeSoftwareConfig
 @dynamic customGpuDriverPath, enableHealthMonitoring, idleShutdown,
-         idleShutdownTimeout, installGpuDriver, notebookUpgradeSchedule,
-         postStartupScript;
+         idleShutdownTimeout, installGpuDriver, kernels,
+         notebookUpgradeSchedule, postStartupScript, upgradeable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"kernels" : [GTLRAIPlatformNotebooks_ContainerImage class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1366,9 +1403,10 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 //
 
 @implementation GTLRAIPlatformNotebooks_VirtualMachineConfig
-@dynamic acceleratorConfig, containerImages, dataDisk, encryptionConfig,
-         guestAttributes, internalIpOnly, labels, machineType, metadata,
-         network, nicType, shieldedInstanceConfig, subnet, tags, zoneProperty;
+@dynamic acceleratorConfig, bootImage, containerImages, dataDisk,
+         encryptionConfig, guestAttributes, internalIpOnly, labels, machineType,
+         metadata, network, nicType, reservedIpRange, shieldedInstanceConfig,
+         subnet, tags, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };

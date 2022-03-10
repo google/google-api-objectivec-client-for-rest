@@ -37,6 +37,7 @@
 @class GTLRVMMigrationService_Source;
 @class GTLRVMMigrationService_StartMigrationRequest;
 @class GTLRVMMigrationService_TargetProject;
+@class GTLRVMMigrationService_UpgradeApplianceRequest;
 @class GTLRVMMigrationService_UtilizationReport;
 
 // Generated comments include content from the discovery document; avoid them
@@ -332,7 +333,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewUtilizationReportV
  */
 @interface GTLRVMMigrationServiceQuery_ProjectsLocationsGroupsPatch : GTLRVMMigrationServiceQuery
 
-/** The Group name. */
+/** Output only. The Group name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -366,7 +367,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewUtilizationReportV
  *  Updates the parameters of a single Group.
  *
  *  @param object The @c GTLRVMMigrationService_Group to include in the query.
- *  @param name The Group name.
+ *  @param name Output only. The Group name.
  *
  *  @return GTLRVMMigrationServiceQuery_ProjectsLocationsGroupsPatch
  */
@@ -827,6 +828,37 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewUtilizationReportV
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Upgrades the appliance relate to this DatacenterConnector to the in-place
+ *  updateable version.
+ *
+ *  Method: vmmigration.projects.locations.sources.datacenterConnectors.upgradeAppliance
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMMigrationServiceCloudPlatform
+ */
+@interface GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDatacenterConnectorsUpgradeAppliance : GTLRVMMigrationServiceQuery
+
+/** Required. The DatacenterConnector name. */
+@property(nonatomic, copy, nullable) NSString *datacenterConnector;
+
+/**
+ *  Fetches a @c GTLRVMMigrationService_Operation.
+ *
+ *  Upgrades the appliance relate to this DatacenterConnector to the in-place
+ *  updateable version.
+ *
+ *  @param object The @c GTLRVMMigrationService_UpgradeApplianceRequest to
+ *    include in the query.
+ *  @param datacenterConnector Required. The DatacenterConnector name.
+ *
+ *  @return GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDatacenterConnectorsUpgradeAppliance
+ */
++ (instancetype)queryWithObject:(GTLRVMMigrationService_UpgradeApplianceRequest *)object
+            datacenterConnector:(NSString *)datacenterConnector;
 
 @end
 
@@ -2096,7 +2128,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewUtilizationReportV
  */
 @interface GTLRVMMigrationServiceQuery_ProjectsLocationsTargetProjectsPatch : GTLRVMMigrationServiceQuery
 
-/** The name of the target project. */
+/** Output only. The name of the target project. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -2132,7 +2164,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewUtilizationReportV
  *
  *  @param object The @c GTLRVMMigrationService_TargetProject to include in the
  *    query.
- *  @param name The name of the target project.
+ *  @param name Output only. The name of the target project.
  *
  *  @return GTLRVMMigrationServiceQuery_ProjectsLocationsTargetProjectsPatch
  */

@@ -23,10 +23,37 @@ NSString * const kGTLRCloudSearch_AclInfo_Scope_Public         = @"PUBLIC";
 NSString * const kGTLRCloudSearch_AclInfo_Scope_PublicWithLink = @"PUBLIC_WITH_LINK";
 NSString * const kGTLRCloudSearch_AclInfo_Scope_TeamDrive      = @"TEAM_DRIVE";
 
+// GTLRCloudSearch_AppId.appType
+NSString * const kGTLRCloudSearch_AppId_AppType_App            = @"APP";
+NSString * const kGTLRCloudSearch_AppId_AppType_AppTypeUnspecified = @"APP_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppId_AppType_GsuiteApp      = @"GSUITE_APP";
+NSString * const kGTLRCloudSearch_AppId_AppType_IncomingWebhook = @"INCOMING_WEBHOOK";
+
+// GTLRCloudSearch_AppId.gsuiteAppType
+NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_ActivityFeedApp = @"ACTIVITY_FEED_APP";
+NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_AssistiveSuggestionApp = @"ASSISTIVE_SUGGESTION_APP";
+NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_CalendarApp = @"CALENDAR_APP";
+NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_ContactsApp = @"CONTACTS_APP";
+NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_DocsApp  = @"DOCS_APP";
+NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_DriveApp = @"DRIVE_APP";
+NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_FileSuggestionApp = @"FILE_SUGGESTION_APP";
+NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_GsuiteAppTypeUnspecified = @"GSUITE_APP_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_MeetApp  = @"MEET_APP";
+NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_SheetsApp = @"SHEETS_APP";
+NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_SlidesApp = @"SLIDES_APP";
+NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_TasksApp = @"TASKS_APP";
+
 // GTLRCloudSearch_CompositeFilter.logicOperator
 NSString * const kGTLRCloudSearch_CompositeFilter_LogicOperator_And = @"AND";
 NSString * const kGTLRCloudSearch_CompositeFilter_LogicOperator_Not = @"NOT";
 NSString * const kGTLRCloudSearch_CompositeFilter_LogicOperator_Or = @"OR";
+
+// GTLRCloudSearch_CustomEmoji.state
+NSString * const kGTLRCloudSearch_CustomEmoji_State_EmojiDeleted = @"EMOJI_DELETED";
+NSString * const kGTLRCloudSearch_CustomEmoji_State_EmojiEnabled = @"EMOJI_ENABLED";
+NSString * const kGTLRCloudSearch_CustomEmoji_State_EmojiHidden = @"EMOJI_HIDDEN";
+NSString * const kGTLRCloudSearch_CustomEmoji_State_EmojiStateUnspecified = @"EMOJI_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_CustomEmoji_State_EmojiSystemDisabled = @"EMOJI_SYSTEM_DISABLED";
 
 // GTLRCloudSearch_DriveFollowUpRestrict.type
 NSString * const kGTLRCloudSearch_DriveFollowUpRestrict_Type_FollowupActionItems = @"FOLLOWUP_ACTION_ITEMS";
@@ -223,6 +250,13 @@ NSString * const kGTLRCloudSearch_SourceScoringConfig_SourceImportance_Default =
 NSString * const kGTLRCloudSearch_SourceScoringConfig_SourceImportance_High = @"HIGH";
 NSString * const kGTLRCloudSearch_SourceScoringConfig_SourceImportance_Low = @"LOW";
 
+// GTLRCloudSearch_SpaceInfo.userMembershipState
+NSString * const kGTLRCloudSearch_SpaceInfo_UserMembershipState_MemberFailed = @"MEMBER_FAILED";
+NSString * const kGTLRCloudSearch_SpaceInfo_UserMembershipState_MemberInvited = @"MEMBER_INVITED";
+NSString * const kGTLRCloudSearch_SpaceInfo_UserMembershipState_MemberJoined = @"MEMBER_JOINED";
+NSString * const kGTLRCloudSearch_SpaceInfo_UserMembershipState_MemberNotAMember = @"MEMBER_NOT_A_MEMBER";
+NSString * const kGTLRCloudSearch_SpaceInfo_UserMembershipState_MemberUnknown = @"MEMBER_UNKNOWN";
+
 // GTLRCloudSearch_UnmappedIdentity.resolutionStatusCode
 NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_CodeUnspecified = @"CODE_UNSPECIFIED";
 NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_IdentitySourceMisconfigured = @"IDENTITY_SOURCE_MISCONFIGURED";
@@ -230,6 +264,10 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_Identity
 NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_InternalError = @"INTERNAL_ERROR";
 NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_NotFound = @"NOT_FOUND";
 NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyMappingsFound = @"TOO_MANY_MAPPINGS_FOUND";
+
+// GTLRCloudSearch_UserId.type
+NSString * const kGTLRCloudSearch_UserId_Type_Bot   = @"BOT";
+NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
@@ -243,11 +281,36 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_AppId
+//
+
+@implementation GTLRCloudSearch_AppId
+@dynamic appType, gsuiteAppType, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_AuditLoggingSettings
 //
 
 @implementation GTLRCloudSearch_AuditLoggingSettings
 @dynamic logAdminReadActions, logDataReadActions, logDataWriteActions, project;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AvatarInfo
+//
+
+@implementation GTLRCloudSearch_AvatarInfo
+@dynamic emoji;
 @end
 
 
@@ -314,6 +377,27 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_CustomEmoji
+//
+
+@implementation GTLRCloudSearch_CustomEmoji
+@dynamic blobId, createTimeMicros, creatorUserId, ownerCustomerId, readToken,
+         shortcode, state, updateTimeMicros, uuid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_CustomerId
+//
+
+@implementation GTLRCloudSearch_CustomerId
+@dynamic customerId;
 @end
 
 
@@ -532,6 +616,16 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_DmId
+//
+
+@implementation GTLRCloudSearch_DmId
+@dynamic dmId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_DoubleOperatorOptions
 //
 
@@ -610,11 +704,32 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_DynamiteSpacesScoringInfo
+//
+
+@implementation GTLRCloudSearch_DynamiteSpacesScoringInfo
+@dynamic finalScore, freshnessScore, messageScore, spaceAgeInDays,
+         topicalityScore;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_EmailAddress
 //
 
 @implementation GTLRCloudSearch_EmailAddress
 @dynamic emailAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_Emoji
+//
+
+@implementation GTLRCloudSearch_Emoji
+@dynamic customEmoji, unicode;
 @end
 
 
@@ -966,6 +1081,16 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 @implementation GTLRCloudSearch_GoogleDocsResultInfo
 @dynamic attachmentSha1, cosmoId, cosmoNameSpace, encryptedId, mimeType,
          shareScope;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GroupId
+//
+
+@implementation GTLRCloudSearch_GroupId
+@dynamic dmId, spaceId;
 @end
 
 
@@ -2228,6 +2353,32 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_SpaceId
+//
+
+@implementation GTLRCloudSearch_SpaceId
+@dynamic spaceId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_SpaceInfo
+//
+
+@implementation GTLRCloudSearch_SpaceInfo
+@dynamic avatarInfo, avatarUrl, descriptionProperty, groupId, isExternal, name,
+         numMembers, userMembershipState;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_SpellResult
 //
 
@@ -2485,6 +2636,21 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 @implementation GTLRCloudSearch_UploadItemRef
 @dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_UserId
+//
+
+@implementation GTLRCloudSearch_UserId
+@dynamic identifier, originAppId, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 

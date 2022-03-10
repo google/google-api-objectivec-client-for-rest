@@ -312,6 +312,24 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_BatchGetEffectiveIamPoliciesResponse
+//
+
+@implementation GTLRCloudAsset_BatchGetEffectiveIamPoliciesResponse
+@dynamic policyResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"policyResults" : [GTLRCloudAsset_EffectiveIamPolicy class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_BigQueryDestination
 //
 
@@ -375,6 +393,24 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 @implementation GTLRCloudAsset_Date
 @dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_EffectiveIamPolicy
+//
+
+@implementation GTLRCloudAsset_EffectiveIamPolicy
+@dynamic fullResourceName, policies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"policies" : [GTLRCloudAsset_PolicyInfo class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1397,6 +1433,16 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_PolicyInfo
+//
+
+@implementation GTLRCloudAsset_PolicyInfo
+@dynamic attachedResource, policy;
 @end
 
 

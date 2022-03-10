@@ -777,7 +777,16 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_ExportResourcesRequest
-@dynamic bigqueryDestination, gcsDestination;
+@dynamic xSince, xType, bigqueryDestination, gcsDestination;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"xSince" : @"_since",
+    @"xType" : @"_type"
+  };
+  return map;
+}
+
 @end
 
 

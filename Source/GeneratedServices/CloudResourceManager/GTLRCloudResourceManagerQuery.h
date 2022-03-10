@@ -1340,7 +1340,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. A query string for searching for projects that the caller has
  *  `resourcemanager.projects.get` permission to. If multiple fields are
- *  included in the query, the it will return results that match any of the
+ *  included in the query, then it will return results that match any of the
  *  fields. Some eligible fields are: ``` | Field | Description |
  *  |-------------------------|----------------------------------------------| |
  *  displayName, name | Filters by displayName. | | parent | Project's parent
@@ -1631,13 +1631,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. The maximum number of TagBindings to return in the response. The
  *  server allows a maximum of 300 TagBindings to return. If unspecified, the
- *  server will use 100 as the default.
+ *  server will use 100 as the default. Currently this api returns unpaginated
+ *  response and `page_size` is ignored.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  Optional. A pagination token returned from a previous call to
  *  `ListTagBindings` that indicates where this listing should continue from.
+ *  Currently this api returns unpaginated response and `page_token` is ignored.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

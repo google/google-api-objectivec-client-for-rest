@@ -824,13 +824,9 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 @implementation GTLRBigquery_DatasetAccessEntry
 @dynamic dataset, targetTypes;
 
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"targetTypes" : @"target_types" };
-}
-
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"target_types" : [NSString class]
+    @"targetTypes" : [NSString class]
   };
   return map;
 }
@@ -1270,7 +1266,8 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
          destinationEncryptionConfiguration, destinationTable,
          destinationTableProperties, encoding, fieldDelimiter,
          hivePartitioningOptions, ignoreUnknownValues, jsonExtension,
-         maxBadRecords, nullMarker, parquetOptions, projectionFields, quote,
+         maxBadRecords, nullMarker, parquetOptions,
+         preserveAsciiControlCharacters, projectionFields, quote,
          rangePartitioning, schema, schemaInline, schemaInlineFormat,
          schemaUpdateOptions, skipLeadingRows, sourceFormat, sourceUris,
          timePartitioning, useAvroLogicalTypes, writeDisposition;

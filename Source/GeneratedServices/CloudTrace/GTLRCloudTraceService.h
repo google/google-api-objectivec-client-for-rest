@@ -8,7 +8,8 @@
 //   collected for all App Engine applications by default. Trace data from other
 //   applications can be provided using this API. This library is used to
 //   interact with the Cloud Trace API directly. If you are looking to
-//   instrument your application for Cloud Trace, we recommend using OpenCensus.
+//   instrument your application for Cloud Trace, we recommend using
+//   OpenTelemetry.
 // Documentation:
 //   https://cloud.google.com/trace
 
@@ -59,7 +60,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudTraceTraceAppend;
  *  collected for all App Engine applications by default. Trace data from other
  *  applications can be provided using this API. This library is used to
  *  interact with the Cloud Trace API directly. If you are looking to instrument
- *  your application for Cloud Trace, we recommend using OpenCensus.
+ *  your application for Cloud Trace, we recommend using OpenTelemetry.
  */
 @interface GTLRCloudTraceService : GTLRService
 

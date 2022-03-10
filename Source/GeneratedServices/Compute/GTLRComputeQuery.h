@@ -2622,8 +2622,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  [Input Only] Whether to attempt an application consistent snapshot by
- *  informing the OS to prepare for the snapshot process. Currently only
- *  supported on Windows instances using the Volume Shadow Copy Service (VSS).
+ *  informing the OS to prepare for the snapshot process.
  */
 @property(nonatomic, assign) BOOL guestFlush;
 
@@ -16452,6 +16451,758 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Inserts an association for the specified firewall policy.
+ *
+ *  Method: compute.networkFirewallPolicies.addAssociation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesAddAssociation : GTLRComputeQuery
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Indicates whether or not to replace it if an association of the attachment
+ *  already exists. This is false by default, in which case an error will be
+ *  returned if an association already exists.
+ */
+@property(nonatomic, assign) BOOL replaceExistingAssociation;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Inserts an association for the specified firewall policy.
+ *
+ *  @param object The @c GTLRCompute_FirewallPolicyAssociation to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesAddAssociation
+ */
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyAssociation *)object
+                        project:(NSString *)project
+                 firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Inserts a rule into a firewall policy.
+ *
+ *  Method: compute.networkFirewallPolicies.addRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesAddRule : GTLRComputeQuery
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/**
+ *  When rule.priority is not specified, auto choose a unused priority between
+ *  minPriority and maxPriority>. This field is exclusive with rule.priority.
+ */
+@property(nonatomic, assign) NSInteger maxPriority;
+
+/**
+ *  When rule.priority is not specified, auto choose a unused priority between
+ *  minPriority and maxPriority>. This field is exclusive with rule.priority.
+ */
+@property(nonatomic, assign) NSInteger minPriority;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Inserts a rule into a firewall policy.
+ *
+ *  @param object The @c GTLRCompute_FirewallPolicyRule to include in the query.
+ *  @param project Project ID for this request.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesAddRule
+ */
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyRule *)object
+                        project:(NSString *)project
+                 firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Copies rules to the specified firewall policy.
+ *
+ *  Method: compute.networkFirewallPolicies.cloneRules
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesCloneRules : GTLRComputeQuery
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** The firewall policy from which to copy rules. */
+@property(nonatomic, copy, nullable) NSString *sourceFirewallPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Copies rules to the specified firewall policy.
+ *
+ *  @param project Project ID for this request.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesCloneRules
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Deletes the specified policy.
+ *
+ *  Method: compute.networkFirewallPolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesDelete : GTLRComputeQuery
+
+/** Name of the firewall policy to delete. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified policy.
+ *
+ *  @param project Project ID for this request.
+ *  @param firewallPolicy Name of the firewall policy to delete.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Returns the specified network firewall policy.
+ *
+ *  Method: compute.networkFirewallPolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesGet : GTLRComputeQuery
+
+/** Name of the firewall policy to get. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_FirewallPolicy.
+ *
+ *  Returns the specified network firewall policy.
+ *
+ *  @param project Project ID for this request.
+ *  @param firewallPolicy Name of the firewall policy to get.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Gets an association with the specified name.
+ *
+ *  Method: compute.networkFirewallPolicies.getAssociation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesGetAssociation : GTLRComputeQuery
+
+/** Name of the firewall policy to which the queried association belongs. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** The name of the association to get from the firewall policy. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_FirewallPolicyAssociation.
+ *
+ *  Gets an association with the specified name.
+ *
+ *  @param project Project ID for this request.
+ *  @param firewallPolicy Name of the firewall policy to which the queried
+ *    association belongs.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesGetAssociation
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  Method: compute.networkFirewallPolicies.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesGetIamPolicy : GTLRComputeQuery
+
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesGetIamPolicy
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Gets a rule of the specified priority.
+ *
+ *  Method: compute.networkFirewallPolicies.getRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesGetRule : GTLRComputeQuery
+
+/** Name of the firewall policy to which the queried rule belongs. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** The priority of the rule to get from the firewall policy. */
+@property(nonatomic, assign) NSInteger priority;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_FirewallPolicyRule.
+ *
+ *  Gets a rule of the specified priority.
+ *
+ *  @param project Project ID for this request.
+ *  @param firewallPolicy Name of the firewall policy to which the queried rule
+ *    belongs.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesGetRule
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Creates a new policy in the specified project using the data included in the
+ *  request.
+ *
+ *  Method: compute.networkFirewallPolicies.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesInsert : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a new policy in the specified project using the data included in the
+ *  request.
+ *
+ *  @param object The @c GTLRCompute_FirewallPolicy to include in the query.
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicy *)object
+                        project:(NSString *)project;
+
+@end
+
+/**
+ *  Lists all the policies that have been configured for the specified project.
+ *
+ *  Method: compute.networkFirewallPolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named `example-instance` by specifying `name != example-instance`.
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_FirewallPolicyList.
+ *
+ *  Lists all the policies that have been configured for the specified project.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Patches the specified policy with the data included in the request.
+ *
+ *  Method: compute.networkFirewallPolicies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesPatch : GTLRComputeQuery
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified policy with the data included in the request.
+ *
+ *  @param object The @c GTLRCompute_FirewallPolicy to include in the query.
+ *  @param project Project ID for this request.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicy *)object
+                        project:(NSString *)project
+                 firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Patches a rule of the specified priority.
+ *
+ *  Method: compute.networkFirewallPolicies.patchRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesPatchRule : GTLRComputeQuery
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** The priority of the rule to patch. */
+@property(nonatomic, assign) NSInteger priority;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches a rule of the specified priority.
+ *
+ *  @param object The @c GTLRCompute_FirewallPolicyRule to include in the query.
+ *  @param project Project ID for this request.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesPatchRule
+ */
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyRule *)object
+                        project:(NSString *)project
+                 firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Removes an association for the specified firewall policy.
+ *
+ *  Method: compute.networkFirewallPolicies.removeAssociation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesRemoveAssociation : GTLRComputeQuery
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** Name for the attachment that will be removed. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Removes an association for the specified firewall policy.
+ *
+ *  @param project Project ID for this request.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesRemoveAssociation
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Deletes a rule of the specified priority.
+ *
+ *  Method: compute.networkFirewallPolicies.removeRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesRemoveRule : GTLRComputeQuery
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** The priority of the rule to remove from the firewall policy. */
+@property(nonatomic, assign) NSInteger priority;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes a rule of the specified priority.
+ *
+ *  @param project Project ID for this request.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesRemoveRule
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: compute.networkFirewallPolicies.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesSetIamPolicy : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRCompute_GlobalSetPolicyRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_GlobalSetPolicyRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.networkFirewallPolicies.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesTestIamPermissions : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Adds a peering to the specified network.
  *
  *  Method: compute.networks.addPeering
@@ -24754,6 +25505,877 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region;
+
+@end
+
+/**
+ *  Inserts an association for the specified network firewall policy.
+ *
+ *  Method: compute.regionNetworkFirewallPolicies.addAssociation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionNetworkFirewallPoliciesAddAssociation : GTLRComputeQuery
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Indicates whether or not to replace it if an association already exists.
+ *  This is false by default, in which case an error will be returned if an
+ *  association already exists.
+ */
+@property(nonatomic, assign) BOOL replaceExistingAssociation;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Inserts an association for the specified network firewall policy.
+ *
+ *  @param object The @c GTLRCompute_FirewallPolicyAssociation to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_RegionNetworkFirewallPoliciesAddAssociation
+ */
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyAssociation *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                 firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Inserts a rule into a network firewall policy.
+ *
+ *  Method: compute.regionNetworkFirewallPolicies.addRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionNetworkFirewallPoliciesAddRule : GTLRComputeQuery
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/**
+ *  When rule.priority is not specified, auto choose a unused priority between
+ *  minPriority and maxPriority>. This field is exclusive with rule.priority.
+ */
+@property(nonatomic, assign) NSInteger maxPriority;
+
+/**
+ *  When rule.priority is not specified, auto choose a unused priority between
+ *  minPriority and maxPriority>. This field is exclusive with rule.priority.
+ */
+@property(nonatomic, assign) NSInteger minPriority;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Inserts a rule into a network firewall policy.
+ *
+ *  @param object The @c GTLRCompute_FirewallPolicyRule to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_RegionNetworkFirewallPoliciesAddRule
+ */
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyRule *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                 firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Copies rules to the specified network firewall policy.
+ *
+ *  Method: compute.regionNetworkFirewallPolicies.cloneRules
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionNetworkFirewallPoliciesCloneRules : GTLRComputeQuery
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** The firewall policy from which to copy rules. */
+@property(nonatomic, copy, nullable) NSString *sourceFirewallPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Copies rules to the specified network firewall policy.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_RegionNetworkFirewallPoliciesCloneRules
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Deletes the specified network firewall policy.
+ *
+ *  Method: compute.regionNetworkFirewallPolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionNetworkFirewallPoliciesDelete : GTLRComputeQuery
+
+/** Name of the firewall policy to delete. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified network firewall policy.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param firewallPolicy Name of the firewall policy to delete.
+ *
+ *  @return GTLRComputeQuery_RegionNetworkFirewallPoliciesDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Returns the specified network firewall policy.
+ *
+ *  Method: compute.regionNetworkFirewallPolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionNetworkFirewallPoliciesGet : GTLRComputeQuery
+
+/** Name of the firewall policy to get. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_FirewallPolicy.
+ *
+ *  Returns the specified network firewall policy.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param firewallPolicy Name of the firewall policy to get.
+ *
+ *  @return GTLRComputeQuery_RegionNetworkFirewallPoliciesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Gets an association with the specified name.
+ *
+ *  Method: compute.regionNetworkFirewallPolicies.getAssociation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionNetworkFirewallPoliciesGetAssociation : GTLRComputeQuery
+
+/** Name of the firewall policy to which the queried association belongs. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** The name of the association to get from the firewall policy. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_FirewallPolicyAssociation.
+ *
+ *  Gets an association with the specified name.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param firewallPolicy Name of the firewall policy to which the queried
+ *    association belongs.
+ *
+ *  @return GTLRComputeQuery_RegionNetworkFirewallPoliciesGetAssociation
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Returns the effective firewalls on a given network.
+ *
+ *  Method: compute.regionNetworkFirewallPolicies.getEffectiveFirewalls
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionNetworkFirewallPoliciesGetEffectiveFirewalls : GTLRComputeQuery
+
+/** Network reference */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c
+ *  GTLRCompute_RegionNetworkFirewallPoliciesGetEffectiveFirewallsResponse.
+ *
+ *  Returns the effective firewalls on a given network.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param network Network reference
+ *
+ *  @return GTLRComputeQuery_RegionNetworkFirewallPoliciesGetEffectiveFirewalls
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                         network:(NSString *)network;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  Method: compute.regionNetworkFirewallPolicies.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionNetworkFirewallPoliciesGetIamPolicy : GTLRComputeQuery
+
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_RegionNetworkFirewallPoliciesGetIamPolicy
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Gets a rule of the specified priority.
+ *
+ *  Method: compute.regionNetworkFirewallPolicies.getRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionNetworkFirewallPoliciesGetRule : GTLRComputeQuery
+
+/** Name of the firewall policy to which the queried rule belongs. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** The priority of the rule to get from the firewall policy. */
+@property(nonatomic, assign) NSInteger priority;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_FirewallPolicyRule.
+ *
+ *  Gets a rule of the specified priority.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param firewallPolicy Name of the firewall policy to which the queried rule
+ *    belongs.
+ *
+ *  @return GTLRComputeQuery_RegionNetworkFirewallPoliciesGetRule
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Creates a new network firewall policy in the specified project and region.
+ *
+ *  Method: compute.regionNetworkFirewallPolicies.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionNetworkFirewallPoliciesInsert : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a new network firewall policy in the specified project and region.
+ *
+ *  @param object The @c GTLRCompute_FirewallPolicy to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *
+ *  @return GTLRComputeQuery_RegionNetworkFirewallPoliciesInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicy *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  Lists all the network firewall policies that have been configured for the
+ *  specified project in the given region.
+ *
+ *  Method: compute.regionNetworkFirewallPolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionNetworkFirewallPoliciesList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named `example-instance` by specifying `name != example-instance`.
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_FirewallPolicyList.
+ *
+ *  Lists all the network firewall policies that have been configured for the
+ *  specified project in the given region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *
+ *  @return GTLRComputeQuery_RegionNetworkFirewallPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
+
+@end
+
+/**
+ *  Patches the specified network firewall policy.
+ *
+ *  Method: compute.regionNetworkFirewallPolicies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionNetworkFirewallPoliciesPatch : GTLRComputeQuery
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified network firewall policy.
+ *
+ *  @param object The @c GTLRCompute_FirewallPolicy to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_RegionNetworkFirewallPoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicy *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                 firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Patches a rule of the specified priority.
+ *
+ *  Method: compute.regionNetworkFirewallPolicies.patchRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionNetworkFirewallPoliciesPatchRule : GTLRComputeQuery
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** The priority of the rule to patch. */
+@property(nonatomic, assign) NSInteger priority;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches a rule of the specified priority.
+ *
+ *  @param object The @c GTLRCompute_FirewallPolicyRule to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_RegionNetworkFirewallPoliciesPatchRule
+ */
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyRule *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                 firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Removes an association for the specified network firewall policy.
+ *
+ *  Method: compute.regionNetworkFirewallPolicies.removeAssociation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionNetworkFirewallPoliciesRemoveAssociation : GTLRComputeQuery
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** Name for the association that will be removed. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Removes an association for the specified network firewall policy.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_RegionNetworkFirewallPoliciesRemoveAssociation
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Deletes a rule of the specified priority.
+ *
+ *  Method: compute.regionNetworkFirewallPolicies.removeRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionNetworkFirewallPoliciesRemoveRule : GTLRComputeQuery
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** The priority of the rule to remove from the firewall policy. */
+@property(nonatomic, assign) NSInteger priority;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes a rule of the specified priority.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_RegionNetworkFirewallPoliciesRemoveRule
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: compute.regionNetworkFirewallPolicies.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionNetworkFirewallPoliciesSetIamPolicy : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRCompute_RegionSetPolicyRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_RegionNetworkFirewallPoliciesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionSetPolicyRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.regionNetworkFirewallPolicies.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionNetworkFirewallPoliciesTestIamPermissions : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_RegionNetworkFirewallPoliciesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource;
 
 @end
 

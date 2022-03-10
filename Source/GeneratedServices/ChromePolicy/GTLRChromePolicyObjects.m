@@ -293,7 +293,7 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 //
 
 @implementation GTLRChromePolicy_GoogleChromePolicyV1ResolvedPolicy
-@dynamic sourceKey, targetKey, value;
+@dynamic addedSourceKey, sourceKey, targetKey, value;
 @end
 
 

@@ -330,8 +330,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
 @interface GTLRCloudDeploy_AnthosCluster : GTLRObject
 
 /**
- *  Membership of the GKE Hub registered cluster that the Skaffold configuration
- *  should be applied to. Format is
+ *  Membership of the GKE Hub-registered cluster to which to apply the Skaffold
+ *  configuration. Format is
  *  `projects/{project}/locations/{location}/memberships/{membership_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *membership;
@@ -533,11 +533,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
  *  Represents a whole or partial calendar date, such as a birthday. The time of
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
- *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day value, with a zero year, such as an anniversary * A year on
- *  its own, with zero month and day values * A year and month value, with a
- *  zero day, such as a credit card expiration date Related types are
- *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ *  following: * A full date, with non-zero year, month, and day values. * A
+ *  month and day, with a zero year (for example, an anniversary). * A year on
+ *  its own, with a zero month and a zero day. * A year and month, with a zero
+ *  day (for example, a credit card expiration date). Related types: *
+ *  google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLRCloudDeploy_Date : GTLRObject
 
@@ -708,8 +708,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
 @interface GTLRCloudDeploy_ExecutionConfig : GTLRObject
 
 /**
- *  Optional. Cloud Storage location where execution outputs should be stored.
- *  This can either be a bucket ("gs://my-bucket") or a path within a bucket
+ *  Optional. Cloud Storage location in which to store execution outputs. This
+ *  can either be a bucket ("gs://my-bucket") or a path within a bucket
  *  ("gs://my-bucket/my-dir"). If unspecified, a default bucket located in the
  *  same region will be used.
  */
@@ -724,7 +724,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
 /**
  *  Optional. Google service account to use for execution. If unspecified, the
  *  project execution service account (-compute\@developer.gserviceaccount.com)
- *  will be used.
+ *  is used.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
@@ -800,6 +800,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
  *  `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}.
  */
 @property(nonatomic, copy, nullable) NSString *cluster;
+
+/**
+ *  Optional. If true, `cluster` is accessed using the private IP address of the
+ *  control plane endpoint. Otherwise, the default IP address of the control
+ *  plane endpoint is used. The default IP address is the private IP address for
+ *  clusters with private control-plane endpoints and the public IP address
+ *  otherwise. Only specify this option when `cluster` is a [private GKE
+ *  cluster](https://cloud.google.com/kubernetes-engine/docs/concepts/private-cluster-concept).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *internalIp;
 
 @end
 

@@ -1282,6 +1282,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Unk
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Unsupported;
 
 // ----------------------------------------------------------------------------
+// GTLRDataflow_SendDebugCaptureRequest.dataFormat
+
+/**
+ *  Websafe encoded brotli-compressed string.
+ *
+ *  Value: "BROTLI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SendDebugCaptureRequest_DataFormat_Brotli;
+/**
+ *  Format unspecified, parsing is determined based upon page type and legacy
+ *  encoding. (go/protodosdonts#do-include-an-unspecified-value-in-an-enum)
+ *
+ *  Value: "DATA_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SendDebugCaptureRequest_DataFormat_DataFormatUnspecified;
+/**
+ *  JSON-encoded string.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SendDebugCaptureRequest_DataFormat_Json;
+/**
+ *  Raw HTML string.
+ *
+ *  Value: "RAW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SendDebugCaptureRequest_DataFormat_Raw;
+/**
+ *  Websafe encoded zlib-compressed string.
+ *
+ *  Value: "ZLIB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SendDebugCaptureRequest_DataFormat_Zlib;
+
+// ----------------------------------------------------------------------------
 // GTLRDataflow_Snapshot.state
 
 /**
@@ -3439,7 +3474,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  Defines a job to be run by the Cloud Dataflow service. nextID: 26
+ *  Defines a job to be run by the Cloud Dataflow service.
  */
 @interface GTLRDataflow_Job : GTLRObject
 
@@ -4381,6 +4416,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  Uses NSNumber of unsignedLongLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *currentLimitBytes;
+
+/**
+ *  Number of Out of Memory (OOM) events recorded since the previous
+ *  measurement.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *currentOoms;
 
 /**
  *  Instantenous memory (RSS) size in bytes.
@@ -5394,6 +5437,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  */
 @interface GTLRDataflow_SdkHarnessContainerImage : GTLRObject
 
+/**
+ *  The set of capabilities enumerated in the above Environment proto. See also
+ *  https://github.com/apache/beam/blob/master/model/pipeline/src/main/proto/beam_runner_api.proto
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *capabilities;
+
 /** A docker container image that resides in Google Container Registry. */
 @property(nonatomic, copy, nullable) NSString *containerImage;
 
@@ -5473,7 +5522,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  Request to send encoded debug information.
+ *  Request to send encoded debug information. Next ID: 8
  */
 @interface GTLRDataflow_SendDebugCaptureRequest : GTLRObject
 
@@ -5482,6 +5531,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /** The encoded debug information. */
 @property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  Format for the data field above (id=5).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_SendDebugCaptureRequest_DataFormat_Brotli Websafe
+ *        encoded brotli-compressed string. (Value: "BROTLI")
+ *    @arg @c kGTLRDataflow_SendDebugCaptureRequest_DataFormat_DataFormatUnspecified
+ *        Format unspecified, parsing is determined based upon page type and
+ *        legacy encoding.
+ *        (go/protodosdonts#do-include-an-unspecified-value-in-an-enum) (Value:
+ *        "DATA_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRDataflow_SendDebugCaptureRequest_DataFormat_Json JSON-encoded
+ *        string. (Value: "JSON")
+ *    @arg @c kGTLRDataflow_SendDebugCaptureRequest_DataFormat_Raw Raw HTML
+ *        string. (Value: "RAW")
+ *    @arg @c kGTLRDataflow_SendDebugCaptureRequest_DataFormat_Zlib Websafe
+ *        encoded zlib-compressed string. (Value: "ZLIB")
+ */
+@property(nonatomic, copy, nullable) NSString *dataFormat;
 
 /**
  *  The [regional endpoint]

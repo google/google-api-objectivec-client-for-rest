@@ -233,6 +233,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ManagedProductTaxAndCom
 
 /** Value: "TAX_TIER_BOOKS_1" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierBooks1;
+/** Value: "TAX_TIER_LIVE_OR_BROADCAST_1" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierLiveOrBroadcast1;
+/** Value: "TAX_TIER_MUSIC_OR_AUDIO_1" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierMusicOrAudio1;
 /** Value: "TAX_TIER_NEWS_1" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierNews1;
 /** Value: "TAX_TIER_NEWS_2" */
@@ -1721,6 +1725,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *  Likely values:
  *    @arg @c kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierBooks1
  *        Value "TAX_TIER_BOOKS_1"
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierLiveOrBroadcast1
+ *        Value "TAX_TIER_LIVE_OR_BROADCAST_1"
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierMusicOrAudio1
+ *        Value "TAX_TIER_MUSIC_OR_AUDIO_1"
  *    @arg @c kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierNews1
  *        Value "TAX_TIER_NEWS_1"
  *    @arg @c kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierNews2

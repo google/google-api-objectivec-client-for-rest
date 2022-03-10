@@ -121,28 +121,6 @@ NSString * const kGTLRGKEHub_MembershipState_Code_Ready        = @"READY";
 NSString * const kGTLRGKEHub_MembershipState_Code_ServiceUpdating = @"SERVICE_UPDATING";
 NSString * const kGTLRGKEHub_MembershipState_Code_Updating     = @"UPDATING";
 
-// GTLRGKEHub_PolicyControllerMembershipState.state
-NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_Active = @"ACTIVE";
-NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_ClusterError = @"CLUSTER_ERROR";
-NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_Decomissioning = @"DECOMISSIONING";
-NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_HubError = @"HUB_ERROR";
-NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_Installing = @"INSTALLING";
-NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_LifecycleStateUnspecified = @"LIFECYCLE_STATE_UNSPECIFIED";
-NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_NotInstalled = @"NOT_INSTALLED";
-NSString * const kGTLRGKEHub_PolicyControllerMembershipState_State_Updating = @"UPDATING";
-
-// GTLRGKEHub_PolicyControllerPolicyControllerHubConfig.installSpec
-NSString * const kGTLRGKEHub_PolicyControllerPolicyControllerHubConfig_InstallSpec_InstallSpecDisabled = @"INSTALL_SPEC_DISABLED";
-NSString * const kGTLRGKEHub_PolicyControllerPolicyControllerHubConfig_InstallSpec_InstallSpecEnabled = @"INSTALL_SPEC_ENABLED";
-NSString * const kGTLRGKEHub_PolicyControllerPolicyControllerHubConfig_InstallSpec_InstallSpecNotInstalled = @"INSTALL_SPEC_NOT_INSTALLED";
-NSString * const kGTLRGKEHub_PolicyControllerPolicyControllerHubConfig_InstallSpec_InstallSpecUnspecified = @"INSTALL_SPEC_UNSPECIFIED";
-
-// GTLRGKEHub_PolicyControllerPolicyControllerHubState_DeploymentStates.deploymentState
-NSString * const kGTLRGKEHub_PolicyControllerPolicyControllerHubState_DeploymentStates_DeploymentState_DeploymentStateError = @"DEPLOYMENT_STATE_ERROR";
-NSString * const kGTLRGKEHub_PolicyControllerPolicyControllerHubState_DeploymentStates_DeploymentState_DeploymentStateInstalled = @"DEPLOYMENT_STATE_INSTALLED";
-NSString * const kGTLRGKEHub_PolicyControllerPolicyControllerHubState_DeploymentStates_DeploymentState_DeploymentStateNotInstalled = @"DEPLOYMENT_STATE_NOT_INSTALLED";
-NSString * const kGTLRGKEHub_PolicyControllerPolicyControllerHubState_DeploymentStates_DeploymentState_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
-
 // GTLRGKEHub_Status.code
 NSString * const kGTLRGKEHub_Status_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
 NSString * const kGTLRGKEHub_Status_Code_Failed          = @"FAILED";
@@ -914,7 +892,7 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_MembershipFeatureState
-@dynamic appdevexperience, configmanagement, policycontroller, state;
+@dynamic appdevexperience, configmanagement, state;
 @end
 
 
@@ -1027,89 +1005,6 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGKEHub_PolicyControllerMembershipSpec
-//
-
-@implementation GTLRGKEHub_PolicyControllerMembershipSpec
-@dynamic policyControllerHubConfig, version;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGKEHub_PolicyControllerMembershipState
-//
-
-@implementation GTLRGKEHub_PolicyControllerMembershipState
-@dynamic clusterName, membershipSpec, policyControllerHubState, state;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGKEHub_PolicyControllerPolicyControllerHubConfig
-//
-
-@implementation GTLRGKEHub_PolicyControllerPolicyControllerHubConfig
-@dynamic auditIntervalSeconds, exemptableNamespaces, installSpec,
-         logDeniesEnabled, referentialRulesEnabled, templateLibraryConfig;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"exemptableNamespaces" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGKEHub_PolicyControllerPolicyControllerHubState
-//
-
-@implementation GTLRGKEHub_PolicyControllerPolicyControllerHubState
-@dynamic deploymentStates, version;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGKEHub_PolicyControllerPolicyControllerHubState_DeploymentStates
-//
-
-@implementation GTLRGKEHub_PolicyControllerPolicyControllerHubState_DeploymentStates
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGKEHub_PolicyControllerPolicyControllerHubVersion
-//
-
-@implementation GTLRGKEHub_PolicyControllerPolicyControllerHubVersion
-@dynamic version;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGKEHub_PolicyControllerTemplateLibraryConfig
-//
-
-@implementation GTLRGKEHub_PolicyControllerTemplateLibraryConfig
-@dynamic included;
 @end
 
 

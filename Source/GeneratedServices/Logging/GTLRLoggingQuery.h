@@ -3479,6 +3479,75 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Updates the Log Router settings for the given resource.Note: Settings for
+ *  the Log Router can currently only be configured for Google Cloud
+ *  organizations. Once configured, it applies to all projects and folders in
+ *  the Google Cloud organization.UpdateSettings will fail if 1) kms_key_name is
+ *  invalid, or 2) the associated service account does not have the required
+ *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3)
+ *  access to the key is disabled. 4) location_id is not supported by Logging.
+ *  5) location_id violate OrgPolicy.See Enabling CMEK for Log Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
+ *
+ *  Method: logging.folders.updateSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_FoldersUpdateSettings : GTLRLoggingQuery
+
+/**
+ *  Required. The resource name for the settings to update.
+ *  "organizations/[ORGANIZATION_ID]/settings" For
+ *  example:"organizations/12345/settings"Note: Settings for the Log Router can
+ *  currently only be configured for Google Cloud organizations. Once
+ *  configured, it applies to all projects and folders in the Google Cloud
+ *  organization.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask identifying which fields from settings should be
+ *  updated. A field will be overwritten if and only if it is in the update
+ *  mask. Output only fields cannot be updated.See FieldMask for more
+ *  information.For example: "updateMask=kmsKeyName"
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRLogging_Settings.
+ *
+ *  Updates the Log Router settings for the given resource.Note: Settings for
+ *  the Log Router can currently only be configured for Google Cloud
+ *  organizations. Once configured, it applies to all projects and folders in
+ *  the Google Cloud organization.UpdateSettings will fail if 1) kms_key_name is
+ *  invalid, or 2) the associated service account does not have the required
+ *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3)
+ *  access to the key is disabled. 4) location_id is not supported by Logging.
+ *  5) location_id violate OrgPolicy.See Enabling CMEK for Log Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
+ *
+ *  @param object The @c GTLRLogging_Settings to include in the query.
+ *  @param name Required. The resource name for the settings to update.
+ *    "organizations/[ORGANIZATION_ID]/settings" For
+ *    example:"organizations/12345/settings"Note: Settings for the Log Router
+ *    can currently only be configured for Google Cloud organizations. Once
+ *    configured, it applies to all projects and folders in the Google Cloud
+ *    organization.
+ *
+ *  @return GTLRLoggingQuery_FoldersUpdateSettings
+ */
++ (instancetype)queryWithObject:(GTLRLogging_Settings *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a log bucket that can be used to store log entries. After a bucket
  *  has been created, the bucket's location cannot be changed.
  *

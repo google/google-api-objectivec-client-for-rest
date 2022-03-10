@@ -30,6 +30,8 @@
 @class GTLRDatabaseMigrationService_ConnectionProfile;
 @class GTLRDatabaseMigrationService_ConnectionProfile_Labels;
 @class GTLRDatabaseMigrationService_DatabaseType;
+@class GTLRDatabaseMigrationService_DumpFlag;
+@class GTLRDatabaseMigrationService_DumpFlags;
 @class GTLRDatabaseMigrationService_Expr;
 @class GTLRDatabaseMigrationService_Location;
 @class GTLRDatabaseMigrationService_Location_Labels;
@@ -158,6 +160,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSetting
  *  Value: "POSTGRES_13"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres13;
+/**
+ *  PostgreSQL 14.
+ *
+ *  Value: "POSTGRES_14"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres14;
 /**
  *  PostgreSQL 9.6.
  *
@@ -852,6 +860,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_
  *        PostgreSQL 12. (Value: "POSTGRES_12")
  *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres13
  *        PostgreSQL 13. (Value: "POSTGRES_13")
+ *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres14
+ *        PostgreSQL 14. (Value: "POSTGRES_14")
  *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres96
  *        PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_SqlDatabaseVersionUnspecified
@@ -1108,6 +1118,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_
  *        the database. (Value: "RDS")
  */
 @property(nonatomic, copy, nullable) NSString *provider;
+
+@end
+
+
+/**
+ *  Dump flag definition.
+ */
+@interface GTLRDatabaseMigrationService_DumpFlag : GTLRObject
+
+/** The name of the flag */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The value of the flag. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Dump flags definition.
+ */
+@interface GTLRDatabaseMigrationService_DumpFlags : GTLRObject
+
+/** The flags for the initial dump. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_DumpFlag *> *dumpFlags;
 
 @end
 
@@ -1427,8 +1462,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  The initial dump flags. This field and the "dump_path" field are mutually
+ *  exclusive.
+ */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_DumpFlags *dumpFlags;
+
+/**
  *  The path to the dump file in Google Cloud Storage, in the format:
- *  (gs://[BUCKET_NAME]/[OBJECT_NAME]).
+ *  (gs://[BUCKET_NAME]/[OBJECT_NAME]). This field and the "dump_flags" field
+ *  are mutually exclusive.
  */
 @property(nonatomic, copy, nullable) NSString *dumpPath;
 

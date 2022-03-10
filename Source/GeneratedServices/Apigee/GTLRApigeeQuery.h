@@ -45,6 +45,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1DeveloperAppKey;
 @class GTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig;
 @class GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription;
+@class GTLRApigee_GoogleCloudApigeeV1EndpointAttachment;
 @class GTLRApigee_GoogleCloudApigeeV1Environment;
 @class GTLRApigee_GoogleCloudApigeeV1EnvironmentGroup;
 @class GTLRApigee_GoogleCloudApigeeV1EnvironmentGroupAttachment;
@@ -2620,7 +2621,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Approve or revoke the consumer key by setting this value to `approve` or
- *  `revoke`, respectively.
+ *  `revoke`, respectively. The `Content-Type` header must be set to
+ *  `application/octet-stream`.
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
@@ -3577,6 +3579,154 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Creates an endpoint attachment. **Note:** Not supported for Apigee hybrid.
+ *
+ *  Method: apigee.organizations.endpointAttachments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEndpointAttachmentsCreate : GTLRApigeeQuery
+
+/**
+ *  ID to use for the endpoint attachment. The ID can contain lowercase letters
+ *  and numbers, must start with a letter, and must be 1-20 characters in
+ *  length.
+ */
+@property(nonatomic, copy, nullable) NSString *endpointAttachmentId;
+
+/** Required. Organization the endpoint attachment will be created in. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Creates an endpoint attachment. **Note:** Not supported for Apigee hybrid.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1EndpointAttachment to
+ *    include in the query.
+ *  @param parent Required. Organization the endpoint attachment will be created
+ *    in.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEndpointAttachmentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1EndpointAttachment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an endpoint attachment.
+ *
+ *  Method: apigee.organizations.endpointAttachments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEndpointAttachmentsDelete : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the endpoint attachment. Use the following structure in
+ *  your request:
+ *  `organizations/{org}/endpointAttachments/{endpoint_attachment}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Deletes an endpoint attachment.
+ *
+ *  @param name Required. Name of the endpoint attachment. Use the following
+ *    structure in your request:
+ *    `organizations/{org}/endpointAttachments/{endpoint_attachment}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEndpointAttachmentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the endpoint attachment.
+ *
+ *  Method: apigee.organizations.endpointAttachments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEndpointAttachmentsGet : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the endpoint attachment. Use the following structure in
+ *  your request:
+ *  `organizations/{org}/endpointAttachments/{endpoint_attachment}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1EndpointAttachment.
+ *
+ *  Gets the endpoint attachment.
+ *
+ *  @param name Required. Name of the endpoint attachment. Use the following
+ *    structure in your request:
+ *    `organizations/{org}/endpointAttachments/{endpoint_attachment}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEndpointAttachmentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the endpoint attachments in an organization.
+ *
+ *  Method: apigee.organizations.endpointAttachments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEndpointAttachmentsList : GTLRApigeeQuery
+
+/**
+ *  Optional. Maximum number of endpoint attachments to return. If unspecified,
+ *  at most 25 attachments will be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token, returned from a previous `ListEndpointAttachments`
+ *  call, that you can use to retrieve the next page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the organization for which to list endpoint attachments.
+ *  Use the following structure in your request: `organizations/{org}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListEndpointAttachmentsResponse.
+ *
+ *  Lists the endpoint attachments in an organization.
+ *
+ *  @param parent Required. Name of the organization for which to list endpoint
+ *    attachments. Use the following structure in your request:
+ *    `organizations/{org}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEndpointAttachmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a new attachment of an environment to an environment group.
  *
  *  Method: apigee.organizations.envgroups.attachments.create
@@ -4309,18 +4459,18 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @property(nonatomic, assign) BOOL override;
 
 /**
- *  Flag that specifies whether to enable sequenced rollout. If set to `true`, a
- *  best-effort attempt will be made to roll out the routing rules corresponding
- *  to this deployment and the environment changes to add this deployment in a
- *  safe order. This reduces the risk of downtime that could be caused by
- *  changing the environment group's routing before the new destination for the
- *  affected traffic is ready to receive it. This should only be necessary if
- *  the new deployment will be capturing traffic from another environment under
- *  a shared environment group or if traffic will be rerouted to a different
- *  environment due to a base path removal. The [GenerateDeployChangeReport
- *  API](GenerateDeployChangeReport) may be used to examine routing changes
- *  before issuing the deployment request, and its response will indicate if a
- *  sequenced rollout is recommended for the deployment.
+ *  Flag that specifies whether to enable sequenced rollout. If set to `true`,
+ *  the routing rules for this deployment and the environment changes to add the
+ *  deployment will be rolled out in a safe order. This reduces the risk of
+ *  downtime that could be caused by changing the environment group's routing
+ *  before the new destination for the affected traffic is ready to receive it.
+ *  This should only be necessary if the new deployment will be capturing
+ *  traffic from another environment under a shared environment group or if
+ *  traffic will be rerouted to a different environment due to a base path
+ *  removal. The [GenerateDeployChangeReport API](GenerateDeployChangeReport)
+ *  may be used to examine routing changes before issuing the deployment
+ *  request, and its response will indicate if a sequenced rollout is
+ *  recommended for the deployment.
  */
 @property(nonatomic, assign) BOOL sequencedRollout;
 
@@ -4518,16 +4668,16 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Flag that specifies whether to enable sequenced rollout. If set to `true`, a
- *  best-effort attempt will be made to remove the environment group routing
- *  rules corresponding to this deployment before removing the deployment from
- *  the runtime. This is likely to be a rare use case; it is only needed when
- *  the intended effect of undeploying this proxy is to cause the traffic it
- *  currently handles to be rerouted to some other existing proxy in the
- *  environment group. The [GenerateUndeployChangeReport
- *  API](GenerateUndeployChangeReport) may be used to examine routing changes
- *  before issuing the undeployment request, and its response will indicate if a
- *  sequenced rollout is recommended for the undeployment.
+ *  Flag that specifies whether to enable sequenced rollout. If set to `true`,
+ *  the environment group routing rules corresponding to this deployment will be
+ *  removed before removing the deployment from the runtime. This is likely to
+ *  be a rare use case; it is only needed when the intended effect of
+ *  undeploying this proxy is to cause the traffic it currently handles to be
+ *  rerouted to some other existing proxy in the environment group. The
+ *  [GenerateUndeployChangeReport API](GenerateUndeployChangeReport) may be used
+ *  to examine routing changes before issuing the undeployment request, and its
+ *  response will indicate if a sequenced rollout is recommended for the
+ *  undeployment.
  */
 @property(nonatomic, assign) BOOL sequencedRollout;
 

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud DNS API (dns/v1)
+//   Cloud DNS API (dns/v2)
 // Documentation:
 //   https://cloud.google.com/dns/docs
 
@@ -14,9 +14,9 @@
 // Constants
 
 // sortBy
-NSString * const kGTLRDnsSortByChangeSequence = @"changeSequence";
-NSString * const kGTLRDnsSortById             = @"id";
-NSString * const kGTLRDnsSortByStartTime      = @"startTime";
+NSString * const kGTLRDnsSortByChangeSequence = @"CHANGE_SEQUENCE";
+NSString * const kGTLRDnsSortById             = @"ID";
+NSString * const kGTLRDnsSortByStartTime      = @"START_TIME";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -30,10 +30,11 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ChangesCreate
 
-@dynamic clientOperationId, managedZone, project;
+@dynamic clientOperationId, location, managedZone, project;
 
 + (instancetype)queryWithObject:(GTLRDns_Change *)object
                         project:(NSString *)project
+                       location:(NSString *)location
                     managedZone:(NSString *)managedZone {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -42,15 +43,16 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
     return nil;
   }
   NSArray *pathParams = @[
-    @"managedZone", @"project"
+    @"location", @"managedZone", @"project"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}/changes";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/managedZones/{managedZone}/changes";
   GTLRDnsQuery_ChangesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.project = project;
+  query.location = location;
   query.managedZone = managedZone;
   query.expectedObjectClass = [GTLRDns_Change class];
   query.loggingName = @"dns.changes.create";
@@ -61,20 +63,22 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ChangesGet
 
-@dynamic changeId, clientOperationId, managedZone, project;
+@dynamic changeId, clientOperationId, location, managedZone, project;
 
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                      managedZone:(NSString *)managedZone
                         changeId:(NSString *)changeId {
   NSArray *pathParams = @[
-    @"changeId", @"managedZone", @"project"
+    @"changeId", @"location", @"managedZone", @"project"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}/changes/{changeId}";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/managedZones/{managedZone}/changes/{changeId}";
   GTLRDnsQuery_ChangesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.project = project;
+  query.location = location;
   query.managedZone = managedZone;
   query.changeId = changeId;
   query.expectedObjectClass = [GTLRDns_Change class];
@@ -86,19 +90,22 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ChangesList
 
-@dynamic managedZone, maxResults, pageToken, project, sortBy, sortOrder;
+@dynamic location, managedZone, maxResults, pageToken, project, sortBy,
+         sortOrder;
 
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                      managedZone:(NSString *)managedZone {
   NSArray *pathParams = @[
-    @"managedZone", @"project"
+    @"location", @"managedZone", @"project"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}/changes";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/managedZones/{managedZone}/changes";
   GTLRDnsQuery_ChangesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.project = project;
+  query.location = location;
   query.managedZone = managedZone;
   query.expectedObjectClass = [GTLRDns_ChangesListResponse class];
   query.loggingName = @"dns.changes.list";
@@ -109,20 +116,23 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_DnsKeysGet
 
-@dynamic clientOperationId, digestType, dnsKeyId, managedZone, project;
+@dynamic clientOperationId, digestType, dnsKeyId, location, managedZone,
+         project;
 
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                      managedZone:(NSString *)managedZone
                         dnsKeyId:(NSString *)dnsKeyId {
   NSArray *pathParams = @[
-    @"dnsKeyId", @"managedZone", @"project"
+    @"dnsKeyId", @"location", @"managedZone", @"project"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}/dnsKeys/{dnsKeyId}";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/managedZones/{managedZone}/dnsKeys/{dnsKeyId}";
   GTLRDnsQuery_DnsKeysGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.project = project;
+  query.location = location;
   query.managedZone = managedZone;
   query.dnsKeyId = dnsKeyId;
   query.expectedObjectClass = [GTLRDns_DnsKey class];
@@ -134,19 +144,21 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_DnsKeysList
 
-@dynamic digestType, managedZone, maxResults, pageToken, project;
+@dynamic digestType, location, managedZone, maxResults, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                      managedZone:(NSString *)managedZone {
   NSArray *pathParams = @[
-    @"managedZone", @"project"
+    @"location", @"managedZone", @"project"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}/dnsKeys";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/managedZones/{managedZone}/dnsKeys";
   GTLRDnsQuery_DnsKeysList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.project = project;
+  query.location = location;
   query.managedZone = managedZone;
   query.expectedObjectClass = [GTLRDns_DnsKeysListResponse class];
   query.loggingName = @"dns.dnsKeys.list";
@@ -157,20 +169,22 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ManagedZoneOperationsGet
 
-@dynamic clientOperationId, managedZone, operation, project;
+@dynamic clientOperationId, location, managedZone, operation, project;
 
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                      managedZone:(NSString *)managedZone
                        operation:(NSString *)operation {
   NSArray *pathParams = @[
-    @"managedZone", @"operation", @"project"
+    @"location", @"managedZone", @"operation", @"project"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}/operations/{operation}";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/managedZones/{managedZone}/operations/{operation}";
   GTLRDnsQuery_ManagedZoneOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.project = project;
+  query.location = location;
   query.managedZone = managedZone;
   query.operation = operation;
   query.expectedObjectClass = [GTLRDns_Operation class];
@@ -182,19 +196,21 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ManagedZoneOperationsList
 
-@dynamic managedZone, maxResults, pageToken, project, sortBy;
+@dynamic location, managedZone, maxResults, pageToken, project, sortBy;
 
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                      managedZone:(NSString *)managedZone {
   NSArray *pathParams = @[
-    @"managedZone", @"project"
+    @"location", @"managedZone", @"project"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}/operations";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/managedZones/{managedZone}/operations";
   GTLRDnsQuery_ManagedZoneOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.project = project;
+  query.location = location;
   query.managedZone = managedZone;
   query.expectedObjectClass = [GTLRDns_ManagedZoneOperationsListResponse class];
   query.loggingName = @"dns.managedZoneOperations.list";
@@ -205,24 +221,28 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ManagedZonesCreate
 
-@dynamic clientOperationId, project;
+@dynamic clientOperationId, location, project;
 
 + (instancetype)queryWithObject:(GTLRDns_ManagedZone *)object
-                        project:(NSString *)project {
+                        project:(NSString *)project
+                       location:(NSString *)location {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones";
+  NSArray *pathParams = @[
+    @"location", @"project"
+  ];
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/managedZones";
   GTLRDnsQuery_ManagedZonesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.project = project;
+  query.location = location;
   query.expectedObjectClass = [GTLRDns_ManagedZone class];
   query.loggingName = @"dns.managedZones.create";
   return query;
@@ -232,19 +252,21 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ManagedZonesDelete
 
-@dynamic clientOperationId, managedZone, project;
+@dynamic clientOperationId, location, managedZone, project;
 
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                      managedZone:(NSString *)managedZone {
   NSArray *pathParams = @[
-    @"managedZone", @"project"
+    @"location", @"managedZone", @"project"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/managedZones/{managedZone}";
   GTLRDnsQuery_ManagedZonesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.project = project;
+  query.location = location;
   query.managedZone = managedZone;
   query.loggingName = @"dns.managedZones.delete";
   return query;
@@ -254,19 +276,21 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ManagedZonesGet
 
-@dynamic clientOperationId, managedZone, project;
+@dynamic clientOperationId, location, managedZone, project;
 
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                      managedZone:(NSString *)managedZone {
   NSArray *pathParams = @[
-    @"managedZone", @"project"
+    @"location", @"managedZone", @"project"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/managedZones/{managedZone}";
   GTLRDnsQuery_ManagedZonesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.project = project;
+  query.location = location;
   query.managedZone = managedZone;
   query.expectedObjectClass = [GTLRDns_ManagedZone class];
   query.loggingName = @"dns.managedZones.get";
@@ -277,16 +301,20 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ManagedZonesList
 
-@dynamic dnsName, maxResults, pageToken, project;
+@dynamic dnsName, location, maxResults, pageToken, project;
 
-+ (instancetype)queryWithProject:(NSString *)project {
-  NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones";
++ (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location {
+  NSArray *pathParams = @[
+    @"location", @"project"
+  ];
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/managedZones";
   GTLRDnsQuery_ManagedZonesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.project = project;
+  query.location = location;
   query.expectedObjectClass = [GTLRDns_ManagedZonesListResponse class];
   query.loggingName = @"dns.managedZones.list";
   return query;
@@ -296,10 +324,11 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ManagedZonesPatch
 
-@dynamic clientOperationId, managedZone, project;
+@dynamic clientOperationId, location, managedZone, project;
 
 + (instancetype)queryWithObject:(GTLRDns_ManagedZone *)object
                         project:(NSString *)project
+                       location:(NSString *)location
                     managedZone:(NSString *)managedZone {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -308,15 +337,16 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
     return nil;
   }
   NSArray *pathParams = @[
-    @"managedZone", @"project"
+    @"location", @"managedZone", @"project"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/managedZones/{managedZone}";
   GTLRDnsQuery_ManagedZonesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.project = project;
+  query.location = location;
   query.managedZone = managedZone;
   query.expectedObjectClass = [GTLRDns_Operation class];
   query.loggingName = @"dns.managedZones.patch";
@@ -327,10 +357,11 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ManagedZonesUpdate
 
-@dynamic clientOperationId, managedZone, project;
+@dynamic clientOperationId, location, managedZone, project;
 
 + (instancetype)queryWithObject:(GTLRDns_ManagedZone *)object
                         project:(NSString *)project
+                       location:(NSString *)location
                     managedZone:(NSString *)managedZone {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -339,15 +370,16 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
     return nil;
   }
   NSArray *pathParams = @[
-    @"managedZone", @"project"
+    @"location", @"managedZone", @"project"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/managedZones/{managedZone}";
   GTLRDnsQuery_ManagedZonesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.project = project;
+  query.location = location;
   query.managedZone = managedZone;
   query.expectedObjectClass = [GTLRDns_Operation class];
   query.loggingName = @"dns.managedZones.update";
@@ -358,24 +390,28 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_PoliciesCreate
 
-@dynamic clientOperationId, project;
+@dynamic clientOperationId, location, project;
 
 + (instancetype)queryWithObject:(GTLRDns_Policy *)object
-                        project:(NSString *)project {
+                        project:(NSString *)project
+                       location:(NSString *)location {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/policies";
+  NSArray *pathParams = @[
+    @"location", @"project"
+  ];
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/policies";
   GTLRDnsQuery_PoliciesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.project = project;
+  query.location = location;
   query.expectedObjectClass = [GTLRDns_Policy class];
   query.loggingName = @"dns.policies.create";
   return query;
@@ -385,19 +421,21 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_PoliciesDelete
 
-@dynamic clientOperationId, policy, project;
+@dynamic clientOperationId, location, policy, project;
 
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                           policy:(NSString *)policy {
   NSArray *pathParams = @[
-    @"policy", @"project"
+    @"location", @"policy", @"project"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/policies/{policy}";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/policies/{policy}";
   GTLRDnsQuery_PoliciesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.project = project;
+  query.location = location;
   query.policy = policy;
   query.loggingName = @"dns.policies.delete";
   return query;
@@ -407,19 +445,21 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_PoliciesGet
 
-@dynamic clientOperationId, policy, project;
+@dynamic clientOperationId, location, policy, project;
 
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                           policy:(NSString *)policy {
   NSArray *pathParams = @[
-    @"policy", @"project"
+    @"location", @"policy", @"project"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/policies/{policy}";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/policies/{policy}";
   GTLRDnsQuery_PoliciesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.project = project;
+  query.location = location;
   query.policy = policy;
   query.expectedObjectClass = [GTLRDns_Policy class];
   query.loggingName = @"dns.policies.get";
@@ -430,16 +470,20 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_PoliciesList
 
-@dynamic maxResults, pageToken, project;
+@dynamic location, maxResults, pageToken, project;
 
-+ (instancetype)queryWithProject:(NSString *)project {
-  NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/policies";
++ (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location {
+  NSArray *pathParams = @[
+    @"location", @"project"
+  ];
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/policies";
   GTLRDnsQuery_PoliciesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.project = project;
+  query.location = location;
   query.expectedObjectClass = [GTLRDns_PoliciesListResponse class];
   query.loggingName = @"dns.policies.list";
   return query;
@@ -449,10 +493,11 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_PoliciesPatch
 
-@dynamic clientOperationId, policy, project;
+@dynamic clientOperationId, location, policy, project;
 
 + (instancetype)queryWithObject:(GTLRDns_Policy *)object
                         project:(NSString *)project
+                       location:(NSString *)location
                          policy:(NSString *)policy {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -461,15 +506,16 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
     return nil;
   }
   NSArray *pathParams = @[
-    @"policy", @"project"
+    @"location", @"policy", @"project"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/policies/{policy}";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/policies/{policy}";
   GTLRDnsQuery_PoliciesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.project = project;
+  query.location = location;
   query.policy = policy;
   query.expectedObjectClass = [GTLRDns_PoliciesPatchResponse class];
   query.loggingName = @"dns.policies.patch";
@@ -480,10 +526,11 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_PoliciesUpdate
 
-@dynamic clientOperationId, policy, project;
+@dynamic clientOperationId, location, policy, project;
 
 + (instancetype)queryWithObject:(GTLRDns_Policy *)object
                         project:(NSString *)project
+                       location:(NSString *)location
                          policy:(NSString *)policy {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -492,15 +539,16 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
     return nil;
   }
   NSArray *pathParams = @[
-    @"policy", @"project"
+    @"location", @"policy", @"project"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/policies/{policy}";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/policies/{policy}";
   GTLRDnsQuery_PoliciesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.project = project;
+  query.location = location;
   query.policy = policy;
   query.expectedObjectClass = [GTLRDns_PoliciesUpdateResponse class];
   query.loggingName = @"dns.policies.update";
@@ -511,16 +559,20 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ProjectsGet
 
-@dynamic clientOperationId, project;
+@dynamic clientOperationId, location, project;
 
-+ (instancetype)queryWithProject:(NSString *)project {
-  NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}";
++ (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location {
+  NSArray *pathParams = @[
+    @"location", @"project"
+  ];
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}";
   GTLRDnsQuery_ProjectsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.project = project;
+  query.location = location;
   query.expectedObjectClass = [GTLRDns_Project class];
   query.loggingName = @"dns.projects.get";
   return query;
@@ -530,10 +582,11 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ResourceRecordSetsCreate
 
-@dynamic clientOperationId, managedZone, project;
+@dynamic clientOperationId, location, managedZone, project;
 
 + (instancetype)queryWithObject:(GTLRDns_ResourceRecordSet *)object
                         project:(NSString *)project
+                       location:(NSString *)location
                     managedZone:(NSString *)managedZone {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -542,15 +595,16 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
     return nil;
   }
   NSArray *pathParams = @[
-    @"managedZone", @"project"
+    @"location", @"managedZone", @"project"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}/rrsets";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/managedZones/{managedZone}/rrsets";
   GTLRDnsQuery_ResourceRecordSetsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.project = project;
+  query.location = location;
   query.managedZone = managedZone;
   query.expectedObjectClass = [GTLRDns_ResourceRecordSet class];
   query.loggingName = @"dns.resourceRecordSets.create";
@@ -561,25 +615,26 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ResourceRecordSetsDelete
 
-@dynamic clientOperationId, managedZone, name, project, type;
+@dynamic clientOperationId, location, managedZone, name, project, type;
 
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                      managedZone:(NSString *)managedZone
                             name:(NSString *)name
                             type:(NSString *)type {
   NSArray *pathParams = @[
-    @"managedZone", @"name", @"project", @"type"
+    @"location", @"managedZone", @"name", @"project", @"type"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}/rrsets/{name}/{type}";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/managedZones/{managedZone}/rrsets/{name}/{type}";
   GTLRDnsQuery_ResourceRecordSetsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.project = project;
+  query.location = location;
   query.managedZone = managedZone;
   query.name = name;
   query.type = type;
-  query.expectedObjectClass = [GTLRDns_ResourceRecordSetsDeleteResponse class];
   query.loggingName = @"dns.resourceRecordSets.delete";
   return query;
 }
@@ -588,21 +643,23 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ResourceRecordSetsGet
 
-@dynamic clientOperationId, managedZone, name, project, type;
+@dynamic clientOperationId, location, managedZone, name, project, type;
 
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                      managedZone:(NSString *)managedZone
                             name:(NSString *)name
                             type:(NSString *)type {
   NSArray *pathParams = @[
-    @"managedZone", @"name", @"project", @"type"
+    @"location", @"managedZone", @"name", @"project", @"type"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}/rrsets/{name}/{type}";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/managedZones/{managedZone}/rrsets/{name}/{type}";
   GTLRDnsQuery_ResourceRecordSetsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.project = project;
+  query.location = location;
   query.managedZone = managedZone;
   query.name = name;
   query.type = type;
@@ -615,19 +672,21 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ResourceRecordSetsList
 
-@dynamic managedZone, maxResults, name, pageToken, project, type;
+@dynamic location, managedZone, maxResults, name, pageToken, project, type;
 
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                      managedZone:(NSString *)managedZone {
   NSArray *pathParams = @[
-    @"managedZone", @"project"
+    @"location", @"managedZone", @"project"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}/rrsets";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/managedZones/{managedZone}/rrsets";
   GTLRDnsQuery_ResourceRecordSetsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.project = project;
+  query.location = location;
   query.managedZone = managedZone;
   query.expectedObjectClass = [GTLRDns_ResourceRecordSetsListResponse class];
   query.loggingName = @"dns.resourceRecordSets.list";
@@ -638,10 +697,11 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ResourceRecordSetsPatch
 
-@dynamic clientOperationId, managedZone, name, project, type;
+@dynamic clientOperationId, location, managedZone, name, project, type;
 
 + (instancetype)queryWithObject:(GTLRDns_ResourceRecordSet *)object
                         project:(NSString *)project
+                       location:(NSString *)location
                     managedZone:(NSString *)managedZone
                            name:(NSString *)name
                            type:(NSString *)type {
@@ -652,15 +712,16 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
     return nil;
   }
   NSArray *pathParams = @[
-    @"managedZone", @"name", @"project", @"type"
+    @"location", @"managedZone", @"name", @"project", @"type"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}/rrsets/{name}/{type}";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/managedZones/{managedZone}/rrsets/{name}/{type}";
   GTLRDnsQuery_ResourceRecordSetsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.project = project;
+  query.location = location;
   query.managedZone = managedZone;
   query.name = name;
   query.type = type;
@@ -673,24 +734,28 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ResponsePoliciesCreate
 
-@dynamic clientOperationId, project;
+@dynamic clientOperationId, location, project;
 
 + (instancetype)queryWithObject:(GTLRDns_ResponsePolicy *)object
-                        project:(NSString *)project {
+                        project:(NSString *)project
+                       location:(NSString *)location {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/responsePolicies";
+  NSArray *pathParams = @[
+    @"location", @"project"
+  ];
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/responsePolicies";
   GTLRDnsQuery_ResponsePoliciesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.project = project;
+  query.location = location;
   query.expectedObjectClass = [GTLRDns_ResponsePolicy class];
   query.loggingName = @"dns.responsePolicies.create";
   return query;
@@ -700,19 +765,21 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ResponsePoliciesDelete
 
-@dynamic clientOperationId, project, responsePolicy;
+@dynamic clientOperationId, location, project, responsePolicy;
 
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                   responsePolicy:(NSString *)responsePolicy {
   NSArray *pathParams = @[
-    @"project", @"responsePolicy"
+    @"location", @"project", @"responsePolicy"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/responsePolicies/{responsePolicy}";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/responsePolicies/{responsePolicy}";
   GTLRDnsQuery_ResponsePoliciesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.project = project;
+  query.location = location;
   query.responsePolicy = responsePolicy;
   query.loggingName = @"dns.responsePolicies.delete";
   return query;
@@ -722,19 +789,21 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ResponsePoliciesGet
 
-@dynamic clientOperationId, project, responsePolicy;
+@dynamic clientOperationId, location, project, responsePolicy;
 
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                   responsePolicy:(NSString *)responsePolicy {
   NSArray *pathParams = @[
-    @"project", @"responsePolicy"
+    @"location", @"project", @"responsePolicy"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/responsePolicies/{responsePolicy}";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/responsePolicies/{responsePolicy}";
   GTLRDnsQuery_ResponsePoliciesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.project = project;
+  query.location = location;
   query.responsePolicy = responsePolicy;
   query.expectedObjectClass = [GTLRDns_ResponsePolicy class];
   query.loggingName = @"dns.responsePolicies.get";
@@ -745,16 +814,20 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ResponsePoliciesList
 
-@dynamic maxResults, pageToken, project;
+@dynamic location, maxResults, pageToken, project;
 
-+ (instancetype)queryWithProject:(NSString *)project {
-  NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/responsePolicies";
++ (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location {
+  NSArray *pathParams = @[
+    @"location", @"project"
+  ];
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/responsePolicies";
   GTLRDnsQuery_ResponsePoliciesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.project = project;
+  query.location = location;
   query.expectedObjectClass = [GTLRDns_ResponsePoliciesListResponse class];
   query.loggingName = @"dns.responsePolicies.list";
   return query;
@@ -764,10 +837,11 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ResponsePoliciesPatch
 
-@dynamic clientOperationId, project, responsePolicy;
+@dynamic clientOperationId, location, project, responsePolicy;
 
 + (instancetype)queryWithObject:(GTLRDns_ResponsePolicy *)object
                         project:(NSString *)project
+                       location:(NSString *)location
                  responsePolicy:(NSString *)responsePolicy {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -776,15 +850,16 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
     return nil;
   }
   NSArray *pathParams = @[
-    @"project", @"responsePolicy"
+    @"location", @"project", @"responsePolicy"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/responsePolicies/{responsePolicy}";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/responsePolicies/{responsePolicy}";
   GTLRDnsQuery_ResponsePoliciesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.project = project;
+  query.location = location;
   query.responsePolicy = responsePolicy;
   query.expectedObjectClass = [GTLRDns_ResponsePoliciesPatchResponse class];
   query.loggingName = @"dns.responsePolicies.patch";
@@ -795,10 +870,11 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ResponsePoliciesUpdate
 
-@dynamic clientOperationId, project, responsePolicy;
+@dynamic clientOperationId, location, project, responsePolicy;
 
 + (instancetype)queryWithObject:(GTLRDns_ResponsePolicy *)object
                         project:(NSString *)project
+                       location:(NSString *)location
                  responsePolicy:(NSString *)responsePolicy {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -807,15 +883,16 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
     return nil;
   }
   NSArray *pathParams = @[
-    @"project", @"responsePolicy"
+    @"location", @"project", @"responsePolicy"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/responsePolicies/{responsePolicy}";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/responsePolicies/{responsePolicy}";
   GTLRDnsQuery_ResponsePoliciesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.project = project;
+  query.location = location;
   query.responsePolicy = responsePolicy;
   query.expectedObjectClass = [GTLRDns_ResponsePoliciesUpdateResponse class];
   query.loggingName = @"dns.responsePolicies.update";
@@ -826,10 +903,11 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ResponsePolicyRulesCreate
 
-@dynamic clientOperationId, project, responsePolicy;
+@dynamic clientOperationId, location, project, responsePolicy;
 
 + (instancetype)queryWithObject:(GTLRDns_ResponsePolicyRule *)object
                         project:(NSString *)project
+                       location:(NSString *)location
                  responsePolicy:(NSString *)responsePolicy {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -838,15 +916,16 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
     return nil;
   }
   NSArray *pathParams = @[
-    @"project", @"responsePolicy"
+    @"location", @"project", @"responsePolicy"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/responsePolicies/{responsePolicy}/rules";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/responsePolicies/{responsePolicy}/rules";
   GTLRDnsQuery_ResponsePolicyRulesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.project = project;
+  query.location = location;
   query.responsePolicy = responsePolicy;
   query.expectedObjectClass = [GTLRDns_ResponsePolicyRule class];
   query.loggingName = @"dns.responsePolicyRules.create";
@@ -857,20 +936,23 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ResponsePolicyRulesDelete
 
-@dynamic clientOperationId, project, responsePolicy, responsePolicyRule;
+@dynamic clientOperationId, location, project, responsePolicy,
+         responsePolicyRule;
 
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                   responsePolicy:(NSString *)responsePolicy
               responsePolicyRule:(NSString *)responsePolicyRule {
   NSArray *pathParams = @[
-    @"project", @"responsePolicy", @"responsePolicyRule"
+    @"location", @"project", @"responsePolicy", @"responsePolicyRule"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/responsePolicies/{responsePolicy}/rules/{responsePolicyRule}";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/responsePolicies/{responsePolicy}/rules/{responsePolicyRule}";
   GTLRDnsQuery_ResponsePolicyRulesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.project = project;
+  query.location = location;
   query.responsePolicy = responsePolicy;
   query.responsePolicyRule = responsePolicyRule;
   query.loggingName = @"dns.responsePolicyRules.delete";
@@ -881,20 +963,23 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ResponsePolicyRulesGet
 
-@dynamic clientOperationId, project, responsePolicy, responsePolicyRule;
+@dynamic clientOperationId, location, project, responsePolicy,
+         responsePolicyRule;
 
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                   responsePolicy:(NSString *)responsePolicy
               responsePolicyRule:(NSString *)responsePolicyRule {
   NSArray *pathParams = @[
-    @"project", @"responsePolicy", @"responsePolicyRule"
+    @"location", @"project", @"responsePolicy", @"responsePolicyRule"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/responsePolicies/{responsePolicy}/rules/{responsePolicyRule}";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/responsePolicies/{responsePolicy}/rules/{responsePolicyRule}";
   GTLRDnsQuery_ResponsePolicyRulesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.project = project;
+  query.location = location;
   query.responsePolicy = responsePolicy;
   query.responsePolicyRule = responsePolicyRule;
   query.expectedObjectClass = [GTLRDns_ResponsePolicyRule class];
@@ -906,19 +991,21 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ResponsePolicyRulesList
 
-@dynamic maxResults, pageToken, project, responsePolicy;
+@dynamic location, maxResults, pageToken, project, responsePolicy;
 
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                   responsePolicy:(NSString *)responsePolicy {
   NSArray *pathParams = @[
-    @"project", @"responsePolicy"
+    @"location", @"project", @"responsePolicy"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/responsePolicies/{responsePolicy}/rules";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/responsePolicies/{responsePolicy}/rules";
   GTLRDnsQuery_ResponsePolicyRulesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.project = project;
+  query.location = location;
   query.responsePolicy = responsePolicy;
   query.expectedObjectClass = [GTLRDns_ResponsePolicyRulesListResponse class];
   query.loggingName = @"dns.responsePolicyRules.list";
@@ -929,10 +1016,12 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ResponsePolicyRulesPatch
 
-@dynamic clientOperationId, project, responsePolicy, responsePolicyRule;
+@dynamic clientOperationId, location, project, responsePolicy,
+         responsePolicyRule;
 
 + (instancetype)queryWithObject:(GTLRDns_ResponsePolicyRule *)object
                         project:(NSString *)project
+                       location:(NSString *)location
                  responsePolicy:(NSString *)responsePolicy
              responsePolicyRule:(NSString *)responsePolicyRule {
   if (object == nil) {
@@ -942,15 +1031,16 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
     return nil;
   }
   NSArray *pathParams = @[
-    @"project", @"responsePolicy", @"responsePolicyRule"
+    @"location", @"project", @"responsePolicy", @"responsePolicyRule"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/responsePolicies/{responsePolicy}/rules/{responsePolicyRule}";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/responsePolicies/{responsePolicy}/rules/{responsePolicyRule}";
   GTLRDnsQuery_ResponsePolicyRulesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.project = project;
+  query.location = location;
   query.responsePolicy = responsePolicy;
   query.responsePolicyRule = responsePolicyRule;
   query.expectedObjectClass = [GTLRDns_ResponsePolicyRulesPatchResponse class];
@@ -962,10 +1052,12 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ResponsePolicyRulesUpdate
 
-@dynamic clientOperationId, project, responsePolicy, responsePolicyRule;
+@dynamic clientOperationId, location, project, responsePolicy,
+         responsePolicyRule;
 
 + (instancetype)queryWithObject:(GTLRDns_ResponsePolicyRule *)object
                         project:(NSString *)project
+                       location:(NSString *)location
                  responsePolicy:(NSString *)responsePolicy
              responsePolicyRule:(NSString *)responsePolicyRule {
   if (object == nil) {
@@ -975,15 +1067,16 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
     return nil;
   }
   NSArray *pathParams = @[
-    @"project", @"responsePolicy", @"responsePolicyRule"
+    @"location", @"project", @"responsePolicy", @"responsePolicyRule"
   ];
-  NSString *pathURITemplate = @"dns/v1/projects/{project}/responsePolicies/{responsePolicy}/rules/{responsePolicyRule}";
+  NSString *pathURITemplate = @"dns/v2/projects/{project}/locations/{location}/responsePolicies/{responsePolicy}/rules/{responsePolicyRule}";
   GTLRDnsQuery_ResponsePolicyRulesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.project = project;
+  query.location = location;
   query.responsePolicy = responsePolicy;
   query.responsePolicyRule = responsePolicyRule;
   query.expectedObjectClass = [GTLRDns_ResponsePolicyRulesUpdateResponse class];

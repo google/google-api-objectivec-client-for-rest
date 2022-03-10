@@ -31,11 +31,25 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
+ *  Authorization scope: Private Service:
+ *  https://www.googleapis.com/auth/cloud-identity.devices
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-identity.devices"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityDevices;
+/**
  *  Authorization scope: See your device details
  *
  *  Value "https://www.googleapis.com/auth/cloud-identity.devices.lookup"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityDevicesLookup;
+/**
+ *  Authorization scope: Private Service:
+ *  https://www.googleapis.com/auth/cloud-identity.devices.readonly
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-identity.devices.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityDevicesReadonly;
 /**
  *  Authorization scope: See, change, create, and delete any of the Cloud
  *  Identity Groups that you can access, including the members of each group

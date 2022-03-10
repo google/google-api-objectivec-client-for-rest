@@ -196,6 +196,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_ClientUser_S
 FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_ClientUser_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAuthorizedBuyersMarketplace_CreativeRequirements.creativeFormat
+
+/**
+ *  A placeholder for an unspecified creative format.
+ *
+ *  Value: "CREATIVE_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_CreativeFormat_CreativeFormatUnspecified;
+/**
+ *  Banner creatives such as image or HTML5 assets.
+ *
+ *  Value: "DISPLAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_CreativeFormat_Display;
+/**
+ *  Video creatives that can be played in a video player.
+ *
+ *  Value: "VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_CreativeFormat_Video;
+
+// ----------------------------------------------------------------------------
 // GTLRAuthorizedBuyersMarketplace_CreativeRequirements.creativePreApprovalPolicy
 
 /**
@@ -260,6 +282,46 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequ
  *  Value: "PUBLISHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_ProgrammaticCreativeSource_Publisher;
+
+// ----------------------------------------------------------------------------
+// GTLRAuthorizedBuyersMarketplace_CreativeRequirements.skippableAdType
+
+/**
+ *  This video ad can be skipped after 5 seconds or not-skippable. This value
+ *  will appear in RTB bid requests as SkippableBidRequestType::ALLOW_SKIPPABLE.
+ *
+ *  Value: "ANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_SkippableAdType_Any;
+/**
+ *  Video ad that can be skipped after 5 seconds, and is counted as engaged view
+ *  after 30 seconds. The creative is hosted on YouTube only, and viewcount of
+ *  the YouTube video increments after the engaged view. This value will appear
+ *  in RTB bid requests as SkippableBidRequestType::REQUIRE_SKIPPABLE.
+ *
+ *  Value: "INSTREAM_SELECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_SkippableAdType_InstreamSelect;
+/**
+ *  This video ad is not skippable. This value will appear in RTB bid requests
+ *  as SkippableBidRequestType::BLOCK_SKIPPABLE.
+ *
+ *  Value: "NOT_SKIPPABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_SkippableAdType_NotSkippable;
+/**
+ *  Video ad that can be skipped after 5 seconds. This value will appear in RTB
+ *  bid requests as SkippableBidRequestType::REQUIRE_SKIPPABLE.
+ *
+ *  Value: "SKIPPABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_SkippableAdType_Skippable;
+/**
+ *  A placeholder for an unspecified skippable ad type.
+ *
+ *  Value: "SKIPPABLE_AD_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_SkippableAdType_SkippableAdTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAuthorizedBuyersMarketplace_DayPart.dayOfWeek
@@ -1258,6 +1320,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 @interface GTLRAuthorizedBuyersMarketplace_CreativeRequirements : GTLRObject
 
 /**
+ *  Output only. The format of the creative, only applicable for programmatic
+ *  guaranteed and preferred deals.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_CreativeFormat_CreativeFormatUnspecified
+ *        A placeholder for an unspecified creative format. (Value:
+ *        "CREATIVE_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_CreativeFormat_Display
+ *        Banner creatives such as image or HTML5 assets. (Value: "DISPLAY")
+ *    @arg @c kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_CreativeFormat_Video
+ *        Video creatives that can be played in a video player. (Value: "VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *creativeFormat;
+
+/**
  *  Output only. Specifies the creative pre-approval policy.
  *
  *  Likely values:
@@ -1290,6 +1367,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 @property(nonatomic, copy, nullable) NSString *creativeSafeFrameCompatibility;
 
 /**
+ *  Output only. The max duration of the video creative in milliseconds. only
+ *  applicable for deals with video creatives.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxAdDurationMs;
+
+/**
  *  Output only. Specifies the creative source for programmatic deals. PUBLISHER
  *  means creative is provided by seller and ADVERTISER means creative is
  *  provided by the buyer.
@@ -1305,6 +1390,35 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
  *        "PUBLISHER")
  */
 @property(nonatomic, copy, nullable) NSString *programmaticCreativeSource;
+
+/**
+ *  Output only. Skippable video ads allow viewers to skip ads after 5 seconds.
+ *  Only applicable for deals with video creatives.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_SkippableAdType_Any
+ *        This video ad can be skipped after 5 seconds or not-skippable. This
+ *        value will appear in RTB bid requests as
+ *        SkippableBidRequestType::ALLOW_SKIPPABLE. (Value: "ANY")
+ *    @arg @c kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_SkippableAdType_InstreamSelect
+ *        Video ad that can be skipped after 5 seconds, and is counted as
+ *        engaged view after 30 seconds. The creative is hosted on YouTube only,
+ *        and viewcount of the YouTube video increments after the engaged view.
+ *        This value will appear in RTB bid requests as
+ *        SkippableBidRequestType::REQUIRE_SKIPPABLE. (Value: "INSTREAM_SELECT")
+ *    @arg @c kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_SkippableAdType_NotSkippable
+ *        This video ad is not skippable. This value will appear in RTB bid
+ *        requests as SkippableBidRequestType::BLOCK_SKIPPABLE. (Value:
+ *        "NOT_SKIPPABLE")
+ *    @arg @c kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_SkippableAdType_Skippable
+ *        Video ad that can be skipped after 5 seconds. This value will appear
+ *        in RTB bid requests as SkippableBidRequestType::REQUIRE_SKIPPABLE.
+ *        (Value: "SKIPPABLE")
+ *    @arg @c kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_SkippableAdType_SkippableAdTypeUnspecified
+ *        A placeholder for an unspecified skippable ad type. (Value:
+ *        "SKIPPABLE_AD_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *skippableAdType;
 
 @end
 

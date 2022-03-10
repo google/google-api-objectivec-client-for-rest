@@ -660,3 +660,41 @@
 }
 
 @end
+
+@implementation GTLRCloudRetailQuery_ProjectsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudRetailQuery_ProjectsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleLongrunningOperation class];
+  query.loggingName = @"retail.projects.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/operations";
+  GTLRCloudRetailQuery_ProjectsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleLongrunningListOperationsResponse class];
+  query.loggingName = @"retail.projects.operations.list";
+  return query;
+}
+
+@end

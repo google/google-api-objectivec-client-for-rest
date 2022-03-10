@@ -93,6 +93,117 @@
 
 @end
 
+@implementation GTLRSecurityCommandCenterQuery_FoldersBigQueryExportsCreate
+
+@dynamic bigQueryExportId, parent;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/bigQueryExports";
+  GTLRSecurityCommandCenterQuery_FoldersBigQueryExportsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport class];
+  query.loggingName = @"securitycenter.folders.bigQueryExports.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_FoldersBigQueryExportsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_FoldersBigQueryExportsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_Empty class];
+  query.loggingName = @"securitycenter.folders.bigQueryExports.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_FoldersBigQueryExportsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_FoldersBigQueryExportsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport class];
+  query.loggingName = @"securitycenter.folders.bigQueryExports.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_FoldersBigQueryExportsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/bigQueryExports";
+  GTLRSecurityCommandCenterQuery_FoldersBigQueryExportsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListBigQueryExportsResponse class];
+  query.loggingName = @"securitycenter.folders.bigQueryExports.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_FoldersBigQueryExportsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_FoldersBigQueryExportsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport class];
+  query.loggingName = @"securitycenter.folders.bigQueryExports.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRSecurityCommandCenterQuery_FoldersFindingsBulkMute
 
 @dynamic parent;
@@ -528,6 +639,117 @@
   query.name = name;
   query.expectedObjectClass = [GTLRSecurityCommandCenter_SecurityMarks class];
   query.loggingName = @"securitycenter.organizations.assets.updateSecurityMarks";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsBigQueryExportsCreate
+
+@dynamic bigQueryExportId, parent;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/bigQueryExports";
+  GTLRSecurityCommandCenterQuery_OrganizationsBigQueryExportsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport class];
+  query.loggingName = @"securitycenter.organizations.bigQueryExports.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsBigQueryExportsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_OrganizationsBigQueryExportsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_Empty class];
+  query.loggingName = @"securitycenter.organizations.bigQueryExports.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsBigQueryExportsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_OrganizationsBigQueryExportsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport class];
+  query.loggingName = @"securitycenter.organizations.bigQueryExports.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsBigQueryExportsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/bigQueryExports";
+  GTLRSecurityCommandCenterQuery_OrganizationsBigQueryExportsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListBigQueryExportsResponse class];
+  query.loggingName = @"securitycenter.organizations.bigQueryExports.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsBigQueryExportsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_OrganizationsBigQueryExportsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport class];
+  query.loggingName = @"securitycenter.organizations.bigQueryExports.patch";
   return query;
 }
 
@@ -1355,6 +1577,117 @@
   query.name = name;
   query.expectedObjectClass = [GTLRSecurityCommandCenter_SecurityMarks class];
   query.loggingName = @"securitycenter.projects.assets.updateSecurityMarks";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsBigQueryExportsCreate
+
+@dynamic bigQueryExportId, parent;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/bigQueryExports";
+  GTLRSecurityCommandCenterQuery_ProjectsBigQueryExportsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport class];
+  query.loggingName = @"securitycenter.projects.bigQueryExports.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsBigQueryExportsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_ProjectsBigQueryExportsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_Empty class];
+  query.loggingName = @"securitycenter.projects.bigQueryExports.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsBigQueryExportsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_ProjectsBigQueryExportsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport class];
+  query.loggingName = @"securitycenter.projects.bigQueryExports.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsBigQueryExportsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/bigQueryExports";
+  GTLRSecurityCommandCenterQuery_ProjectsBigQueryExportsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListBigQueryExportsResponse class];
+  query.loggingName = @"securitycenter.projects.bigQueryExports.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsBigQueryExportsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_ProjectsBigQueryExportsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport class];
+  query.loggingName = @"securitycenter.projects.bigQueryExports.patch";
   return query;
 }
 

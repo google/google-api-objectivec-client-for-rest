@@ -736,9 +736,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @interface GTLRCloudRetail_GoogleCloudRetailV2alphaImportErrorsConfig : GTLRObject
 
 /**
- *  Google Cloud Storage path for import errors. This must be an empty, existing
- *  Cloud Storage bucket. Import errors will be written to a file in this
- *  bucket, one per line, as a JSON-encoded `google.rpc.Status` message.
+ *  Google Cloud Storage prefix for import errors. This must be an empty,
+ *  existing Cloud Storage directory. Import errors will be written to sharded
+ *  files in this directory, one per line, as a JSON-encoded `google.rpc.Status`
+ *  message.
  */
 @property(nonatomic, copy, nullable) NSString *gcsPrefix;
 
@@ -1093,9 +1094,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @interface GTLRCloudRetail_GoogleCloudRetailV2betaImportErrorsConfig : GTLRObject
 
 /**
- *  Google Cloud Storage path for import errors. This must be an empty, existing
- *  Cloud Storage bucket. Import errors will be written to a file in this
- *  bucket, one per line, as a JSON-encoded `google.rpc.Status` message.
+ *  Google Cloud Storage prefix for import errors. This must be an empty,
+ *  existing Cloud Storage directory. Import errors will be written to sharded
+ *  files in this directory, one per line, as a JSON-encoded `google.rpc.Status`
+ *  message.
  */
 @property(nonatomic, copy, nullable) NSString *gcsPrefix;
 
@@ -1521,10 +1523,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @interface GTLRCloudRetail_GoogleCloudRetailV2CustomAttribute : GTLRObject
 
 /**
- *  If true, custom attribute values are indexed, so that it can be filtered,
- *  faceted or boosted in SearchService.Search. This field is ignored in a
- *  UserEvent. See SearchRequest.filter, SearchRequest.facet_specs and
- *  SearchRequest.boost_spec for more details.
+ *  This field will only be used when AttributesConfig.attribute_config_level of
+ *  the Catalog is 'PRODUCT_LEVEL_ATTRIBUTE_CONFIG', if true, custom attribute
+ *  values are indexed, so that it can be filtered, faceted or boosted in
+ *  SearchService.Search. This field is ignored in a UserEvent. See
+ *  SearchRequest.filter, SearchRequest.facet_specs and SearchRequest.boost_spec
+ *  for more details.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1540,9 +1544,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *numbers;
 
 /**
- *  If true, custom attribute values are searchable by text queries in
- *  SearchService.Search. This field is ignored in a UserEvent. Only set if type
- *  text is set. Otherwise, a INVALID_ARGUMENT error is returned.
+ *  This field will only be used when AttributesConfig.attribute_config_level of
+ *  the Catalog is 'PRODUCT_LEVEL_ATTRIBUTE_CONFIG', if true, custom attribute
+ *  values are searchable by text queries in SearchService.Search. This field is
+ *  ignored in a UserEvent. Only set if type text is set. Otherwise, a
+ *  INVALID_ARGUMENT error is returned.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1550,8 +1556,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  The textual values of this custom attribute. For example, `["yellow",
- *  "green"]` when the key is "color". Exactly one of text or numbers should be
- *  set. Otherwise, an INVALID_ARGUMENT error is returned.
+ *  "green"]` when the key is "color". Empty string is not allowed. Otherwise,
+ *  an INVALID_ARGUMENT error is returned. Exactly one of text or numbers should
+ *  be set. Otherwise, an INVALID_ARGUMENT error is returned.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *text;
 
@@ -1713,9 +1720,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @interface GTLRCloudRetail_GoogleCloudRetailV2ImportErrorsConfig : GTLRObject
 
 /**
- *  Google Cloud Storage path for import errors. This must be an empty, existing
- *  Cloud Storage bucket. Import errors will be written to a file in this
- *  bucket, one per line, as a JSON-encoded `google.rpc.Status` message.
+ *  Google Cloud Storage prefix for import errors. This must be an empty,
+ *  existing Cloud Storage directory. Import errors will be written to sharded
+ *  files in this directory, one per line, as a JSON-encoded `google.rpc.Status`
+ *  message.
  */
 @property(nonatomic, copy, nullable) NSString *gcsPrefix;
 
@@ -2312,8 +2320,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  128 characters. * For indexable attribute, the key must match the pattern:
  *  `a-zA-Z0-9*`. For example, `key0LikeThis` or `KEY_1_LIKE_THIS`. * For text
  *  attributes, at most 400 values are allowed. Empty values are not allowed.
- *  Each value must be a UTF-8 encoded string with a length limit of 256
- *  characters. * For number attributes, at most 400 values are allowed.
+ *  Each value must be a non-empty UTF-8 encoded string with a length limit of
+ *  256 characters. * For number attributes, at most 400 values are allowed.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2Product_Attributes *attributes;
 
@@ -2498,7 +2506,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  The material of the product. For example, "leather", "wooden". A maximum of
  *  20 values are allowed. Each value must be a UTF-8 encoded string with a
- *  length limit of 128 characters. Otherwise, an INVALID_ARGUMENT error is
+ *  length limit of 200 characters. Otherwise, an INVALID_ARGUMENT error is
  *  returned. Corresponding properties: Google Merchant Center property
  *  [material](https://support.google.com/merchants/answer/6324410). Schema.org
  *  property [Product.material](https://schema.org/material).
@@ -2695,8 +2703,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  128 characters. * For indexable attribute, the key must match the pattern:
  *  `a-zA-Z0-9*`. For example, `key0LikeThis` or `KEY_1_LIKE_THIS`. * For text
  *  attributes, at most 400 values are allowed. Empty values are not allowed.
- *  Each value must be a UTF-8 encoded string with a length limit of 256
- *  characters. * For number attributes, at most 400 values are allowed.
+ *  Each value must be a non-empty UTF-8 encoded string with a length limit of
+ *  256 characters. * For number attributes, at most 400 values are allowed.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCloudRetail_GoogleCloudRetailV2CustomAttribute. Use @c
@@ -3278,6 +3286,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2SearchRequestBoostSpecConditionBoostSpec *> *conditionBoostSpecs;
 
+/**
+ *  Whether to skip boostspec validation. If this field is set to true, invalid
+ *  BoostSpec.condition_boost_specs will be ignored and valid
+ *  BoostSpec.condition_boost_specs will still be applied.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipBoostSpecValidation;
+
 @end
 
 
@@ -3563,6 +3580,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2SearchResponseFacet *> *facets;
 
 /**
+ *  The invalid SearchRequest.BoostSpec.condition_boost_specs that are not
+ *  applied during serving.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2SearchRequestBoostSpecConditionBoostSpec *> *invalidConditionBoostSpecs;
+
+/**
  *  A token that can be sent as SearchRequest.page_token to retrieve the next
  *  page. If this field is omitted, there are no subsequent pages.
  */
@@ -3772,9 +3795,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  The final component of the resource name of a branch. This field must be one
- *  of "0", "1" or "2". Otherwise, an INVALID_ARGUMENT error is returned.
+ *  of "0", "1" or "2". Otherwise, an INVALID_ARGUMENT error is returned. If
+ *  there are no sufficient active products in the targeted branch and force is
+ *  not set, a FAILED_PRECONDITION error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *branchId;
+
+/**
+ *  If set to true, it permits switching to a branch with branch_id even if it
+ *  has no sufficient active products.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *force;
 
 /**
  *  Some note on this request, this can be retrieved by
@@ -3824,11 +3857,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  inserted. If the Product to update has existing inventory information, the
  *  provided inventory information will be merged while respecting the last
  *  update time for each inventory field, using the provided or default value
- *  for SetInventoryRequest.set_time. The last update time is recorded for the
- *  following inventory fields: * Product.price_info * Product.availability *
- *  Product.available_quantity * Product.fulfillment_info If a full overwrite of
- *  inventory information while ignoring timestamps is needed, UpdateProduct
- *  should be invoked instead.
+ *  for SetInventoryRequest.set_time. The caller can replace place IDs for a
+ *  subset of fulfillment types in the following ways: * Adds "fulfillment_info"
+ *  in SetInventoryRequest.set_mask * Specifies only the desired fulfillment
+ *  types and corresponding place IDs to update in
+ *  SetInventoryRequest.inventory.fulfillment_info The caller can clear all
+ *  place IDs from a subset of fulfillment types in the following ways: * Adds
+ *  "fulfillment_info" in SetInventoryRequest.set_mask * Specifies only the
+ *  desired fulfillment types to clear in
+ *  SetInventoryRequest.inventory.fulfillment_info * Checks that only the
+ *  desired fulfillment info types have empty
+ *  SetInventoryRequest.inventory.fulfillment_info.place_ids The last update
+ *  time is recorded for the following inventory fields: * Product.price_info *
+ *  Product.availability * Product.available_quantity * Product.fulfillment_info
+ *  If a full overwrite of inventory information while ignoring timestamps is
+ *  needed, UpdateProduct should be invoked instead.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2Product *inventory;
 
@@ -4350,11 +4393,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  Represents a whole or partial calendar date, such as a birthday. The time of
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
- *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day, with a zero year (e.g., an anniversary) * A year on its own,
- *  with a zero month and a zero day * A year and month, with a zero day (e.g.,
- *  a credit card expiration date) Related types: * google.type.TimeOfDay *
- *  google.type.DateTime * google.protobuf.Timestamp
+ *  following: * A full date, with non-zero year, month, and day values. * A
+ *  month and day, with a zero year (for example, an anniversary). * A year on
+ *  its own, with a zero month and a zero day. * A year and month, with a zero
+ *  day (for example, a credit card expiration date). Related types: *
+ *  google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLRCloudRetail_GoogleTypeDate : GTLRObject
 

@@ -670,11 +670,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
  *  Represents a whole or partial calendar date, such as a birthday. The time of
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
- *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day, with a zero year (e.g., an anniversary) * A year on its own,
- *  with a zero month and a zero day * A year and month, with a zero day (e.g.,
- *  a credit card expiration date) Related types: * google.type.TimeOfDay *
- *  google.type.DateTime * google.protobuf.Timestamp
+ *  following: * A full date, with non-zero year, month, and day values. * A
+ *  month and day, with a zero year (for example, an anniversary). * A year on
+ *  its own, with a zero month and a zero day. * A year and month, with a zero
+ *  day (for example, a credit card expiration date). Related types: *
+ *  google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLRMyBusinessBusinessInformation_Date : GTLRObject
 
@@ -1003,15 +1003,16 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
 @property(nonatomic, strong, nullable) GTLRMyBusinessBusinessInformation_PhoneNumbers *phoneNumbers;
 
 /**
- *  Required. Describes your business in your own voice and shares with users
- *  the unique story of your business and offerings.
+ *  Optional. Describes your business in your own voice and shares with users
+ *  the unique story of your business and offerings. This field is required for
+ *  all categories except lodging categories (e.g. hotels, motels, inns).
  */
 @property(nonatomic, strong, nullable) GTLRMyBusinessBusinessInformation_Profile *profile;
 
 /** Optional. Operating hours for the business. */
 @property(nonatomic, strong, nullable) GTLRMyBusinessBusinessInformation_BusinessHours *regularHours;
 
-/** Output only. All locations and chain related to this one. */
+/** Optional. All locations and chain related to this one. */
 @property(nonatomic, strong, nullable) GTLRMyBusinessBusinessInformation_RelationshipData *relationshipData;
 
 /**
@@ -1150,6 +1151,15 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hasPendingEdits;
+
+/**
+ *  Output only. Indicates if the listing has Voice of Merchant. If this boolean
+ *  is false, you should call the locations.getVoiceOfMerchantState API to get
+ *  details as to why they do not have Voice of Merchant.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasVoiceOfMerchant;
 
 /** Output only. A link to the location on Maps. */
 @property(nonatomic, copy, nullable) NSString *mapsUri;
@@ -1425,8 +1435,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
 /**
  *  Required. CLDR region code of the country/region of the address. This is
  *  never inferred and it is up to the user to ensure the value is correct. See
- *  http://cldr.unicode.org/ and
- *  http://www.unicode.org/cldr/charts/30/supplemental/territory_information.html
+ *  https://cldr.unicode.org/ and
+ *  https://www.unicode.org/cldr/charts/30/supplemental/territory_information.html
  *  for details. Example: "CH" for Switzerland.
  */
 @property(nonatomic, copy, nullable) NSString *regionCode;

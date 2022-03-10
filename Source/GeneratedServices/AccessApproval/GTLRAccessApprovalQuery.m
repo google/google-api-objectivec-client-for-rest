@@ -148,6 +148,25 @@
 
 @end
 
+@implementation GTLRAccessApprovalQuery_FoldersGetServiceAccount
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAccessApprovalQuery_FoldersGetServiceAccount *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAccessApproval_ServiceAccount class];
+  query.loggingName = @"accessapproval.folders.getServiceAccount";
+  return query;
+}
+
+@end
+
 @implementation GTLRAccessApprovalQuery_FoldersUpdateAccessApprovalSettings
 
 @dynamic name, updateMask;
@@ -305,6 +324,25 @@
 
 @end
 
+@implementation GTLRAccessApprovalQuery_OrganizationsGetServiceAccount
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAccessApprovalQuery_OrganizationsGetServiceAccount *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAccessApproval_ServiceAccount class];
+  query.loggingName = @"accessapproval.organizations.getServiceAccount";
+  return query;
+}
+
+@end
+
 @implementation GTLRAccessApprovalQuery_OrganizationsUpdateAccessApprovalSettings
 
 @dynamic name, updateMask;
@@ -457,6 +495,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRAccessApproval_Settings class];
   query.loggingName = @"accessapproval.projects.getAccessApprovalSettings";
+  return query;
+}
+
+@end
+
+@implementation GTLRAccessApprovalQuery_ProjectsGetServiceAccount
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAccessApprovalQuery_ProjectsGetServiceAccount *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAccessApproval_ServiceAccount class];
+  query.loggingName = @"accessapproval.projects.getServiceAccount";
   return query;
 }
 

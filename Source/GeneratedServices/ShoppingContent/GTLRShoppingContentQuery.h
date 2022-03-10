@@ -384,7 +384,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 
 /**
  *  Only available to selected merchants, for example multi-client accounts
- *  (MCAs) and their sub-accounts. When set to `True`, this flag removes any
+ *  (MCAs) and their sub-accounts. When set to `True`, this option removes any
  *  existing claim on the requested website and replaces it with a claim from
  *  the account that makes the request.
  */
@@ -481,7 +481,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @property(nonatomic, assign) unsigned long long accountId;
 
 /**
- *  Flag to delete sub-accounts with products. The default value is false.
+ *  Option to delete sub-accounts with products. The default value is false.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -3935,7 +3935,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  */
 @interface GTLRShoppingContentQuery_OrdersGettestordertemplate : GTLRShoppingContentQuery
 
-/** The country of the template to retrieve. Defaults to `US`. */
+/** The country of the template to retrieve. Defaults to "`US`". */
 @property(nonatomic, copy, nullable) NSString *country;
 
 /**
@@ -3996,13 +3996,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 
 /**
  *  Deprecated. Notifies that item return and refund was handled directly by
- *  merchant outside of Google payments processing (e.g. cash refund done in
- *  store). Note: We recommend calling the returnrefundlineitem method to refund
- *  in-store returns. We will issue the refund directly to the customer. This
- *  helps to prevent possible differences arising between merchant and Google
- *  transaction records. We also recommend having the point of sale system
- *  communicate with Google to ensure that customers do not receive a double
- *  refund by first refunding via Google then via an in-store return.
+ *  merchant outside of Google payments processing (for example, cash refund
+ *  done in store). Note: We recommend calling the returnrefundlineitem method
+ *  to refund in-store returns. We will issue the refund directly to the
+ *  customer. This helps to prevent possible differences arising between
+ *  merchant and Google transaction records. We also recommend having the point
+ *  of sale system communicate with Google to ensure that customers do not
+ *  receive a double refund by first refunding through Google then through an
+ *  in-store return.
  *
  *  Method: content.orders.instorerefundlineitem
  *
@@ -4024,13 +4025,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Fetches a @c GTLRShoppingContent_OrdersInStoreRefundLineItemResponse.
  *
  *  Deprecated. Notifies that item return and refund was handled directly by
- *  merchant outside of Google payments processing (e.g. cash refund done in
- *  store). Note: We recommend calling the returnrefundlineitem method to refund
- *  in-store returns. We will issue the refund directly to the customer. This
- *  helps to prevent possible differences arising between merchant and Google
- *  transaction records. We also recommend having the point of sale system
- *  communicate with Google to ensure that customers do not receive a double
- *  refund by first refunding via Google then via an in-store return.
+ *  merchant outside of Google payments processing (for example, cash refund
+ *  done in store). Note: We recommend calling the returnrefundlineitem method
+ *  to refund in-store returns. We will issue the refund directly to the
+ *  customer. This helps to prevent possible differences arising between
+ *  merchant and Google transaction records. We also recommend having the point
+ *  of sale system communicate with Google to ensure that customers do not
+ *  receive a double refund by first refunding through Google then through an
+ *  in-store return.
  *
  *  @param object The @c GTLRShoppingContent_OrdersInStoreRefundLineItemRequest
  *    to include in the query.
@@ -4098,9 +4100,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @property(nonatomic, copy, nullable) NSString *placedDateStart;
 
 /**
- *  Obtains orders that match any of the specified statuses. Please note that
- *  `active` is a shortcut for `pendingShipment` and `partiallyShipped`, and
- *  `completed` is a shortcut for `shipped`, `partiallyDelivered`, `delivered`,
+ *  Obtains orders that match any of the specified statuses. Note that `active`
+ *  is a shortcut for `pendingShipment` and `partiallyShipped`, and `completed`
+ *  is a shortcut for `shipped`, `partiallyDelivered`, `delivered`,
  *  `partiallyReturned`, `returned`, and `canceled`.
  *
  *  Likely values:
@@ -4266,11 +4268,11 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 
 /**
  *  Returns and refunds a line item. Note that this method can only be called on
- *  fully shipped orders. Please also note that the Orderreturns API is the
- *  preferred way to handle returns after you receive a return from a customer.
- *  You can use Orderreturns.list or Orderreturns.get to search for the return,
- *  and then use Orderreturns.processreturn to issue the refund. If the return
- *  cannot be found, then we recommend using this API to issue a refund.
+ *  fully shipped orders. The Orderreturns API is the preferred way to handle
+ *  returns after you receive a return from a customer. You can use
+ *  Orderreturns.list or Orderreturns.get to search for the return, and then use
+ *  Orderreturns.processreturn to issue the refund. If the return cannot be
+ *  found, then we recommend using this API to issue a refund.
  *
  *  Method: content.orders.returnrefundlineitem
  *
@@ -4292,11 +4294,11 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Fetches a @c GTLRShoppingContent_OrdersReturnRefundLineItemResponse.
  *
  *  Returns and refunds a line item. Note that this method can only be called on
- *  fully shipped orders. Please also note that the Orderreturns API is the
- *  preferred way to handle returns after you receive a return from a customer.
- *  You can use Orderreturns.list or Orderreturns.get to search for the return,
- *  and then use Orderreturns.processreturn to issue the refund. If the return
- *  cannot be found, then we recommend using this API to issue a refund.
+ *  fully shipped orders. The Orderreturns API is the preferred way to handle
+ *  returns after you receive a return from a customer. You can use
+ *  Orderreturns.list or Orderreturns.get to search for the return, and then use
+ *  Orderreturns.processreturn to issue the refund. If the return cannot be
+ *  found, then we recommend using this API to issue a refund.
  *
  *  @param object The @c GTLRShoppingContent_OrdersReturnRefundLineItemRequest
  *    to include in the query.
@@ -4316,8 +4318,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Sets (or overrides if it already exists) merchant provided annotations in
  *  the form of key-value pairs. A common use case would be to supply us with
  *  additional structured information about a line item that cannot be provided
- *  via other methods. Submitted key-value pairs can be retrieved as part of the
- *  orders resource.
+ *  through other methods. Submitted key-value pairs can be retrieved as part of
+ *  the orders resource.
  *
  *  Method: content.orders.setlineitemmetadata
  *
@@ -4341,8 +4343,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Sets (or overrides if it already exists) merchant provided annotations in
  *  the form of key-value pairs. A common use case would be to supply us with
  *  additional structured information about a line item that cannot be provided
- *  via other methods. Submitted key-value pairs can be retrieved as part of the
- *  orders resource.
+ *  through other methods. Submitted key-value pairs can be retrieved as part of
+ *  the orders resource.
  *
  *  @param object The @c GTLRShoppingContent_OrdersSetLineItemMetadataRequest to
  *    include in the query.
@@ -5294,7 +5296,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 
 /**
  *  Register a Merchant Center account for pubsub notifications. Note that cloud
- *  topic name should not be provided as part of the request.
+ *  topic name shouldn't be provided as part of the request.
  *
  *  Method: content.pubsubnotificationsettings.update
  *
@@ -5310,7 +5312,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Fetches a @c GTLRShoppingContent_PubsubNotificationSettings.
  *
  *  Register a Merchant Center account for pubsub notifications. Note that cloud
- *  topic name should not be provided as part of the request.
+ *  topic name shouldn't be provided as part of the request.
  *
  *  @param object The @c GTLRShoppingContent_PubsubNotificationSettings to
  *    include in the query.

@@ -251,6 +251,36 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: iam.locations.workforcePools.subjects.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_LocationsWorkforcePoolsSubjectsOperationsGet : GTLRIamQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRIamQuery_LocationsWorkforcePoolsSubjectsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new custom Role.
  *
  *  Method: iam.organizations.roles.create
@@ -1076,6 +1106,36 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *  @param name Required. The name of the provider to retrieve.
  *
  *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.providers.keys.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersKeysOperationsGet : GTLRIamQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersKeysOperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 

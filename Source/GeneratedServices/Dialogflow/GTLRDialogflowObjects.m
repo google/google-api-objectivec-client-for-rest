@@ -249,9 +249,27 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfill
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse_MergeBehavior_MergeBehaviorUnspecified = @"MERGE_BEHAVIOR_UNSPECIFIED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse_MergeBehavior_Replace = @"REPLACE";
 
+// GTLRDialogflow_GoogleCloudDialogflowV2ArticleSuggestionModelMetadata.trainingModelType
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ArticleSuggestionModelMetadata_TrainingModelType_ModelTypeUnspecified = @"MODEL_TYPE_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ArticleSuggestionModelMetadata_TrainingModelType_SmartReplyBertModel = @"SMART_REPLY_BERT_MODEL";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ArticleSuggestionModelMetadata_TrainingModelType_SmartReplyDualEncoderModel = @"SMART_REPLY_DUAL_ENCODER_MODEL";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata.participantRole
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_AutomatedAgent = @"AUTOMATED_AGENT";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_EndUser = @"END_USER";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_HumanAgent = @"HUMAN_AGENT";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_RoleUnspecified = @"ROLE_UNSPECIFIED";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata.suggestionFeatureType
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion = @"ARTICLE_SUGGESTION";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq = @"FAQ";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply = @"SMART_REPLY";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent.type
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_ConversationFinished = @"CONVERSATION_FINISHED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_ConversationStarted = @"CONVERSATION_STARTED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_HumanInterventionNeeded = @"HUMAN_INTERVENTION_NEEDED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_NewMessage = @"NEW_MESSAGE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_UnrecoverableError = @"UNRECOVERABLE_ERROR";
@@ -368,6 +386,30 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_E
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeSupplement = @"ENTITY_OVERRIDE_MODE_SUPPLEMENT";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeUnspecified = @"ENTITY_OVERRIDE_MODE_UNSPECIFIED";
 
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata.participantRole
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_ParticipantRole_AutomatedAgent = @"AUTOMATED_AGENT";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_ParticipantRole_EndUser = @"END_USER";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_ParticipantRole_HumanAgent = @"HUMAN_AGENT";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_ParticipantRole_RoleUnspecified = @"ROLE_UNSPECIFIED";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata.suggestionFeatureType
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion = @"ARTICLE_SUGGESTION";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq = @"FAQ";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply = @"SMART_REPLY";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata.participantRole
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_AutomatedAgent = @"AUTOMATED_AGENT";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_EndUser = @"END_USER";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_HumanAgent = @"HUMAN_AGENT";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_RoleUnspecified = @"ROLE_UNSPECIFIED";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata.suggestionFeatureType
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion = @"ARTICLE_SUGGESTION";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq = @"FAQ";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply = @"SMART_REPLY";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent.type
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_ConversationFinished = @"CONVERSATION_FINISHED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_ConversationStarted = @"CONVERSATION_STARTED";
@@ -375,6 +417,34 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_H
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_NewMessage = @"NEW_MESSAGE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_UnrecoverableError = @"UNRECOVERABLE_ERROR";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2ConversationModel.state
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_Creating = @"CREATING";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_Deleting = @"DELETING";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_Deployed = @"DEPLOYED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_Deploying = @"DEPLOYING";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_Failed = @"FAILED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_Pending = @"PENDING";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_Undeployed = @"UNDEPLOYED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_Undeploying = @"UNDEPLOYING";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelEvaluationOperationMetadata.state
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelEvaluationOperationMetadata_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelEvaluationOperationMetadata_State_Failed = @"FAILED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelEvaluationOperationMetadata_State_Initializing = @"INITIALIZING";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelEvaluationOperationMetadata_State_Running = @"RUNNING";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelEvaluationOperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelEvaluationOperationMetadata_State_Succeeded = @"SUCCEEDED";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata.state
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata_State_Cancelling = @"CANCELLING";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata_State_Failed = @"FAILED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata_State_Pending = @"PENDING";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata_State_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata_State_Training = @"TRAINING";
 
 // GTLRDialogflow_GoogleCloudDialogflowV2EntityType.autoExpansionMode
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_AutoExpansionMode_AutoExpansionModeDefault = @"AUTO_EXPANSION_MODE_DEFAULT";
@@ -458,6 +528,23 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Message_ParticipantRole_
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeOverride = @"ENTITY_OVERRIDE_MODE_OVERRIDE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeSupplement = @"ENTITY_OVERRIDE_MODE_SUPPLEMENT";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeUnspecified = @"ENTITY_OVERRIDE_MODE_UNSPECIFIED";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata.participantRole
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_ParticipantRole_AutomatedAgent = @"AUTOMATED_AGENT";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_ParticipantRole_EndUser = @"END_USER";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_ParticipantRole_HumanAgent = @"HUMAN_AGENT";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_ParticipantRole_RoleUnspecified = @"ROLE_UNSPECIFIED";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata.suggestionFeatureType
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion = @"ARTICLE_SUGGESTION";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq = @"FAQ";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply = @"SMART_REPLY";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata.trainingModelType
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata_TrainingModelType_ModelTypeUnspecified = @"MODEL_TYPE_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata_TrainingModelType_SmartReplyBertModel = @"SMART_REPLY_BERT_MODEL";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata_TrainingModelType_SmartReplyDualEncoderModel = @"SMART_REPLY_DUAL_ENCODER_MODEL";
 
 // GTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata.state
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata_State_Done = @"DONE";
@@ -1618,7 +1705,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TestConfig
-@dynamic flow, trackingParameters;
+@dynamic flow, page, trackingParameters;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3949,7 +4036,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3TestConfig
-@dynamic flow, trackingParameters;
+@dynamic flow, page, trackingParameters;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4457,6 +4544,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2ArticleSuggestionModelMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ArticleSuggestionModelMetadata
+@dynamic trainingModelType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateEntityTypesResponse
 //
 
@@ -4566,6 +4663,17 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata
+@dynamic conversationProfile, createTime, participantRole,
+         suggestionFeatureType;
 @end
 
 
@@ -4682,6 +4790,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1ExportOperationMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1ExportOperationMetadata
+@dynamic exportedGcsDestination;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2beta1FaqAnswer
 //
 
@@ -4701,6 +4819,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1GcsDestination
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1GcsDestination
+@dynamic uri;
 @end
 
 
@@ -5451,7 +5579,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata
-@dynamic knowledgeBase, state;
+@dynamic exportOperationMetadata, knowledgeBase, state;
 @end
 
 
@@ -5613,6 +5741,17 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata
+@dynamic conversationProfile, createTime, participantRole,
+         suggestionFeatureType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2beta1SmartReplyAnswer
 //
 
@@ -5743,6 +5882,17 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata
+@dynamic conversationProfile, createTime, participantRole,
+         suggestionFeatureType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2Context
 //
 
@@ -5772,6 +5922,83 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent
 @dynamic conversation, errorStatus, newMessagePayload, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2ConversationModel
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ConversationModel
+@dynamic articleSuggestionModelMetadata, createTime, datasets, displayName,
+         languageCode, name, smartReplyModelMetadata, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"datasets" : [GTLRDialogflow_GoogleCloudDialogflowV2InputDataset class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2CreateConversationDatasetOperationMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2CreateConversationDatasetOperationMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelEvaluationOperationMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelEvaluationOperationMetadata
+@dynamic conversationModel, conversationModelEvaluation, createTime, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata
+@dynamic conversationModel, createTime, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2DeleteConversationDatasetOperationMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2DeleteConversationDatasetOperationMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2DeleteConversationModelOperationMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2DeleteConversationModelOperationMetadata
+@dynamic conversationModel, createTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2DeployConversationModelOperationMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2DeployConversationModelOperationMetadata
+@dynamic conversationModel, createTime;
 @end
 
 
@@ -5854,6 +6081,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2ExportOperationMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ExportOperationMetadata
+@dynamic exportedGcsDestination;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer
 //
 
@@ -5878,6 +6115,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2GcsDestination
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2GcsDestination
+@dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2HumanAgentAssistantEvent
 //
 
@@ -5896,6 +6143,34 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2ImportConversationDataOperationMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ImportConversationDataOperationMetadata
+@dynamic conversationDataset, createTime, partialFailures;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"partialFailures" : [GTLRDialogflow_GoogleRpcStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2ImportConversationDataOperationResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ImportConversationDataOperationResponse
+@dynamic conversationDataset, importCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2ImportDocumentsResponse
 //
 
@@ -5909,6 +6184,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2InputDataset
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2InputDataset
+@dynamic dataset;
 @end
 
 
@@ -6426,7 +6711,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata
-@dynamic knowledgeBase, state;
+@dynamic exportOperationMetadata, knowledgeBase, state;
 @end
 
 
@@ -6588,11 +6873,32 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata
+@dynamic conversationProfile, createTime, participantRole,
+         suggestionFeatureType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2SmartReplyAnswer
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2SmartReplyAnswer
 @dynamic answerRecord, confidence, reply;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata
+@dynamic trainingModelType;
 @end
 
 
@@ -6658,6 +6964,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2UndeployConversationModelOperationMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2UndeployConversationModelOperationMetadata
+@dynamic conversationModel, createTime;
 @end
 
 

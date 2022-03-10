@@ -38,6 +38,11 @@ NSString * const kGTLRAuthorizedBuyersMarketplace_ClientUser_State_Inactive = @"
 NSString * const kGTLRAuthorizedBuyersMarketplace_ClientUser_State_Invited = @"INVITED";
 NSString * const kGTLRAuthorizedBuyersMarketplace_ClientUser_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRAuthorizedBuyersMarketplace_CreativeRequirements.creativeFormat
+NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_CreativeFormat_CreativeFormatUnspecified = @"CREATIVE_FORMAT_UNSPECIFIED";
+NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_CreativeFormat_Display = @"DISPLAY";
+NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_CreativeFormat_Video = @"VIDEO";
+
 // GTLRAuthorizedBuyersMarketplace_CreativeRequirements.creativePreApprovalPolicy
 NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_CreativePreApprovalPolicy_CreativePreApprovalPolicyUnspecified = @"CREATIVE_PRE_APPROVAL_POLICY_UNSPECIFIED";
 NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_CreativePreApprovalPolicy_SellerPreApprovalNotRequired = @"SELLER_PRE_APPROVAL_NOT_REQUIRED";
@@ -52,6 +57,13 @@ NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_CreativeS
 NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_ProgrammaticCreativeSource_Advertiser = @"ADVERTISER";
 NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_ProgrammaticCreativeSource_ProgrammaticCreativeSourceUnspecified = @"PROGRAMMATIC_CREATIVE_SOURCE_UNSPECIFIED";
 NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_ProgrammaticCreativeSource_Publisher = @"PUBLISHER";
+
+// GTLRAuthorizedBuyersMarketplace_CreativeRequirements.skippableAdType
+NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_SkippableAdType_Any = @"ANY";
+NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_SkippableAdType_InstreamSelect = @"INSTREAM_SELECT";
+NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_SkippableAdType_NotSkippable = @"NOT_SKIPPABLE";
+NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_SkippableAdType_Skippable = @"SKIPPABLE";
+NSString * const kGTLRAuthorizedBuyersMarketplace_CreativeRequirements_SkippableAdType_SkippableAdTypeUnspecified = @"SKIPPABLE_AD_TYPE_UNSPECIFIED";
 
 // GTLRAuthorizedBuyersMarketplace_DayPart.dayOfWeek
 NSString * const kGTLRAuthorizedBuyersMarketplace_DayPart_DayOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
@@ -352,8 +364,9 @@ NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeting_TargetedPositio
 //
 
 @implementation GTLRAuthorizedBuyersMarketplace_CreativeRequirements
-@dynamic creativePreApprovalPolicy, creativeSafeFrameCompatibility,
-         programmaticCreativeSource;
+@dynamic creativeFormat, creativePreApprovalPolicy,
+         creativeSafeFrameCompatibility, maxAdDurationMs,
+         programmaticCreativeSource, skippableAdType;
 @end
 
 
