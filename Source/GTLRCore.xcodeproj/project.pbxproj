@@ -125,10 +125,6 @@
 		4FEE17C61C03DB5900A38758 /* GTMSessionUploadFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE17A51C03DB5900A38758 /* GTMSessionUploadFetcher.m */; };
 		4FEE17C71C03DB5900A38758 /* GTMSessionUploadFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE17A51C03DB5900A38758 /* GTMSessionUploadFetcher.m */; };
 		4FEE17C81C03DB5900A38758 /* GTMSessionUploadFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE17A51C03DB5900A38758 /* GTMSessionUploadFetcher.m */; };
-		4FEE17CD1C03DB9E00A38758 /* GTMHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE17CA1C03DB9E00A38758 /* GTMHTTPServer.m */; };
-		4FEE17CE1C03DB9E00A38758 /* GTMHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE17CA1C03DB9E00A38758 /* GTMHTTPServer.m */; };
-		4FEE17CF1C03DB9E00A38758 /* GTMSessionFetcherTestServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE17CC1C03DB9E00A38758 /* GTMSessionFetcherTestServer.m */; };
-		4FEE17D01C03DB9E00A38758 /* GTMSessionFetcherTestServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE17CC1C03DB9E00A38758 /* GTMSessionFetcherTestServer.m */; };
 		F41BA4381E7AD486004F6E95 /* CompiledTestNoARC.m in Sources */ = {isa = PBXBuildFile; fileRef = F41BA4361E7AD482004F6E95 /* CompiledTestNoARC.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F41BA4391E7AD487004F6E95 /* CompiledTestNoARC.m in Sources */ = {isa = PBXBuildFile; fileRef = F41BA4361E7AD482004F6E95 /* CompiledTestNoARC.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F41BA43A1E7AD488004F6E95 /* CompiledTestNoARC.m in Sources */ = {isa = PBXBuildFile; fileRef = F41BA4361E7AD482004F6E95 /* CompiledTestNoARC.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -469,10 +465,6 @@
 		4FEE17A31C03DB5900A38758 /* GTMSessionFetcherService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMSessionFetcherService.m; sourceTree = "<group>"; };
 		4FEE17A41C03DB5900A38758 /* GTMSessionUploadFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMSessionUploadFetcher.h; sourceTree = "<group>"; };
 		4FEE17A51C03DB5900A38758 /* GTMSessionUploadFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMSessionUploadFetcher.m; sourceTree = "<group>"; };
-		4FEE17C91C03DB9E00A38758 /* GTMHTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMHTTPServer.h; path = UnitTests/GTMHTTPServer.h; sourceTree = "<group>"; };
-		4FEE17CA1C03DB9E00A38758 /* GTMHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMHTTPServer.m; path = UnitTests/GTMHTTPServer.m; sourceTree = "<group>"; };
-		4FEE17CB1C03DB9E00A38758 /* GTMSessionFetcherTestServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMSessionFetcherTestServer.h; path = UnitTests/GTMSessionFetcherTestServer.h; sourceTree = "<group>"; };
-		4FEE17CC1C03DB9E00A38758 /* GTMSessionFetcherTestServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMSessionFetcherTestServer.m; path = UnitTests/GTMSessionFetcherTestServer.m; sourceTree = "<group>"; };
 		F41BA4361E7AD482004F6E95 /* CompiledTestNoARC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CompiledTestNoARC.m; path = Tests/CompiledTestNoARC.m; sourceTree = "<group>"; };
 		F4368F721B8233BF00E17643 /* GTLRiOSUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GTLRiOSUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4469DB41C40229D00BCFAA1 /* GTLR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GTLR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -757,7 +749,6 @@
 				4FEE179B1C03DB5900A38758 /* GTMMIMEDocument.m */,
 				4FEE179C1C03DB5900A38758 /* GTMReadMonitorInputStream.h */,
 				4FEE179D1C03DB5900A38758 /* GTMReadMonitorInputStream.m */,
-				4FCC7A2211EFDA090097924C /* TestServer */,
 			);
 			name = SessionFetcher;
 			path = "gtm-session-fetcher/Source";
@@ -781,17 +772,6 @@
 				4FCC7A3E11EFDB7E0097924C /* Data */,
 			);
 			name = Tests;
-			sourceTree = "<group>";
-		};
-		4FCC7A2211EFDA090097924C /* TestServer */ = {
-			isa = PBXGroup;
-			children = (
-				4FEE17C91C03DB9E00A38758 /* GTMHTTPServer.h */,
-				4FEE17CA1C03DB9E00A38758 /* GTMHTTPServer.m */,
-				4FEE17CB1C03DB9E00A38758 /* GTMSessionFetcherTestServer.h */,
-				4FEE17CC1C03DB9E00A38758 /* GTMSessionFetcherTestServer.m */,
-			);
-			name = TestServer;
 			sourceTree = "<group>";
 		};
 		4FCC7A3E11EFDB7E0097924C /* Data */ = {
@@ -1311,14 +1291,12 @@
 				4F934E6A1512712100C4EA34 /* GTLRBase64.m in Sources */,
 				4F934F51151286FE00C4EA34 /* GTLRBase64Test.m in Sources */,
 				4FEE17BD1C03DB5900A38758 /* GTMSessionFetcherLogging.m in Sources */,
-				4FEE17CE1C03DB9E00A38758 /* GTMHTTPServer.m in Sources */,
 				4FEE17C71C03DB5900A38758 /* GTMSessionUploadFetcher.m in Sources */,
 				4FEE17B31C03DB5900A38758 /* GTMReadMonitorInputStream.m in Sources */,
 				F4A431551F3CB57300F0C703 /* GTLRTestingSvcQuery.m in Sources */,
 				F4469DFC1C45742100BCFAA1 /* GTLRURITemplate.m in Sources */,
 				4FEE17C21C03DB5900A38758 /* GTMSessionFetcherService.m in Sources */,
 				4FEE17AE1C03DB5900A38758 /* GTMMIMEDocument.m in Sources */,
-				4FEE17D01C03DB9E00A38758 /* GTMSessionFetcherTestServer.m in Sources */,
 				4FEE17B81C03DB5900A38758 /* GTMSessionFetcher.m in Sources */,
 				4F3E9C7E1C6C039E004192DE /* GTLRErrorObjectTest.m in Sources */,
 				4FEE17A91C03DB5900A38758 /* GTMGatherInputStream.m in Sources */,
@@ -1418,10 +1396,8 @@
 				F4A431581F3CB57400F0C703 /* GTLRTestingSvcQuery.m in Sources */,
 				4FEE17BC1C03DB5900A38758 /* GTMSessionFetcherLogging.m in Sources */,
 				4FEE17A81C03DB5900A38758 /* GTMGatherInputStream.m in Sources */,
-				4FEE17CD1C03DB9E00A38758 /* GTMHTTPServer.m in Sources */,
 				F4D9D5271D833D6F000EBBED /* GTLRDurationTest.m in Sources */,
 				4FEE17AD1C03DB5900A38758 /* GTMMIMEDocument.m in Sources */,
-				4FEE17CF1C03DB9E00A38758 /* GTMSessionFetcherTestServer.m in Sources */,
 				4F3E9C7D1C6C039E004192DE /* GTLRErrorObjectTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
