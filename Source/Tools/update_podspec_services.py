@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 #
 # Copyright 2016 Google Inc. All rights reserved.
 #
@@ -68,13 +68,13 @@ def _ValidateContent(path, expected_content):
   name = os.path.basename(path)
   current_content = open(path).read()
   if current_content == expected_content:
-    print '%s is good.' % name
+    print('%s is good.' % name)
   else:
     try:
       open(path, 'w').write(expected_content)
-      print 'Updated %s.' % name
+      print('Updated %s.' % name)
     except IOError as e:
-      print 'Failed to update %r, error %s.' % (path, e)
+      print('Failed to update %r, error %s.' % (path, e))
       return False
   return True
 
