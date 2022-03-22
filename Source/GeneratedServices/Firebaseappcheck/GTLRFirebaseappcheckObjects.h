@@ -22,6 +22,7 @@
 #endif
 
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppAttestConfig;
+@class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAttestationTokenResponse;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaDebugToken;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaDeviceCheckConfig;
@@ -86,30 +87,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_EnforcementMode_Unenforced;
 
 /**
- *  Response message for the GenerateAppAttestChallenge method.
- */
-@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppAttestChallengeResponse : GTLRObject
-
-/**
- *  A one-time use challenge for the client to pass to the App Attest API.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *challenge;
-
-/**
- *  The duration from the time this challenge is minted until its expiration.
- *  This field is intended to ease client-side token management, since the
- *  client may have clock skew, but is still able to accurately measure a
- *  duration.
- */
-@property(nonatomic, strong, nullable) GTLRDuration *ttl;
-
-@end
-
-
-/**
  *  An app's App Attest configuration object. This configuration controls
  *  certain properties of the App Check token returned by
  *  ExchangeAppAttestAttestation and ExchangeAppAttestAssertion, such as its
@@ -133,6 +110,38 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
  *  Must be between 30 minutes and 7 days, inclusive.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *tokenTtl;
+
+@end
+
+
+/**
+ *  Encapsulates an *App Check token*, which are used to access Firebase
+ *  services protected by App Check.
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken : GTLRObject
+
+/**
+ *  An App Check token. App Check tokens are signed
+ *  [JWTs](https://tools.ietf.org/html/rfc7519) containing claims that identify
+ *  the attested app and Firebase project. This token is used to access Firebase
+ *  services protected by App Check.
+ */
+@property(nonatomic, copy, nullable) NSString *attestationToken;
+
+/**
+ *  An App Check token. App Check tokens are signed
+ *  [JWTs](https://tools.ietf.org/html/rfc7519) containing claims that identify
+ *  the attested app and Firebase project. This token is used to access Firebase
+ *  services protected by App Check.
+ */
+@property(nonatomic, copy, nullable) NSString *token;
+
+/**
+ *  The duration from the time this token is minted until its expiration. This
+ *  field is intended to ease client-side token management, since the client may
+ *  have clock skew, but is still able to accurately measure a duration.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
 
 @end
 
@@ -407,6 +416,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
  */
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationResponse : GTLRObject
 
+/** Encapsulates an App Check token. */
+@property(nonatomic, strong, nullable) GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken *appCheckToken;
+
 /**
  *  An artifact that can be used in future calls to ExchangeAppAttestAssertion.
  *
@@ -494,6 +506,20 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 
 
 /**
+ *  Request message for the ExchangeRecaptchaV3Token method.
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaV3TokenRequest : GTLRObject
+
+/**
+ *  Required. The reCAPTCHA token as returned by the [reCAPTCHA v3 JavaScript
+ *  API](https://developers.google.com/recaptcha/docs/v3).
+ */
+@property(nonatomic, copy, nullable) NSString *recaptchaV3Token;
+
+@end
+
+
+/**
  *  Request message for the ExchangeSafetyNetToken method.
  */
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeSafetyNetTokenRequest : GTLRObject
@@ -512,6 +538,30 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
  *  Request message for the GenerateAppAttestChallenge method.
  */
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message for the GenerateAppAttestChallenge method.
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeResponse : GTLRObject
+
+/**
+ *  A one-time use challenge for the client to pass to the App Attest API.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *challenge;
+
+/**
+ *  The duration from the time this challenge is minted until its expiration.
+ *  This field is intended to ease client-side token management, since the
+ *  client may have clock skew, but is still able to accurately measure a
+ *  duration.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
 @end
 
 
@@ -828,8 +878,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRFirebaseappcheck_GoogleProtobufEmpty : GTLRObject
 @end

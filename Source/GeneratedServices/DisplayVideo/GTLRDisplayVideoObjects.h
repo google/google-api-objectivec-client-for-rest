@@ -1009,6 +1009,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_Tar
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeChannel;
 /**
+ *  Target ads to a specific video content duration.
+ *
+ *  Value: "TARGETING_TYPE_CONTENT_DURATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeContentDuration;
+/**
+ *  Target ads to a specific content genre.
+ *
+ *  Value: "TARGETING_TYPE_CONTENT_GENRE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeContentGenre;
+/**
  *  Target video or audio ads in a specific content instream position (for
  *  example, pre-roll, mid-roll, or post-roll).
  *
@@ -1021,6 +1033,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_Tar
  *  Value: "TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeContentOutstreamPosition;
+/**
+ *  Target ads to a specific video content stream type.
+ *
+ *  Value: "TARGETING_TYPE_CONTENT_STREAM_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeContentStreamType;
 /**
  *  Target ads during a chosen time period on a specific day.
  *
@@ -2064,6 +2082,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOpti
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeChannel;
 /**
+ *  Target ads to a specific video content duration.
+ *
+ *  Value: "TARGETING_TYPE_CONTENT_DURATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentDuration;
+/**
+ *  Target ads to a specific content genre.
+ *
+ *  Value: "TARGETING_TYPE_CONTENT_GENRE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentGenre;
+/**
  *  Target video or audio ads in a specific content instream position (for
  *  example, pre-roll, mid-roll, or post-roll).
  *
@@ -2076,6 +2106,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOpti
  *  Value: "TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentOutstreamPosition;
+/**
+ *  Target ads to a specific video content stream type.
+ *
+ *  Value: "TARGETING_TYPE_CONTENT_STREAM_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentStreamType;
 /**
  *  Target ads during a chosen time period on a specific day.
  *
@@ -3022,6 +3058,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOpti
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeChannel;
 /**
+ *  Target ads to a specific video content duration.
+ *
+ *  Value: "TARGETING_TYPE_CONTENT_DURATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentDuration;
+/**
+ *  Target ads to a specific content genre.
+ *
+ *  Value: "TARGETING_TYPE_CONTENT_GENRE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentGenre;
+/**
  *  Target video or audio ads in a specific content instream position (for
  *  example, pre-roll, mid-roll, or post-roll).
  *
@@ -3034,6 +3082,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOpti
  *  Value: "TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentOutstreamPosition;
+/**
+ *  Target ads to a specific video content stream type.
+ *
+ *  Value: "TARGETING_TYPE_CONTENT_STREAM_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentStreamType;
 /**
  *  Target ads during a chosen time period on a specific day.
  *
@@ -9529,6 +9583,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeChannel;
 /**
+ *  Target ads to a specific video content duration.
+ *
+ *  Value: "TARGETING_TYPE_CONTENT_DURATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeContentDuration;
+/**
+ *  Target ads to a specific content genre.
+ *
+ *  Value: "TARGETING_TYPE_CONTENT_GENRE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeContentGenre;
+/**
  *  Target video or audio ads in a specific content instream position (for
  *  example, pre-roll, mid-roll, or post-roll).
  *
@@ -9541,6 +9607,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingTy
  *  Value: "TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeContentOutstreamPosition;
+/**
+ *  Target ads to a specific video content stream type.
+ *
+ *  Value: "TARGETING_TYPE_CONTENT_STREAM_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeContentStreamType;
 /**
  *  Target ads during a chosen time period on a specific day.
  *
@@ -11237,6 +11309,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeChannel
  *        Target a channel (a custom group of related websites or apps). (Value:
  *        "TARGETING_TYPE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeContentDuration
+ *        Target ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeContentGenre
+ *        Target ads to a specific content genre. (Value:
+ *        "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeContentInstreamPosition
  *        Target video or audio ads in a specific content instream position (for
  *        example, pre-roll, mid-roll, or post-roll). (Value:
@@ -11244,6 +11322,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeContentOutstreamPosition
  *        Target ads in a specific content outstream position. (Value:
  *        "TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION")
+ *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeDayAndTime
  *        Target ads during a chosen time period on a specific day. (Value:
  *        "TARGETING_TYPE_DAY_AND_TIME")
@@ -13435,6 +13516,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeChannel
  *        Target a channel (a custom group of related websites or apps). (Value:
  *        "TARGETING_TYPE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentDuration
+ *        Target ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentGenre
+ *        Target ads to a specific content genre. (Value:
+ *        "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentInstreamPosition
  *        Target video or audio ads in a specific content instream position (for
  *        example, pre-roll, mid-roll, or post-roll). (Value:
@@ -13442,6 +13529,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentOutstreamPosition
  *        Target ads in a specific content outstream position. (Value:
  *        "TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION")
+ *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeDayAndTime
  *        Target ads during a chosen time period on a specific day. (Value:
  *        "TARGETING_TYPE_DAY_AND_TIME")
@@ -14684,6 +14774,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeChannel
  *        Target a channel (a custom group of related websites or apps). (Value:
  *        "TARGETING_TYPE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentDuration
+ *        Target ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentGenre
+ *        Target ads to a specific content genre. (Value:
+ *        "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentInstreamPosition
  *        Target video or audio ads in a specific content instream position (for
  *        example, pre-roll, mid-roll, or post-roll). (Value:
@@ -14691,6 +14787,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentOutstreamPosition
  *        Target ads in a specific content outstream position. (Value:
  *        "TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION")
+ *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeDayAndTime
  *        Target ads during a chosen time period on a specific day. (Value:
  *        "TARGETING_TYPE_DAY_AND_TIME")
@@ -21990,6 +22089,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeChannel
  *        Target a channel (a custom group of related websites or apps). (Value:
  *        "TARGETING_TYPE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeContentDuration
+ *        Target ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeContentGenre
+ *        Target ads to a specific content genre. (Value:
+ *        "TARGETING_TYPE_CONTENT_GENRE")
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeContentInstreamPosition
  *        Target video or audio ads in a specific content instream position (for
  *        example, pre-roll, mid-roll, or post-roll). (Value:
@@ -21997,6 +22102,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeContentOutstreamPosition
  *        Target ads in a specific content outstream position. (Value:
  *        "TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION")
+ *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeDayAndTime
  *        Target ads during a chosen time period on a specific day. (Value:
  *        "TARGETING_TYPE_DAY_AND_TIME")

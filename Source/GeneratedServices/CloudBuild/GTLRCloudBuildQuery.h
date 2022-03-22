@@ -1844,7 +1844,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the `WorkerPool` to delete. Format:
- *  `projects/{project}/locations/{workerPool}/workerPools/{workerPool}`.
+ *  `projects/{project}/locations/{location}/workerPools/{workerPool}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1860,7 +1860,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a `WorkerPool`.
  *
  *  @param name Required. The name of the `WorkerPool` to delete. Format:
- *    `projects/{project}/locations/{workerPool}/workerPools/{workerPool}`.
+ *    `projects/{project}/locations/{location}/workerPools/{workerPool}`.
  *
  *  @return GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsDelete
  */

@@ -1190,7 +1190,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /**
  *  MySQL columns in the database. When unspecified as part of include/exclude
- *  lists, includes/excludes everything.
+ *  objects, includes/excludes everything.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastream_MysqlColumn *> *mysqlColumns;
 
@@ -1481,8 +1481,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @interface GTLRDatastream_OracleTable : GTLRObject
 
 /**
- *  Oracle columns in the schema. When unspecified as part of inclue/exclude
- *  lists, includes/excludes everything.
+ *  Oracle columns in the schema. When unspecified as part of include/exclude
+ *  objects, includes/excludes everything.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastream_OracleColumn *> *oracleColumns;
 
@@ -1624,10 +1624,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_SourceConfig : GTLRObject
 
-/** MySQL data source configuration */
+/** MySQL data source configuration. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MysqlSourceConfig *mysqlSourceConfig;
 
-/** Oracle data source configuration */
+/** Oracle data source configuration. */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleSourceConfig *oracleSourceConfig;
 
 /**

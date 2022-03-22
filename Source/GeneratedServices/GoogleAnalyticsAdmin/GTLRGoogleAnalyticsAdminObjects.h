@@ -602,6 +602,34 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Travel;
 
 // ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaProperty.propertyType
+
+/**
+ *  Ordinary GA4 property
+ *
+ *  Value: "PROPERTY_TYPE_ORDINARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_PropertyType_PropertyTypeOrdinary;
+/**
+ *  GA4 rollup property
+ *
+ *  Value: "PROPERTY_TYPE_ROLLUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_PropertyType_PropertyTypeRollup;
+/**
+ *  GA4 subproperty
+ *
+ *  Value: "PROPERTY_TYPE_SUBPROPERTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_PropertyType_PropertyTypeSubproperty;
+/**
+ *  Unknown or unspecified property type
+ *
+ *  Value: "PROPERTY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_PropertyType_PropertyTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRGoogleAnalyticsAdmin_V1alphaProperty.serviceLevel
 
 /**
@@ -622,6 +650,34 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ser
  *  Value: "SERVICE_LEVEL_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_ServiceLevel_ServiceLevelUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaPropertySummary.propertyType
+
+/**
+ *  Ordinary GA4 property
+ *
+ *  Value: "PROPERTY_TYPE_ORDINARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaPropertySummary_PropertyType_PropertyTypeOrdinary;
+/**
+ *  GA4 rollup property
+ *
+ *  Value: "PROPERTY_TYPE_ROLLUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaPropertySummary_PropertyType_PropertyTypeRollup;
+/**
+ *  GA4 subproperty
+ *
+ *  Value: "PROPERTY_TYPE_SUBPROPERTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaPropertySummary_PropertyType_PropertyTypeSubproperty;
+/**
+ *  Unknown or unspecified property type
+ *
+ *  Value: "PROPERTY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaPropertySummary_PropertyType_PropertyTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest.action
@@ -743,8 +799,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty : GTLRObject
 @end
@@ -2334,7 +2389,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 /**
  *  Output only. Resource name of this secret. This secret may be a child of any
  *  type of stream. Format:
- *  properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+ *  properties/{property}/dataStreams/{dataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2458,9 +2513,29 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 /**
  *  Immutable. Resource name of this property's logical parent. Note: The
  *  Property-Moving UI can be used to change the parent. Format:
- *  accounts/{account} Example: "accounts/100"
+ *  accounts/{account}, properties/{property} Example: "accounts/100",
+ *  "properties/101"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Immutable. The property type for this Property resource. When creating a
+ *  property, if the type is "PROPERTY_TYPE_UNSPECIFIED", then
+ *  "ORDINARY_PROPERTY" will be implied. "SUBPROPERTY" and "ROLLUP_PROPERTY"
+ *  types cannot yet be created via Google Analytics Admin API.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaProperty_PropertyType_PropertyTypeOrdinary
+ *        Ordinary GA4 property (Value: "PROPERTY_TYPE_ORDINARY")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaProperty_PropertyType_PropertyTypeRollup
+ *        GA4 rollup property (Value: "PROPERTY_TYPE_ROLLUP")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaProperty_PropertyType_PropertyTypeSubproperty
+ *        GA4 subproperty (Value: "PROPERTY_TYPE_SUBPROPERTY")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaProperty_PropertyType_PropertyTypeUnspecified
+ *        Unknown or unspecified property type (Value:
+ *        "PROPERTY_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *propertyType;
 
 /**
  *  Output only. The Google Analytics service level that applies to this
@@ -2503,10 +2578,33 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Resource name of this property's logical parent. Note: The Property-Moving
+ *  UI can be used to change the parent. Format: accounts/{account},
+ *  properties/{property} Example: "accounts/100", "properties/200"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
  *  Resource name of property referred to by this property summary Format:
  *  properties/{property_id} Example: "properties/1000"
  */
 @property(nonatomic, copy, nullable) NSString *property;
+
+/**
+ *  The property's property type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaPropertySummary_PropertyType_PropertyTypeOrdinary
+ *        Ordinary GA4 property (Value: "PROPERTY_TYPE_ORDINARY")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaPropertySummary_PropertyType_PropertyTypeRollup
+ *        GA4 rollup property (Value: "PROPERTY_TYPE_ROLLUP")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaPropertySummary_PropertyType_PropertyTypeSubproperty
+ *        GA4 subproperty (Value: "PROPERTY_TYPE_SUBPROPERTY")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaPropertySummary_PropertyType_PropertyTypeUnspecified
+ *        Unknown or unspecified property type (Value:
+ *        "PROPERTY_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *propertyType;
 
 @end
 

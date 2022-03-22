@@ -4,8 +4,8 @@
 // API:
 //   Authorized Buyers Marketplace API (authorizedbuyersmarketplace/v1)
 // Description:
-//   The Authorized Buyers Marketplace API allows buyers programmatically
-//   discover inventory; propose, retrieve and negotiate deals with publishers.
+//   The Authorized Buyers Marketplace API lets buyers programmatically discover
+//   inventory; propose, retrieve and negotiate deals with publishers.
 // Documentation:
 //   https://developers.google.com/authorized-buyers/apis/marketplace/reference/rest/
 
@@ -73,8 +73,8 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRAuthorizedBuyersMarketplace_AdSize.type
 
 /**
- *  Fluid size (i.e., responsive size) can be resized automatically with the
- *  change of outside environment.
+ *  Fluid size (responsive size) can be resized automatically with the change of
+ *  outside environment.
  *
  *  Value: "FLUID"
  */
@@ -509,7 +509,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_DeliveryCont
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_DeliveryControl_CreativeRotationType_RotationOptimized;
 /**
- *  Creatives are served exactly in sequential order, aka Storyboarding.
+ *  Creatives are served exactly in sequential order, also known as
+ *  Storyboarding.
  *
  *  Value: "ROTATION_SEQUENTIAL"
  */
@@ -561,7 +562,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_DeliveryCont
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_DeliveryControl_RoadblockingType_AsManyAsPossible;
 /**
- *  A master/companion creative set roadblocking type.
+ *  A main/companion creative set roadblocking type.
  *
  *  Value: "CREATIVE_SET"
  */
@@ -1073,8 +1074,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
  *
  *  Likely values:
  *    @arg @c kGTLRAuthorizedBuyersMarketplace_AdSize_Type_Fluid Fluid size
- *        (i.e., responsive size) can be resized automatically with the change
- *        of outside environment. (Value: "FLUID")
+ *        (responsive size) can be resized automatically with the change of
+ *        outside environment. (Value: "FLUID")
  *    @arg @c kGTLRAuthorizedBuyersMarketplace_AdSize_Type_Interstitial Special
  *        size to describe an interstitial ad slot. (Value: "INTERSTITIAL")
  *    @arg @c kGTLRAuthorizedBuyersMarketplace_AdSize_Type_Native Native
@@ -1617,7 +1618,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 /**
  *  Proposed flight start time of the deal. This will generally be stored in the
  *  granularity of one second since deal serving starts at seconds boundary. Any
- *  time specified with more granularity (e.g., in milliseconds) will be
+ *  time specified with more granularity (for example, in milliseconds) will be
  *  truncated towards the start of time in seconds.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *flightStartTime;
@@ -1713,7 +1714,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 @interface GTLRAuthorizedBuyersMarketplace_DeliveryControl : GTLRObject
 
 /**
- *  Output only. Specifies roadblocking in a master companion lineitem.
+ *  Output only. Specifies roadblocking in a main companion lineitem.
  *
  *  Likely values:
  *    @arg @c kGTLRAuthorizedBuyersMarketplace_DeliveryControl_CompanionDeliveryType_CompanionDeliveryTypeUnspecified
@@ -1751,8 +1752,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
  *        Creatives are served roughly proportionally to their performance.
  *        (Value: "ROTATION_OPTIMIZED")
  *    @arg @c kGTLRAuthorizedBuyersMarketplace_DeliveryControl_CreativeRotationType_RotationSequential
- *        Creatives are served exactly in sequential order, aka Storyboarding.
- *        (Value: "ROTATION_SEQUENTIAL")
+ *        Creatives are served exactly in sequential order, also known as
+ *        Storyboarding. (Value: "ROTATION_SEQUENTIAL")
  */
 @property(nonatomic, copy, nullable) NSString *creativeRotationType;
 
@@ -1792,7 +1793,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
  *        could mean anywhere from one to all of a deal's creatives given the
  *        size constraints of ad slots on a page. (Value: "AS_MANY_AS_POSSIBLE")
  *    @arg @c kGTLRAuthorizedBuyersMarketplace_DeliveryControl_RoadblockingType_CreativeSet
- *        A master/companion creative set roadblocking type. (Value:
+ *        A main/companion creative set roadblocking type. (Value:
  *        "CREATIVE_SET")
  *    @arg @c kGTLRAuthorizedBuyersMarketplace_DeliveryControl_RoadblockingType_OneOrMore
  *        Any number of creatives from a deal can serve together per ad request.
@@ -1814,8 +1815,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRAuthorizedBuyersMarketplace_Empty : GTLRObject
 @end
@@ -1825,10 +1825,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
  *  A finalized deal is a snapshot of the deal when both buyer and seller accept
  *  the deal. The buyer or seller can update the deal after it's been finalized
  *  and renegotiate on the deal targeting, terms and other fields, while at the
- *  same time the finalized snapshot of the deal can still be retrieved via this
- *  API. The finalized deal contains a copy of the deal as it existed when most
- *  recently finalized, as well as fields related to deal serving such as
- *  pause/resume status, RTB metrics, etc.
+ *  same time the finalized snapshot of the deal can still be retrieved using
+ *  this API. The finalized deal contains a copy of the deal as it existed when
+ *  most recently finalized, as well as fields related to deal serving such as
+ *  pause/resume status, RTB metrics, and more.
  */
 @interface GTLRAuthorizedBuyersMarketplace_FinalizedDeal : GTLRObject
 
@@ -2160,19 +2160,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 @property(nonatomic, strong, nullable) GTLRAuthorizedBuyersMarketplace_InventorySizeTargeting *inventorySizeTargeting;
 
 /**
- *  Output only. Placement targeting information, e.g., URL, mobile
+ *  Output only. Placement targeting information, for example, URL, mobile
  *  applications.
  */
 @property(nonatomic, strong, nullable) GTLRAuthorizedBuyersMarketplace_PlacementTargeting *placementTargeting;
 
 /**
- *  Output only. Technology targeting information, e.g., operating system,
- *  device category.
+ *  Output only. Technology targeting information, for example, operating
+ *  system, device category.
  */
 @property(nonatomic, strong, nullable) GTLRAuthorizedBuyersMarketplace_TechnologyTargeting *technologyTargeting;
 
 /**
- *  Buyer user list targeting information. User lists can be uploaded via
+ *  Buyer user list targeting information. User lists can be uploaded using
  *  https://developers.google.com/authorized-buyers/rtb/bulk-uploader.
  */
 @property(nonatomic, strong, nullable) GTLRAuthorizedBuyersMarketplace_CriteriaTargeting *userListTargeting;
@@ -2285,9 +2285,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 
 
 /**
- *  Represents targeting about where the ads can appear, e.g., certain sites or
- *  mobile applications. Different placement targeting types will be logically
- *  OR'ed.
+ *  Represents targeting about where the ads can appear, for example, certain
+ *  sites or mobile applications. Different placement targeting types will be
+ *  logically OR'ed.
  */
 @interface GTLRAuthorizedBuyersMarketplace_PlacementTargeting : GTLRObject
 
@@ -2696,7 +2696,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 @property(nonatomic, copy, nullable) NSString *samplePageUrl;
 
 /**
- *  Up to three key metrics and rankings. For example "#1 Mobile News Site for
+ *  Up to three key metrics and rankings. For example, "#1 Mobile News Site for
  *  20 Straight Months".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *topHeadlines;
@@ -3026,9 +3026,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
  *  update all fields populated in the update request excluding the output only
  *  fields and primitive fields with default value. Note that explicit field
  *  mask is required in order to reset a primitive field back to its default
- *  value, e.g. false for boolean fields, 0 for integer fields. A special field
- *  mask consisting of a single path "*" can be used to indicate full
- *  replacement(the equivalent of PUT method), updatable fields unset or
+ *  value, for example, false for boolean fields, 0 for integer fields. A
+ *  special field mask consisting of a single path "*" can be used to indicate
+ *  full replacement(the equivalent of PUT method), updatable fields unset or
  *  unspecified in the input will be cleared or set to default value. Output
  *  only fields will be ignored regardless of the value of updateMask.
  *
@@ -3040,8 +3040,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 
 
 /**
- *  Represents a list of targeted and excluded URLs (e.g., google.com). For
- *  Private Auction Deals, URLs are either included or excluded. For
+ *  Represents a list of targeted and excluded URLs (for example, google.com).
+ *  For Private Auction Deals, URLs are either included or excluded. For
  *  Programmatic Guaranteed and Preferred Deals, this doesn't apply.
  */
 @interface GTLRAuthorizedBuyersMarketplace_UriTargeting : GTLRObject

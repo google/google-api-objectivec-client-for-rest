@@ -321,11 +321,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
 /** Settings specific to content ads (AFC). */
 @property(nonatomic, strong, nullable) GTLRAdsense_ContentAdsSettings *contentAdsSettings;
 
-/** Display name of the ad unit, as provided when the ad unit was created. */
+/**
+ *  Required. Display name of the ad unit, as provided when the ad unit was
+ *  created.
+ */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Resource name of the ad unit. Format:
+ *  Required. Resource name of the ad unit. Format:
  *  accounts/{account}/adclients/{adclient}/adunits/{adunit}
  */
 @property(nonatomic, copy, nullable) NSString *name;

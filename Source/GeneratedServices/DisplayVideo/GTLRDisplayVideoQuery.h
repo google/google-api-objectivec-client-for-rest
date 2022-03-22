@@ -167,6 +167,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeCa
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeChannel;
 /**
+ *  Target ads to a specific video content duration.
+ *
+ *  Value: "TARGETING_TYPE_CONTENT_DURATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration;
+/**
+ *  Target ads to a specific content genre.
+ *
+ *  Value: "TARGETING_TYPE_CONTENT_GENRE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre;
+/**
  *  Target video or audio ads in a specific content instream position (for
  *  example, pre-roll, mid-roll, or post-roll).
  *
@@ -179,6 +191,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeCo
  *  Value: "TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeContentOutstreamPosition;
+/**
+ *  Target ads to a specific video content stream type.
+ *
+ *  Value: "TARGETING_TYPE_CONTENT_STREAM_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType;
 /**
  *  Target ads during a chosen time period on a specific day.
  *
@@ -1030,6 +1048,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -1038,6 +1062,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -1192,6 +1218,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -1200,6 +1232,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersCampaignsTargetingTypesAssignedTargetingOptionsGet
  */
@@ -1406,6 +1440,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -1414,6 +1454,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -1566,6 +1608,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -1574,6 +1622,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersCampaignsTargetingTypesAssignedTargetingOptionsList
  *
@@ -2774,6 +2824,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -2782,6 +2838,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -2924,6 +2982,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -2932,6 +2996,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsGet
  */
@@ -3125,6 +3191,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -3133,6 +3205,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -3273,6 +3347,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -3281,6 +3361,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsList
  *
@@ -3963,6 +4045,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -3971,6 +4059,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -4117,6 +4207,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -4125,6 +4221,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -4287,6 +4385,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -4295,6 +4399,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -4440,6 +4546,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -4448,6 +4560,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -4609,6 +4723,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -4617,6 +4737,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -4759,6 +4881,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -4767,6 +4895,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsGet
  */
@@ -4959,6 +5089,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -4967,6 +5103,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -5106,6 +5244,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -5114,6 +5258,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsList
  *
@@ -6504,6 +6650,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -6512,6 +6664,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -6653,6 +6807,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -6661,6 +6821,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -6816,6 +6978,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -6824,6 +6992,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -6964,6 +7134,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -6972,6 +7148,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -7130,6 +7308,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -7138,6 +7322,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -7279,6 +7465,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -7287,6 +7479,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsGet
  */
@@ -7473,6 +7667,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -7481,6 +7681,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -7620,6 +7822,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -7628,6 +7836,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsList
  *
@@ -9968,6 +10178,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -9976,6 +10192,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -10115,6 +10333,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -10123,6 +10347,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -10276,6 +10502,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -10284,6 +10516,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -10422,6 +10656,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -10430,6 +10670,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -10586,6 +10828,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -10594,6 +10842,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -10733,6 +10983,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -10741,6 +10997,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsGet
  */
@@ -10925,6 +11183,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -10933,6 +11197,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -11069,6 +11335,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -11077,6 +11349,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsList
  *
@@ -11314,6 +11588,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -11322,6 +11602,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -11474,6 +11756,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -11482,6 +11770,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *
  *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsGet
  */
@@ -11685,6 +11975,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -11693,6 +11989,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -11843,6 +12141,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -11851,6 +12155,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *
  *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsList
  *
@@ -12002,6 +12308,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -12010,6 +12322,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -12149,6 +12463,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
  *        ads around locations of a business chain within a specific geo region.
  *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentDuration Target
+ *        ads to a specific video content duration. (Value:
+ *        "TARGETING_TYPE_CONTENT_DURATION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentStreamType
+ *        Target ads to a specific video content stream type. (Value:
+ *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -12157,6 +12477,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
  *        ads to a specific audio content type. (Value:
  *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentGenre Target ads
+ *        to a specific content genre. (Value: "TARGETING_TYPE_CONTENT_GENRE")
  *
  *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsSearch
  */

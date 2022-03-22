@@ -28,6 +28,9 @@
 @class GTLRArtifactRegistry_Hash;
 @class GTLRArtifactRegistry_ImportAptArtifactsGcsSource;
 @class GTLRArtifactRegistry_ImportYumArtifactsGcsSource;
+@class GTLRArtifactRegistry_Location;
+@class GTLRArtifactRegistry_Location_Labels;
+@class GTLRArtifactRegistry_Location_Metadata;
 @class GTLRArtifactRegistry_MavenRepositoryConfig;
 @class GTLRArtifactRegistry_Operation;
 @class GTLRArtifactRegistry_Operation_Metadata;
@@ -522,6 +525,30 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Yum;
 
 
 /**
+ *  The response message for Locations.ListLocations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "locations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRArtifactRegistry_ListLocationsResponse : GTLRCollectionObject
+
+/**
+ *  A list of locations that matches the specified filter in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_Location *> *locations;
+
+/** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The response from listing packages.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -626,6 +653,67 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Yum;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_Version *> *versions;
 
+@end
+
+
+/**
+ *  A resource that represents Google Cloud Platform location.
+ */
+@interface GTLRArtifactRegistry_Location : GTLRObject
+
+/**
+ *  The friendly name for this location, typically a nearby city name. For
+ *  example, "Tokyo".
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Cross-service attributes for the location. For example
+ *  {"cloud.googleapis.com/region": "us-east1"}
+ */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_Location_Labels *labels;
+
+/** The canonical id for this location. For example: `"us-east1"`. */
+@property(nonatomic, copy, nullable) NSString *locationId;
+
+/**
+ *  Service-specific metadata. For example the available capacity at the given
+ *  location.
+ */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_Location_Metadata *metadata;
+
+/**
+ *  Resource name for the location, which may vary between implementations. For
+ *  example: `"projects/example-project/locations/us-east1"`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Cross-service attributes for the location. For example
+ *  {"cloud.googleapis.com/region": "us-east1"}
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRArtifactRegistry_Location_Labels : GTLRObject
+@end
+
+
+/**
+ *  Service-specific metadata. For example the available capacity at the given
+ *  location.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRArtifactRegistry_Location_Metadata : GTLRObject
 @end
 
 

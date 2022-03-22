@@ -31,6 +31,12 @@ NSString * const kGTLRSpanner_ContextValue_Severity_Info       = @"INFO";
 NSString * const kGTLRSpanner_ContextValue_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
 NSString * const kGTLRSpanner_ContextValue_Severity_Warning    = @"WARNING";
 
+// GTLRSpanner_CopyBackupEncryptionConfig.encryptionType
+NSString * const kGTLRSpanner_CopyBackupEncryptionConfig_EncryptionType_CustomerManagedEncryption = @"CUSTOMER_MANAGED_ENCRYPTION";
+NSString * const kGTLRSpanner_CopyBackupEncryptionConfig_EncryptionType_EncryptionTypeUnspecified = @"ENCRYPTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRSpanner_CopyBackupEncryptionConfig_EncryptionType_GoogleDefaultEncryption = @"GOOGLE_DEFAULT_ENCRYPTION";
+NSString * const kGTLRSpanner_CopyBackupEncryptionConfig_EncryptionType_UseConfigDefaultOrBackupEncryption = @"USE_CONFIG_DEFAULT_OR_BACKUP_ENCRYPTION";
+
 // GTLRSpanner_CreateDatabaseRequest.databaseDialect
 NSString * const kGTLRSpanner_CreateDatabaseRequest_DatabaseDialect_DatabaseDialectUnspecified = @"DATABASE_DIALECT_UNSPECIFIED";
 NSString * const kGTLRSpanner_CreateDatabaseRequest_DatabaseDialect_GoogleStandardSql = @"GOOGLE_STANDARD_SQL";
@@ -135,10 +141,12 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 @implementation GTLRSpanner_Backup
 @dynamic createTime, database, databaseDialect, encryptionInfo, expireTime,
-         name, referencingDatabases, sizeBytes, state, versionTime;
+         maxExpireTime, name, referencingBackups, referencingDatabases,
+         sizeBytes, state, versionTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"referencingBackups" : [NSString class],
     @"referencingDatabases" : [NSString class]
   };
   return map;
@@ -269,6 +277,36 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 @implementation GTLRSpanner_ContextValue
 @dynamic label, severity, unit, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_CopyBackupEncryptionConfig
+//
+
+@implementation GTLRSpanner_CopyBackupEncryptionConfig
+@dynamic encryptionType, kmsKeyName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_CopyBackupMetadata
+//
+
+@implementation GTLRSpanner_CopyBackupMetadata
+@dynamic cancelTime, name, progress, sourceBackup;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_CopyBackupRequest
+//
+
+@implementation GTLRSpanner_CopyBackupRequest
+@dynamic backupId, encryptionConfig, expireTime, sourceBackup;
 @end
 
 
@@ -611,8 +649,8 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_Instance
-@dynamic config, displayName, endpointUris, labels, name, nodeCount,
-         processingUnits, state;
+@dynamic config, createTime, displayName, endpointUris, labels, name, nodeCount,
+         processingUnits, state, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

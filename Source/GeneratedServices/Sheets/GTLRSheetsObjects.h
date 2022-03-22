@@ -4393,7 +4393,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @interface GTLRSheets_BatchClearValuesByDataFilterResponse : GTLRObject
 
 /**
- *  The ranges that were cleared, in A1 notation. If the requests are for an
+ *  The ranges that were cleared, in [A1
+ *  notation](/sheets/api/guides/concepts#cell). If the requests are for an
  *  unbounded range or a ranger larger than the bounds of the sheet, this is the
  *  actual ranges that were cleared, bounded to the sheet's limits.
  */
@@ -4410,7 +4411,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  */
 @interface GTLRSheets_BatchClearValuesRequest : GTLRObject
 
-/** The ranges to clear, in A1 or R1C1 notation. */
+/**
+ *  The ranges to clear, in [A1 notation or R1C1
+ *  notation](/sheets/api/guides/concepts#cell).
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ranges;
 
 @end
@@ -8207,16 +8211,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  A range on a sheet. All indexes are zero-based. Indexes are half open, i.e.
  *  the start index is inclusive and the end index is exclusive -- [start_index,
  *  end_index). Missing indexes indicate the range is unbounded on that side.
- *  For example, if `"Sheet1"` is sheet ID 0, then: `Sheet1!A1:A1 == sheet_id:
- *  0, start_row_index: 0, end_row_index: 1, start_column_index: 0,
- *  end_column_index: 1` `Sheet1!A3:B4 == sheet_id: 0, start_row_index: 2,
- *  end_row_index: 4, start_column_index: 0, end_column_index: 2` `Sheet1!A:B ==
- *  sheet_id: 0, start_column_index: 0, end_column_index: 2` `Sheet1!A5:B ==
- *  sheet_id: 0, start_row_index: 4, start_column_index: 0, end_column_index: 2`
- *  `Sheet1 == sheet_id:0` The start index must always be less than or equal to
- *  the end index. If the start index equals the end index, then the range is
- *  empty. Empty ranges are typically not meaningful and are usually rendered in
- *  the UI as `#REF!`.
+ *  For example, if `"Sheet1"` is sheet ID 123456, then: `Sheet1!A1:A1 ==
+ *  sheet_id: 123456, start_row_index: 0, end_row_index: 1, start_column_index:
+ *  0, end_column_index: 1` `Sheet1!A3:B4 == sheet_id: 123456, start_row_index:
+ *  2, end_row_index: 4, start_column_index: 0, end_column_index: 2` `Sheet1!A:B
+ *  == sheet_id: 123456, start_column_index: 0, end_column_index: 2`
+ *  `Sheet1!A5:B == sheet_id: 123456, start_row_index: 4, start_column_index: 0,
+ *  end_column_index: 2` `Sheet1 == sheet_id: 123456` The start index must
+ *  always be less than or equal to the end index. If the start index equals the
+ *  end index, then the range is empty. Empty ranges are typically not
+ *  meaningful and are usually rendered in the UI as `#REF!`.
  */
 @interface GTLRSheets_GridRange : GTLRObject
 
@@ -11568,7 +11572,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  */
 @property(nonatomic, strong, nullable) GTLRSheets_ValueRange *updatedData;
 
-/** The range (in A1 notation) that updates were applied to. */
+/**
+ *  The range (in [A1 notation](/sheets/api/guides/concepts#cell)) that updates
+ *  were applied to.
+ */
 @property(nonatomic, copy, nullable) NSString *updatedRange;
 
 /**
@@ -11648,10 +11655,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @property(nonatomic, copy, nullable) NSString *majorDimension;
 
 /**
- *  The range the values cover, in A1 notation. For output, this range indicates
- *  the entire requested range, even though the values will exclude trailing
- *  rows and columns. When appending values, this field represents the range to
- *  search for a table, after which values will be appended.
+ *  The range the values cover, in [A1
+ *  notation](/sheets/api/guides/concepts#cell). For output, this range
+ *  indicates the entire requested range, even though the values will exclude
+ *  trailing rows and columns. When appending values, this field represents the
+ *  range to search for a table, after which values will be appended.
  */
 @property(nonatomic, copy, nullable) NSString *range;
 

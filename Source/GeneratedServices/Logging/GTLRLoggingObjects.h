@@ -741,6 +741,18 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
+/**
+ *  The CryptoKeyVersion resource name for the configured Cloud KMS key.KMS key
+ *  name format:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION]/keyRings/[KEYRING]/cryptoKeys/[KEY]/cryptoKeyVersions/[VERSION]"
+ *  For
+ *  example:"projects/my-project/locations/us-central1/keyRings/my-ring/cryptoKeys/my-key/cryptoKeyVersions/1"This
+ *  is a read-only field used to convey the specific configured CryptoKeyVersion
+ *  of kms_key that has been configured. It will be populated in cases where the
+ *  CMEK settings are bound to a single key version.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyVersionName;
+
 /** Output only. The resource name of the CMEK settings. */
 @property(nonatomic, copy, nullable) NSString *name;
 

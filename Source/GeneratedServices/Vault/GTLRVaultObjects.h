@@ -211,13 +211,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_ExportOptions_Region_Us;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_ExportFormatUnspecified;
 /**
- *  Export as MBOX.
+ *  Export as MBOX. Only available for Gmail, Groups, Hangouts and Voice.
  *
  *  Value: "MBOX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Mbox;
 /**
- *  Export as PST.
+ *  Export as PST. Only available for Gmail, Groups, Hangouts, Voice and
+ *  Calendar.
  *
  *  Value: "PST"
  */
@@ -233,13 +234,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_P
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_ExportFormatUnspecified;
 /**
- *  Export as MBOX.
+ *  Export as MBOX. Only available for Gmail, Groups, Hangouts and Voice.
  *
  *  Value: "MBOX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Mbox;
 /**
- *  Export as PST.
+ *  Export as PST. Only available for Gmail, Groups, Hangouts, Voice and
+ *  Calendar.
  *
  *  Value: "PST"
  */
@@ -295,7 +297,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_Drive;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_Groups;
 /**
- *  For search, Google Chat only. For holds, Google Chat and classic Hangouts.
+ *  For export, Google Chat only. For holds, Google Chat and classic Hangouts.
  *
  *  Value: "HANGOUTS_CHAT"
  */
@@ -323,13 +325,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_Voice;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_ExportFormatUnspecified;
 /**
- *  Export as MBOX.
+ *  Export as MBOX. Only available for Gmail, Groups, Hangouts and Voice.
  *
  *  Value: "MBOX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_Mbox;
 /**
- *  Export as PST.
+ *  Export as PST. Only available for Gmail, Groups, Hangouts, Voice and
+ *  Calendar.
  *
  *  Value: "PST"
  */
@@ -407,7 +410,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Corpus_Drive;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Corpus_Groups;
 /**
- *  For search, Google Chat only. For holds, Google Chat and classic Hangouts.
+ *  For export, Google Chat only. For holds, Google Chat and classic Hangouts.
  *
  *  Value: "HANGOUTS_CHAT"
  */
@@ -567,13 +570,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_ExportFormatUnspecified;
 /**
- *  Export as MBOX.
+ *  Export as MBOX. Only available for Gmail, Groups, Hangouts and Voice.
  *
  *  Value: "MBOX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Mbox;
 /**
- *  Export as PST.
+ *  Export as PST. Only available for Gmail, Groups, Hangouts, Voice and
+ *  Calendar.
  *
  *  Value: "PST"
  */
@@ -1005,7 +1009,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 /** Output only. The matter ID. */
 @property(nonatomic, copy, nullable) NSString *matterId;
 
-/** The export name. */
+/**
+ *  The export name. Don't use special characters (~!$'(),;\@:/?) in the name,
+ *  they can prevent you from downloading exports.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** The query parameters used to create the export. */
@@ -1149,8 +1156,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *    @arg @c kGTLRVault_GroupsExportOptions_ExportFormat_ExportFormatUnspecified
  *        No export format specified. (Value: "EXPORT_FORMAT_UNSPECIFIED")
  *    @arg @c kGTLRVault_GroupsExportOptions_ExportFormat_Mbox Export as MBOX.
- *        (Value: "MBOX")
+ *        Only available for Gmail, Groups, Hangouts and Voice. (Value: "MBOX")
  *    @arg @c kGTLRVault_GroupsExportOptions_ExportFormat_Pst Export as PST.
+ *        Only available for Gmail, Groups, Hangouts, Voice and Calendar.
  *        (Value: "PST")
  */
 @property(nonatomic, copy, nullable) NSString *exportFormat;
@@ -1170,9 +1178,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *    @arg @c kGTLRVault_HangoutsChatExportOptions_ExportFormat_ExportFormatUnspecified
  *        No export format specified. (Value: "EXPORT_FORMAT_UNSPECIFIED")
  *    @arg @c kGTLRVault_HangoutsChatExportOptions_ExportFormat_Mbox Export as
- *        MBOX. (Value: "MBOX")
+ *        MBOX. Only available for Gmail, Groups, Hangouts and Voice. (Value:
+ *        "MBOX")
  *    @arg @c kGTLRVault_HangoutsChatExportOptions_ExportFormat_Pst Export as
- *        PST. (Value: "PST")
+ *        PST. Only available for Gmail, Groups, Hangouts, Voice and Calendar.
+ *        (Value: "PST")
  */
 @property(nonatomic, copy, nullable) NSString *exportFormat;
 
@@ -1391,7 +1401,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *    @arg @c kGTLRVault_Hold_Corpus_Drive Drive, including Meet and Sites.
  *        (Value: "DRIVE")
  *    @arg @c kGTLRVault_Hold_Corpus_Groups Groups. (Value: "GROUPS")
- *    @arg @c kGTLRVault_Hold_Corpus_HangoutsChat For search, Google Chat only.
+ *    @arg @c kGTLRVault_Hold_Corpus_HangoutsChat For export, Google Chat only.
  *        For holds, Google Chat and classic Hangouts. (Value: "HANGOUTS_CHAT")
  *    @arg @c kGTLRVault_Hold_Corpus_Mail For search, Gmail and classic
  *        Hangouts. For holds, Gmail only. (Value: "MAIL")
@@ -1609,9 +1619,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *    @arg @c kGTLRVault_MailExportOptions_ExportFormat_ExportFormatUnspecified
  *        No export format specified. (Value: "EXPORT_FORMAT_UNSPECIFIED")
  *    @arg @c kGTLRVault_MailExportOptions_ExportFormat_Mbox Export as MBOX.
- *        (Value: "MBOX")
- *    @arg @c kGTLRVault_MailExportOptions_ExportFormat_Pst Export as PST.
- *        (Value: "PST")
+ *        Only available for Gmail, Groups, Hangouts and Voice. (Value: "MBOX")
+ *    @arg @c kGTLRVault_MailExportOptions_ExportFormat_Pst Export as PST. Only
+ *        available for Gmail, Groups, Hangouts, Voice and Calendar. (Value:
+ *        "PST")
  */
 @property(nonatomic, copy, nullable) NSString *exportFormat;
 
@@ -1836,7 +1847,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *    @arg @c kGTLRVault_Query_Corpus_Drive Drive, including Meet and Sites.
  *        (Value: "DRIVE")
  *    @arg @c kGTLRVault_Query_Corpus_Groups Groups. (Value: "GROUPS")
- *    @arg @c kGTLRVault_Query_Corpus_HangoutsChat For search, Google Chat only.
+ *    @arg @c kGTLRVault_Query_Corpus_HangoutsChat For export, Google Chat only.
  *        For holds, Google Chat and classic Hangouts. (Value: "HANGOUTS_CHAT")
  *    @arg @c kGTLRVault_Query_Corpus_Mail For search, Gmail and classic
  *        Hangouts. For holds, Gmail only. (Value: "MAIL")
@@ -2176,9 +2187,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_ExportFormatUnspecified
  *        No export format specified. (Value: "EXPORT_FORMAT_UNSPECIFIED")
  *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_Mbox Export as MBOX.
- *        (Value: "MBOX")
- *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_Pst Export as PST.
- *        (Value: "PST")
+ *        Only available for Gmail, Groups, Hangouts and Voice. (Value: "MBOX")
+ *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_Pst Export as PST. Only
+ *        available for Gmail, Groups, Hangouts, Voice and Calendar. (Value:
+ *        "PST")
  */
 @property(nonatomic, copy, nullable) NSString *exportFormat;
 

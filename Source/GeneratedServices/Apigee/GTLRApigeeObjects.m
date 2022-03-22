@@ -1329,7 +1329,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1EnvironmentGroupAttachment
-@dynamic createdAt, environment, name;
+@dynamic createdAt, environment, environmentGroupId, name;
 @end
 
 
@@ -1462,6 +1462,34 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1GetAsyncQueryResultUrlResponse
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1GetAsyncQueryResultUrlResponse
+@dynamic urls;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"urls" : [GTLRApigee_GoogleCloudApigeeV1GetAsyncQueryResultUrlResponseURLInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1GetAsyncQueryResultUrlResponseURLInfo
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1GetAsyncQueryResultUrlResponseURLInfo
+@dynamic md5, sizeBytes, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1GetSyncAuthorizationRequest
 //
 
@@ -1548,12 +1576,20 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1Instance
-@dynamic createdAt, descriptionProperty, diskEncryptionKeyName, displayName,
-         host, ipRange, lastModifiedAt, location, name, peeringCidrRange, port,
-         runtimeVersion, state;
+@dynamic consumerAcceptList, createdAt, descriptionProperty,
+         diskEncryptionKeyName, displayName, host, ipRange, lastModifiedAt,
+         location, name, peeringCidrRange, port, runtimeVersion,
+         serviceAttachment, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"consumerAcceptList" : [NSString class]
+  };
+  return map;
 }
 
 @end

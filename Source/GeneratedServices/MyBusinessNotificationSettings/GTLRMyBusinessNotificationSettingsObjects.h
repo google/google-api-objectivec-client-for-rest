@@ -114,8 +114,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_Notificat
  */
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_NotificationSetting_NotificationTypes_UpdatedReview;
 /**
- *  Indicates whether the location has an update in voice of merchant status.
- *  Call GetVoiceOfMerchantState rpc for more details
+ *  Indicates whether the location has an update in Voice of Merchant (VOM)
+ *  status. VOM dictates whether the location is in good standing and the
+ *  merchant has control over the business on Google. Any edits made to the
+ *  location will propagate to Maps after passing the review phase. Call
+ *  GetVoiceOfMerchantState rpc for more details.
  *
  *  Value: "VOICE_OF_MERCHANT_UPDATED"
  */

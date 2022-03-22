@@ -22,6 +22,7 @@
 #endif
 
 @class GTLRTexttospeech_AudioConfig;
+@class GTLRTexttospeech_CustomVoiceParams;
 @class GTLRTexttospeech_SynthesisInput;
 @class GTLRTexttospeech_Voice;
 @class GTLRTexttospeech_VoiceSelectionParams;
@@ -81,6 +82,31 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_M
  *  Value: "OGG_OPUS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_OggOpus;
+
+// ----------------------------------------------------------------------------
+// GTLRTexttospeech_CustomVoiceParams.reportedUsage
+
+/**
+ *  For scenarios where the synthesized audio is downloadable and can be reused.
+ *  For example, the synthesized audio is downloaded, stored in customer service
+ *  system and played repeatedly.
+ *
+ *  Value: "OFFLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_CustomVoiceParams_ReportedUsage_Offline;
+/**
+ *  For scenarios where the synthesized audio is not downloadable and can only
+ *  be used once. For example, real-time request in IVR system.
+ *
+ *  Value: "REALTIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_CustomVoiceParams_ReportedUsage_Realtime;
+/**
+ *  Request with reported usage unspecified will be rejected.
+ *
+ *  Value: "REPORTED_USAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_CustomVoiceParams_ReportedUsage_ReportedUsageUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRTexttospeech_Voice.ssmlGender
@@ -234,6 +260,37 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
 
 
 /**
+ *  Description of the custom voice to be synthesized.
+ */
+@interface GTLRTexttospeech_CustomVoiceParams : GTLRObject
+
+/**
+ *  Required. The name of the AutoML model that synthesizes the custom voice.
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+/**
+ *  Optional. The usage of the synthesized audio to be reported.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTexttospeech_CustomVoiceParams_ReportedUsage_Offline For
+ *        scenarios where the synthesized audio is downloadable and can be
+ *        reused. For example, the synthesized audio is downloaded, stored in
+ *        customer service system and played repeatedly. (Value: "OFFLINE")
+ *    @arg @c kGTLRTexttospeech_CustomVoiceParams_ReportedUsage_Realtime For
+ *        scenarios where the synthesized audio is not downloadable and can only
+ *        be used once. For example, real-time request in IVR system. (Value:
+ *        "REALTIME")
+ *    @arg @c kGTLRTexttospeech_CustomVoiceParams_ReportedUsage_ReportedUsageUnspecified
+ *        Request with reported usage unspecified will be rejected. (Value:
+ *        "REPORTED_USAGE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *reportedUsage;
+
+@end
+
+
+/**
  *  The message returned to the client by the `ListVoices` method.
  */
 @interface GTLRTexttospeech_ListVoicesResponse : GTLRObject
@@ -352,6 +409,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  *  Description of which voice to use for a synthesis request.
  */
 @interface GTLRTexttospeech_VoiceSelectionParams : GTLRObject
+
+/**
+ *  The configuration for a custom voice. If [CustomVoiceParams.model] is set,
+ *  the service will choose the custom voice matching the specified
+ *  configuration.
+ */
+@property(nonatomic, strong, nullable) GTLRTexttospeech_CustomVoiceParams *customVoice;
 
 /**
  *  Required. The language (and potentially also the region) of the voice

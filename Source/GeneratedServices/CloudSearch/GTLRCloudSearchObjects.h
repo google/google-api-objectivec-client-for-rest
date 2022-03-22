@@ -2107,6 +2107,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @interface GTLRCloudSearch_DynamiteSpacesScoringInfo : GTLRObject
 
 /**
+ *  affinityScore
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *affinityScore;
+
+/**
+ *  commonContactCountAffinityScore
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *commonContactCountAffinityScore;
+
+/**
+ *  contactsIntersectionCount
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contactsIntersectionCount;
+
+/**
  *  finalScore
  *
  *  Uses NSNumber of doubleValue.
@@ -2121,11 +2142,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @property(nonatomic, strong, nullable) NSNumber *freshnessScore;
 
 /**
+ *  joinedSpacesAffinityScore
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *joinedSpacesAffinityScore;
+
+/**
  *  messageScore
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *messageScore;
+
+/**
+ *  smallContactListAffinityScore
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *smallContactListAffinityScore;
+
+/**
+ *  smallUnjoinedSpacesAffinityScore
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *smallUnjoinedSpacesAffinityScore;
 
 /**
  *  spaceAgeInDays
@@ -5482,7 +5524,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @property(nonatomic, strong, nullable) GTLRCloudSearch_GroupId *groupId;
 
 /**
- *  Whether this is an external space outside of user's organization
+ *  Whether this is a space that enables guest access
  *
  *  Uses NSNumber of boolValue.
  */

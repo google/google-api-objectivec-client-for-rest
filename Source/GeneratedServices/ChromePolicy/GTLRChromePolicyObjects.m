@@ -196,7 +196,7 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 
 @implementation GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldDescription
 @dynamic descriptionProperty, field, fieldDependencies, inputConstraint,
-         knownValueDescriptions, nestedFieldDescriptions;
+         knownValueDescriptions, nestedFieldDescriptions, requiredItems;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -206,7 +206,8 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
   NSDictionary<NSString *, Class> *map = @{
     @"fieldDependencies" : [GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldDependencies class],
     @"knownValueDescriptions" : [GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldKnownValueDescription class],
-    @"nestedFieldDescriptions" : [GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldDescription class]
+    @"nestedFieldDescriptions" : [GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldDescription class],
+    @"requiredItems" : [GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaRequiredItems class]
   };
   return map;
 }
@@ -236,6 +237,25 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 
 @implementation GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaNoticeDescription
 @dynamic acknowledgementRequired, field, noticeMessage, noticeValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaRequiredItems
+//
+
+@implementation GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaRequiredItems
+@dynamic fieldConditions, requiredFields;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fieldConditions" : [NSString class],
+    @"requiredFields" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

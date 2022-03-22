@@ -901,7 +901,7 @@ NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspecified = @"UPGRADE_
 
 @implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesCreate
 
-@dynamic parent, runtimeId;
+@dynamic parent, requestId, runtimeId;
 
 + (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_Runtime *)object
                          parent:(NSString *)parent {
@@ -928,7 +928,7 @@ NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspecified = @"UPGRADE_
 
 @implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesDelete
 
-@dynamic name;
+@dynamic name, requestId;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

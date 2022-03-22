@@ -44,6 +44,7 @@
 @class GTLRBigquery_BqmlTrainingRun_TrainingOptions;
 @class GTLRBigquery_CategoricalValue;
 @class GTLRBigquery_CategoryCount;
+@class GTLRBigquery_CloneDefinition;
 @class GTLRBigquery_Cluster;
 @class GTLRBigquery_Clustering;
 @class GTLRBigquery_ClusteringMetrics;
@@ -60,19 +61,32 @@
 @class GTLRBigquery_DataSplitResult;
 @class GTLRBigquery_DestinationTableProperties;
 @class GTLRBigquery_DestinationTableProperties_Labels;
+@class GTLRBigquery_DimensionalityReductionMetrics;
 @class GTLRBigquery_DmlStatistics;
+@class GTLRBigquery_DoubleCandidates;
+@class GTLRBigquery_DoubleHparamSearchSpace;
+@class GTLRBigquery_DoubleRange;
 @class GTLRBigquery_EncryptionConfiguration;
 @class GTLRBigquery_Entry;
 @class GTLRBigquery_ErrorProto;
 @class GTLRBigquery_EvaluationMetrics;
 @class GTLRBigquery_ExplainQueryStage;
 @class GTLRBigquery_ExplainQueryStep;
+@class GTLRBigquery_Explanation;
 @class GTLRBigquery_Expr;
 @class GTLRBigquery_ExternalDataConfiguration;
 @class GTLRBigquery_FeatureValue;
 @class GTLRBigquery_GetPolicyOptions;
+@class GTLRBigquery_GlobalExplanation;
 @class GTLRBigquery_GoogleSheetsOptions;
 @class GTLRBigquery_HivePartitioningOptions;
+@class GTLRBigquery_HparamSearchSpaces;
+@class GTLRBigquery_HparamTuningTrial;
+@class GTLRBigquery_IntArray;
+@class GTLRBigquery_IntArrayHparamSearchSpace;
+@class GTLRBigquery_IntCandidates;
+@class GTLRBigquery_IntHparamSearchSpace;
+@class GTLRBigquery_IntRange;
 @class GTLRBigquery_IterationResult;
 @class GTLRBigquery_Job;
 @class GTLRBigquery_JobConfiguration;
@@ -89,6 +103,7 @@
 @class GTLRBigquery_JobStatistics2_ReservationUsage_Item;
 @class GTLRBigquery_JobStatistics3;
 @class GTLRBigquery_JobStatistics4;
+@class GTLRBigquery_JobStatistics5;
 @class GTLRBigquery_JobStatistics_ReservationUsage_Item;
 @class GTLRBigquery_JobStatus;
 @class GTLRBigquery_JsonObject;
@@ -131,6 +146,7 @@
 @class GTLRBigquery_StandardSqlStructType;
 @class GTLRBigquery_StandardSqlTableType;
 @class GTLRBigquery_Streamingbuffer;
+@class GTLRBigquery_StringHparamSearchSpace;
 @class GTLRBigquery_Table_Labels;
 @class GTLRBigquery_TableCell;
 @class GTLRBigquery_TableDataInsertAllRequest_Rows_Item;
@@ -435,6 +451,48 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_DatasetAccessEntry_TargetTypes_
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_DatasetAccessEntry_TargetTypes_Views;
 
 // ----------------------------------------------------------------------------
+// GTLRBigquery_HparamTuningTrial.status
+
+/**
+ *  The trial failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_HparamTuningTrial_Status_Failed;
+/**
+ *  The trial is infeasible due to the invalid params.
+ *
+ *  Value: "INFEASIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_HparamTuningTrial_Status_Infeasible;
+/**
+ *  Scheduled but not started.
+ *
+ *  Value: "NOT_STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_HparamTuningTrial_Status_NotStarted;
+/**
+ *  Running state.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_HparamTuningTrial_Status_Running;
+/**
+ *  Trial stopped early because it's not promising.
+ *
+ *  Value: "STOPPED_EARLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_HparamTuningTrial_Status_StoppedEarly;
+/**
+ *  The trial succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_HparamTuningTrial_Status_Succeeded;
+/** Value: "TRIAL_STATUS_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_HparamTuningTrial_Status_TrialStatusUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRBigquery_Model.modelType
 
 /**
@@ -449,6 +507,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Arima;
  *  Value: "ARIMA_PLUS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_ArimaPlus;
+/**
+ *  Autoencoder model.
+ *
+ *  Value: "AUTOENCODER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Autoencoder;
 /**
  *  AutoML Tables classification model.
  *
@@ -511,6 +575,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_LogisticRegress
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_MatrixFactorization;
 /** Value: "MODEL_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_ModelTypeUnspecified;
+/**
+ *  Prinpical Component Analysis model.
+ *
+ *  Value: "PCA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Pca;
 /**
  *  An imported TensorFlow model.
  *
@@ -1280,6 +1350,121 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_V
  *  Value: "ZA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Za;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_TrainingOptions.hparamTuningObjectives
+
+/**
+ *  Accuracy is the fraction of predictions given the correct label. For
+ *  multiclass this is a globally micro-averaged metric.
+ *
+ *  Value: "ACCURACY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HparamTuningObjectives_Accuracy;
+/**
+ *  Average Rank.
+ *
+ *  Value: "AVERAGE_RANK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HparamTuningObjectives_AverageRank;
+/**
+ *  Davies-Bouldin Index.
+ *
+ *  Value: "DAVIES_BOULDIN_INDEX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HparamTuningObjectives_DaviesBouldinIndex;
+/**
+ *  Explained variance. explained_variance = 1 -
+ *  VAR_POP(label_error)/VAR_POP(label)
+ *
+ *  Value: "EXPLAINED_VARIANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HparamTuningObjectives_ExplainedVariance;
+/**
+ *  The F1 score is an average of recall and precision. For multiclass this is a
+ *  macro-averaged metric.
+ *
+ *  Value: "F1_SCORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HparamTuningObjectives_F1Score;
+/**
+ *  Unspecified evaluation metric.
+ *
+ *  Value: "HPARAM_TUNING_OBJECTIVE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HparamTuningObjectives_HparamTuningObjectiveUnspecified;
+/**
+ *  Logorithmic Loss. For multiclass this is a macro-averaged metric.
+ *
+ *  Value: "LOG_LOSS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HparamTuningObjectives_LogLoss;
+/**
+ *  Mean absolute error. mean_absolute_error = AVG(ABS(label - predicted))
+ *
+ *  Value: "MEAN_ABSOLUTE_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HparamTuningObjectives_MeanAbsoluteError;
+/**
+ *  Mean Average Precision.
+ *
+ *  Value: "MEAN_AVERAGE_PRECISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HparamTuningObjectives_MeanAveragePrecision;
+/**
+ *  Mean squared error. mean_squared_error = AVG(POW(label - predicted, 2))
+ *
+ *  Value: "MEAN_SQUARED_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HparamTuningObjectives_MeanSquaredError;
+/**
+ *  Mean squared log error. mean_squared_log_error = AVG(POW(LN(1 + label) -
+ *  LN(1 + predicted), 2))
+ *
+ *  Value: "MEAN_SQUARED_LOG_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HparamTuningObjectives_MeanSquaredLogError;
+/**
+ *  Mean absolute error. median_absolute_error =
+ *  APPROX_QUANTILES(absolute_error, 2)[OFFSET(1)]
+ *
+ *  Value: "MEDIAN_ABSOLUTE_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HparamTuningObjectives_MedianAbsoluteError;
+/**
+ *  Normalized Discounted Cumulative Gain.
+ *
+ *  Value: "NORMALIZED_DISCOUNTED_CUMULATIVE_GAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HparamTuningObjectives_NormalizedDiscountedCumulativeGain;
+/**
+ *  Precision is the fraction of actual positive predictions that had positive
+ *  actual labels. For multiclass this is a macro-averaged metric treating each
+ *  class as a binary classifier.
+ *
+ *  Value: "PRECISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HparamTuningObjectives_Precision;
+/**
+ *  Recall is the fraction of actual positive labels that were given a positive
+ *  prediction. For multiclass this is a macro-averaged metric.
+ *
+ *  Value: "RECALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HparamTuningObjectives_Recall;
+/**
+ *  Area Under an ROC Curve. For multiclass this is a macro-averaged metric.
+ *
+ *  Value: "ROC_AUC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HparamTuningObjectives_RocAuc;
+/**
+ *  R^2 score. This corresponds to r2_score in ML.EVALUATE. r_squared = 1 -
+ *  SUM(squared_error)/(COUNT(label)*VAR_POP(label))
+ *
+ *  Value: "R_SQUARED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HparamTuningObjectives_RSquared;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_TrainingOptions.kmeansInitializationMethod
@@ -2401,6 +2586,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 
 /**
+ *  GTLRBigquery_CloneDefinition
+ */
+@interface GTLRBigquery_CloneDefinition : GTLRObject
+
+/** [Required] Reference describing the ID of the table that was cloned. */
+@property(nonatomic, strong, nullable) GTLRBigquery_TableReference *baseTableReference;
+
+/**
+ *  [Required] The time at which the base table was cloned. This value is
+ *  reported in the JSON response using RFC3339 format.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *cloneTime;
+
+@end
+
+
+/**
  *  Message containing the information about one cluster.
  */
 @interface GTLRBigquery_Cluster : GTLRObject
@@ -2997,6 +3199,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 /** Table reference of the evaluation data after split. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *evaluationTable;
 
+/** Table reference of the test data after split. */
+@property(nonatomic, strong, nullable) GTLRBigquery_TableReference *testTable;
+
 /** Table reference of the training data after split. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *trainingTable;
 
@@ -3055,6 +3260,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 
 /**
+ *  Model evaluation metrics for dimensionality reduction models.
+ */
+@interface GTLRBigquery_DimensionalityReductionMetrics : GTLRObject
+
+/**
+ *  Total percentage of variance explained by the selected principal components.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalExplainedVarianceRatio;
+
+@end
+
+
+/**
  *  GTLRBigquery_DmlStatistics
  */
 @interface GTLRBigquery_DmlStatistics : GTLRObject
@@ -3080,6 +3300,57 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *updatedRowCount;
+
+@end
+
+
+/**
+ *  Discrete candidates of a double hyperparameter.
+ */
+@interface GTLRBigquery_DoubleCandidates : GTLRObject
+
+/**
+ *  Candidates for the double parameter in increasing order.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *candidates;
+
+@end
+
+
+/**
+ *  Search space for a double hyperparameter.
+ */
+@interface GTLRBigquery_DoubleHparamSearchSpace : GTLRObject
+
+/** Candidates of the double hyperparameter. */
+@property(nonatomic, strong, nullable) GTLRBigquery_DoubleCandidates *candidates;
+
+/** Range of the double hyperparameter. */
+@property(nonatomic, strong, nullable) GTLRBigquery_DoubleRange *range;
+
+@end
+
+
+/**
+ *  Range of a double hyperparameter.
+ */
+@interface GTLRBigquery_DoubleRange : GTLRObject
+
+/**
+ *  Max value of the double parameter.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *max;
+
+/**
+ *  Min value of the double parameter.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *min;
 
 @end
 
@@ -3158,6 +3429,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 /** Populated for clustering models. */
 @property(nonatomic, strong, nullable) GTLRBigquery_ClusteringMetrics *clusteringMetrics;
+
+/**
+ *  Evaluation metrics when the model is a dimensionality reduction model, which
+ *  currently includes PCA.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_DimensionalityReductionMetrics *dimensionalityReductionMetrics;
 
 /** Populated for multi-class classification/classifier models. */
 @property(nonatomic, strong, nullable) GTLRBigquery_MultiClassClassificationMetrics *multiClassClassificationMetrics;
@@ -3395,6 +3672,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 /** Human-readable stage descriptions. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *substeps;
+
+@end
+
+
+/**
+ *  Explanation for a single feature.
+ */
+@interface GTLRBigquery_Explanation : GTLRObject
+
+/**
+ *  Attribution of feature.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *attribution;
+
+/**
+ *  Full name of the feature. For non-numerical features, will be formatted like
+ *  .. Overall size of feature name will always be truncated to first 120
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *featureName;
 
 @end
 
@@ -3730,6 +4029,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 
 /**
+ *  Global explanations containing the top most important features after
+ *  training.
+ */
+@interface GTLRBigquery_GlobalExplanation : GTLRObject
+
+/**
+ *  Class label for this set of global explanations. Will be empty/null for
+ *  binary logistic and linear regression models. Sorted alphabetically in
+ *  descending order.
+ */
+@property(nonatomic, copy, nullable) NSString *classLabel;
+
+/**
+ *  A list of the top global explanations. Sorted by absolute value of
+ *  attribution in descending order.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_Explanation *> *explanations;
+
+@end
+
+
+/**
  *  GTLRBigquery_GoogleSheetsOptions
  */
 @interface GTLRBigquery_GoogleSheetsOptions : GTLRObject
@@ -3801,6 +4122,256 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  gs://bucket/path_to_table/ (trailing slash does not matter).
  */
 @property(nonatomic, copy, nullable) NSString *sourceUriPrefix;
+
+@end
+
+
+/**
+ *  Hyperparameter search spaces. These should be a subset of training_options.
+ */
+@interface GTLRBigquery_HparamSearchSpaces : GTLRObject
+
+/** Activation functions of neural network models. */
+@property(nonatomic, strong, nullable) GTLRBigquery_StringHparamSearchSpace *activationFn;
+
+/** Mini batch sample size. */
+@property(nonatomic, strong, nullable) GTLRBigquery_IntHparamSearchSpace *batchSize;
+
+/** Booster type for boosted tree models. */
+@property(nonatomic, strong, nullable) GTLRBigquery_StringHparamSearchSpace *boosterType;
+
+/** Subsample ratio of columns for each level for boosted tree models. */
+@property(nonatomic, strong, nullable) GTLRBigquery_DoubleHparamSearchSpace *colsampleBylevel;
+
+/**
+ *  Subsample ratio of columns for each node(split) for boosted tree models.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_DoubleHparamSearchSpace *colsampleBynode;
+
+/**
+ *  Subsample ratio of columns when constructing each tree for boosted tree
+ *  models.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_DoubleHparamSearchSpace *colsampleBytree;
+
+/** Dart normalization type for boosted tree models. */
+@property(nonatomic, strong, nullable) GTLRBigquery_StringHparamSearchSpace *dartNormalizeType;
+
+/**
+ *  Dropout probability for dnn model training and boosted tree models using
+ *  dart booster.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_DoubleHparamSearchSpace *dropout;
+
+/** Hidden units for neural network models. */
+@property(nonatomic, strong, nullable) GTLRBigquery_IntArrayHparamSearchSpace *hiddenUnits;
+
+/** L1 regularization coefficient. */
+@property(nonatomic, strong, nullable) GTLRBigquery_DoubleHparamSearchSpace *l1Reg;
+
+/** L2 regularization coefficient. */
+@property(nonatomic, strong, nullable) GTLRBigquery_DoubleHparamSearchSpace *l2Reg;
+
+/** Learning rate of training jobs. */
+@property(nonatomic, strong, nullable) GTLRBigquery_DoubleHparamSearchSpace *learnRate;
+
+/** Maximum depth of a tree for boosted tree models. */
+@property(nonatomic, strong, nullable) GTLRBigquery_IntHparamSearchSpace *maxTreeDepth;
+
+/** Minimum split loss for boosted tree models. */
+@property(nonatomic, strong, nullable) GTLRBigquery_DoubleHparamSearchSpace *minSplitLoss;
+
+/**
+ *  Minimum sum of instance weight needed in a child for boosted tree models.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_IntHparamSearchSpace *minTreeChildWeight;
+
+/** Number of clusters for k-means. */
+@property(nonatomic, strong, nullable) GTLRBigquery_IntHparamSearchSpace *numClusters;
+
+/** Number of latent factors to train on. */
+@property(nonatomic, strong, nullable) GTLRBigquery_IntHparamSearchSpace *numFactors;
+
+/** Number of parallel trees for boosted tree models. */
+@property(nonatomic, strong, nullable) GTLRBigquery_IntHparamSearchSpace *numParallelTree;
+
+/** Optimizer of TF models. */
+@property(nonatomic, strong, nullable) GTLRBigquery_StringHparamSearchSpace *optimizer;
+
+/**
+ *  Subsample the training data to grow tree to prevent overfitting for boosted
+ *  tree models.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_DoubleHparamSearchSpace *subsample;
+
+/** Tree construction algorithm for boosted tree models. */
+@property(nonatomic, strong, nullable) GTLRBigquery_StringHparamSearchSpace *treeMethod;
+
+/**
+ *  Hyperparameter for matrix factoration when implicit feedback type is
+ *  specified.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_DoubleHparamSearchSpace *walsAlpha;
+
+@end
+
+
+/**
+ *  Training info of a trial in hyperparameter tuning.
+ */
+@interface GTLRBigquery_HparamTuningTrial : GTLRObject
+
+/**
+ *  Ending time of the trial.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endTimeMs;
+
+/** Error message for FAILED and INFEASIBLE trial. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/**
+ *  Loss computed on the eval data at the end of trial.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *evalLoss;
+
+/**
+ *  Evaluation metrics of this trial calculated on the test data. Empty in Job
+ *  API.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_EvaluationMetrics *evaluationMetrics;
+
+/** The hyperprameters selected for this trial. */
+@property(nonatomic, strong, nullable) GTLRBigquery_TrainingOptions *hparams;
+
+/**
+ *  Hyperparameter tuning evaluation metrics of this trial calculated on the
+ *  eval data. Unlike evaluation_metrics, only the fields corresponding to the
+ *  hparam_tuning_objectives are set.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_EvaluationMetrics *hparamTuningEvaluationMetrics;
+
+/**
+ *  Starting time of the trial.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startTimeMs;
+
+/**
+ *  The status of the trial.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_HparamTuningTrial_Status_Failed The trial failed.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRBigquery_HparamTuningTrial_Status_Infeasible The trial is
+ *        infeasible due to the invalid params. (Value: "INFEASIBLE")
+ *    @arg @c kGTLRBigquery_HparamTuningTrial_Status_NotStarted Scheduled but
+ *        not started. (Value: "NOT_STARTED")
+ *    @arg @c kGTLRBigquery_HparamTuningTrial_Status_Running Running state.
+ *        (Value: "RUNNING")
+ *    @arg @c kGTLRBigquery_HparamTuningTrial_Status_StoppedEarly Trial stopped
+ *        early because it's not promising. (Value: "STOPPED_EARLY")
+ *    @arg @c kGTLRBigquery_HparamTuningTrial_Status_Succeeded The trial
+ *        succeeded. (Value: "SUCCEEDED")
+ *    @arg @c kGTLRBigquery_HparamTuningTrial_Status_TrialStatusUnspecified
+ *        Value "TRIAL_STATUS_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  Loss computed on the training data at the end of trial.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trainingLoss;
+
+/**
+ *  1-based index of the trial.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trialId;
+
+@end
+
+
+/**
+ *  An array of int.
+ */
+@interface GTLRBigquery_IntArray : GTLRObject
+
+/**
+ *  Elements in the int array.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *elements;
+
+@end
+
+
+/**
+ *  Search space for int array.
+ */
+@interface GTLRBigquery_IntArrayHparamSearchSpace : GTLRObject
+
+/** Candidates for the int array parameter. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_IntArray *> *candidates;
+
+@end
+
+
+/**
+ *  Discrete candidates of an int hyperparameter.
+ */
+@interface GTLRBigquery_IntCandidates : GTLRObject
+
+/**
+ *  Candidates for the int parameter in increasing order.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *candidates;
+
+@end
+
+
+/**
+ *  Search space for an int hyperparameter.
+ */
+@interface GTLRBigquery_IntHparamSearchSpace : GTLRObject
+
+/** Candidates of the int hyperparameter. */
+@property(nonatomic, strong, nullable) GTLRBigquery_IntCandidates *candidates;
+
+/** Range of the int hyperparameter. */
+@property(nonatomic, strong, nullable) GTLRBigquery_IntRange *range;
+
+@end
+
+
+/**
+ *  Range of an int hyperparameter.
+ */
+@interface GTLRBigquery_IntRange : GTLRObject
+
+/**
+ *  Max value of the int parameter.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *max;
+
+/**
+ *  Min value of the int parameter.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *min;
 
 @end
 
@@ -4699,6 +5270,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSNumber *completionRatio;
 
 /**
+ *  [Output-only] Statistics for a copy job.
+ *
+ *  Remapped to 'copyProperty' to avoid NSObject's 'copy'.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_JobStatistics5 *copyProperty NS_RETURNS_NOT_RETAINED;
+
+/**
  *  [Output-only] Creation time of this job, in milliseconds since the epoch.
  *  This field will be present on all jobs.
  *
@@ -5122,6 +5700,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 
 /**
+ *  GTLRBigquery_JobStatistics5
+ */
+@interface GTLRBigquery_JobStatistics5 : GTLRObject
+
+/**
+ *  [Output-only] Number of logical bytes copied to the destination table.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *copiedLogicalBytes;
+
+/**
+ *  [Output-only] Number of rows copied to the destination table.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *copiedRows;
+
+@end
+
+
+/**
  *  GTLRBigquery_JobStatus
  */
 @interface GTLRBigquery_JobStatus : GTLRObject
@@ -5324,6 +5924,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSNumber *creationTime;
 
 /**
+ *  Output only. The default trial_id to use in TVFs when the trial_id is not
+ *  passed in. For single-objective hyperparameter tuning, this is the best
+ *  trial id. For multi-objective hyperparameter tuning, this is the smallest
+ *  trial id among all Pareto optimal trials.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultTrialId;
+
+/**
  *  Optional. A user-friendly description of this model.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -5357,6 +5967,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 /** Optional. A descriptive name for this model. */
 @property(nonatomic, copy, nullable) NSString *friendlyName;
+
+/** Output only. All hyperparameter search spaces in this model. */
+@property(nonatomic, strong, nullable) GTLRBigquery_HparamSearchSpaces *hparamSearchSpaces;
+
+/**
+ *  Output only. Trials of a hyperparameter tuning model sorted by trial_id.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_HparamTuningTrial *> *hparamTrials;
 
 /**
  *  Output only. Label columns that were used to train this model. The output of
@@ -5398,6 +6016,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *    @arg @c kGTLRBigquery_Model_ModelType_Arima ARIMA model. (Value: "ARIMA")
  *    @arg @c kGTLRBigquery_Model_ModelType_ArimaPlus New name for the ARIMA
  *        model. (Value: "ARIMA_PLUS")
+ *    @arg @c kGTLRBigquery_Model_ModelType_Autoencoder Autoencoder model.
+ *        (Value: "AUTOENCODER")
  *    @arg @c kGTLRBigquery_Model_ModelType_AutomlClassifier AutoML Tables
  *        classification model. (Value: "AUTOML_CLASSIFIER")
  *    @arg @c kGTLRBigquery_Model_ModelType_AutomlRegressor AutoML Tables
@@ -5420,10 +6040,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *        factorization model. (Value: "MATRIX_FACTORIZATION")
  *    @arg @c kGTLRBigquery_Model_ModelType_ModelTypeUnspecified Value
  *        "MODEL_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRBigquery_Model_ModelType_Pca Prinpical Component Analysis
+ *        model. (Value: "PCA")
  *    @arg @c kGTLRBigquery_Model_ModelType_Tensorflow An imported TensorFlow
  *        model. (Value: "TENSORFLOW")
  */
 @property(nonatomic, copy, nullable) NSString *modelType;
+
+/**
+ *  Output only. For single-objective hyperparameter tuning, it only contains
+ *  the best trial. For multi-objective hyperparameter tuning, it contains all
+ *  Pareto optimal trials sorted by trial_id.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *optimalTrialIds;
 
 /**
  *  Output only. Information for all training runs in increasing order of
@@ -5657,6 +6288,45 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Principal component infos, used only for eigen decomposition based models,
+ *  e.g., PCA. Ordered by explained_variance in the descending order.
+ */
+@interface GTLRBigquery_PrincipalComponentInfo : GTLRObject
+
+/**
+ *  The explained_variance is pre-ordered in the descending order to compute the
+ *  cumulative explained variance ratio.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cumulativeExplainedVarianceRatio;
+
+/**
+ *  Explained variance by this principal component, which is simply the
+ *  eigenvalue.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *explainedVariance;
+
+/**
+ *  Explained_variance over the total explained variance.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *explainedVarianceRatio;
+
+/**
+ *  Id of the principal component.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *principalComponentId;
 
 @end
 
@@ -6790,9 +7460,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 
 /**
+ *  Search space for string and enum.
+ */
+@interface GTLRBigquery_StringHparamSearchSpace : GTLRObject
+
+/** Canididates for the string or enum parameter in lower case. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *candidates;
+
+@end
+
+
+/**
  *  GTLRBigquery_Table
  */
 @interface GTLRBigquery_Table : GTLRObject
+
+/** [Output-only] Clone definition. */
+@property(nonatomic, strong, nullable) GTLRBigquery_CloneDefinition *cloneDefinition;
 
 /**
  *  [Beta] Clustering specification for the table. Must be specified with
@@ -7556,6 +8240,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, copy, nullable) NSString *boosterType;
 
 /**
+ *  Whether or not p-value test should be computed for this model. Only
+ *  available for linear and logistic regression models.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *calculatePValues;
+
+/**
  *  If true, clean spikes and dips in the input time series.
  *
  *  Uses NSNumber of boolValue.
@@ -7699,6 +8391,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *earlyStop;
+
+/**
+ *  If true, enable global explanation during training.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableGlobalExplain;
 
 /**
  *  Feedback type that specifies which algorithm to run for matrix
@@ -7867,6 +8566,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  */
 @property(nonatomic, strong, nullable) NSNumber *horizon;
 
+/** The target evaluation metrics to optimize the hyperparameters for. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *hparamTuningObjectives;
+
 /**
  *  Include drift when fitting an ARIMA model.
  *
@@ -7883,6 +8585,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 /** Name of input label columns in training data. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *inputLabelColumns;
+
+/**
+ *  Number of integral steps for the integrated gradients explain method.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *integratedGradientsNumSteps;
 
 /** Item column specified for matrix factorization models. */
 @property(nonatomic, copy, nullable) NSString *itemColumn;
@@ -7972,6 +8681,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSNumber *maxIterations;
 
 /**
+ *  Maximum number of trials to run in parallel.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxParallelTrials;
+
+/**
  *  Maximum depth of a tree for boosted tree models.
  *
  *  Uses NSNumber of longLongValue.
@@ -8036,6 +8752,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSNumber *numParallelTree;
 
 /**
+ *  Number of trials to run this hyperparameter tuning job.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numTrials;
+
+/**
  *  Optimization strategy for training linear regression models.
  *
  *  Likely values:
@@ -8058,6 +8781,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *preserveInputStructs;
+
+/**
+ *  Number of paths for the sampled shapley explain method.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sampledShapleyNumPaths;
 
 /**
  *  Subsample fraction of the training data to grow tree to prevent overfitting
@@ -8137,6 +8867,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @interface GTLRBigquery_TrainingRun : GTLRObject
 
 /**
+ *  Global explanation contains the explanation of top features on the class
+ *  level. Applies to classification models only.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_GlobalExplanation *> *classLevelGlobalExplanations;
+
+/**
  *  Data split result of the training run. Only set when the input data is
  *  actually split.
  */
@@ -8147,6 +8883,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  of training.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_EvaluationMetrics *evaluationMetrics;
+
+/**
+ *  Global explanation contains the explanation of top features on the model
+ *  level. Applies to both regression and classification models.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_GlobalExplanation *modelLevelGlobalExplanation;
 
 /** Output of each iteration run, results.size() <= max_iterations. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_IterationResult *> *results;
@@ -8159,6 +8901,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  default options that were used.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TrainingOptions *trainingOptions;
+
+/** The model id in Vertex AI Model Registry for this training run */
+@property(nonatomic, copy, nullable) NSString *vertexAiModelId;
+
+/** The model version in Vertex AI Model Registry for this training run */
+@property(nonatomic, copy, nullable) NSString *vertexAiModelVersion;
 
 @end
 

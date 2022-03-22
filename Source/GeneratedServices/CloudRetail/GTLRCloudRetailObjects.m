@@ -393,6 +393,34 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansion
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaPurgeProductsMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaPurgeProductsMetadata
+@dynamic createTime, failureCount, successCount, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaPurgeProductsResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaPurgeProductsResponse
+@dynamic purgeCount, purgeSample;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"purgeSample" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2alphaPurgeUserEventsResponse
 //
 

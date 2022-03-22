@@ -3464,7 +3464,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
- *  Parameters that describe the nodes in a cluster.
+ *  Parameters that describe the nodes in a cluster. *Note: *GKE Autopilot
+ *  clusters do not recognize parameters in `NodeConfig`. Use
+ *  AutoprovisioningNodePoolDefaults instead.
  */
 @interface GTLRContainer_NodeConfig : GTLRObject
 

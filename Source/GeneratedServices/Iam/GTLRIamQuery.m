@@ -104,6 +104,25 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 
 @end
 
+@implementation GTLRIamQuery_LocationsWorkforcePoolsProvidersKeysOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRIamQuery_LocationsWorkforcePoolsProvidersKeysOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Operation class];
+  query.loggingName = @"iam.locations.workforcePools.providers.keys.operations.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRIamQuery_LocationsWorkforcePoolsProvidersOperationsGet
 
 @dynamic name;

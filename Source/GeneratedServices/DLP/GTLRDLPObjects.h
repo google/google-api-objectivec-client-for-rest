@@ -244,6 +244,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Ty
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Csv;
 /**
+ *  excel
+ *
+ *  Value: "EXCEL_DOCUMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ExcelDocument;
+/**
  *  Any image type.
  *
  *  Value: "IMAGE"
@@ -279,6 +285,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Ty
  *  Value: "PDF"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Pdf;
+/**
+ *  powerpoint
+ *
+ *  Value: "POWERPOINT_DOCUMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_PowerpointDocument;
 /**
  *  plain text
  *
@@ -363,6 +375,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOption
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Csv;
 /**
+ *  Excel files >30 MB will be scanned as binary files. Included file
+ *  extensions: xlsx, xlsm, xltx, xltm
+ *
+ *  Value: "EXCEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Excel;
+/**
  *  Includes all files.
  *
  *  Value: "FILE_TYPE_UNSPECIFIED"
@@ -383,6 +402,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOption
  *  Value: "PDF"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Pdf;
+/**
+ *  Powerpoint files >30 MB will be scanned as binary files. Included file
+ *  extensions: pptx, pptm, potx, potm, pot
+ *
+ *  Value: "POWERPOINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Powerpoint;
 /**
  *  Included file extensions: asc,asp, aspx, brf, c, cc,cfm, cgi, cpp, csv, cxx,
  *  c++, cs, css, dart, dat, dot, eml,, epbub, ged, go, h, hh, hpp, hxx, h++,
@@ -1434,6 +1460,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        Unused (Value: "BYTES_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Csv csv (Value:
  *        "CSV")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ExcelDocument
+ *        excel (Value: "EXCEL_DOCUMENT")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Image Any image
  *        type. (Value: "IMAGE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageBmp bmp
@@ -1446,6 +1474,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        (Value: "IMAGE_SVG")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Pdf pdf (Value:
  *        "PDF")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_PowerpointDocument
+ *        powerpoint (Value: "POWERPOINT_DOCUMENT")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_TextUtf8 plain
  *        text (Value: "TEXT_UTF8")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Tsv tsv (Value:
@@ -6207,11 +6237,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Represents a whole or partial calendar date, such as a birthday. The time of
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
- *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day, with a zero year (e.g., an anniversary) * A year on its own,
- *  with a zero month and a zero day * A year and month, with a zero day (e.g.,
- *  a credit card expiration date) Related types: * google.type.TimeOfDay *
- *  google.type.DateTime * google.protobuf.Timestamp
+ *  following: * A full date, with non-zero year, month, and day values. * A
+ *  month and day, with a zero year (for example, an anniversary). * A year on
+ *  its own, with a zero month and a zero day. * A year and month, with a zero
+ *  day (for example, a credit card expiration date). Related types: *
+ *  google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLRDLP_GoogleTypeDate : GTLRObject
 

@@ -35,6 +35,11 @@ NSString * const kGTLRFirestore_FieldFilter_Op_OperatorUnspecified = @"OPERATOR_
 NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_RequestTime = @"REQUEST_TIME";
 NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_ServerValueUnspecified = @"SERVER_VALUE_UNSPECIFIED";
 
+// GTLRFirestore_GoogleFirestoreAdminV1Database.appEngineIntegrationMode
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_AppEngineIntegrationMode_AppEngineIntegrationModeUnspecified = @"APP_ENGINE_INTEGRATION_MODE_UNSPECIFIED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_AppEngineIntegrationMode_Disabled = @"DISABLED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_AppEngineIntegrationMode_Enabled = @"ENABLED";
+
 // GTLRFirestore_GoogleFirestoreAdminV1Database.concurrencyMode
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_ConcurrencyModeUnspecified = @"CONCURRENCY_MODE_UNSPECIFIED";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_Optimistic = @"OPTIMISTIC";
@@ -531,7 +536,8 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1Database
-@dynamic concurrencyMode, ETag, locationId, name, type;
+@dynamic appEngineIntegrationMode, concurrencyMode, ETag, keyPrefix, locationId,
+         name, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1182,7 +1188,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_RunQueryResponse
-@dynamic document, readTime, skippedResults, transaction;
+@dynamic document, done, readTime, skippedResults, transaction;
 @end
 
 

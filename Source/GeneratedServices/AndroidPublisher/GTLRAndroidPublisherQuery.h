@@ -1551,7 +1551,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Gets testers.
+ *  Gets testers. Note: Testers resource does not support email lists.
  *
  *  Method: androidpublisher.edits.testers.get
  *
@@ -1572,7 +1572,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 /**
  *  Fetches a @c GTLRAndroidPublisher_Testers.
  *
- *  Gets testers.
+ *  Gets testers. Note: Testers resource does not support email lists.
  *
  *  @param packageName Package name of the app.
  *  @param editId Identifier of the edit.
@@ -1587,7 +1587,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Patches testers.
+ *  Patches testers. Note: Testers resource does not support email lists.
  *
  *  Method: androidpublisher.edits.testers.patch
  *
@@ -1608,7 +1608,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 /**
  *  Fetches a @c GTLRAndroidPublisher_Testers.
  *
- *  Patches testers.
+ *  Patches testers. Note: Testers resource does not support email lists.
  *
  *  @param object The @c GTLRAndroidPublisher_Testers to include in the query.
  *  @param packageName Package name of the app.
@@ -1625,7 +1625,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Updates testers.
+ *  Updates testers. Note: Testers resource does not support email lists.
  *
  *  Method: androidpublisher.edits.testers.update
  *
@@ -1646,7 +1646,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 /**
  *  Fetches a @c GTLRAndroidPublisher_Testers.
  *
- *  Updates testers.
+ *  Updates testers. Note: Testers resource does not support email lists.
  *
  *  @param object The @c GTLRAndroidPublisher_Testers to include in the query.
  *  @param packageName Package name of the app.

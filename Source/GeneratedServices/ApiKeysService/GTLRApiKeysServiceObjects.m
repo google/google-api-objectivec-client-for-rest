@@ -188,11 +188,25 @@
 //
 
 @implementation GTLRApiKeysService_V2Key
-@dynamic createTime, deleteTime, displayName, ETag, keyString, name,
-         restrictions, uid, updateTime;
+@dynamic annotations, createTime, deleteTime, displayName, ETag, keyString,
+         name, restrictions, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApiKeysService_V2Key_Annotations
+//
+
+@implementation GTLRApiKeysService_V2Key_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

@@ -668,9 +668,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 /**
  *  [Service account email](https://cloud.google.com/iam/docs/service-accounts)
- *  to be used for generating the OIDC token. The caller (for
- *  CreateSubscription, UpdateSubscription, and ModifyPushConfig RPCs) must have
- *  the iam.serviceAccounts.actAs permission for the service account.
+ *  to be used for generating the OIDC token. See [Setting up push
+ *  authentication](/pubsub/docs/push#setting_up_for_push_authentication) for
+ *  more details.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
 
@@ -971,6 +971,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  `projects/{project}/schemas/{schema}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The timestamp that the revision was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *revisionCreateTime;
+
+/** Output only. Immutable. The revision ID of the schema. */
+@property(nonatomic, copy, nullable) NSString *revisionId;
 
 /**
  *  The type of the schema definition.

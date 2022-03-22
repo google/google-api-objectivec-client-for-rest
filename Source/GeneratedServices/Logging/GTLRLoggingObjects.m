@@ -148,7 +148,7 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 //
 
 @implementation GTLRLogging_CmekSettings
-@dynamic kmsKeyName, name, serviceAccountId;
+@dynamic kmsKeyName, kmsKeyVersionName, name, serviceAccountId;
 @end
 
 

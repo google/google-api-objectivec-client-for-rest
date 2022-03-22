@@ -162,7 +162,7 @@ NSString * const kGTLRVersionHistory_Platform_PlatformType_Win64 = @"WIN64";
 //
 
 @implementation GTLRVersionHistory_Release
-@dynamic fraction, name, serving, version;
+@dynamic fraction, fractionGroup, name, serving, version;
 @end
 
 

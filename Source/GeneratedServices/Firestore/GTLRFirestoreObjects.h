@@ -202,6 +202,30 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldTransform_SetToServerValu
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_ServerValueUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1Database.appEngineIntegrationMode
+
+/**
+ *  Not used.
+ *
+ *  Value: "APP_ENGINE_INTEGRATION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_AppEngineIntegrationMode_AppEngineIntegrationModeUnspecified;
+/**
+ *  Appengine has no affect on the ability of this database to serve requests.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_AppEngineIntegrationMode_Disabled;
+/**
+ *  If an App Engine application exists in the same region as this database, App
+ *  Engine configuration will impact this database. This includes disabling of
+ *  the application & database, as well as disabling writes to the database.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_AppEngineIntegrationMode_Enabled;
+
+// ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1Database.concurrencyMode
 
 /**
@@ -1403,6 +1427,23 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_GoogleFirestoreAdminV1Database : GTLRObject
 
 /**
+ *  The App Engine integration mode to use for this database.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_AppEngineIntegrationMode_AppEngineIntegrationModeUnspecified
+ *        Not used. (Value: "APP_ENGINE_INTEGRATION_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_AppEngineIntegrationMode_Disabled
+ *        Appengine has no affect on the ability of this database to serve
+ *        requests. (Value: "DISABLED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_AppEngineIntegrationMode_Enabled
+ *        If an App Engine application exists in the same region as this
+ *        database, App Engine configuration will impact this database. This
+ *        includes disabling of the application & database, as well as disabling
+ *        writes to the database. (Value: "ENABLED")
+ */
+@property(nonatomic, copy, nullable) NSString *appEngineIntegrationMode;
+
+/**
  *  The concurrency control mode to use for this database.
  *
  *  Likely values:
@@ -1429,6 +1470,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  up-to-date value before proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. The key_prefix for this database. This key_prefix is used, in
+ *  combination with the project id ("~") to construct the application id that
+ *  is returned from the Cloud Datastore APIs in Google App Engine first
+ *  generation runtimes. This value may be empty in which case the appid to use
+ *  for URL-encoded keys is the project_id (eg: foo instead of v~foo).
+ */
+@property(nonatomic, copy, nullable) NSString *keyPrefix;
 
 /**
  *  The location of the database. Available databases are listed at
@@ -2706,6 +2756,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /** A query result, not set when reporting partial progress. */
 @property(nonatomic, strong, nullable) GTLRFirestore_Document *document;
+
+/**
+ *  If present, Firestore has completely finished the request and no more
+ *  documents will be returned.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *done;
 
 /**
  *  The time at which the document was read. This may be monotonically

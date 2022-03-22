@@ -82,7 +82,7 @@
 
 @dynamic parent, serviceId, validateOnly;
 
-+ (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunOpV2Service *)object
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2Service *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -140,7 +140,7 @@
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunOpV2Service class];
+  query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunV2Service class];
   query.loggingName = @"run.projects.locations.services.get";
   return query;
 }
@@ -182,7 +182,7 @@
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunOpV2ListServicesResponse class];
+  query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunV2ListServicesResponse class];
   query.loggingName = @"run.projects.locations.services.list";
   return query;
 }
@@ -193,7 +193,7 @@
 
 @dynamic allowMissing, name, updateMask, validateOnly;
 
-+ (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunOpV2Service *)object
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2Service *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -251,7 +251,7 @@
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunOpV2Revision class];
+  query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunV2Revision class];
   query.loggingName = @"run.projects.locations.services.revisions.get";
   return query;
 }
@@ -270,7 +270,7 @@
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunOpV2ListRevisionsResponse class];
+  query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunV2ListRevisionsResponse class];
   query.loggingName = @"run.projects.locations.services.revisions.list";
   return query;
 }

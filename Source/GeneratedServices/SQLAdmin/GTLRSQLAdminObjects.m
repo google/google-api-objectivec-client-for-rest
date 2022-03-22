@@ -290,6 +290,7 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedDefin
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedExtensions = @"UNSUPPORTED_EXTENSIONS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedGtidMode = @"UNSUPPORTED_GTID_MODE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigrationType = @"UNSUPPORTED_MIGRATION_TYPE";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedStorageEngine = @"UNSUPPORTED_STORAGE_ENGINE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedTableDefinition = @"UNSUPPORTED_TABLE_DEFINITION";
 
 // GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest.syncMode
@@ -1515,7 +1516,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_SqlServerAuditConfig
-@dynamic bucket, kind;
+@dynamic bucket, kind, retentionInterval, uploadInterval;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to

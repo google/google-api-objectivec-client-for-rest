@@ -16,125 +16,125 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRCloudRun_GoogleCloudRunOpV2Condition.domainMappingReason
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_DomainMappingReason_CertificateAlreadyExists = @"CERTIFICATE_ALREADY_EXISTS";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_DomainMappingReason_CertificateFailed = @"CERTIFICATE_FAILED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_DomainMappingReason_CertificatePending = @"CERTIFICATE_PENDING";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_DomainMappingReason_DomainMappingReasonUndefined = @"DOMAIN_MAPPING_REASON_UNDEFINED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_DomainMappingReason_MappingAlreadyExists = @"MAPPING_ALREADY_EXISTS";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_DomainMappingReason_PermissionDenied = @"PERMISSION_DENIED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_DomainMappingReason_RouteNotReady = @"ROUTE_NOT_READY";
+// GTLRCloudRun_GoogleCloudRunV2Condition.domainMappingReason
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_CertificateAlreadyExists = @"CERTIFICATE_ALREADY_EXISTS";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_CertificateFailed = @"CERTIFICATE_FAILED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_CertificatePending = @"CERTIFICATE_PENDING";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_DomainMappingReasonUndefined = @"DOMAIN_MAPPING_REASON_UNDEFINED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_MappingAlreadyExists = @"MAPPING_ALREADY_EXISTS";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_RouteNotReady = @"ROUTE_NOT_READY";
 
-// GTLRCloudRun_GoogleCloudRunOpV2Condition.executionReason
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_ExecutionReason_ExecutionReasonUndefined = @"EXECUTION_REASON_UNDEFINED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_ExecutionReason_JobStatusServicePollingError = @"JOB_STATUS_SERVICE_POLLING_ERROR";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_ExecutionReason_NonZeroExitCode = @"NON_ZERO_EXIT_CODE";
+// GTLRCloudRun_GoogleCloudRunV2Condition.executionReason
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_ExecutionReasonUndefined = @"EXECUTION_REASON_UNDEFINED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_JobStatusServicePollingError = @"JOB_STATUS_SERVICE_POLLING_ERROR";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_NonZeroExitCode = @"NON_ZERO_EXIT_CODE";
 
-// GTLRCloudRun_GoogleCloudRunOpV2Condition.internalReason
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_InternalReason_AssigningTraffic = @"ASSIGNING_TRAFFIC";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_InternalReason_ConfigurationMissing = @"CONFIGURATION_MISSING";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_InternalReason_ConflictingRevisionName = @"CONFLICTING_REVISION_NAME";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_InternalReason_EnablingGcfv2UriSupport = @"ENABLING_GCFV2_URI_SUPPORT";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_InternalReason_InternalReasonUndefined = @"INTERNAL_REASON_UNDEFINED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_InternalReason_RevisionMissing = @"REVISION_MISSING";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_InternalReason_RevisionOrgPolicyViolation = @"REVISION_ORG_POLICY_VIOLATION";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_InternalReason_UpdatingIngressTrafficAllowed = @"UPDATING_INGRESS_TRAFFIC_ALLOWED";
+// GTLRCloudRun_GoogleCloudRunV2Condition.internalReason
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_AssigningTraffic = @"ASSIGNING_TRAFFIC";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_ConfigurationMissing = @"CONFIGURATION_MISSING";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_ConflictingRevisionName = @"CONFLICTING_REVISION_NAME";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_EnablingGcfv2UriSupport = @"ENABLING_GCFV2_URI_SUPPORT";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_InternalReasonUndefined = @"INTERNAL_REASON_UNDEFINED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_RevisionMissing = @"REVISION_MISSING";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_RevisionOrgPolicyViolation = @"REVISION_ORG_POLICY_VIOLATION";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_UpdatingIngressTrafficAllowed = @"UPDATING_INGRESS_TRAFFIC_ALLOWED";
 
-// GTLRCloudRun_GoogleCloudRunOpV2Condition.reason
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_BuildStepFailed = @"BUILD_STEP_FAILED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_CommonReasonUndefined = @"COMMON_REASON_UNDEFINED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_ContainerImageAuthorizationCheckFailed = @"CONTAINER_IMAGE_AUTHORIZATION_CHECK_FAILED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_ContainerImageUnauthorized = @"CONTAINER_IMAGE_UNAUTHORIZED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_ContainerMissing = @"CONTAINER_MISSING";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_ContainerPermissionDenied = @"CONTAINER_PERMISSION_DENIED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_EncryptionKeyCheckFailed = @"ENCRYPTION_KEY_CHECK_FAILED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_EncryptionKeyPermissionDenied = @"ENCRYPTION_KEY_PERMISSION_DENIED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_ImmediateRetry = @"IMMEDIATE_RETRY";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_PostponedRetry = @"POSTPONED_RETRY";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_ProgressDeadlineExceeded = @"PROGRESS_DEADLINE_EXCEEDED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_RevisionFailed = @"REVISION_FAILED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_RouteMissing = @"ROUTE_MISSING";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_SecretsAccessCheckFailed = @"SECRETS_ACCESS_CHECK_FAILED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_Unknown = @"UNKNOWN";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_WaitingForOperation = @"WAITING_FOR_OPERATION";
+// GTLRCloudRun_GoogleCloudRunV2Condition.reason
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_BuildStepFailed = @"BUILD_STEP_FAILED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_CommonReasonUndefined = @"COMMON_REASON_UNDEFINED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_ContainerImageAuthorizationCheckFailed = @"CONTAINER_IMAGE_AUTHORIZATION_CHECK_FAILED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_ContainerImageUnauthorized = @"CONTAINER_IMAGE_UNAUTHORIZED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_ContainerMissing = @"CONTAINER_MISSING";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_ContainerPermissionDenied = @"CONTAINER_PERMISSION_DENIED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_EncryptionKeyCheckFailed = @"ENCRYPTION_KEY_CHECK_FAILED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_EncryptionKeyPermissionDenied = @"ENCRYPTION_KEY_PERMISSION_DENIED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_ImmediateRetry = @"IMMEDIATE_RETRY";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_PostponedRetry = @"POSTPONED_RETRY";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_ProgressDeadlineExceeded = @"PROGRESS_DEADLINE_EXCEEDED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_RevisionFailed = @"REVISION_FAILED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_RouteMissing = @"ROUTE_MISSING";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_SecretsAccessCheckFailed = @"SECRETS_ACCESS_CHECK_FAILED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_Unknown = @"UNKNOWN";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_WaitingForOperation = @"WAITING_FOR_OPERATION";
 
-// GTLRCloudRun_GoogleCloudRunOpV2Condition.revisionReason
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_ActiveRevisionLimitReached = @"ACTIVE_REVISION_LIMIT_REACHED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_CustomizedPathResponsePending = @"CUSTOMIZED_PATH_RESPONSE_PENDING";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_HealthCheckContainerError = @"HEALTH_CHECK_CONTAINER_ERROR";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_HealthCheckSkipped = @"HEALTH_CHECK_SKIPPED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_MinInstancesNotProvisioned = @"MIN_INSTANCES_NOT_PROVISIONED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_NoDeployment = @"NO_DEPLOYMENT";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_Pending = @"PENDING";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_Recreating = @"RECREATING";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_Reserve = @"RESERVE";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_Retired = @"RETIRED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_Retiring = @"RETIRING";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_RevisionReasonUndefined = @"REVISION_REASON_UNDEFINED";
+// GTLRCloudRun_GoogleCloudRunV2Condition.revisionReason
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_RevisionReason_ActiveRevisionLimitReached = @"ACTIVE_REVISION_LIMIT_REACHED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_RevisionReason_CustomizedPathResponsePending = @"CUSTOMIZED_PATH_RESPONSE_PENDING";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_RevisionReason_HealthCheckContainerError = @"HEALTH_CHECK_CONTAINER_ERROR";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_RevisionReason_HealthCheckSkipped = @"HEALTH_CHECK_SKIPPED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_RevisionReason_MinInstancesNotProvisioned = @"MIN_INSTANCES_NOT_PROVISIONED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_RevisionReason_NoDeployment = @"NO_DEPLOYMENT";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_RevisionReason_Pending = @"PENDING";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_RevisionReason_Recreating = @"RECREATING";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_RevisionReason_Reserve = @"RESERVE";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_RevisionReason_Retired = @"RETIRED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_RevisionReason_Retiring = @"RETIRING";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_RevisionReason_RevisionReasonUndefined = @"REVISION_REASON_UNDEFINED";
 
-// GTLRCloudRun_GoogleCloudRunOpV2Condition.severity
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Severity_Error = @"ERROR";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Severity_Info = @"INFO";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Severity_Warning = @"WARNING";
+// GTLRCloudRun_GoogleCloudRunV2Condition.severity
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Severity_Error = @"ERROR";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Severity_Info = @"INFO";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Severity_Warning = @"WARNING";
 
-// GTLRCloudRun_GoogleCloudRunOpV2Condition.state
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_State_ConditionFailed = @"CONDITION_FAILED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_State_ConditionPending = @"CONDITION_PENDING";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_State_ConditionReconciling = @"CONDITION_RECONCILING";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_State_ConditionSucceeded = @"CONDITION_SUCCEEDED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_State_StateUnspecified = @"STATE_UNSPECIFIED";
+// GTLRCloudRun_GoogleCloudRunV2Condition.state
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_State_ConditionFailed = @"CONDITION_FAILED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_State_ConditionPending = @"CONDITION_PENDING";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_State_ConditionReconciling = @"CONDITION_RECONCILING";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_State_ConditionSucceeded = @"CONDITION_SUCCEEDED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
-// GTLRCloudRun_GoogleCloudRunOpV2Revision.executionEnvironment
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_ExecutionEnvironment_ExecutionEnvironmentDefault = @"EXECUTION_ENVIRONMENT_DEFAULT";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_ExecutionEnvironment_ExecutionEnvironmentGen2 = @"EXECUTION_ENVIRONMENT_GEN2";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_ExecutionEnvironment_ExecutionEnvironmentUnspecified = @"EXECUTION_ENVIRONMENT_UNSPECIFIED";
+// GTLRCloudRun_GoogleCloudRunV2Revision.executionEnvironment
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_ExecutionEnvironment_ExecutionEnvironmentDefault = @"EXECUTION_ENVIRONMENT_DEFAULT";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_ExecutionEnvironment_ExecutionEnvironmentGen2 = @"EXECUTION_ENVIRONMENT_GEN2";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_ExecutionEnvironment_ExecutionEnvironmentUnspecified = @"EXECUTION_ENVIRONMENT_UNSPECIFIED";
 
-// GTLRCloudRun_GoogleCloudRunOpV2Revision.launchStage
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_LaunchStage_Alpha = @"ALPHA";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_LaunchStage_Beta = @"BETA";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_LaunchStage_Deprecated = @"DEPRECATED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_LaunchStage_Ga = @"GA";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_LaunchStage_Prelaunch = @"PRELAUNCH";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
+// GTLRCloudRun_GoogleCloudRunV2Revision.launchStage
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_LaunchStage_Ga = @"GA";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
-// GTLRCloudRun_GoogleCloudRunOpV2RevisionTemplate.executionEnvironment
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2RevisionTemplate_ExecutionEnvironment_ExecutionEnvironmentDefault = @"EXECUTION_ENVIRONMENT_DEFAULT";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2RevisionTemplate_ExecutionEnvironment_ExecutionEnvironmentGen2 = @"EXECUTION_ENVIRONMENT_GEN2";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2RevisionTemplate_ExecutionEnvironment_ExecutionEnvironmentUnspecified = @"EXECUTION_ENVIRONMENT_UNSPECIFIED";
+// GTLRCloudRun_GoogleCloudRunV2RevisionTemplate.executionEnvironment
+NSString * const kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_ExecutionEnvironment_ExecutionEnvironmentDefault = @"EXECUTION_ENVIRONMENT_DEFAULT";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_ExecutionEnvironment_ExecutionEnvironmentGen2 = @"EXECUTION_ENVIRONMENT_GEN2";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_ExecutionEnvironment_ExecutionEnvironmentUnspecified = @"EXECUTION_ENVIRONMENT_UNSPECIFIED";
 
-// GTLRCloudRun_GoogleCloudRunOpV2Service.ingress
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_Ingress_IngressTrafficAll = @"INGRESS_TRAFFIC_ALL";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_Ingress_IngressTrafficInternalLoadBalancer = @"INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_Ingress_IngressTrafficInternalOnly = @"INGRESS_TRAFFIC_INTERNAL_ONLY";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_Ingress_IngressTrafficUnspecified = @"INGRESS_TRAFFIC_UNSPECIFIED";
+// GTLRCloudRun_GoogleCloudRunV2Service.ingress
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_Ingress_IngressTrafficAll = @"INGRESS_TRAFFIC_ALL";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_Ingress_IngressTrafficInternalLoadBalancer = @"INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_Ingress_IngressTrafficInternalOnly = @"INGRESS_TRAFFIC_INTERNAL_ONLY";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_Ingress_IngressTrafficUnspecified = @"INGRESS_TRAFFIC_UNSPECIFIED";
 
-// GTLRCloudRun_GoogleCloudRunOpV2Service.launchStage
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_LaunchStage_Alpha = @"ALPHA";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_LaunchStage_Beta = @"BETA";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_LaunchStage_Deprecated = @"DEPRECATED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_LaunchStage_Ga = @"GA";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_LaunchStage_Prelaunch = @"PRELAUNCH";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
+// GTLRCloudRun_GoogleCloudRunV2Service.launchStage
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_LaunchStage_Ga = @"GA";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
-// GTLRCloudRun_GoogleCloudRunOpV2TrafficTarget.type
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2TrafficTarget_Type_TrafficTargetAllocationTypeLatest = @"TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2TrafficTarget_Type_TrafficTargetAllocationTypeRevision = @"TRAFFIC_TARGET_ALLOCATION_TYPE_REVISION";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2TrafficTarget_Type_TrafficTargetAllocationTypeUnspecified = @"TRAFFIC_TARGET_ALLOCATION_TYPE_UNSPECIFIED";
+// GTLRCloudRun_GoogleCloudRunV2TrafficTarget.type
+NSString * const kGTLRCloudRun_GoogleCloudRunV2TrafficTarget_Type_TrafficTargetAllocationTypeLatest = @"TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2TrafficTarget_Type_TrafficTargetAllocationTypeRevision = @"TRAFFIC_TARGET_ALLOCATION_TYPE_REVISION";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2TrafficTarget_Type_TrafficTargetAllocationTypeUnspecified = @"TRAFFIC_TARGET_ALLOCATION_TYPE_UNSPECIFIED";
 
-// GTLRCloudRun_GoogleCloudRunOpV2TrafficTargetStatus.type
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2TrafficTargetStatus_Type_TrafficTargetAllocationTypeLatest = @"TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2TrafficTargetStatus_Type_TrafficTargetAllocationTypeRevision = @"TRAFFIC_TARGET_ALLOCATION_TYPE_REVISION";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2TrafficTargetStatus_Type_TrafficTargetAllocationTypeUnspecified = @"TRAFFIC_TARGET_ALLOCATION_TYPE_UNSPECIFIED";
+// GTLRCloudRun_GoogleCloudRunV2TrafficTargetStatus.type
+NSString * const kGTLRCloudRun_GoogleCloudRunV2TrafficTargetStatus_Type_TrafficTargetAllocationTypeLatest = @"TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2TrafficTargetStatus_Type_TrafficTargetAllocationTypeRevision = @"TRAFFIC_TARGET_ALLOCATION_TYPE_REVISION";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2TrafficTargetStatus_Type_TrafficTargetAllocationTypeUnspecified = @"TRAFFIC_TARGET_ALLOCATION_TYPE_UNSPECIFIED";
 
-// GTLRCloudRun_GoogleCloudRunOpV2VpcAccess.egress
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2VpcAccess_Egress_AllTraffic = @"ALL_TRAFFIC";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2VpcAccess_Egress_PrivateRangesOnly = @"PRIVATE_RANGES_ONLY";
-NSString * const kGTLRCloudRun_GoogleCloudRunOpV2VpcAccess_Egress_VpcEgressUnspecified = @"VPC_EGRESS_UNSPECIFIED";
+// GTLRCloudRun_GoogleCloudRunV2VpcAccess.egress
+NSString * const kGTLRCloudRun_GoogleCloudRunV2VpcAccess_Egress_AllTraffic = @"ALL_TRAFFIC";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2VpcAccess_Egress_PrivateRangesOnly = @"PRIVATE_RANGES_ONLY";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2VpcAccess_Egress_VpcEgressUnspecified = @"VPC_EGRESS_UNSPECIFIED";
 
 // GTLRCloudRun_GoogleIamV1AuditLogConfig.logType
 NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
@@ -144,20 +144,20 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2BinaryAuthorization
+//   GTLRCloudRun_GoogleCloudRunV2BinaryAuthorization
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2BinaryAuthorization
+@implementation GTLRCloudRun_GoogleCloudRunV2BinaryAuthorization
 @dynamic breakglassJustification, useDefault;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2CloudSqlInstance
+//   GTLRCloudRun_GoogleCloudRunV2CloudSqlInstance
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2CloudSqlInstance
+@implementation GTLRCloudRun_GoogleCloudRunV2CloudSqlInstance
 @dynamic connections;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -172,10 +172,10 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2Condition
+//   GTLRCloudRun_GoogleCloudRunV2Condition
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2Condition
+@implementation GTLRCloudRun_GoogleCloudRunV2Condition
 @dynamic domainMappingReason, executionReason, internalReason,
          lastTransitionTime, message, reason, revisionReason, severity, state,
          type;
@@ -184,19 +184,19 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2Container
+//   GTLRCloudRun_GoogleCloudRunV2Container
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2Container
+@implementation GTLRCloudRun_GoogleCloudRunV2Container
 @dynamic args, command, env, image, name, ports, resources, volumeMounts;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"args" : [NSString class],
     @"command" : [NSString class],
-    @"env" : [GTLRCloudRun_GoogleCloudRunOpV2EnvVar class],
-    @"ports" : [GTLRCloudRun_GoogleCloudRunOpV2ContainerPort class],
-    @"volumeMounts" : [GTLRCloudRun_GoogleCloudRunOpV2VolumeMount class]
+    @"env" : [GTLRCloudRun_GoogleCloudRunV2EnvVar class],
+    @"ports" : [GTLRCloudRun_GoogleCloudRunV2ContainerPort class],
+    @"volumeMounts" : [GTLRCloudRun_GoogleCloudRunV2VolumeMount class]
   };
   return map;
 }
@@ -206,45 +206,45 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2ContainerPort
+//   GTLRCloudRun_GoogleCloudRunV2ContainerPort
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2ContainerPort
+@implementation GTLRCloudRun_GoogleCloudRunV2ContainerPort
 @dynamic containerPort, name;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2EnvVar
+//   GTLRCloudRun_GoogleCloudRunV2EnvVar
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2EnvVar
+@implementation GTLRCloudRun_GoogleCloudRunV2EnvVar
 @dynamic name, value, valueSource;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2EnvVarSource
+//   GTLRCloudRun_GoogleCloudRunV2EnvVarSource
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2EnvVarSource
+@implementation GTLRCloudRun_GoogleCloudRunV2EnvVarSource
 @dynamic secretKeyRef;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2ListRevisionsResponse
+//   GTLRCloudRun_GoogleCloudRunV2ListRevisionsResponse
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2ListRevisionsResponse
+@implementation GTLRCloudRun_GoogleCloudRunV2ListRevisionsResponse
 @dynamic nextPageToken, revisions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"revisions" : [GTLRCloudRun_GoogleCloudRunOpV2Revision class]
+    @"revisions" : [GTLRCloudRun_GoogleCloudRunV2Revision class]
   };
   return map;
 }
@@ -258,15 +258,15 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2ListServicesResponse
+//   GTLRCloudRun_GoogleCloudRunV2ListServicesResponse
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2ListServicesResponse
+@implementation GTLRCloudRun_GoogleCloudRunV2ListServicesResponse
 @dynamic nextPageToken, services;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"services" : [GTLRCloudRun_GoogleCloudRunOpV2Service class]
+    @"services" : [GTLRCloudRun_GoogleCloudRunV2Service class]
   };
   return map;
 }
@@ -280,20 +280,20 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2ResourceRequirements
+//   GTLRCloudRun_GoogleCloudRunV2ResourceRequirements
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2ResourceRequirements
+@implementation GTLRCloudRun_GoogleCloudRunV2ResourceRequirements
 @dynamic cpuIdle, limits;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2ResourceRequirements_Limits
+//   GTLRCloudRun_GoogleCloudRunV2ResourceRequirements_Limits
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2ResourceRequirements_Limits
+@implementation GTLRCloudRun_GoogleCloudRunV2ResourceRequirements_Limits
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -304,10 +304,10 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2Revision
+//   GTLRCloudRun_GoogleCloudRunV2Revision
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2Revision
+@implementation GTLRCloudRun_GoogleCloudRunV2Revision
 @dynamic annotations, conditions, confidential, containerConcurrency,
          containers, createTime, deleteTime, encryptionKey, ETag,
          executionEnvironment, expireTime, generation, labels, launchStage,
@@ -320,9 +320,9 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"conditions" : [GTLRCloudRun_GoogleCloudRunOpV2Condition class],
-    @"containers" : [GTLRCloudRun_GoogleCloudRunOpV2Container class],
-    @"volumes" : [GTLRCloudRun_GoogleCloudRunOpV2Volume class]
+    @"conditions" : [GTLRCloudRun_GoogleCloudRunV2Condition class],
+    @"containers" : [GTLRCloudRun_GoogleCloudRunV2Container class],
+    @"volumes" : [GTLRCloudRun_GoogleCloudRunV2Volume class]
   };
   return map;
 }
@@ -332,10 +332,10 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2Revision_Annotations
+//   GTLRCloudRun_GoogleCloudRunV2Revision_Annotations
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2Revision_Annotations
+@implementation GTLRCloudRun_GoogleCloudRunV2Revision_Annotations
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -346,10 +346,10 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2Revision_Labels
+//   GTLRCloudRun_GoogleCloudRunV2Revision_Labels
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2Revision_Labels
+@implementation GTLRCloudRun_GoogleCloudRunV2Revision_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -360,28 +360,28 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2RevisionScaling
+//   GTLRCloudRun_GoogleCloudRunV2RevisionScaling
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2RevisionScaling
+@implementation GTLRCloudRun_GoogleCloudRunV2RevisionScaling
 @dynamic maxInstanceCount, minInstanceCount;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2RevisionTemplate
+//   GTLRCloudRun_GoogleCloudRunV2RevisionTemplate
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2RevisionTemplate
+@implementation GTLRCloudRun_GoogleCloudRunV2RevisionTemplate
 @dynamic annotations, confidential, containerConcurrency, containers,
          encryptionKey, executionEnvironment, labels, revision, scaling,
          serviceAccount, timeout, volumes, vpcAccess;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"containers" : [GTLRCloudRun_GoogleCloudRunOpV2Container class],
-    @"volumes" : [GTLRCloudRun_GoogleCloudRunOpV2Volume class]
+    @"containers" : [GTLRCloudRun_GoogleCloudRunV2Container class],
+    @"volumes" : [GTLRCloudRun_GoogleCloudRunV2Volume class]
   };
   return map;
 }
@@ -391,10 +391,10 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2RevisionTemplate_Annotations
+//   GTLRCloudRun_GoogleCloudRunV2RevisionTemplate_Annotations
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2RevisionTemplate_Annotations
+@implementation GTLRCloudRun_GoogleCloudRunV2RevisionTemplate_Annotations
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -405,10 +405,10 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2RevisionTemplate_Labels
+//   GTLRCloudRun_GoogleCloudRunV2RevisionTemplate_Labels
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2RevisionTemplate_Labels
+@implementation GTLRCloudRun_GoogleCloudRunV2RevisionTemplate_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -419,25 +419,25 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2SecretKeySelector
+//   GTLRCloudRun_GoogleCloudRunV2SecretKeySelector
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2SecretKeySelector
+@implementation GTLRCloudRun_GoogleCloudRunV2SecretKeySelector
 @dynamic secret, version;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2SecretVolumeSource
+//   GTLRCloudRun_GoogleCloudRunV2SecretVolumeSource
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2SecretVolumeSource
+@implementation GTLRCloudRun_GoogleCloudRunV2SecretVolumeSource
 @dynamic defaultMode, items, secret;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRCloudRun_GoogleCloudRunOpV2VersionToPath class]
+    @"items" : [GTLRCloudRun_GoogleCloudRunV2VersionToPath class]
   };
   return map;
 }
@@ -447,10 +447,10 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2Service
+//   GTLRCloudRun_GoogleCloudRunV2Service
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2Service
+@implementation GTLRCloudRun_GoogleCloudRunV2Service
 @dynamic annotations, binaryAuthorization, client, clientVersion, conditions,
          createTime, creator, deleteTime, descriptionProperty, ETag, expireTime,
          generation, ingress, labels, lastModifier, latestCreatedRevision,
@@ -469,9 +469,9 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"conditions" : [GTLRCloudRun_GoogleCloudRunOpV2Condition class],
-    @"traffic" : [GTLRCloudRun_GoogleCloudRunOpV2TrafficTarget class],
-    @"trafficStatuses" : [GTLRCloudRun_GoogleCloudRunOpV2TrafficTargetStatus class]
+    @"conditions" : [GTLRCloudRun_GoogleCloudRunV2Condition class],
+    @"traffic" : [GTLRCloudRun_GoogleCloudRunV2TrafficTarget class],
+    @"trafficStatuses" : [GTLRCloudRun_GoogleCloudRunV2TrafficTargetStatus class]
   };
   return map;
 }
@@ -481,10 +481,10 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2Service_Annotations
+//   GTLRCloudRun_GoogleCloudRunV2Service_Annotations
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2Service_Annotations
+@implementation GTLRCloudRun_GoogleCloudRunV2Service_Annotations
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -495,10 +495,10 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2Service_Labels
+//   GTLRCloudRun_GoogleCloudRunV2Service_Labels
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2Service_Labels
+@implementation GTLRCloudRun_GoogleCloudRunV2Service_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -509,60 +509,60 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2TrafficTarget
+//   GTLRCloudRun_GoogleCloudRunV2TrafficTarget
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2TrafficTarget
+@implementation GTLRCloudRun_GoogleCloudRunV2TrafficTarget
 @dynamic percent, revision, tag, type;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2TrafficTargetStatus
+//   GTLRCloudRun_GoogleCloudRunV2TrafficTargetStatus
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2TrafficTargetStatus
+@implementation GTLRCloudRun_GoogleCloudRunV2TrafficTargetStatus
 @dynamic percent, revision, tag, type, uri;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2VersionToPath
+//   GTLRCloudRun_GoogleCloudRunV2VersionToPath
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2VersionToPath
+@implementation GTLRCloudRun_GoogleCloudRunV2VersionToPath
 @dynamic mode, path, version;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2Volume
+//   GTLRCloudRun_GoogleCloudRunV2Volume
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2Volume
+@implementation GTLRCloudRun_GoogleCloudRunV2Volume
 @dynamic cloudSqlInstance, name, secret;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2VolumeMount
+//   GTLRCloudRun_GoogleCloudRunV2VolumeMount
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2VolumeMount
+@implementation GTLRCloudRun_GoogleCloudRunV2VolumeMount
 @dynamic mountPath, name;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunOpV2VpcAccess
+//   GTLRCloudRun_GoogleCloudRunV2VpcAccess
 //
 
-@implementation GTLRCloudRun_GoogleCloudRunOpV2VpcAccess
+@implementation GTLRCloudRun_GoogleCloudRunV2VpcAccess
 @dynamic connector, egress;
 @end
 

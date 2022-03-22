@@ -627,12 +627,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
- *  A unique identifier for tracking visitors. For example, this could be
- *  implemented with an HTTP cookie, which should be able to uniquely identify a
- *  visitor on a single device. This unique identifier should not change if the
- *  visitor logs in or out of the website. The field must be a UTF-8 encoded
- *  string with a length limit of 128 characters. Otherwise, an INVALID_ARGUMENT
- *  error is returned.
+ *  Required field. A unique identifier for tracking visitors. For example, this
+ *  could be implemented with an HTTP cookie, which should be able to uniquely
+ *  identify a visitor on a single device. This unique identifier should not
+ *  change if the visitor logs in or out of the website. The field must be a
+ *  UTF-8 encoded string with a length limit of 128 characters. Otherwise, an
+ *  INVALID_ARGUMENT error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *visitorId;
 
@@ -655,11 +655,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Bulk import of processed completion dataset. Request processing may be
- *  synchronous. Partial updating is not supported. This feature is only
- *  available for users who have Retail Search enabled. Please submit a form
- *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
- *  interested in using Retail Search.
+ *  Bulk import of processed completion dataset. Request processing is
+ *  asynchronous. Partial updating is not supported. The operation is
+ *  successfully finished only after the imported suggestions are indexed
+ *  successfully and ready for serving. The process takes hours. This feature is
+ *  only available for users who have Retail Search enabled. Please submit a
+ *  form [here](https://cloud.google.com/contact) to contact cloud sales if you
+ *  are interested in using Retail Search.
  *
  *  Method: retail.projects.locations.catalogs.completionData.import
  *
@@ -677,11 +679,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRetail_GoogleLongrunningOperation.
  *
- *  Bulk import of processed completion dataset. Request processing may be
- *  synchronous. Partial updating is not supported. This feature is only
- *  available for users who have Retail Search enabled. Please submit a form
- *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
- *  interested in using Retail Search.
+ *  Bulk import of processed completion dataset. Request processing is
+ *  asynchronous. Partial updating is not supported. The operation is
+ *  successfully finished only after the imported suggestions are indexed
+ *  successfully and ready for serving. The process takes hours. This feature is
+ *  only available for users who have Retail Search enabled. Please submit a
+ *  form [here](https://cloud.google.com/contact) to contact cloud sales if you
+ *  are interested in using Retail Search.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2ImportCompletionDataRequest to include
@@ -917,10 +921,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Full resource name of the format: {name=projects/ *
- *  /locations/global/catalogs/default_catalog/placements/ *} The ID of the
- *  Recommendations AI placement. Before you can request predictions from your
- *  model, you must create at least one placement for it. For more information,
- *  see [Managing
+ *  /locations/global/catalogs/default_catalog/placements/ *} or {name=projects/
+ *  * /locations/global/catalogs/default_catalog/servingConfigs/ *} The ID of
+ *  the Recommendations AI placement. Before you can request predictions from
+ *  your model, you must create at least one placement for it. For more
+ *  information, see [Managing
  *  placements](https://cloud.google.com/retail/recommendations-ai/docs/manage-placements).
  *  The full list of available placements can be seen at
  *  https://console.cloud.google.com/recommendation/catalogs/default_catalog/placements
@@ -935,9 +940,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2PredictRequest to
  *    include in the query.
  *  @param placement Required. Full resource name of the format: {name=projects/
- *    * /locations/global/catalogs/default_catalog/placements/ *} The ID of the
- *    Recommendations AI placement. Before you can request predictions from your
- *    model, you must create at least one placement for it. For more
+ *    * /locations/global/catalogs/default_catalog/placements/ *} or
+ *    {name=projects/ *
+ *    /locations/global/catalogs/default_catalog/servingConfigs/ *} The ID of
+ *    the Recommendations AI placement. Before you can request predictions from
+ *    your model, you must create at least one placement for it. For more
  *    information, see [Managing
  *    placements](https://cloud.google.com/retail/recommendations-ai/docs/manage-placements).
  *    The full list of available placements can be seen at
@@ -966,8 +973,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The resource name of the search engine placement, such as
  *  `projects/ *
- *  /locations/global/catalogs/default_catalog/placements/default_search`. This
- *  field is used to identify the serving configuration name and the set of
+ *  /locations/global/catalogs/default_catalog/placements/default_search` or
+ *  `projects/ *
+ *  /locations/global/catalogs/default_catalog/servingConfigs/default_serving_config`
+ *  This field is used to identify the serving configuration name and the set of
  *  models that will be used to make the search.
  */
 @property(nonatomic, copy, nullable) NSString *placement;
@@ -984,11 +993,110 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param placement Required. The resource name of the search engine placement,
  *    such as `projects/ *
- *    /locations/global/catalogs/default_catalog/placements/default_search`.
+ *    /locations/global/catalogs/default_catalog/placements/default_search` or
+ *    `projects/ *
+ *    /locations/global/catalogs/default_catalog/servingConfigs/default_serving_config`
  *    This field is used to identify the serving configuration name and the set
  *    of models that will be used to make the search.
  *
  *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsPlacementsSearch
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2SearchRequest *)object
+                      placement:(NSString *)placement;
+
+@end
+
+/**
+ *  Makes a recommendation prediction.
+ *
+ *  Method: retail.projects.locations.catalogs.servingConfigs.predict
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsPredict : GTLRCloudRetailQuery
+
+/**
+ *  Required. Full resource name of the format: {name=projects/ *
+ *  /locations/global/catalogs/default_catalog/placements/ *} or {name=projects/
+ *  * /locations/global/catalogs/default_catalog/servingConfigs/ *} The ID of
+ *  the Recommendations AI placement. Before you can request predictions from
+ *  your model, you must create at least one placement for it. For more
+ *  information, see [Managing
+ *  placements](https://cloud.google.com/retail/recommendations-ai/docs/manage-placements).
+ *  The full list of available placements can be seen at
+ *  https://console.cloud.google.com/recommendation/catalogs/default_catalog/placements
+ */
+@property(nonatomic, copy, nullable) NSString *placement;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2PredictResponse.
+ *
+ *  Makes a recommendation prediction.
+ *
+ *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2PredictRequest to
+ *    include in the query.
+ *  @param placement Required. Full resource name of the format: {name=projects/
+ *    * /locations/global/catalogs/default_catalog/placements/ *} or
+ *    {name=projects/ *
+ *    /locations/global/catalogs/default_catalog/servingConfigs/ *} The ID of
+ *    the Recommendations AI placement. Before you can request predictions from
+ *    your model, you must create at least one placement for it. For more
+ *    information, see [Managing
+ *    placements](https://cloud.google.com/retail/recommendations-ai/docs/manage-placements).
+ *    The full list of available placements can be seen at
+ *    https://console.cloud.google.com/recommendation/catalogs/default_catalog/placements
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsPredict
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2PredictRequest *)object
+                      placement:(NSString *)placement;
+
+@end
+
+/**
+ *  Performs a search. This feature is only available for users who have Retail
+ *  Search enabled. Please submit a form
+ *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
+ *  interested in using Retail Search.
+ *
+ *  Method: retail.projects.locations.catalogs.servingConfigs.search
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsSearch : GTLRCloudRetailQuery
+
+/**
+ *  Required. The resource name of the search engine placement, such as
+ *  `projects/ *
+ *  /locations/global/catalogs/default_catalog/placements/default_search` or
+ *  `projects/ *
+ *  /locations/global/catalogs/default_catalog/servingConfigs/default_serving_config`
+ *  This field is used to identify the serving configuration name and the set of
+ *  models that will be used to make the search.
+ */
+@property(nonatomic, copy, nullable) NSString *placement;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2SearchResponse.
+ *
+ *  Performs a search. This feature is only available for users who have Retail
+ *  Search enabled. Please submit a form
+ *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
+ *  interested in using Retail Search.
+ *
+ *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2SearchRequest to
+ *    include in the query.
+ *  @param placement Required. The resource name of the search engine placement,
+ *    such as `projects/ *
+ *    /locations/global/catalogs/default_catalog/placements/default_search` or
+ *    `projects/ *
+ *    /locations/global/catalogs/default_catalog/servingConfigs/default_serving_config`
+ *    This field is used to identify the serving configuration name and the set
+ *    of models that will be used to make the search.
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsSearch
  */
 + (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2SearchRequest *)object
                       placement:(NSString *)placement;
@@ -1203,13 +1311,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Triggers a user event rejoin operation with latest product catalog. Events
+ *  Starts a user event rejoin operation with latest product catalog. Events
  *  will not be annotated with detailed product information if product is
  *  missing from the catalog at the time the user event is ingested, and these
  *  events are stored as unjoined events with a limited usage on training and
- *  serving. This API can be used to trigger a 'join' operation on specified
+ *  serving. This method can be used to start a join operation on specified
  *  events with latest version of product catalog. It can also be used to
- *  correct events joined with wrong product catalog.
+ *  correct events joined with the wrong product catalog. A rejoin operation can
+ *  take hours or days to complete.
  *
  *  Method: retail.projects.locations.catalogs.userEvents.rejoin
  *
@@ -1227,13 +1336,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRetail_GoogleLongrunningOperation.
  *
- *  Triggers a user event rejoin operation with latest product catalog. Events
+ *  Starts a user event rejoin operation with latest product catalog. Events
  *  will not be annotated with detailed product information if product is
  *  missing from the catalog at the time the user event is ingested, and these
  *  events are stored as unjoined events with a limited usage on training and
- *  serving. This API can be used to trigger a 'join' operation on specified
+ *  serving. This method can be used to start a join operation on specified
  *  events with latest version of product catalog. It can also be used to
- *  correct events joined with wrong product catalog.
+ *  correct events joined with the wrong product catalog. A rejoin operation can
+ *  take hours or days to complete.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest to include in

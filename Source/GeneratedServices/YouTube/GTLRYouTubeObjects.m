@@ -641,6 +641,7 @@ NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacUnspecified = @"mib
 NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacVap = @"mibacVap";
 NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacVm12 = @"mibacVm12";
 NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacVm14 = @"mibacVm14";
+NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacVm16 = @"mibacVm16";
 NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacVm18 = @"mibacVm18";
 
 // GTLRYouTube_ContentRating.mocRating
@@ -932,8 +933,10 @@ NSString * const kGTLRYouTube_LiveChatBanSnippet_Type_Temporary = @"temporary";
 // GTLRYouTube_LiveChatMessageSnippet.type
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_ChatEndedEvent = @"chatEndedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_FanFundingEvent = @"fanFundingEvent";
+NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_GiftMembershipReceivedEvent = @"giftMembershipReceivedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_InvalidType = @"invalidType";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MemberMilestoneChatEvent = @"memberMilestoneChatEvent";
+NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MembershipGiftingEvent = @"membershipGiftingEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageDeletedEvent = @"messageDeletedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageRetractedEvent = @"messageRetractedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_NewSponsorEvent = @"newSponsorEvent";
@@ -1862,7 +1865,7 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_ChannelToStoreLinkDetails
-@dynamic storeName, storeUrl;
+@dynamic merchantId, storeName, storeUrl;
 @end
 
 
@@ -2376,11 +2379,31 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRYouTube_LiveChatGiftMembershipReceivedDetails
+//
+
+@implementation GTLRYouTube_LiveChatGiftMembershipReceivedDetails
+@dynamic associatedMembershipGiftingMessageId, gifterChannelId, memberLevelName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRYouTube_LiveChatMemberMilestoneChatDetails
 //
 
 @implementation GTLRYouTube_LiveChatMemberMilestoneChatDetails
 @dynamic memberLevelName, memberMonth, userComment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_LiveChatMembershipGiftingDetails
+//
+
+@implementation GTLRYouTube_LiveChatMembershipGiftingDetails
+@dynamic giftMembershipsCount, giftMembershipsLevelName;
 @end
 
 
@@ -2464,7 +2487,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_LiveChatMessageSnippet
 @dynamic authorChannelId, displayMessage, fanFundingEventDetails,
-         hasDisplayContent, liveChatId, memberMilestoneChatDetails,
+         giftMembershipReceivedDetails, hasDisplayContent, liveChatId,
+         memberMilestoneChatDetails, membershipGiftingDetails,
          messageDeletedDetails, messageRetractedDetails, newSponsorDetails,
          publishedAt, superChatDetails, superStickerDetails, textMessageDetails,
          type, userBannedDetails;

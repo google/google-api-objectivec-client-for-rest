@@ -79,6 +79,11 @@ NSString * const kGTLRBareMetalSolution_NfsExport_Permissions_ReadWrite = @"READ
 NSString * const kGTLRBareMetalSolution_NfsShare_State_Provisioned = @"PROVISIONED";
 NSString * const kGTLRBareMetalSolution_NfsShare_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRBareMetalSolution_ProvisioningConfig.state
+NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Draft = @"DRAFT";
+NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Submitted = @"SUBMITTED";
+
 // GTLRBareMetalSolution_ProvisioningQuota.assetType
 NSString * const kGTLRBareMetalSolution_ProvisioningQuota_AssetType_AssetTypeNetwork = @"ASSET_TYPE_NETWORK";
 NSString * const kGTLRBareMetalSolution_ProvisioningQuota_AssetType_AssetTypeServer = @"ASSET_TYPE_SERVER";
@@ -186,8 +191,8 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_InstanceConfig
-@dynamic clientNetwork, hyperthreading, identifier, instanceType, name, osImage,
-         privateNetwork, userNote;
+@dynamic accountNetworksEnabled, clientNetwork, hyperthreading, identifier,
+         instanceType, name, osImage, privateNetwork, userNote;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -560,8 +565,8 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_NetworkConfig
-@dynamic bandwidth, cidr, identifier, name, serviceCidr, type, userNote,
-         vlanAttachments;
+@dynamic bandwidth, cidr, gcpService, identifier, name, serviceCidr, type,
+         userNote, vlanAttachments, vlanSameProject;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -682,7 +687,8 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_ProvisioningConfig
-@dynamic handoverServiceAccount, instances, name, networks, ticketId, volumes;
+@dynamic cloudConsoleUri, email, handoverServiceAccount, instances, location,
+         name, networks, state, ticketId, updateTime, volumes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -750,7 +756,8 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_SnapshotReservationDetail
-@dynamic reservedSpaceGib, reservedSpaceRemainingGib, reservedSpaceUsedPercent;
+@dynamic reservedSpaceGib, reservedSpacePercent, reservedSpaceRemainingGib,
+         reservedSpaceUsedPercent;
 @end
 
 
@@ -873,7 +880,8 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 @implementation GTLRBareMetalSolution_Volume
 @dynamic autoGrownSizeGib, currentSizeGib, identifier, labels, name,
          remainingSpaceGib, requestedSizeGib, snapshotAutoDeleteBehavior,
-         snapshotReservationDetail, snapshotSchedulePolicy, state, storageType;
+         snapshotEnabled, snapshotReservationDetail, snapshotSchedulePolicy,
+         state, storageType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -902,8 +910,8 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_VolumeConfig
-@dynamic identifier, lunRanges, machineIds, name, nfsExports, protocol, sizeGb,
-         snapshotsEnabled, type, userNote;
+@dynamic gcpService, identifier, lunRanges, machineIds, name, nfsExports,
+         protocol, sizeGb, snapshotsEnabled, type, userNote;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

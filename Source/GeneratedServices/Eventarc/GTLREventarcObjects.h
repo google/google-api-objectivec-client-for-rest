@@ -253,6 +253,14 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
  */
 @property(nonatomic, strong, nullable) GTLREventarc_GKE *gke;
 
+/**
+ *  The resource name of the Workflow whose Executions are triggered by the
+ *  events. The Workflow resource should be deployed in the same project as the
+ *  trigger. Format:
+ *  `projects/{project}/locations/{location}/workflows/{workflow}`
+ */
+@property(nonatomic, copy, nullable) NSString *workflow;
+
 @end
 
 

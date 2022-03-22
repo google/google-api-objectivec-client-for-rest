@@ -220,6 +220,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3B
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestDatasetType_DatasetSplitUnassigned;
 
 // ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata.destSplitType
+
+/**
+ *  Identifies the test documents.
+ *
+ *  Value: "DATASET_SPLIT_TEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestSplitType_DatasetSplitTest;
+/**
+ *  Identifies the train documents.
+ *
+ *  Value: "DATASET_SPLIT_TRAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestSplitType_DatasetSplitTrain;
+/**
+ *  Default value if the enum is not set.
+ *  go/protodosdonts#do-include-an-unspecified-value-in-an-enum
+ *
+ *  Value: "DATASET_SPLIT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestSplitType_DatasetSplitTypeUnspecified;
+/**
+ *  Identifies the unassigned documents.
+ *
+ *  Value: "DATASET_SPLIT_UNASSIGNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestSplitType_DatasetSplitUnassigned;
+
+// ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata.state
 
 /**
@@ -1437,6 +1466,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *        "DATASET_SPLIT_UNASSIGNED")
  */
 @property(nonatomic, copy, nullable) NSString *destDatasetType;
+
+/**
+ *  The destination dataset split type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestSplitType_DatasetSplitTest
+ *        Identifies the test documents. (Value: "DATASET_SPLIT_TEST")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestSplitType_DatasetSplitTrain
+ *        Identifies the train documents. (Value: "DATASET_SPLIT_TRAIN")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestSplitType_DatasetSplitTypeUnspecified
+ *        Default value if the enum is not set.
+ *        go/protodosdonts#do-include-an-unspecified-value-in-an-enum (Value:
+ *        "DATASET_SPLIT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestSplitType_DatasetSplitUnassigned
+ *        Identifies the unassigned documents. (Value:
+ *        "DATASET_SPLIT_UNASSIGNED")
+ */
+@property(nonatomic, copy, nullable) NSString *destSplitType;
 
 /** The list of response details of each document. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadataIndividualBatchMoveStatus *> *individualBatchMoveStatuses;
@@ -7216,11 +7263,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  Represents a whole or partial calendar date, such as a birthday. The time of
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
- *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day, with a zero year (e.g., an anniversary) * A year on its own,
- *  with a zero month and a zero day * A year and month, with a zero day (e.g.,
- *  a credit card expiration date) Related types: * google.type.TimeOfDay *
- *  google.type.DateTime * google.protobuf.Timestamp
+ *  following: * A full date, with non-zero year, month, and day values. * A
+ *  month and day, with a zero year (for example, an anniversary). * A year on
+ *  its own, with a zero month and a zero day. * A year and month, with a zero
+ *  day (for example, a credit card expiration date). Related types: *
+ *  google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLRDocument_GoogleTypeDate : GTLRObject
 

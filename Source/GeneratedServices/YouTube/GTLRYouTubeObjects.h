@@ -89,7 +89,9 @@
 @class GTLRYouTube_LiveBroadcastStatus;
 @class GTLRYouTube_LiveChatBanSnippet;
 @class GTLRYouTube_LiveChatFanFundingEventDetails;
+@class GTLRYouTube_LiveChatGiftMembershipReceivedDetails;
 @class GTLRYouTube_LiveChatMemberMilestoneChatDetails;
+@class GTLRYouTube_LiveChatMembershipGiftingDetails;
 @class GTLRYouTube_LiveChatMessage;
 @class GTLRYouTube_LiveChatMessageAuthorDetails;
 @class GTLRYouTube_LiveChatMessageDeletedDetails;
@@ -2594,6 +2596,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacV
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacVm12;
 /** Value: "mibacVm14" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacVm14;
+/** Value: "mibacVm16" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacVm16;
 /** Value: "mibacVm18" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacVm18;
 
@@ -3722,10 +3726,14 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatBanSnippet_Type_Temporar
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_ChatEndedEvent;
 /** Value: "fanFundingEvent" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_FanFundingEvent;
+/** Value: "giftMembershipReceivedEvent" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_GiftMembershipReceivedEvent;
 /** Value: "invalidType" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_InvalidType;
 /** Value: "memberMilestoneChatEvent" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MemberMilestoneChatEvent;
+/** Value: "membershipGiftingEvent" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MembershipGiftingEvent;
 /** Value: "messageDeletedEvent" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageDeletedEvent;
 /** Value: "messageRetractedEvent" */
@@ -6090,6 +6098,13 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  */
 @interface GTLRYouTube_ChannelToStoreLinkDetails : GTLRObject
 
+/**
+ *  Google Merchant Center id of the store.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *merchantId;
+
 /** Name of the store. */
 @property(nonatomic, copy, nullable) NSString *storeName;
 
@@ -7404,6 +7419,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *    @arg @c kGTLRYouTube_ContentRating_MibacRating_MibacVap Value "mibacVap"
  *    @arg @c kGTLRYouTube_ContentRating_MibacRating_MibacVm12 Value "mibacVm12"
  *    @arg @c kGTLRYouTube_ContentRating_MibacRating_MibacVm14 Value "mibacVm14"
+ *    @arg @c kGTLRYouTube_ContentRating_MibacRating_MibacVm16 Value "mibacVm16"
  *    @arg @c kGTLRYouTube_ContentRating_MibacRating_MibacVm18 Value "mibacVm18"
  */
 @property(nonatomic, copy, nullable) NSString *mibacRating;
@@ -8899,6 +8915,36 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 
 /**
+ *  GTLRYouTube_LiveChatGiftMembershipReceivedDetails
+ */
+@interface GTLRYouTube_LiveChatGiftMembershipReceivedDetails : GTLRObject
+
+/**
+ *  The ID of the membership gifting message that is related to this gift
+ *  membership. This ID will always refer to a message whose type is
+ *  'membershipGiftingEvent'.
+ */
+@property(nonatomic, copy, nullable) NSString *associatedMembershipGiftingMessageId;
+
+/**
+ *  The ID of the user that made the membership gifting purchase. This matches
+ *  the `snippet.authorChannelId` of the associated membership gifting message.
+ */
+@property(nonatomic, copy, nullable) NSString *gifterChannelId;
+
+/**
+ *  The name of the Level at which the viewer is a member. This matches the
+ *  `snippet.membershipGiftingDetails.giftMembershipsLevelName` of the
+ *  associated membership gifting message. The Level names are defined by the
+ *  YouTube channel offering the Membership. In some situations this field isn't
+ *  filled.
+ */
+@property(nonatomic, copy, nullable) NSString *memberLevelName;
+
+@end
+
+
+/**
  *  GTLRYouTube_LiveChatMemberMilestoneChatDetails
  */
 @interface GTLRYouTube_LiveChatMemberMilestoneChatDetails : GTLRObject
@@ -8924,6 +8970,28 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  empty for messages without a comment from the member.
  */
 @property(nonatomic, copy, nullable) NSString *userComment;
+
+@end
+
+
+/**
+ *  GTLRYouTube_LiveChatMembershipGiftingDetails
+ */
+@interface GTLRYouTube_LiveChatMembershipGiftingDetails : GTLRObject
+
+/**
+ *  The number of gift memberships purchased by the user.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *giftMembershipsCount;
+
+/**
+ *  The name of the level of the gift memberships purchased by the user. The
+ *  Level names are defined by the YouTube channel offering the Membership. In
+ *  some situations this field isn't filled.
+ */
+@property(nonatomic, copy, nullable) NSString *giftMembershipsLevelName;
 
 @end
 
@@ -9084,7 +9152,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 
 /**
- *  Next ID: 31
+ *  Next ID: 33
  */
 @interface GTLRYouTube_LiveChatMessageSnippet : GTLRObject
 
@@ -9093,6 +9161,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  filled. textMessageEvent - the user that wrote the message fanFundingEvent -
  *  the user that funded the broadcast newSponsorEvent - the user that just
  *  became a sponsor memberMilestoneChatEvent - the member that sent the message
+ *  membershipGiftingEvent - the user that made the purchase
+ *  giftMembershipReceivedEvent - the user that received the gift membership
  *  messageDeletedEvent - the moderator that took the action
  *  messageRetractedEvent - the author that retracted their message
  *  userBannedEvent - the moderator that took the action superChatEvent - the
@@ -9115,6 +9185,12 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatFanFundingEventDetails *fanFundingEventDetails;
 
 /**
+ *  Details about the Gift Membership Received event, this is only set if the
+ *  type is 'giftMembershipReceivedEvent'.
+ */
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatGiftMembershipReceivedDetails *giftMembershipReceivedDetails;
+
+/**
  *  Whether the message has display content that should be displayed to users.
  *
  *  Uses NSNumber of boolValue.
@@ -9128,6 +9204,12 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  is 'memberMilestoneChatEvent'.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMemberMilestoneChatDetails *memberMilestoneChatDetails;
+
+/**
+ *  Details about the Membership Gifting event, this is only set if the type is
+ *  'membershipGiftingEvent'.
+ */
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMembershipGiftingDetails *membershipGiftingDetails;
 
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMessageDeletedDetails *messageDeletedDetails;
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMessageRetractedDetails *messageRetractedDetails;
@@ -9169,10 +9251,14 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *        "chatEndedEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_FanFundingEvent Value
  *        "fanFundingEvent"
+ *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_GiftMembershipReceivedEvent
+ *        Value "giftMembershipReceivedEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_InvalidType Value
  *        "invalidType"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_MemberMilestoneChatEvent
  *        Value "memberMilestoneChatEvent"
+ *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_MembershipGiftingEvent
+ *        Value "membershipGiftingEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_MessageDeletedEvent Value
  *        "messageDeletedEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_MessageRetractedEvent

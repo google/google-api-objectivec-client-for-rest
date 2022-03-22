@@ -466,7 +466,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_Severity_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_Severity_High;
 /**
- *  Vulnerability: A low risk vulnerability hampers a security organization’s
+ *  Vulnerability: A low risk vulnerability hampers a security organization's
  *  ability to detect vulnerabilities or active threats in their deployment, or
  *  prevents the root cause investigation of security issues. An example is
  *  monitoring and logs being disabled for resource configurations and access.
@@ -1829,8 +1829,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRSecurityCommandCenter_Empty : GTLRObject
 @end
@@ -1980,9 +1979,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_MitreAttack *mitreAttack;
 
 /**
- *  Indicates the mute state of a finding (either unspecified, muted, unmuted or
- *  undefined). Unlike other attributes of a finding, a finding provider
- *  shouldn't set the value of mute.
+ *  Indicates the mute state of a finding (either muted, unmuted or undefined).
+ *  Unlike other attributes of a finding, a finding provider shouldn't set the
+ *  value of mute.
  *
  *  Likely values:
  *    @arg @c kGTLRSecurityCommandCenter_Finding_Mute_Muted Finding has been
@@ -2066,7 +2065,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  *        environment but not able to access data or execute code in existing
  *        resources. (Value: "HIGH")
  *    @arg @c kGTLRSecurityCommandCenter_Finding_Severity_Low Vulnerability: A
- *        low risk vulnerability hampers a security organization’s ability to
+ *        low risk vulnerability hampers a security organization's ability to
  *        detect vulnerabilities or active threats in their deployment, or
  *        prevents the root cause investigation of security issues. An example
  *        is monitoring and logs being disabled for resource configurations and
@@ -2283,11 +2282,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  *  for all value types. * `>`, `<`, `>=`, `<=` for integer values. * `:`,
  *  meaning substring matching, for strings. The supported value types are: *
  *  string literals in quotes. * integer literals without quotes. * boolean
- *  literals `true` and `false` without quotes. Please see the proto
- *  documentation in the finding
- *  (https://source.corp.google.com/piper///depot/google3/google/cloud/securitycenter/v1/finding.proto)
- *  and in the ListFindingsRequest for valid filter syntax.
- *  (https://source.corp.google.com/piper///depot/google3/google/cloud/securitycenter/v1/securitycenter_service.proto).
+ *  literals `true` and `false` without quotes.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2772,7 +2767,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 /** The full resource name of project that the resource belongs to. */
 @property(nonatomic, copy, nullable) NSString *project;
 
-/** The project id that the resource belongs to. */
+/** The project ID that the resource belongs to. */
 @property(nonatomic, copy, nullable) NSString *projectDisplayName;
 
 /** The full resource type of the resource. */
@@ -3773,7 +3768,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 /** The full resource name of resource's parent. */
 @property(nonatomic, copy, nullable) NSString *parentName;
 
-/** The project id that the resource belongs to. */
+/** The project ID that the resource belongs to. */
 @property(nonatomic, copy, nullable) NSString *projectDisplayName;
 
 /** The full resource name of project that the resource belongs to. */

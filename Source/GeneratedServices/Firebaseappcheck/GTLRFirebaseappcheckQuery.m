@@ -313,7 +313,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.app = app;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAttestationTokenResponse class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken class];
   query.loggingName = @"firebaseappcheck.projects.apps.exchangeAppAttestAssertion";
   return query;
 }
@@ -367,7 +367,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.app = app;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAttestationTokenResponse class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken class];
   query.loggingName = @"firebaseappcheck.projects.apps.exchangeCustomToken";
   return query;
 }
@@ -394,7 +394,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.app = app;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAttestationTokenResponse class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken class];
   query.loggingName = @"firebaseappcheck.projects.apps.exchangeDebugToken";
   return query;
 }
@@ -421,7 +421,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.app = app;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAttestationTokenResponse class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken class];
   query.loggingName = @"firebaseappcheck.projects.apps.exchangeDeviceCheckToken";
   return query;
 }
@@ -448,7 +448,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.app = app;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAttestationTokenResponse class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken class];
   query.loggingName = @"firebaseappcheck.projects.apps.exchangeRecaptchaEnterpriseToken";
   return query;
 }
@@ -475,8 +475,35 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.app = app;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAttestationTokenResponse class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken class];
   query.loggingName = @"firebaseappcheck.projects.apps.exchangeRecaptchaToken";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseappcheckQuery_ProjectsAppsExchangeRecaptchaV3Token
+
+@dynamic app;
+
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaV3TokenRequest *)object
+                            app:(NSString *)app {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"app" ];
+  NSString *pathURITemplate = @"v1beta/{+app}:exchangeRecaptchaV3Token";
+  GTLRFirebaseappcheckQuery_ProjectsAppsExchangeRecaptchaV3Token *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.app = app;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken class];
+  query.loggingName = @"firebaseappcheck.projects.apps.exchangeRecaptchaV3Token";
   return query;
 }
 
@@ -502,7 +529,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.app = app;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAttestationTokenResponse class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken class];
   query.loggingName = @"firebaseappcheck.projects.apps.exchangeSafetyNetToken";
   return query;
 }
@@ -529,7 +556,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.app = app;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppAttestChallengeResponse class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeResponse class];
   query.loggingName = @"firebaseappcheck.projects.apps.generateAppAttestChallenge";
   return query;
 }

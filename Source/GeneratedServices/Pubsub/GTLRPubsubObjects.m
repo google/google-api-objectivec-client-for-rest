@@ -487,7 +487,7 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 //
 
 @implementation GTLRPubsub_Schema
-@dynamic definition, name, type;
+@dynamic definition, name, revisionCreateTime, revisionId, type;
 @end
 
 
