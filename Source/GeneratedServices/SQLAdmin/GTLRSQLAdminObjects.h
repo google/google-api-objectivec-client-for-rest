@@ -1514,6 +1514,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigrationType;
 /**
+ *  The primary instance has tables with unsupported storage engine.
+ *
+ *  Value: "UNSUPPORTED_STORAGE_ENGINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedStorageEngine;
+/**
  *  The table definition is not support due to missing primary key or replica
  *  identity, applicable for postgres.
  *
@@ -4320,6 +4326,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        "UNSUPPORTED_GTID_MODE")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigrationType
  *        Unsupported migration type. (Value: "UNSUPPORTED_MIGRATION_TYPE")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedStorageEngine
+ *        The primary instance has tables with unsupported storage engine.
+ *        (Value: "UNSUPPORTED_STORAGE_ENGINE")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedTableDefinition
  *        The table definition is not support due to missing primary key or
  *        replica identity, applicable for postgres. (Value:
@@ -4504,6 +4513,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** This is always sql#sqlServerAuditConfig */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/** How long to keep generated audit files. */
+@property(nonatomic, strong, nullable) GTLRDuration *retentionInterval;
+
+/** How often to upload generated audit files. */
+@property(nonatomic, strong, nullable) GTLRDuration *uploadInterval;
 
 @end
 

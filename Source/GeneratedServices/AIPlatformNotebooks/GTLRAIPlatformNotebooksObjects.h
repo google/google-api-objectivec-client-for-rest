@@ -2996,6 +2996,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  Request for resetting a Managed Notebook Runtime.
  */
 @interface GTLRAIPlatformNotebooks_ResetRuntimeRequest : GTLRObject
+
+/** Idempotent request UUID. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
 @end
 
 
@@ -3624,6 +3628,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  Request for starting a Managed Notebook Runtime.
  */
 @interface GTLRAIPlatformNotebooks_StartRuntimeRequest : GTLRObject
+
+/** Idempotent request UUID. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
 @end
 
 
@@ -3683,6 +3691,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  Request for stopping a Managed Notebook Runtime.
  */
 @interface GTLRAIPlatformNotebooks_StopRuntimeRequest : GTLRObject
+
+/** Idempotent request UUID. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
 @end
 
 
@@ -3696,6 +3708,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 /** machine type. */
 @property(nonatomic, copy, nullable) NSString *machineType;
+
+/** Idempotent request UUID. */
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 @end
 

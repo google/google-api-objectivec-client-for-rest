@@ -4,8 +4,8 @@
 // API:
 //   Authorized Buyers Marketplace API (authorizedbuyersmarketplace/v1)
 // Description:
-//   The Authorized Buyers Marketplace API allows buyers programmatically
-//   discover inventory; propose, retrieve and negotiate deals with publishers.
+//   The Authorized Buyers Marketplace API lets buyers programmatically discover
+//   inventory; propose, retrieve and negotiate deals with publishers.
 // Documentation:
 //   https://developers.google.com/authorized-buyers/apis/marketplace/reference/rest/
 
@@ -46,8 +46,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAuthorizedBuyersMarketplaceAuth
 /**
  *  Service for executing Authorized Buyers Marketplace API queries.
  *
- *  The Authorized Buyers Marketplace API allows buyers programmatically
- *  discover inventory; propose, retrieve and negotiate deals with publishers.
+ *  The Authorized Buyers Marketplace API lets buyers programmatically discover
+ *  inventory; propose, retrieve and negotiate deals with publishers.
  */
 @interface GTLRAuthorizedBuyersMarketplaceService : GTLRService
 

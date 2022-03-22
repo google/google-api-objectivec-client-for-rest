@@ -31,6 +31,7 @@
 @class GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldDescription;
 @class GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldKnownValueDescription;
 @class GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaNoticeDescription;
+@class GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaRequiredItems;
 @class GTLRChromePolicy_GoogleChromePolicyV1PolicyTargetKey;
 @class GTLRChromePolicy_GoogleChromePolicyV1PolicyTargetKey_AdditionalTargetKeys;
 @class GTLRChromePolicy_GoogleChromePolicyV1PolicyValue;
@@ -497,6 +498,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldDescription *> *nestedFieldDescriptions;
 
+/**
+ *  Output only. Provides a list of fields that are required to be set if this
+ *  field has a certain value.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaRequiredItems *> *requiredItems;
+
 @end
 
 
@@ -548,6 +555,24 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
  *  message in order for the value to be set.
  */
 @property(nonatomic, copy, nullable) NSString *noticeValue;
+
+@end
+
+
+/**
+ *  The fields that will become required based on the value of this field.
+ */
+@interface GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaRequiredItems : GTLRObject
+
+/**
+ *  The value(s) of the field that provoke required field enforcement. An empty
+ *  field_conditions implies that any value assigned to this field will provoke
+ *  required field enforcement.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fieldConditions;
+
+/** The fields that are required as a consequence of the field conditions. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requiredFields;
 
 @end
 
@@ -749,8 +774,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRChromePolicy_GoogleProtobufEmpty : GTLRObject
 @end

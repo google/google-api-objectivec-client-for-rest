@@ -32,6 +32,7 @@
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeDeviceCheckTokenRequest;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaEnterpriseTokenRequest;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaTokenRequest;
+@class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaV3TokenRequest;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeSafetyNetTokenRequest;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeRequest;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaConfig;
@@ -577,7 +578,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Accepts an App Attest assertion and an artifact previously obtained from
  *  ExchangeAppAttestAttestation and verifies those with Apple. If valid,
- *  returns an App Check token encapsulated in an AttestationTokenResponse.
+ *  returns an AppCheckToken.
  *
  *  Method: firebaseappcheck.projects.apps.exchangeAppAttestAssertion
  *
@@ -597,12 +598,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *app;
 
 /**
- *  Fetches a @c
- *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAttestationTokenResponse.
+ *  Fetches a @c GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken.
  *
  *  Accepts an App Attest assertion and an artifact previously obtained from
  *  ExchangeAppAttestAttestation and verifies those with Apple. If valid,
- *  returns an App Check token encapsulated in an AttestationTokenResponse.
+ *  returns an AppCheckToken.
  *
  *  @param object The @c
  *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeAppAttestAssertionRequest
@@ -623,10 +623,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Accepts an App Attest CBOR attestation and verifies it with Apple using your
  *  preconfigured team and bundle IDs. If valid, returns an attestation artifact
- *  that can later be exchanged for an AttestationTokenResponse using
+ *  that can later be exchanged for an AppCheckToken using
  *  ExchangeAppAttestAssertion. For convenience and performance, this method's
- *  response object will also contain an App Check token encapsulated in an
- *  AttestationTokenResponse (if the verification is successful).
+ *  response object will also contain an AppCheckToken (if the verification is
+ *  successful).
  *
  *  Method: firebaseappcheck.projects.apps.exchangeAppAttestAttestation
  *
@@ -651,10 +651,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Accepts an App Attest CBOR attestation and verifies it with Apple using your
  *  preconfigured team and bundle IDs. If valid, returns an attestation artifact
- *  that can later be exchanged for an AttestationTokenResponse using
+ *  that can later be exchanged for an AppCheckToken using
  *  ExchangeAppAttestAssertion. For convenience and performance, this method's
- *  response object will also contain an App Check token encapsulated in an
- *  AttestationTokenResponse (if the verification is successful).
+ *  response object will also contain an AppCheckToken (if the verification is
+ *  successful).
  *
  *  @param object The @c
  *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationRequest
@@ -674,8 +674,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Validates a custom token signed using your project's Admin SDK service
- *  account credentials. If valid, returns an App Check token encapsulated in an
- *  AttestationTokenResponse.
+ *  account credentials. If valid, returns an AppCheckToken.
  *
  *  Method: firebaseappcheck.projects.apps.exchangeCustomToken
  *
@@ -695,12 +694,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *app;
 
 /**
- *  Fetches a @c
- *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAttestationTokenResponse.
+ *  Fetches a @c GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken.
  *
  *  Validates a custom token signed using your project's Admin SDK service
- *  account credentials. If valid, returns an App Check token encapsulated in an
- *  AttestationTokenResponse.
+ *  account credentials. If valid, returns an AppCheckToken.
  *
  *  @param object The @c
  *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeCustomTokenRequest
@@ -720,9 +717,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Validates a debug token secret that you have previously created using
- *  CreateDebugToken. If valid, returns an App Check token encapsulated in an
- *  AttestationTokenResponse. Note that a restrictive quota is enforced on this
- *  method to prevent accidental exposure of the app to abuse.
+ *  CreateDebugToken. If valid, returns an AppCheckToken. Note that a
+ *  restrictive quota is enforced on this method to prevent accidental exposure
+ *  of the app to abuse.
  *
  *  Method: firebaseappcheck.projects.apps.exchangeDebugToken
  *
@@ -742,13 +739,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *app;
 
 /**
- *  Fetches a @c
- *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAttestationTokenResponse.
+ *  Fetches a @c GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken.
  *
  *  Validates a debug token secret that you have previously created using
- *  CreateDebugToken. If valid, returns an App Check token encapsulated in an
- *  AttestationTokenResponse. Note that a restrictive quota is enforced on this
- *  method to prevent accidental exposure of the app to abuse.
+ *  CreateDebugToken. If valid, returns an AppCheckToken. Note that a
+ *  restrictive quota is enforced on this method to prevent accidental exposure
+ *  of the app to abuse.
  *
  *  @param object The @c
  *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeDebugTokenRequest
@@ -770,7 +766,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Accepts a
  *  [`device_token`](https://developer.apple.com/documentation/devicecheck/dcdevice)
  *  issued by DeviceCheck, and attempts to validate it with Apple. If valid,
- *  returns an App Check token encapsulated in an AttestationTokenResponse.
+ *  returns an AppCheckToken.
  *
  *  Method: firebaseappcheck.projects.apps.exchangeDeviceCheckToken
  *
@@ -790,13 +786,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *app;
 
 /**
- *  Fetches a @c
- *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAttestationTokenResponse.
+ *  Fetches a @c GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken.
  *
  *  Accepts a
  *  [`device_token`](https://developer.apple.com/documentation/devicecheck/dcdevice)
  *  issued by DeviceCheck, and attempts to validate it with Apple. If valid,
- *  returns an App Check token encapsulated in an AttestationTokenResponse.
+ *  returns an AppCheckToken.
  *
  *  @param object The @c
  *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeDeviceCheckTokenRequest
@@ -817,8 +812,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Validates a [reCAPTCHA Enterprise response
  *  token](https://cloud.google.com/recaptcha-enterprise/docs/create-assessment#retrieve_token).
- *  If valid, returns an App Check token encapsulated in an
- *  AttestationTokenResponse.
+ *  If valid, returns an App Check token AppCheckToken.
  *
  *  Method: firebaseappcheck.projects.apps.exchangeRecaptchaEnterpriseToken
  *
@@ -838,13 +832,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *app;
 
 /**
- *  Fetches a @c
- *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAttestationTokenResponse.
+ *  Fetches a @c GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken.
  *
  *  Validates a [reCAPTCHA Enterprise response
  *  token](https://cloud.google.com/recaptcha-enterprise/docs/create-assessment#retrieve_token).
- *  If valid, returns an App Check token encapsulated in an
- *  AttestationTokenResponse.
+ *  If valid, returns an App Check token AppCheckToken.
  *
  *  @param object The @c
  *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaEnterpriseTokenRequest
@@ -865,7 +857,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Validates a [reCAPTCHA v3 response
  *  token](https://developers.google.com/recaptcha/docs/v3). If valid, returns
- *  an App Check token encapsulated in an AttestationTokenResponse.
+ *  an AppCheckToken.
  *
  *  Method: firebaseappcheck.projects.apps.exchangeRecaptchaToken
  *
@@ -885,12 +877,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *app;
 
 /**
- *  Fetches a @c
- *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAttestationTokenResponse.
+ *  Fetches a @c GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken.
  *
  *  Validates a [reCAPTCHA v3 response
  *  token](https://developers.google.com/recaptcha/docs/v3). If valid, returns
- *  an App Check token encapsulated in an AttestationTokenResponse.
+ *  an AppCheckToken.
  *
  *  @param object The @c
  *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaTokenRequest
@@ -909,10 +900,54 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Validates a [reCAPTCHA v3 response
+ *  token](https://developers.google.com/recaptcha/docs/v3). If valid, returns
+ *  an AppCheckToken.
+ *
+ *  Method: firebaseappcheck.projects.apps.exchangeRecaptchaV3Token
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseappcheckFirebase
+ */
+@interface GTLRFirebaseappcheckQuery_ProjectsAppsExchangeRecaptchaV3Token : GTLRFirebaseappcheckQuery
+
+/**
+ *  Required. The relative resource name of the web app, in the format: ```
+ *  projects/{project_number}/apps/{app_id} ``` If necessary, the
+ *  `project_number` element can be replaced with the project ID of the Firebase
+ *  project. Learn more about using project identifiers in Google's [AIP
+ *  2510](https://google.aip.dev/cloud/2510) standard.
+ */
+@property(nonatomic, copy, nullable) NSString *app;
+
+/**
+ *  Fetches a @c GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken.
+ *
+ *  Validates a [reCAPTCHA v3 response
+ *  token](https://developers.google.com/recaptcha/docs/v3). If valid, returns
+ *  an AppCheckToken.
+ *
+ *  @param object The @c
+ *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaV3TokenRequest
+ *    to include in the query.
+ *  @param app Required. The relative resource name of the web app, in the
+ *    format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the
+ *    `project_number` element can be replaced with the project ID of the
+ *    Firebase project. Learn more about using project identifiers in Google's
+ *    [AIP 2510](https://google.aip.dev/cloud/2510) standard.
+ *
+ *  @return GTLRFirebaseappcheckQuery_ProjectsAppsExchangeRecaptchaV3Token
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaV3TokenRequest *)object
+                            app:(NSString *)app;
+
+@end
+
+/**
  *  Validates a [SafetyNet
  *  token](https://developer.android.com/training/safetynet/attestation#request-attestation-step).
- *  If valid, returns an App Check token encapsulated in an
- *  AttestationTokenResponse.
+ *  If valid, returns an AppCheckToken.
  *
  *  Method: firebaseappcheck.projects.apps.exchangeSafetyNetToken
  *
@@ -932,13 +967,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *app;
 
 /**
- *  Fetches a @c
- *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAttestationTokenResponse.
+ *  Fetches a @c GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken.
  *
  *  Validates a [SafetyNet
  *  token](https://developer.android.com/training/safetynet/attestation#request-attestation-step).
- *  If valid, returns an App Check token encapsulated in an
- *  AttestationTokenResponse.
+ *  If valid, returns an AppCheckToken.
  *
  *  @param object The @c
  *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeSafetyNetTokenRequest
@@ -981,7 +1014,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppAttestChallengeResponse.
+ *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeResponse.
  *
  *  Generates a challenge that protects the integrity of an immediately
  *  following call to ExchangeAppAttestAttestation or

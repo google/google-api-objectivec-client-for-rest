@@ -325,6 +325,79 @@
 
 @end
 
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsProvisioningConfigsCreate
+
+@dynamic email, parent;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_ProvisioningConfig *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/provisioningConfigs";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsProvisioningConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBareMetalSolution_ProvisioningConfig class];
+  query.loggingName = @"baremetalsolution.projects.locations.provisioningConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsProvisioningConfigsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsProvisioningConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_ProvisioningConfig class];
+  query.loggingName = @"baremetalsolution.projects.locations.provisioningConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsProvisioningConfigsPatch
+
+@dynamic email, name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_ProvisioningConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsProvisioningConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_ProvisioningConfig class];
+  query.loggingName = @"baremetalsolution.projects.locations.provisioningConfigs.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRBareMetalSolutionQuery_ProjectsLocationsProvisioningConfigsSubmit
 
 @dynamic parent;

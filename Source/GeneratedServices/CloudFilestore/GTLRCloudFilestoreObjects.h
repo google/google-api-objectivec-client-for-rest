@@ -1348,7 +1348,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 @property(nonatomic, copy, nullable) NSString *statusMessage;
 
 /**
- *  Output only. field indicates all the reasons the instance is in "SUSPENDED"
+ *  Output only. Field indicates all the reasons the instance is in "SUSPENDED"
  *  state.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suspensionReasons;

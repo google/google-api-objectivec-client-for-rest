@@ -86,6 +86,7 @@
 @class GTLRCompute_MachineImage;
 @class GTLRCompute_Metadata;
 @class GTLRCompute_Network;
+@class GTLRCompute_NetworkEdgeSecurityService;
 @class GTLRCompute_NetworkEndpointGroup;
 @class GTLRCompute_NetworkEndpointGroupsAttachEndpointsRequest;
 @class GTLRCompute_NetworkEndpointGroupsDetachEndpointsRequest;
@@ -12083,7 +12084,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Performs a reset on the instance. This is a hard reset the VM does not do a
+ *  Performs a reset on the instance. This is a hard reset. The VM does not do a
  *  graceful shutdown. For more information, see Resetting an instance.
  *
  *  Method: compute.instances.reset
@@ -12123,7 +12124,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Performs a reset on the instance. This is a hard reset the VM does not do a
+ *  Performs a reset on the instance. This is a hard reset. The VM does not do a
  *  graceful shutdown. For more information, see Resetting an instance.
  *
  *  @param project Project ID for this request.
@@ -15791,6 +15792,311 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
+ *  Retrieves the list of all NetworkEdgeSecurityService resources available to
+ *  the specified project.
+ *
+ *  Method: compute.networkEdgeSecurityServices.aggregatedList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NetworkEdgeSecurityServicesAggregatedList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named `example-instance` by specifying `name != example-instance`.
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Name of the project scoping this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_NetworkEdgeSecurityServiceAggregatedList.
+ *
+ *  Retrieves the list of all NetworkEdgeSecurityService resources available to
+ *  the specified project.
+ *
+ *  @param project Name of the project scoping this request.
+ *
+ *  @return GTLRComputeQuery_NetworkEdgeSecurityServicesAggregatedList
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Deletes the specified service.
+ *
+ *  Method: compute.networkEdgeSecurityServices.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworkEdgeSecurityServicesDelete : GTLRComputeQuery
+
+/** Name of the network edge security service to delete. */
+@property(nonatomic, copy, nullable) NSString *networkEdgeSecurityService;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified service.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param networkEdgeSecurityService Name of the network edge security service
+ *    to delete.
+ *
+ *  @return GTLRComputeQuery_NetworkEdgeSecurityServicesDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+      networkEdgeSecurityService:(NSString *)networkEdgeSecurityService;
+
+@end
+
+/**
+ *  Gets a specified NetworkEdgeSecurityService.
+ *
+ *  Method: compute.networkEdgeSecurityServices.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NetworkEdgeSecurityServicesGet : GTLRComputeQuery
+
+/** Name of the network edge security service to get. */
+@property(nonatomic, copy, nullable) NSString *networkEdgeSecurityService;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_NetworkEdgeSecurityService.
+ *
+ *  Gets a specified NetworkEdgeSecurityService.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param networkEdgeSecurityService Name of the network edge security service
+ *    to get.
+ *
+ *  @return GTLRComputeQuery_NetworkEdgeSecurityServicesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+      networkEdgeSecurityService:(NSString *)networkEdgeSecurityService;
+
+@end
+
+/**
+ *  Creates a new service in the specified project using the data included in
+ *  the request.
+ *
+ *  Method: compute.networkEdgeSecurityServices.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworkEdgeSecurityServicesInsert : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** If true, the request will not be committed. */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a new service in the specified project using the data included in
+ *  the request.
+ *
+ *  @param object The @c GTLRCompute_NetworkEdgeSecurityService to include in
+ *    the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *
+ *  @return GTLRComputeQuery_NetworkEdgeSecurityServicesInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_NetworkEdgeSecurityService *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  Patches the specified policy with the data included in the request.
+ *
+ *  Method: compute.networkEdgeSecurityServices.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworkEdgeSecurityServicesPatch : GTLRComputeQuery
+
+/** Name of the network edge security service to update. */
+@property(nonatomic, copy, nullable) NSString *networkEdgeSecurityService;
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Indicates fields to be updated as part of this request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified policy with the data included in the request.
+ *
+ *  @param object The @c GTLRCompute_NetworkEdgeSecurityService to include in
+ *    the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param networkEdgeSecurityService Name of the network edge security service
+ *    to update.
+ *
+ *  @return GTLRComputeQuery_NetworkEdgeSecurityServicesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_NetworkEdgeSecurityService *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+     networkEdgeSecurityService:(NSString *)networkEdgeSecurityService;
 
 @end
 
@@ -26846,6 +27152,295 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Deletes the specified policy.
+ *
+ *  Method: compute.regionSecurityPolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionSecurityPoliciesDelete : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the security policy to delete. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified policy.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param securityPolicy Name of the security policy to delete.
+ *
+ *  @return GTLRComputeQuery_RegionSecurityPoliciesDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  securityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
+ *  List all of the ordered rules present in a single specified policy.
+ *
+ *  Method: compute.regionSecurityPolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionSecurityPoliciesGet : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name of the security policy to get. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_SecurityPolicy.
+ *
+ *  List all of the ordered rules present in a single specified policy.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param securityPolicy Name of the security policy to get.
+ *
+ *  @return GTLRComputeQuery_RegionSecurityPoliciesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  securityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
+ *  Creates a new policy in the specified project using the data included in the
+ *  request.
+ *
+ *  Method: compute.regionSecurityPolicies.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionSecurityPoliciesInsert : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** If true, the request will not be committed. */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a new policy in the specified project using the data included in the
+ *  request.
+ *
+ *  @param object The @c GTLRCompute_SecurityPolicy to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *
+ *  @return GTLRComputeQuery_RegionSecurityPoliciesInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicy *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  List all the policies that have been configured for the specified project
+ *  and region.
+ *
+ *  Method: compute.regionSecurityPolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionSecurityPoliciesList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named `example-instance` by specifying `name != example-instance`.
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_SecurityPolicyList.
+ *
+ *  List all the policies that have been configured for the specified project
+ *  and region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *
+ *  @return GTLRComputeQuery_RegionSecurityPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
+
+@end
+
+/**
+ *  Patches the specified policy with the data included in the request.
+ *
+ *  Method: compute.regionSecurityPolicies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionSecurityPoliciesPatch : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the security policy to update. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified policy with the data included in the request.
+ *
+ *  @param object The @c GTLRCompute_SecurityPolicy to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param securityPolicy Name of the security policy to update.
+ *
+ *  @return GTLRComputeQuery_RegionSecurityPoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicy *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                 securityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
  *  Returns the specified Region resource. Gets a list of available regions by
  *  making a list() request. To decrease latency for this method, you can
  *  optionally omit any unneeded information from the response by using a field
@@ -27753,6 +28348,62 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region;
+
+@end
+
+/**
+ *  Patches the specified regional TargetHttpsProxy resource with the data
+ *  included in the request. This method supports PATCH semantics and uses JSON
+ *  merge patch format and processing rules.
+ *
+ *  Method: compute.regionTargetHttpsProxies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionTargetHttpsProxiesPatch : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the TargetHttpsProxy resource to patch. */
+@property(nonatomic, copy, nullable) NSString *targetHttpsProxy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified regional TargetHttpsProxy resource with the data
+ *  included in the request. This method supports PATCH semantics and uses JSON
+ *  merge patch format and processing rules.
+ *
+ *  @param object The @c GTLRCompute_TargetHttpsProxy to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param targetHttpsProxy Name of the TargetHttpsProxy resource to patch.
+ *
+ *  @return GTLRComputeQuery_RegionTargetHttpsProxiesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TargetHttpsProxy *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+               targetHttpsProxy:(NSString *)targetHttpsProxy;
 
 @end
 
@@ -30162,6 +30813,105 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 + (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyRule *)object
                         project:(NSString *)project
                  securityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
+ *  Retrieves the list of all SecurityPolicy resources, regional and global,
+ *  available to the specified project.
+ *
+ *  Method: compute.securityPolicies.aggregatedList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_SecurityPoliciesAggregatedList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named `example-instance` by specifying `name != example-instance`.
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Name of the project scoping this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_SecurityPoliciesAggregatedList.
+ *
+ *  Retrieves the list of all SecurityPolicy resources, regional and global,
+ *  available to the specified project.
+ *
+ *  @param project Name of the project scoping this request.
+ *
+ *  @return GTLRComputeQuery_SecurityPoliciesAggregatedList
+ */
++ (instancetype)queryWithProject:(NSString *)project;
 
 @end
 

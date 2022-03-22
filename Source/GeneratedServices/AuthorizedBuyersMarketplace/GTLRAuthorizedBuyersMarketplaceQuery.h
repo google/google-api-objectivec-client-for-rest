@@ -4,8 +4,8 @@
 // API:
 //   Authorized Buyers Marketplace API (authorizedbuyersmarketplace/v1)
 // Description:
-//   The Authorized Buyers Marketplace API allows buyers programmatically
-//   discover inventory; propose, retrieve and negotiate deals with publishers.
+//   The Authorized Buyers Marketplace API lets buyers programmatically discover
+//   inventory; propose, retrieve and negotiate deals with publishers.
 // Documentation:
 //   https://developers.google.com/authorized-buyers/apis/marketplace/reference/rest/
 
@@ -561,9 +561,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  update all fields populated in the update request excluding the output only
  *  fields and primitive fields with default value. Note that explicit field
  *  mask is required in order to reset a primitive field back to its default
- *  value, e.g. false for boolean fields, 0 for integer fields. A special field
- *  mask consisting of a single path "*" can be used to indicate full
- *  replacement(the equivalent of PUT method), updatable fields unset or
+ *  value, for example, false for boolean fields, 0 for integer fields. A
+ *  special field mask consisting of a single path "*" can be used to indicate
+ *  full replacement(the equivalent of PUT method), updatable fields unset or
  *  unspecified in the input will be cleared or set to default value. Output
  *  only fields will be ignored regardless of the value of updateMask.
  *
@@ -1322,8 +1322,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Note: The revision number is kept at a proposal level. The buyer of the API
  *  is expected to keep track of the revision number after the last update
  *  operation and send it in as part of the next update request. This way, if
- *  there are further changes on the server (e.g., seller making new updates),
- *  then the server can detect conflicts and reject the proposed changes.
+ *  there are further changes on the server (for example, seller making new
+ *  updates), then the server can detect conflicts and reject the proposed
+ *  changes.
  *
  *  Method: authorizedbuyersmarketplace.buyers.proposals.deals.patch
  *
@@ -1344,9 +1345,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  update all fields populated in the update request excluding the output only
  *  fields and primitive fields with default value. Note that explicit field
  *  mask is required in order to reset a primitive field back to its default
- *  value, e.g. false for boolean fields, 0 for integer fields. A special field
- *  mask consisting of a single path "*" can be used to indicate full
- *  replacement(the equivalent of PUT method), updatable fields unset or
+ *  value, for example, false for boolean fields, 0 for integer fields. A
+ *  special field mask consisting of a single path "*" can be used to indicate
+ *  full replacement(the equivalent of PUT method), updatable fields unset or
  *  unspecified in the input will be cleared or set to default value. Output
  *  only fields will be ignored regardless of the value of updateMask.
  *
@@ -1364,8 +1365,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Note: The revision number is kept at a proposal level. The buyer of the API
  *  is expected to keep track of the revision number after the last update
  *  operation and send it in as part of the next update request. This way, if
- *  there are further changes on the server (e.g., seller making new updates),
- *  then the server can detect conflicts and reject the proposed changes.
+ *  there are further changes on the server (for example, seller making new
+ *  updates), then the server can detect conflicts and reject the proposed
+ *  changes.
  *
  *  @param object The @c GTLRAuthorizedBuyersMarketplace_Deal to include in the
  *    query.
@@ -1497,9 +1499,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  update all fields populated in the update request excluding the output only
  *  fields and primitive fields with default value. Note that explicit field
  *  mask is required in order to reset a primitive field back to its default
- *  value, e.g. false for boolean fields, 0 for integer fields. A special field
- *  mask consisting of a single path "*" can be used to indicate full
- *  replacement(the equivalent of PUT method), updatable fields unset or
+ *  value, for example, false for boolean fields, 0 for integer fields. A
+ *  special field mask consisting of a single path "*" can be used to indicate
+ *  full replacement(the equivalent of PUT method), updatable fields unset or
  *  unspecified in the input will be cleared or set to default value. Output
  *  only fields will be ignored regardless of the value of updateMask.
  *

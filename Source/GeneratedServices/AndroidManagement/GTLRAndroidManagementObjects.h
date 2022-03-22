@@ -376,6 +376,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_Event
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Unpinned;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApplicationPolicy.alwaysOnVpnLockdownExemption
+
+/**
+ *  Unspecified. Defaults to VPN_LOCKDOWN_ENFORCED.
+ *
+ *  Value: "ALWAYS_ON_VPN_LOCKDOWN_EXEMPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_AlwaysOnVpnLockdownExemption_AlwaysOnVpnLockdownExemptionUnspecified;
+/**
+ *  The app respects the always-on VPN lockdown setting.
+ *
+ *  Value: "VPN_LOCKDOWN_ENFORCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_AlwaysOnVpnLockdownExemption_VpnLockdownEnforced;
+/**
+ *  The app is exempt from the always-on VPN lockdown setting.
+ *
+ *  Value: "VPN_LOCKDOWN_EXEMPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_AlwaysOnVpnLockdownExemption_VpnLockdownExemption;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ApplicationPolicy.autoUpdateMode
 
 /**
@@ -1745,28 +1767,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_R
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_RequirePasswordUnlock_UseDefaultDeviceTimeout;
 
 // ----------------------------------------------------------------------------
-// GTLRAndroidManagement_PasswordRequirements.unifiedLockSettings
-
-/**
- *  A common lock for the device and the work profile is allowed.
- *
- *  Value: "ALLOW_UNIFIED_WORK_AND_PERSONAL_LOCK"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_UnifiedLockSettings_AllowUnifiedWorkAndPersonalLock;
-/**
- *  A separate lock for the work profile is required.
- *
- *  Value: "REQUIRE_SEPARATE_WORK_LOCK"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_UnifiedLockSettings_RequireSeparateWorkLock;
-/**
- *  Unspecified. Defaults to ALLOW_UNIFIED_WORK_AND_PERSONAL_LOCK.
- *
- *  Value: "UNIFIED_LOCK_SETTINGS_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_UnifiedLockSettings_UnifiedLockSettingsUnspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_PermissionGrant.policy
 
 /**
@@ -2914,6 +2914,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accessibleTrackIds;
 
 /**
+ *  Specifies whether the app is allowed networking when the VPN is not
+ *  connected and alwaysOnVpnPackage.lockdownEnabled is enabled. If set to
+ *  VPN_LOCKDOWN_ENFORCED, the app is not allowed networking, and if set to
+ *  VPN_LOCKDOWN_EXEMPTION, the app is allowed networking. Only supported on
+ *  devices running Android 10 and above. If this is not supported by the
+ *  device, the device will contain a NonComplianceDetail with
+ *  non_compliance_reason set to API_LEVEL and a fieldPath. If this is not
+ *  applicable to the app, the device will contain a NonComplianceDetail with
+ *  non_compliance_reason set to UNSUPPORTED and a fieldPath. The fieldPath is
+ *  set to applications[i].alwaysOnVpnLockdownExemption, where i is the index of
+ *  the package in the applications policy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AlwaysOnVpnLockdownExemption_AlwaysOnVpnLockdownExemptionUnspecified
+ *        Unspecified. Defaults to VPN_LOCKDOWN_ENFORCED. (Value:
+ *        "ALWAYS_ON_VPN_LOCKDOWN_EXEMPTION_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AlwaysOnVpnLockdownExemption_VpnLockdownEnforced
+ *        The app respects the always-on VPN lockdown setting. (Value:
+ *        "VPN_LOCKDOWN_ENFORCED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AlwaysOnVpnLockdownExemption_VpnLockdownExemption
+ *        The app is exempt from the always-on VPN lockdown setting. (Value:
+ *        "VPN_LOCKDOWN_EXEMPTION")
+ */
+@property(nonatomic, copy, nullable) NSString *alwaysOnVpnLockdownExemption;
+
+/**
  *  Controls the auto-update mode for the app.
  *
  *  Likely values:
@@ -3616,11 +3642,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  Represents a whole or partial calendar date, such as a birthday. The time of
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
- *  following: A full date, with non-zero year, month, and day values A month
- *  and day, with a zero year (e.g., an anniversary) A year on its own, with a
- *  zero month and a zero day A year and month, with a zero day (e.g., a credit
- *  card expiration date)Related types: * google.type.TimeOfDay *
- *  google.type.DateTime * google.protobuf.Timestamp
+ *  following: A full date, with non-zero year, month, and day values. A month
+ *  and day, with a zero year (for example, an anniversary). A year on its own,
+ *  with a zero month and a zero day. A year and month, with a zero day (for
+ *  example, a credit card expiration date).Related types: google.type.TimeOfDay
+ *  google.type.DateTime google.protobuf.Timestamp
  */
 @interface GTLRAndroidManagement_Date : GTLRObject
 
@@ -5456,28 +5482,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  */
 @property(nonatomic, copy, nullable) NSString *requirePasswordUnlock;
 
-/**
- *  Controls whether a unified lock is allowed for the device and the work
- *  profile, on devices running Android 9 and above with a work profile. This
- *  has no effect on other devices. This can be set only if password_scope is
- *  set to SCOPE_PROFILE, the policy will be rejected otherwise. If user has not
- *  set a separate work lock and this field is set to
- *  REQUIRE_SEPARATE_WORK_LOCK, a NonComplianceDetail is reported with
- *  nonComplianceReason set to USER_ACTION.
- *
- *  Likely values:
- *    @arg @c kGTLRAndroidManagement_PasswordRequirements_UnifiedLockSettings_AllowUnifiedWorkAndPersonalLock
- *        A common lock for the device and the work profile is allowed. (Value:
- *        "ALLOW_UNIFIED_WORK_AND_PERSONAL_LOCK")
- *    @arg @c kGTLRAndroidManagement_PasswordRequirements_UnifiedLockSettings_RequireSeparateWorkLock
- *        A separate lock for the work profile is required. (Value:
- *        "REQUIRE_SEPARATE_WORK_LOCK")
- *    @arg @c kGTLRAndroidManagement_PasswordRequirements_UnifiedLockSettings_UnifiedLockSettingsUnspecified
- *        Unspecified. Defaults to ALLOW_UNIFIED_WORK_AND_PERSONAL_LOCK. (Value:
- *        "UNIFIED_LOCK_SETTINGS_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *unifiedLockSettings;
-
 @end
 
 
@@ -6126,7 +6130,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  password_requirements.require_password_unlock must not be set. DEPRECATED -
  *  Use passwordPolicies.Note:Complexity-based values of PasswordQuality, that
  *  is, COMPLEXITY_LOW, COMPLEXITY_MEDIUM, and COMPLEXITY_HIGH, cannot be used
- *  here. unified_lock_settings cannot be used here
+ *  here.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_PasswordRequirements *passwordRequirements;
 

@@ -599,7 +599,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsPageViewsRpm;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsPageViewsSpamRatio;
 /**
- *  Total earnings.
+ *  Total earnings are the gross estimated earnings from revenue shared traffic
+ *  before any parent and child account revenue share is applied.
  *
  *  Value: "TOTAL_EARNINGS"
  */
@@ -1592,8 +1593,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *        "COST_PER_CLICK")
  *    @arg @c kGTLRAdsenseMetricsAdsPerImpression Number of ad views per
  *        impression. (Value: "ADS_PER_IMPRESSION")
- *    @arg @c kGTLRAdsenseMetricsTotalEarnings Total earnings. (Value:
- *        "TOTAL_EARNINGS")
+ *    @arg @c kGTLRAdsenseMetricsTotalEarnings Total earnings are the gross
+ *        estimated earnings from revenue shared traffic before any parent and
+ *        child account revenue share is applied. (Value: "TOTAL_EARNINGS")
  *    @arg @c kGTLRAdsenseMetricsWebsearchResultPages Number of results pages.
  *        (Value: "WEBSEARCH_RESULT_PAGES")
  */
@@ -1974,8 +1976,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *        "COST_PER_CLICK")
  *    @arg @c kGTLRAdsenseMetricsAdsPerImpression Number of ad views per
  *        impression. (Value: "ADS_PER_IMPRESSION")
- *    @arg @c kGTLRAdsenseMetricsTotalEarnings Total earnings. (Value:
- *        "TOTAL_EARNINGS")
+ *    @arg @c kGTLRAdsenseMetricsTotalEarnings Total earnings are the gross
+ *        estimated earnings from revenue shared traffic before any parent and
+ *        child account revenue share is applied. (Value: "TOTAL_EARNINGS")
  *    @arg @c kGTLRAdsenseMetricsWebsearchResultPages Number of results pages.
  *        (Value: "WEBSEARCH_RESULT_PAGES")
  */

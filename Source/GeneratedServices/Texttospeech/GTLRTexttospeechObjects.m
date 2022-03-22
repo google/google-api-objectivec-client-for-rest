@@ -22,6 +22,11 @@ NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Mp3 = @"MP3";
 NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Mulaw = @"MULAW";
 NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_OggOpus = @"OGG_OPUS";
 
+// GTLRTexttospeech_CustomVoiceParams.reportedUsage
+NSString * const kGTLRTexttospeech_CustomVoiceParams_ReportedUsage_Offline = @"OFFLINE";
+NSString * const kGTLRTexttospeech_CustomVoiceParams_ReportedUsage_Realtime = @"REALTIME";
+NSString * const kGTLRTexttospeech_CustomVoiceParams_ReportedUsage_ReportedUsageUnspecified = @"REPORTED_USAGE_UNSPECIFIED";
+
 // GTLRTexttospeech_Voice.ssmlGender
 NSString * const kGTLRTexttospeech_Voice_SsmlGender_Female     = @"FEMALE";
 NSString * const kGTLRTexttospeech_Voice_SsmlGender_Male       = @"MALE";
@@ -50,6 +55,16 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTexttospeech_CustomVoiceParams
+//
+
+@implementation GTLRTexttospeech_CustomVoiceParams
+@dynamic model, reportedUsage;
 @end
 
 
@@ -125,5 +140,5 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 //
 
 @implementation GTLRTexttospeech_VoiceSelectionParams
-@dynamic languageCode, name, ssmlGender;
+@dynamic customVoice, languageCode, name, ssmlGender;
 @end

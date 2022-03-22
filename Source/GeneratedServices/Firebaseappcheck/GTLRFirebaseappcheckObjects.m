@@ -21,21 +21,21 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppAttestChallengeResponse
-//
-
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppAttestChallengeResponse
-@dynamic challenge, ttl;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppAttestConfig
 //
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppAttestConfig
 @dynamic name, tokenTtl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken
+@dynamic attestationToken, token, ttl;
 @end
 
 
@@ -221,7 +221,7 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 //
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationResponse
-@dynamic artifact, attestationToken;
+@dynamic appCheckToken, artifact, attestationToken;
 @end
 
 
@@ -277,6 +277,16 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaV3TokenRequest
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaV3TokenRequest
+@dynamic recaptchaV3Token;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeSafetyNetTokenRequest
 //
 
@@ -291,6 +301,16 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 //
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeResponse
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeResponse
+@dynamic challenge, ttl;
 @end
 
 

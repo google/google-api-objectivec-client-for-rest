@@ -225,6 +225,36 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *  method to poll the operation result at intervals as recommended by the API
  *  service.
  *
+ *  Method: iam.locations.workforcePools.providers.keys.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_LocationsWorkforcePoolsProvidersKeysOperationsGet : GTLRIamQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRIamQuery_LocationsWorkforcePoolsProvidersKeysOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
  *  Method: iam.locations.workforcePools.providers.operations.get
  *
  *  Authorization scope(s):

@@ -70,6 +70,11 @@ NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Replaced = @"
 NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Restarted = @"RESTARTED";
 NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Unpinned = @"UNPINNED";
 
+// GTLRAndroidManagement_ApplicationPolicy.alwaysOnVpnLockdownExemption
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_AlwaysOnVpnLockdownExemption_AlwaysOnVpnLockdownExemptionUnspecified = @"ALWAYS_ON_VPN_LOCKDOWN_EXEMPTION_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_AlwaysOnVpnLockdownExemption_VpnLockdownEnforced = @"VPN_LOCKDOWN_ENFORCED";
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_AlwaysOnVpnLockdownExemption_VpnLockdownExemption = @"VPN_LOCKDOWN_EXEMPTION";
+
 // GTLRAndroidManagement_ApplicationPolicy.autoUpdateMode
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateDefault = @"AUTO_UPDATE_DEFAULT";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateHighPriority = @"AUTO_UPDATE_HIGH_PRIORITY";
@@ -328,11 +333,6 @@ NSString * const kGTLRAndroidManagement_PasswordRequirements_RequirePasswordUnlo
 NSString * const kGTLRAndroidManagement_PasswordRequirements_RequirePasswordUnlock_RequirePasswordUnlockUnspecified = @"REQUIRE_PASSWORD_UNLOCK_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_PasswordRequirements_RequirePasswordUnlock_UseDefaultDeviceTimeout = @"USE_DEFAULT_DEVICE_TIMEOUT";
 
-// GTLRAndroidManagement_PasswordRequirements.unifiedLockSettings
-NSString * const kGTLRAndroidManagement_PasswordRequirements_UnifiedLockSettings_AllowUnifiedWorkAndPersonalLock = @"ALLOW_UNIFIED_WORK_AND_PERSONAL_LOCK";
-NSString * const kGTLRAndroidManagement_PasswordRequirements_UnifiedLockSettings_RequireSeparateWorkLock = @"REQUIRE_SEPARATE_WORK_LOCK";
-NSString * const kGTLRAndroidManagement_PasswordRequirements_UnifiedLockSettings_UnifiedLockSettingsUnspecified = @"UNIFIED_LOCK_SETTINGS_UNSPECIFIED";
-
 // GTLRAndroidManagement_PermissionGrant.policy
 NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_Deny = @"DENY";
 NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_Grant = @"GRANT";
@@ -589,11 +589,11 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_ApplicationPolicy
-@dynamic accessibleTrackIds, autoUpdateMode, connectedWorkAndPersonalApp,
-         defaultPermissionPolicy, delegatedScopes, disabled, extensionConfig,
-         installType, lockTaskAllowed, managedConfiguration,
-         managedConfigurationTemplate, minimumVersionCode, packageName,
-         permissionGrants;
+@dynamic accessibleTrackIds, alwaysOnVpnLockdownExemption, autoUpdateMode,
+         connectedWorkAndPersonalApp, defaultPermissionPolicy, delegatedScopes,
+         disabled, extensionConfig, installType, lockTaskAllowed,
+         managedConfiguration, managedConfigurationTemplate, minimumVersionCode,
+         packageName, permissionGrants;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1362,7 +1362,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          passwordMinimumLowerCase, passwordMinimumNonLetter,
          passwordMinimumNumeric, passwordMinimumSymbols,
          passwordMinimumUpperCase, passwordQuality, passwordScope,
-         requirePasswordUnlock, unifiedLockSettings;
+         requirePasswordUnlock;
 @end
 
 

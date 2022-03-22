@@ -25,6 +25,7 @@
 @class GTLRSpanner_BatchCreateSessionsRequest;
 @class GTLRSpanner_BeginTransactionRequest;
 @class GTLRSpanner_CommitRequest;
+@class GTLRSpanner_CopyBackupRequest;
 @class GTLRSpanner_CreateDatabaseRequest;
 @class GTLRSpanner_CreateInstanceRequest;
 @class GTLRSpanner_CreateSessionRequest;
@@ -247,7 +248,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  \\"2018-03-28T14:50:00Z\\") AND` \\ `(error:*)` - Returns operations where:
  *  * The operation's metadata type is CreateBackupMetadata. * The backup name
  *  contains the string "howl". * The operation started before
- *  2018-03-28T14:50:00Z. * The operation resulted in an error.
+ *  2018-03-28T14:50:00Z. * The operation resulted in an error. *
+ *  `(metadata.\@type=type.googleapis.com/google.spanner.admin.database.v1.CopyBackupMetadata)
+ *  AND` \\ `(metadata.source_backup:test) AND` \\
+ *  `(metadata.progress.start_time < \\"2022-01-18T14:50:00Z\\") AND` \\
+ *  `(error:*)` - Returns operations where: * The operation's metadata type is
+ *  CopyBackupMetadata. * The source backup of the copied backup name contains
+ *  the string "test". * The operation started before 2022-01-18T14:50:00Z. *
+ *  The operation resulted in an error. *
+ *  `((metadata.\@type=type.googleapis.com/google.spanner.admin.database.v1.CreateBackupMetadata)
+ *  AND` \\ `(metadata.database:test_db)) OR` \\
+ *  `((metadata.\@type=type.googleapis.com/google.spanner.admin.database.v1.CopyBackupMetadata)
+ *  AND` \\ `(metadata.source_backup:test_bkp)) AND` \\ `(error:*)` - Returns
+ *  operations where: * The operation's metadata matches either of criteria: *
+ *  The operation's metadata type is CreateBackupMetadata AND the database the
+ *  backup was taken from has name containing string "test_db" * The operation's
+ *  metadata type is CopyBackupMetadata AND the backup the backup was copied
+ *  from has name containing string "test_bkp" * The operation resulted in an
+ *  error.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -292,6 +310,53 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Starts copying a Cloud Spanner Backup. The returned backup long-running
+ *  operation will have a name of the format
+ *  `projects//instances//backups//operations/` and can be used to track copying
+ *  of the backup. The operation is associated with the destination backup. The
+ *  metadata field type is CopyBackupMetadata. The response field type is
+ *  Backup, if successful. Cancelling the returned operation will stop the
+ *  copying and delete the backup. Concurrent CopyBackup requests can run on the
+ *  same source backup.
+ *
+ *  Method: spanner.projects.instances.backups.copy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesBackupsCopy : GTLRSpannerQuery
+
+/**
+ *  Required. The name of the destination instance that will contain the backup
+ *  copy. Values are of the form: `projects//instances/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSpanner_Operation.
+ *
+ *  Starts copying a Cloud Spanner Backup. The returned backup long-running
+ *  operation will have a name of the format
+ *  `projects//instances//backups//operations/` and can be used to track copying
+ *  of the backup. The operation is associated with the destination backup. The
+ *  metadata field type is CopyBackupMetadata. The response field type is
+ *  Backup, if successful. Cancelling the returned operation will stop the
+ *  copying and delete the backup. Concurrent CopyBackup requests can run on the
+ *  same source backup.
+ *
+ *  @param object The @c GTLRSpanner_CopyBackupRequest to include in the query.
+ *  @param parent Required. The name of the destination instance that will
+ *    contain the backup copy. Values are of the form: `projects//instances/`.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesBackupsCopy
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_CopyBackupRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

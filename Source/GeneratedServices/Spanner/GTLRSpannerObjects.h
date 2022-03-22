@@ -27,6 +27,7 @@
 @class GTLRSpanner_ChildLink;
 @class GTLRSpanner_CommitStats;
 @class GTLRSpanner_ContextValue;
+@class GTLRSpanner_CopyBackupEncryptionConfig;
 @class GTLRSpanner_Database;
 @class GTLRSpanner_Delete;
 @class GTLRSpanner_DerivedMetric;
@@ -192,6 +193,38 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_ContextValue_Severity_SeverityUn
  *  Value: "WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_ContextValue_Severity_Warning;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_CopyBackupEncryptionConfig.encryptionType
+
+/**
+ *  Use customer managed encryption. If specified, `kms_key_name` must contain a
+ *  valid Cloud KMS key.
+ *
+ *  Value: "CUSTOMER_MANAGED_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_CopyBackupEncryptionConfig_EncryptionType_CustomerManagedEncryption;
+/**
+ *  Unspecified. Do not use.
+ *
+ *  Value: "ENCRYPTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_CopyBackupEncryptionConfig_EncryptionType_EncryptionTypeUnspecified;
+/**
+ *  Use Google default encryption.
+ *
+ *  Value: "GOOGLE_DEFAULT_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_CopyBackupEncryptionConfig_EncryptionType_GoogleDefaultEncryption;
+/**
+ *  This is the default option for CopyBackup when encryption_config is not
+ *  specified. For example, if the source backup is using
+ *  `Customer_Managed_Encryption`, the backup will be using the same Cloud KMS
+ *  key as the source backup.
+ *
+ *  Value: "USE_CONFIG_DEFAULT_OR_BACKUP_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_CopyBackupEncryptionConfig_EncryptionType_UseConfigDefaultOrBackupEncryption;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_CreateDatabaseRequest.databaseDialect
@@ -732,6 +765,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
 /**
+ *  Output only. The max allowed expiration time of the backup, with
+ *  microseconds granularity. A backup's expiration time can be configured in
+ *  multiple APIs: CreateBackup, UpdateBackup, CopyBackup. When updating or
+ *  copying an existing backup, the expiration time specified must be less than
+ *  `Backup.max_expire_time`.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *maxExpireTime;
+
+/**
  *  Output only for the CreateBackup operation. Required for the UpdateBackup
  *  operation. A globally unique identifier for the backup which cannot be
  *  changed. Values are of the form `projects//instances//backups/a-z*[a-z0-9]`
@@ -741,6 +783,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  prefix of the backup name of the form `projects//instances/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The names of the destination backups being created by copying
+ *  this source backup. The backup names are of the form
+ *  `projects//instances//backups/`. Referencing backups may exist in different
+ *  instances. The existence of any referencing backup prevents the backup from
+ *  being deleted. When the copy operation is done (either successfully
+ *  completed or cancelled or the destination backup is deleted), the reference
+ *  to the backup is removed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *referencingBackups;
 
 /**
  *  Output only. The names of the restored databases that reference the backup.
@@ -1067,6 +1120,117 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
+ *  Encryption configuration for the copied backup.
+ */
+@interface GTLRSpanner_CopyBackupEncryptionConfig : GTLRObject
+
+/**
+ *  Required. The encryption type of the backup.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_CopyBackupEncryptionConfig_EncryptionType_CustomerManagedEncryption
+ *        Use customer managed encryption. If specified, `kms_key_name` must
+ *        contain a valid Cloud KMS key. (Value: "CUSTOMER_MANAGED_ENCRYPTION")
+ *    @arg @c kGTLRSpanner_CopyBackupEncryptionConfig_EncryptionType_EncryptionTypeUnspecified
+ *        Unspecified. Do not use. (Value: "ENCRYPTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_CopyBackupEncryptionConfig_EncryptionType_GoogleDefaultEncryption
+ *        Use Google default encryption. (Value: "GOOGLE_DEFAULT_ENCRYPTION")
+ *    @arg @c kGTLRSpanner_CopyBackupEncryptionConfig_EncryptionType_UseConfigDefaultOrBackupEncryption
+ *        This is the default option for CopyBackup when encryption_config is
+ *        not specified. For example, if the source backup is using
+ *        `Customer_Managed_Encryption`, the backup will be using the same Cloud
+ *        KMS key as the source backup. (Value:
+ *        "USE_CONFIG_DEFAULT_OR_BACKUP_ENCRYPTION")
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionType;
+
+/**
+ *  Optional. The Cloud KMS key that will be used to protect the backup. This
+ *  field should be set only when encryption_type is
+ *  `CUSTOMER_MANAGED_ENCRYPTION`. Values are of the form
+ *  `projects//locations//keyRings//cryptoKeys/`.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+@end
+
+
+/**
+ *  Metadata type for the google.longrunning.Operation returned by CopyBackup.
+ */
+@interface GTLRSpanner_CopyBackupMetadata : GTLRObject
+
+/**
+ *  The time at which cancellation of CopyBackup operation was received.
+ *  Operations.CancelOperation starts asynchronous cancellation on a
+ *  long-running operation. The server makes a best effort to cancel the
+ *  operation, but success is not guaranteed. Clients can use
+ *  Operations.GetOperation or other methods to check whether the cancellation
+ *  succeeded or whether the operation completed despite cancellation. On
+ *  successful cancellation, the operation is not deleted; instead, it becomes
+ *  an operation with an Operation.error value with a google.rpc.Status.code of
+ *  1, corresponding to `Code.CANCELLED`.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *cancelTime;
+
+/**
+ *  The name of the backup being created through the copy operation. Values are
+ *  of the form `projects//instances//backups/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The progress of the CopyBackup operation. */
+@property(nonatomic, strong, nullable) GTLRSpanner_OperationProgress *progress;
+
+/**
+ *  The name of the source backup that is being copied. Values are of the form
+ *  `projects//instances//backups/`.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceBackup;
+
+@end
+
+
+/**
+ *  The request for CopyBackup.
+ */
+@interface GTLRSpanner_CopyBackupRequest : GTLRObject
+
+/**
+ *  Required. The id of the backup copy. The `backup_id` appended to `parent`
+ *  forms the full backup_uri of the form `projects//instances//backups/`.
+ */
+@property(nonatomic, copy, nullable) NSString *backupId;
+
+/**
+ *  Optional. The encryption configuration used to encrypt the backup. If this
+ *  field is not specified, the backup will use the same encryption
+ *  configuration as the source backup by default, namely encryption_type =
+ *  `USE_CONFIG_DEFAULT_OR_BACKUP_ENCRYPTION`.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_CopyBackupEncryptionConfig *encryptionConfig;
+
+/**
+ *  Required. The expiration time of the backup in microsecond granularity. The
+ *  expiration time must be at least 6 hours and at most 366 days from the
+ *  `create_time` of the source backup. Once the `expire_time` has passed, the
+ *  backup is eligible to be automatically deleted by Cloud Spanner to free the
+ *  resources used by the backup.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Required. The source backup to be copied. The source backup needs to be in
+ *  READY state for it to be copied. Once CopyBackup is in progress, the source
+ *  backup cannot be deleted or cleaned up on expiration until CopyBackup is
+ *  finished. Values are of the form: `projects//instances//backups/`.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceBackup;
 
 @end
 
@@ -1875,6 +2039,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  */
 @property(nonatomic, copy, nullable) NSString *config;
 
+/** Output only. The time at which the instance was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
 /**
  *  Required. The descriptive name for this instance as it appears in UIs. Must
  *  be unique per project and between 4 and 30 characters in length.
@@ -1949,6 +2116,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *        (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The time at which the instance was most recently updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 

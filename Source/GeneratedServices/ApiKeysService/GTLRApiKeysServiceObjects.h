@@ -30,6 +30,7 @@
 @class GTLRApiKeysService_V2BrowserKeyRestrictions;
 @class GTLRApiKeysService_V2IosKeyRestrictions;
 @class GTLRApiKeysService_V2Key;
+@class GTLRApiKeysService_V2Key_Annotations;
 @class GTLRApiKeysService_V2Restrictions;
 @class GTLRApiKeysService_V2ServerKeyRestrictions;
 
@@ -285,6 +286,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApiKeysService_V2Key : GTLRObject
 
 /**
+ *  Annotations is an unstructured key-value map stored with a policy that may
+ *  be set by external tools to store and retrieve arbitrary metadata. They are
+ *  not queryable and should be preserved when modifying objects.
+ */
+@property(nonatomic, strong, nullable) GTLRApiKeysService_V2Key_Annotations *annotations;
+
+/**
  *  Output only. A timestamp identifying the time this key was originally
  *  created.
  */
@@ -336,6 +344,20 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Annotations is an unstructured key-value map stored with a policy that may
+ *  be set by external tools to store and retrieve arbitrary metadata. They are
+ *  not queryable and should be preserved when modifying objects.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRApiKeysService_V2Key_Annotations : GTLRObject
 @end
 
 

@@ -8304,12 +8304,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  The collection of parameters extracted from the query. Depending on your
  *  protocol or client library language, this is a map, associative array,
  *  symbol table, dictionary, or JSON object composed of a collection of
- *  (MapKey, MapValue) pairs: - MapKey type: string - MapKey value: parameter
- *  name - MapValue type: - If parameter's entity type is a composite entity:
- *  map - Else: depending on parameter value type, could be one of string,
- *  number, boolean, null, list or map - MapValue value: - If parameter's entity
- *  type is a composite entity: map from composite entity property names to
- *  property values - Else: parameter value
+ *  (MapKey, MapValue) pairs: * MapKey type: string * MapKey value: parameter
+ *  name * MapValue type: If parameter's entity type is a composite entity then
+ *  use map, otherwise, depending on the parameter value type, it could be one
+ *  of string, number, boolean, null, list or map. * MapValue value: If
+ *  parameter's entity type is a composite entity then use map from composite
+ *  entity property names to property values, otherwise, use parameter value.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3Match_Parameters *parameters;
 
@@ -8327,12 +8327,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  The collection of parameters extracted from the query. Depending on your
  *  protocol or client library language, this is a map, associative array,
  *  symbol table, dictionary, or JSON object composed of a collection of
- *  (MapKey, MapValue) pairs: - MapKey type: string - MapKey value: parameter
- *  name - MapValue type: - If parameter's entity type is a composite entity:
- *  map - Else: depending on parameter value type, could be one of string,
- *  number, boolean, null, list or map - MapValue value: - If parameter's entity
- *  type is a composite entity: map from composite entity property names to
- *  property values - Else: parameter value
+ *  (MapKey, MapValue) pairs: * MapKey type: string * MapKey value: parameter
+ *  name * MapValue type: If parameter's entity type is a composite entity then
+ *  use map, otherwise, depending on the parameter value type, it could be one
+ *  of string, number, boolean, null, list or map. * MapValue value: If
+ *  parameter's entity type is a composite entity then use map from composite
+ *  entity property names to property values, otherwise, use parameter value.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -8758,12 +8758,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  the following format: $session.params.parameter-id. Depending on your
  *  protocol or client library language, this is a map, associative array,
  *  symbol table, dictionary, or JSON object composed of a collection of
- *  (MapKey, MapValue) pairs: - MapKey type: string - MapKey value: parameter
- *  name - MapValue type: - If parameter's entity type is a composite entity:
- *  map - Else: depending on parameter value type, could be one of string,
- *  number, boolean, null, list or map - MapValue value: - If parameter's entity
- *  type is a composite entity: map from composite entity property names to
- *  property values - Else: parameter value
+ *  (MapKey, MapValue) pairs: * MapKey type: string * MapKey value: parameter
+ *  name * MapValue type: If parameter's entity type is a composite entity then
+ *  use map, otherwise, depending on the parameter value type, it could be one
+ *  of string, number, boolean, null, list or map. * MapValue value: If
+ *  parameter's entity type is a composite entity then use map from composite
+ *  entity property names to property values, otherwise, use parameter value.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3QueryParameters_Parameters *parameters;
 
@@ -8812,12 +8812,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  the following format: $session.params.parameter-id. Depending on your
  *  protocol or client library language, this is a map, associative array,
  *  symbol table, dictionary, or JSON object composed of a collection of
- *  (MapKey, MapValue) pairs: - MapKey type: string - MapKey value: parameter
- *  name - MapValue type: - If parameter's entity type is a composite entity:
- *  map - Else: depending on parameter value type, could be one of string,
- *  number, boolean, null, list or map - MapValue value: - If parameter's entity
- *  type is a composite entity: map from composite entity property names to
- *  property values - Else: parameter value
+ *  (MapKey, MapValue) pairs: * MapKey type: string * MapKey value: parameter
+ *  name * MapValue type: If parameter's entity type is a composite entity then
+ *  use map, otherwise, depending on the parameter value type, it could be one
+ *  of string, number, boolean, null, list or map. * MapValue value: If
+ *  parameter's entity type is a composite entity then use map from composite
+ *  entity property names to property values, otherwise, use parameter value.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -8922,12 +8922,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  The collected session parameters. Depending on your protocol or client
  *  library language, this is a map, associative array, symbol table,
  *  dictionary, or JSON object composed of a collection of (MapKey, MapValue)
- *  pairs: - MapKey type: string - MapKey value: parameter name - MapValue type:
- *  - If parameter's entity type is a composite entity: map - Else: depending on
- *  parameter value type, could be one of string, number, boolean, null, list or
- *  map - MapValue value: - If parameter's entity type is a composite entity:
- *  map from composite entity property names to property values - Else:
- *  parameter value
+ *  pairs: * MapKey type: string * MapKey value: parameter name * MapValue type:
+ *  If parameter's entity type is a composite entity then use map, otherwise,
+ *  depending on the parameter value type, it could be one of string, number,
+ *  boolean, null, list or map. * MapValue value: If parameter's entity type is
+ *  a composite entity then use map from composite entity property names to
+ *  property values, otherwise, use parameter value.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3QueryResult_Parameters *parameters;
 
@@ -8999,12 +8999,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  The collected session parameters. Depending on your protocol or client
  *  library language, this is a map, associative array, symbol table,
  *  dictionary, or JSON object composed of a collection of (MapKey, MapValue)
- *  pairs: - MapKey type: string - MapKey value: parameter name - MapValue type:
- *  - If parameter's entity type is a composite entity: map - Else: depending on
- *  parameter value type, could be one of string, number, boolean, null, list or
- *  map - MapValue value: - If parameter's entity type is a composite entity:
- *  map from composite entity property names to property values - Else:
- *  parameter value
+ *  pairs: * MapKey type: string * MapKey value: parameter name * MapValue type:
+ *  If parameter's entity type is a composite entity then use map, otherwise,
+ *  depending on the parameter value type, it could be one of string, number,
+ *  boolean, null, list or map. * MapValue value: If parameter's entity type is
+ *  a composite entity then use map from composite entity property names to
+ *  property values, otherwise, use parameter value.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -10558,9 +10558,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  is empty or unspecified, Dialogflow will use Google's default trust store to
  *  verify certificates. N.B. Make sure the HTTPS server certificates are signed
  *  with "subject alt name". For instance a certificate can be self-signed using
- *  the following command, openssl x509 -req -days 200 -in example.com.csr \\
- *  -signkey example.com.key \\ -out example.com.crt \\ -extfile <(printf
- *  "\\nsubjectAltName='DNS:www.example.com'")
+ *  the following command, ``` openssl x509 -req -days 200 -in example.com.csr
+ *  \\ -signkey example.com.key \\ -out example.com.crt \\ -extfile <(printf
+ *  "\\nsubjectAltName='DNS:www.example.com'") ```
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).

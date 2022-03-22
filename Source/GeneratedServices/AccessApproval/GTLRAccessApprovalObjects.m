@@ -17,6 +17,7 @@
 NSString * const kGTLRAccessApproval_AccessReason_Type_CustomerInitiatedSupport = @"CUSTOMER_INITIATED_SUPPORT";
 NSString * const kGTLRAccessApproval_AccessReason_Type_GoogleInitiatedReview = @"GOOGLE_INITIATED_REVIEW";
 NSString * const kGTLRAccessApproval_AccessReason_Type_GoogleInitiatedService = @"GOOGLE_INITIATED_SERVICE";
+NSString * const kGTLRAccessApproval_AccessReason_Type_GoogleResponseToProductionAlert = @"GOOGLE_RESPONSE_TO_PRODUCTION_ALERT";
 NSString * const kGTLRAccessApproval_AccessReason_Type_ThirdPartyDataRequest = @"THIRD_PARTY_DATA_REQUEST";
 NSString * const kGTLRAccessApproval_AccessReason_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 

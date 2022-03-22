@@ -50,6 +50,44 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
 
 @end
 
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRArtifactRegistryQuery_ProjectsLocationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRArtifactRegistry_Location class];
+  query.loggingName = @"artifactregistry.projects.locations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/locations";
+  GTLRArtifactRegistryQuery_ProjectsLocationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRArtifactRegistry_ListLocationsResponse class];
+  query.loggingName = @"artifactregistry.projects.locations.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRArtifactRegistryQuery_ProjectsLocationsOperationsGet
 
 @dynamic name;

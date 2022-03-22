@@ -305,6 +305,15 @@ FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Win
 @property(nonatomic, strong, nullable) NSNumber *fraction;
 
 /**
+ *  Rollout fraction group. Only fractions with the same fraction_group are
+ *  statistically comparable: there may be non-fractional differences between
+ *  different fraction groups.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fractionGroup;
+
+/**
  *  Release name. Format is
  *  "{product}/platforms/{platform}/channels/{channel}/versions/{version}/releases/{release}"
  */

@@ -1642,7 +1642,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Output only. Resource name of this secret. This secret may be a child of any
  *  type of stream. Format:
- *  properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+ *  properties/{property}/dataStreams/{dataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1663,7 +1663,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    the query.
  *  @param name Output only. Resource name of this secret. This secret may be a
  *    child of any type of stream. Format:
- *    properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+ *    properties/{property}/dataStreams/{dataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsMeasurementProtocolSecretsPatch
  */

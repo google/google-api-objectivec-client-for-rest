@@ -469,6 +469,60 @@
 
 @end
 
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsPredict
+
+@dynamic placement;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2PredictRequest *)object
+                      placement:(NSString *)placement {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"placement" ];
+  NSString *pathURITemplate = @"v2/{+placement}:predict";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsPredict *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.placement = placement;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2PredictResponse class];
+  query.loggingName = @"retail.projects.locations.catalogs.servingConfigs.predict";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsSearch
+
+@dynamic placement;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2SearchRequest *)object
+                      placement:(NSString *)placement {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"placement" ];
+  NSString *pathURITemplate = @"v2/{+placement}:search";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.placement = placement;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2SearchResponse class];
+  query.loggingName = @"retail.projects.locations.catalogs.servingConfigs.search";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsSetDefaultBranch
 
 @dynamic catalog;

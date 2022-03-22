@@ -570,8 +570,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @property(nonatomic, copy, nullable) NSString *insertDataOption;
 
 /**
- *  The A1 notation of a range to search for a logical table of data. Values are
- *  appended after the last row of the table.
+ *  The [A1 notation](/sheets/api/guides/concepts#cell) of a range to search for
+ *  a logical table of data. Values are appended after the last row of the
+ *  table.
  */
 @property(nonatomic, copy, nullable) NSString *range;
 
@@ -655,8 +656,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  @param object The @c GTLRSheets_ValueRange to include in the query.
  *  @param spreadsheetId The ID of the spreadsheet to update.
- *  @param range The A1 notation of a range to search for a logical table of
- *    data. Values are appended after the last row of the table.
+ *  @param range The [A1 notation](/sheets/api/guides/concepts#cell) of a range
+ *    to search for a logical table of data. Values are appended after the last
+ *    row of the table.
  *
  *  @return GTLRSheetsQuery_SpreadsheetsValuesAppend
  */
@@ -669,8 +671,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 /**
  *  Clears one or more ranges of values from a spreadsheet. The caller must
  *  specify the spreadsheet ID and one or more ranges. Only values are cleared
- *  -- all other properties of the cell (such as formatting, data validation,
- *  etc..) are kept.
+ *  -- all other properties of the cell (such as formatting and data validation)
+ *  are kept.
  *
  *  Method: sheets.spreadsheets.values.batchClear
  *
@@ -689,8 +691,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  Clears one or more ranges of values from a spreadsheet. The caller must
  *  specify the spreadsheet ID and one or more ranges. Only values are cleared
- *  -- all other properties of the cell (such as formatting, data validation,
- *  etc..) are kept.
+ *  -- all other properties of the cell (such as formatting and data validation)
+ *  are kept.
  *
  *  @param object The @c GTLRSheets_BatchClearValuesRequest to include in the
  *    query.
@@ -783,8 +785,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 /**
  *  The major dimension that results should use. For example, if the spreadsheet
  *  data is: `A1=1,B1=2,A2=3,B2=4`, then requesting
- *  `range=A1:B2,majorDimension=ROWS` returns `[[1,2],[3,4]]`, whereas
- *  requesting `range=A1:B2,majorDimension=COLUMNS` returns `[[1,3],[2,4]]`.
+ *  `ranges=["A1:B2"],majorDimension=ROWS` returns `[[1,2],[3,4]]`, whereas
+ *  requesting `ranges=["A1:B2"],majorDimension=COLUMNS` returns
+ *  `[[1,3],[2,4]]`.
  *
  *  Likely values:
  *    @arg @c kGTLRSheetsMajorDimensionDimensionUnspecified The default value,
@@ -796,7 +799,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  */
 @property(nonatomic, copy, nullable) NSString *majorDimension;
 
-/** The A1 notation or R1C1 notation of the range to retrieve values from. */
+/**
+ *  The [A1 notation or R1C1 notation](/sheets/api/guides/concepts#cell) of the
+ *  range to retrieve values from.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ranges;
 
 /** The ID of the spreadsheet to retrieve data from. */
@@ -955,7 +961,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  */
 @interface GTLRSheetsQuery_SpreadsheetsValuesClear : GTLRSheetsQuery
 
-/** The A1 notation or R1C1 notation of the values to clear. */
+/**
+ *  The [A1 notation or R1C1 notation](/sheets/api/guides/concepts#cell) of the
+ *  values to clear.
+ */
 @property(nonatomic, copy, nullable) NSString *range;
 
 /** The ID of the spreadsheet to update. */
@@ -970,7 +979,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  @param object The @c GTLRSheets_ClearValuesRequest to include in the query.
  *  @param spreadsheetId The ID of the spreadsheet to update.
- *  @param range The A1 notation or R1C1 notation of the values to clear.
+ *  @param range The [A1 notation or R1C1
+ *    notation](/sheets/api/guides/concepts#cell) of the values to clear.
  *
  *  @return GTLRSheetsQuery_SpreadsheetsValuesClear
  */
@@ -1034,7 +1044,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  */
 @property(nonatomic, copy, nullable) NSString *majorDimension;
 
-/** The A1 notation or R1C1 notation of the range to retrieve values from. */
+/**
+ *  The [A1 notation or R1C1 notation](/sheets/api/guides/concepts#cell) of the
+ *  range to retrieve values from.
+ */
 @property(nonatomic, copy, nullable) NSString *range;
 
 /** The ID of the spreadsheet to retrieve data from. */
@@ -1069,7 +1082,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  spreadsheet ID and a range.
  *
  *  @param spreadsheetId The ID of the spreadsheet to retrieve data from.
- *  @param range The A1 notation or R1C1 notation of the range to retrieve
+ *  @param range The [A1 notation or R1C1
+ *    notation](/sheets/api/guides/concepts#cell) of the range to retrieve
  *    values from.
  *
  *  @return GTLRSheetsQuery_SpreadsheetsValuesGet
@@ -1101,7 +1115,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  */
 @property(nonatomic, assign) BOOL includeValuesInResponse;
 
-/** The A1 notation of the values to update. */
+/**
+ *  The [A1 notation](/sheets/api/guides/concepts#cell) of the values to update.
+ */
 @property(nonatomic, copy, nullable) NSString *range;
 
 /**
@@ -1177,7 +1193,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  @param object The @c GTLRSheets_ValueRange to include in the query.
  *  @param spreadsheetId The ID of the spreadsheet to update.
- *  @param range The A1 notation of the values to update.
+ *  @param range The [A1 notation](/sheets/api/guides/concepts#cell) of the
+ *    values to update.
  *
  *  @return GTLRSheetsQuery_SpreadsheetsValuesUpdate
  */

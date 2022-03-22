@@ -363,6 +363,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_NfsShare_State_Provisi
 FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_NfsShare_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRBareMetalSolution_ProvisioningConfig.state
+
+/**
+ *  ProvisioningConfig is a draft and can be freely modified.
+ *
+ *  Value: "DRAFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Draft;
+/**
+ *  State wasn't specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_StateUnspecified;
+/**
+ *  ProvisioningConfig was already submitted and cannot be modified.
+ *
+ *  Value: "SUBMITTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Submitted;
+
+// ----------------------------------------------------------------------------
 // GTLRBareMetalSolution_ProvisioningQuota.assetType
 
 /**
@@ -708,6 +730,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *  Configuration parameters for a new instance.
  */
 @interface GTLRBareMetalSolution_InstanceConfig : GTLRObject
+
+/**
+ *  If true networks can be from different projects of the same vendor account.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *accountNetworksEnabled;
 
 /** Client network address. */
 @property(nonatomic, strong, nullable) GTLRBareMetalSolution_NetworkAddress *clientNetwork;
@@ -1345,6 +1374,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 @property(nonatomic, copy, nullable) NSString *cidr;
 
 /**
+ *  The GCP service of the network. Available gcp_service are in
+ *  https://cloud.google.com/bare-metal/docs/bms-planning.
+ */
+@property(nonatomic, copy, nullable) NSString *gcpService;
+
+/**
  *  A transient unique identifier to identify a volume within an
  *  ProvisioningConfig request.
  *
@@ -1396,6 +1431,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *  is going to change in the future (multi vlan).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_IntakeVlanAttachment *> *vlanAttachments;
+
+/**
+ *  Whether the VLAN attachment pair is located in the same project.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vlanSameProject;
 
 @end
 
@@ -1601,6 +1643,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  */
 @interface GTLRBareMetalSolution_ProvisioningConfig : GTLRObject
 
+/** Output only. URI to Cloud Console UI view of this provisioning config. */
+@property(nonatomic, copy, nullable) NSString *cloudConsoleUri;
+
+/**
+ *  Email provided to send a confirmation with provisioning config to.
+ *  Deprecated in favour of email field in request messages.
+ */
+@property(nonatomic, copy, nullable) NSString *email;
+
 /**
  *  A service account to enable customers to access instance credentials upon
  *  handover.
@@ -1610,14 +1661,38 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 /** Instances to be created. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_InstanceConfig *> *instances;
 
+/**
+ *  Optional. Location name of this ProvisioningConfig. It is optional only for
+ *  Intake UI transition period.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Output only. The name of the provisioning config. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Networks to be created. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_NetworkConfig *> *networks;
 
+/**
+ *  Output only. State of ProvisioningConfig.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBareMetalSolution_ProvisioningConfig_State_Draft
+ *        ProvisioningConfig is a draft and can be freely modified. (Value:
+ *        "DRAFT")
+ *    @arg @c kGTLRBareMetalSolution_ProvisioningConfig_State_StateUnspecified
+ *        State wasn't specified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBareMetalSolution_ProvisioningConfig_State_Submitted
+ *        ProvisioningConfig was already submitted and cannot be modified.
+ *        (Value: "SUBMITTED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 /** A generated buganizer id to track provisioning request. */
 @property(nonatomic, copy, nullable) NSString *ticketId;
+
+/** Output only. Last update timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /** Volumes to be created. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_VolumeConfig *> *volumes;
@@ -1728,6 +1803,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *reservedSpaceGib;
+
+/**
+ *  Percent of the total Volume size reserved for snapshot copies. Enabling
+ *  snapshots requires reserving 20% or more of the storage volume space for
+ *  snapshots. Maximum reserved space for snapshots is 40%. Setting this field
+ *  will effectively set snapshot_enabled to true.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reservedSpacePercent;
 
 /**
  *  The amount, in GiB, of available space in this storage volume's reserved
@@ -1979,6 +2064,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 @property(nonatomic, copy, nullable) NSString *snapshotAutoDeleteBehavior;
 
 /**
+ *  Whether snapshots are enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *snapshotEnabled;
+
+/**
  *  Details about snapshot space reservation and usage on the storage volume.
  */
 @property(nonatomic, strong, nullable) GTLRBareMetalSolution_SnapshotReservationDetail *snapshotReservationDetail;
@@ -2036,6 +2128,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *  Configuration parameters for a new volume.
  */
 @interface GTLRBareMetalSolution_VolumeConfig : GTLRObject
+
+/**
+ *  The GCP service of the storage volume. Available gcp_service are in
+ *  https://cloud.google.com/bare-metal/docs/bms-planning.
+ */
+@property(nonatomic, copy, nullable) NSString *gcpService;
 
 /**
  *  A transient unique identifier to identify a volume within an

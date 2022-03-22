@@ -117,10 +117,22 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Spor
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Technology = @"TECHNOLOGY";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Travel = @"TRAVEL";
 
+// GTLRGoogleAnalyticsAdmin_V1alphaProperty.propertyType
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_PropertyType_PropertyTypeOrdinary = @"PROPERTY_TYPE_ORDINARY";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_PropertyType_PropertyTypeRollup = @"PROPERTY_TYPE_ROLLUP";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_PropertyType_PropertyTypeSubproperty = @"PROPERTY_TYPE_SUBPROPERTY";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_PropertyType_PropertyTypeUnspecified = @"PROPERTY_TYPE_UNSPECIFIED";
+
 // GTLRGoogleAnalyticsAdmin_V1alphaProperty.serviceLevel
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_ServiceLevel_GoogleAnalytics360 = @"GOOGLE_ANALYTICS_360";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_ServiceLevel_GoogleAnalyticsStandard = @"GOOGLE_ANALYTICS_STANDARD";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_ServiceLevel_ServiceLevelUnspecified = @"SERVICE_LEVEL_UNSPECIFIED";
+
+// GTLRGoogleAnalyticsAdmin_V1alphaPropertySummary.propertyType
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaPropertySummary_PropertyType_PropertyTypeOrdinary = @"PROPERTY_TYPE_ORDINARY";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaPropertySummary_PropertyType_PropertyTypeRollup = @"PROPERTY_TYPE_ROLLUP";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaPropertySummary_PropertyType_PropertyTypeSubproperty = @"PROPERTY_TYPE_SUBPROPERTY";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaPropertySummary_PropertyType_PropertyTypeUnspecified = @"PROPERTY_TYPE_UNSPECIFIED";
 
 // GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest.action
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_Action_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
@@ -961,7 +973,8 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaProperty
 @dynamic account, createTime, currencyCode, deleteTime, displayName, expireTime,
-         industryCategory, name, parent, serviceLevel, timeZone, updateTime;
+         industryCategory, name, parent, propertyType, serviceLevel, timeZone,
+         updateTime;
 @end
 
 
@@ -971,7 +984,7 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 //
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaPropertySummary
-@dynamic displayName, property;
+@dynamic displayName, parent, property, propertyType;
 @end
 
 

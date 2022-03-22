@@ -59,13 +59,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_Custome
 FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_GoogleInitiatedReview;
 /**
  *  The principal accessed customer data in order to diagnose or resolve a
- *  suspected issue in services or a known outage. Often this access is used to
- *  confirm that customers are not affected by a suspected service issue or to
- *  remediate a reversible system issue.
+ *  suspected issue in services. Often this access is used to confirm that
+ *  customers are not affected by a suspected service issue or to remediate a
+ *  reversible system issue.
  *
  *  Value: "GOOGLE_INITIATED_SERVICE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_GoogleInitiatedService;
+/**
+ *  The principal accessed customer data in order to diagnose or resolve a
+ *  suspected issue in services or a known outage.
+ *
+ *  Value: "GOOGLE_RESPONSE_TO_PRODUCTION_ALERT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_GoogleResponseToProductionAlert;
 /**
  *  The principal was compelled to access customer data in order to respond to a
  *  legal third party data request or process, including legal processes from
@@ -150,10 +157,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
  *        (Value: "GOOGLE_INITIATED_REVIEW")
  *    @arg @c kGTLRAccessApproval_AccessReason_Type_GoogleInitiatedService The
  *        principal accessed customer data in order to diagnose or resolve a
- *        suspected issue in services or a known outage. Often this access is
- *        used to confirm that customers are not affected by a suspected service
- *        issue or to remediate a reversible system issue. (Value:
+ *        suspected issue in services. Often this access is used to confirm that
+ *        customers are not affected by a suspected service issue or to
+ *        remediate a reversible system issue. (Value:
  *        "GOOGLE_INITIATED_SERVICE")
+ *    @arg @c kGTLRAccessApproval_AccessReason_Type_GoogleResponseToProductionAlert
+ *        The principal accessed customer data in order to diagnose or resolve a
+ *        suspected issue in services or a known outage. (Value:
+ *        "GOOGLE_RESPONSE_TO_PRODUCTION_ALERT")
  *    @arg @c kGTLRAccessApproval_AccessReason_Type_ThirdPartyDataRequest The
  *        principal was compelled to access customer data in order to respond to
  *        a legal third party data request or process, including legal processes
@@ -283,8 +294,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRAccessApproval_Empty : GTLRObject
 @end

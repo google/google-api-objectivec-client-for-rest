@@ -24,6 +24,7 @@
 @class GTLRBareMetalSolution_Instance;
 @class GTLRBareMetalSolution_Network;
 @class GTLRBareMetalSolution_NfsShare;
+@class GTLRBareMetalSolution_ProvisioningConfig;
 @class GTLRBareMetalSolution_ResetInstanceRequest;
 @class GTLRBareMetalSolution_RestoreVolumeSnapshotRequest;
 @class GTLRBareMetalSolution_SnapshotSchedulePolicy;
@@ -541,6 +542,110 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Create new ProvisioningConfig.
+ *
+ *  Method: baremetalsolution.projects.locations.provisioningConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsProvisioningConfigsCreate : GTLRBareMetalSolutionQuery
+
+/**
+ *  Optional. Email provided to send a confirmation with provisioning config to.
+ */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/**
+ *  Required. The parent project and location containing the ProvisioningConfig.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_ProvisioningConfig.
+ *
+ *  Create new ProvisioningConfig.
+ *
+ *  @param object The @c GTLRBareMetalSolution_ProvisioningConfig to include in
+ *    the query.
+ *  @param parent Required. The parent project and location containing the
+ *    ProvisioningConfig.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsProvisioningConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_ProvisioningConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Get ProvisioningConfig by name.
+ *
+ *  Method: baremetalsolution.projects.locations.provisioningConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsProvisioningConfigsGet : GTLRBareMetalSolutionQuery
+
+/** Required. Name of the ProvisioningConfig. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_ProvisioningConfig.
+ *
+ *  Get ProvisioningConfig by name.
+ *
+ *  @param name Required. Name of the ProvisioningConfig.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsProvisioningConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Update existing ProvisioningConfig.
+ *
+ *  Method: baremetalsolution.projects.locations.provisioningConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsProvisioningConfigsPatch : GTLRBareMetalSolutionQuery
+
+/**
+ *  Optional. Email provided to send a confirmation with provisioning config to.
+ */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/** Output only. The name of the provisioning config. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_ProvisioningConfig.
+ *
+ *  Update existing ProvisioningConfig.
+ *
+ *  @param object The @c GTLRBareMetalSolution_ProvisioningConfig to include in
+ *    the query.
+ *  @param name Output only. The name of the provisioning config.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsProvisioningConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_ProvisioningConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Submit a provisiong configuration for a given project.
  *
  *  Method: baremetalsolution.projects.locations.provisioningConfigs.submit
@@ -933,7 +1038,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The list of fields to update. The only currently supported fields are:
  *  `snapshot_auto_delete_behavior` `snapshot_schedule_policy_name` 'labels'
- *  'requested_size_gib'
+ *  'requested_size_gib' 'snapshot_enabled'
+ *  'snapshot_reservation_detail.reserved_space_percent'
  *
  *  String format is a comma-separated list of fields.
  */

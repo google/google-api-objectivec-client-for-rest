@@ -1446,6 +1446,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspec
 /** Required. Format: `parent=projects/{project_id}/locations/{location}` */
 @property(nonatomic, copy, nullable) NSString *parent;
 
+/** Idempotent request UUID. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
 /** Required. User-defined unique ID of this Runtime. */
 @property(nonatomic, copy, nullable) NSString *runtimeId;
 
@@ -1481,6 +1484,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspec
  *  `projects/{project_id}/locations/{location}/runtimes/{runtime_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Idempotent request UUID. */
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Fetches a @c GTLRAIPlatformNotebooks_Operation.

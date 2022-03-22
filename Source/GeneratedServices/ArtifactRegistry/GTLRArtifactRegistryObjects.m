@@ -229,6 +229,28 @@ NSString * const kGTLRArtifactRegistry_Repository_Format_Yum   = @"YUM";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRArtifactRegistry_ListLocationsResponse
+//
+
+@implementation GTLRArtifactRegistry_ListLocationsResponse
+@dynamic locations, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [GTLRArtifactRegistry_Location class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"locations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRArtifactRegistry_ListPackagesResponse
 //
 
@@ -310,6 +332,44 @@ NSString * const kGTLRArtifactRegistry_Repository_Format_Yum   = @"YUM";
 
 + (NSString *)collectionItemsKey {
   return @"versions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_Location
+//
+
+@implementation GTLRArtifactRegistry_Location
+@dynamic displayName, labels, locationId, metadata, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_Location_Labels
+//
+
+@implementation GTLRArtifactRegistry_Location_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_Location_Metadata
+//
+
+@implementation GTLRArtifactRegistry_Location_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

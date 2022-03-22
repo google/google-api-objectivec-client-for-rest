@@ -266,8 +266,8 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_AndroidRoboTest
-@dynamic appApk, appBundle, appInitialActivity, appPackageId, roboDirectives,
-         roboMode, roboScript, startingIntents;
+@dynamic appApk, appBundle, appInitialActivity, appPackageId, maxDepth,
+         maxSteps, roboDirectives, roboMode, roboScript, startingIntents;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -437,6 +437,41 @@
 
 @end
 
+@implementation GTLRFirestoreQuery_ProjectsDatabasesDocumentsListDocuments
+
+@dynamic collectionId, maskFieldPaths, orderBy, pageSize, pageToken, parent,
+         readTime, showMissing, transaction;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"maskFieldPaths" : @"mask.fieldPaths" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mask.fieldPaths" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithParent:(NSString *)parent
+                   collectionId:(NSString *)collectionId {
+  NSArray *pathParams = @[
+    @"collectionId", @"parent"
+  ];
+  NSString *pathURITemplate = @"v1/{+parent}/{collectionId}";
+  GTLRFirestoreQuery_ProjectsDatabasesDocumentsListDocuments *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.collectionId = collectionId;
+  query.expectedObjectClass = [GTLRFirestore_ListDocumentsResponse class];
+  query.loggingName = @"firestore.projects.databases.documents.listDocuments";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirestoreQuery_ProjectsDatabasesDocumentsListen
 
 @dynamic database;

@@ -94,6 +94,33 @@ NSString * const kGTLRSpannerViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @end
 
+@implementation GTLRSpannerQuery_ProjectsInstancesBackupsCopy
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRSpanner_CopyBackupRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/backups:copy";
+  GTLRSpannerQuery_ProjectsInstancesBackupsCopy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSpanner_Operation class];
+  query.loggingName = @"spanner.projects.instances.backups.copy";
+  return query;
+}
+
+@end
+
 @implementation GTLRSpannerQuery_ProjectsInstancesBackupsCreate
 
 @dynamic backupId, encryptionConfigEncryptionType, encryptionConfigKmsKeyName,

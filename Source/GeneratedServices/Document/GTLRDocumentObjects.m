@@ -21,6 +21,12 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsM
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestDatasetType_DatasetSplitTypeUnspecified = @"DATASET_SPLIT_TYPE_UNSPECIFIED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestDatasetType_DatasetSplitUnassigned = @"DATASET_SPLIT_UNASSIGNED";
 
+// GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata.destSplitType
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestSplitType_DatasetSplitTest = @"DATASET_SPLIT_TEST";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestSplitType_DatasetSplitTrain = @"DATASET_SPLIT_TRAIN";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestSplitType_DatasetSplitTypeUnspecified = @"DATASET_SPLIT_TYPE_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestSplitType_DatasetSplitUnassigned = @"DATASET_SPLIT_UNASSIGNED";
+
 // GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata.state
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata_State_Cancelled = @"CANCELLED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata_State_Cancelling = @"CANCELLING";
@@ -271,7 +277,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata
-@dynamic commonMetadata, destDatasetType, individualBatchMoveStatuses;
+@dynamic commonMetadata, destDatasetType, destSplitType,
+         individualBatchMoveStatuses;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

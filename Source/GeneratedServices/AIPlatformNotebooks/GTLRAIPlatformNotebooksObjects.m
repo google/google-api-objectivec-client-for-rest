@@ -936,6 +936,7 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 //
 
 @implementation GTLRAIPlatformNotebooks_ResetRuntimeRequest
+@dynamic requestId;
 @end
 
 
@@ -1156,6 +1157,7 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 //
 
 @implementation GTLRAIPlatformNotebooks_StartRuntimeRequest
+@dynamic requestId;
 @end
 
 
@@ -1206,6 +1208,7 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 //
 
 @implementation GTLRAIPlatformNotebooks_StopRuntimeRequest
+@dynamic requestId;
 @end
 
 
@@ -1215,7 +1218,7 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 //
 
 @implementation GTLRAIPlatformNotebooks_SwitchRuntimeRequest
-@dynamic acceleratorConfig, machineType;
+@dynamic acceleratorConfig, machineType, requestId;
 @end
 
 

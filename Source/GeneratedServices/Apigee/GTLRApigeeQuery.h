@@ -6041,6 +6041,41 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  After the query is completed, use this API to retrieve the results. If the
+ *  request succeeds, and there is a non-zero result set, the result is sent to
+ *  the client as a list of urls to JSON files.
+ *
+ *  Method: apigee.organizations.environments.queries.getResulturl
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsQueriesGetResulturl : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the asynchronous query result to get. Must be of the form
+ *  `organizations/{org}/environments/{env}/queries/{queryId}/resulturl`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1GetAsyncQueryResultUrlResponse.
+ *
+ *  After the query is completed, use this API to retrieve the results. If the
+ *  request succeeds, and there is a non-zero result set, the result is sent to
+ *  the client as a list of urls to JSON files.
+ *
+ *  @param name Required. Name of the asynchronous query result to get. Must be
+ *    of the form
+ *    `organizations/{org}/environments/{env}/queries/{queryId}/resulturl`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsQueriesGetResulturl
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Return a list of Asynchronous Queries
  *
  *  Method: apigee.organizations.environments.queries.list

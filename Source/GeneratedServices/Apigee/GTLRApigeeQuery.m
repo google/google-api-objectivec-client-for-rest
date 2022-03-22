@@ -3210,6 +3210,25 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @end
 
+@implementation GTLRApigeeQuery_OrganizationsEnvironmentsQueriesGetResulturl
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsEnvironmentsQueriesGetResulturl *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1GetAsyncQueryResultUrlResponse class];
+  query.loggingName = @"apigee.organizations.environments.queries.getResulturl";
+  return query;
+}
+
+@end
+
 @implementation GTLRApigeeQuery_OrganizationsEnvironmentsQueriesList
 
 @dynamic dataset, from, inclQueriesWithoutReport, parent, status, submittedBy,

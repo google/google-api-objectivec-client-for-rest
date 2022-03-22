@@ -708,8 +708,10 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 //
 
 @implementation GTLRCloudSearch_DynamiteSpacesScoringInfo
-@dynamic finalScore, freshnessScore, messageScore, spaceAgeInDays,
-         topicalityScore;
+@dynamic affinityScore, commonContactCountAffinityScore,
+         contactsIntersectionCount, finalScore, freshnessScore,
+         joinedSpacesAffinityScore, messageScore, smallContactListAffinityScore,
+         smallUnjoinedSpacesAffinityScore, spaceAgeInDays, topicalityScore;
 @end
 
 
