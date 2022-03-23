@@ -36,8 +36,8 @@
   XCTAssertTrue(major != NSUIntegerMax, @"version unset");
   XCTAssertTrue(minor != NSUIntegerMax, @"version unset");
   XCTAssertTrue(release != NSUIntegerMax, @"version unset");
-// It is not currently possible to specify the bundle version from `Package.swift`
-#if !SWIFT_PACKAGE
+// The package managers don't set a version for the test to pick up.
+#if !SWIFT_PACKAGE && !COCOAPODS
   // Check that the Framework bundle's Info.plist has the proper version,
   // matching the GTLRFrameworkVersion call
   NSBundle *testBundle = [NSBundle bundleForClass:[self class]];
