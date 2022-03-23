@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "GTLR_ServiceGenerator",
     platforms: [
-        .macOS(.v10_10),
+        .macOS(.v10_12),
     ],
     products: [
         .executable(
