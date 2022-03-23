@@ -3374,7 +3374,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   XCTAssertEqualObjects(result.allHTTPHeaderFields, expectedHTTPHeaders);
 
   // Extra query arg and HTTP header.
-  query.additionalURLQueryParameters = @{ @"queryArg" : @YES };
+  query.additionalURLQueryParameters = (id)@{ @"queryArg" : @YES };
   query.additionalHTTPHeaders = @{ @"X-Query" : @"All Good!" };
   expectedURLString = @"https://www.test.com/api/path/foo?arg=mumble&queryArg=true";
   [expectedHTTPHeaders setObject:@"All Good!" forKey:@"X-Query"];
@@ -3384,7 +3384,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   XCTAssertEqualObjects(result.allHTTPHeaderFields, expectedHTTPHeaders);
 
   // With a service arg and HTTP header.
-  service.additionalURLQueryParameters = @{ @"serviceArg" : @42 };
+  service.additionalURLQueryParameters = (id)@{ @"serviceArg" : @42 };
   service.additionalHTTPHeaders = @{ @"X-Service" : @"Grumble" };
   expectedURLString = @"https://www.test.com/api/path/foo?arg=mumble&queryArg=true&serviceArg=42";
   [expectedHTTPHeaders setObject:@"Grumble" forKey:@"X-Service"];
