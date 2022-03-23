@@ -15,10 +15,15 @@ Pod::Spec.new do |s|
       This version can be used with iOS ≥ 9.0, OS X ≥ 10.9, tvOS ≥ 10.0, watchOS ≥ 6.0.
                    DESC
 
-  s.ios.deployment_target = '9.0'
-  s.osx.deployment_target = '10.12'
-  s.tvos.deployment_target = '10.0'
-  s.watchos.deployment_target = '6.0'
+  ios_deployment_target = '9.0'
+  osx_deployment_target = '10.12'
+  tvos_deployment_target = '10.0'
+  watchos_deployment_target = '6.0'
+
+  s.ios.deployment_target = ios_deployment_target
+  s.osx.deployment_target = osx_deployment_target
+  s.tvos.deployment_target = tvos_deployment_target
+  s.watchos.deployment_target = watchos_deployment_target
 
   # Require at least 1.6.1 of the SessionFetcher since it has the same
   # deployment targets.
@@ -30,6 +35,22 @@ Pod::Spec.new do |s|
                       'Source/Utilities/*.{h,m}'
   end
   s.default_subspec = 'Core'
+
+  s.test_spec 'Tests' do |sp|
+    sp.source_files = 'Source/Tests/*.{h,m}',
+                      'Source/Tests/TestingSvc/*.{h,m}'
+    sp.exclude_files = 'Source/Tests/CompiledTestNoARC.m',
+                       'Source/Tests/main.m'
+    sp.resource = 'Source/Tests/Data/*.{json,txt}'
+
+    sp.platforms = {
+      :ios => ios_deployment_target,
+      :osx => osx_deployment_target,
+      :tvos => tvos_deployment_target,
+      # Seem to need a higher min to get a good test runner picked/supported.
+      :watchos => '7.4'
+    }
+  end
 
   # subspecs for all the services.
   s.subspec 'AbusiveExperienceReport' do |sp|
