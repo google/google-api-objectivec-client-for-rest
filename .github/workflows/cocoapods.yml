@@ -1,0 +1,86 @@
+name: CocoaPods
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+    - '*.md'
+    - 'LICENSE'
+    - 'Package*.swift'
+    - 'Source/Tools/**'
+    - '.github/workflows/main.yml'
+    - '.github/workflows/swiftpm.yml'
+  pull_request:
+    branches: [ main ]
+    paths-ignore:
+    - '*.md'
+    - 'LICENSE'
+    - 'Package*.swift'
+    - 'Source/Tools/**'
+    - '.github/workflows/main.yml'
+    - '.github/workflows/swiftpm.yml'
+  schedule:
+    # Run the first and fifteenth of every month at 6:12 UTC
+    - cron:  '6 12 1,15 * *'
+
+jobs:
+  pod-lib-lint:
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        PLATFORM: ["ios", "macos", "tvos", "watchos"]
+        CONFIGURATION: ["Debug", "Release"]
+    steps:
+    - uses: actions/checkout@v2
+    # Manually expanding out static frameworks to avoid making to many jobs.
+    - name: Pod lib lint
+      run:  |
+        pod lib lint --verbose \
+          --configuration=${{ matrix.CONFIGURATION }} \
+          --platforms=${{ matrix.PLATFORM }} \
+          GoogleAPIClientForREST.podspec
+  pod-lib-lint_StaticFrameworks:
+    needs: pod-lib-lint
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        PLATFORM: ["ios", "macos", "tvos", "watchos"]
+        CONFIGURATION: ["Debug", "Release"]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Pod lib lint - Use Static Frameworks
+      run:  |
+        pod lib lint --verbose --use-static-frameworks \
+          --configuration=${{ matrix.CONFIGURATION }} \
+          --platforms=${{ matrix.PLATFORM }} \
+          GoogleAPIClientForREST.podspec
+  examples:
+    needs: pod-lib-lint
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        SAMPLE: ["Calendar", "Drive", "YouTube", "Storage"]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build Debug
+      run:  |
+        set -eu
+        cd Examples/${{ matrix.SAMPLE }}Sample
+        pod install
+        xcodebuild \
+          -workspace "${{ matrix.SAMPLE }}Sample.xcworkspace" \
+          -scheme "${{ matrix.SAMPLE }}Sample" \
+          -configuration Debug \
+          build
+    - name: Build Release
+      run:  |
+        set -eu
+        cd Examples/${{ matrix.SAMPLE }}Sample
+        xcodebuild \
+          -workspace "${{ matrix.SAMPLE }}Sample.xcworkspace" \
+          -scheme "${{ matrix.SAMPLE }}Sample" \
+          -configuration Release \
+          build
