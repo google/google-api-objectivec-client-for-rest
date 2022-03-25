@@ -127,6 +127,62 @@
 		F4368F971B8235EF00E17643 /* GTLRServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC7A1C11EFD9EA0097924C /* GTLRServiceTest.m */; };
 		F4368F981B8235EF00E17643 /* GTLRUtilitiesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9F7E3B11F510430033A2C1 /* GTLRUtilitiesTest.m */; };
 		F4368F991B8235EF00E17643 /* GTLRBase64Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F934F50151286FE00C4EA34 /* GTLRBase64Test.m */; };
+		F43A16E127EE0E2400A67167 /* Classroom1NotFoundError.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F3E9C7F1C6C12A1004192DE /* Classroom1NotFoundError.response.txt */; };
+		F43A16E227EE0E2400A67167 /* Drive1BatchPaging3.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F3E9C8F1C6C32B7004192DE /* Drive1BatchPaging3.response.txt */; };
+		F43A16E327EE0E2400A67167 /* Drive1Paging3.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FA824881C6BDAC700E11CCC /* Drive1Paging3.response.txt */; };
+		F43A16E427EE0E2400A67167 /* NoPayloadsBatch.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = F4F2CFD924A6530900F1B3A7 /* NoPayloadsBatch.response.txt */; };
+		F43A16E527EE0E2400A67167 /* Drive1Paging1.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FA824861C6BDAC700E11CCC /* Drive1Paging1.response.txt */; };
+		F43A16E627EE0E2400A67167 /* Drive1Corrupt.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F6F2E771C6154AA001065A5 /* Drive1Corrupt.response.txt */; };
+		F43A16E727EE0E2400A67167 /* Drive1Paging2.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4FA824871C6BDAC700E11CCC /* Drive1Paging2.response.txt */; };
+		F43A16E827EE0E2400A67167 /* Drive1BatchCorrupt.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = F4ACE7E91DAD217700053F91 /* Drive1BatchCorrupt.response.txt */; };
+		F43A16E927EE0E2400A67167 /* Drive1.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F25913F1C5C3338009E0240 /* Drive1.response.txt */; };
+		F43A16EA27EE0E2400A67167 /* Drive1Empty.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F3AA91C1C6013B1008497BC /* Drive1Empty.response.txt */; };
+		F43A16EB27EE0E2400A67167 /* Drive1BatchPaging1.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F3E9C8D1C6C32B7004192DE /* Drive1BatchPaging1.response.txt */; };
+		F43A16EC27EE0E2400A67167 /* Drive1ParamErrorAsList.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = F4A07B1B1E4293990035678A /* Drive1ParamErrorAsList.response.txt */; };
+		F43A16ED27EE0E2400A67167 /* Drive1BatchPaging2.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F3E9C8E1C6C32B7004192DE /* Drive1BatchPaging2.response.txt */; };
+		F43A16EE27EE0E2400A67167 /* Drive1ParamError.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F3AA9161C600013008497BC /* Drive1ParamError.response.txt */; };
+		F43A16EF27EE0E2400A67167 /* Drive1AuthError.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F3AA9151C600013008497BC /* Drive1AuthError.response.txt */; };
+		F43A16F027EE0E2400A67167 /* Drive1Batch.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F3AA91F1C602140008497BC /* Drive1Batch.response.txt */; };
+		F43A16F127EE0E2400A67167 /* URITemplateExtraTests.json in Resources */ = {isa = PBXBuildFile; fileRef = F4469DFE1C45757E00BCFAA1 /* URITemplateExtraTests.json */; };
+		F43A16F227EE0E2400A67167 /* URITemplateRFCTests.json in Resources */ = {isa = PBXBuildFile; fileRef = F4469DFF1C45757E00BCFAA1 /* URITemplateRFCTests.json */; };
+		F43A16F427EE0E2400A67167 /* GTMMIMEDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE179B1C03DB5900A38758 /* GTMMIMEDocument.m */; };
+		F43A16F527EE0E2400A67167 /* GTLRDuration.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D9D51E1D832DB5000EBBED /* GTLRDuration.m */; };
+		F43A16F627EE0E2400A67167 /* GTLRObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE22521384818E005AEFAA /* GTLRObject.m */; };
+		F43A16F727EE0E2400A67167 /* GTMGatherInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE17991C03DB5900A38758 /* GTMGatherInputStream.m */; };
+		F43A16F827EE0E2400A67167 /* GTLRBatchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE224C1384818E005AEFAA /* GTLRBatchResult.m */; };
+		F43A16F927EE0E2400A67167 /* GTLRDateTimeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9F7E3811F5103B0033A2C1 /* GTLRDateTimeTest.m */; };
+		F43A16FA27EE0E2400A67167 /* GTLRBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F934E661512712100C4EA34 /* GTLRBase64.m */; };
+		F43A16FB27EE0E2400A67167 /* GTLRTestingSvcQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A4314A1F3CB56600F0C703 /* GTLRTestingSvcQuery.m */; };
+		F43A16FC27EE0E2400A67167 /* GTLRFrameworkTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9F7E3A11F510430033A2C1 /* GTLRFrameworkTest.m */; };
+		F43A16FD27EE0E2400A67167 /* GTLRServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC7A1C11EFD9EA0097924C /* GTLRServiceTest.m */; };
+		F43A16FE27EE0E2400A67167 /* GTLRDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE224E1384818E005AEFAA /* GTLRDateTime.m */; };
+		F43A16FF27EE0E2400A67167 /* GTLRService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE22581384818E005AEFAA /* GTLRService.m */; };
+		F43A170027EE0E2400A67167 /* GTLRRuntimeCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE22561384818E005AEFAA /* GTLRRuntimeCommon.m */; };
+		F43A170127EE0E2400A67167 /* GTLRTestingSvcObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A431481F3CB56600F0C703 /* GTLRTestingSvcObjects.m */; };
+		F43A170227EE0E2400A67167 /* GTLRURITemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4469DF31C45736100BCFAA1 /* GTLRURITemplate.m */; };
+		F43A170327EE0E2400A67167 /* GTLRDurationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D9D5251D833D5D000EBBED /* GTLRDurationTest.m */; };
+		F43A170427EE0E2400A67167 /* GTMSessionUploadFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE17A51C03DB5900A38758 /* GTMSessionUploadFetcher.m */; };
+		F43A170527EE0E2400A67167 /* GTMSessionFetcherLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE17A11C03DB5900A38758 /* GTMSessionFetcherLogging.m */; };
+		F43A170627EE0E2400A67167 /* GTLRQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE22541384818E005AEFAA /* GTLRQuery.m */; };
+		F43A170727EE0E2400A67167 /* GTLRBatchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE224A1384818E005AEFAA /* GTLRBatchQuery.m */; };
+		F43A170827EE0E2400A67167 /* GTMSessionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE179F1C03DB5900A38758 /* GTMSessionFetcher.m */; };
+		F43A170927EE0E2400A67167 /* GTLRBase64Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F934F50151286FE00C4EA34 /* GTLRBase64Test.m */; };
+		F43A170A27EE0E2400A67167 /* GTLRFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE223313848173005AEFAA /* GTLRFramework.m */; };
+		F43A170B27EE0E2400A67167 /* GTLRErrorObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3E9C7C1C6C039E004192DE /* GTLRErrorObjectTest.m */; };
+		F43A170C27EE0E2400A67167 /* GTLRUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE223813848173005AEFAA /* GTLRUtilities.m */; };
+		F43A170D27EE0E2400A67167 /* GTLRTestingSvcService.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A4314C1F3CB56600F0C703 /* GTLRTestingSvcService.m */; };
+		F43A170E27EE0E2400A67167 /* GTMSessionFetcherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE17A31C03DB5900A38758 /* GTMSessionFetcherService.m */; };
+		F43A170F27EE0E2400A67167 /* GTLRErrorObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE22501384818E005AEFAA /* GTLRErrorObject.m */; };
+		F43A171027EE0E2400A67167 /* CompiledTestNoARC.m in Sources */ = {isa = PBXBuildFile; fileRef = F41BA4361E7AD482004F6E95 /* CompiledTestNoARC.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F43A171127EE0E2400A67167 /* GTLRUploadParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0C4FBB13CFA7E5007E5E92 /* GTLRUploadParameters.m */; };
+		F43A171227EE0E2400A67167 /* GTLRURITemplateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F4469DF61C4573D700BCFAA1 /* GTLRURITemplateTest.m */; };
+		F43A171327EE0E2400A67167 /* GTLRQueryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CC6A101239450100522D45 /* GTLRQueryTest.m */; };
+		F43A171427EE0E2400A67167 /* GTLRUtilitiesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9F7E3B11F510430033A2C1 /* GTLRUtilitiesTest.m */; };
+		F43A171527EE0E2400A67167 /* GTMReadMonitorInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE179D1C03DB5900A38758 /* GTMReadMonitorInputStream.m */; };
+		F43A171627EE0E2400A67167 /* GTLRObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F45D6A4012F0B2140091E9D9 /* GTLRObjectTest.m */; };
+		F43A172027EE0F7500A67167 /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43A171F27EE0F7500A67167 /* WatchKit.framework */; };
+		F43A172227EE0F8200A67167 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43A172127EE0F8200A67167 /* UIKit.framework */; };
+		F43A172427EE0F8900A67167 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43A172327EE0F8900A67167 /* Security.framework */; };
 		F4469D7B1C40229D00BCFAA1 /* GTLRDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F3DE994119CCE49006926D1 /* GTLRDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4469D7C1C40229D00BCFAA1 /* GTLRFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FDE223213848173005AEFAA /* GTLRFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4469D7F1C40229D00BCFAA1 /* GTLRUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FDE223713848173005AEFAA /* GTLRUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -431,6 +487,10 @@
 		4FEE17A51C03DB5900A38758 /* GTMSessionUploadFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMSessionUploadFetcher.m; sourceTree = "<group>"; };
 		F41BA4361E7AD482004F6E95 /* CompiledTestNoARC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CompiledTestNoARC.m; path = Tests/CompiledTestNoARC.m; sourceTree = "<group>"; };
 		F4368F721B8233BF00E17643 /* GTLRiOSUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GTLRiOSUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F43A171D27EE0E2400A67167 /* GTLRwatchOSUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GTLRwatchOSUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F43A171F27EE0F7500A67167 /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.5.sdk/System/Library/Frameworks/WatchKit.framework; sourceTree = DEVELOPER_DIR; };
+		F43A172127EE0F8200A67167 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.5.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		F43A172327EE0F8900A67167 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.5.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		F4469DB41C40229D00BCFAA1 /* GTLR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GTLR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4469DB91C4024F200BCFAA1 /* GTLRiOSFramework-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GTLRiOSFramework-Info.plist"; path = "Resources/GTLRiOSFramework-Info.plist"; sourceTree = "<group>"; };
 		F4469DBA1C4024F200BCFAA1 /* GTLROSXFramework-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GTLROSXFramework-Info.plist"; path = "Resources/GTLROSXFramework-Info.plist"; sourceTree = "<group>"; };
@@ -508,6 +568,16 @@
 				F4469DE31C402F7500BCFAA1 /* CoreGraphics.framework in Frameworks */,
 				F4469DE11C402F1F00BCFAA1 /* SystemConfiguration.framework in Frameworks */,
 				F4469DE01C402EFD00BCFAA1 /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F43A171727EE0E2400A67167 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F43A172427EE0F8900A67167 /* Security.framework in Frameworks */,
+				F43A172227EE0F8200A67167 /* UIKit.framework in Frameworks */,
+				F43A172027EE0F7500A67167 /* WatchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,6 +683,7 @@
 				F4A8723C1DAD1AA400D69E09 /* GTLR.framework */,
 				F4A8727D1DAD1FA000D69E09 /* GTLRtvOSUnitTests.xctest */,
 				F4B18FE41F10035400E55018 /* GTLRwatchOSCore.framework */,
+				F43A171D27EE0E2400A67167 /* GTLRwatchOSUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -774,7 +845,10 @@
 		F4A872741DAD1ED800D69E09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F43A172327EE0F8900A67167 /* Security.framework */,
+				F43A172127EE0F8200A67167 /* UIKit.framework */,
 				F4B18FEA1F1005F400E55018 /* WatchKit.framework */,
+				F43A171F27EE0F7500A67167 /* WatchKit.framework */,
 				F4A872771DAD1EE200D69E09 /* UIKit.framework */,
 				F4A872751DAD1ED800D69E09 /* Security.framework */,
 			);
@@ -964,6 +1038,23 @@
 			productReference = F4368F721B8233BF00E17643 /* GTLRiOSUnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		F43A16DF27EE0E2400A67167 /* GTLRwatchOSUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F43A171A27EE0E2400A67167 /* Build configuration list for PBXNativeTarget "GTLRwatchOSUnitTests" */;
+			buildPhases = (
+				F43A16E027EE0E2400A67167 /* Resources */,
+				F43A16F327EE0E2400A67167 /* Sources */,
+				F43A171727EE0E2400A67167 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GTLRwatchOSUnitTests;
+			productName = GTLRtvOSUnitTests;
+			productReference = F43A171D27EE0E2400A67167 /* GTLRwatchOSUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		F4469D791C40229D00BCFAA1 /* GTLRiOSCore */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4469DB11C40229D00BCFAA1 /* Build configuration list for PBXNativeTarget "GTLRiOSCore" */;
@@ -1077,6 +1168,7 @@
 				4F14A9DC0B1276B70072EBB8 /* GTLROSXUnitTests */,
 				F4368F711B8233BF00E17643 /* GTLRiOSUnitTests */,
 				F4A8727C1DAD1FA000D69E09 /* GTLRtvOSUnitTests */,
+				F43A16DF27EE0E2400A67167 /* GTLRwatchOSUnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1136,6 +1228,31 @@
 				4F2591401C5C3338009E0240 /* Drive1.response.txt in Resources */,
 				F4F2CFDD24A6674B00F1B3A7 /* Drive1BatchCorrupt.response.txt in Resources */,
 				4FA8248B1C6BDAC700E11CCC /* Drive1Paging2.response.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F43A16E027EE0E2400A67167 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F43A16E127EE0E2400A67167 /* Classroom1NotFoundError.response.txt in Resources */,
+				F43A16E227EE0E2400A67167 /* Drive1BatchPaging3.response.txt in Resources */,
+				F43A16E327EE0E2400A67167 /* Drive1Paging3.response.txt in Resources */,
+				F43A16E427EE0E2400A67167 /* NoPayloadsBatch.response.txt in Resources */,
+				F43A16E527EE0E2400A67167 /* Drive1Paging1.response.txt in Resources */,
+				F43A16E627EE0E2400A67167 /* Drive1Corrupt.response.txt in Resources */,
+				F43A16E727EE0E2400A67167 /* Drive1Paging2.response.txt in Resources */,
+				F43A16E827EE0E2400A67167 /* Drive1BatchCorrupt.response.txt in Resources */,
+				F43A16E927EE0E2400A67167 /* Drive1.response.txt in Resources */,
+				F43A16EA27EE0E2400A67167 /* Drive1Empty.response.txt in Resources */,
+				F43A16EB27EE0E2400A67167 /* Drive1BatchPaging1.response.txt in Resources */,
+				F43A16EC27EE0E2400A67167 /* Drive1ParamErrorAsList.response.txt in Resources */,
+				F43A16ED27EE0E2400A67167 /* Drive1BatchPaging2.response.txt in Resources */,
+				F43A16EE27EE0E2400A67167 /* Drive1ParamError.response.txt in Resources */,
+				F43A16EF27EE0E2400A67167 /* Drive1AuthError.response.txt in Resources */,
+				F43A16F027EE0E2400A67167 /* Drive1Batch.response.txt in Resources */,
+				F43A16F127EE0E2400A67167 /* URITemplateExtraTests.json in Resources */,
+				F43A16F227EE0E2400A67167 /* URITemplateRFCTests.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1297,6 +1414,48 @@
 				F4D9D5271D833D6F000EBBED /* GTLRDurationTest.m in Sources */,
 				4FEE17AD1C03DB5900A38758 /* GTMMIMEDocument.m in Sources */,
 				4F3E9C7D1C6C039E004192DE /* GTLRErrorObjectTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F43A16F327EE0E2400A67167 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F43A16F427EE0E2400A67167 /* GTMMIMEDocument.m in Sources */,
+				F43A16F527EE0E2400A67167 /* GTLRDuration.m in Sources */,
+				F43A16F627EE0E2400A67167 /* GTLRObject.m in Sources */,
+				F43A16F727EE0E2400A67167 /* GTMGatherInputStream.m in Sources */,
+				F43A16F827EE0E2400A67167 /* GTLRBatchResult.m in Sources */,
+				F43A16F927EE0E2400A67167 /* GTLRDateTimeTest.m in Sources */,
+				F43A16FA27EE0E2400A67167 /* GTLRBase64.m in Sources */,
+				F43A16FB27EE0E2400A67167 /* GTLRTestingSvcQuery.m in Sources */,
+				F43A16FC27EE0E2400A67167 /* GTLRFrameworkTest.m in Sources */,
+				F43A16FD27EE0E2400A67167 /* GTLRServiceTest.m in Sources */,
+				F43A16FE27EE0E2400A67167 /* GTLRDateTime.m in Sources */,
+				F43A16FF27EE0E2400A67167 /* GTLRService.m in Sources */,
+				F43A170027EE0E2400A67167 /* GTLRRuntimeCommon.m in Sources */,
+				F43A170127EE0E2400A67167 /* GTLRTestingSvcObjects.m in Sources */,
+				F43A170227EE0E2400A67167 /* GTLRURITemplate.m in Sources */,
+				F43A170327EE0E2400A67167 /* GTLRDurationTest.m in Sources */,
+				F43A170427EE0E2400A67167 /* GTMSessionUploadFetcher.m in Sources */,
+				F43A170527EE0E2400A67167 /* GTMSessionFetcherLogging.m in Sources */,
+				F43A170627EE0E2400A67167 /* GTLRQuery.m in Sources */,
+				F43A170727EE0E2400A67167 /* GTLRBatchQuery.m in Sources */,
+				F43A170827EE0E2400A67167 /* GTMSessionFetcher.m in Sources */,
+				F43A170927EE0E2400A67167 /* GTLRBase64Test.m in Sources */,
+				F43A170A27EE0E2400A67167 /* GTLRFramework.m in Sources */,
+				F43A170B27EE0E2400A67167 /* GTLRErrorObjectTest.m in Sources */,
+				F43A170C27EE0E2400A67167 /* GTLRUtilities.m in Sources */,
+				F43A170D27EE0E2400A67167 /* GTLRTestingSvcService.m in Sources */,
+				F43A170E27EE0E2400A67167 /* GTMSessionFetcherService.m in Sources */,
+				F43A170F27EE0E2400A67167 /* GTLRErrorObject.m in Sources */,
+				F43A171027EE0E2400A67167 /* CompiledTestNoARC.m in Sources */,
+				F43A171127EE0E2400A67167 /* GTLRUploadParameters.m in Sources */,
+				F43A171227EE0E2400A67167 /* GTLRURITemplateTest.m in Sources */,
+				F43A171327EE0E2400A67167 /* GTLRQueryTest.m in Sources */,
+				F43A171427EE0E2400A67167 /* GTLRUtilitiesTest.m in Sources */,
+				F43A171527EE0E2400A67167 /* GTMReadMonitorInputStream.m in Sources */,
+				F43A171627EE0E2400A67167 /* GTLRObjectTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1678,6 +1837,32 @@
 			};
 			name = Release;
 		};
+		F43A171B27EE0E2400A67167 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Resources/GTLRUnitTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.google.GTLRUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = watchos;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Debug;
+		};
+		F43A171C27EE0E2400A67167 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Resources/GTLRUnitTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.google.GTLRUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = watchos;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Release;
+		};
 		F4469DB21C40229D00BCFAA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1847,6 +2032,15 @@
 			buildConfigurations = (
 				F4368F781B8233C000E17643 /* Debug */,
 				F4368F791B8233C000E17643 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F43A171A27EE0E2400A67167 /* Build configuration list for PBXNativeTarget "GTLRwatchOSUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F43A171B27EE0E2400A67167 /* Debug */,
+				F43A171C27EE0E2400A67167 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
