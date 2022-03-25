@@ -6,7 +6,8 @@ on:
     paths-ignore:
     - '**.md'
     - 'LICENSE'
-    - 'Package*.swift'
+    - '**/Package*.swift'
+    - 'Source/*.xcodeproj/**'
     - 'Source/Tools/**'
     - '.github/workflows/main.yml'
     - '.github/workflows/swiftpm.yml'
@@ -15,7 +16,8 @@ on:
     paths-ignore:
     - '**.md'
     - 'LICENSE'
-    - 'Package*.swift'
+    - '**/Package*.swift'
+    - 'Source/*.xcodeproj/**'
     - 'Source/Tools/**'
     - '.github/workflows/main.yml'
     - '.github/workflows/swiftpm.yml'

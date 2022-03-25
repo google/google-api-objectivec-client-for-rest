@@ -3,8 +3,22 @@ name: CI
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+    - '**.md'
+    - 'LICENSE'
+    - '*.podspec'
+    - '**/Package*.swift'
+    - '.github/workflows/cocoapods.yml'
+    - '.github/workflows/swiftpm.yml'
   pull_request:
     branches: [ main ]
+    paths-ignore:
+    - '**.md'
+    - 'LICENSE'
+    - '*.podspec'
+    - '**/Package*.swift'
+    - '.github/workflows/cocoapods.yml'
+    - '.github/workflows/swiftpm.yml'
 
 jobs:
   xcode:
