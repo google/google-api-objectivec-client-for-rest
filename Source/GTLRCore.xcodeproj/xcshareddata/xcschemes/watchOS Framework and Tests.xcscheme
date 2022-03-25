@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F43A16DF27EE0E2400A67167"
+               BuildableName = "GTLRwatchOSUnitTests.xctest"
+               BlueprintName = "GTLRwatchOSUnitTests"
+               ReferencedContainer = "container:GTLRCore.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
