@@ -51,12 +51,14 @@ jobs:
             DESTINATION="platform=WatchOS Simulator,name=Apple Watch Series 7 - 45mm,OS=latest"
             ;;
         esac
+        set -o pipefail
         xcodebuild \
-          -project Source/GTLRCore.xcodeproj \
-          -scheme "${XCODE_SCHEME}" \
-          -configuration ${{ matrix.CONFIGURATION }} \
-          -destination "${DESTINATION}" \
-          build test
+            -project Source/GTLRCore.xcodeproj \
+            -scheme "${XCODE_SCHEME}" \
+            -configuration ${{ matrix.CONFIGURATION }} \
+            -destination "${DESTINATION}" \
+            build test \
+          | xcpretty
 
   service_generator:
     needs: core
@@ -72,8 +74,10 @@ jobs:
     - name: Build and Test
       run:  |
         set -eu
+        set -o pipefail
         xcodebuild \
-          -project Source/Tools/ServiceGenerator/ServiceGenerator.xcodeproj \
-          -scheme "ServiceGenerator" \
-          -configuration ${{ matrix.CONFIGURATION }} \
-          build
+            -project Source/Tools/ServiceGenerator/ServiceGenerator.xcodeproj \
+            -scheme "ServiceGenerator" \
+            -configuration ${{ matrix.CONFIGURATION }} \
+            build \
+          | xcpretty

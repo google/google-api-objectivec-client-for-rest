@@ -75,17 +75,21 @@ jobs:
             ;;
         esac
 
+        set -o pipefail
         xcodebuild \
-          -scheme GoogleAPIClientForREST-Package \
-          -configuration ${{ matrix.CONFIGURATION }} \
-          -destination "${DESTINATION}" \
-          build test
+            -scheme GoogleAPIClientForREST-Package \
+            -configuration ${{ matrix.CONFIGURATION }} \
+            -destination "${DESTINATION}" \
+            build test \
+          | xcpretty
     - name: Build ServiceGenerator
       if: ${{ matrix.CONFIGURATION == 'macos' }}
       run:  |
         set -eu
         cd Source/Tools
+        set -o pipefail
         xcodebuild \
-          -scheme GTLR_ServiceGenerator \
-          -configuration ${{ matrix.CONFIGURATION }} \
-          build
+            -scheme GTLR_ServiceGenerator \
+            -configuration ${{ matrix.CONFIGURATION }} \
+            build \
+          | xcpretty
