@@ -1,4 +1,4 @@
-name: CI
+name: Xcode
 
 on:
   push:
@@ -21,20 +21,59 @@ on:
     - '.github/workflows/swiftpm.yml'
 
 jobs:
-  xcode:
-    name: Xcode
-    runs-on: macOS-latest
+  core:
+    runs-on: macos-latest
     strategy:
       fail-fast: false
       matrix:
-        MODE: ["OSXCore", "iOSCore", "tvOSCore", "watchOSCore"]
-        CFG: ["Debug", "Release"]
-        include:
-        - MODE: "ServiceGenerator"
-          CFG: "Both"
+        PLATFORM: ["iOS", "macOS", "tvOS", "watchOS"]
+        CONFIGURATION: ["Debug", "Release"]
     steps:
     - uses: actions/checkout@v2
       with:
         submodules: True
     - name: Build and Test
-      run:  Tests/xcode_tests.sh ${{ matrix.MODE }} ${{ matrix.CFG }}
+      run:  |
+        set -eu
+        XCODE_SCHEME="${{ matrix.PLATFORM }} Framework and Tests"
+        case "${{matrix.PLATFORM}}" in
+          iOS)
+            DESTINATION="platform=iOS Simulator,name=iPhone 8,OS=latest"
+            ;;
+          macOS)
+            DESTINATION="platform=macOS"
+            XCODE_SCHEME="OS X Framework and Tests"
+            ;;
+          tvOS)
+            DESTINATION="platform=tvOS Simulator,name=Apple TV,OS=latest"
+            ;;
+          watchOS)
+            DESTINATION="platform=WatchOS Simulator,name=Apple Watch Series 7 - 45mm,OS=latest"
+            ;;
+        esac
+        xcodebuild \
+          -project Source/GTLRCore.xcodeproj \
+          -scheme "${XCODE_SCHEME}" \
+          -configuration ${{ matrix.CONFIGURATION }} \
+          -destination "${DESTINATION}" \
+          build test
+
+  service_generator:
+    needs: core
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        CONFIGURATION: ["Debug", "Release"]
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: True
+    - name: Build and Test
+      run:  |
+        set -eu
+        xcodebuild \
+          -project Source/Tools/ServiceGenerator/ServiceGenerator.xcodeproj \
+          -scheme "ServiceGenerator" \
+          -configuration ${{ matrix.CONFIGURATION }} \
+          build
