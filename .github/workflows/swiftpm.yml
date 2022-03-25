@@ -83,7 +83,7 @@ jobs:
             build test \
           | xcpretty
     - name: Build ServiceGenerator
-      if: ${{ matrix.CONFIGURATION == 'macos' }}
+      if: ${{ matrix.PLATFORM == 'macos' }}
       run:  |
         set -eu
         cd Source/Tools
@@ -91,5 +91,6 @@ jobs:
         xcodebuild \
             -scheme GTLR_ServiceGenerator \
             -configuration ${{ matrix.CONFIGURATION }} \
+            -destination "platform=macOS" \
             build \
           | xcpretty
