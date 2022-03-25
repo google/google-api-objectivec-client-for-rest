@@ -39,8 +39,7 @@ Pod::Spec.new do |s|
   s.test_spec 'Tests' do |sp|
     sp.source_files = 'Source/Tests/*.{h,m}',
                       'Source/Tests/TestingSvc/*.{h,m}'
-    sp.exclude_files = 'Source/Tests/CompiledTestNoARC.m',
-                       'Source/Tests/main.m'
+    sp.exclude_files = 'Source/Tests/CompiledTestNoARC.m'
     sp.resource = 'Source/Tests/Data/*.{json,txt}'
 
     sp.platforms = {

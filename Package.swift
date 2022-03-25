@@ -1008,8 +1008,7 @@ let package = Package(
             ],
             path: "Source/Tests",
             exclude: [
-                "CompiledTestNoARC.m",
-                "main.m"
+                "CompiledTestNoARC.m"
             ],
             sources: [
                 ".",
