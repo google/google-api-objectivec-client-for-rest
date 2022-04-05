@@ -428,6 +428,33 @@
 
 @end
 
+@implementation GTLRFirebaseappcheckQuery_ProjectsAppsExchangePlayIntegrityToken
+
+@dynamic app;
+
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangePlayIntegrityTokenRequest *)object
+                            app:(NSString *)app {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"app" ];
+  NSString *pathURITemplate = @"v1beta/{+app}:exchangePlayIntegrityToken";
+  GTLRFirebaseappcheckQuery_ProjectsAppsExchangePlayIntegrityToken *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.app = app;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken class];
+  query.loggingName = @"firebaseappcheck.projects.apps.exchangePlayIntegrityToken";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirebaseappcheckQuery_ProjectsAppsExchangeRecaptchaEnterpriseToken
 
 @dynamic app;
@@ -558,6 +585,105 @@
   query.app = app;
   query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeResponse class];
   query.loggingName = @"firebaseappcheck.projects.apps.generateAppAttestChallenge";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseappcheckQuery_ProjectsAppsGeneratePlayIntegrityChallenge
+
+@dynamic app;
+
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeRequest *)object
+                            app:(NSString *)app {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"app" ];
+  NSString *pathURITemplate = @"v1beta/{+app}:generatePlayIntegrityChallenge";
+  GTLRFirebaseappcheckQuery_ProjectsAppsGeneratePlayIntegrityChallenge *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.app = app;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeResponse class];
+  query.loggingName = @"firebaseappcheck.projects.apps.generatePlayIntegrityChallenge";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseappcheckQuery_ProjectsAppsPlayIntegrityConfigBatchGet
+
+@dynamic names, parent;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"names" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta/{+parent}/apps/-/playIntegrityConfig:batchGet";
+  GTLRFirebaseappcheckQuery_ProjectsAppsPlayIntegrityConfigBatchGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetPlayIntegrityConfigsResponse class];
+  query.loggingName = @"firebaseappcheck.projects.apps.playIntegrityConfig.batchGet";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseappcheckQuery_ProjectsAppsPlayIntegrityConfigGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}";
+  GTLRFirebaseappcheckQuery_ProjectsAppsPlayIntegrityConfigGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPlayIntegrityConfig class];
+  query.loggingName = @"firebaseappcheck.projects.apps.playIntegrityConfig.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseappcheckQuery_ProjectsAppsPlayIntegrityConfigPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPlayIntegrityConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}";
+  GTLRFirebaseappcheckQuery_ProjectsAppsPlayIntegrityConfigPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPlayIntegrityConfig class];
+  query.loggingName = @"firebaseappcheck.projects.apps.playIntegrityConfig.patch";
   return query;
 }
 
@@ -702,6 +828,78 @@
   query.name = name;
   query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig class];
   query.loggingName = @"firebaseappcheck.projects.apps.recaptchaEnterpriseConfig.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaV3ConfigBatchGet
+
+@dynamic names, parent;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"names" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta/{+parent}/apps/-/recaptchaV3Config:batchGet";
+  GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaV3ConfigBatchGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetRecaptchaV3ConfigsResponse class];
+  query.loggingName = @"firebaseappcheck.projects.apps.recaptchaV3Config.batchGet";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaV3ConfigGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}";
+  GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaV3ConfigGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaV3Config class];
+  query.loggingName = @"firebaseappcheck.projects.apps.recaptchaV3Config.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaV3ConfigPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaV3Config *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}";
+  GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaV3ConfigPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaV3Config class];
+  query.loggingName = @"firebaseappcheck.projects.apps.recaptchaV3Config.patch";
   return query;
 }
 

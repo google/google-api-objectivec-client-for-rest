@@ -303,6 +303,7 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_UpdateFunction = @
 //
 
 @implementation GTLRCloudFunctions_GenerateUploadUrlRequest
+@dynamic kmsKeyName;
 @end
 
 

@@ -644,6 +644,15 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_OracleDropLargeObjects
+//
+
+@implementation GTLRDatastream_OracleDropLargeObjects
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_OracleObjectIdentifier
 //
 
@@ -719,7 +728,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_OracleSourceConfig
-@dynamic excludeObjects, includeObjects;
+@dynamic dropLargeObjects, excludeObjects, includeObjects;
 @end
 
 

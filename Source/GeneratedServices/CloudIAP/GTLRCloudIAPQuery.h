@@ -27,6 +27,7 @@
 @class GTLRCloudIAP_ResetIdentityAwareProxyClientSecretRequest;
 @class GTLRCloudIAP_SetIamPolicyRequest;
 @class GTLRCloudIAP_TestIamPermissionsRequest;
+@class GTLRCloudIAP_TunnelDestGroup;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -341,6 +342,205 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRCloudIAPQuery_ProjectsBrandsList
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new TunnelDestGroup.
+ *
+ *  Method: iap.projects.iap_tunnel.locations.destGroups.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIAPCloudPlatform
+ */
+@interface GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsCreate : GTLRCloudIAPQuery
+
+/**
+ *  Required. GCP Project number/id and location. In the following format:
+ *  projects/{project_number/id}/iap_tunnel/locations/{location}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The ID to use for the TunnelDestGroup, which will become the final
+ *  component of the resource name. This value should be 4-63 characters, and
+ *  valid characters are /a-z-/.
+ */
+@property(nonatomic, copy, nullable) NSString *tunnelDestGroupId;
+
+/**
+ *  Fetches a @c GTLRCloudIAP_TunnelDestGroup.
+ *
+ *  Creates a new TunnelDestGroup.
+ *
+ *  @param object The @c GTLRCloudIAP_TunnelDestGroup to include in the query.
+ *  @param parent Required. GCP Project number/id and location. In the following
+ *    format: projects/{project_number/id}/iap_tunnel/locations/{location}.
+ *
+ *  @return GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudIAP_TunnelDestGroup *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a TunnelDestGroup.
+ *
+ *  Method: iap.projects.iap_tunnel.locations.destGroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIAPCloudPlatform
+ */
+@interface GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsDelete : GTLRCloudIAPQuery
+
+/**
+ *  Required. Name of the TunnelDestGroup to be deleted. In the following
+ *  format:
+ *  projects/{project_number/id}/iap_tunnel/locations/{location}/destGroups/{dest_group}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIAP_Empty.
+ *
+ *  Deletes a TunnelDestGroup.
+ *
+ *  @param name Required. Name of the TunnelDestGroup to be deleted. In the
+ *    following format:
+ *    projects/{project_number/id}/iap_tunnel/locations/{location}/destGroups/{dest_group}.
+ *
+ *  @return GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves an existing TunnelDestGroup.
+ *
+ *  Method: iap.projects.iap_tunnel.locations.destGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIAPCloudPlatform
+ */
+@interface GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsGet : GTLRCloudIAPQuery
+
+/**
+ *  Required. Name of the TunnelDestGroup to be fetched. In the following
+ *  format:
+ *  projects/{project_number/id}/iap_tunnel/locations/{location}/destGroups/{dest_group}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIAP_TunnelDestGroup.
+ *
+ *  Retrieves an existing TunnelDestGroup.
+ *
+ *  @param name Required. Name of the TunnelDestGroup to be fetched. In the
+ *    following format:
+ *    projects/{project_number/id}/iap_tunnel/locations/{location}/destGroups/{dest_group}.
+ *
+ *  @return GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the existing TunnelDestGroups. To group across all locations, use a
+ *  `-` as the location ID. For example:
+ *  /v1/projects/123/iap_tunnel/locations/-/destGroups
+ *
+ *  Method: iap.projects.iap_tunnel.locations.destGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIAPCloudPlatform
+ */
+@interface GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsList : GTLRCloudIAPQuery
+
+/**
+ *  The maximum number of groups to return. The service may return fewer than
+ *  this value. If unspecified, at most 100 groups will be returned. The maximum
+ *  value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListTunnelDestGroups` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListTunnelDestGroups` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. GCP Project number/id and location. In the following format:
+ *  projects/{project_number/id}/iap_tunnel/locations/{location}. A `-` can be
+ *  used for the location to group across all locations.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudIAP_ListTunnelDestGroupsResponse.
+ *
+ *  Lists the existing TunnelDestGroups. To group across all locations, use a
+ *  `-` as the location ID. For example:
+ *  /v1/projects/123/iap_tunnel/locations/-/destGroups
+ *
+ *  @param parent Required. GCP Project number/id and location. In the following
+ *    format: projects/{project_number/id}/iap_tunnel/locations/{location}. A
+ *    `-` can be used for the location to group across all locations.
+ *
+ *  @return GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a TunnelDestGroup.
+ *
+ *  Method: iap.projects.iap_tunnel.locations.destGroups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIAPCloudPlatform
+ */
+@interface GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsPatch : GTLRCloudIAPQuery
+
+/**
+ *  Required. Immutable. Identifier for the TunnelDestGroup. Must be unique
+ *  within the project.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The field mask specifying which IAP settings should be updated. If omitted,
+ *  then all of the settings are updated. See
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudIAP_TunnelDestGroup.
+ *
+ *  Updates a TunnelDestGroup.
+ *
+ *  @param object The @c GTLRCloudIAP_TunnelDestGroup to include in the query.
+ *  @param name Required. Immutable. Identifier for the TunnelDestGroup. Must be
+ *    unique within the project.
+ *
+ *  @return GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudIAP_TunnelDestGroup *)object
+                           name:(NSString *)name;
 
 @end
 

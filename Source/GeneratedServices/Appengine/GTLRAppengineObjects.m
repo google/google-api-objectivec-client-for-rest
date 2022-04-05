@@ -1203,7 +1203,7 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 //
 
 @implementation GTLRAppengine_Version
-@dynamic apiConfig, automaticScaling, basicScaling, betaSettings,
+@dynamic apiConfig, appEngineApis, automaticScaling, basicScaling, betaSettings,
          buildEnvVariables, createdBy, createTime, defaultExpiration,
          deployment, diskUsageBytes, endpointsApiService, entrypoint, env,
          envVariables, errorHandlers, handlers, healthCheck, identifier,

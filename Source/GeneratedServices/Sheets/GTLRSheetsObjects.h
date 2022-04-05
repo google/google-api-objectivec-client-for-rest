@@ -1840,6 +1840,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_DataExecutionStatus_ErrorCode_Too
  */
 FOUNDATION_EXTERN NSString * const kGTLRSheets_DataExecutionStatus_ErrorCode_TooManyCharsPerCell;
 /**
+ *  The data execution returns more columns than the limit.
+ *
+ *  Value: "TOO_MANY_COLUMNS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DataExecutionStatus_ErrorCode_TooManyColumns;
+/**
  *  The data execution returns more rows than the limit.
  *
  *  Value: "TOO_MANY_ROWS"
@@ -6358,6 +6364,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *    @arg @c kGTLRSheets_DataExecutionStatus_ErrorCode_TooManyCharsPerCell The
  *        data execution returns values that exceed the maximum characters
  *        allowed in a single cell. (Value: "TOO_MANY_CHARS_PER_CELL")
+ *    @arg @c kGTLRSheets_DataExecutionStatus_ErrorCode_TooManyColumns The data
+ *        execution returns more columns than the limit. (Value:
+ *        "TOO_MANY_COLUMNS")
  *    @arg @c kGTLRSheets_DataExecutionStatus_ErrorCode_TooManyRows The data
  *        execution returns more rows than the limit. (Value: "TOO_MANY_ROWS")
  *    @arg @c kGTLRSheets_DataExecutionStatus_ErrorCode_UnsupportedDataType The

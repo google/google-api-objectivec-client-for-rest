@@ -534,7 +534,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 /**
  *  The cpu utilization that the Autoscaler should be trying to achieve. This
  *  number is on a scale from 0 (no utilization) to 100 (total utilization), and
- *  is limited between 10 and 80.
+ *  is limited between 10 and 80, otherwise it will return INVALID_ARGUMENT
+ *  error.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1114,8 +1115,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRBigtableAdmin_Empty : GTLRObject
 @end

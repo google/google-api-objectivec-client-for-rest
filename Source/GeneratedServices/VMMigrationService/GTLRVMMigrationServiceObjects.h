@@ -860,6 +860,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** Output only. The time the clone job was ended. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
 /**
  *  Output only. Provides details for the errors that led to the Clone Job's
  *  state.
@@ -1241,6 +1244,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** Output only. The time the cutover job had finished. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
 /**
  *  Output only. Provides details for the errors that led to the Cutover Job's
  *  state.
@@ -1399,8 +1405,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRVMMigrationService_Empty : GTLRObject
 @end

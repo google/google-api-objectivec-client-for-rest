@@ -146,6 +146,35 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_CountArtifactsRequest_View_CountRe
 FOUNDATION_EXTERN NSString * const kGTLRVault_CountArtifactsRequest_View_TotalCount;
 
 // ----------------------------------------------------------------------------
+// GTLRVault_DriveOptions.clientSideEncryptedOption
+
+/**
+ *  Include both client-side encrypted and unencrypted content in results.
+ *
+ *  Value: "CLIENT_SIDE_ENCRYPTED_OPTION_ANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_DriveOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionAny;
+/**
+ *  Include client-side encrypted content only.
+ *
+ *  Value: "CLIENT_SIDE_ENCRYPTED_OPTION_ENCRYPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_DriveOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionEncrypted;
+/**
+ *  Include unencrypted content only.
+ *
+ *  Value: "CLIENT_SIDE_ENCRYPTED_OPTION_UNENCRYPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_DriveOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionUnencrypted;
+/**
+ *  Encryption status unspecified. Results include both client-side encrypted
+ *  and non-encrypted content.
+ *
+ *  Value: "CLIENT_SIDE_ENCRYPTED_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_DriveOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRVault_Export.status
 
 /**
@@ -947,6 +976,29 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 @interface GTLRVault_DriveOptions : GTLRObject
 
 /**
+ *  Set whether the results include only content encrypted with [Google
+ *  Workspace Client-side encryption](https://support.google.com/a?p=cse_ov)
+ *  content, only unencrypted content, or both. Defaults to both. Currently
+ *  supported for Drive.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVault_DriveOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionAny
+ *        Include both client-side encrypted and unencrypted content in results.
+ *        (Value: "CLIENT_SIDE_ENCRYPTED_OPTION_ANY")
+ *    @arg @c kGTLRVault_DriveOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionEncrypted
+ *        Include client-side encrypted content only. (Value:
+ *        "CLIENT_SIDE_ENCRYPTED_OPTION_ENCRYPTED")
+ *    @arg @c kGTLRVault_DriveOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionUnencrypted
+ *        Include unencrypted content only. (Value:
+ *        "CLIENT_SIDE_ENCRYPTED_OPTION_UNENCRYPTED")
+ *    @arg @c kGTLRVault_DriveOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionUnspecified
+ *        Encryption status unspecified. Results include both client-side
+ *        encrypted and non-encrypted content. (Value:
+ *        "CLIENT_SIDE_ENCRYPTED_OPTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *clientSideEncryptedOption;
+
+/**
  *  Set to **true** to include shared drives.
  *
  *  Uses NSNumber of boolValue.
@@ -974,8 +1026,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRVault_Empty : GTLRObject
 @end

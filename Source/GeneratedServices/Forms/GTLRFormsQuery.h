@@ -48,6 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: forms.forms.batchUpdate
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFormsBody
  *    @c kGTLRAuthScopeFormsDrive
  *    @c kGTLRAuthScopeFormsDriveFile
  */
@@ -83,6 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: forms.forms.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFormsBody
  *    @c kGTLRAuthScopeFormsDrive
  *    @c kGTLRAuthScopeFormsDriveFile
  */
@@ -112,6 +114,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: forms.forms.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFormsBody
+ *    @c kGTLRAuthScopeFormsBodyReadonly
  *    @c kGTLRAuthScopeFormsDrive
  *    @c kGTLRAuthScopeFormsDriveFile
  *    @c kGTLRAuthScopeFormsDriveReadonly
@@ -142,6 +146,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFormsDrive
  *    @c kGTLRAuthScopeFormsDriveFile
+ *    @c kGTLRAuthScopeFormsResponsesReadonly
  */
 @interface GTLRFormsQuery_FormsResponsesGet : GTLRFormsQuery
 
@@ -174,6 +179,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFormsDrive
  *    @c kGTLRAuthScopeFormsDriveFile
+ *    @c kGTLRAuthScopeFormsResponsesReadonly
  */
 @interface GTLRFormsQuery_FormsResponsesList : GTLRFormsQuery
 
@@ -228,9 +234,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: forms.forms.watches.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFormsBody
+ *    @c kGTLRAuthScopeFormsBodyReadonly
  *    @c kGTLRAuthScopeFormsDrive
  *    @c kGTLRAuthScopeFormsDriveFile
  *    @c kGTLRAuthScopeFormsDriveReadonly
+ *    @c kGTLRAuthScopeFormsResponsesReadonly
  */
 @interface GTLRFormsQuery_FormsWatchesCreate : GTLRFormsQuery
 
@@ -260,9 +269,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: forms.forms.watches.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFormsBody
+ *    @c kGTLRAuthScopeFormsBodyReadonly
  *    @c kGTLRAuthScopeFormsDrive
  *    @c kGTLRAuthScopeFormsDriveFile
  *    @c kGTLRAuthScopeFormsDriveReadonly
+ *    @c kGTLRAuthScopeFormsResponsesReadonly
  */
 @interface GTLRFormsQuery_FormsWatchesDelete : GTLRFormsQuery
 
@@ -295,9 +307,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: forms.forms.watches.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFormsBody
+ *    @c kGTLRAuthScopeFormsBodyReadonly
  *    @c kGTLRAuthScopeFormsDrive
  *    @c kGTLRAuthScopeFormsDriveFile
  *    @c kGTLRAuthScopeFormsDriveReadonly
+ *    @c kGTLRAuthScopeFormsResponsesReadonly
  */
 @interface GTLRFormsQuery_FormsWatchesList : GTLRFormsQuery
 
@@ -329,9 +344,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: forms.forms.watches.renew
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFormsBody
+ *    @c kGTLRAuthScopeFormsBodyReadonly
  *    @c kGTLRAuthScopeFormsDrive
  *    @c kGTLRAuthScopeFormsDriveFile
  *    @c kGTLRAuthScopeFormsDriveReadonly
+ *    @c kGTLRAuthScopeFormsResponsesReadonly
  */
 @interface GTLRFormsQuery_FormsWatchesRenew : GTLRFormsQuery
 

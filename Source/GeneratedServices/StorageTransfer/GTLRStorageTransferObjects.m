@@ -125,6 +125,12 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Queued = @"QUEUED
 NSString * const kGTLRStorageTransfer_TransferOperation_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCESS";
 
+// GTLRStorageTransfer_TransferOptions.overwriteWhen
+NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_Always = @"ALWAYS";
+NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_Different = @"DIFFERENT";
+NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_Never = @"NEVER";
+NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhenUnspecified = @"OVERWRITE_WHEN_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRStorageTransfer_AgentPool
@@ -615,7 +621,7 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 @implementation GTLRStorageTransfer_TransferOptions
 @dynamic deleteObjectsFromSourceAfterTransfer, deleteObjectsUniqueInSink,
-         metadataOptions, overwriteObjectsAlreadyExistingInSink;
+         metadataOptions, overwriteObjectsAlreadyExistingInSink, overwriteWhen;
 @end
 
 

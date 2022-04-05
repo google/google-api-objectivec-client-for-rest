@@ -497,7 +497,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CaptureOrderResponse_Exe
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_GlobalState_Enabled;
 /**
- *  Offers are not uploaded targeting even a single country for this program.
+ *  No products have been uploaded for any region. Upload products to Merchant
+ *  Center.
  *
  *  Value: "NO_OFFERS_UPLOADED"
  */
@@ -509,7 +510,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatu
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_GlobalState_NotEnabled;
 /**
- *  State is not known.
+ *  State is unknown.
  *
  *  Value: "PROGRAM_STATE_UNSPECIFIED"
  */
@@ -552,7 +553,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatu
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_StateUnspecified;
 /**
- *  Account is under review. Deprecated: This state is not created.
+ *  Account is under review.
  *
  *  Value: "UNDER_REVIEW"
  */
@@ -581,7 +582,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatu
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewEligibilityStatus_Ineligible;
 /**
- *  Review eligibility reason state is unknown.
+ *  Review eligibility state is unknown.
  *
  *  Value: "REVIEW_ELIGIBILITY_UNSPECIFIED"
  */
@@ -590,6 +591,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatu
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_FreeListingsProgramStatusRegionStatus.reviewIneligibilityReason
 
+/**
+ *  Account was already reviewd.
+ *
+ *  Value: "ALREADY_REVIEWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_AlreadyReviewed;
 /**
  *  Account is already under review.
  *
@@ -602,6 +609,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatu
  *  Value: "IN_COOLDOWN_PERIOD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_InCooldownPeriod;
+/**
+ *  Account is retired. Should not appear in MC.
+ *
+ *  Value: "IS_RETIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_IsRetired;
 /**
  *  No issues available to review.
  *
@@ -626,6 +639,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatu
  *  Value: "REVIEW_INELIGIBILITY_REASON_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_ReviewIneligibilityReasonUnspecified;
+/**
+ *  Account will be automatically reviewed at the end of the grace period.
+ *
+ *  Value: "WILL_BE_REVIEWED_AUTOMATICALLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_WillBeReviewedAutomatically;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_InapplicabilityDetails.inapplicableReason
@@ -1227,7 +1246,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus_GlobalState_Enabled;
 /**
- *  Offers are not uploaded targeting even a single country for this program.
+ *  No products have been uploaded for any region. Upload products to Merchant
+ *  Center.
  *
  *  Value: "NO_OFFERS_UPLOADED"
  */
@@ -1239,7 +1259,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus_GlobalState_NotEnabled;
 /**
- *  State is not known.
+ *  State is unknown.
  *
  *  Value: "PROGRAM_STATE_UNSPECIFIED"
  */
@@ -1282,7 +1302,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_StateUnspecified;
 /**
- *  Account is under review. Deprecated: This state is not created.
+ *  Account is under review.
  *
  *  Value: "UNDER_REVIEW"
  */
@@ -1311,7 +1331,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewEligibilityStatus_Ineligible;
 /**
- *  Review eligibility reason state is unknown.
+ *  Review eligibility state is unknown.
  *
  *  Value: "REVIEW_ELIGIBILITY_UNSPECIFIED"
  */
@@ -1320,6 +1340,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus.reviewIneligibilityReason
 
+/**
+ *  Account was already reviewd.
+ *
+ *  Value: "ALREADY_REVIEWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_AlreadyReviewed;
 /**
  *  Account is already under review.
  *
@@ -1332,6 +1358,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus
  *  Value: "IN_COOLDOWN_PERIOD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_InCooldownPeriod;
+/**
+ *  Account is retired. Should not appear in MC.
+ *
+ *  Value: "IS_RETIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_IsRetired;
 /**
  *  No issues available to review.
  *
@@ -1356,6 +1388,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus
  *  Value: "REVIEW_INELIGIBILITY_REASON_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_ReviewIneligibilityReasonUnspecified;
+/**
+ *  Account will be automatically reviewed at the end of the grace period.
+ *
+ *  Value: "WILL_BE_REVIEWED_AUTOMATICALLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_WillBeReviewedAutomatically;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_VerifyPhoneNumberRequest.phoneVerificationMethod
@@ -4303,20 +4341,19 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @interface GTLRShoppingContent_FreeListingsProgramStatus : GTLRObject
 
 /**
- *  State of the program, It is set to enabled if there are offers for at least
- *  one region.
+ *  State of the program. `ENABLED` if there are offers for at least one region.
  *
  *  Likely values:
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatus_GlobalState_Enabled
  *        Program is enabled and offers are uploaded for at least one country.
  *        (Value: "ENABLED")
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatus_GlobalState_NoOffersUploaded
- *        Offers are not uploaded targeting even a single country for this
- *        program. (Value: "NO_OFFERS_UPLOADED")
+ *        No products have been uploaded for any region. Upload products to
+ *        Merchant Center. (Value: "NO_OFFERS_UPLOADED")
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatus_GlobalState_NotEnabled
  *        Program is not enabled for any country. (Value: "NOT_ENABLED")
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatus_GlobalState_ProgramStateUnspecified
- *        State is not known. (Value: "PROGRAM_STATE_UNSPECIFIED")
+ *        State is unknown. (Value: "PROGRAM_STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *globalState;
 
@@ -4335,9 +4372,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @interface GTLRShoppingContent_FreeListingsProgramStatusRegionStatus : GTLRObject
 
 /**
- *  Date by which `eligibility_status` will go from `WARNING` to `DISAPPROVED`.
- *  It will be present when `eligibility_status` is `WARNING`. Date will be
- *  provided in ISO 8601 format: YYYY-MM-DD
+ *  Date by which eligibilityStatus will go from `WARNING` to `DISAPPROVED`.
+ *  Only visible when your eligibilityStatus is WARNING. In [ISO
+ *  8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DD`.
  */
 @property(nonatomic, copy, nullable) NSString *disapprovalDate;
 
@@ -4362,15 +4399,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_StateUnspecified
  *        State is not known. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_UnderReview
- *        Account is under review. Deprecated: This state is not created.
- *        (Value: "UNDER_REVIEW")
+ *        Account is under review. (Value: "UNDER_REVIEW")
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_Warning
  *        If account has issues but offers are servable. Some of the issue can
  *        make account DISAPPROVED after a certain deadline. (Value: "WARNING")
  */
 @property(nonatomic, copy, nullable) NSString *eligibilityStatus;
 
-/** These issues must be fixed to become eligible for the review. */
+/** Issues that must be fixed to be eligible for review. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *onboardingIssues;
 
 /**
@@ -4381,8 +4417,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSArray<NSString *> *regionCodes;
 
 /**
- *  If a program in a given country is eligible for review. It will be present
- *  only if eligibility status is `DISAPPROVED`.
+ *  If a program is eligible for review in a specific region. Only visible if
+ *  `eligibilityStatus` is `DISAPPROVED`.
  *
  *  Likely values:
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewEligibilityStatus_Eligible
@@ -4392,7 +4428,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *        Account is not eligible for review for a specified region code.
  *        (Value: "INELIGIBLE")
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewEligibilityStatus_ReviewEligibilityUnspecified
- *        Review eligibility reason state is unknown. (Value:
+ *        Review eligibility state is unknown. (Value:
  *        "REVIEW_ELIGIBILITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *reviewEligibilityStatus;
@@ -4401,11 +4437,15 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Review ineligibility reason if account is not eligible for review.
  *
  *  Likely values:
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_AlreadyReviewed
+ *        Account was already reviewd. (Value: "ALREADY_REVIEWED")
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_AlreadyUnderReview
  *        Account is already under review. (Value: "ALREADY_UNDER_REVIEW")
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_InCooldownPeriod
  *        Cooldown period applies. Wait until cooldown period ends. (Value:
  *        "IN_COOLDOWN_PERIOD")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_IsRetired
+ *        Account is retired. Should not appear in MC. (Value: "IS_RETIRED")
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_NoReviewRequired
  *        No issues available to review. (Value: "NO_REVIEW_REQUIRED")
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_NotEnoughOffers
@@ -4416,25 +4456,28 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_ReviewIneligibilityReasonUnspecified
  *        Requesting a review from Google is not possible. (Value:
  *        "REVIEW_INELIGIBILITY_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_WillBeReviewedAutomatically
+ *        Account will be automatically reviewed at the end of the grace period.
+ *        (Value: "WILL_BE_REVIEWED_AUTOMATICALLY")
  */
 @property(nonatomic, copy, nullable) NSString *reviewIneligibilityReason;
 
 /**
- *  Reason if a program in a given country is not eligible for review. Populated
- *  only if `review_eligibility_status` is `INELIGIBLE`.
+ *  Reason a program in a specific region isn’t eligible for review. Only
+ *  visible if `reviewEligibilityStatus` is `INELIGIBLE`.
  */
 @property(nonatomic, copy, nullable) NSString *reviewIneligibilityReasonDescription;
 
 /**
- *  This contains additional information specific to review ineligibility
- *  reasons. If review is ineligible because of `IN_COOLDOWN_PERIOD`, it will
- *  contain timestamp for cooldown period.
+ *  Additional information for ineligibility. If `reviewIneligibilityReason` is
+ *  `IN_COOLDOWN_PERIOD`, a timestamp for the end of the cooldown period is
+ *  provided.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_FreeListingsProgramStatusReviewIneligibilityReasonDetails *reviewIneligibilityReasonDetails;
 
 /**
- *  These issues will be evaluated in review process. Fix all the issues before
- *  requesting the review.
+ *  Issues evaluated in the review process. Fix all issues before requesting a
+ *  review.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *reviewIssues;
 
@@ -9598,6 +9641,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, copy, nullable) NSString *expirationDate;
 
+/**
+ *  Required for multi-seller accounts. Use this attribute if you're a
+ *  marketplace uploading products for various sellers to your multi-seller
+ *  account.
+ */
+@property(nonatomic, copy, nullable) NSString *externalSellerId;
+
 /** Target gender of the item. */
 @property(nonatomic, copy, nullable) NSString *gender;
 
@@ -10298,7 +10348,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSArray<NSString *> *destinations;
 
 /**
- *  includeAttributes
+ *  Deprecated: Setting this field has no effect and attributes are never
+ *  included.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -10582,7 +10633,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /** Product filter by brand exclusion for the promotion. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *brandExclusion;
 
-/** Required. The content language used as part of the unique identifier. */
+/**
+ *  Required. The content language used as part of the unique identifier.
+ *  Currently only en value is supported.
+ */
 @property(nonatomic, copy, nullable) NSString *contentLanguage;
 
 /**
@@ -10788,7 +10842,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /** Shipping service names for thse promotion. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *shippingServiceNames;
 
-/** Required. The target country used as part of the unique identifier. */
+/**
+ *  Required. The target country used as part of the unique identifier.
+ *  Currently only US and CA are supported.
+ */
 @property(nonatomic, copy, nullable) NSString *targetCountry;
 
 @end
@@ -13268,20 +13325,19 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @interface GTLRShoppingContent_ShoppingAdsProgramStatus : GTLRObject
 
 /**
- *  State of the program, It is set to enabled if there are offers for at least
- *  one region.
+ *  State of the program. `ENABLED` if there are offers for at least one region.
  *
  *  Likely values:
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatus_GlobalState_Enabled
  *        Program is enabled and offers are uploaded for at least one country.
  *        (Value: "ENABLED")
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatus_GlobalState_NoOffersUploaded
- *        Offers are not uploaded targeting even a single country for this
- *        program. (Value: "NO_OFFERS_UPLOADED")
+ *        No products have been uploaded for any region. Upload products to
+ *        Merchant Center. (Value: "NO_OFFERS_UPLOADED")
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatus_GlobalState_NotEnabled
  *        Program is not enabled for any country. (Value: "NOT_ENABLED")
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatus_GlobalState_ProgramStateUnspecified
- *        State is not known. (Value: "PROGRAM_STATE_UNSPECIFIED")
+ *        State is unknown. (Value: "PROGRAM_STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *globalState;
 
@@ -13300,10 +13356,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @interface GTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus : GTLRObject
 
 /**
- *  Date by which `eligibility_status` will go from `WARNING` to `DISAPPROVED`.
- *  It will be present when `eligibility_status` is `WARNING`. Date will be
- *  provided in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format:
- *  YYYY-MM-DD
+ *  Date by which eligibilityStatus will go from `WARNING` to `DISAPPROVED`.
+ *  Only visible when your eligibilityStatus is WARNING. In [ISO
+ *  8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DD`.
  */
 @property(nonatomic, copy, nullable) NSString *disapprovalDate;
 
@@ -13328,15 +13383,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_StateUnspecified
  *        State is not known. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_UnderReview
- *        Account is under review. Deprecated: This state is not created.
- *        (Value: "UNDER_REVIEW")
+ *        Account is under review. (Value: "UNDER_REVIEW")
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_Warning
  *        If account has issues but offers are servable. Some of the issue can
  *        make account DISAPPROVED after a certain deadline. (Value: "WARNING")
  */
 @property(nonatomic, copy, nullable) NSString *eligibilityStatus;
 
-/** These issues must be fixed to become eligible for the review. */
+/** Issues that must be fixed to be eligible for review. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *onboardingIssues;
 
 /**
@@ -13347,8 +13401,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSArray<NSString *> *regionCodes;
 
 /**
- *  If a program in a given country is eligible for review. It will be present
- *  only if eligibility status is `DISAPPROVED`.
+ *  If a program is eligible for review in a specific region. Only visible if
+ *  `eligibilityStatus` is `DISAPPROVED`.
  *
  *  Likely values:
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewEligibilityStatus_Eligible
@@ -13358,7 +13412,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *        Account is not eligible for review for a specified region code.
  *        (Value: "INELIGIBLE")
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewEligibilityStatus_ReviewEligibilityUnspecified
- *        Review eligibility reason state is unknown. (Value:
+ *        Review eligibility state is unknown. (Value:
  *        "REVIEW_ELIGIBILITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *reviewEligibilityStatus;
@@ -13367,11 +13421,15 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Review ineligibility reason if account is not eligible for review.
  *
  *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_AlreadyReviewed
+ *        Account was already reviewd. (Value: "ALREADY_REVIEWED")
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_AlreadyUnderReview
  *        Account is already under review. (Value: "ALREADY_UNDER_REVIEW")
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_InCooldownPeriod
  *        Cooldown period applies. Wait until cooldown period ends. (Value:
  *        "IN_COOLDOWN_PERIOD")
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_IsRetired
+ *        Account is retired. Should not appear in MC. (Value: "IS_RETIRED")
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_NoReviewRequired
  *        No issues available to review. (Value: "NO_REVIEW_REQUIRED")
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_NotEnoughOffers
@@ -13382,25 +13440,28 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_ReviewIneligibilityReasonUnspecified
  *        Requesting a review from Google is not possible. (Value:
  *        "REVIEW_INELIGIBILITY_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_WillBeReviewedAutomatically
+ *        Account will be automatically reviewed at the end of the grace period.
+ *        (Value: "WILL_BE_REVIEWED_AUTOMATICALLY")
  */
 @property(nonatomic, copy, nullable) NSString *reviewIneligibilityReason;
 
 /**
- *  Reason if a program in a given country is not eligible for review. Populated
- *  only if `review_eligibility_status` is `INELIGIBLE`.
+ *  Reason a program in a specific region isn’t eligible for review. Only
+ *  visible if `reviewEligibilityStatus` is `INELIGIBLE`.
  */
 @property(nonatomic, copy, nullable) NSString *reviewIneligibilityReasonDescription;
 
 /**
- *  This contains additional information specific to review ineligibility
- *  reasons. If review is ineligible because of `IN_COOLDOWN_PERIOD`, it will
- *  contain timestamp for cooldown period.
+ *  Additional information for ineligibility. If `reviewIneligibilityReason` is
+ *  `IN_COOLDOWN_PERIOD`, a timestamp for the end of the cooldown period is
+ *  provided.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_ShoppingAdsProgramStatusReviewIneligibilityReasonDetails *reviewIneligibilityReasonDetails;
 
 /**
- *  These issues will be evaluated in review process. Fix all the issues before
- *  requesting the review.
+ *  Issues evaluated in the review process. Fix all issues before requesting a
+ *  review.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *reviewIssues;
 

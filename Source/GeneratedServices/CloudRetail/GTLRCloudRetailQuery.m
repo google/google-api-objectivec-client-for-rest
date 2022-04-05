@@ -66,6 +66,33 @@
 
 @end
 
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesProductsAddLocalInventories
+
+@dynamic product;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2AddLocalInventoriesRequest *)object
+                        product:(NSString *)product {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"product" ];
+  NSString *pathURITemplate = @"v2/{+product}:addLocalInventories";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesProductsAddLocalInventories *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.product = product;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleLongrunningOperation class];
+  query.loggingName = @"retail.projects.locations.catalogs.branches.products.addLocalInventories";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesProductsCreate
 
 @dynamic parent, productId;
@@ -226,6 +253,33 @@
   query.product = product;
   query.expectedObjectClass = [GTLRCloudRetail_GoogleLongrunningOperation class];
   query.loggingName = @"retail.projects.locations.catalogs.branches.products.removeFulfillmentPlaces";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesProductsRemoveLocalInventories
+
+@dynamic product;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2RemoveLocalInventoriesRequest *)object
+                        product:(NSString *)product {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"product" ];
+  NSString *pathURITemplate = @"v2/{+product}:removeLocalInventories";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesProductsRemoveLocalInventories *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.product = product;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleLongrunningOperation class];
+  query.loggingName = @"retail.projects.locations.catalogs.branches.products.removeLocalInventories";
   return query;
 }
 

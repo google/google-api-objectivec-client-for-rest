@@ -24,6 +24,7 @@
 @class GTLRFirebaseRealtimeDatabase_DatabaseInstance;
 @class GTLRFirebaseRealtimeDatabase_DisableDatabaseInstanceRequest;
 @class GTLRFirebaseRealtimeDatabase_ReenableDatabaseInstanceRequest;
+@class GTLRFirebaseRealtimeDatabase_UndeleteDatabaseInstanceRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -254,6 +255,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Indicate that DatabaseInstances in the `DELETED` state should also be
+ *  returned.
+ */
+@property(nonatomic, assign) BOOL showDeleted;
+
+/**
  *  Fetches a @c GTLRFirebaseRealtimeDatabase_ListDatabaseInstancesResponse.
  *
  *  Lists each DatabaseInstance associated with the specified parent project.
@@ -314,6 +321,46 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRFirebaseRealtimeDatabaseQuery_ProjectsLocationsInstancesReenable
  */
 + (instancetype)queryWithObject:(GTLRFirebaseRealtimeDatabase_ReenableDatabaseInstanceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Restores a DatabaseInstance that was previously marked to be deleted. This
+ *  may only be used on a DatabaseInstance in the DELETED state. Purged
+ *  DatabaseInstance's may not be recovered.
+ *
+ *  Method: firebasedatabase.projects.locations.instances.undelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseRealtimeDatabaseCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseRealtimeDatabaseFirebase
+ */
+@interface GTLRFirebaseRealtimeDatabaseQuery_ProjectsLocationsInstancesUndelete : GTLRFirebaseRealtimeDatabaseQuery
+
+/**
+ *  The fully qualified resource name of the database instance, in the form:
+ *  `projects/{project-number}/locations/{location-id}/instances/{database-id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseRealtimeDatabase_DatabaseInstance.
+ *
+ *  Restores a DatabaseInstance that was previously marked to be deleted. This
+ *  may only be used on a DatabaseInstance in the DELETED state. Purged
+ *  DatabaseInstance's may not be recovered.
+ *
+ *  @param object The @c
+ *    GTLRFirebaseRealtimeDatabase_UndeleteDatabaseInstanceRequest to include in
+ *    the query.
+ *  @param name The fully qualified resource name of the database instance, in
+ *    the form:
+ *    `projects/{project-number}/locations/{location-id}/instances/{database-id}`
+ *
+ *  @return GTLRFirebaseRealtimeDatabaseQuery_ProjectsLocationsInstancesUndelete
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseRealtimeDatabase_UndeleteDatabaseInstanceRequest *)object
                            name:(NSString *)name;
 
 @end

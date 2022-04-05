@@ -24,6 +24,7 @@
 @class GTLRAIPlatformNotebooks_Environment;
 @class GTLRAIPlatformNotebooks_Execution;
 @class GTLRAIPlatformNotebooks_Instance;
+@class GTLRAIPlatformNotebooks_RefreshRuntimeTokenInternalRequest;
 @class GTLRAIPlatformNotebooks_RegisterInstanceRequest;
 @class GTLRAIPlatformNotebooks_ReportInstanceInfoRequest;
 @class GTLRAIPlatformNotebooks_ReportRuntimeEventRequest;
@@ -1618,6 +1619,42 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspec
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets an access token for the consumer service account that the customer
+ *  attached to the runtime. Only accessible from the tenant instance.
+ *
+ *  Method: notebooks.projects.locations.runtimes.refreshRuntimeTokenInternal
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesRefreshRuntimeTokenInternal : GTLRAIPlatformNotebooksQuery
+
+/**
+ *  Required. Format:
+ *  `projects/{project_id}/locations/{location}/runtimes/{runtime_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_RefreshRuntimeTokenInternalResponse.
+ *
+ *  Gets an access token for the consumer service account that the customer
+ *  attached to the runtime. Only accessible from the tenant instance.
+ *
+ *  @param object The @c
+ *    GTLRAIPlatformNotebooks_RefreshRuntimeTokenInternalRequest to include in
+ *    the query.
+ *  @param name Required. Format:
+ *    `projects/{project_id}/locations/{location}/runtimes/{runtime_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesRefreshRuntimeTokenInternal
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_RefreshRuntimeTokenInternalRequest *)object
+                           name:(NSString *)name;
 
 @end
 

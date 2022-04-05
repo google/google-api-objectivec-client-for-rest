@@ -31,6 +31,19 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
+ *  Authorization scope: See, edit, create, and delete all your Google Forms
+ *  forms
+ *
+ *  Value "https://www.googleapis.com/auth/forms.body"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFormsBody;
+/**
+ *  Authorization scope: See all your Google Forms forms
+ *
+ *  Value "https://www.googleapis.com/auth/forms.body.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFormsBodyReadonly;
+/**
  *  Authorization scope: See, edit, create, and delete all of your Google Drive
  *  files
  *
@@ -50,6 +63,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFormsDriveFile;
  *  Value "https://www.googleapis.com/auth/drive.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFormsDriveReadonly;
+/**
+ *  Authorization scope: See all responses to your Google Forms forms
+ *
+ *  Value "https://www.googleapis.com/auth/forms.responses.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFormsResponsesReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRFormsService

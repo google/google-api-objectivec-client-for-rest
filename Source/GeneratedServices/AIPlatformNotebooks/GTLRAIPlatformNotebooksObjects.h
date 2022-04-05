@@ -1397,8 +1397,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRAIPlatformNotebooks_Empty : GTLRObject
 @end
@@ -2884,6 +2883,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Request for getting a new access token.
+ */
+@interface GTLRAIPlatformNotebooks_RefreshRuntimeTokenInternalRequest : GTLRObject
+
+/**
+ *  Required. The VM hardware token for authenticating the VM.
+ *  https://cloud.google.com/compute/docs/instances/verifying-instance-identity
+ */
+@property(nonatomic, copy, nullable) NSString *vmId;
+
+@end
+
+
+/**
+ *  Response with a new access token.
+ */
+@interface GTLRAIPlatformNotebooks_RefreshRuntimeTokenInternalResponse : GTLRObject
+
+/** The OAuth 2.0 access token. */
+@property(nonatomic, copy, nullable) NSString *accessToken;
+
+/** Output only. Token expiration time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
 @end
 

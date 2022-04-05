@@ -316,8 +316,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. Indicate that keys are marked as deleted within 30 days should
- *  also be returned. Normally only active keys are returned.
+ *  Optional. Indicate that keys deleted in the past 30 days should also be
+ *  returned.
  */
 @property(nonatomic, assign) BOOL showDeleted;
 

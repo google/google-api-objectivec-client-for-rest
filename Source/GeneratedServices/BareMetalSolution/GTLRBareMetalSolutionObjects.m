@@ -708,7 +708,8 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_ProvisioningQuota
-@dynamic assetType, availableCount, gcpService, instanceQuota, location, name;
+@dynamic assetType, availableCount, gcpService, instanceQuota, location, name,
+         networkBandwidth, serverCount, storageGib;
 @end
 
 

@@ -4098,8 +4098,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for Empty is empty JSON object {}.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRAndroidManagement_Empty : GTLRObject
 @end
@@ -6145,7 +6144,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  accessibility service can be used. If the field is set, only the
  *  accessibility services in this list and the system's built-in accessibility
  *  service can be used. In particular, if the field is set to empty, only the
- *  system's built-in accessibility servicess can be used.
+ *  system's built-in accessibility servicess can be used. This can be set on
+ *  fully managed devices and on work profiles. When applied to a work profile,
+ *  this affects both the personal profile and the work profile.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_PackageNameList *permittedAccessibilityServices;
 

@@ -288,6 +288,26 @@ NSString * const kGTLRDisplayVideo_CarrierAndIspTargetingOptionDetails_Type_Carr
 NSString * const kGTLRDisplayVideo_CarrierAndIspTargetingOptionDetails_Type_CarrierAndIspTypeIsp = @"CARRIER_AND_ISP_TYPE_ISP";
 NSString * const kGTLRDisplayVideo_CarrierAndIspTargetingOptionDetails_Type_CarrierAndIspTypeUnspecified = @"CARRIER_AND_ISP_TYPE_UNSPECIFIED";
 
+// GTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails.contentDuration
+NSString * const kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDuration0To1Min = @"CONTENT_DURATION_0_TO_1_MIN";
+NSString * const kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDuration15To30Min = @"CONTENT_DURATION_15_TO_30_MIN";
+NSString * const kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDuration1To5Min = @"CONTENT_DURATION_1_TO_5_MIN";
+NSString * const kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDuration30To60Min = @"CONTENT_DURATION_30_TO_60_MIN";
+NSString * const kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDuration5To15Min = @"CONTENT_DURATION_5_TO_15_MIN";
+NSString * const kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDurationOver60Min = @"CONTENT_DURATION_OVER_60_MIN";
+NSString * const kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDurationUnknown = @"CONTENT_DURATION_UNKNOWN";
+NSString * const kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDurationUnspecified = @"CONTENT_DURATION_UNSPECIFIED";
+
+// GTLRDisplayVideo_ContentDurationTargetingOptionDetails.contentDuration
+NSString * const kGTLRDisplayVideo_ContentDurationTargetingOptionDetails_ContentDuration_ContentDuration0To1Min = @"CONTENT_DURATION_0_TO_1_MIN";
+NSString * const kGTLRDisplayVideo_ContentDurationTargetingOptionDetails_ContentDuration_ContentDuration15To30Min = @"CONTENT_DURATION_15_TO_30_MIN";
+NSString * const kGTLRDisplayVideo_ContentDurationTargetingOptionDetails_ContentDuration_ContentDuration1To5Min = @"CONTENT_DURATION_1_TO_5_MIN";
+NSString * const kGTLRDisplayVideo_ContentDurationTargetingOptionDetails_ContentDuration_ContentDuration30To60Min = @"CONTENT_DURATION_30_TO_60_MIN";
+NSString * const kGTLRDisplayVideo_ContentDurationTargetingOptionDetails_ContentDuration_ContentDuration5To15Min = @"CONTENT_DURATION_5_TO_15_MIN";
+NSString * const kGTLRDisplayVideo_ContentDurationTargetingOptionDetails_ContentDuration_ContentDurationOver60Min = @"CONTENT_DURATION_OVER_60_MIN";
+NSString * const kGTLRDisplayVideo_ContentDurationTargetingOptionDetails_ContentDuration_ContentDurationUnknown = @"CONTENT_DURATION_UNKNOWN";
+NSString * const kGTLRDisplayVideo_ContentDurationTargetingOptionDetails_ContentDuration_ContentDurationUnspecified = @"CONTENT_DURATION_UNSPECIFIED";
+
 // GTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails.adType
 NSString * const kGTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails_AdType_AdTypeAudio = @"AD_TYPE_AUDIO";
 NSString * const kGTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails_AdType_AdTypeDisplay = @"AD_TYPE_DISPLAY";
@@ -329,6 +349,16 @@ NSString * const kGTLRDisplayVideo_ContentOutstreamPositionTargetingOptionDetail
 NSString * const kGTLRDisplayVideo_ContentOutstreamPositionTargetingOptionDetails_ContentOutstreamPosition_ContentOutstreamPositionInterstitial = @"CONTENT_OUTSTREAM_POSITION_INTERSTITIAL";
 NSString * const kGTLRDisplayVideo_ContentOutstreamPositionTargetingOptionDetails_ContentOutstreamPosition_ContentOutstreamPositionUnknown = @"CONTENT_OUTSTREAM_POSITION_UNKNOWN";
 NSString * const kGTLRDisplayVideo_ContentOutstreamPositionTargetingOptionDetails_ContentOutstreamPosition_ContentOutstreamPositionUnspecified = @"CONTENT_OUTSTREAM_POSITION_UNSPECIFIED";
+
+// GTLRDisplayVideo_ContentStreamTypeAssignedTargetingOptionDetails.contentStreamType
+NSString * const kGTLRDisplayVideo_ContentStreamTypeAssignedTargetingOptionDetails_ContentStreamType_ContentLiveStream = @"CONTENT_LIVE_STREAM";
+NSString * const kGTLRDisplayVideo_ContentStreamTypeAssignedTargetingOptionDetails_ContentStreamType_ContentOnDemand = @"CONTENT_ON_DEMAND";
+NSString * const kGTLRDisplayVideo_ContentStreamTypeAssignedTargetingOptionDetails_ContentStreamType_ContentStreamTypeUnspecified = @"CONTENT_STREAM_TYPE_UNSPECIFIED";
+
+// GTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails.contentStreamType
+NSString * const kGTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails_ContentStreamType_ContentLiveStream = @"CONTENT_LIVE_STREAM";
+NSString * const kGTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails_ContentStreamType_ContentOnDemand = @"CONTENT_ON_DEMAND";
+NSString * const kGTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails_ContentStreamType_ContentStreamTypeUnspecified = @"CONTENT_STREAM_TYPE_UNSPECIFIED";
 
 // GTLRDisplayVideo_CreateAssignedTargetingOptionsRequest.targetingType
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeAgeRange = @"TARGETING_TYPE_AGE_RANGE";
@@ -1100,6 +1130,12 @@ NSString * const kGTLRDisplayVideo_HouseholdIncomeTargetingOptionDetails_Househo
 NSString * const kGTLRDisplayVideo_HouseholdIncomeTargetingOptionDetails_HouseholdIncome_HouseholdIncomeTop41To50Percent = @"HOUSEHOLD_INCOME_TOP_41_TO_50_PERCENT";
 NSString * const kGTLRDisplayVideo_HouseholdIncomeTargetingOptionDetails_HouseholdIncome_HouseholdIncomeUnknown = @"HOUSEHOLD_INCOME_UNKNOWN";
 NSString * const kGTLRDisplayVideo_HouseholdIncomeTargetingOptionDetails_HouseholdIncome_HouseholdIncomeUnspecified = @"HOUSEHOLD_INCOME_UNSPECIFIED";
+
+// GTLRDisplayVideo_InsertionOrder.billableOutcome
+NSString * const kGTLRDisplayVideo_InsertionOrder_BillableOutcome_BillableOutcomePayPerClick = @"BILLABLE_OUTCOME_PAY_PER_CLICK";
+NSString * const kGTLRDisplayVideo_InsertionOrder_BillableOutcome_BillableOutcomePayPerImpression = @"BILLABLE_OUTCOME_PAY_PER_IMPRESSION";
+NSString * const kGTLRDisplayVideo_InsertionOrder_BillableOutcome_BillableOutcomePayPerViewableImpression = @"BILLABLE_OUTCOME_PAY_PER_VIEWABLE_IMPRESSION";
+NSString * const kGTLRDisplayVideo_InsertionOrder_BillableOutcome_BillableOutcomeUnspecified = @"BILLABLE_OUTCOME_UNSPECIFIED";
 
 // GTLRDisplayVideo_InsertionOrder.entityStatus
 NSString * const kGTLRDisplayVideo_InsertionOrder_EntityStatus_EntityStatusActive = @"ENTITY_STATUS_ACTIVE";
@@ -2033,11 +2069,11 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
          assignedTargetingOptionId, audienceGroupDetails,
          audioContentTypeDetails, authorizedSellerStatusDetails, browserDetails,
          businessChainDetails, carrierAndIspDetails, categoryDetails,
-         channelDetails, contentInstreamPositionDetails,
-         contentOutstreamPositionDetails, dayAndTimeDetails,
-         deviceMakeModelDetails, deviceTypeDetails,
-         digitalContentLabelExclusionDetails, environmentDetails,
-         exchangeDetails, genderDetails, geoRegionDetails,
+         channelDetails, contentDurationDetails, contentGenreDetails,
+         contentInstreamPositionDetails, contentOutstreamPositionDetails,
+         contentStreamTypeDetails, dayAndTimeDetails, deviceMakeModelDetails,
+         deviceTypeDetails, digitalContentLabelExclusionDetails,
+         environmentDetails, exchangeDetails, genderDetails, geoRegionDetails,
          householdIncomeDetails, inheritance, inventorySourceDetails,
          inventorySourceGroupDetails, keywordDetails, languageDetails, name,
          nativeContentPositionDetails, negativeKeywordListDetails, omidDetails,
@@ -2820,6 +2856,46 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails
+//
+
+@implementation GTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails
+@dynamic contentDuration, targetingOptionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_ContentDurationTargetingOptionDetails
+//
+
+@implementation GTLRDisplayVideo_ContentDurationTargetingOptionDetails
+@dynamic contentDuration;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_ContentGenreAssignedTargetingOptionDetails
+//
+
+@implementation GTLRDisplayVideo_ContentGenreAssignedTargetingOptionDetails
+@dynamic displayName, negative, targetingOptionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_ContentGenreTargetingOptionDetails
+//
+
+@implementation GTLRDisplayVideo_ContentGenreTargetingOptionDetails
+@dynamic displayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails
 //
 
@@ -2855,6 +2931,26 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 
 @implementation GTLRDisplayVideo_ContentOutstreamPositionTargetingOptionDetails
 @dynamic contentOutstreamPosition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_ContentStreamTypeAssignedTargetingOptionDetails
+//
+
+@implementation GTLRDisplayVideo_ContentStreamTypeAssignedTargetingOptionDetails
+@dynamic contentStreamType, targetingOptionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails
+//
+
+@implementation GTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails
+@dynamic contentStreamType;
 @end
 
 
@@ -3646,10 +3742,10 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 //
 
 @implementation GTLRDisplayVideo_InsertionOrder
-@dynamic advertiserId, bidStrategy, budget, campaignId, displayName,
-         entityStatus, frequencyCap, insertionOrderId, insertionOrderType,
-         integrationDetails, name, pacing, partnerCosts, performanceGoal,
-         reservationType, updateTime;
+@dynamic advertiserId, bidStrategy, billableOutcome, budget, campaignId,
+         displayName, entityStatus, frequencyCap, insertionOrderId,
+         insertionOrderType, integrationDetails, name, pacing, partnerCosts,
+         performanceGoal, reservationType, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -5334,10 +5430,11 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 @implementation GTLRDisplayVideo_TargetingOption
 @dynamic ageRangeDetails, appCategoryDetails, audioContentTypeDetails,
          authorizedSellerStatusDetails, browserDetails, businessChainDetails,
-         carrierAndIspDetails, categoryDetails, contentInstreamPositionDetails,
-         contentOutstreamPositionDetails, deviceMakeModelDetails,
-         deviceTypeDetails, digitalContentLabelDetails, environmentDetails,
-         exchangeDetails, genderDetails, geoRegionDetails,
+         carrierAndIspDetails, categoryDetails, contentDurationDetails,
+         contentGenreDetails, contentInstreamPositionDetails,
+         contentOutstreamPositionDetails, contentStreamTypeDetails,
+         deviceMakeModelDetails, deviceTypeDetails, digitalContentLabelDetails,
+         environmentDetails, exchangeDetails, genderDetails, geoRegionDetails,
          householdIncomeDetails, languageDetails, name,
          nativeContentPositionDetails, omidDetails, onScreenPositionDetails,
          operatingSystemDetails, parentalStatusDetails, poiDetails,

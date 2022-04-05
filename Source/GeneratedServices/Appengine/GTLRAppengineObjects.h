@@ -1486,8 +1486,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for Empty is empty JSON object {}.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRAppengine_Empty : GTLRObject
 @end
@@ -3356,6 +3355,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  *  GET requests if view=FULL is set.
  */
 @property(nonatomic, strong, nullable) GTLRAppengine_ApiConfigHandler *apiConfig;
+
+/**
+ *  app_engine_apis allows second generation runtimes to access the App Engine
+ *  APIs.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *appEngineApis;
 
 /**
  *  Automatic scaling is based on request rate, response latencies, and other

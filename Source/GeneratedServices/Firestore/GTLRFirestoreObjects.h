@@ -235,24 +235,23 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_ConcurrencyModeUnspecified;
 /**
- *  Use optimistic concurrency control by default. This setting is available for
- *  Cloud Firestore customers.
+ *  Use optimistic concurrency control by default. This mode is available for
+ *  Cloud Firestore databases.
  *
  *  Value: "OPTIMISTIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_Optimistic;
 /**
  *  Use optimistic concurrency control with entity groups by default. This is
- *  the only available setting for Cloud Datastore customers. This is the
- *  default setting for Cloud Datastore.
+ *  the only available mode for Cloud Datastore. This mode is also available for
+ *  Cloud Firestore with Datastore Mode but is not recommended.
  *
  *  Value: "OPTIMISTIC_WITH_ENTITY_GROUPS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_OptimisticWithEntityGroups;
 /**
- *  Use pessimistic concurrency control by default. This setting is available
- *  for Cloud Firestore customers. This is the default setting for Cloud
- *  Firestore.
+ *  Use pessimistic concurrency control by default. This mode is available for
+ *  Cloud Firestore databases. This is the default setting for Cloud Firestore.
  *
  *  Value: "PESSIMISTIC"
  */
@@ -1213,8 +1212,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRFirestore_Empty : GTLRObject
 @end
@@ -1450,17 +1448,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_ConcurrencyModeUnspecified
  *        Not used. (Value: "CONCURRENCY_MODE_UNSPECIFIED")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_Optimistic
- *        Use optimistic concurrency control by default. This setting is
- *        available for Cloud Firestore customers. (Value: "OPTIMISTIC")
+ *        Use optimistic concurrency control by default. This mode is available
+ *        for Cloud Firestore databases. (Value: "OPTIMISTIC")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_OptimisticWithEntityGroups
  *        Use optimistic concurrency control with entity groups by default. This
- *        is the only available setting for Cloud Datastore customers. This is
- *        the default setting for Cloud Datastore. (Value:
- *        "OPTIMISTIC_WITH_ENTITY_GROUPS")
+ *        is the only available mode for Cloud Datastore. This mode is also
+ *        available for Cloud Firestore with Datastore Mode but is not
+ *        recommended. (Value: "OPTIMISTIC_WITH_ENTITY_GROUPS")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_Pessimistic
- *        Use pessimistic concurrency control by default. This setting is
- *        available for Cloud Firestore customers. This is the default setting
- *        for Cloud Firestore. (Value: "PESSIMISTIC")
+ *        Use pessimistic concurrency control by default. This mode is available
+ *        for Cloud Firestore databases. This is the default setting for Cloud
+ *        Firestore. (Value: "PESSIMISTIC")
  */
 @property(nonatomic, copy, nullable) NSString *concurrencyMode;
 

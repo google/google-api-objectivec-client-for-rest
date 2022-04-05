@@ -23,6 +23,7 @@
 #endif
 
 @class GTLRCloudRetail_GoogleCloudRetailV2AddFulfillmentPlacesRequest;
+@class GTLRCloudRetail_GoogleCloudRetailV2AddLocalInventoriesRequest;
 @class GTLRCloudRetail_GoogleCloudRetailV2Catalog;
 @class GTLRCloudRetail_GoogleCloudRetailV2ImportCompletionDataRequest;
 @class GTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest;
@@ -32,6 +33,7 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2PurgeUserEventsRequest;
 @class GTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest;
 @class GTLRCloudRetail_GoogleCloudRetailV2RemoveFulfillmentPlacesRequest;
+@class GTLRCloudRetail_GoogleCloudRetailV2RemoveLocalInventoriesRequest;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchRequest;
 @class GTLRCloudRetail_GoogleCloudRetailV2SetDefaultBranchRequest;
 @class GTLRCloudRetail_GoogleCloudRetailV2SetInventoryRequest;
@@ -91,9 +93,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  be enqueued and processed downstream. As a consequence, when a response is
  *  returned, the added place IDs are not immediately manifested in the Product
  *  queried by GetProduct or ListProducts. This feature is only available for
- *  users who have Retail Search enabled. Please submit a form
- *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
- *  interested in using Retail Search.
+ *  users who have Retail Search enabled. Please enable Retail Search on Cloud
+ *  Console before using this feature.
  *
  *  Method: retail.projects.locations.catalogs.branches.products.addFulfillmentPlaces
  *
@@ -119,9 +120,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  be enqueued and processed downstream. As a consequence, when a response is
  *  returned, the added place IDs are not immediately manifested in the Product
  *  queried by GetProduct or ListProducts. This feature is only available for
- *  users who have Retail Search enabled. Please submit a form
- *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
- *  interested in using Retail Search.
+ *  users who have Retail Search enabled. Please enable Retail Search on Cloud
+ *  Console before using this feature.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2AddFulfillmentPlacesRequest to include
@@ -134,6 +134,62 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesProductsAddFulfillmentPlaces
  */
 + (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2AddFulfillmentPlacesRequest *)object
+                        product:(NSString *)product;
+
+@end
+
+/**
+ *  Updates local inventory information for a Product at a list of places, while
+ *  respecting the last update timestamps of each inventory field. This process
+ *  is asynchronous and does not require the Product to exist before updating
+ *  inventory information. If the request is valid, the update will be enqueued
+ *  and processed downstream. As a consequence, when a response is returned,
+ *  updates are not immediately manifested in the Product queried by GetProduct
+ *  or ListProducts. Local inventory information can only be modified using this
+ *  method. CreateProduct and UpdateProduct has no effect on local inventories.
+ *  This feature is only available for users who have Retail Search enabled.
+ *  Please enable Retail Search on Cloud Console before using this feature.
+ *
+ *  Method: retail.projects.locations.catalogs.branches.products.addLocalInventories
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesProductsAddLocalInventories : GTLRCloudRetailQuery
+
+/**
+ *  Required. Full resource name of Product, such as `projects/ *
+ *  /locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`.
+ *  If the caller does not have permission to access the Product, regardless of
+ *  whether or not it exists, a PERMISSION_DENIED error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *product;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleLongrunningOperation.
+ *
+ *  Updates local inventory information for a Product at a list of places, while
+ *  respecting the last update timestamps of each inventory field. This process
+ *  is asynchronous and does not require the Product to exist before updating
+ *  inventory information. If the request is valid, the update will be enqueued
+ *  and processed downstream. As a consequence, when a response is returned,
+ *  updates are not immediately manifested in the Product queried by GetProduct
+ *  or ListProducts. Local inventory information can only be modified using this
+ *  method. CreateProduct and UpdateProduct has no effect on local inventories.
+ *  This feature is only available for users who have Retail Search enabled.
+ *  Please enable Retail Search on Cloud Console before using this feature.
+ *
+ *  @param object The @c
+ *    GTLRCloudRetail_GoogleCloudRetailV2AddLocalInventoriesRequest to include
+ *    in the query.
+ *  @param product Required. Full resource name of Product, such as `projects/ *
+ *    /locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`.
+ *    If the caller does not have permission to access the Product, regardless
+ *    of whether or not it exists, a PERMISSION_DENIED error is returned.
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesProductsAddLocalInventories
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2AddLocalInventoriesRequest *)object
                         product:(NSString *)product;
 
 @end
@@ -446,9 +502,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  will be enqueued and processed downstream. As a consequence, when a response
  *  is returned, the removed place IDs are not immediately manifested in the
  *  Product queried by GetProduct or ListProducts. This feature is only
- *  available for users who have Retail Search enabled. Please submit a form
- *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
- *  interested in using Retail Search.
+ *  available for users who have Retail Search enabled. Please enable Retail
+ *  Search on Cloud Console before using this feature.
  *
  *  Method: retail.projects.locations.catalogs.branches.products.removeFulfillmentPlaces
  *
@@ -474,9 +529,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  will be enqueued and processed downstream. As a consequence, when a response
  *  is returned, the removed place IDs are not immediately manifested in the
  *  Product queried by GetProduct or ListProducts. This feature is only
- *  available for users who have Retail Search enabled. Please submit a form
- *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
- *  interested in using Retail Search.
+ *  available for users who have Retail Search enabled. Please enable Retail
+ *  Search on Cloud Console before using this feature.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2RemoveFulfillmentPlacesRequest to
@@ -489,6 +543,60 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesProductsRemoveFulfillmentPlaces
  */
 + (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2RemoveFulfillmentPlacesRequest *)object
+                        product:(NSString *)product;
+
+@end
+
+/**
+ *  Remove local inventory information for a Product at a list of places at a
+ *  removal timestamp. This process is asynchronous. If the request is valid,
+ *  the removal will be enqueued and processed downstream. As a consequence,
+ *  when a response is returned, removals are not immediately manifested in the
+ *  Product queried by GetProduct or ListProducts. Local inventory information
+ *  can only be removed using this method. CreateProduct and UpdateProduct has
+ *  no effect on local inventories. This feature is only available for users who
+ *  have Retail Search enabled. Please enable Retail Search on Cloud Console
+ *  before using this feature.
+ *
+ *  Method: retail.projects.locations.catalogs.branches.products.removeLocalInventories
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesProductsRemoveLocalInventories : GTLRCloudRetailQuery
+
+/**
+ *  Required. Full resource name of Product, such as `projects/ *
+ *  /locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`.
+ *  If the caller does not have permission to access the Product, regardless of
+ *  whether or not it exists, a PERMISSION_DENIED error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *product;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleLongrunningOperation.
+ *
+ *  Remove local inventory information for a Product at a list of places at a
+ *  removal timestamp. This process is asynchronous. If the request is valid,
+ *  the removal will be enqueued and processed downstream. As a consequence,
+ *  when a response is returned, removals are not immediately manifested in the
+ *  Product queried by GetProduct or ListProducts. Local inventory information
+ *  can only be removed using this method. CreateProduct and UpdateProduct has
+ *  no effect on local inventories. This feature is only available for users who
+ *  have Retail Search enabled. Please enable Retail Search on Cloud Console
+ *  before using this feature.
+ *
+ *  @param object The @c
+ *    GTLRCloudRetail_GoogleCloudRetailV2RemoveLocalInventoriesRequest to
+ *    include in the query.
+ *  @param product Required. Full resource name of Product, such as `projects/ *
+ *    /locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`.
+ *    If the caller does not have permission to access the Product, regardless
+ *    of whether or not it exists, a PERMISSION_DENIED error is returned.
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesProductsRemoveLocalInventories
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2RemoveLocalInventoriesRequest *)object
                         product:(NSString *)product;
 
 @end
@@ -511,8 +619,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  be preserved. Pre-existing inventory information can only be updated with
  *  SetInventory, AddFulfillmentPlaces, and RemoveFulfillmentPlaces. This
  *  feature is only available for users who have Retail Search enabled. Please
- *  submit a form [here](https://cloud.google.com/contact) to contact cloud
- *  sales if you are interested in using Retail Search.
+ *  enable Retail Search on Cloud Console before using this feature.
  *
  *  Method: retail.projects.locations.catalogs.branches.products.setInventory
  *
@@ -547,8 +654,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  be preserved. Pre-existing inventory information can only be updated with
  *  SetInventory, AddFulfillmentPlaces, and RemoveFulfillmentPlaces. This
  *  feature is only available for users who have Retail Search enabled. Please
- *  submit a form [here](https://cloud.google.com/contact) to contact cloud
- *  sales if you are interested in using Retail Search.
+ *  enable Retail Search on Cloud Console before using this feature.
  *
  *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2SetInventoryRequest
  *    to include in the query.
@@ -565,9 +671,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Completes the specified prefix with keyword suggestions. This feature is
- *  only available for users who have Retail Search enabled. Please submit a
- *  form [here](https://cloud.google.com/contact) to contact cloud sales if you
- *  are interested in using Retail Search.
+ *  only available for users who have Retail Search enabled. Please enable
+ *  Retail Search on Cloud Console before using this feature.
  *
  *  Method: retail.projects.locations.catalogs.completeQuery
  *
@@ -640,9 +745,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponse.
  *
  *  Completes the specified prefix with keyword suggestions. This feature is
- *  only available for users who have Retail Search enabled. Please submit a
- *  form [here](https://cloud.google.com/contact) to contact cloud sales if you
- *  are interested in using Retail Search.
+ *  only available for users who have Retail Search enabled. Please enable
+ *  Retail Search on Cloud Console before using this feature.
  *
  *  @param catalog Required. Catalog for which the completion is performed. Full
  *    resource name of catalog, such as `projects/ *
@@ -659,9 +763,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  asynchronous. Partial updating is not supported. The operation is
  *  successfully finished only after the imported suggestions are indexed
  *  successfully and ready for serving. The process takes hours. This feature is
- *  only available for users who have Retail Search enabled. Please submit a
- *  form [here](https://cloud.google.com/contact) to contact cloud sales if you
- *  are interested in using Retail Search.
+ *  only available for users who have Retail Search enabled. Please enable
+ *  Retail Search on Cloud Console before using this feature.
  *
  *  Method: retail.projects.locations.catalogs.completionData.import
  *
@@ -683,9 +786,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  asynchronous. Partial updating is not supported. The operation is
  *  successfully finished only after the imported suggestions are indexed
  *  successfully and ready for serving. The process takes hours. This feature is
- *  only available for users who have Retail Search enabled. Please submit a
- *  form [here](https://cloud.google.com/contact) to contact cloud sales if you
- *  are interested in using Retail Search.
+ *  only available for users who have Retail Search enabled. Please enable
+ *  Retail Search on Cloud Console before using this feature.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2ImportCompletionDataRequest to include
@@ -959,9 +1061,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Performs a search. This feature is only available for users who have Retail
- *  Search enabled. Please submit a form
- *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
- *  interested in using Retail Search.
+ *  Search enabled. Please enable Retail Search on Cloud Console before using
+ *  this feature.
  *
  *  Method: retail.projects.locations.catalogs.placements.search
  *
@@ -985,9 +1086,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2SearchResponse.
  *
  *  Performs a search. This feature is only available for users who have Retail
- *  Search enabled. Please submit a form
- *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
- *  interested in using Retail Search.
+ *  Search enabled. Please enable Retail Search on Cloud Console before using
+ *  this feature.
  *
  *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2SearchRequest to
  *    include in the query.
@@ -1056,9 +1156,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Performs a search. This feature is only available for users who have Retail
- *  Search enabled. Please submit a form
- *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
- *  interested in using Retail Search.
+ *  Search enabled. Please enable Retail Search on Cloud Console before using
+ *  this feature.
  *
  *  Method: retail.projects.locations.catalogs.servingConfigs.search
  *
@@ -1082,9 +1181,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2SearchResponse.
  *
  *  Performs a search. This feature is only available for users who have Retail
- *  Search enabled. Please submit a form
- *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
- *  interested in using Retail Search.
+ *  Search enabled. Please enable Retail Search on Cloud Console before using
+ *  this feature.
  *
  *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2SearchRequest to
  *    include in the query.

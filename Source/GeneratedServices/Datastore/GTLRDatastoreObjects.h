@@ -619,6 +619,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_GreaterThanO
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_HasAncestor;
 /**
+ *  The given `property` is equal to at least one value in the given array.
+ *  Requires: * That `value` is a non-empty `ArrayValue` with at most 10 values.
+ *  * No other `IN` or `NOT_IN` is in the same query.
+ *
+ *  Value: "IN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_In;
+/**
  *  The given `property` is less than the given `value`. Requires: * That
  *  `property` comes first in `order_by`.
  *
@@ -632,6 +640,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_LessThan;
  *  Value: "LESS_THAN_OR_EQUAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_LessThanOrEqual;
+/**
+ *  The given `property` is not equal to the given `value`. Requires: * No other
+ *  `NOT_EQUAL` or `NOT_IN` is in the same query. * That `property` comes first
+ *  in the `order_by`.
+ *
+ *  Value: "NOT_EQUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_NotEqual;
+/**
+ *  The value of the `property` is not in the given array. Requires: * That
+ *  `value` is a non-empty `ArrayValue` with at most 10 values. * No other `IN`,
+ *  `NOT_IN`, `NOT_EQUAL` is in the same query. * That `field` comes first in
+ *  the `order_by`.
+ *
+ *  Value: "NOT_IN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_NotIn;
 /**
  *  Unspecified. This value must not be used.
  *
@@ -916,8 +941,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRDatastore_Empty : GTLRObject
 @end
@@ -2257,6 +2281,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *    @arg @c kGTLRDatastore_PropertyFilter_Op_HasAncestor Limit the result set
  *        to the given entity and its descendants. Requires: * That `value` is
  *        an entity key. (Value: "HAS_ANCESTOR")
+ *    @arg @c kGTLRDatastore_PropertyFilter_Op_In The given `property` is equal
+ *        to at least one value in the given array. Requires: * That `value` is
+ *        a non-empty `ArrayValue` with at most 10 values. * No other `IN` or
+ *        `NOT_IN` is in the same query. (Value: "IN")
  *    @arg @c kGTLRDatastore_PropertyFilter_Op_LessThan The given `property` is
  *        less than the given `value`. Requires: * That `property` comes first
  *        in `order_by`. (Value: "LESS_THAN")
@@ -2264,6 +2292,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *        `property` is less than or equal to the given `value`. Requires: *
  *        That `property` comes first in `order_by`. (Value:
  *        "LESS_THAN_OR_EQUAL")
+ *    @arg @c kGTLRDatastore_PropertyFilter_Op_NotEqual The given `property` is
+ *        not equal to the given `value`. Requires: * No other `NOT_EQUAL` or
+ *        `NOT_IN` is in the same query. * That `property` comes first in the
+ *        `order_by`. (Value: "NOT_EQUAL")
+ *    @arg @c kGTLRDatastore_PropertyFilter_Op_NotIn The value of the `property`
+ *        is not in the given array. Requires: * That `value` is a non-empty
+ *        `ArrayValue` with at most 10 values. * No other `IN`, `NOT_IN`,
+ *        `NOT_EQUAL` is in the same query. * That `field` comes first in the
+ *        `order_by`. (Value: "NOT_IN")
  *    @arg @c kGTLRDatastore_PropertyFilter_Op_OperatorUnspecified Unspecified.
  *        This value must not be used. (Value: "OPERATOR_UNSPECIFIED")
  */

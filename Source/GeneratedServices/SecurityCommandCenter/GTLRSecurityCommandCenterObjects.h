@@ -865,6 +865,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CreateOrModifySystemProcess;
 /**
+ *  T1485
+ *
+ *  Value: "DATA_DESTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DataDestruction;
+/**
  *  T1568
  *
  *  Value: "DYNAMIC_RESOLUTION"
@@ -1136,6 +1142,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "CREATE_OR_MODIFY_SYSTEM_PROCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CreateOrModifySystemProcess;
+/**
+ *  T1485
+ *
+ *  Value: "DATA_DESTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DataDestruction;
 /**
  *  T1568
  *

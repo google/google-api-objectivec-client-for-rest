@@ -222,7 +222,8 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_CloneJob
-@dynamic computeEngineTargetDetails, createTime, error, name, state, stateTime;
+@dynamic computeEngineTargetDetails, createTime, endTime, error, name, state,
+         stateTime;
 @end
 
 
@@ -360,8 +361,8 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_CutoverJob
-@dynamic computeEngineTargetDetails, createTime, error, name, progressPercent,
-         state, stateMessage, stateTime;
+@dynamic computeEngineTargetDetails, createTime, endTime, error, name,
+         progressPercent, state, stateMessage, stateTime;
 @end
 
 

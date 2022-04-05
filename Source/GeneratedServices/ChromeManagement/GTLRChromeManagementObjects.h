@@ -24,6 +24,7 @@
 
 @class GTLRChromeManagement_GoogleChromeManagementV1AndroidAppInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1AndroidAppPermission;
+@class GTLRChromeManagement_GoogleChromeManagementV1AudioStatusReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1BatteryInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1BatterySampleReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport;
@@ -492,6 +493,51 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Audio report.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1AudioStatusReport : GTLRObject
+
+/** Output only. Active input device's name. */
+@property(nonatomic, copy, nullable) NSString *inputDevice;
+
+/**
+ *  Output only. Active input device's gain in [0, 100].
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inputGain;
+
+/**
+ *  Output only. Is active input device mute or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inputMute;
+
+/** Output only. Active output device's name. */
+@property(nonatomic, copy, nullable) NSString *outputDevice;
+
+/**
+ *  Output only. Is active output device mute or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *outputMute;
+
+/**
+ *  Output only. Active output device's volume in [0, 100].
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *outputVolume;
+
+/** Output only. Timestamp of when the sample was collected on device. */
+@property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
+
+@end
+
+
+/**
  *  Battery info
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1BatteryInfo : GTLRObject
@@ -714,11 +760,25 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 @property(nonatomic, strong, nullable) NSNumber *isCwsHosted;
 
 /**
+ *  Output only. Whether the app is only for Kiosk mode on Chrome OS devices
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isKioskOnly;
+
+/**
  *  Output only. Whether the app or extension is a theme.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isTheme;
+
+/**
+ *  Output only. Whether this app is enabled for Kiosk mode on Chrome OS devices
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *kioskEnabled;
 
 /**
  *  Output only. The minimum number of users using this app.
@@ -1541,6 +1601,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Telemetry data collected from a managed device.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryDevice : GTLRObject
+
+/** Output only. Audio reports collected periodically. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1AudioStatusReport *> *audioStatusReport;
 
 /** Output only. Information on battery specs for the device. */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1BatteryInfo *> *batteryInfo;

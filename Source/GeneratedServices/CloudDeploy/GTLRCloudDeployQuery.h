@@ -262,7 +262,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesList : GTLRCloudDeployQuery
 
 /**
- *  Filter builds to be returned. See https://google.aip.dev/160 for more
+ *  Filter pipelines to be returned. See https://google.aip.dev/160 for more
  *  details.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -480,7 +480,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesList : GTLRCloudDeployQuery
 
 /**
- *  Optional. Filter builds to be returned. See https://google.aip.dev/160 for
+ *  Optional. Filter releases to be returned. See https://google.aip.dev/160 for
  *  more details.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -664,7 +664,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsList : GTLRCloudDeployQuery
 
 /**
- *  Optional. Filter builds to be returned. See https://google.aip.dev/160 for
+ *  Optional. Filter rollouts to be returned. See https://google.aip.dev/160 for
  *  more details.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1265,7 +1265,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudDeployQuery_ProjectsLocationsTargetsList : GTLRCloudDeployQuery
 
 /**
- *  Optional. Filter builds to be returned. See https://google.aip.dev/160 for
+ *  Optional. Filter targets to be returned. See https://google.aip.dev/160 for
  *  more details.
  */
 @property(nonatomic, copy, nullable) NSString *filter;

@@ -217,6 +217,42 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansion
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2AddLocalInventoriesMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2AddLocalInventoriesMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2AddLocalInventoriesRequest
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2AddLocalInventoriesRequest
+@dynamic addMask, addTime, allowMissing, localInventories;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"localInventories" : [GTLRCloudRetail_GoogleCloudRetailV2LocalInventory class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2AddLocalInventoriesResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2AddLocalInventoriesResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2alphaAddFulfillmentPlacesMetadata
 //
 
@@ -551,6 +587,24 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansion
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2betaAddLocalInventoriesMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2betaAddLocalInventoriesMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2betaAddLocalInventoriesResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2betaAddLocalInventoriesResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2betaExportErrorsConfig
 //
 
@@ -733,6 +787,24 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansion
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2betaRemoveFulfillmentPlacesResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2betaRemoveLocalInventoriesMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2betaRemoveLocalInventoriesMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2betaRemoveLocalInventoriesResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2betaRemoveLocalInventoriesResponse
 @end
 
 
@@ -1114,6 +1186,38 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansion
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2LocalInventory
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2LocalInventory
+@dynamic attributes, fulfillmentTypes, placeId, priceInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fulfillmentTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Attributes
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Attributes
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudRetail_GoogleCloudRetailV2CustomAttribute class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2PredictRequest
 //
 
@@ -1457,6 +1561,42 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansion
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2RemoveFulfillmentPlacesResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2RemoveLocalInventoriesMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2RemoveLocalInventoriesMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2RemoveLocalInventoriesRequest
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2RemoveLocalInventoriesRequest
+@dynamic allowMissing, placeIds, removeTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"placeIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2RemoveLocalInventoriesResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2RemoveLocalInventoriesResponse
 @end
 
 

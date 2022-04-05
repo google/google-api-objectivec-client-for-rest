@@ -57,6 +57,8 @@ NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql57 = @"MYSQL
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql80 = @"MYSQL_8_0";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8018 = @"MYSQL_8_0_18";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8026 = @"MYSQL_8_0_26";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8027 = @"MYSQL_8_0_27";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8028 = @"MYSQL_8_0_28";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres12 = @"POSTGRES_12";
@@ -87,6 +89,8 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql57 = @"MYSQ
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql80 = @"MYSQL_8_0";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8018 = @"MYSQL_8_0_18";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8026 = @"MYSQL_8_0_26";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8027 = @"MYSQL_8_0_27";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8028 = @"MYSQL_8_0_28";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres12 = @"POSTGRES_12";
@@ -140,6 +144,8 @@ NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql57          = @"MYSQL_5_7";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql80          = @"MYSQL_8_0";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8018        = @"MYSQL_8_0_18";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8026        = @"MYSQL_8_0_26";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8027        = @"MYSQL_8_0_27";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8028        = @"MYSQL_8_0_28";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres10       = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres11       = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres12       = @"POSTGRES_12";
@@ -1288,7 +1294,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_PasswordValidationPolicy
-@dynamic complexity, disallowUsernameSubstring, minLength,
+@dynamic complexity, disallowUsernameSubstring, enablePasswordPolicy, minLength,
          passwordChangeInterval, reuseInterval;
 @end
 

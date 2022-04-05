@@ -1566,8 +1566,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRSpanner_Empty : GTLRObject
 @end
@@ -4389,7 +4388,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  count towards the one transaction limit). After the active transaction is
  *  completed, the session can immediately be re-used for the next transaction.
  *  It is not necessary to create a new session for each transaction.
- *  Transaction Modes: Cloud Spanner supports three transaction modes: 1.
+ *  Transaction modes: Cloud Spanner supports three transaction modes: 1.
  *  Locking read-write. This type of transaction is the only way to write data
  *  into Cloud Spanner. These transactions rely on pessimistic locking and, if
  *  necessary, two-phase commit. Locking read-write transactions may abort,
@@ -4406,9 +4405,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  always faster. In particular, read-only transactions do not take locks, so
  *  they do not conflict with read-write transactions. As a consequence of not
  *  taking locks, they also do not abort, so retry loops are not needed.
- *  Transactions may only read/write data in a single database. They may,
- *  however, read/write data in different tables within that database. Locking
- *  Read-Write Transactions: Locking transactions may be used to atomically
+ *  Transactions may only read-write data in a single database. They may,
+ *  however, read-write data in different tables within that database. Locking
+ *  read-write transactions: Locking transactions may be used to atomically
  *  read-modify-write data anywhere in a database. This type of transaction is
  *  externally consistent. Clients should attempt to minimize the amount of time
  *  a transaction is active. Faster transactions commit with higher probability
@@ -4427,7 +4426,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  Cloud Spanner makes no guarantees about how long the transaction's locks
  *  were held for. It is an error to use Cloud Spanner locks for any sort of
  *  mutual exclusion other than between Cloud Spanner transactions themselves.
- *  Retrying Aborted Transactions: When a transaction aborts, the application
+ *  Retrying aborted transactions: When a transaction aborts, the application
  *  can choose to retry the whole transaction again. To maximize the chances of
  *  successfully committing the retry, the client should execute the retry in
  *  the same session as the original attempt. The original session's lock
@@ -4437,14 +4436,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  row(s)), a transaction can abort many times in a short period before
  *  successfully committing. Thus, it is not a good idea to cap the number of
  *  retries a transaction can attempt; instead, it is better to limit the total
- *  amount of time spent retrying. Idle Transactions: A transaction is
+ *  amount of time spent retrying. Idle transactions: A transaction is
  *  considered idle if it has no outstanding reads or SQL queries and has not
  *  started a read or SQL query within the last 10 seconds. Idle transactions
  *  can be aborted by Cloud Spanner so that they don't hold on to locks
  *  indefinitely. If an idle transaction is aborted, the commit will fail with
  *  error `ABORTED`. If this behavior is undesirable, periodically executing a
  *  simple SQL query in the transaction (for example, `SELECT 1`) prevents the
- *  transaction from becoming idle. Snapshot Read-Only Transactions: Snapshot
+ *  transaction from becoming idle. Snapshot read-only transactions: Snapshot
  *  read-only transactions provides a simpler method than locking read-write
  *  transactions for doing several consistent reads. However, this type of
  *  transaction does not support writes. Snapshot transactions do not take
@@ -4461,7 +4460,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  are: - Strong (the default). - Bounded staleness. - Exact staleness. If the
  *  Cloud Spanner database to be read is geographically distributed, stale
  *  read-only transactions can execute more quickly than strong or read-write
- *  transaction, because they are able to execute far from the leader replica.
+ *  transactions, because they are able to execute far from the leader replica.
  *  Each type of timestamp bound is discussed in detail below. Strong: Strong
  *  reads are guaranteed to see the effects of all transactions that have
  *  committed before the start of the read. Furthermore, all rows yielded by a
@@ -4471,7 +4470,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  might return inconsistent results if there are concurrent writes. If
  *  consistency across reads is required, the reads should be executed within a
  *  transaction or at an exact read timestamp. See
- *  TransactionOptions.ReadOnly.strong. Exact Staleness: These timestamp bounds
+ *  TransactionOptions.ReadOnly.strong. Exact staleness: These timestamp bounds
  *  execute reads at a user-specified timestamp. Reads at a timestamp are
  *  guaranteed to see a consistent prefix of the global transaction history:
  *  they observe modifications done by all transactions with a commit timestamp
@@ -4485,7 +4484,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  the equivalent boundedly stale concurrency modes. On the other hand,
  *  boundedly stale reads usually return fresher results. See
  *  TransactionOptions.ReadOnly.read_timestamp and
- *  TransactionOptions.ReadOnly.exact_staleness. Bounded Staleness: Bounded
+ *  TransactionOptions.ReadOnly.exact_staleness. Bounded staleness: Bounded
  *  staleness modes allow Cloud Spanner to pick the read timestamp, subject to a
  *  user-provided staleness bound. Cloud Spanner chooses the newest timestamp
  *  within the staleness bound that allows execution of the reads at the closest
@@ -4503,53 +4502,55 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  Because the timestamp negotiation requires up-front knowledge of which rows
  *  will be read, it can only be used with single-use read-only transactions.
  *  See TransactionOptions.ReadOnly.max_staleness and
- *  TransactionOptions.ReadOnly.min_read_timestamp. Old Read Timestamps and
- *  Garbage Collection: Cloud Spanner continuously garbage collects deleted and
+ *  TransactionOptions.ReadOnly.min_read_timestamp. Old read timestamps and
+ *  garbage collection: Cloud Spanner continuously garbage collects deleted and
  *  overwritten data in the background to reclaim storage space. This process is
  *  known as "version GC". By default, version GC reclaims versions after they
  *  are one hour old. Because of this, Cloud Spanner cannot perform reads at
  *  read timestamps more than one hour in the past. This restriction also
  *  applies to in-progress reads and/or SQL queries whose timestamp become too
  *  old while executing. Reads and SQL queries with too-old read timestamps fail
- *  with the error `FAILED_PRECONDITION`. Partitioned DML Transactions:
- *  Partitioned DML transactions are used to execute DML statements with a
- *  different execution strategy that provides different, and often better,
- *  scalability properties for large, table-wide operations than DML in a
- *  ReadWrite transaction. Smaller scoped statements, such as an OLTP workload,
- *  should prefer using ReadWrite transactions. Partitioned DML partitions the
- *  keyspace and runs the DML statement on each partition in separate, internal
- *  transactions. These transactions commit automatically when complete, and run
- *  independently from one another. To reduce lock contention, this execution
- *  strategy only acquires read locks on rows that match the WHERE clause of the
- *  statement. Additionally, the smaller per-partition transactions hold locks
- *  for less time. That said, Partitioned DML is not a drop-in replacement for
- *  standard DML used in ReadWrite transactions. - The DML statement must be
- *  fully-partitionable. Specifically, the statement must be expressible as the
- *  union of many statements which each access only a single row of the table. -
- *  The statement is not applied atomically to all rows of the table. Rather,
- *  the statement is applied atomically to partitions of the table, in
- *  independent transactions. Secondary index rows are updated atomically with
- *  the base table rows. - Partitioned DML does not guarantee exactly-once
- *  execution semantics against a partition. The statement will be applied at
- *  least once to each partition. It is strongly recommended that the DML
- *  statement should be idempotent to avoid unexpected results. For instance, it
- *  is potentially dangerous to run a statement such as `UPDATE table SET column
- *  = column + 1` as it could be run multiple times against some rows. - The
- *  partitions are committed automatically - there is no support for Commit or
- *  Rollback. If the call returns an error, or if the client issuing the
- *  ExecuteSql call dies, it is possible that some rows had the statement
- *  executed on them successfully. It is also possible that statement was never
- *  executed against other rows. - Partitioned DML transactions may only contain
- *  the execution of a single DML statement via ExecuteSql or
- *  ExecuteStreamingSql. - If any error is encountered during the execution of
- *  the partitioned DML operation (for instance, a UNIQUE INDEX violation,
- *  division by zero, or a value that cannot be stored due to schema
- *  constraints), then the operation is stopped at that point and an error is
- *  returned. It is possible that at this point, some partitions have been
- *  committed (or even committed multiple times), and other partitions have not
- *  been run at all. Given the above, Partitioned DML is good fit for large,
- *  database-wide, operations that are idempotent, such as deleting old rows
- *  from a very large table.
+ *  with the error `FAILED_PRECONDITION`. You can configure and extend the
+ *  `VERSION_RETENTION_PERIOD` of a database up to a period as long as one week,
+ *  which allows Cloud Spanner to perform reads up to one week in the past.
+ *  Partitioned DML transactions: Partitioned DML transactions are used to
+ *  execute DML statements with a different execution strategy that provides
+ *  different, and often better, scalability properties for large, table-wide
+ *  operations than DML in a ReadWrite transaction. Smaller scoped statements,
+ *  such as an OLTP workload, should prefer using ReadWrite transactions.
+ *  Partitioned DML partitions the keyspace and runs the DML statement on each
+ *  partition in separate, internal transactions. These transactions commit
+ *  automatically when complete, and run independently from one another. To
+ *  reduce lock contention, this execution strategy only acquires read locks on
+ *  rows that match the WHERE clause of the statement. Additionally, the smaller
+ *  per-partition transactions hold locks for less time. That said, Partitioned
+ *  DML is not a drop-in replacement for standard DML used in ReadWrite
+ *  transactions. - The DML statement must be fully-partitionable. Specifically,
+ *  the statement must be expressible as the union of many statements which each
+ *  access only a single row of the table. - The statement is not applied
+ *  atomically to all rows of the table. Rather, the statement is applied
+ *  atomically to partitions of the table, in independent transactions.
+ *  Secondary index rows are updated atomically with the base table rows. -
+ *  Partitioned DML does not guarantee exactly-once execution semantics against
+ *  a partition. The statement will be applied at least once to each partition.
+ *  It is strongly recommended that the DML statement should be idempotent to
+ *  avoid unexpected results. For instance, it is potentially dangerous to run a
+ *  statement such as `UPDATE table SET column = column + 1` as it could be run
+ *  multiple times against some rows. - The partitions are committed
+ *  automatically - there is no support for Commit or Rollback. If the call
+ *  returns an error, or if the client issuing the ExecuteSql call dies, it is
+ *  possible that some rows had the statement executed on them successfully. It
+ *  is also possible that statement was never executed against other rows. -
+ *  Partitioned DML transactions may only contain the execution of a single DML
+ *  statement via ExecuteSql or ExecuteStreamingSql. - If any error is
+ *  encountered during the execution of the partitioned DML operation (for
+ *  instance, a UNIQUE INDEX violation, division by zero, or a value that cannot
+ *  be stored due to schema constraints), then the operation is stopped at that
+ *  point and an error is returned. It is possible that at this point, some
+ *  partitions have been committed (or even committed multiple times), and other
+ *  partitions have not been run at all. Given the above, Partitioned DML is
+ *  good fit for large, database-wide, operations that are idempotent, such as
+ *  deleting old rows from a very large table.
  */
 @interface GTLRSpanner_TransactionOptions : GTLRObject
 

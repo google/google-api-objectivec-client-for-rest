@@ -23,6 +23,8 @@
 @class GTLRWorkflowExecutions_Error;
 @class GTLRWorkflowExecutions_Execution;
 @class GTLRWorkflowExecutions_Position;
+@class GTLRWorkflowExecutions_PubsubMessage;
+@class GTLRWorkflowExecutions_PubsubMessage_Attributes;
 @class GTLRWorkflowExecutions_StackTrace;
 @class GTLRWorkflowExecutions_StackTraceElement;
 
@@ -252,6 +254,76 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
 
 
 /**
+ *  A message that is published by publishers and consumed by subscribers. The
+ *  message must contain either a non-empty data field or at least one
+ *  attribute. Note that client libraries represent this object differently
+ *  depending on the language. See the corresponding [client library
+ *  documentation](https://cloud.google.com/pubsub/docs/reference/libraries) for
+ *  more information. See [quotas and limits]
+ *  (https://cloud.google.com/pubsub/quotas) for more information about message
+ *  limits.
+ */
+@interface GTLRWorkflowExecutions_PubsubMessage : GTLRObject
+
+/**
+ *  Attributes for this message. If this field is empty, the message must
+ *  contain non-empty data. This can be used to filter messages on the
+ *  subscription.
+ */
+@property(nonatomic, strong, nullable) GTLRWorkflowExecutions_PubsubMessage_Attributes *attributes;
+
+/**
+ *  The message data field. If this field is empty, the message must contain at
+ *  least one attribute.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  ID of this message, assigned by the server when the message is published.
+ *  Guaranteed to be unique within the topic. This value may be read by a
+ *  subscriber that receives a `PubsubMessage` via a `Pull` call or a push
+ *  delivery. It must not be populated by the publisher in a `Publish` call.
+ */
+@property(nonatomic, copy, nullable) NSString *messageId;
+
+/**
+ *  If non-empty, identifies related messages for which publish order should be
+ *  respected. If a `Subscription` has `enable_message_ordering` set to `true`,
+ *  messages published with the same non-empty `ordering_key` value will be
+ *  delivered to subscribers in the order in which they are received by the
+ *  Pub/Sub system. All `PubsubMessage`s published in a given `PublishRequest`
+ *  must specify the same `ordering_key` value.
+ */
+@property(nonatomic, copy, nullable) NSString *orderingKey;
+
+/**
+ *  The time at which the message was published, populated by the server when it
+ *  receives the `Publish` call. It must not be populated by the publisher in a
+ *  `Publish` call.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *publishTime;
+
+@end
+
+
+/**
+ *  Attributes for this message. If this field is empty, the message must
+ *  contain non-empty data. This can be used to filter messages on the
+ *  subscription.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRWorkflowExecutions_PubsubMessage_Attributes : GTLRObject
+@end
+
+
+/**
  *  A collection of stack elements (frames) where an error occurred.
  */
 @interface GTLRWorkflowExecutions_StackTrace : GTLRObject
@@ -275,6 +347,30 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
 
 /** The step the error occurred at. */
 @property(nonatomic, copy, nullable) NSString *step;
+
+@end
+
+
+/**
+ *  Request for the TriggerPubsubExecution method.
+ */
+@interface GTLRWorkflowExecutions_TriggerPubsubExecutionRequest : GTLRObject
+
+/**
+ *  Required. LINT: LEGACY_NAMES The query parameter value for
+ *  __GCP_CloudEventsMode, set by the Eventarc service when configuring
+ *  triggers.
+ */
+@property(nonatomic, copy, nullable) NSString *GCPCloudEventsMode;
+
+/** Required. The message of the Pub/Sub push notification. */
+@property(nonatomic, strong, nullable) GTLRWorkflowExecutions_PubsubMessage *message;
+
+/**
+ *  Required. The subscription of the Pub/Sub push notification. Format:
+ *  projects/{project}/subscriptions/{sub}
+ */
+@property(nonatomic, copy, nullable) NSString *subscription;
 
 @end
 

@@ -67,9 +67,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  messages into a single thread. If this is the first message with a given
  *  thread identifier, a new thread is created. Subsequent messages with the
  *  same thread identifier will be posted into the same thread. This relieves
- *  bots and webhooks from having to store the Google Chat thread ID of a thread
- *  (created earlier by them) to post further updates to it. Has no effect if
- *  thread field, corresponding to an existing thread, is set in message.
+ *  Chat apps and webhooks from having to store the Google Chat thread ID of a
+ *  thread (created earlier by them) to post further updates to it. Has no
+ *  effect if thread field, corresponding to an existing thread, is set in
+ *  message.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -116,9 +117,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  messages into a single thread. If this is the first message with a given
  *  thread identifier, a new thread is created. Subsequent messages with the
  *  same thread identifier will be posted into the same thread. This relieves
- *  bots and webhooks from having to store the Google Chat thread ID of a thread
- *  (created earlier by them) to post further updates to it. Has no effect if
- *  thread field, corresponding to an existing thread, is set in message.
+ *  Chat apps and webhooks from having to store the Google Chat thread ID of a
+ *  thread (created earlier by them) to post further updates to it. Has no
+ *  effect if thread field, corresponding to an existing thread, is set in
+ *  message.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -165,9 +167,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  messages into a single thread. If this is the first message with a given
  *  thread identifier, a new thread is created. Subsequent messages with the
  *  same thread identifier will be posted into the same thread. This relieves
- *  bots and webhooks from having to store the Google Chat thread ID of a thread
- *  (created earlier by them) to post further updates to it. Has no effect if
- *  thread field, corresponding to an existing thread, is set in message.
+ *  Chat apps and webhooks from having to store the Google Chat thread ID of a
+ *  thread (created earlier by them) to post further updates to it. Has no
+ *  effect if thread field, corresponding to an existing thread, is set in
+ *  message.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -255,9 +258,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  messages into a single thread. If this is the first message with a given
  *  thread identifier, a new thread is created. Subsequent messages with the
  *  same thread identifier will be posted into the same thread. This relieves
- *  bots and webhooks from having to store the Google Chat thread ID of a thread
- *  (created earlier by them) to post further updates to it. Has no effect if
- *  thread field, corresponding to an existing thread, is set in message.
+ *  Chat apps and webhooks from having to store the Google Chat thread ID of a
+ *  thread (created earlier by them) to post further updates to it. Has no
+ *  effect if thread field, corresponding to an existing thread, is set in
+ *  message.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -304,9 +308,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  messages into a single thread. If this is the first message with a given
  *  thread identifier, a new thread is created. Subsequent messages with the
  *  same thread identifier will be posted into the same thread. This relieves
- *  bots and webhooks from having to store the Google Chat thread ID of a thread
- *  (created earlier by them) to post further updates to it. Has no effect if
- *  thread field, corresponding to an existing thread, is set in message.
+ *  Chat apps and webhooks from having to store the Google Chat thread ID of a
+ *  thread (created earlier by them) to post further updates to it. Has no
+ *  effect if thread field, corresponding to an existing thread, is set in
+ *  message.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -353,9 +358,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  messages into a single thread. If this is the first message with a given
  *  thread identifier, a new thread is created. Subsequent messages with the
  *  same thread identifier will be posted into the same thread. This relieves
- *  bots and webhooks from having to store the Google Chat thread ID of a thread
- *  (created earlier by them) to post further updates to it. Has no effect if
- *  thread field, corresponding to an existing thread, is set in message.
+ *  Chat apps and webhooks from having to store the Google Chat thread ID of a
+ *  thread (created earlier by them) to post further updates to it. Has no
+ *  effect if thread field, corresponding to an existing thread, is set in
+ *  message.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -377,7 +383,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns a space.
+ *  Returns a space. Requires [service account
+ *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  Method: chat.spaces.get
  */
@@ -392,7 +399,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRHangoutsChat_Space.
  *
- *  Returns a space.
+ *  Returns a space. Requires [service account
+ *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  @param name Required. Resource name of the space, in the form "spaces/ *".
  *    Example: spaces/AAAAAAAAAAAA
@@ -404,7 +412,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists spaces the caller is a member of.
+ *  Lists spaces the caller is a member of. Requires [service account
+ *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  Method: chat.spaces.list
  */
@@ -422,7 +431,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRHangoutsChat_ListSpacesResponse.
  *
- *  Lists spaces the caller is a member of.
+ *  Lists spaces the caller is a member of. Requires [service account
+ *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  @return GTLRHangoutsChatQuery_SpacesList
  *
@@ -435,7 +445,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns a membership.
+ *  Returns a membership. Requires [service account
+ *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  Method: chat.spaces.members.get
  */
@@ -451,7 +462,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRHangoutsChat_Membership.
  *
- *  Returns a membership.
+ *  Returns a membership. Requires [service account
+ *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  @param name Required. Resource name of the membership to be retrieved, in
  *    the form "spaces/ * /members/ *". Example:
@@ -464,7 +476,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists human memberships in a space.
+ *  Lists human memberships in a space. Requires [service account
+ *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  Method: chat.spaces.members.list
  */
@@ -488,7 +501,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRHangoutsChat_ListMembershipsResponse.
  *
- *  Lists human memberships in a space.
+ *  Lists human memberships in a space. Requires [service account
+ *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  @param parent Required. The resource name of the space for which membership
  *    list is to be fetched, in the form "spaces/ *". Example:
@@ -506,7 +520,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the metadata of a message attachment. The attachment data is fetched
- *  using the media API.
+ *  using the media API. Requires [service account
+ *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  Method: chat.spaces.messages.attachments.get
  */
@@ -522,7 +537,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRHangoutsChat_Attachment.
  *
  *  Gets the metadata of a message attachment. The attachment data is fetched
- *  using the media API.
+ *  using the media API. Requires [service account
+ *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  @param name Required. Resource name of the attachment, in the form "spaces/
  *    * /messages/ * /attachments/ *".
@@ -534,7 +550,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a message.
+ *  Creates a message. Requires [service account
+ *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  Method: chat.spaces.messages.create
  */
@@ -558,16 +575,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  messages into a single thread. If this is the first message with a given
  *  thread identifier, a new thread is created. Subsequent messages with the
  *  same thread identifier will be posted into the same thread. This relieves
- *  bots and webhooks from having to store the Google Chat thread ID of a thread
- *  (created earlier by them) to post further updates to it. Has no effect if
- *  thread field, corresponding to an existing thread, is set in message.
+ *  Chat apps and webhooks from having to store the Google Chat thread ID of a
+ *  thread (created earlier by them) to post further updates to it. Has no
+ *  effect if thread field, corresponding to an existing thread, is set in
+ *  message.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
 /**
  *  Fetches a @c GTLRHangoutsChat_Message.
  *
- *  Creates a message.
+ *  Creates a message. Requires [service account
+ *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
  *  @param parent Required. Space resource name, in the form "spaces/ *".
@@ -581,7 +600,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a message.
+ *  Deletes a message. Requires [service account
+ *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  Method: chat.spaces.messages.delete
  */
@@ -596,7 +616,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRHangoutsChat_Empty.
  *
- *  Deletes a message.
+ *  Deletes a message. Requires [service account
+ *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  @param name Required. Resource name of the message to be deleted, in the
  *    form "spaces/ * /messages/ *" Example:
@@ -609,7 +630,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns a message.
+ *  Returns a message. Requires [service account
+ *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  Method: chat.spaces.messages.get
  */
@@ -625,7 +647,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRHangoutsChat_Message.
  *
- *  Returns a message.
+ *  Returns a message. Requires [service account
+ *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  @param name Required. Resource name of the message to be retrieved, in the
  *    form "spaces/ * /messages/ *". Example:
@@ -638,7 +661,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a message.
+ *  Updates a message. Requires [service account
+ *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  Method: chat.spaces.messages.update
  */
@@ -661,7 +685,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRHangoutsChat_Message.
  *
- *  Updates a message.
+ *  Updates a message. Requires [service account
+ *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
  *  @param name Resource name in the form `spaces/ * /messages/ *`. Example:
@@ -700,9 +725,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  messages into a single thread. If this is the first message with a given
  *  thread identifier, a new thread is created. Subsequent messages with the
  *  same thread identifier will be posted into the same thread. This relieves
- *  bots and webhooks from having to store the Google Chat thread ID of a thread
- *  (created earlier by them) to post further updates to it. Has no effect if
- *  thread field, corresponding to an existing thread, is set in message.
+ *  Chat apps and webhooks from having to store the Google Chat thread ID of a
+ *  thread (created earlier by them) to post further updates to it. Has no
+ *  effect if thread field, corresponding to an existing thread, is set in
+ *  message.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 

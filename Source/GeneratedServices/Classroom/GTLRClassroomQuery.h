@@ -2260,7 +2260,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  course exists with the requested ID. * `INVALID_ARGUMENT` if invalid fields
  *  are specified in the update mask or if no update mask is supplied. *
  *  `FAILED_PRECONDITION` for the following request errors: *
- *  CourseNotModifiable
+ *  CourseNotModifiable * InactiveCourseOwner
  *
  *  Method: classroom.courses.patch
  *
@@ -2300,7 +2300,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  course exists with the requested ID. * `INVALID_ARGUMENT` if invalid fields
  *  are specified in the update mask or if no update mask is supplied. *
  *  `FAILED_PRECONDITION` for the following request errors: *
- *  CourseNotModifiable
+ *  CourseNotModifiable * InactiveCourseOwner
  *
  *  @param object The @c GTLRClassroom_Course to include in the query.
  *  @param identifier Identifier of the course to update. This identifier can be
@@ -2323,8 +2323,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  for access errors. * `NOT_FOUND` if the requested course ID does not exist.
  *  * `FAILED_PRECONDITION` if the requested user's account is disabled, for the
  *  following request errors: * CourseMemberLimitReached * CourseNotModifiable *
- *  UserGroupsMembershipLimitReached * `ALREADY_EXISTS` if the user is already a
- *  student or teacher in the course.
+ *  UserGroupsMembershipLimitReached * InactiveCourseOwner * `ALREADY_EXISTS` if
+ *  the user is already a student or teacher in the course.
  *
  *  Method: classroom.courses.students.create
  *
@@ -2361,8 +2361,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  for access errors. * `NOT_FOUND` if the requested course ID does not exist.
  *  * `FAILED_PRECONDITION` if the requested user's account is disabled, for the
  *  following request errors: * CourseMemberLimitReached * CourseNotModifiable *
- *  UserGroupsMembershipLimitReached * `ALREADY_EXISTS` if the user is already a
- *  student or teacher in the course.
+ *  UserGroupsMembershipLimitReached * InactiveCourseOwner * `ALREADY_EXISTS` if
+ *  the user is already a student or teacher in the course.
  *
  *  @param object The @c GTLRClassroom_Student to include in the query.
  *  @param courseId Identifier of the course to create the student in. This
@@ -2539,7 +2539,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  `FAILED_PRECONDITION` if the requested user's account is disabled, for the
  *  following request errors: * CourseMemberLimitReached * CourseNotModifiable *
  *  CourseTeacherLimitReached * UserGroupsMembershipLimitReached *
- *  `ALREADY_EXISTS` if the user is already a teacher or student in the course.
+ *  InactiveCourseOwner * `ALREADY_EXISTS` if the user is already a teacher or
+ *  student in the course.
  *
  *  Method: classroom.courses.teachers.create
  *
@@ -2569,7 +2570,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  `FAILED_PRECONDITION` if the requested user's account is disabled, for the
  *  following request errors: * CourseMemberLimitReached * CourseNotModifiable *
  *  CourseTeacherLimitReached * UserGroupsMembershipLimitReached *
- *  `ALREADY_EXISTS` if the user is already a teacher or student in the course.
+ *  InactiveCourseOwner * `ALREADY_EXISTS` if the user is already a teacher or
+ *  student in the course.
  *
  *  @param object The @c GTLRClassroom_Teacher to include in the query.
  *  @param courseId Identifier of the course. This identifier can be either the

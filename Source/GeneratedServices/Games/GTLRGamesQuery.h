@@ -927,6 +927,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, copy, nullable) NSString *playerId;
 
 /**
+ *  Consistency token of the player id. The call returns a 'not found' result
+ *  when the token is present and invalid. Empty value is ignored. See also
+ *  GlobalPlayerIdConsistencyTokenProto
+ */
+@property(nonatomic, copy, nullable) NSString *playerIdConsistencyToken;
+
+/**
  *  Fetches a @c GTLRGames_Player.
  *
  *  Retrieves the Player resource with the given ID. To retrieve the player for

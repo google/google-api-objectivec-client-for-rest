@@ -70,6 +70,13 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig_Bill
 NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig_BillingType_Postpaid = @"POSTPAID";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig_BillingType_Prepaid = @"PREPAID";
 
+// GTLRApigee_GoogleCloudApigeeV1EndpointAttachment.state
+NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_State_Active = @"ACTIVE";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_State_Creating = @"CREATING";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_State_Deleting = @"DELETING";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_State_Updating = @"UPDATING";
+
 // GTLRApigee_GoogleCloudApigeeV1Environment.apiProxyType
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_ApiProxyType_ApiProxyTypeUnspecified = @"API_PROXY_TYPE_UNSPECIFIED";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_ApiProxyType_Configurable = @"CONFIGURABLE";
@@ -1234,7 +1241,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1EndpointAttachment
-@dynamic host, location, name, serviceAttachment;
+@dynamic host, location, name, serviceAttachment, state;
 @end
 
 

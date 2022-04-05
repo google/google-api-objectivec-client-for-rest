@@ -327,6 +327,34 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_DeviceGroup
+//
+
+@implementation GTLRAndroidPublisher_DeviceGroup
+@dynamic deviceSelectors, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deviceSelectors" : [GTLRAndroidPublisher_DeviceSelector class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_DeviceId
+//
+
+@implementation GTLRAndroidPublisher_DeviceId
+@dynamic buildBrand, buildDevice;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_DeviceMetadata
 //
 
@@ -334,6 +362,38 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 @dynamic cpuMake, cpuModel, deviceClass, glEsVersion, manufacturer,
          nativePlatform, productName, ramMb, screenDensityDpi, screenHeightPx,
          screenWidthPx;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_DeviceRam
+//
+
+@implementation GTLRAndroidPublisher_DeviceRam
+@dynamic maxBytes, minBytes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_DeviceSelector
+//
+
+@implementation GTLRAndroidPublisher_DeviceSelector
+@dynamic deviceRam, excludedDeviceIds, forbiddenSystemFeatures,
+         includedDeviceIds, requiredSystemFeatures;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"excludedDeviceIds" : [GTLRAndroidPublisher_DeviceId class],
+    @"forbiddenSystemFeatures" : [GTLRAndroidPublisher_SystemFeature class],
+    @"includedDeviceIds" : [GTLRAndroidPublisher_DeviceId class],
+    @"requiredSystemFeatures" : [GTLRAndroidPublisher_SystemFeature class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -349,6 +409,60 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
   NSDictionary<NSString *, Class> *map = @{
     @"supportedAbis" : [NSString class],
     @"supportedLocales" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_DeviceTier
+//
+
+@implementation GTLRAndroidPublisher_DeviceTier
+@dynamic deviceGroupNames, level;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deviceGroupNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_DeviceTierConfig
+//
+
+@implementation GTLRAndroidPublisher_DeviceTierConfig
+@dynamic deviceGroups, deviceTierConfigId, deviceTierSet;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deviceGroups" : [GTLRAndroidPublisher_DeviceGroup class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_DeviceTierSet
+//
+
+@implementation GTLRAndroidPublisher_DeviceTierSet
+@dynamic deviceTiers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deviceTiers" : [GTLRAndroidPublisher_DeviceTier class]
   };
   return map;
 }
@@ -663,6 +777,28 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 @implementation GTLRAndroidPublisher_IntroductoryPriceInfo
 @dynamic introductoryPriceAmountMicros, introductoryPriceCurrencyCode,
          introductoryPriceCycles, introductoryPricePeriod;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ListDeviceTierConfigsResponse
+//
+
+@implementation GTLRAndroidPublisher_ListDeviceTierConfigsResponse
+@dynamic deviceTierConfigs, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deviceTierConfigs" : [GTLRAndroidPublisher_DeviceTierConfig class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"deviceTierConfigs";
+}
+
 @end
 
 
@@ -1015,6 +1151,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_SystemFeature
+//
+
+@implementation GTLRAndroidPublisher_SystemFeature
+@dynamic name;
 @end
 
 

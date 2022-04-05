@@ -518,6 +518,15 @@ NSString * const kGTLRCompute_BackendServiceList_Warning_Code_SingleInstanceProp
 NSString * const kGTLRCompute_BackendServiceList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_BackendServiceList_Warning_Code_Unreachable = @"UNREACHABLE";
 
+// GTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy.name
+NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_InvalidLbPolicy = @"INVALID_LB_POLICY";
+NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_LeastRequest = @"LEAST_REQUEST";
+NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_Maglev = @"MAGLEV";
+NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_OriginalDestination = @"ORIGINAL_DESTINATION";
+NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_Random = @"RANDOM";
+NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_RingHash = @"RING_HASH";
+NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_RoundRobin = @"ROUND_ROBIN";
+
 // GTLRCompute_BackendServicesScopedList_Warning.code
 NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
 NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
@@ -6601,9 +6610,10 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
          creationTimestamp, customRequestHeaders, customResponseHeaders,
          descriptionProperty, edgeSecurityPolicy, enableCDN, failoverPolicy,
          fingerprint, healthChecks, iap, identifier, kind, loadBalancingScheme,
-         localityLbPolicy, logConfig, maxStreamDuration, name, network,
-         outlierDetection, port, portName, protocol, region, securityPolicy,
-         securitySettings, selfLink, sessionAffinity, subsetting, timeoutSec;
+         localityLbPolicies, localityLbPolicy, logConfig, maxStreamDuration,
+         name, network, outlierDetection, port, portName, protocol, region,
+         securityPolicy, securitySettings, selfLink, sessionAffinity,
+         subsetting, timeoutSec;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -6618,7 +6628,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
     @"backends" : [GTLRCompute_Backend class],
     @"customRequestHeaders" : [NSString class],
     @"customResponseHeaders" : [NSString class],
-    @"healthChecks" : [NSString class]
+    @"healthChecks" : [NSString class],
+    @"localityLbPolicies" : [GTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfig class]
   };
   return map;
 }
@@ -6845,6 +6856,36 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_BackendServiceList_Warning_Data_Item
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfig
+//
+
+@implementation GTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfig
+@dynamic customPolicy, policy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigCustomPolicy
+//
+
+@implementation GTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigCustomPolicy
+@dynamic data, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy
+//
+
+@implementation GTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy
+@dynamic name;
 @end
 
 
@@ -8313,8 +8354,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_FirewallPolicyRule
 @dynamic action, descriptionProperty, direction, disabled, enableLogging, kind,
-         match, priority, ruleTupleCount, targetResources, targetSecureTags,
-         targetServiceAccounts;
+         match, priority, ruleName, ruleTupleCount, targetResources,
+         targetSecureTags, targetServiceAccounts;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

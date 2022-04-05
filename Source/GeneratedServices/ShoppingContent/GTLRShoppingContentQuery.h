@@ -2487,8 +2487,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Requests a review for Free Listings program in the provided region.
- *  Important: This method is only whitelisted for selected merchants.
+ *  Requests a review of free listings in a specific region Important: This
+ *  method is only whitelisted for selected merchants.
  *
  *  Method: content.freelistingsprogram.requestreview
  *
@@ -2504,8 +2504,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Requests a review for Free Listings program in the provided region.
- *  Important: This method is only whitelisted for selected merchants.
+ *  Requests a review of free listings in a specific region Important: This
+ *  method is only whitelisted for selected merchants.
  *
  *  @param object The @c GTLRShoppingContent_RequestReviewFreeListingsRequest to
  *    include in the query.
@@ -6753,7 +6753,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Requests a review for Shopping Ads program in the provided country.
+ *  Requests a review of Shopping ads in a specific region.
  *
  *  Method: content.shoppingadsprogram.requestreview
  *
@@ -6769,7 +6769,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Requests a review for Shopping Ads program in the provided country.
+ *  Requests a review of Shopping ads in a specific region.
  *
  *  @param object The @c GTLRShoppingContent_RequestReviewShoppingAdsRequest to
  *    include in the query.

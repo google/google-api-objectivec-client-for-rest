@@ -188,6 +188,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRealtimeDatabase_DatabaseInstanc
 @interface GTLRFirebaseRealtimeDatabase_ReenableDatabaseInstanceRequest : GTLRObject
 @end
 
+
+/**
+ *  The request sent to UndeleteDatabaseInstance method.
+ */
+@interface GTLRFirebaseRealtimeDatabase_UndeleteDatabaseInstanceRequest : GTLRObject
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

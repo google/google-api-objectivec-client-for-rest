@@ -799,7 +799,7 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
          defaultEncryptionConfiguration, defaultPartitionExpirationMs,
          defaultTableExpirationMs, descriptionProperty, ETag, friendlyName,
          identifier, isCaseInsensitive, kind, labels, lastModifiedTime,
-         location, satisfiesPZS, selfLink, tags;
+         location, maxTimeTravelHours, satisfiesPZS, selfLink, tags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

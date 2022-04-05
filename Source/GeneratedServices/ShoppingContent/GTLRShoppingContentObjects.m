@@ -77,12 +77,15 @@ NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_Revi
 NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewEligibilityStatus_ReviewEligibilityUnspecified = @"REVIEW_ELIGIBILITY_UNSPECIFIED";
 
 // GTLRShoppingContent_FreeListingsProgramStatusRegionStatus.reviewIneligibilityReason
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_AlreadyReviewed = @"ALREADY_REVIEWED";
 NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_AlreadyUnderReview = @"ALREADY_UNDER_REVIEW";
 NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_InCooldownPeriod = @"IN_COOLDOWN_PERIOD";
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_IsRetired = @"IS_RETIRED";
 NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_NoReviewRequired = @"NO_REVIEW_REQUIRED";
 NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_NotEnoughOffers = @"NOT_ENOUGH_OFFERS";
 NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_OnboardingIssues = @"ONBOARDING_ISSUES";
 NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_ReviewIneligibilityReasonUnspecified = @"REVIEW_INELIGIBILITY_REASON_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_WillBeReviewedAutomatically = @"WILL_BE_REVIEWED_AUTOMATICALLY";
 
 // GTLRShoppingContent_InapplicabilityDetails.inapplicableReason
 NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_AlreadyWinningBuybox = @"ALREADY_WINNING_BUYBOX";
@@ -223,12 +226,15 @@ NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_Revie
 NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewEligibilityStatus_ReviewEligibilityUnspecified = @"REVIEW_ELIGIBILITY_UNSPECIFIED";
 
 // GTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus.reviewIneligibilityReason
+NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_AlreadyReviewed = @"ALREADY_REVIEWED";
 NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_AlreadyUnderReview = @"ALREADY_UNDER_REVIEW";
 NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_InCooldownPeriod = @"IN_COOLDOWN_PERIOD";
+NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_IsRetired = @"IS_RETIRED";
 NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_NoReviewRequired = @"NO_REVIEW_REQUIRED";
 NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_NotEnoughOffers = @"NOT_ENOUGH_OFFERS";
 NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_OnboardingIssues = @"ONBOARDING_ISSUES";
 NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_ReviewIneligibilityReasonUnspecified = @"REVIEW_INELIGIBILITY_REASON_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_WillBeReviewedAutomatically = @"WILL_BE_REVIEWED_AUTOMATICALLY";
 
 // GTLRShoppingContent_VerifyPhoneNumberRequest.phoneVerificationMethod
 NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerificationMethod_PhoneCall = @"PHONE_CALL";
@@ -4384,10 +4390,10 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
          customLabel2, customLabel3, customLabel4, descriptionProperty,
          displayAdsId, displayAdsLink, displayAdsSimilarIds, displayAdsTitle,
          displayAdsValue, energyEfficiencyClass, excludedDestinations,
-         expirationDate, gender, googleProductCategory, gtin, identifier,
-         identifierExists, imageLink, includedDestinations, installment,
-         isBundle, itemGroupId, kind, link, linkTemplate, loyaltyPoints,
-         material, maxEnergyEfficiencyClass, maxHandlingTime,
+         expirationDate, externalSellerId, gender, googleProductCategory, gtin,
+         identifier, identifierExists, imageLink, includedDestinations,
+         installment, isBundle, itemGroupId, kind, link, linkTemplate,
+         loyaltyPoints, material, maxEnergyEfficiencyClass, maxHandlingTime,
          minEnergyEfficiencyClass, minHandlingTime, mobileLink,
          mobileLinkTemplate, mpn, multipack, offerId, pattern, pickupMethod,
          pickupSla, price, productDetails, productHeight, productHighlights,

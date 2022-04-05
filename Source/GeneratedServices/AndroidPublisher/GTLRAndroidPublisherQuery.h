@@ -24,6 +24,7 @@
 @class GTLRAndroidPublisher_AppDetails;
 @class GTLRAndroidPublisher_AppEdit;
 @class GTLRAndroidPublisher_ConvertRegionPricesRequest;
+@class GTLRAndroidPublisher_DeviceTierConfig;
 @class GTLRAndroidPublisher_ExpansionFile;
 @class GTLRAndroidPublisher_Grant;
 @class GTLRAndroidPublisher_InAppProduct;
@@ -160,6 +161,117 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Creates a new device tier config for an app.
+ *
+ *  Method: androidpublisher.applications.deviceTierConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_ApplicationsDeviceTierConfigsCreate : GTLRAndroidPublisherQuery
+
+/**
+ *  Whether the service should accept device IDs that are unknown to Play's
+ *  device catalog.
+ */
+@property(nonatomic, assign) BOOL allowUnknownDevices;
+
+/** Package name of the app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_DeviceTierConfig.
+ *
+ *  Creates a new device tier config for an app.
+ *
+ *  @param object The @c GTLRAndroidPublisher_DeviceTierConfig to include in the
+ *    query.
+ *  @param packageName Package name of the app.
+ *
+ *  @return GTLRAndroidPublisherQuery_ApplicationsDeviceTierConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_DeviceTierConfig *)object
+                    packageName:(NSString *)packageName;
+
+@end
+
+/**
+ *  Returns a particular device tier config.
+ *
+ *  Method: androidpublisher.applications.deviceTierConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_ApplicationsDeviceTierConfigsGet : GTLRAndroidPublisherQuery
+
+/** Required. Id of an existing device tier config. */
+@property(nonatomic, assign) long long deviceTierConfigId;
+
+/** Package name of the app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_DeviceTierConfig.
+ *
+ *  Returns a particular device tier config.
+ *
+ *  @param packageName Package name of the app.
+ *  @param deviceTierConfigId Required. Id of an existing device tier config.
+ *
+ *  @return GTLRAndroidPublisherQuery_ApplicationsDeviceTierConfigsGet
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                  deviceTierConfigId:(long long)deviceTierConfigId;
+
+@end
+
+/**
+ *  Returns created device tier configs, ordered by descending creation time.
+ *
+ *  Method: androidpublisher.applications.deviceTierConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_ApplicationsDeviceTierConfigsList : GTLRAndroidPublisherQuery
+
+/** Package name of the app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  The maximum number of device tier configs to return. The service may return
+ *  fewer than this value. If unspecified, at most 10 device tier configs will
+ *  be returned. The maximum value for this field is 100; values above 100 will
+ *  be coerced to 100. Device tier configs will be ordered by descending
+ *  creation time.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListDeviceTierConfigs` call. Provide
+ *  this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_ListDeviceTierConfigsResponse.
+ *
+ *  Returns created device tier configs, ordered by descending creation time.
+ *
+ *  @param packageName Package name of the app.
+ *
+ *  @return GTLRAndroidPublisherQuery_ApplicationsDeviceTierConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName;
 
 @end
 

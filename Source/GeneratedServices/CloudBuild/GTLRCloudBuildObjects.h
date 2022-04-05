@@ -773,37 +773,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspeci
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 
 /**
- *  RPC request object accepted by the AddBitbucketServerConnectedRepository RPC
- *  method.
- */
-@interface GTLRCloudBuild_AddBitbucketServerConnectedRepositoryRequest : GTLRObject
-
-/** The connected repository to add. */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_BitbucketServerRepositoryId *connectedRepository;
-
-@end
-
-
-/**
- *  RPC request object returned by the AddBitbucketServerConnectedRepository RPC
- *  method.
- */
-@interface GTLRCloudBuild_AddBitbucketServerConnectedRepositoryResponse : GTLRObject
-
-/**
- *  The name of the `BitbucketServerConfig` that added connected repository.
- *  Format:
- *  `projects/{project}/locations/{location}/bitbucketServerConfigs/{config}`
- */
-@property(nonatomic, copy, nullable) NSString *config;
-
-/** The connected repository. */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_BitbucketServerRepositoryId *connectedRepository;
-
-@end
-
-
-/**
  *  ApprovalConfig describes configuration for manual approval of a build.
  */
 @interface GTLRCloudBuild_ApprovalConfig : GTLRObject
@@ -2174,8 +2143,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRCloudBuild_Empty : GTLRObject
 @end
@@ -2273,9 +2241,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 @property(nonatomic, copy, nullable) NSString *revision;
 
 /**
- *  The URI of the repo (optional). If unspecified, the repo from which the
- *  trigger invocation originated is assumed to be the repo from which to read
- *  the specified path.
+ *  The URI of the repo. Either uri or repository can be specified. If
+ *  unspecified, the repo from which the trigger invocation originated is
+ *  assumed to be the repo from which to read the specified path.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -2460,7 +2428,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  */
 @property(nonatomic, copy, nullable) NSString *repoType;
 
-/** The URI of the repo (required). */
+/**
+ *  The URI of the repo. Either uri or repository can be specified and is
+ *  required.
+ */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end

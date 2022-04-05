@@ -240,6 +240,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  */
 FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequestListUpdateRequest_ThreatType_SocialEngineeringInternal;
 /**
+ *  Lower precision phishing list for WebRisk. See
+ *  go/lower-precision-blocklists-enterprise.
+ *
+ *  Value: "SOCIAL_ENGINEERING_LOWER_PRECISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequestListUpdateRequest_ThreatType_SocialEngineeringLowerPrecision;
+/**
  *  Patterns to be used for activating the subresource filter. Interstitial will
  *  not be shown for patterns from this list.
  *
@@ -505,6 +512,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  */
 FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponseListUpdateResponse_ThreatType_SocialEngineeringInternal;
 /**
+ *  Lower precision phishing list for WebRisk. See
+ *  go/lower-precision-blocklists-enterprise.
+ *
+ *  Value: "SOCIAL_ENGINEERING_LOWER_PRECISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponseListUpdateResponse_ThreatType_SocialEngineeringLowerPrecision;
+/**
  *  Patterns to be used for activating the subresource filter. Interstitial will
  *  not be shown for patterns from this list.
  *
@@ -699,6 +713,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  *  Value: "SOCIAL_ENGINEERING_INTERNAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatHit_ThreatType_SocialEngineeringInternal;
+/**
+ *  Lower precision phishing list for WebRisk. See
+ *  go/lower-precision-blocklists-enterprise.
+ *
+ *  Value: "SOCIAL_ENGINEERING_LOWER_PRECISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatHit_ThreatType_SocialEngineeringLowerPrecision;
 /**
  *  Patterns to be used for activating the subresource filter. Interstitial will
  *  not be shown for patterns from this list.
@@ -955,6 +976,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  */
 FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatInfo_ThreatTypes_SocialEngineeringInternal;
 /**
+ *  Lower precision phishing list for WebRisk. See
+ *  go/lower-precision-blocklists-enterprise.
+ *
+ *  Value: "SOCIAL_ENGINEERING_LOWER_PRECISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatInfo_ThreatTypes_SocialEngineeringLowerPrecision;
+/**
  *  Patterns to be used for activating the subresource filter. Interstitial will
  *  not be shown for patterns from this list.
  *
@@ -1173,6 +1201,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  *  Value: "SOCIAL_ENGINEERING_INTERNAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatListDescriptor_ThreatType_SocialEngineeringInternal;
+/**
+ *  Lower precision phishing list for WebRisk. See
+ *  go/lower-precision-blocklists-enterprise.
+ *
+ *  Value: "SOCIAL_ENGINEERING_LOWER_PRECISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatListDescriptor_ThreatType_SocialEngineeringLowerPrecision;
 /**
  *  Patterns to be used for activating the subresource filter. Interstitial will
  *  not be shown for patterns from this list.
@@ -1393,6 +1428,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  */
 FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatMatch_ThreatType_SocialEngineeringInternal;
 /**
+ *  Lower precision phishing list for WebRisk. See
+ *  go/lower-precision-blocklists-enterprise.
+ *
+ *  Value: "SOCIAL_ENGINEERING_LOWER_PRECISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatMatch_ThreatType_SocialEngineeringLowerPrecision;
+/**
  *  Patterns to be used for activating the subresource filter. Interstitial will
  *  not be shown for patterns from this list.
  *
@@ -1587,6 +1629,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequestListUpdateRequest_ThreatType_SocialEngineeringInternal
  *        Social engineering threat type for internal use. (Value:
  *        "SOCIAL_ENGINEERING_INTERNAL")
+ *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequestListUpdateRequest_ThreatType_SocialEngineeringLowerPrecision
+ *        Lower precision phishing list for WebRisk. See
+ *        go/lower-precision-blocklists-enterprise. (Value:
+ *        "SOCIAL_ENGINEERING_LOWER_PRECISION")
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequestListUpdateRequest_ThreatType_SubresourceFilter
  *        Patterns to be used for activating the subresource filter.
  *        Interstitial will not be shown for patterns from this list. (Value:
@@ -1808,6 +1854,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponseListUpdateResponse_ThreatType_SocialEngineeringInternal
  *        Social engineering threat type for internal use. (Value:
  *        "SOCIAL_ENGINEERING_INTERNAL")
+ *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponseListUpdateResponse_ThreatType_SocialEngineeringLowerPrecision
+ *        Lower precision phishing list for WebRisk. See
+ *        go/lower-precision-blocklists-enterprise. (Value:
+ *        "SOCIAL_ENGINEERING_LOWER_PRECISION")
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponseListUpdateResponse_ThreatType_SubresourceFilter
  *        Patterns to be used for activating the subresource filter.
  *        Interstitial will not be shown for patterns from this list. (Value:
@@ -2196,6 +2246,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatHit_ThreatType_SocialEngineeringInternal
  *        Social engineering threat type for internal use. (Value:
  *        "SOCIAL_ENGINEERING_INTERNAL")
+ *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatHit_ThreatType_SocialEngineeringLowerPrecision
+ *        Lower precision phishing list for WebRisk. See
+ *        go/lower-precision-blocklists-enterprise. (Value:
+ *        "SOCIAL_ENGINEERING_LOWER_PRECISION")
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatHit_ThreatType_SubresourceFilter
  *        Patterns to be used for activating the subresource filter.
  *        Interstitial will not be shown for patterns from this list. (Value:
@@ -2386,6 +2440,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatListDescriptor_ThreatType_SocialEngineeringInternal
  *        Social engineering threat type for internal use. (Value:
  *        "SOCIAL_ENGINEERING_INTERNAL")
+ *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatListDescriptor_ThreatType_SocialEngineeringLowerPrecision
+ *        Lower precision phishing list for WebRisk. See
+ *        go/lower-precision-blocklists-enterprise. (Value:
+ *        "SOCIAL_ENGINEERING_LOWER_PRECISION")
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatListDescriptor_ThreatType_SubresourceFilter
  *        Patterns to be used for activating the subresource filter.
  *        Interstitial will not be shown for patterns from this list. (Value:
@@ -2506,6 +2564,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatMatch_ThreatType_SocialEngineeringInternal
  *        Social engineering threat type for internal use. (Value:
  *        "SOCIAL_ENGINEERING_INTERNAL")
+ *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatMatch_ThreatType_SocialEngineeringLowerPrecision
+ *        Lower precision phishing list for WebRisk. See
+ *        go/lower-precision-blocklists-enterprise. (Value:
+ *        "SOCIAL_ENGINEERING_LOWER_PRECISION")
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatMatch_ThreatType_SubresourceFilter
  *        Patterns to be used for activating the subresource filter.
  *        Interstitial will not be shown for patterns from this list. (Value:

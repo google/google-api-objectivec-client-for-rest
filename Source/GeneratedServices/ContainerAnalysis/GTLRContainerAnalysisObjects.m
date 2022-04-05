@@ -673,7 +673,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_ComplianceVersion
-@dynamic cpeUri, version;
+@dynamic benchmarkDocument, cpeUri, version;
 @end
 
 

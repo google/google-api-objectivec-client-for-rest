@@ -46,6 +46,75 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 
 @end
 
+@implementation GTLRAndroidPublisherQuery_ApplicationsDeviceTierConfigsCreate
+
+@dynamic allowUnknownDevices, packageName;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_DeviceTierConfig *)object
+                    packageName:(NSString *)packageName {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/deviceTierConfigs";
+  GTLRAndroidPublisherQuery_ApplicationsDeviceTierConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.expectedObjectClass = [GTLRAndroidPublisher_DeviceTierConfig class];
+  query.loggingName = @"androidpublisher.applications.deviceTierConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_ApplicationsDeviceTierConfigsGet
+
+@dynamic deviceTierConfigId, packageName;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                  deviceTierConfigId:(long long)deviceTierConfigId {
+  NSArray *pathParams = @[
+    @"deviceTierConfigId", @"packageName"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/deviceTierConfigs/{deviceTierConfigId}";
+  GTLRAndroidPublisherQuery_ApplicationsDeviceTierConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.deviceTierConfigId = deviceTierConfigId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_DeviceTierConfig class];
+  query.loggingName = @"androidpublisher.applications.deviceTierConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_ApplicationsDeviceTierConfigsList
+
+@dynamic packageName, pageSize, pageToken;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName {
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/deviceTierConfigs";
+  GTLRAndroidPublisherQuery_ApplicationsDeviceTierConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.expectedObjectClass = [GTLRAndroidPublisher_ListDeviceTierConfigsResponse class];
+  query.loggingName = @"androidpublisher.applications.deviceTierConfigs.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidPublisherQuery_EditsApksAddexternallyhosted
 
 @dynamic editId, packageName;

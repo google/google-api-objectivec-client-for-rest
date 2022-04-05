@@ -25,6 +25,7 @@
 @class GTLRCloudMemorystoreforMemcached_Date;
 @class GTLRCloudMemorystoreforMemcached_DenyMaintenancePeriod;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1LocationMetadata_AvailableZones;
+@class GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1MaintenancePolicy;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1ZoneMetadata;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_Labels;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenancePolicyNames;
@@ -50,6 +51,7 @@
 @class GTLRCloudMemorystoreforMemcached_LocationMetadata_AvailableZones;
 @class GTLRCloudMemorystoreforMemcached_MaintenancePolicy;
 @class GTLRCloudMemorystoreforMemcached_MaintenancePolicy_Labels;
+@class GTLRCloudMemorystoreforMemcached_MaintenanceSchedule;
 @class GTLRCloudMemorystoreforMemcached_MaintenanceWindow;
 @class GTLRCloudMemorystoreforMemcached_MemcacheParameters;
 @class GTLRCloudMemorystoreforMemcached_MemcacheParameters_Params;
@@ -64,6 +66,7 @@
 @class GTLRCloudMemorystoreforMemcached_TimeOfDay;
 @class GTLRCloudMemorystoreforMemcached_UpdatePolicy;
 @class GTLRCloudMemorystoreforMemcached_WeeklyCycle;
+@class GTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow;
 @class GTLRCloudMemorystoreforMemcached_ZoneMetadata;
 
 // Generated comments include content from the discovery document; avoid them
@@ -321,6 +324,58 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_UpdateChannelUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow.day
+
+/**
+ *  The day of the week is unspecified.
+ *
+ *  Value: "DAY_OF_WEEK_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_DayOfWeekUnspecified;
+/**
+ *  Friday
+ *
+ *  Value: "FRIDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_Friday;
+/**
+ *  Monday
+ *
+ *  Value: "MONDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_Monday;
+/**
+ *  Saturday
+ *
+ *  Value: "SATURDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_Saturday;
+/**
+ *  Sunday
+ *
+ *  Value: "SUNDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_Sunday;
+/**
+ *  Thursday
+ *
+ *  Value: "THURSDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_Thursday;
+/**
+ *  Tuesday
+ *
+ *  Value: "TUESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_Tuesday;
+/**
+ *  Wednesday
+ *
+ *  Value: "WEDNESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_Wednesday;
+
 /**
  *  Request for ApplyParameters.
  */
@@ -366,11 +421,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
  *  Represents a whole or partial calendar date, such as a birthday. The time of
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
- *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day, with a zero year (e.g., an anniversary) * A year on its own,
- *  with a zero month and a zero day * A year and month, with a zero day (e.g.,
- *  a credit card expiration date) Related types: * google.type.TimeOfDay *
- *  google.type.DateTime * google.protobuf.Timestamp
+ *  following: * A full date, with non-zero year, month, and day values. * A
+ *  month and day, with a zero year (for example, an anniversary). * A year on
+ *  its own, with a zero month and a zero day. * A year and month, with a zero
+ *  day (for example, a credit card expiration date). Related types: *
+ *  google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLRCloudMemorystoreforMemcached_Date : GTLRObject
 
@@ -471,6 +526,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1LocationMetadata_AvailableZones : GTLRObject
+@end
+
+
+/**
+ *  Maintenance policy per instance.
+ */
+@interface GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1MaintenancePolicy : GTLRObject
+
+/** Output only. The time when the policy was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Description of what this policy is for. Create/Update methods return
+ *  INVALID_ARGUMENT if the length is greater than 512.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. The time when the policy was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Required. Maintenance window that is applied to resources covered by this
+ *  policy. Minimum 1. For the current version, the maximum number of
+ *  weekly_maintenance_windows is expected to be one.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow *> *weeklyMaintenanceWindow;
+
 @end
 
 
@@ -1021,6 +1105,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 @property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_Instance_Labels *labels;
 
 /**
+ *  The maintenance policy for the instance. If not provided, the maintenance
+ *  event will be performed based on Memorystore internal rollout schedule.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1MaintenancePolicy *maintenancePolicy;
+
+/** Output only. Published maintenance schedule. */
+@property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_MaintenanceSchedule *maintenanceSchedule;
+
+/**
  *  Output only. The full version of memcached server running on this instance.
  *  System automatically determines the full memcached version for an instance
  *  based on the input MemcacheVersion. The full version format will be
@@ -1381,6 +1474,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
  *        fetch them all at once.
  */
 @interface GTLRCloudMemorystoreforMemcached_MaintenancePolicy_Labels : GTLRObject
+@end
+
+
+/**
+ *  Upcoming maintenance schedule.
+ */
+@interface GTLRCloudMemorystoreforMemcached_MaintenanceSchedule : GTLRObject
+
+/**
+ *  Output only. The end time of any upcoming scheduled maintenance for this
+ *  instance.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. The deadline that the maintenance schedule start time can not
+ *  go beyond, including reschedule.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *scheduleDeadlineTime;
+
+/**
+ *  Output only. The start time of any upcoming scheduled maintenance for this
+ *  instance.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
 @end
 
 
@@ -1807,6 +1926,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 
 /** User can specify multiple windows in a week. Minimum of 1 window. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMemorystoreforMemcached_Schedule *> *schedule;
+
+@end
+
+
+/**
+ *  Time window specified for weekly operations.
+ */
+@interface GTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow : GTLRObject
+
+/**
+ *  Required. Allows to define schedule that runs specified day of the week.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_DayOfWeekUnspecified
+ *        The day of the week is unspecified. (Value: "DAY_OF_WEEK_UNSPECIFIED")
+ *    @arg @c kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_Friday
+ *        Friday (Value: "FRIDAY")
+ *    @arg @c kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_Monday
+ *        Monday (Value: "MONDAY")
+ *    @arg @c kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_Saturday
+ *        Saturday (Value: "SATURDAY")
+ *    @arg @c kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_Sunday
+ *        Sunday (Value: "SUNDAY")
+ *    @arg @c kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_Thursday
+ *        Thursday (Value: "THURSDAY")
+ *    @arg @c kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_Tuesday
+ *        Tuesday (Value: "TUESDAY")
+ *    @arg @c kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_Wednesday
+ *        Wednesday (Value: "WEDNESDAY")
+ */
+@property(nonatomic, copy, nullable) NSString *day;
+
+/** Required. Duration of the time window. */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/** Required. Start time of the window in UTC. */
+@property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_TimeOfDay *startTime;
 
 @end
 

@@ -37,8 +37,12 @@
 @class GTLRServiceControl_CheckResponse_Headers;
 @class GTLRServiceControl_FirstPartyPrincipal;
 @class GTLRServiceControl_FirstPartyPrincipal_ServiceMetadata;
+@class GTLRServiceControl_OrgPolicyViolationInfo;
+@class GTLRServiceControl_OrgPolicyViolationInfo_Payload;
+@class GTLRServiceControl_OrgPolicyViolationInfo_ResourceTags;
 @class GTLRServiceControl_Peer;
 @class GTLRServiceControl_Peer_Labels;
+@class GTLRServiceControl_PolicyViolationInfo;
 @class GTLRServiceControl_Request;
 @class GTLRServiceControl_Request_Headers;
 @class GTLRServiceControl_RequestMetadata;
@@ -61,6 +65,7 @@
 @class GTLRServiceControl_V2LogEntry_StructPayload;
 @class GTLRServiceControl_V2LogEntryOperation;
 @class GTLRServiceControl_V2LogEntrySourceLocation;
+@class GTLRServiceControl_ViolationInfo;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -130,6 +135,34 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2LogEntry_Severity_Notic
  *  Value: "WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2LogEntry_Severity_Warning;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceControl_ViolationInfo.policyType
+
+/**
+ *  Indicates boolean policy constraint
+ *
+ *  Value: "BOOLEAN_CONSTRAINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_BooleanConstraint;
+/**
+ *  Indicates custom policy constraint
+ *
+ *  Value: "CUSTOM_CONSTRAINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_CustomConstraint;
+/**
+ *  Indicates list policy constraint
+ *
+ *  Value: "LIST_CONSTRAINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_ListConstraint;
+/**
+ *  Default value. This value should not be used.
+ *
+ *  Value: "POLICY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecified;
 
 /**
  *  This message defines attributes associated with API operations, such as a
@@ -273,6 +306,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2LogEntry_Severity_Warni
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numResponseItems;
+
+/**
+ *  Indicates the policy violations for this request. If the request is denied
+ *  by the policy, violation information will be logged here.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_PolicyViolationInfo *policyViolationInfo;
 
 /**
  *  The operation request. This may not include all request parameters, such as
@@ -625,7 +664,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2LogEntry_Severity_Warni
 
 /**
  *  Operation is allowed when this field is not set. Any non-'OK' status
- *  indicates a denial; [google.rpc.Status.details]() would contain additional
+ *  indicates a denial; google.rpc.Status.details would contain additional
  *  details about the denial.
  */
 @property(nonatomic, strong, nullable) GTLRServiceControl_Status *status;
@@ -668,6 +707,73 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2LogEntry_Severity_Warni
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRServiceControl_FirstPartyPrincipal_ServiceMetadata : GTLRObject
+@end
+
+
+/**
+ *  Represents OrgPolicy Violation information.
+ */
+@interface GTLRServiceControl_OrgPolicyViolationInfo : GTLRObject
+
+/**
+ *  Optional. Resource payload that is currently in scope and is subjected to
+ *  orgpolicy conditions. This payload may be the subset of the actual Resource
+ *  that may come in the request. This payload should not contain any core
+ *  content.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_OrgPolicyViolationInfo_Payload *payload;
+
+/**
+ *  Optional. Tags referenced on the resource at the time of evaluation. These
+ *  also include the federated tags, if they are supplied in the CheckOrgPolicy
+ *  or CheckCustomConstraints Requests. Optional field as of now. These tags are
+ *  the Cloud tags that are available on the resource during the policy
+ *  evaluation and will be available as part of the OrgPolicy check response for
+ *  logging purposes.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_OrgPolicyViolationInfo_ResourceTags *resourceTags;
+
+/**
+ *  Optional. Resource type that the orgpolicy is checked against. Example:
+ *  compute.googleapis.com/Instance, store.googleapis.com/bucket
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/** Optional. Policy violations */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_ViolationInfo *> *violationInfo;
+
+@end
+
+
+/**
+ *  Optional. Resource payload that is currently in scope and is subjected to
+ *  orgpolicy conditions. This payload may be the subset of the actual Resource
+ *  that may come in the request. This payload should not contain any core
+ *  content.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceControl_OrgPolicyViolationInfo_Payload : GTLRObject
+@end
+
+
+/**
+ *  Optional. Tags referenced on the resource at the time of evaluation. These
+ *  also include the federated tags, if they are supplied in the CheckOrgPolicy
+ *  or CheckCustomConstraints Requests. Optional field as of now. These tags are
+ *  the Cloud tags that are available on the resource during the policy
+ *  evaluation and will be available as part of the OrgPolicy check response for
+ *  logging purposes.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceControl_OrgPolicyViolationInfo_ResourceTags : GTLRObject
 @end
 
 
@@ -718,6 +824,17 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2LogEntry_Severity_Warni
  *        fetch them all at once.
  */
 @interface GTLRServiceControl_Peer_Labels : GTLRObject
+@end
+
+
+/**
+ *  Information related to policy violations for this request.
+ */
+@interface GTLRServiceControl_PolicyViolationInfo : GTLRObject
+
+/** Indicates the orgpolicy violations for this resource. */
+@property(nonatomic, strong, nullable) GTLRServiceControl_OrgPolicyViolationInfo *orgPolicyViolationInfo;
+
 @end
 
 
@@ -1590,6 +1707,43 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2LogEntry_Severity_Warni
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *line;
+
+@end
+
+
+/**
+ *  Provides information about the Policy violation info for this request.
+ */
+@interface GTLRServiceControl_ViolationInfo : GTLRObject
+
+/**
+ *  Optional. Value that is being checked for the policy. This could be in
+ *  encrypted form (if pii sensitive). This field will only be emitted in
+ *  LIST_POLICY types
+ */
+@property(nonatomic, copy, nullable) NSString *checkedValue;
+
+/** Optional. Constraint name */
+@property(nonatomic, copy, nullable) NSString *constraint;
+
+/** Optional. Error message that policy is indicating. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/**
+ *  Optional. Indicates the type of the policy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceControl_ViolationInfo_PolicyType_BooleanConstraint
+ *        Indicates boolean policy constraint (Value: "BOOLEAN_CONSTRAINT")
+ *    @arg @c kGTLRServiceControl_ViolationInfo_PolicyType_CustomConstraint
+ *        Indicates custom policy constraint (Value: "CUSTOM_CONSTRAINT")
+ *    @arg @c kGTLRServiceControl_ViolationInfo_PolicyType_ListConstraint
+ *        Indicates list policy constraint (Value: "LIST_CONSTRAINT")
+ *    @arg @c kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecified
+ *        Default value. This value should not be used. (Value:
+ *        "POLICY_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *policyType;
 
 @end
 
