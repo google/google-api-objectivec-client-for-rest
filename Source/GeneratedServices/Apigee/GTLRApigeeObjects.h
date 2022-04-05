@@ -419,6 +419,40 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonet
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig_BillingType_Prepaid;
 
 // ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1EndpointAttachment.state
+
+/**
+ *  Resource is provisioned and ready to use.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_State_Active;
+/**
+ *  Resource is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_State_Creating;
+/**
+ *  The resource is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_State_Deleting;
+/**
+ *  Resource is in an unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_State_StateUnspecified;
+/**
+ *  The resource is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_State_Updating;
+
+// ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1Environment.apiProxyType
 
 /**
@@ -3597,6 +3631,24 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** Format: projects/ * /regions/ * /serviceAttachments/ * */
 @property(nonatomic, copy, nullable) NSString *serviceAttachment;
+
+/**
+ *  Output only. State of the endpoint attachment. Values other than `ACTIVE`
+ *  mean the resource is not ready to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_State_Active
+ *        Resource is provisioned and ready to use. (Value: "ACTIVE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_State_Creating
+ *        Resource is being created. (Value: "CREATING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_State_Deleting
+ *        The resource is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_State_StateUnspecified
+ *        Resource is in an unspecified state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_State_Updating
+ *        The resource is being updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -7911,8 +7963,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRApigee_GoogleProtobufEmpty : GTLRObject
 @end

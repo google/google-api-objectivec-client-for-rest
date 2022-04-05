@@ -110,7 +110,7 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRHangoutsChat_ActionResponse.type
 
 /**
- *  Presents a [dialog](https://developers.google.com/chat/how-tos/bot-dialogs).
+ *  Presents a [dialog](https://developers.google.com/chat/how-tos/dialogs).
  *
  *  Value: "DIALOG"
  */
@@ -134,8 +134,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_Request
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_TypeUnspecified;
 /**
- *  Update the bot's message. This is only permitted on a CARD_CLICKED event
- *  where the message sender type is BOT.
+ *  Update the Chat app's message. This is only permitted on a CARD_CLICKED
+ *  event where the message sender type is BOT.
  *
  *  Value: "UPDATE_MESSAGE"
  */
@@ -443,7 +443,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_Platform_
 // GTLRHangoutsChat_DeprecatedEvent.dialogEventType
 
 /**
- *  The [dialog](https://developers.google.com/chat/how-tos/bot-dialogs) was
+ *  The [dialog](https://developers.google.com/chat/how-tos/dialogs) was
  *  cancelled.
  *
  *  Value: "CANCEL_DIALOG"
@@ -451,14 +451,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_Platform_
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_CancelDialog;
 /**
  *  Any user action that opens a
- *  [dialog](https://developers.google.com/chat/how-tos/bot-dialogs).
+ *  [dialog](https://developers.google.com/chat/how-tos/dialogs).
  *
  *  Value: "REQUEST_DIALOG"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_RequestDialog;
 /**
  *  A card click event from a
- *  [dialog](https://developers.google.com/chat/how-tos/bot-dialogs).
+ *  [dialog](https://developers.google.com/chat/how-tos/dialogs).
  *
  *  Value: "SUBMIT_DIALOG"
  */
@@ -475,13 +475,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEvent
 // GTLRHangoutsChat_DeprecatedEvent.type
 
 /**
- *  The bot was added to a space.
+ *  The Chat app was added to a space.
  *
  *  Value: "ADDED_TO_SPACE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_AddedToSpace;
 /**
- *  The bot's interactive card was clicked.
+ *  The Chat app's interactive card was clicked.
  *
  *  Value: "CARD_CLICKED"
  */
@@ -493,7 +493,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_CardCl
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Message;
 /**
- *  The bot was removed from a space.
+ *  The Chat app was removed from a space.
  *
  *  Value: "REMOVED_FROM_SPACE"
  */
@@ -1002,7 +1002,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_NotAMember
 // GTLRHangoutsChat_SlashCommandMetadata.type
 
 /**
- *  Add bot to space.
+ *  Add Chat app to space.
  *
  *  Value: "ADD"
  */
@@ -1024,7 +1024,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_SlashCommandMetadata_Type_T
 // GTLRHangoutsChat_Space.type
 
 /**
- *  1:1 Direct Message between a human and a Chat bot, where all messages are
+ *  1:1 Direct Message between a human and a Chat app, where all messages are
  *  flat. Note that this does not include direct messages between two humans.
  *
  *  Value: "DM"
@@ -1043,7 +1043,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_Type_TypeUnspecified;
 // GTLRHangoutsChat_User.type
 
 /**
- *  Bot user.
+ *  Chat app user.
  *
  *  Value: "BOT"
  */
@@ -1101,24 +1101,24 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Parameters that a bot can use to configure how it's response is posted.
+ *  Parameters that a Chat app can use to configure how it's response is posted.
  */
 @interface GTLRHangoutsChat_ActionResponse : GTLRObject
 
 /**
  *  A response to an event related to a
- *  [dialog](https://developers.google.com/chat/how-tos/bot-dialogs). Must be
+ *  [dialog](https://developers.google.com/chat/how-tos/dialogs). Must be
  *  accompanied by `ResponseType.Dialog`.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_DialogAction *dialogAction;
 
 /**
- *  The type of bot response.
+ *  The type of Chat app response.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_Dialog Presents a
- *        [dialog](https://developers.google.com/chat/how-tos/bot-dialogs).
- *        (Value: "DIALOG")
+ *        [dialog](https://developers.google.com/chat/how-tos/dialogs). (Value:
+ *        "DIALOG")
  *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_NewMessage Post as a new
  *        message in the topic. (Value: "NEW_MESSAGE")
  *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_RequestConfig Privately ask
@@ -1126,8 +1126,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_TypeUnspecified Default
  *        type; will be handled as NEW_MESSAGE. (Value: "TYPE_UNSPECIFIED")
  *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_UpdateMessage Update the
- *        bot's message. This is only permitted on a CARD_CLICKED event where
- *        the message sender type is BOT. (Value: "UPDATE_MESSAGE")
+ *        Chat app's message. This is only permitted on a CARD_CLICKED event
+ *        where the message sender type is BOT. (Value: "UPDATE_MESSAGE")
  *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_UpdateUserMessageCards
  *        Update the cards on a user's message. This is only permitted as a
  *        response to a MESSAGE event with a matched url, or a CARD_CLICKED
@@ -1333,8 +1333,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  Output only. The download URL which should be used to allow a human user to
- *  download the attachment. Bots should not use this URL to download attachment
- *  content.
+ *  download the attachment. Chat apps should not use this URL to download
+ *  attachment content.
  */
 @property(nonatomic, copy, nullable) NSString *downloadUri;
 
@@ -1361,7 +1361,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  Output only. The thumbnail URL which should be used to preview the
- *  attachment to a human user. Bots should not use this URL to download
+ *  attachment to a human user. Chat apps should not use this URL to download
  *  attachment content.
  */
 @property(nonatomic, copy, nullable) NSString *thumbnailUri;
@@ -1561,7 +1561,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Represents information about the user's client, such as locale, host app,
  *  and platform. For Chat apps, `CommonEventObject` includes data submitted by
  *  users interacting with cards, like data entered in
- *  [dialogs](https://developers.google.com/chat/how-tos/bot-dialogs).
+ *  [dialogs](https://developers.google.com/chat/how-tos/dialogs).
  */
 @interface GTLRHangoutsChat_CommonEventObject : GTLRObject
 
@@ -1573,8 +1573,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  multi-value widgets, an array of `StringInput` objects. For a date-time
  *  picker, a `DateTimeInput`. For a date-only picker, a `DateInput`. For a
  *  time-only picker, a `TimeInput`. Corresponds with the data entered by a user
- *  on a card in a
- *  [dialog](https://developers.google.com/chat/how-tos/bot-dialogs).
+ *  on a card in a [dialog](https://developers.google.com/chat/how-tos/dialogs).
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_CommonEventObject_FormInputs *formInputs;
 
@@ -1652,8 +1651,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  multi-value widgets, an array of `StringInput` objects. For a date-time
  *  picker, a `DateTimeInput`. For a date-only picker, a `DateInput`. For a
  *  time-only picker, a `TimeInput`. Corresponds with the data entered by a user
- *  on a card in a
- *  [dialog](https://developers.google.com/chat/how-tos/bot-dialogs).
+ *  on a card in a [dialog](https://developers.google.com/chat/how-tos/dialogs).
  *
  *  @note This class is documented as having more properties of
  *        GTLRHangoutsChat_Inputs. Use @c -additionalJSONKeys and @c
@@ -1737,35 +1735,35 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Represents information about the user's client, such as locale, host app,
  *  and platform. For Chat apps, `CommonEventObject` includes information
  *  submitted by users interacting with
- *  [dialogs](https://developers.google.com/chat/how-tos/bot-dialogs), like data
+ *  [dialogs](https://developers.google.com/chat/how-tos/dialogs), like data
  *  entered on a card.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_CommonEventObject *common;
 
 /**
- *  The URL the bot should redirect the user to after they have completed an
- *  authorization or configuration flow outside of Google Chat. See the
+ *  The URL the Chat app should redirect the user to after they have completed
+ *  an authorization or configuration flow outside of Google Chat. See the
  *  [Authorizing access to 3p services guide](/chat/how-tos/auth-3p) for more
  *  information.
  */
 @property(nonatomic, copy, nullable) NSString *configCompleteRedirectUrl;
 
 /**
- *  The type of [dialog](https://developers.google.com/chat/how-tos/bot-dialogs)
+ *  The type of [dialog](https://developers.google.com/chat/how-tos/dialogs)
  *  event received.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_CancelDialog The
- *        [dialog](https://developers.google.com/chat/how-tos/bot-dialogs) was
+ *        [dialog](https://developers.google.com/chat/how-tos/dialogs) was
  *        cancelled. (Value: "CANCEL_DIALOG")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_RequestDialog
  *        Any user action that opens a
- *        [dialog](https://developers.google.com/chat/how-tos/bot-dialogs).
- *        (Value: "REQUEST_DIALOG")
+ *        [dialog](https://developers.google.com/chat/how-tos/dialogs). (Value:
+ *        "REQUEST_DIALOG")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_SubmitDialog A
  *        card click event from a
- *        [dialog](https://developers.google.com/chat/how-tos/bot-dialogs).
- *        (Value: "SUBMIT_DIALOG")
+ *        [dialog](https://developers.google.com/chat/how-tos/dialogs). (Value:
+ *        "SUBMIT_DIALOG")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_TypeUnspecified
  *        This could be used when the corresponding event is not dialog related.
  *        For example an \@mention. (Value: "TYPE_UNSPECIFIED")
@@ -1777,7 +1775,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  True when the event is related to
- *  [dialogs](https://developers.google.com/chat/how-tos/bot-dialogs).
+ *  [dialogs](https://developers.google.com/chat/how-tos/dialogs).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1790,16 +1788,17 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Space *space;
 
 /**
- *  The bot-defined key for the thread related to the event. See the thread_key
- *  field of the `spaces.message.create` request for more information.
+ *  The Chat app-defined key for the thread related to the event. See the
+ *  thread_key field of the `spaces.message.create` request for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
 /**
- *  A secret value that bots can use to verify if a request is from Google. The
- *  token is randomly generated by Google, remains static, and can be obtained
- *  from the Google Chat API configuration page in the Cloud Console. Developers
- *  can revoke/regenerate it if needed from the same page.
+ *  A secret value that Chat apps can use to verify if a request is from Google.
+ *  The token is randomly generated by Google, remains static, and can be
+ *  obtained from the Google Chat API configuration page in the Cloud Console.
+ *  Developers can revoke/regenerate it if needed from the same page.
  */
 @property(nonatomic, copy, nullable) NSString *token;
 
@@ -1807,14 +1806,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  The type of the event.
  *
  *  Likely values:
- *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_AddedToSpace The bot was
- *        added to a space. (Value: "ADDED_TO_SPACE")
- *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_CardClicked The bot's
+ *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_AddedToSpace The Chat app
+ *        was added to a space. (Value: "ADDED_TO_SPACE")
+ *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_CardClicked The Chat app's
  *        interactive card was clicked. (Value: "CARD_CLICKED")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_Message A message was sent
  *        in a space. (Value: "MESSAGE")
- *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_RemovedFromSpace The bot
- *        was removed from a space. (Value: "REMOVED_FROM_SPACE")
+ *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_RemovedFromSpace The Chat
+ *        app was removed from a space. (Value: "REMOVED_FROM_SPACE")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_Unspecified Default value
  *        for the enum. DO NOT USE. (Value: "UNSPECIFIED")
  */
@@ -1841,21 +1840,21 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Contains a [dialog](https://developers.google.com/chat/how-tos/bot-dialogs)
- *  and request status code.
+ *  Contains a [dialog](https://developers.google.com/chat/how-tos/dialogs) and
+ *  request status code.
  */
 @interface GTLRHangoutsChat_DialogAction : GTLRObject
 
 /**
  *  Status for a request to either invoke or submit a
- *  [dialog](https://developers.google.com/chat/how-tos/bot-dialogs). Displays a
+ *  [dialog](https://developers.google.com/chat/how-tos/dialogs). Displays a
  *  status and message to users, if necessary. For example, in case of an error
  *  or success.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_ActionStatus *actionStatus;
 
 /**
- *  [Dialog](https://developers.google.com/chat/how-tos/bot-dialogs) for the
+ *  [Dialog](https://developers.google.com/chat/how-tos/dialogs) for the
  *  request.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Dialog *dialog;
@@ -1903,8 +1902,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRHangoutsChat_Empty : GTLRObject
 @end
@@ -1918,9 +1916,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  The method name is used to identify which part of the form triggered the
- *  form submission. This information is echoed back to the bot as part of the
- *  card click event. The same method name can be used for several elements that
- *  trigger a common behavior if desired.
+ *  form submission. This information is echoed back to the Chat app as part of
+ *  the card click event. The same method name can be used for several elements
+ *  that trigger a common behavior if desired.
  */
 @property(nonatomic, copy, nullable) NSString *actionMethodName;
 
@@ -3190,7 +3188,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  A matched url in a Chat message. Chat bots can unfurl matched URLs. For more
+ *  A matched url in a Chat message. Chat apps can unfurl matched URLs. For more
  *  information, refer to [Unfurl links](/chat/how-tos/link-unfurling).
  */
 @interface GTLRHangoutsChat_MatchedUrl : GTLRObject
@@ -3260,15 +3258,15 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_Message : GTLRObject
 
 /**
- *  Input only. Parameters that a bot can use to configure how its response is
- *  posted.
+ *  Input only. Parameters that a Chat app can use to configure how its response
+ *  is posted.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_ActionResponse *actionResponse;
 
 /** Output only. Annotations associated with the text in this message. */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Annotation *> *annotations;
 
-/** Plain-text body of the message with all bot mentions stripped out. */
+/** Plain-text body of the message with all Chat app mentions stripped out. */
 @property(nonatomic, copy, nullable) NSString *argumentText;
 
 /** User uploaded attachment. */
@@ -3312,13 +3310,6 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  Text for generating preview chips. This text will not be displayed to the
- *  user, but any links to images, web pages, videos, etc. included here will
- *  generate preview chips.
- */
-@property(nonatomic, copy, nullable) NSString *previewText;
-
 /** The user who created the message. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_User *sender;
 
@@ -3328,7 +3319,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /** The space the message belongs to. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Space *space;
 
-/** Plain-text body of the message. */
+/**
+ *  Plain-text body of the message. The first link to an image, video, web page,
+ *  or other preview-able item generates a preview chip.
+ */
 @property(nonatomic, copy, nullable) NSString *text;
 
 /** The thread the message belongs to. */
@@ -3400,7 +3394,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @interface GTLRHangoutsChat_SlashCommandMetadata : GTLRObject
 
-/** The bot whose command was invoked. */
+/** The Chat app whose command was invoked. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_User *bot;
 
 /**
@@ -3424,8 +3418,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  The type of slash command.
  *
  *  Likely values:
- *    @arg @c kGTLRHangoutsChat_SlashCommandMetadata_Type_Add Add bot to space.
- *        (Value: "ADD")
+ *    @arg @c kGTLRHangoutsChat_SlashCommandMetadata_Type_Add Add Chat app to
+ *        space. (Value: "ADD")
  *    @arg @c kGTLRHangoutsChat_SlashCommandMetadata_Type_Invoke Invoke slash
  *        command in space. (Value: "INVOKE")
  *    @arg @c kGTLRHangoutsChat_SlashCommandMetadata_Type_TypeUnspecified
@@ -3438,7 +3432,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  A space in Google Chat. Spaces are conversations between two or more users
- *  or 1:1 messages between a user and a Chat bot.
+ *  or 1:1 messages between a user and a Chat app.
  */
 @interface GTLRHangoutsChat_Space : GTLRObject
 
@@ -3455,7 +3449,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. Whether the space is a DM between a bot and a single human.
+ *  Output only. Whether the space is a DM between a Chat app and a single
+ *  human.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3474,7 +3469,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_Space_Type_Dm 1:1 Direct Message between a human
- *        and a Chat bot, where all messages are flat. Note that this does not
+ *        and a Chat app, where all messages are flat. Note that this does not
  *        include direct messages between two humans. (Value: "DM")
  *    @arg @c kGTLRHangoutsChat_Space_Type_Room Conversations between two or
  *        more humans. (Value: "ROOM")
@@ -3641,7 +3636,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *domainId;
 
 /**
- *  True when the user is deleted or the user's profile is not visible.
+ *  When `true`, the user is deleted or their profile is not visible.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3660,7 +3655,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  User type.
  *
  *  Likely values:
- *    @arg @c kGTLRHangoutsChat_User_Type_Bot Bot user. (Value: "BOT")
+ *    @arg @c kGTLRHangoutsChat_User_Type_Bot Chat app user. (Value: "BOT")
  *    @arg @c kGTLRHangoutsChat_User_Type_Human Human user. (Value: "HUMAN")
  *    @arg @c kGTLRHangoutsChat_User_Type_TypeUnspecified Default value for the
  *        enum. DO NOT USE. (Value: "TYPE_UNSPECIFIED")

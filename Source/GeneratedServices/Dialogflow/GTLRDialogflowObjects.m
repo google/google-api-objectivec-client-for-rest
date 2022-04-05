@@ -111,6 +111,10 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_Type_MetricUnspecified = @"METRIC_UNSPECIFIED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_Type_SessionEndRate = @"SESSION_END_RATE";
 
+// GTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest.dataFormat
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest_DataFormat_Blob = @"BLOB";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest_DataFormat_DataFormatUnspecified = @"DATA_FORMAT_UNSPECIFIED";
+
 // GTLRDialogflow_GoogleCloudDialogflowCxV3ExportTestCasesRequest.dataFormat
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportTestCasesRequest_DataFormat_Blob = @"BLOB";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportTestCasesRequest_DataFormat_DataFormatUnspecified = @"DATA_FORMAT_UNSPECIFIED";
@@ -579,8 +583,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3Agent
 @dynamic advancedSettings, avatarUri, defaultLanguageCode, descriptionProperty,
-         displayName, enableSpellCorrection, enableStackdriverLogging, name,
-         securitySettings, speechToTextSettings, startFlow,
+         displayName, enableSpellCorrection, enableStackdriverLogging, locked,
+         name, securitySettings, speechToTextSettings, startFlow,
          supportedLanguageCodes, timeZone;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -2391,7 +2395,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest
-@dynamic agentUri, environment;
+@dynamic agentUri, dataFormat, environment;
 @end
 
 

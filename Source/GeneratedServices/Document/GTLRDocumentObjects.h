@@ -2176,10 +2176,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Document represents the canonical document resource in Document
- *  Understanding AI. It is an interchange format that provides insights into
- *  documents and allows for collaboration between users and Document
- *  Understanding AI to iterate and optimize for quality.
+ *  Document represents the canonical document resource in Document AI. It is an
+ *  interchange format that provides insights into documents and allows for
+ *  collaboration between users and Document AI to iterate and optimize for
+ *  quality.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta1Document : GTLRObject
 
@@ -2280,6 +2280,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, copy, nullable) NSString *mentionText;
 
 /**
+ *  Optional. This attribute indicates that the processing didn't actually
+ *  identify this entity, but a confidence score was assigned that represent the
+ *  potential that this could be a false negative. A non-present entity should
+ *  have an empty mention_text and text_anchor.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nonPresent;
+
+/**
  *  Optional. Normalized entity value. Absent if the extracted value could not
  *  be converted or the type (e.g. address) is not supported for certain
  *  parsers. This field is also only populated for certain supported document
@@ -2316,7 +2326,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentTextAnchor *textAnchor;
 
-/** Entity type from a schema e.g. `Address`. */
+/** Required. Entity type from a schema e.g. `Address`. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -3453,10 +3463,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Document represents the canonical document resource in Document
- *  Understanding AI. It is an interchange format that provides insights into
- *  documents and allows for collaboration between users and Document
- *  Understanding AI to iterate and optimize for quality.
+ *  Document represents the canonical document resource in Document AI. It is an
+ *  interchange format that provides insights into documents and allows for
+ *  collaboration between users and Document AI to iterate and optimize for
+ *  quality.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta2Document : GTLRObject
 
@@ -3560,6 +3570,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, copy, nullable) NSString *mentionText;
 
 /**
+ *  Optional. This attribute indicates that the processing didn't actually
+ *  identify this entity, but a confidence score was assigned that represent the
+ *  potential that this could be a false negative. A non-present entity should
+ *  have an empty mention_text and text_anchor.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nonPresent;
+
+/**
  *  Optional. Normalized entity value. Absent if the extracted value could not
  *  be converted or the type (e.g. address) is not supported for certain
  *  parsers. This field is also only populated for certain supported document
@@ -3596,7 +3616,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentTextAnchor *textAnchor;
 
-/** Entity type from a schema e.g. `Address`. */
+/** Required. Entity type from a schema e.g. `Address`. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -5216,10 +5236,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Document represents the canonical document resource in Document
- *  Understanding AI. It is an interchange format that provides insights into
- *  documents and allows for collaboration between users and Document
- *  Understanding AI to iterate and optimize for quality.
+ *  Document represents the canonical document resource in Document AI. It is an
+ *  interchange format that provides insights into documents and allows for
+ *  collaboration between users and Document AI to iterate and optimize for
+ *  quality.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1Document : GTLRObject
 
@@ -5320,6 +5340,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, copy, nullable) NSString *mentionText;
 
 /**
+ *  Optional. This attribute indicates that the processing didn't actually
+ *  identify this entity, but a confidence score was assigned that represent the
+ *  potential that this could be a false negative. A non-present entity should
+ *  have an empty mention_text and text_anchor.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nonPresent;
+
+/**
  *  Optional. Normalized entity value. Absent if the extracted value could not
  *  be converted or the type (e.g. address) is not supported for certain
  *  parsers. This field is also only populated for certain supported document
@@ -5356,7 +5386,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentTextAnchor *textAnchor;
 
-/** Entity type from a schema e.g. `Address`. */
+/** Required. Entity type from a schema e.g. `Address`. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -6684,6 +6714,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** The display name of the processor version. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
+/**
+ *  Denotes that this ProcessorVersion is managed by google.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *googleManaged;
+
 /** The KMS key name used for encryption. */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
@@ -7117,8 +7154,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRDocument_GoogleProtobufEmpty : GTLRObject
 @end

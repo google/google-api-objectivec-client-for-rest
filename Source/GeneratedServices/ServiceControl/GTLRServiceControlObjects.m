@@ -25,6 +25,12 @@ NSString * const kGTLRServiceControl_V2LogEntry_Severity_Info  = @"INFO";
 NSString * const kGTLRServiceControl_V2LogEntry_Severity_Notice = @"NOTICE";
 NSString * const kGTLRServiceControl_V2LogEntry_Severity_Warning = @"WARNING";
 
+// GTLRServiceControl_ViolationInfo.policyType
+NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_BooleanConstraint = @"BOOLEAN_CONSTRAINT";
+NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_CustomConstraint = @"CUSTOM_CONSTRAINT";
+NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_ListConstraint = @"LIST_CONSTRAINT";
+NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecified = @"POLICY_TYPE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRServiceControl_Api
@@ -75,9 +81,9 @@ NSString * const kGTLRServiceControl_V2LogEntry_Severity_Warning = @"WARNING";
 
 @implementation GTLRServiceControl_AuditLog
 @dynamic authenticationInfo, authorizationInfo, metadata, methodName,
-         numResponseItems, request, requestMetadata, resourceLocation,
-         resourceName, resourceOriginalState, response, serviceData,
-         serviceName, status;
+         numResponseItems, policyViolationInfo, request, requestMetadata,
+         resourceLocation, resourceName, resourceOriginalState, response,
+         serviceData, serviceName, status;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -304,6 +310,52 @@ NSString * const kGTLRServiceControl_V2LogEntry_Severity_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceControl_OrgPolicyViolationInfo
+//
+
+@implementation GTLRServiceControl_OrgPolicyViolationInfo
+@dynamic payload, resourceTags, resourceType, violationInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"violationInfo" : [GTLRServiceControl_ViolationInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_OrgPolicyViolationInfo_Payload
+//
+
+@implementation GTLRServiceControl_OrgPolicyViolationInfo_Payload
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_OrgPolicyViolationInfo_ResourceTags
+//
+
+@implementation GTLRServiceControl_OrgPolicyViolationInfo_ResourceTags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceControl_Peer
 //
 
@@ -323,6 +375,16 @@ NSString * const kGTLRServiceControl_V2LogEntry_Severity_Warning = @"WARNING";
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_PolicyViolationInfo
+//
+
+@implementation GTLRServiceControl_PolicyViolationInfo
+@dynamic orgPolicyViolationInfo;
 @end
 
 
@@ -669,4 +731,14 @@ NSString * const kGTLRServiceControl_V2LogEntry_Severity_Warning = @"WARNING";
 
 @implementation GTLRServiceControl_V2LogEntrySourceLocation
 @dynamic file, function, line;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_ViolationInfo
+//
+
+@implementation GTLRServiceControl_ViolationInfo
+@dynamic checkedValue, constraint, errorMessage, policyType;
 @end

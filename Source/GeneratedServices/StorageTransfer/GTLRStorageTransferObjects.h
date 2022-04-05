@@ -668,6 +668,34 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success;
 
+// ----------------------------------------------------------------------------
+// GTLRStorageTransfer_TransferOptions.overwriteWhen
+
+/**
+ *  Always overwrite destination object.
+ *
+ *  Value: "ALWAYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_Always;
+/**
+ *  Overwrite destination object with source if the two objects are different.
+ *
+ *  Value: "DIFFERENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_Different;
+/**
+ *  Never overwrite destination object.
+ *
+ *  Value: "NEVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_Never;
+/**
+ *  Indicate the option is not set.
+ *
+ *  Value: "OVERWRITE_WHEN_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhenUnspecified;
+
 /**
  *  Represents an On-Premises Agent pool.
  */
@@ -891,8 +919,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRStorageTransfer_Empty : GTLRObject
 @end
@@ -1229,9 +1256,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 
 /**
- *  Specifies the metadata options for running a transfer. These options only
- *  apply to transfers involving a POSIX filesystem and are ignored for other
- *  transfers.
+ *  Specifies the metadata options for running a transfer.
  */
 @interface GTLRStorageTransfer_MetadataOptions : GTLRObject
 
@@ -1258,7 +1283,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 /**
  *  Specifies how each file's POSIX group ID (GID) attribute should be handled
- *  by the transfer. By default, GID is not preserved.
+ *  by the transfer. By default, GID is not preserved. Only applicable to
+ *  transfers involving POSIX file systems, and ignored for other transfers.
  *
  *  Likely values:
  *    @arg @c kGTLRStorageTransfer_MetadataOptions_Gid_GidNumber Preserve GID
@@ -1292,7 +1318,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 /**
  *  Specifies how each file's mode attribute should be handled by the transfer.
- *  By default, mode is not preserved.
+ *  By default, mode is not preserved. Only applicable to transfers involving
+ *  POSIX file systems, and ignored for other transfers.
  *
  *  Likely values:
  *    @arg @c kGTLRStorageTransfer_MetadataOptions_Mode_ModePreserve Preserve
@@ -1333,7 +1360,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 /**
  *  Specifies how symlinks should be handled by the transfer. By default,
- *  symlinks are not preserved.
+ *  symlinks are not preserved. Only applicable to transfers involving POSIX
+ *  file systems, and ignored for other transfers.
  *
  *  Likely values:
  *    @arg @c kGTLRStorageTransfer_MetadataOptions_Symlink_SymlinkPreserve
@@ -1386,7 +1414,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 /**
  *  Specifies how each file's POSIX user ID (UID) attribute should be handled by
- *  the transfer. By default, UID is not preserved.
+ *  the transfer. By default, UID is not preserved. Only applicable to transfers
+ *  involving POSIX file systems, and ignored for other transfers.
  *
  *  Likely values:
  *    @arg @c kGTLRStorageTransfer_MetadataOptions_Uid_UidNumber Preserve UID
@@ -2177,6 +2206,24 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *overwriteObjectsAlreadyExistingInSink;
+
+/**
+ *  When to overwrite objects that already exist in the sink. If not set
+ *  overwrite behavior is determined by
+ *  overwrite_objects_already_existing_in_sink.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorageTransfer_TransferOptions_OverwriteWhen_Always Always
+ *        overwrite destination object. (Value: "ALWAYS")
+ *    @arg @c kGTLRStorageTransfer_TransferOptions_OverwriteWhen_Different
+ *        Overwrite destination object with source if the two objects are
+ *        different. (Value: "DIFFERENT")
+ *    @arg @c kGTLRStorageTransfer_TransferOptions_OverwriteWhen_Never Never
+ *        overwrite destination object. (Value: "NEVER")
+ *    @arg @c kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhenUnspecified
+ *        Indicate the option is not set. (Value: "OVERWRITE_WHEN_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *overwriteWhen;
 
 @end
 

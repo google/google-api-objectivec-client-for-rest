@@ -861,6 +861,26 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_RefreshRuntimeTokenInternalRequest
+//
+
+@implementation GTLRAIPlatformNotebooks_RefreshRuntimeTokenInternalRequest
+@dynamic vmId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_RefreshRuntimeTokenInternalResponse
+//
+
+@implementation GTLRAIPlatformNotebooks_RefreshRuntimeTokenInternalResponse
+@dynamic accessToken, expireTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_RegisterInstanceRequest
 //
 

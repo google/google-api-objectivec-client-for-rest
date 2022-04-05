@@ -121,3 +121,30 @@ NSString * const kGTLRWorkflowExecutionsViewFull               = @"FULL";
 }
 
 @end
+
+@implementation GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsTriggerPubsubExecution
+
+@dynamic workflow;
+
++ (instancetype)queryWithObject:(GTLRWorkflowExecutions_TriggerPubsubExecutionRequest *)object
+                       workflow:(NSString *)workflow {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"workflow" ];
+  NSString *pathURITemplate = @"v1/{+workflow}:triggerPubsubExecution";
+  GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsTriggerPubsubExecution *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.workflow = workflow;
+  query.expectedObjectClass = [GTLRWorkflowExecutions_Execution class];
+  query.loggingName = @"workflowexecutions.projects.locations.workflows.triggerPubsubExecution";
+  return query;
+}
+
+@end

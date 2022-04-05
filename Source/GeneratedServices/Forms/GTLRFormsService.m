@@ -13,9 +13,12 @@
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
-NSString * const kGTLRAuthScopeFormsDrive         = @"https://www.googleapis.com/auth/drive";
-NSString * const kGTLRAuthScopeFormsDriveFile     = @"https://www.googleapis.com/auth/drive.file";
-NSString * const kGTLRAuthScopeFormsDriveReadonly = @"https://www.googleapis.com/auth/drive.readonly";
+NSString * const kGTLRAuthScopeFormsBody              = @"https://www.googleapis.com/auth/forms.body";
+NSString * const kGTLRAuthScopeFormsBodyReadonly      = @"https://www.googleapis.com/auth/forms.body.readonly";
+NSString * const kGTLRAuthScopeFormsDrive             = @"https://www.googleapis.com/auth/drive";
+NSString * const kGTLRAuthScopeFormsDriveFile         = @"https://www.googleapis.com/auth/drive.file";
+NSString * const kGTLRAuthScopeFormsDriveReadonly     = @"https://www.googleapis.com/auth/drive.readonly";
+NSString * const kGTLRAuthScopeFormsResponsesReadonly = @"https://www.googleapis.com/auth/forms.responses.readonly";
 
 // ----------------------------------------------------------------------------
 //   GTLRFormsService

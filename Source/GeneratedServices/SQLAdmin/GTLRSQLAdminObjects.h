@@ -310,6 +310,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8026;
 /**
+ *  The database major version is MySQL 8.0 and the minor version is 27.
+ *
+ *  Value: "MYSQL_8_0_27"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8027;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 28.
+ *
+ *  Value: "MYSQL_8_0_28"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8028;
+/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -473,6 +485,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  *  Value: "MYSQL_8_0_26"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8026;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 27.
+ *
+ *  Value: "MYSQL_8_0_27"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8027;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 28.
+ *
+ *  Value: "MYSQL_8_0_28"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8028;
 /**
  *  The database version is PostgreSQL 10.
  *
@@ -753,6 +777,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8018;
  *  Value: "MYSQL_8_0_26"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8026;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 27.
+ *
+ *  Value: "MYSQL_8_0_27"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8027;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 28.
+ *
+ *  Value: "MYSQL_8_0_28"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8028;
 /**
  *  The database version is PostgreSQL 10.
  *
@@ -2059,6 +2095,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8026 The
  *        database major version is MySQL 8.0 and the minor version is 26.
  *        (Value: "MYSQL_8_0_26")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8027 The
+ *        database major version is MySQL 8.0 and the minor version is 27.
+ *        (Value: "MYSQL_8_0_27")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8028 The
+ *        database major version is MySQL 8.0 and the minor version is 28.
+ *        (Value: "MYSQL_8_0_28")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 The
  *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11 The
@@ -2260,6 +2302,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8026 The
  *        database major version is MySQL 8.0 and the minor version is 26.
  *        (Value: "MYSQL_8_0_26")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8027 The
+ *        database major version is MySQL 8.0 and the minor version is 27.
+ *        (Value: "MYSQL_8_0_27")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8028 The
+ *        database major version is MySQL 8.0 and the minor version is 28.
+ *        (Value: "MYSQL_8_0_28")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 The
  *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 The
@@ -3867,6 +3915,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disallowUsernameSubstring;
+
+/**
+ *  Whether the password policy is enabled or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enablePasswordPolicy;
 
 /**
  *  Minimum number of characters allowed.

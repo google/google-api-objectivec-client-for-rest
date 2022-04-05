@@ -710,8 +710,10 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 @implementation GTLRCloudSearch_DynamiteSpacesScoringInfo
 @dynamic affinityScore, commonContactCountAffinityScore,
          contactsIntersectionCount, finalScore, freshnessScore,
-         joinedSpacesAffinityScore, messageScore, smallContactListAffinityScore,
-         smallUnjoinedSpacesAffinityScore, spaceAgeInDays, topicalityScore;
+         joinedSpacesAffinityScore, lastMessagePostedTimestampMicros,
+         memberMetadataCount, messageScore, numAucContacts,
+         smallContactListAffinityScore, smallUnjoinedSpacesAffinityScore,
+         spaceAgeInDays, spaceCreationTimestampMicros, topicalityScore;
 @end
 
 
@@ -2647,7 +2649,7 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 //
 
 @implementation GTLRCloudSearch_UserId
-@dynamic identifier, originAppId, type;
+@dynamic actingUserId, identifier, originAppId, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

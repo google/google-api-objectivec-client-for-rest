@@ -121,8 +121,11 @@ NSString * const kGTLRDatastore_PropertyFilter_Op_Equal        = @"EQUAL";
 NSString * const kGTLRDatastore_PropertyFilter_Op_GreaterThan  = @"GREATER_THAN";
 NSString * const kGTLRDatastore_PropertyFilter_Op_GreaterThanOrEqual = @"GREATER_THAN_OR_EQUAL";
 NSString * const kGTLRDatastore_PropertyFilter_Op_HasAncestor  = @"HAS_ANCESTOR";
+NSString * const kGTLRDatastore_PropertyFilter_Op_In           = @"IN";
 NSString * const kGTLRDatastore_PropertyFilter_Op_LessThan     = @"LESS_THAN";
 NSString * const kGTLRDatastore_PropertyFilter_Op_LessThanOrEqual = @"LESS_THAN_OR_EQUAL";
+NSString * const kGTLRDatastore_PropertyFilter_Op_NotEqual     = @"NOT_EQUAL";
+NSString * const kGTLRDatastore_PropertyFilter_Op_NotIn        = @"NOT_IN";
 NSString * const kGTLRDatastore_PropertyFilter_Op_OperatorUnspecified = @"OPERATOR_UNSPECIFIED";
 
 // GTLRDatastore_PropertyOrder.direction

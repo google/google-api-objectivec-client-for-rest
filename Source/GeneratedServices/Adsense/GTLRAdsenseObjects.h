@@ -49,6 +49,64 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRAdsense_Account.state
+
+/**
+ *  The account is closed and can't serve ads.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_Account_State_Closed;
+/**
+ *  There are some issues with this account. Publishers should visit AdSense in
+ *  order to fix the account.
+ *
+ *  Value: "NEEDS_ATTENTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_Account_State_NeedsAttention;
+/**
+ *  The account is open and ready to serve ads.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_Account_State_Ready;
+/**
+ *  State unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_Account_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAdsense_AdClient.state
+
+/**
+ *  Running some checks on the ad client before it is ready to serve ads.
+ *
+ *  Value: "GETTING_READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_AdClient_State_GettingReady;
+/**
+ *  The ad client is ready to show ads.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_AdClient_State_Ready;
+/**
+ *  The ad client hasn't been checked yet. There are tasks pending before
+ *  AdSense will start the review.
+ *
+ *  Value: "REQUIRES_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_AdClient_State_RequiresReview;
+/**
+ *  State unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_AdClient_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAdsense_AdUnit.state
 
 /**
@@ -251,6 +309,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
 @property(nonatomic, strong, nullable) NSNumber *premium;
 
 /**
+ *  Output only. State of the account.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdsense_Account_State_Closed The account is closed and can't
+ *        serve ads. (Value: "CLOSED")
+ *    @arg @c kGTLRAdsense_Account_State_NeedsAttention There are some issues
+ *        with this account. Publishers should visit AdSense in order to fix the
+ *        account. (Value: "NEEDS_ATTENTION")
+ *    @arg @c kGTLRAdsense_Account_State_Ready The account is open and ready to
+ *        serve ads. (Value: "READY")
+ *    @arg @c kGTLRAdsense_Account_State_StateUnspecified State unspecified.
+ *        (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
  *  The account time zone, as used by reporting. For more information, see
  *  [changing the time zone of your
  *  reports](https://support.google.com/adsense/answer/9830725).
@@ -283,6 +357,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
  *  reporting dimension. Present only if the ad client supports reporting.
  */
 @property(nonatomic, copy, nullable) NSString *reportingDimensionId;
+
+/**
+ *  Output only. State of the ad client.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdsense_AdClient_State_GettingReady Running some checks on
+ *        the ad client before it is ready to serve ads. (Value:
+ *        "GETTING_READY")
+ *    @arg @c kGTLRAdsense_AdClient_State_Ready The ad client is ready to show
+ *        ads. (Value: "READY")
+ *    @arg @c kGTLRAdsense_AdClient_State_RequiresReview The ad client hasn't
+ *        been checked yet. There are tasks pending before AdSense will start
+ *        the review. (Value: "REQUIRES_REVIEW")
+ *    @arg @c kGTLRAdsense_AdClient_State_StateUnspecified State unspecified.
+ *        (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 

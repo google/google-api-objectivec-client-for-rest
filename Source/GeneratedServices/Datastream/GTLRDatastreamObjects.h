@@ -46,6 +46,7 @@
 @class GTLRDatastream_Operation_Metadata;
 @class GTLRDatastream_Operation_Response;
 @class GTLRDatastream_OracleColumn;
+@class GTLRDatastream_OracleDropLargeObjects;
 @class GTLRDatastream_OracleObjectIdentifier;
 @class GTLRDatastream_OracleProfile;
 @class GTLRDatastream_OracleProfile_ConnectionAttributes;
@@ -572,8 +573,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRDatastream_Empty : GTLRObject
 @end
@@ -1381,6 +1381,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  Configuration to drop large object values.
+ */
+@interface GTLRDatastream_OracleDropLargeObjects : GTLRObject
+@end
+
+
+/**
  *  Oracle data source object identifier.
  */
 @interface GTLRDatastream_OracleObjectIdentifier : GTLRObject
@@ -1465,6 +1472,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  Oracle data source configuration
  */
 @interface GTLRDatastream_OracleSourceConfig : GTLRObject
+
+/** Drop large object values. */
+@property(nonatomic, strong, nullable) GTLRDatastream_OracleDropLargeObjects *dropLargeObjects;
 
 /** Oracle objects to exclude from the stream. */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleRdbms *excludeObjects;

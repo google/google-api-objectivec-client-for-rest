@@ -24,7 +24,6 @@
 @class GTLRStorage_Bucket_Autoclass;
 @class GTLRStorage_Bucket_Billing;
 @class GTLRStorage_Bucket_Cors_Item;
-@class GTLRStorage_Bucket_CustomPlacementConfig;
 @class GTLRStorage_Bucket_Encryption;
 @class GTLRStorage_Bucket_IamConfiguration;
 @class GTLRStorage_Bucket_IamConfiguration_BucketPolicyOnly;
@@ -79,9 +78,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The bucket's Cross-Origin Resource Sharing (CORS) configuration. */
 @property(nonatomic, strong, nullable) NSArray<GTLRStorage_Bucket_Cors_Item *> *cors;
-
-/** The bucket's custom placement configuration for Custom Dual Regions. */
-@property(nonatomic, strong, nullable) GTLRStorage_Bucket_CustomPlacementConfig *customPlacementConfig;
 
 /**
  *  The default value for event-based hold on newly created objects in this
@@ -296,17 +292,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  permission for the user-agent to share across domains.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *responseHeader;
-
-@end
-
-
-/**
- *  The bucket's custom placement configuration for Custom Dual Regions.
- */
-@interface GTLRStorage_Bucket_CustomPlacementConfig : GTLRObject
-
-/** The list of regional locations in which data is placed. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *dataLocations;
 
 @end
 

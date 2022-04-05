@@ -811,8 +811,9 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentEntity
-@dynamic confidence, identifier, mentionId, mentionText, normalizedValue,
-         pageAnchor, properties, provenance, redacted, textAnchor, type;
+@dynamic confidence, identifier, mentionId, mentionText, nonPresent,
+         normalizedValue, pageAnchor, properties, provenance, redacted,
+         textAnchor, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1446,8 +1447,9 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentEntity
-@dynamic confidence, identifier, mentionId, mentionText, normalizedValue,
-         pageAnchor, properties, provenance, redacted, textAnchor, type;
+@dynamic confidence, identifier, mentionId, mentionText, nonPresent,
+         normalizedValue, pageAnchor, properties, provenance, redacted,
+         textAnchor, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2352,8 +2354,9 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentEntity
-@dynamic confidence, identifier, mentionId, mentionText, normalizedValue,
-         pageAnchor, properties, provenance, redacted, textAnchor, type;
+@dynamic confidence, identifier, mentionId, mentionText, nonPresent,
+         normalizedValue, pageAnchor, properties, provenance, redacted,
+         textAnchor, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -3052,7 +3055,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion
-@dynamic createTime, displayName, kmsKeyName, kmsKeyVersionName, name, state;
+@dynamic createTime, displayName, googleManaged, kmsKeyName, kmsKeyVersionName,
+         name, state;
 @end
 
 

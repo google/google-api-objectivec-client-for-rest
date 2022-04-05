@@ -61,6 +61,11 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeAgl = @"
 NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeAmsl = @"HEIGHT_TYPE_AMSL";
 NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecified = @"HEIGHT_TYPE_UNSPECIFIED";
 
+// GTLRSASPortal_NrqzValidation.state
+NSString * const kGTLRSASPortal_NrqzValidation_State_Draft     = @"DRAFT";
+NSString * const kGTLRSASPortal_NrqzValidation_State_Final     = @"FINAL";
+NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRSASPortal_Assignment
@@ -193,8 +198,9 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecif
 //
 
 @implementation GTLRSASPortal_DeviceGrant
-@dynamic channelType, expireTime, frequencyRange, grantId, maxEirp, moveList,
-         state, suspensionReason;
+@dynamic channelType, expireTime, frequencyRange, grantId,
+         lastHeartbeatTransmitExpireTime, maxEirp, moveList, state,
+         suspensionReason;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -441,7 +447,7 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecif
 //
 
 @implementation GTLRSASPortal_NrqzValidation
-@dynamic caseId, cpiId, latitude, longitude;
+@dynamic caseId, cpiId, latitude, longitude, state;
 @end
 
 

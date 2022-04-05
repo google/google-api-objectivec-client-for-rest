@@ -372,33 +372,6 @@
 
 @end
 
-@implementation GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsAddBitbucketServerConnectedRepository
-
-@dynamic config;
-
-+ (instancetype)queryWithObject:(GTLRCloudBuild_AddBitbucketServerConnectedRepositoryRequest *)object
-                         config:(NSString *)config {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"config" ];
-  NSString *pathURITemplate = @"v1/{+config}:addBitbucketServerConnectedRepository";
-  GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsAddBitbucketServerConnectedRepository *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.config = config;
-  query.expectedObjectClass = [GTLRCloudBuild_AddBitbucketServerConnectedRepositoryResponse class];
-  query.loggingName = @"cloudbuild.projects.locations.bitbucketServerConfigs.addBitbucketServerConnectedRepository";
-  return query;
-}
-
-@end
-
 @implementation GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsConnectedRepositoriesBatchCreate
 
 @dynamic parent;

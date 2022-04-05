@@ -89,6 +89,30 @@ NSString * const kGTLRWorkflowExecutions_Execution_State_Succeeded = @"SUCCEEDED
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkflowExecutions_PubsubMessage
+//
+
+@implementation GTLRWorkflowExecutions_PubsubMessage
+@dynamic attributes, data, messageId, orderingKey, publishTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkflowExecutions_PubsubMessage_Attributes
+//
+
+@implementation GTLRWorkflowExecutions_PubsubMessage_Attributes
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkflowExecutions_StackTrace
 //
 
@@ -112,4 +136,14 @@ NSString * const kGTLRWorkflowExecutions_Execution_State_Succeeded = @"SUCCEEDED
 
 @implementation GTLRWorkflowExecutions_StackTraceElement
 @dynamic position, routine, step;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkflowExecutions_TriggerPubsubExecutionRequest
+//
+
+@implementation GTLRWorkflowExecutions_TriggerPubsubExecutionRequest
+@dynamic GCPCloudEventsMode, message, subscription;
 @end

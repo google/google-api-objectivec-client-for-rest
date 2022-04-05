@@ -32,6 +32,12 @@ NSString * const kGTLRVault_CountArtifactsRequest_View_All     = @"ALL";
 NSString * const kGTLRVault_CountArtifactsRequest_View_CountResultViewUnspecified = @"COUNT_RESULT_VIEW_UNSPECIFIED";
 NSString * const kGTLRVault_CountArtifactsRequest_View_TotalCount = @"TOTAL_COUNT";
 
+// GTLRVault_DriveOptions.clientSideEncryptedOption
+NSString * const kGTLRVault_DriveOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionAny = @"CLIENT_SIDE_ENCRYPTED_OPTION_ANY";
+NSString * const kGTLRVault_DriveOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionEncrypted = @"CLIENT_SIDE_ENCRYPTED_OPTION_ENCRYPTED";
+NSString * const kGTLRVault_DriveOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionUnencrypted = @"CLIENT_SIDE_ENCRYPTED_OPTION_UNENCRYPTED";
+NSString * const kGTLRVault_DriveOptions_ClientSideEncryptedOption_ClientSideEncryptedOptionUnspecified = @"CLIENT_SIDE_ENCRYPTED_OPTION_UNSPECIFIED";
+
 // GTLRVault_Export.status
 NSString * const kGTLRVault_Export_Status_Completed            = @"COMPLETED";
 NSString * const kGTLRVault_Export_Status_ExportStatusUnspecified = @"EXPORT_STATUS_UNSPECIFIED";
@@ -334,7 +340,8 @@ NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemails = @"VOICEMAILS";
 //
 
 @implementation GTLRVault_DriveOptions
-@dynamic includeSharedDrives, includeTeamDrives, versionDate;
+@dynamic clientSideEncryptedOption, includeSharedDrives, includeTeamDrives,
+         versionDate;
 @end
 
 

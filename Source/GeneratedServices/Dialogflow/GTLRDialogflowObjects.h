@@ -874,6 +874,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Expe
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_Type_SessionEndRate;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest.dataFormat
+
+/**
+ *  Agent content will be exported as raw bytes.
+ *
+ *  Value: "BLOB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest_DataFormat_Blob;
+/**
+ *  Unspecified format.
+ *
+ *  Value: "DATA_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest_DataFormat_DataFormatUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3ExportTestCasesRequest.dataFormat
 
 /**
@@ -2136,10 +2152,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1I
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase_Type_Example;
 /**
  *  Templates are not annotated with entity types, but they can contain
- *  \@-prefixed entity type names as substrings. Template mode has been
+ *  \@-prefixed entity type names as substrings. Note: Template mode has been
  *  deprecated. Example mode is the only supported way to create new training
- *  phrases. If you have existing training phrases that you've created in
- *  template mode, those will continue to work.
+ *  phrases. If you have existing training phrases in template mode, they will
+ *  be removed during training and it can cause a drop in agent performance.
  *
  *  Value: "TEMPLATE"
  */
@@ -3199,6 +3215,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableStackdriverLogging;
+
+/**
+ *  Indiciates whether the agent is locked for changes. If the agent is locked,
+ *  modifications to the agent will be rejected except for RestoreAgent.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *locked;
 
 /**
  *  The unique identifier of the agent. Required for the Agents.UpdateAgent
@@ -6668,6 +6692,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  control](https://cloud.google.com/dialogflow/cx/docs/concept/access-control#storage).
  */
 @property(nonatomic, copy, nullable) NSString *agentUri;
+
+/**
+ *  Optional. The data format of the exported agent. If not specified, `BLOB` is
+ *  assumed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest_DataFormat_Blob
+ *        Agent content will be exported as raw bytes. (Value: "BLOB")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest_DataFormat_DataFormatUnspecified
+ *        Unspecified format. (Value: "DATA_FORMAT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *dataFormat;
 
 /**
  *  Optional. Environment name. If not set, draft environment is assumed.
@@ -12880,11 +12916,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        parts can be annotated with entity types. (Value: "EXAMPLE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase_Type_Template
  *        Templates are not annotated with entity types, but they can contain
- *        \@-prefixed entity type names as substrings. Template mode has been
- *        deprecated. Example mode is the only supported way to create new
- *        training phrases. If you have existing training phrases that you've
- *        created in template mode, those will continue to work. (Value:
- *        "TEMPLATE")
+ *        \@-prefixed entity type names as substrings. Note: Template mode has
+ *        been deprecated. Example mode is the only supported way to create new
+ *        training phrases. If you have existing training phrases in template
+ *        mode, they will be removed during training and it can cause a drop in
+ *        agent performance. (Value: "TEMPLATE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase_Type_TypeUnspecified
  *        Not specified. This value should never be used. (Value:
  *        "TYPE_UNSPECIFIED")
@@ -16587,8 +16623,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRDialogflow_GoogleProtobufEmpty : GTLRObject
 @end

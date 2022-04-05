@@ -30,13 +30,17 @@
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeCustomTokenRequest;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeDebugTokenRequest;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeDeviceCheckTokenRequest;
+@class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangePlayIntegrityTokenRequest;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaEnterpriseTokenRequest;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaTokenRequest;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaV3TokenRequest;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeSafetyNetTokenRequest;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeRequest;
+@class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeRequest;
+@class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPlayIntegrityConfig;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaConfig;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig;
+@class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaV3Config;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaSafetyNetConfig;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService;
 
@@ -810,6 +814,51 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Validates an [integrity verdict response token from Play
+ *  Integrity](https://developer.android.com/google/play/integrity/verdict#decrypt-verify).
+ *  If valid, returns an AppCheckToken.
+ *
+ *  Method: firebaseappcheck.projects.apps.exchangePlayIntegrityToken
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseappcheckFirebase
+ */
+@interface GTLRFirebaseappcheckQuery_ProjectsAppsExchangePlayIntegrityToken : GTLRFirebaseappcheckQuery
+
+/**
+ *  Required. The relative resource name of the Android app, in the format: ```
+ *  projects/{project_number}/apps/{app_id} ``` If necessary, the
+ *  `project_number` element can be replaced with the project ID of the Firebase
+ *  project. Learn more about using project identifiers in Google's [AIP
+ *  2510](https://google.aip.dev/cloud/2510) standard.
+ */
+@property(nonatomic, copy, nullable) NSString *app;
+
+/**
+ *  Fetches a @c GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken.
+ *
+ *  Validates an [integrity verdict response token from Play
+ *  Integrity](https://developer.android.com/google/play/integrity/verdict#decrypt-verify).
+ *  If valid, returns an AppCheckToken.
+ *
+ *  @param object The @c
+ *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangePlayIntegrityTokenRequest
+ *    to include in the query.
+ *  @param app Required. The relative resource name of the Android app, in the
+ *    format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the
+ *    `project_number` element can be replaced with the project ID of the
+ *    Firebase project. Learn more about using project identifiers in Google's
+ *    [AIP 2510](https://google.aip.dev/cloud/2510) standard.
+ *
+ *  @return GTLRFirebaseappcheckQuery_ProjectsAppsExchangePlayIntegrityToken
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangePlayIntegrityTokenRequest *)object
+                            app:(NSString *)app;
+
+@end
+
+/**
  *  Validates a [reCAPTCHA Enterprise response
  *  token](https://cloud.google.com/recaptcha-enterprise/docs/create-assessment#retrieve_token).
  *  If valid, returns an App Check token AppCheckToken.
@@ -1034,6 +1083,184 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeRequest *)object
                             app:(NSString *)app;
+
+@end
+
+/**
+ *  Generates a challenge that protects the integrity of an immediately
+ *  following integrity verdict request to the Play Integrity API. The next call
+ *  to ExchangePlayIntegrityToken using the resulting integrity token will
+ *  verify the presence and validity of the challenge. A challenge should not be
+ *  reused for multiple calls.
+ *
+ *  Method: firebaseappcheck.projects.apps.generatePlayIntegrityChallenge
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseappcheckFirebase
+ */
+@interface GTLRFirebaseappcheckQuery_ProjectsAppsGeneratePlayIntegrityChallenge : GTLRFirebaseappcheckQuery
+
+/**
+ *  Required. The relative resource name of the app, in the format: ```
+ *  projects/{project_number}/apps/{app_id} ``` If necessary, the
+ *  `project_number` element can be replaced with the project ID of the Firebase
+ *  project. Learn more about using project identifiers in Google's [AIP
+ *  2510](https://google.aip.dev/cloud/2510) standard.
+ */
+@property(nonatomic, copy, nullable) NSString *app;
+
+/**
+ *  Fetches a @c
+ *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeResponse.
+ *
+ *  Generates a challenge that protects the integrity of an immediately
+ *  following integrity verdict request to the Play Integrity API. The next call
+ *  to ExchangePlayIntegrityToken using the resulting integrity token will
+ *  verify the presence and validity of the challenge. A challenge should not be
+ *  reused for multiple calls.
+ *
+ *  @param object The @c
+ *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeRequest
+ *    to include in the query.
+ *  @param app Required. The relative resource name of the app, in the format:
+ *    ``` projects/{project_number}/apps/{app_id} ``` If necessary, the
+ *    `project_number` element can be replaced with the project ID of the
+ *    Firebase project. Learn more about using project identifiers in Google's
+ *    [AIP 2510](https://google.aip.dev/cloud/2510) standard.
+ *
+ *  @return GTLRFirebaseappcheckQuery_ProjectsAppsGeneratePlayIntegrityChallenge
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeRequest *)object
+                            app:(NSString *)app;
+
+@end
+
+/**
+ *  Atomically gets the PlayIntegrityConfigs for the specified list of apps.
+ *
+ *  Method: firebaseappcheck.projects.apps.playIntegrityConfig.batchGet
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseappcheckFirebase
+ */
+@interface GTLRFirebaseappcheckQuery_ProjectsAppsPlayIntegrityConfigBatchGet : GTLRFirebaseappcheckQuery
+
+/**
+ *  Required. The relative resource names of the PlayIntegrityConfigs to
+ *  retrieve, in the format ```
+ *  projects/{project_number}/apps/{app_id}/playIntegrityConfig ``` A maximum of
+ *  100 objects can be retrieved in a batch.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *names;
+
+/**
+ *  Required. The parent project name shared by all PlayIntegrityConfigs being
+ *  retrieved, in the format ``` projects/{project_number} ``` The parent
+ *  collection in the `name` field of any resource being retrieved must match
+ *  this field, or the entire batch fails.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetPlayIntegrityConfigsResponse.
+ *
+ *  Atomically gets the PlayIntegrityConfigs for the specified list of apps.
+ *
+ *  @param parent Required. The parent project name shared by all
+ *    PlayIntegrityConfigs being retrieved, in the format ```
+ *    projects/{project_number} ``` The parent collection in the `name` field of
+ *    any resource being retrieved must match this field, or the entire batch
+ *    fails.
+ *
+ *  @return GTLRFirebaseappcheckQuery_ProjectsAppsPlayIntegrityConfigBatchGet
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets the PlayIntegrityConfig for the specified app.
+ *
+ *  Method: firebaseappcheck.projects.apps.playIntegrityConfig.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseappcheckFirebase
+ */
+@interface GTLRFirebaseappcheckQuery_ProjectsAppsPlayIntegrityConfigGet : GTLRFirebaseappcheckQuery
+
+/**
+ *  Required. The relative resource name of the PlayIntegrityConfig, in the
+ *  format: ``` projects/{project_number}/apps/{app_id}/playIntegrityConfig ```
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPlayIntegrityConfig.
+ *
+ *  Gets the PlayIntegrityConfig for the specified app.
+ *
+ *  @param name Required. The relative resource name of the PlayIntegrityConfig,
+ *    in the format: ```
+ *    projects/{project_number}/apps/{app_id}/playIntegrityConfig ```
+ *
+ *  @return GTLRFirebaseappcheckQuery_ProjectsAppsPlayIntegrityConfigGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the PlayIntegrityConfig for the specified app. While this
+ *  configuration is incomplete or invalid, the app will be unable to exchange
+ *  Play Integrity tokens for App Check tokens.
+ *
+ *  Method: firebaseappcheck.projects.apps.playIntegrityConfig.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseappcheckFirebase
+ */
+@interface GTLRFirebaseappcheckQuery_ProjectsAppsPlayIntegrityConfigPatch : GTLRFirebaseappcheckQuery
+
+/**
+ *  Required. The relative resource name of the Play Integrity configuration
+ *  object, in the format: ```
+ *  projects/{project_number}/apps/{app_id}/playIntegrityConfig ```
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. A comma-separated list of names of fields in the
+ *  PlayIntegrityConfig Gets to update. Example: `token_ttl`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPlayIntegrityConfig.
+ *
+ *  Updates the PlayIntegrityConfig for the specified app. While this
+ *  configuration is incomplete or invalid, the app will be unable to exchange
+ *  Play Integrity tokens for App Check tokens.
+ *
+ *  @param object The @c
+ *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPlayIntegrityConfig to
+ *    include in the query.
+ *  @param name Required. The relative resource name of the Play Integrity
+ *    configuration object, in the format: ```
+ *    projects/{project_number}/apps/{app_id}/playIntegrityConfig ```
+ *
+ *  @return GTLRFirebaseappcheckQuery_ProjectsAppsPlayIntegrityConfigPatch
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPlayIntegrityConfig *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1299,6 +1526,141 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaEnterpriseConfigPatch
  */
 + (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Atomically gets the RecaptchaV3Configs for the specified list of apps. For
+ *  security reasons, the `site_secret` field is never populated in the
+ *  response.
+ *
+ *  Method: firebaseappcheck.projects.apps.recaptchaV3Config.batchGet
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseappcheckFirebase
+ */
+@interface GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaV3ConfigBatchGet : GTLRFirebaseappcheckQuery
+
+/**
+ *  Required. The relative resource names of the RecaptchaV3Configs to retrieve,
+ *  in the format: ``` projects/{project_number}/apps/{app_id}/recaptchaV3Config
+ *  ``` A maximum of 100 objects can be retrieved in a batch.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *names;
+
+/**
+ *  Required. The parent project name shared by all RecaptchaV3Configs being
+ *  retrieved, in the format ``` projects/{project_number} ``` The parent
+ *  collection in the `name` field of any resource being retrieved must match
+ *  this field, or the entire batch fails.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetRecaptchaV3ConfigsResponse.
+ *
+ *  Atomically gets the RecaptchaV3Configs for the specified list of apps. For
+ *  security reasons, the `site_secret` field is never populated in the
+ *  response.
+ *
+ *  @param parent Required. The parent project name shared by all
+ *    RecaptchaV3Configs being retrieved, in the format ```
+ *    projects/{project_number} ``` The parent collection in the `name` field of
+ *    any resource being retrieved must match this field, or the entire batch
+ *    fails.
+ *
+ *  @return GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaV3ConfigBatchGet
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets the RecaptchaV3Config for the specified app. For security reasons, the
+ *  `site_secret` field is never populated in the response.
+ *
+ *  Method: firebaseappcheck.projects.apps.recaptchaV3Config.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseappcheckFirebase
+ */
+@interface GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaV3ConfigGet : GTLRFirebaseappcheckQuery
+
+/**
+ *  Required. The relative resource name of the RecaptchaV3Config, in the
+ *  format: ``` projects/{project_number}/apps/{app_id}/recaptchaV3Config ```
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaV3Config.
+ *
+ *  Gets the RecaptchaV3Config for the specified app. For security reasons, the
+ *  `site_secret` field is never populated in the response.
+ *
+ *  @param name Required. The relative resource name of the RecaptchaV3Config,
+ *    in the format: ```
+ *    projects/{project_number}/apps/{app_id}/recaptchaV3Config ```
+ *
+ *  @return GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaV3ConfigGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the RecaptchaV3Config for the specified app. While this
+ *  configuration is incomplete or invalid, the app will be unable to exchange
+ *  reCAPTCHA V3 tokens for App Check tokens. For security reasons, the
+ *  `site_secret` field is never populated in the response.
+ *
+ *  Method: firebaseappcheck.projects.apps.recaptchaV3Config.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseappcheckFirebase
+ */
+@interface GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaV3ConfigPatch : GTLRFirebaseappcheckQuery
+
+/**
+ *  Required. The relative resource name of the reCAPTCHA v3 configuration
+ *  object, in the format: ```
+ *  projects/{project_number}/apps/{app_id}/recaptchaV3Config ```
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. A comma-separated list of names of fields in the RecaptchaV3Config
+ *  to update. Example: `site_secret`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaV3Config.
+ *
+ *  Updates the RecaptchaV3Config for the specified app. While this
+ *  configuration is incomplete or invalid, the app will be unable to exchange
+ *  reCAPTCHA V3 tokens for App Check tokens. For security reasons, the
+ *  `site_secret` field is never populated in the response.
+ *
+ *  @param object The @c
+ *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaV3Config to
+ *    include in the query.
+ *  @param name Required. The relative resource name of the reCAPTCHA v3
+ *    configuration object, in the format: ```
+ *    projects/{project_number}/apps/{app_id}/recaptchaV3Config ```
+ *
+ *  @return GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaV3ConfigPatch
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaV3Config *)object
                            name:(NSString *)name;
 
 @end

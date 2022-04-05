@@ -2932,6 +2932,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
+ *  [Optional] Number of hours for the max time travel for all tables in the
+ *  dataset.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxTimeTravelHours;
+
+/**
  *  [Output-only] Reserved for future use.
  *
  *  Uses NSNumber of boolValue.

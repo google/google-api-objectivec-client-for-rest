@@ -90,6 +90,9 @@
 @class GTLRCompute_BackendServiceIAP;
 @class GTLRCompute_BackendServiceList_Warning;
 @class GTLRCompute_BackendServiceList_Warning_Data_Item;
+@class GTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfig;
+@class GTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigCustomPolicy;
+@class GTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy;
 @class GTLRCompute_BackendServiceLogConfig;
 @class GTLRCompute_BackendServiceReference;
 @class GTLRCompute_BackendServicesScopedList;
@@ -3585,6 +3588,59 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_
  *  Value: "UNREACHABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy.name
+
+/** Value: "INVALID_LB_POLICY" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_InvalidLbPolicy;
+/**
+ *  An O(1) algorithm which selects two random healthy hosts and picks the host
+ *  which has fewer active requests.
+ *
+ *  Value: "LEAST_REQUEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_LeastRequest;
+/**
+ *  This algorithm implements consistent hashing to backends. Maglev can be used
+ *  as a drop in replacement for the ring hash load balancer. Maglev is not as
+ *  stable as ring hash but has faster table lookup build times and host
+ *  selection times. For more information about Maglev, see
+ *  https://ai.google/research/pubs/pub44824
+ *
+ *  Value: "MAGLEV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_Maglev;
+/**
+ *  Backend host is selected based on the client connection metadata, i.e.,
+ *  connections are opened to the same address as the destination address of the
+ *  incoming connection before the connection was redirected to the load
+ *  balancer.
+ *
+ *  Value: "ORIGINAL_DESTINATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_OriginalDestination;
+/**
+ *  The load balancer selects a random healthy host.
+ *
+ *  Value: "RANDOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_Random;
+/**
+ *  The ring/modulo hash load balancer implements consistent hashing to
+ *  backends. The algorithm has the property that the addition/removal of a host
+ *  from a set of N hosts only affects 1/N of the requests.
+ *
+ *  Value: "RING_HASH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_RingHash;
+/**
+ *  This is a simple policy in which each healthy backend is selected in round
+ *  robin order. This is the default.
+ *
+ *  Value: "ROUND_ROBIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_RoundRobin;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_BackendServicesScopedList_Warning.code
@@ -25058,7 +25114,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_StatefulPolicyPreservedStateDisk
 // GTLRCompute_Subnetwork.ipv6AccessType
 
 /**
- *  VMs on this subnet will be assigned IPv6 addresses that are accesible via
+ *  VMs on this subnet will be assigned IPv6 addresses that are accessible via
  *  the Internet, as well as the VPC network.
  *
  *  Value: "EXTERNAL"
@@ -34761,6 +34817,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *loadBalancingScheme;
 
 /**
+ *  A list of locality load balancing policies to be used in order of
+ *  preference. Either the policy or the customPolicy field should be set.
+ *  Overrides any value set in the localityLbPolicy field. localityLbPolicies is
+ *  only supported when the BackendService is referenced by a URL Map that is
+ *  referenced by a target gRPC proxy that has the validateForProxyless field
+ *  set to true.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfig *> *localityLbPolicies;
+
+/**
  *  The load balancing algorithm used within the scope of the locality. The
  *  possible values are: - ROUND_ROBIN: This is a simple policy in which each
  *  healthy backend is selected in round robin order. This is the default. -
@@ -35751,6 +35817,89 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Container for either a built-in LB policy supported by gRPC or Envoy or a
+ *  custom one implemented by the end user.
+ */
+@interface GTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfig : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigCustomPolicy *customPolicy;
+@property(nonatomic, strong, nullable) GTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy *policy;
+
+@end
+
+
+/**
+ *  The configuration for a custom policy implemented by the user and deployed
+ *  with the client.
+ */
+@interface GTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigCustomPolicy : GTLRObject
+
+/**
+ *  An optional, arbitrary JSON object with configuration data, understood by a
+ *  locally installed custom policy implementation.
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  Identifies the custom policy. The value should match the type the custom
+ *  implementation is registered with on the gRPC clients. It should follow
+ *  protocol buffer message naming conventions and include the full path (e.g.
+ *  myorg.CustomLbPolicy). The maximum length is 256 characters. Note that
+ *  specifying the same custom policy more than once for a backend is not a
+ *  valid configuration and will be rejected.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  The configuration for a built-in load balancing policy.
+ */
+@interface GTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy : GTLRObject
+
+/**
+ *  The name of a locality load balancer policy to be used. The value should be
+ *  one of the predefined ones as supported by localityLbPolicy, although at the
+ *  moment only ROUND_ROBIN is supported. This field should only be populated
+ *  when the customPolicy field is not used. Note that specifying the same
+ *  policy more than once for a backend is not a valid configuration and will be
+ *  rejected.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_InvalidLbPolicy
+ *        Value "INVALID_LB_POLICY"
+ *    @arg @c kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_LeastRequest
+ *        An O(1) algorithm which selects two random healthy hosts and picks the
+ *        host which has fewer active requests. (Value: "LEAST_REQUEST")
+ *    @arg @c kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_Maglev
+ *        This algorithm implements consistent hashing to backends. Maglev can
+ *        be used as a drop in replacement for the ring hash load balancer.
+ *        Maglev is not as stable as ring hash but has faster table lookup build
+ *        times and host selection times. For more information about Maglev, see
+ *        https://ai.google/research/pubs/pub44824 (Value: "MAGLEV")
+ *    @arg @c kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_OriginalDestination
+ *        Backend host is selected based on the client connection metadata,
+ *        i.e., connections are opened to the same address as the destination
+ *        address of the incoming connection before the connection was
+ *        redirected to the load balancer. (Value: "ORIGINAL_DESTINATION")
+ *    @arg @c kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_Random
+ *        The load balancer selects a random healthy host. (Value: "RANDOM")
+ *    @arg @c kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_RingHash
+ *        The ring/modulo hash load balancer implements consistent hashing to
+ *        backends. The algorithm has the property that the addition/removal of
+ *        a host from a set of N hosts only affects 1/N of the requests. (Value:
+ *        "RING_HASH")
+ *    @arg @c kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_RoundRobin
+ *        This is a simple policy in which each healthy backend is selected in
+ *        round robin order. This is the default. (Value: "ROUND_ROBIN")
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -40595,6 +40744,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *priority;
 
 /**
+ *  An optional name for the rule. This field is not a unique identifier and can
+ *  be updated.
+ */
+@property(nonatomic, copy, nullable) NSString *ruleName;
+
+/**
  *  [Output Only] Calculation of the complexity of a single firewall policy
  *  rule.
  *
@@ -41711,13 +41866,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *labelFingerprint;
 
 /**
- *  A list of labels to apply for this resource. Each label key & value must
- *  comply with RFC1035. Specifically, the name must be 1-63 characters long and
- *  match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the
- *  first character must be a lowercase letter, and all following characters
- *  must be a dash, lowercase letter, or digit, except the last character, which
- *  cannot be a dash. For example, "webserver-frontend": "images". A label value
- *  can also be empty (e.g. "my-label": "").
+ *  A list of labels to apply for this resource. Each label must comply with the
+ *  requirements for labels. For example, "webserver-frontend": "images". A
+ *  label value can also be empty (e.g. "my-label": "").
  */
 @property(nonatomic, strong, nullable) GTLRCompute_GlobalSetLabelsRequest_Labels *labels;
 
@@ -41725,13 +41876,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
- *  A list of labels to apply for this resource. Each label key & value must
- *  comply with RFC1035. Specifically, the name must be 1-63 characters long and
- *  match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the
- *  first character must be a lowercase letter, and all following characters
- *  must be a dash, lowercase letter, or digit, except the last character, which
- *  cannot be a dash. For example, "webserver-frontend": "images". A label value
- *  can also be empty (e.g. "my-label": "").
+ *  A list of labels to apply for this resource. Each label must comply with the
+ *  requirements for labels. For example, "webserver-frontend": "images". A
+ *  label value can also be empty (e.g. "my-label": "").
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -41909,10 +42056,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  The ID of a supported feature. To add multiple values, use commas to
  *  separate values. Set to one or more of the following values: -
- *  VIRTIO_SCSI_MULTIQUEUE - WINDOWS - MULTI_IP_SUBNET - UEFI_COMPATIBLE -
- *  SECURE_BOOT - GVNIC - SEV_CAPABLE - SUSPEND_RESUME_COMPATIBLE -
- *  SEV_SNP_CAPABLE For more information, see Enabling guest operating system
- *  features.
+ *  VIRTIO_SCSI_MULTIQUEUE - WINDOWS - MULTI_IP_SUBNET - UEFI_COMPATIBLE - GVNIC
+ *  - SEV_CAPABLE - SUSPEND_RESUME_COMPATIBLE - SEV_SNP_CAPABLE For more
+ *  information, see Enabling guest operating system features.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_GuestOsFeature_Type_FeatureTypeUnspecified Value
@@ -70701,7 +70847,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *enableFlowLogs;
 
 /**
- *  [Output Only] The range of external IPv6 addresses that are owned by this
+ *  [Output Only] The external IPv6 address range that is assigned to this
  *  subnetwork.
  */
 @property(nonatomic, copy, nullable) NSString *externalIpv6Prefix;
@@ -70736,9 +70882,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
- *  [Output Only] The range of internal IPv6 addresses that are owned by this
- *  subnetwork. Note this is for general VM to VM communication, not to be
- *  confused with the ipv6_cidr_range field.
+ *  [Output Only] The internal IPv6 address range that is assigned to this
+ *  subnetwork.
  */
 @property(nonatomic, copy, nullable) NSString *internalIpv6Prefix;
 
@@ -70755,12 +70900,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  The access type of IPv6 address this subnet holds. It's immutable and can
  *  only be specified during creation or the first time the subnet is updated
- *  into IPV4_IPV6 dual stack. If the ipv6_type is EXTERNAL then this subnet
- *  cannot enable direct path.
+ *  into IPV4_IPV6 dual stack.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Subnetwork_Ipv6AccessType_External VMs on this subnet
- *        will be assigned IPv6 addresses that are accesible via the Internet,
+ *        will be assigned IPv6 addresses that are accessible via the Internet,
  *        as well as the VPC network. (Value: "EXTERNAL")
  *    @arg @c kGTLRCompute_Subnetwork_Ipv6AccessType_Internal VMs on this subnet
  *        will be assigned IPv6 addresses that are only accessible over the VPC
@@ -70768,10 +70912,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *ipv6AccessType;
 
-/**
- *  [Output Only] The range of internal IPv6 addresses that are owned by this
- *  subnetwork. Note this will be for private google access only eventually.
- */
+/** [Output Only] This field is for internal use. */
 @property(nonatomic, copy, nullable) NSString *ipv6CidrRange;
 
 /**
@@ -70814,10 +70955,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *privateIpGoogleAccess;
 
 /**
- *  The private IPv6 google access type for the VMs in this subnet. This is an
- *  expanded field of enablePrivateV6Access. If both fields are set,
- *  privateIpv6GoogleAccess will take priority. This field can be both set at
- *  resource creation time and updated using patch.
+ *  This field is for internal use. This field can be both set at resource
+ *  creation time and updated using patch.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Subnetwork_PrivateIpv6GoogleAccess_DisableGoogleAccess

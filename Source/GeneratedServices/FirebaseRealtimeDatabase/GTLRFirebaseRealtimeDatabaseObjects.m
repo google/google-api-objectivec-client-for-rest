@@ -73,3 +73,12 @@ NSString * const kGTLRFirebaseRealtimeDatabase_DatabaseInstance_Type_UserDatabas
 
 @implementation GTLRFirebaseRealtimeDatabase_ReenableDatabaseInstanceRequest
 @end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseRealtimeDatabase_UndeleteDatabaseInstanceRequest
+//
+
+@implementation GTLRFirebaseRealtimeDatabase_UndeleteDatabaseInstanceRequest
+@end

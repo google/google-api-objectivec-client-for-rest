@@ -30,8 +30,15 @@
 @class GTLRAndroidPublisher_CountryTargeting;
 @class GTLRAndroidPublisher_DeobfuscationFile;
 @class GTLRAndroidPublisher_DeveloperComment;
+@class GTLRAndroidPublisher_DeviceGroup;
+@class GTLRAndroidPublisher_DeviceId;
 @class GTLRAndroidPublisher_DeviceMetadata;
+@class GTLRAndroidPublisher_DeviceRam;
+@class GTLRAndroidPublisher_DeviceSelector;
 @class GTLRAndroidPublisher_DeviceSpec;
+@class GTLRAndroidPublisher_DeviceTier;
+@class GTLRAndroidPublisher_DeviceTierConfig;
+@class GTLRAndroidPublisher_DeviceTierSet;
 @class GTLRAndroidPublisher_ExpansionFile;
 @class GTLRAndroidPublisher_ExternallyHostedApk;
 @class GTLRAndroidPublisher_GeneratedApksPerSigningKey;
@@ -61,6 +68,7 @@
 @class GTLRAndroidPublisher_SubscriptionPriceChange;
 @class GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings;
 @class GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_TaxRateInfoByRegionCode;
+@class GTLRAndroidPublisher_SystemFeature;
 @class GTLRAndroidPublisher_Timestamp;
 @class GTLRAndroidPublisher_TokenPagination;
 @class GTLRAndroidPublisher_Track;
@@ -735,6 +743,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 
 /**
+ *  LINT.IfChange A group of devices. A group is defined by a set of device
+ *  selectors. A device belongs to the group if it matches any selector (logical
+ *  OR).
+ */
+@interface GTLRAndroidPublisher_DeviceGroup : GTLRObject
+
+/**
+ *  Device selectors for this group. A device matching any of the selectors is
+ *  included in this group.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_DeviceSelector *> *deviceSelectors;
+
+/** The name of the group. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Identifier of a device.
+ */
+@interface GTLRAndroidPublisher_DeviceId : GTLRObject
+
+/** Value of Build.BRAND. */
+@property(nonatomic, copy, nullable) NSString *buildBrand;
+
+/** Value of Build.DEVICE. */
+@property(nonatomic, copy, nullable) NSString *buildDevice;
+
+@end
+
+
+/**
  *  Characteristics of the user's device.
  */
 @interface GTLRAndroidPublisher_DeviceMetadata : GTLRObject
@@ -796,6 +837,65 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 
 /**
+ *  Conditions about a device's RAM capabilities.
+ */
+@interface GTLRAndroidPublisher_DeviceRam : GTLRObject
+
+/**
+ *  Maximum RAM in bytes (bound excluded).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxBytes;
+
+/**
+ *  Minimum RAM in bytes (bound included).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minBytes;
+
+@end
+
+
+/**
+ *  Selector for a device group. A selector consists of a set of conditions on
+ *  the device that should all match (logical AND) to determine a device group
+ *  eligibility. For instance, if a selector specifies RAM conditions, device
+ *  model inclusion and device model exclusion, a device is considered to match
+ *  if: device matches RAM conditions AND device matches one of the included
+ *  device models AND device doesn't match excluded device models
+ */
+@interface GTLRAndroidPublisher_DeviceSelector : GTLRObject
+
+/** Conditions on the device's RAM. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_DeviceRam *deviceRam;
+
+/**
+ *  Device models excluded by this selector, even if they match all other
+ *  conditions.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_DeviceId *> *excludedDeviceIds;
+
+/**
+ *  A device that has any of these system features is excluded by this selector,
+ *  even if it matches all other conditions.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_SystemFeature *> *forbiddenSystemFeatures;
+
+/** Device models included by this selector. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_DeviceId *> *includedDeviceIds;
+
+/**
+ *  A device needs to have all these system features to be included by the
+ *  selector.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_SystemFeature *> *requiredSystemFeatures;
+
+@end
+
+
+/**
  *  The device spec used to generate a system APK.
  */
 @interface GTLRAndroidPublisher_DeviceSpec : GTLRObject
@@ -815,6 +915,73 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 /** All installed locales represented as BCP-47 strings, e.g. "en-US". */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedLocales;
+
+@end
+
+
+/**
+ *  A single device tier. Devices matching any of the device groups in
+ *  device_group_names are considered to match the tier.
+ */
+@interface GTLRAndroidPublisher_DeviceTier : GTLRObject
+
+/**
+ *  Groups of devices included in this tier. These groups must be defined
+ *  explicitly under device_groups in this configuration.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *deviceGroupNames;
+
+/**
+ *  The priority level of the tier. Tiers are evaluated in descending order of
+ *  level: the highest level tier has the highest priority. The highest tier
+ *  matching a given device is selected for that device. You should use a
+ *  contiguous range of levels for your tiers in a tier set; tier levels in a
+ *  tier set must be unique. For instance, if your tier set has 4 tiers
+ *  (including the global fallback), you should define tiers 1, 2 and 3 in this
+ *  configuration. Note: tier 0 is implicitly defined as a global fallback and
+ *  selected for devices that don't match any of the tiers explicitly defined
+ *  here. You mustn't define level 0 explicitly in this configuration.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *level;
+
+@end
+
+
+/**
+ *  LINT.IfChange Configuration describing device targeting criteria for the
+ *  content of an app.
+ */
+@interface GTLRAndroidPublisher_DeviceTierConfig : GTLRObject
+
+/** Definition of device groups for the app. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_DeviceGroup *> *deviceGroups;
+
+/**
+ *  Output only. The device tier config ID.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deviceTierConfigId;
+
+/** Definition of the set of device tiers for the app. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_DeviceTierSet *deviceTierSet;
+
+@end
+
+
+/**
+ *  A set of device tiers. A tier set determines what variation of app content
+ *  gets served to a specific device, for device-targeted content. You should
+ *  assign a priority level to each tier, which determines the ordering by which
+ *  they are evaluated by Play. See the documentation of DeviceTier.level for
+ *  more details.
+ */
+@interface GTLRAndroidPublisher_DeviceTierSet : GTLRObject
+
+/** Device tiers belonging to the set. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_DeviceTier *> *deviceTiers;
 
 @end
 
@@ -1377,6 +1544,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *  months), "P6M" (six months), and "P1Y" (one year).
  */
 @property(nonatomic, copy, nullable) NSString *introductoryPricePeriod;
+
+@end
+
+
+/**
+ *  Response listing existing device tier configs.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "deviceTierConfigs" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRAndroidPublisher_ListDeviceTierConfigsResponse : GTLRCollectionObject
+
+/**
+ *  Device tier configs created by the developer.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_DeviceTierConfig *> *deviceTierConfigs;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -2218,6 +2412,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 /** All system APK variants created. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Variant *> *variants;
+
+@end
+
+
+/**
+ *  Representation of a system feature.
+ */
+@interface GTLRAndroidPublisher_SystemFeature : GTLRObject
+
+/** The name of the feature. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

@@ -22,6 +22,7 @@
 
 @class GTLRWorkflowExecutions_CancelExecutionRequest;
 @class GTLRWorkflowExecutions_Execution;
+@class GTLRWorkflowExecutions_TriggerPubsubExecutionRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -249,6 +250,42 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Triggers a new execution using the latest revision of the given workflow by
+ *  a Pub/Sub push notification.
+ *
+ *  Method: workflowexecutions.projects.locations.workflows.triggerPubsubExecution
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkflowExecutionsCloudPlatform
+ */
+@interface GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsTriggerPubsubExecution : GTLRWorkflowExecutionsQuery
+
+/**
+ *  Required. Name of the workflow for which an execution should be created.
+ *  Format: projects/{project}/locations/{location}/workflows/{workflow}
+ */
+@property(nonatomic, copy, nullable) NSString *workflow;
+
+/**
+ *  Fetches a @c GTLRWorkflowExecutions_Execution.
+ *
+ *  Triggers a new execution using the latest revision of the given workflow by
+ *  a Pub/Sub push notification.
+ *
+ *  @param object The @c GTLRWorkflowExecutions_TriggerPubsubExecutionRequest to
+ *    include in the query.
+ *  @param workflow Required. Name of the workflow for which an execution should
+ *    be created. Format:
+ *    projects/{project}/locations/{location}/workflows/{workflow}
+ *
+ *  @return GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsTriggerPubsubExecution
+ */
++ (instancetype)queryWithObject:(GTLRWorkflowExecutions_TriggerPubsubExecutionRequest *)object
+                       workflow:(NSString *)workflow;
 
 @end
 

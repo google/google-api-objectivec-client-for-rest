@@ -51,6 +51,8 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2Image;
 @class GTLRCloudRetail_GoogleCloudRetailV2ImportErrorsConfig;
 @class GTLRCloudRetail_GoogleCloudRetailV2Interval;
+@class GTLRCloudRetail_GoogleCloudRetailV2LocalInventory;
+@class GTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Attributes;
 @class GTLRCloudRetail_GoogleCloudRetailV2PredictRequest_Labels;
 @class GTLRCloudRetail_GoogleCloudRetailV2PredictRequest_Params;
 @class GTLRCloudRetail_GoogleCloudRetailV2PredictResponsePredictionResult;
@@ -112,10 +114,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  the data location "us (multiple regions in United States)", otherwise a
  *  PERMISSION_DENIED error is thrown. Add the IAM permission "BigQuery Data
  *  Viewer" for cloud-retail-customer-data-access\@system.gserviceaccount.com
- *  before using this feature otherwise an error is thrown. This feature is only
- *  available for users who have Retail Search enabled. Please submit a form
- *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
- *  interested in using Retail Search.
+ *  before using this feature otherwise an error is thrown.
  *
  *  Value: "FULL"
  */
@@ -614,6 +613,69 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
+ *  Metadata related to the progress of the AddLocalInventories operation.
+ *  Currently empty because there is no meaningful metadata populated from the
+ *  AddLocalInventories method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2AddLocalInventoriesMetadata : GTLRObject
+@end
+
+
+/**
+ *  Request message for AddLocalInventories method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2AddLocalInventoriesRequest : GTLRObject
+
+/**
+ *  Indicates which inventory fields in the provided list of LocalInventory to
+ *  update. The field is updated to the provided value. If a field is set while
+ *  the place does not have a previous local inventory, the local inventory at
+ *  that store is created. If a field is set while the value of that field is
+ *  not provided, the original field value, if it exists, is deleted. If the
+ *  mask is not set or set with empty paths, all inventory fields will be
+ *  updated. If an unsupported or unknown field is provided, an INVALID_ARGUMENT
+ *  error is returned and the entire update will be ignored.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *addMask;
+
+/**
+ *  The time when the inventory updates are issued. Used to prevent out-of-order
+ *  updates on local inventory fields. If not provided, the internal system time
+ *  will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *addTime;
+
+/**
+ *  If set to true, and the Product is not found, the local inventory will still
+ *  be processed and retained for at most 1 day and processed once the Product
+ *  is created. If set to false, a NOT_FOUND error is returned if the Product is
+ *  not found.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowMissing;
+
+/**
+ *  Required. A list of inventory information at difference places. Each place
+ *  is identified by its place ID. At most 3000 inventories are allowed per
+ *  request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2LocalInventory *> *localInventories;
+
+@end
+
+
+/**
+ *  Response of the AddLocalInventories API. Currently empty because there is no
+ *  meaningful response populated from the AddLocalInventories method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2AddLocalInventoriesResponse : GTLRObject
+@end
+
+
+/**
  *  Metadata related to the progress of the AddFulfillmentPlaces operation.
  *  Currently empty because there is no meaningful metadata populated from the
  *  AddFulfillmentPlaces method.
@@ -1059,6 +1121,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
+ *  Metadata related to the progress of the AddLocalInventories operation.
+ *  Currently empty because there is no meaningful metadata populated from the
+ *  AddLocalInventories method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2betaAddLocalInventoriesMetadata : GTLRObject
+@end
+
+
+/**
+ *  Response of the AddLocalInventories API. Currently empty because there is no
+ *  meaningful response populated from the AddLocalInventories method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2betaAddLocalInventoriesResponse : GTLRObject
+@end
+
+
+/**
  *  Configuration of destination for Export related errors.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2betaExportErrorsConfig : GTLRObject
@@ -1302,6 +1381,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2betaRemoveFulfillmentPlacesResponse : GTLRObject
+@end
+
+
+/**
+ *  Metadata related to the progress of the RemoveLocalInventories operation.
+ *  Currently empty because there is no meaningful metadata populated from the
+ *  RemoveLocalInventories method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2betaRemoveLocalInventoriesMetadata : GTLRObject
+@end
+
+
+/**
+ *  Response of the RemoveLocalInventories API. Currently empty because there is
+ *  no meaningful response populated from the RemoveLocalInventories method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2betaRemoveLocalInventoriesResponse : GTLRObject
 @end
 
 
@@ -1871,10 +1967,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *        United States)", otherwise a PERMISSION_DENIED error is thrown. Add
  *        the IAM permission "BigQuery Data Viewer" for
  *        cloud-retail-customer-data-access\@system.gserviceaccount.com before
- *        using this feature otherwise an error is thrown. This feature is only
- *        available for users who have Retail Search enabled. Please submit a
- *        form [here](https://cloud.google.com/contact) to contact cloud sales
- *        if you are interested in using Retail Search. (Value: "FULL")
+ *        using this feature otherwise an error is thrown. (Value: "FULL")
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest_ReconciliationMode_Incremental
  *        Inserts new products or updates existing products. (Value:
  *        "INCREMENTAL")
@@ -2041,6 +2134,73 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2Product *> *products;
 
+@end
+
+
+/**
+ *  The inventory information at a place (e.g. a store) identified by a place
+ *  ID.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2LocalInventory : GTLRObject
+
+/**
+ *  Additional local inventory attributes, for example, store name, promotion
+ *  tags, etc. This field needs to pass all below criteria, otherwise an
+ *  INVALID_ARGUMENT error is returned: * At most 30 attributes are allowed. *
+ *  The key must be a UTF-8 encoded string with a length limit of 32 characters.
+ *  * The key must match the pattern: `a-zA-Z0-9*`. For example, key0LikeThis or
+ *  KEY_1_LIKE_THIS. * The attribute values must be of the same type (text or
+ *  number). * Only 1 value is allowed for each attribute. * For text values,
+ *  the length limit is 256 UTF-8 characters. * The attribute does not support
+ *  search. The `searchable` field should be unset or set to false. * The max
+ *  summed total bytes of custom attribute keys and values per product is 5MiB.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Attributes *attributes;
+
+/**
+ *  Input only. Supported fulfillment types. Valid fulfillment type values
+ *  include commonly used types (such as pickup in store and same day delivery),
+ *  and custom types. Customers have to map custom types to their display names
+ *  before rendering UI. Supported values: * "pickup-in-store" * "ship-to-store"
+ *  * "same-day-delivery" * "next-day-delivery" * "custom-type-1" *
+ *  "custom-type-2" * "custom-type-3" * "custom-type-4" * "custom-type-5" If
+ *  this field is set to an invalid value other than these, an INVALID_ARGUMENT
+ *  error is returned. All the elements must be distinct. Otherwise, an
+ *  INVALID_ARGUMENT error is returned.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fulfillmentTypes;
+
+/** The place ID for the current set of inventory information. */
+@property(nonatomic, copy, nullable) NSString *placeId;
+
+/**
+ *  Product price and cost information. Google Merchant Center property
+ *  [price](https://support.google.com/merchants/answer/6324371).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2PriceInfo *priceInfo;
+
+@end
+
+
+/**
+ *  Additional local inventory attributes, for example, store name, promotion
+ *  tags, etc. This field needs to pass all below criteria, otherwise an
+ *  INVALID_ARGUMENT error is returned: * At most 30 attributes are allowed. *
+ *  The key must be a UTF-8 encoded string with a length limit of 32 characters.
+ *  * The key must match the pattern: `a-zA-Z0-9*`. For example, key0LikeThis or
+ *  KEY_1_LIKE_THIS. * The attribute values must be of the same type (text or
+ *  number). * Only 1 value is allowed for each attribute. * For text values,
+ *  the length limit is 256 UTF-8 characters. * The attribute does not support
+ *  search. The `searchable` field should be unset or set to false. * The max
+ *  summed total bytes of custom attribute keys and values per product is 5MiB.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudRetail_GoogleCloudRetailV2CustomAttribute. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2LocalInventory_Attributes : GTLRObject
 @end
 
 
@@ -3139,6 +3299,54 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
+ *  Metadata related to the progress of the RemoveLocalInventories operation.
+ *  Currently empty because there is no meaningful metadata populated from the
+ *  RemoveLocalInventories method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2RemoveLocalInventoriesMetadata : GTLRObject
+@end
+
+
+/**
+ *  Request message for RemoveLocalInventories method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2RemoveLocalInventoriesRequest : GTLRObject
+
+/**
+ *  If set to true, and the Product is not found, the local inventory removal
+ *  request will still be processed and retained for at most 1 day and processed
+ *  once the Product is created. If set to false, a NOT_FOUND error is returned
+ *  if the Product is not found.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowMissing;
+
+/**
+ *  Required. A list of place IDs to have their inventory deleted. At most 3000
+ *  place IDs are allowed per request.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *placeIds;
+
+/**
+ *  The time when the inventory deletions are issued. Used to prevent
+ *  out-of-order updates and deletions on local inventory fields. If not
+ *  provided, the internal system time will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *removeTime;
+
+@end
+
+
+/**
+ *  Response of the RemoveLocalInventories API. Currently empty because there is
+ *  no meaningful response populated from the RemoveLocalInventories method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2RemoveLocalInventoriesResponse : GTLRObject
+@end
+
+
+/**
  *  Request message for SearchService.Search method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2SearchRequest : GTLRObject
@@ -3173,10 +3381,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @property(nonatomic, copy, nullable) NSString *canonicalFilter;
 
 /**
- *  The specification for dynamically generated facets. Notice that only textual
- *  facets can be dynamically generated. This feature requires additional
- *  allowlisting. Contact Retail Search support team if you are interested in
- *  using dynamic facet feature.
+ *  Deprecated. Refer to https://cloud.google.com/retail/docs/configs#dynamic to
+ *  enable dynamic facets. Do not set this field. The specification for
+ *  dynamically generated facets. Notice that only textual facets can be
+ *  dynamically generated.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchRequestDynamicFacetSpec *dynamicFacetSpec;
 
@@ -4269,12 +4477,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @property(nonatomic, strong, nullable) NSNumber *directUserRequest;
 
 /**
- *  The end user's IP address. Required for getting
- *  SearchResponse.sponsored_results. This field is used to extract location
+ *  The end user's IP address. This field is used to extract location
  *  information for personalization. This field must be either an IPv4 address
  *  (e.g. "104.133.9.80") or an IPv6 address (e.g.
  *  "2001:0db8:85a3:0000:0000:8a2e:0370:7334"). Otherwise, an INVALID_ARGUMENT
- *  error is returned. This should not be set when using the JavaScript tag in
+ *  error is returned. This should not be set when: * setting
+ *  SearchRequest.user_info. * using the JavaScript tag in
  *  UserEventService.CollectUserEvent or if direct_user_request is set.
  */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
@@ -4291,9 +4499,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  Highly recommended for logged-in users. Unique identifier for logged-in
- *  user, such as a user name. The field must be a UTF-8 encoded string with a
- *  length limit of 128 characters. Otherwise, an INVALID_ARGUMENT error is
- *  returned.
+ *  user, such as a user name. Always use a hashed value for this ID. The field
+ *  must be a UTF-8 encoded string with a length limit of 128 characters.
+ *  Otherwise, an INVALID_ARGUMENT error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 

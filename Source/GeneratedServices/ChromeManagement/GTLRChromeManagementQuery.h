@@ -449,7 +449,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 
 /**
  *  Optional. Only include resources that match the filter. Supported filter
- *  fields: - org_unit_id - serial_number
+ *  fields: - org_unit_id - serial_number - device_id
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

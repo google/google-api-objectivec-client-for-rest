@@ -374,8 +374,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRCloudComposer_Empty : GTLRObject
 @end
@@ -803,7 +802,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 @interface GTLRCloudComposer_NodeConfig : GTLRObject
 
 /**
- *  Optional. The disk size in GB used for node VMs. Minimum size is 20GB. If
+ *  Optional. The disk size in GB used for node VMs. Minimum size is 30GB. If
  *  unspecified, defaults to 100GB. Cannot be updated. This field is supported
  *  for Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*.
  *
@@ -1233,7 +1232,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  The version of the software running in the environment. This encapsulates
  *  both the version of Cloud Composer functionality and the version of Apache
  *  Airflow. It must match the regular expression
- *  `composer-([0-9]+(\\.[0-9]+\\.[0-9]+(-preview\\.[0-9]+)?)?|latest)-airflow-([0-9]+\\.[0-9]+(\\.[0-9]+)?)`.
+ *  `composer-([0-9]+(\\.[0-9]+\\.[0-9]+(-preview\\.[0-9]+)?)?|latest)-airflow-([0-9]+(\\.[0-9]+(\\.[0-9]+)?)?)`.
  *  When used as input, the server also checks if the provided version is
  *  supported and denies the request for an unsupported version. The Cloud
  *  Composer portion of the image version is a full [semantic
@@ -1242,7 +1241,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  the current Cloud Composer version that satisfies the alias. The Apache
  *  Airflow portion of the image version is a full semantic version that points
  *  to one of the supported Apache Airflow versions, or an alias in the form of
- *  only major and minor versions specified. When an alias is provided, the
+ *  only major or major.minor versions specified. When an alias is provided, the
  *  server replaces it with the latest Apache Airflow version that satisfies the
  *  alias and is supported in the given Cloud Composer version. In all cases,
  *  the resolved image version is stored in the same field. See also [version

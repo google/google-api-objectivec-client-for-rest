@@ -113,7 +113,7 @@
 
 @implementation GTLRFirebaseRealtimeDatabaseQuery_ProjectsLocationsInstancesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent, showDeleted;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -152,6 +152,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRFirebaseRealtimeDatabase_DatabaseInstance class];
   query.loggingName = @"firebasedatabase.projects.locations.instances.reenable";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseRealtimeDatabaseQuery_ProjectsLocationsInstancesUndelete
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRFirebaseRealtimeDatabase_UndeleteDatabaseInstanceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}:undelete";
+  GTLRFirebaseRealtimeDatabaseQuery_ProjectsLocationsInstancesUndelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseRealtimeDatabase_DatabaseInstance class];
+  query.loggingName = @"firebasedatabase.projects.locations.instances.undelete";
   return query;
 }
 

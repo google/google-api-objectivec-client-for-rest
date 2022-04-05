@@ -26,9 +26,11 @@
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAttestationTokenResponse;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaDebugToken;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaDeviceCheckConfig;
+@class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPlayIntegrityConfig;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPublicJwk;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaConfig;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig;
+@class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaV3Config;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaSafetyNetConfig;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaUpdateServiceRequest;
@@ -193,6 +195,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 
 
 /**
+ *  Response message for the BatchGetPlayIntegrityConfigs method.
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetPlayIntegrityConfigsResponse : GTLRObject
+
+/** PlayIntegrityConfigs retrieved. */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPlayIntegrityConfig *> *configs;
+
+@end
+
+
+/**
  *  Response message for the BatchGetRecaptchaConfigs method.
  */
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetRecaptchaConfigsResponse : GTLRObject
@@ -210,6 +223,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 
 /** RecaptchaEnterpriseConfigs retrieved. */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig *> *configs;
+
+@end
+
+
+/**
+ *  Response message for the BatchGetRecaptchaV3Configs method.
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetRecaptchaV3ConfigsResponse : GTLRObject
+
+/** RecaptchaV3Configs retrieved. */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaV3Config *> *configs;
 
 @end
 
@@ -477,6 +501,21 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 
 
 /**
+ *  Request message for the ExchangePlayIntegrityToken method.
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangePlayIntegrityTokenRequest : GTLRObject
+
+/**
+ *  Required. The [integrity verdict response token from Play
+ *  Integrity](https://developer.android.com/google/play/integrity/verdict#decrypt-verify)
+ *  issued to your app.
+ */
+@property(nonatomic, copy, nullable) NSString *playIntegrityToken;
+
+@end
+
+
+/**
  *  Request message for the ExchangeRecaptchaEnterpriseToken method.
  */
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaEnterpriseTokenRequest : GTLRObject
@@ -566,6 +605,36 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 
 
 /**
+ *  Request message for the GeneratePlayIntegrityChallenge method.
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message for the GeneratePlayIntegrityChallenge method.
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeResponse : GTLRObject
+
+/**
+ *  A one-time use
+ *  [challenge](https://developer.android.com/google/play/integrity/verdict#protect-against-replay-attacks)
+ *  for the client to pass to the Play Integrity API.
+ */
+@property(nonatomic, copy, nullable) NSString *challenge;
+
+/**
+ *  The duration from the time this challenge is minted until its expiration.
+ *  This field is intended to ease client-side token management, since the
+ *  client may have clock skew, but is still able to accurately measure a
+ *  duration.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
+@end
+
+
+/**
  *  Response message for the ListDebugTokens method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -621,6 +690,34 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService *> *services;
+
+@end
+
+
+/**
+ *  An app's Play Integrity configuration object. This configuration controls
+ *  certain properties of the App Check token returned by
+ *  ExchangePlayIntegrityToken, such as its ttl. Note that your registered
+ *  SHA-256 certificate fingerprints are used to validate tokens issued by the
+ *  Play Integrity API; please register them via the Firebase Console or
+ *  programmatically via the [Firebase Management
+ *  Service](https://firebase.google.com/docs/projects/api/reference/rest/v1beta1/projects.androidApps.sha/create).
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPlayIntegrityConfig : GTLRObject
+
+/**
+ *  Required. The relative resource name of the Play Integrity configuration
+ *  object, in the format: ```
+ *  projects/{project_number}/apps/{app_id}/playIntegrityConfig ```
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Specifies the duration for which App Check tokens exchanged from Play
+ *  Integrity tokens will be valid. If unset, a default value of 1 hour is
+ *  assumed. Must be between 30 minutes and 7 days, inclusive.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *tokenTtl;
 
 @end
 
@@ -758,6 +855,47 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
  *  Specifies the duration for which App Check tokens exchanged from reCAPTCHA
  *  Enterprise tokens will be valid. If unset, a default value of 1 hour is
  *  assumed. Must be between 30 minutes and 7 days, inclusive.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *tokenTtl;
+
+@end
+
+
+/**
+ *  An app's reCAPTCHA v3 configuration object. This configuration is used by
+ *  ExchangeRecaptchaV3Token to validate reCAPTCHA tokens issued to apps by
+ *  reCAPTCHA v3. It also controls certain properties of the returned App Check
+ *  token, such as its ttl.
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaV3Config : GTLRObject
+
+/**
+ *  Required. The relative resource name of the reCAPTCHA v3 configuration
+ *  object, in the format: ```
+ *  projects/{project_number}/apps/{app_id}/recaptchaV3Config ```
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Input only. The site secret used to identify your service for
+ *  reCAPTCHA v3 verification. For security reasons, this field will never be
+ *  populated in any response.
+ */
+@property(nonatomic, copy, nullable) NSString *siteSecret;
+
+/**
+ *  Output only. Whether the `site_secret` field was previously set. Since we
+ *  will never return the `site_secret` field, this field is the only way to
+ *  find out whether it was previously set.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *siteSecretSet;
+
+/**
+ *  Specifies the duration for which App Check tokens exchanged from reCAPTCHA
+ *  tokens will be valid. If unset, a default value of 1 day is assumed. Must be
+ *  between 30 minutes and 7 days, inclusive.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *tokenTtl;
 

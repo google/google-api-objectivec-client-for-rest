@@ -2149,11 +2149,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @property(nonatomic, strong, nullable) NSNumber *joinedSpacesAffinityScore;
 
 /**
+ *  lastMessagePostedTimestampMicros
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastMessagePostedTimestampMicros;
+
+/**
+ *  memberMetadataCount
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memberMetadataCount;
+
+/**
  *  messageScore
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *messageScore;
+
+/**
+ *  numAucContacts
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numAucContacts;
 
 /**
  *  smallContactListAffinityScore
@@ -2175,6 +2196,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *spaceAgeInDays;
+
+/**
+ *  spaceCreationTimestampMicros
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *spaceCreationTimestampMicros;
 
 /**
  *  topicalityScore
@@ -4778,14 +4806,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
  */
 @interface GTLRCloudSearch_RestrictItem : GTLRObject
 
-/**
- *  LINT.ThenChange(//depot/google3/java/com/google/apps/search/quality/itemsuggest/utils/SubtypeRerankingUtils.java)
- */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_DriveFollowUpRestrict *driveFollowUpRestrict;
-
 @property(nonatomic, strong, nullable) GTLRCloudSearch_DriveLocationRestrict *driveLocationRestrict;
 
-/** LINT.IfChange Drive Types. */
+/** Drive Types. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_DriveMimeTypeRestrict *driveMimeTypeRestrict;
 
 @property(nonatomic, strong, nullable) GTLRCloudSearch_DriveTimeSpanRestrict *driveTimeSpanRestrict;
@@ -5972,6 +5996,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
  *  Primary key for User resource.
  */
 @interface GTLRCloudSearch_UserId : GTLRObject
+
+/**
+ *  Optional. Opaque, server-assigned ID of the user profile associated with
+ *  App/user acting on behalf of the human user. This is currently only set when
+ *  a 3P application is acting on the user's behalf.
+ */
+@property(nonatomic, copy, nullable) NSString *actingUserId;
 
 /**
  *  Opaque, server-assigned ID of the User.

@@ -194,6 +194,117 @@
 
 @end
 
+@implementation GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsCreate
+
+@dynamic parent, tunnelDestGroupId;
+
++ (instancetype)queryWithObject:(GTLRCloudIAP_TunnelDestGroup *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/destGroups";
+  GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudIAP_TunnelDestGroup class];
+  query.loggingName = @"iap.projects.iap_tunnel.locations.destGroups.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIAP_Empty class];
+  query.loggingName = @"iap.projects.iap_tunnel.locations.destGroups.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIAP_TunnelDestGroup class];
+  query.loggingName = @"iap.projects.iap_tunnel.locations.destGroups.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/destGroups";
+  GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudIAP_ListTunnelDestGroupsResponse class];
+  query.loggingName = @"iap.projects.iap_tunnel.locations.destGroups.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudIAP_TunnelDestGroup *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIAP_TunnelDestGroup class];
+  query.loggingName = @"iap.projects.iap_tunnel.locations.destGroups.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudIAPQuery_V1GetIamPolicy
 
 @dynamic resource;

@@ -153,26 +153,6 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_AddBitbucketServerConnectedRepositoryRequest
-//
-
-@implementation GTLRCloudBuild_AddBitbucketServerConnectedRepositoryRequest
-@dynamic connectedRepository;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_AddBitbucketServerConnectedRepositoryResponse
-//
-
-@implementation GTLRCloudBuild_AddBitbucketServerConnectedRepositoryResponse
-@dynamic config, connectedRepository;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudBuild_ApprovalConfig
 //
 

@@ -87,6 +87,24 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetPlayIntegrityConfigsResponse
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetPlayIntegrityConfigsResponse
+@dynamic configs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"configs" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPlayIntegrityConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetRecaptchaConfigsResponse
 //
 
@@ -114,6 +132,24 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"configs" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetRecaptchaV3ConfigsResponse
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetRecaptchaV3ConfigsResponse
+@dynamic configs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"configs" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaV3Config class]
   };
   return map;
 }
@@ -257,6 +293,16 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangePlayIntegrityTokenRequest
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangePlayIntegrityTokenRequest
+@dynamic playIntegrityToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaEnterpriseTokenRequest
 //
 
@@ -316,6 +362,25 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeRequest
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeResponse
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeResponse
+@dynamic challenge, ttl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaListDebugTokensResponse
 //
 
@@ -355,6 +420,16 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
   return @"services";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPlayIntegrityConfig
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPlayIntegrityConfig
+@dynamic name, tokenTtl;
 @end
 
 
@@ -403,6 +478,16 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig
 @dynamic name, siteKey, tokenTtl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaV3Config
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaV3Config
+@dynamic name, siteSecret, siteSecretSet, tokenTtl;
 @end
 
 

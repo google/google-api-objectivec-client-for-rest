@@ -38,6 +38,7 @@
 @class GTLRCloudIAP_ReauthSettings;
 @class GTLRCloudIAP_Resource;
 @class GTLRCloudIAP_Resource_Labels;
+@class GTLRCloudIAP_TunnelDestGroup;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -297,8 +298,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRCloudIAP_Empty : GTLRObject
 @end
@@ -483,6 +483,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *  this field is omitted, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response from ListTunnelDestGroups.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "tunnelDestGroups" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRCloudIAP_ListTunnelDestGroupsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be send as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  TunnelDestGroup existing in the project.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIAP_TunnelDestGroup *> *tunnelDestGroups;
 
 @end
 
@@ -830,6 +857,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  A TunnelDestGroup.
+ */
+@interface GTLRCloudIAP_TunnelDestGroup : GTLRObject
+
+/** null List of CIDRs that this group applies to. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *cidrs;
+
+/** null List of FQDNs that this group applies to. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fqdns;
+
+/**
+ *  Required. Immutable. Identifier for the TunnelDestGroup. Must be unique
+ *  within the project.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

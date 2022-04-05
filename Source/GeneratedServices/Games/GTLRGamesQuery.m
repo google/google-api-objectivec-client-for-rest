@@ -410,7 +410,7 @@ NSString * const kGTLRGamesTimeSpanWeekly                   = @"WEEKLY";
 
 @implementation GTLRGamesQuery_PlayersGet
 
-@dynamic language, playerId;
+@dynamic language, playerId, playerIdConsistencyToken;
 
 + (instancetype)queryWithPlayerId:(NSString *)playerId {
   NSArray *pathParams = @[ @"playerId" ];

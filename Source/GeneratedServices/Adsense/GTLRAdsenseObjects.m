@@ -14,6 +14,18 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRAdsense_Account.state
+NSString * const kGTLRAdsense_Account_State_Closed           = @"CLOSED";
+NSString * const kGTLRAdsense_Account_State_NeedsAttention   = @"NEEDS_ATTENTION";
+NSString * const kGTLRAdsense_Account_State_Ready            = @"READY";
+NSString * const kGTLRAdsense_Account_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRAdsense_AdClient.state
+NSString * const kGTLRAdsense_AdClient_State_GettingReady     = @"GETTING_READY";
+NSString * const kGTLRAdsense_AdClient_State_Ready            = @"READY";
+NSString * const kGTLRAdsense_AdClient_State_RequiresReview   = @"REQUIRES_REVIEW";
+NSString * const kGTLRAdsense_AdClient_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRAdsense_AdUnit.state
 NSString * const kGTLRAdsense_AdUnit_State_Active           = @"ACTIVE";
 NSString * const kGTLRAdsense_AdUnit_State_Archived         = @"ARCHIVED";
@@ -55,7 +67,7 @@ NSString * const kGTLRAdsense_Site_State_StateUnspecified = @"STATE_UNSPECIFIED"
 //
 
 @implementation GTLRAdsense_Account
-@dynamic createTime, displayName, name, pendingTasks, premium, timeZone;
+@dynamic createTime, displayName, name, pendingTasks, premium, state, timeZone;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -73,7 +85,7 @@ NSString * const kGTLRAdsense_Site_State_StateUnspecified = @"STATE_UNSPECIFIED"
 //
 
 @implementation GTLRAdsense_AdClient
-@dynamic name, productCode, reportingDimensionId;
+@dynamic name, productCode, reportingDimensionId, state;
 @end
 
 

@@ -227,6 +227,28 @@ NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_PolicyTypeUnspecified =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIAP_ListTunnelDestGroupsResponse
+//
+
+@implementation GTLRCloudIAP_ListTunnelDestGroupsResponse
+@dynamic nextPageToken, tunnelDestGroups;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tunnelDestGroups" : [GTLRCloudIAP_TunnelDestGroup class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"tunnelDestGroups";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIAP_OAuthSettings
 //
 
@@ -364,6 +386,25 @@ NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_PolicyTypeUnspecified =
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_TunnelDestGroup
+//
+
+@implementation GTLRCloudIAP_TunnelDestGroup
+@dynamic cidrs, fqdns, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cidrs" : [NSString class],
+    @"fqdns" : [NSString class]
   };
   return map;
 }

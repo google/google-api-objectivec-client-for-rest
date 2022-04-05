@@ -298,6 +298,7 @@ NSString * const kGTLRSheets_DataExecutionStatus_ErrorCode_PermissionDenied = @"
 NSString * const kGTLRSheets_DataExecutionStatus_ErrorCode_TimedOut = @"TIMED_OUT";
 NSString * const kGTLRSheets_DataExecutionStatus_ErrorCode_TooManyCells = @"TOO_MANY_CELLS";
 NSString * const kGTLRSheets_DataExecutionStatus_ErrorCode_TooManyCharsPerCell = @"TOO_MANY_CHARS_PER_CELL";
+NSString * const kGTLRSheets_DataExecutionStatus_ErrorCode_TooManyColumns = @"TOO_MANY_COLUMNS";
 NSString * const kGTLRSheets_DataExecutionStatus_ErrorCode_TooManyRows = @"TOO_MANY_ROWS";
 NSString * const kGTLRSheets_DataExecutionStatus_ErrorCode_UnsupportedDataType = @"UNSUPPORTED_DATA_TYPE";
 

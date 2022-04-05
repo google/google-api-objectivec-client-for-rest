@@ -72,10 +72,16 @@
 @class GTLRDisplayVideo_CombinedAudienceTargetingSetting;
 @class GTLRDisplayVideo_ContactInfo;
 @class GTLRDisplayVideo_ContactInfoList;
+@class GTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails;
+@class GTLRDisplayVideo_ContentDurationTargetingOptionDetails;
+@class GTLRDisplayVideo_ContentGenreAssignedTargetingOptionDetails;
+@class GTLRDisplayVideo_ContentGenreTargetingOptionDetails;
 @class GTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_ContentInstreamPositionTargetingOptionDetails;
 @class GTLRDisplayVideo_ContentOutstreamPositionAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_ContentOutstreamPositionTargetingOptionDetails;
+@class GTLRDisplayVideo_ContentStreamTypeAssignedTargetingOptionDetails;
+@class GTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails;
 @class GTLRDisplayVideo_ConversionCountingConfig;
 @class GTLRDisplayVideo_CounterEvent;
 @class GTLRDisplayVideo_CreateAssignedTargetingOptionsRequest;
@@ -1791,6 +1797,112 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CarrierAndIspTargetingOptio
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CarrierAndIspTargetingOptionDetails_Type_CarrierAndIspTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails.contentDuration
+
+/**
+ *  Content is 0-1 minute long.
+ *
+ *  Value: "CONTENT_DURATION_0_TO_1_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDuration0To1Min;
+/**
+ *  Content is 15-30 minutes long.
+ *
+ *  Value: "CONTENT_DURATION_15_TO_30_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDuration15To30Min;
+/**
+ *  Content is 1-5 minutes long.
+ *
+ *  Value: "CONTENT_DURATION_1_TO_5_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDuration1To5Min;
+/**
+ *  Content is 30-60 minutes long.
+ *
+ *  Value: "CONTENT_DURATION_30_TO_60_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDuration30To60Min;
+/**
+ *  Content is 5-15 minutes long.
+ *
+ *  Value: "CONTENT_DURATION_5_TO_15_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDuration5To15Min;
+/**
+ *  Content is over 60 minutes long.
+ *
+ *  Value: "CONTENT_DURATION_OVER_60_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDurationOver60Min;
+/**
+ *  The content duration is unknown.
+ *
+ *  Value: "CONTENT_DURATION_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDurationUnknown;
+/**
+ *  Content duration is not specified in this version. This enum is a place
+ *  holder for a default value and does not represent a real content duration.
+ *
+ *  Value: "CONTENT_DURATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDurationUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_ContentDurationTargetingOptionDetails.contentDuration
+
+/**
+ *  Content is 0-1 minute long.
+ *
+ *  Value: "CONTENT_DURATION_0_TO_1_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentDurationTargetingOptionDetails_ContentDuration_ContentDuration0To1Min;
+/**
+ *  Content is 15-30 minutes long.
+ *
+ *  Value: "CONTENT_DURATION_15_TO_30_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentDurationTargetingOptionDetails_ContentDuration_ContentDuration15To30Min;
+/**
+ *  Content is 1-5 minutes long.
+ *
+ *  Value: "CONTENT_DURATION_1_TO_5_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentDurationTargetingOptionDetails_ContentDuration_ContentDuration1To5Min;
+/**
+ *  Content is 30-60 minutes long.
+ *
+ *  Value: "CONTENT_DURATION_30_TO_60_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentDurationTargetingOptionDetails_ContentDuration_ContentDuration30To60Min;
+/**
+ *  Content is 5-15 minutes long.
+ *
+ *  Value: "CONTENT_DURATION_5_TO_15_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentDurationTargetingOptionDetails_ContentDuration_ContentDuration5To15Min;
+/**
+ *  Content is over 60 minutes long.
+ *
+ *  Value: "CONTENT_DURATION_OVER_60_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentDurationTargetingOptionDetails_ContentDuration_ContentDurationOver60Min;
+/**
+ *  The content duration is unknown.
+ *
+ *  Value: "CONTENT_DURATION_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentDurationTargetingOptionDetails_ContentDuration_ContentDurationUnknown;
+/**
+ *  Content duration is not specified in this version. This enum is a place
+ *  holder for a default value and does not represent a real content duration.
+ *
+ *  Value: "CONTENT_DURATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentDurationTargetingOptionDetails_ContentDuration_ContentDurationUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails.adType
 
 /**
@@ -2007,6 +2119,54 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentOutstreamPositionTar
  *  Value: "CONTENT_OUTSTREAM_POSITION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentOutstreamPositionTargetingOptionDetails_ContentOutstreamPosition_ContentOutstreamPositionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_ContentStreamTypeAssignedTargetingOptionDetails.contentStreamType
+
+/**
+ *  The content is being live-streamed.
+ *
+ *  Value: "CONTENT_LIVE_STREAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentStreamTypeAssignedTargetingOptionDetails_ContentStreamType_ContentLiveStream;
+/**
+ *  The content is viewed on-demand.
+ *
+ *  Value: "CONTENT_ON_DEMAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentStreamTypeAssignedTargetingOptionDetails_ContentStreamType_ContentOnDemand;
+/**
+ *  Content stream type is not specified in this version. This enum is a place
+ *  holder for a default value and does not represent a real content stream
+ *  type.
+ *
+ *  Value: "CONTENT_STREAM_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentStreamTypeAssignedTargetingOptionDetails_ContentStreamType_ContentStreamTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails.contentStreamType
+
+/**
+ *  The content is being live-streamed.
+ *
+ *  Value: "CONTENT_LIVE_STREAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails_ContentStreamType_ContentLiveStream;
+/**
+ *  The content is viewed on-demand.
+ *
+ *  Value: "CONTENT_ON_DEMAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails_ContentStreamType_ContentOnDemand;
+/**
+ *  Content stream type is not specified in this version. This enum is a place
+ *  holder for a default value and does not represent a real content stream
+ *  type.
+ *
+ *  Value: "CONTENT_STREAM_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails_ContentStreamType_ContentStreamTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_CreateAssignedTargetingOptionsRequest.targetingType
@@ -6353,6 +6513,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_HouseholdIncomeTargetingOpt
  *  Value: "HOUSEHOLD_INCOME_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_HouseholdIncomeTargetingOptionDetails_HouseholdIncome_HouseholdIncomeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_InsertionOrder.billableOutcome
+
+/**
+ *  Pay per click.
+ *
+ *  Value: "BILLABLE_OUTCOME_PAY_PER_CLICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_BillableOutcome_BillableOutcomePayPerClick;
+/**
+ *  Pay per impressions.
+ *
+ *  Value: "BILLABLE_OUTCOME_PAY_PER_IMPRESSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_BillableOutcome_BillableOutcomePayPerImpression;
+/**
+ *  Pay per active view.
+ *
+ *  Value: "BILLABLE_OUTCOME_PAY_PER_VIEWABLE_IMPRESSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_BillableOutcome_BillableOutcomePayPerViewableImpression;
+/**
+ *  Unspecified billable outcome.
+ *
+ *  Value: "BILLABLE_OUTCOME_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_BillableOutcome_BillableOutcomeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_InsertionOrder.entityStatus
@@ -11081,6 +11269,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ChannelAssignedTargetingOptionDetails *channelDetails;
 
 /**
+ *  Content duration details. This field will be populated when the
+ *  targeting_type is `TARGETING_TYPE_CONTENT_DURATION`.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails *contentDurationDetails;
+
+/**
+ *  Content genre details. This field will be populated when the targeting_type
+ *  is `TARGETING_TYPE_CONTENT_GENRE`.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_ContentGenreAssignedTargetingOptionDetails *contentGenreDetails;
+
+/**
  *  Content instream position details. This field will be populated when the
  *  targeting_type is `TARGETING_TYPE_CONTENT_INSTREAM_POSITION`.
  */
@@ -11091,6 +11291,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  targeting_type is `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ContentOutstreamPositionAssignedTargetingOptionDetails *contentOutstreamPositionDetails;
+
+/**
+ *  Content duration details. This field will be populated when the
+ *  TargetingType is `TARGETING_TYPE_CONTENT_STREAM_TYPE`.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_ContentStreamTypeAssignedTargetingOptionDetails *contentStreamTypeDetails;
 
 /**
  *  Day and time details. This field will be populated when the targeting_type
@@ -13197,6 +13403,131 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
+ *  Details for content duration assigned targeting option. This will be
+ *  populated in the content_duration_details field when targeting_type is
+ *  `TARGETING_TYPE_CONTENT_DURATION`. Explicitly targeting all options is not
+ *  supported. Remove all content duration targeting options to achieve this
+ *  effect.
+ */
+@interface GTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails : GTLRObject
+
+/**
+ *  Output only. The content duration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDuration0To1Min
+ *        Content is 0-1 minute long. (Value: "CONTENT_DURATION_0_TO_1_MIN")
+ *    @arg @c kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDuration15To30Min
+ *        Content is 15-30 minutes long. (Value:
+ *        "CONTENT_DURATION_15_TO_30_MIN")
+ *    @arg @c kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDuration1To5Min
+ *        Content is 1-5 minutes long. (Value: "CONTENT_DURATION_1_TO_5_MIN")
+ *    @arg @c kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDuration30To60Min
+ *        Content is 30-60 minutes long. (Value:
+ *        "CONTENT_DURATION_30_TO_60_MIN")
+ *    @arg @c kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDuration5To15Min
+ *        Content is 5-15 minutes long. (Value: "CONTENT_DURATION_5_TO_15_MIN")
+ *    @arg @c kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDurationOver60Min
+ *        Content is over 60 minutes long. (Value:
+ *        "CONTENT_DURATION_OVER_60_MIN")
+ *    @arg @c kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDurationUnknown
+ *        The content duration is unknown. (Value: "CONTENT_DURATION_UNKNOWN")
+ *    @arg @c kGTLRDisplayVideo_ContentDurationAssignedTargetingOptionDetails_ContentDuration_ContentDurationUnspecified
+ *        Content duration is not specified in this version. This enum is a
+ *        place holder for a default value and does not represent a real content
+ *        duration. (Value: "CONTENT_DURATION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *contentDuration;
+
+/**
+ *  Required. The targeting_option_id field when targeting_type is
+ *  `TARGETING_TYPE_CONTENT_DURATION`.
+ */
+@property(nonatomic, copy, nullable) NSString *targetingOptionId;
+
+@end
+
+
+/**
+ *  Represents a targetable content duration. This will be populated in the
+ *  content_duration_details field when targeting_type is
+ *  `TARGETING_TYPE_CONTENT_DURATION`.
+ */
+@interface GTLRDisplayVideo_ContentDurationTargetingOptionDetails : GTLRObject
+
+/**
+ *  Output only. The content duration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_ContentDurationTargetingOptionDetails_ContentDuration_ContentDuration0To1Min
+ *        Content is 0-1 minute long. (Value: "CONTENT_DURATION_0_TO_1_MIN")
+ *    @arg @c kGTLRDisplayVideo_ContentDurationTargetingOptionDetails_ContentDuration_ContentDuration15To30Min
+ *        Content is 15-30 minutes long. (Value:
+ *        "CONTENT_DURATION_15_TO_30_MIN")
+ *    @arg @c kGTLRDisplayVideo_ContentDurationTargetingOptionDetails_ContentDuration_ContentDuration1To5Min
+ *        Content is 1-5 minutes long. (Value: "CONTENT_DURATION_1_TO_5_MIN")
+ *    @arg @c kGTLRDisplayVideo_ContentDurationTargetingOptionDetails_ContentDuration_ContentDuration30To60Min
+ *        Content is 30-60 minutes long. (Value:
+ *        "CONTENT_DURATION_30_TO_60_MIN")
+ *    @arg @c kGTLRDisplayVideo_ContentDurationTargetingOptionDetails_ContentDuration_ContentDuration5To15Min
+ *        Content is 5-15 minutes long. (Value: "CONTENT_DURATION_5_TO_15_MIN")
+ *    @arg @c kGTLRDisplayVideo_ContentDurationTargetingOptionDetails_ContentDuration_ContentDurationOver60Min
+ *        Content is over 60 minutes long. (Value:
+ *        "CONTENT_DURATION_OVER_60_MIN")
+ *    @arg @c kGTLRDisplayVideo_ContentDurationTargetingOptionDetails_ContentDuration_ContentDurationUnknown
+ *        The content duration is unknown. (Value: "CONTENT_DURATION_UNKNOWN")
+ *    @arg @c kGTLRDisplayVideo_ContentDurationTargetingOptionDetails_ContentDuration_ContentDurationUnspecified
+ *        Content duration is not specified in this version. This enum is a
+ *        place holder for a default value and does not represent a real content
+ *        duration. (Value: "CONTENT_DURATION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *contentDuration;
+
+@end
+
+
+/**
+ *  Details for content genre assigned targeting option. This will be populated
+ *  in the content_genre_details field when targeting_type is
+ *  `TARGETING_TYPE_CONTENT_GENRE`. Explicitly targeting all options is not
+ *  supported. Remove all content genre targeting options to achieve this
+ *  effect.
+ */
+@interface GTLRDisplayVideo_ContentGenreAssignedTargetingOptionDetails : GTLRObject
+
+/** Output only. The display name of the content genre. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Indicates if this option is being negatively targeted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *negative;
+
+/**
+ *  Required. The targeting_option_id field when targeting_type is
+ *  `TARGETING_TYPE_CONTENT_GENRE`.
+ */
+@property(nonatomic, copy, nullable) NSString *targetingOptionId;
+
+@end
+
+
+/**
+ *  Represents a targetable content genre. This will be populated in the
+ *  content_genre_details field when targeting_type is
+ *  `TARGETING_TYPE_CONTENT_GENRE`.
+ */
+@interface GTLRDisplayVideo_ContentGenreTargetingOptionDetails : GTLRObject
+
+/** Output only. The display name of the content genre */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+@end
+
+
+/**
  *  Assigned content instream position targeting option details. This will be
  *  populated in the content_instream_position_details field when targeting_type
  *  is `TARGETING_TYPE_CONTENT_INSTREAM_POSITION`.
@@ -13399,6 +13730,64 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        "CONTENT_OUTSTREAM_POSITION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *contentOutstreamPosition;
+
+@end
+
+
+/**
+ *  Details for content stream type assigned targeting option. This will be
+ *  populated in the content_stream_type_details field when targeting_type is
+ *  `TARGETING_TYPE_CONTENT_STREAM_TYPE`. Explicitly targeting all options is
+ *  not supported. Remove all content stream type targeting options to achieve
+ *  this effect.
+ */
+@interface GTLRDisplayVideo_ContentStreamTypeAssignedTargetingOptionDetails : GTLRObject
+
+/**
+ *  Output only. The content stream type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_ContentStreamTypeAssignedTargetingOptionDetails_ContentStreamType_ContentLiveStream
+ *        The content is being live-streamed. (Value: "CONTENT_LIVE_STREAM")
+ *    @arg @c kGTLRDisplayVideo_ContentStreamTypeAssignedTargetingOptionDetails_ContentStreamType_ContentOnDemand
+ *        The content is viewed on-demand. (Value: "CONTENT_ON_DEMAND")
+ *    @arg @c kGTLRDisplayVideo_ContentStreamTypeAssignedTargetingOptionDetails_ContentStreamType_ContentStreamTypeUnspecified
+ *        Content stream type is not specified in this version. This enum is a
+ *        place holder for a default value and does not represent a real content
+ *        stream type. (Value: "CONTENT_STREAM_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *contentStreamType;
+
+/**
+ *  Required. The targeting_option_id field when targeting_type is
+ *  `TARGETING_TYPE_CONTENT_STREAM_TYPE`.
+ */
+@property(nonatomic, copy, nullable) NSString *targetingOptionId;
+
+@end
+
+
+/**
+ *  Represents a targetable content stream type. This will be populated in the
+ *  content_stream_type_details field when targeting_type is
+ *  `TARGETING_TYPE_CONTENT_STREAM_TYPE`.
+ */
+@interface GTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails : GTLRObject
+
+/**
+ *  Output only. The content stream type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails_ContentStreamType_ContentLiveStream
+ *        The content is being live-streamed. (Value: "CONTENT_LIVE_STREAM")
+ *    @arg @c kGTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails_ContentStreamType_ContentOnDemand
+ *        The content is viewed on-demand. (Value: "CONTENT_ON_DEMAND")
+ *    @arg @c kGTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails_ContentStreamType_ContentStreamTypeUnspecified
+ *        Content stream type is not specified in this version. This enum is a
+ *        place holder for a default value and does not represent a real content
+ *        stream type. (Value: "CONTENT_STREAM_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *contentStreamType;
 
 @end
 
@@ -15428,8 +15817,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRDisplayVideo_Empty : GTLRObject
 @end
@@ -17165,6 +17553,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  The bidding strategy of the insertion order. By default, fixed_bid is set.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_BiddingStrategy *bidStrategy;
+
+/**
+ *  Immutable. The billable outcome of the insertion order.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_InsertionOrder_BillableOutcome_BillableOutcomePayPerClick
+ *        Pay per click. (Value: "BILLABLE_OUTCOME_PAY_PER_CLICK")
+ *    @arg @c kGTLRDisplayVideo_InsertionOrder_BillableOutcome_BillableOutcomePayPerImpression
+ *        Pay per impressions. (Value: "BILLABLE_OUTCOME_PAY_PER_IMPRESSION")
+ *    @arg @c kGTLRDisplayVideo_InsertionOrder_BillableOutcome_BillableOutcomePayPerViewableImpression
+ *        Pay per active view. (Value:
+ *        "BILLABLE_OUTCOME_PAY_PER_VIEWABLE_IMPRESSION")
+ *    @arg @c kGTLRDisplayVideo_InsertionOrder_BillableOutcome_BillableOutcomeUnspecified
+ *        Unspecified billable outcome. (Value: "BILLABLE_OUTCOME_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *billableOutcome;
 
 /** Required. The budget allocation settings of the insertion order. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_InsertionOrderBudget *budget;
@@ -21984,11 +22388,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 /** Category resource details. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_CategoryTargetingOptionDetails *categoryDetails;
 
+/** Content duration resource details. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_ContentDurationTargetingOptionDetails *contentDurationDetails;
+
+/** Content genre resource details. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_ContentGenreTargetingOptionDetails *contentGenreDetails;
+
 /** Content instream position details. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ContentInstreamPositionTargetingOptionDetails *contentInstreamPositionDetails;
 
 /** Content outstream position details. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ContentOutstreamPositionTargetingOptionDetails *contentOutstreamPositionDetails;
+
+/** Content stream type resource details. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails *contentStreamTypeDetails;
 
 /** Device make and model resource details. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DeviceMakeModelTargetingOptionDetails *deviceMakeModelDetails;

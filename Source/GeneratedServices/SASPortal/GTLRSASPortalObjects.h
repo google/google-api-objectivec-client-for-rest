@@ -209,6 +209,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
  */
 FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRSASPortal_NrqzValidation.state
+
+/**
+ *  Draft state.
+ *
+ *  Value: "DRAFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_Draft;
+/**
+ *  Final state.
+ *
+ *  Value: "FINAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_Final;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_NrqzValidation_State_StateUnspecified;
+
 /**
  *  Associates `members` with a `role`.
  */
@@ -495,6 +517,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 /** Grant Id. */
 @property(nonatomic, copy, nullable) NSString *grantId;
 
+/** The transmit expiration time of the last heartbeat. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastHeartbeatTransmitExpireTime;
+
 /**
  *  Maximum Equivalent Isotropically Radiated Power (EIRP) permitted by the
  *  grant. The maximum EIRP is in units of dBm/MHz. The value of `maxEirp`
@@ -612,8 +637,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRSASPortal_Empty : GTLRObject
 @end
@@ -983,8 +1007,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 
 
 /**
- *  Information about National Radio Quiet Zone validation. The presence of the
- *  field indicates the device has been validated.
+ *  Information about National Radio Quiet Zone validation.
  */
 @interface GTLRSASPortal_NrqzValidation : GTLRObject
 
@@ -1007,6 +1030,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *longitude;
+
+/**
+ *  State of the NRQZ validation info.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSASPortal_NrqzValidation_State_Draft Draft state. (Value:
+ *        "DRAFT")
+ *    @arg @c kGTLRSASPortal_NrqzValidation_State_Final Final state. (Value:
+ *        "FINAL")
+ *    @arg @c kGTLRSASPortal_NrqzValidation_State_StateUnspecified Unspecified
+ *        state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 

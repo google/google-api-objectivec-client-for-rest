@@ -124,6 +124,17 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_Up
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1AudioStatusReport
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1AudioStatusReport
+@dynamic inputDevice, inputGain, inputMute, outputDevice, outputMute,
+         outputVolume, reportTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1BatteryInfo
 //
 
@@ -179,8 +190,8 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_Up
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1ChromeAppInfo
-@dynamic googleOwned, isCwsHosted, isTheme, minUserCount, permissions,
-         siteAccess, supportEnabled;
+@dynamic googleOwned, isCwsHosted, isKioskOnly, isTheme, kioskEnabled,
+         minUserCount, permissions, siteAccess, supportEnabled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -568,13 +579,15 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_Up
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryDevice
-@dynamic batteryInfo, batteryStatusReport, cpuInfo, cpuStatusReport, customer,
-         deviceId, graphicsInfo, graphicsStatusReport, memoryInfo,
-         memoryStatusReport, name, networkStatusReport, orgUnitId,
-         osUpdateStatus, serialNumber, storageInfo, storageStatusReport;
+@dynamic audioStatusReport, batteryInfo, batteryStatusReport, cpuInfo,
+         cpuStatusReport, customer, deviceId, graphicsInfo,
+         graphicsStatusReport, memoryInfo, memoryStatusReport, name,
+         networkStatusReport, orgUnitId, osUpdateStatus, serialNumber,
+         storageInfo, storageStatusReport;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"audioStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1AudioStatusReport class],
     @"batteryInfo" : [GTLRChromeManagement_GoogleChromeManagementV1BatteryInfo class],
     @"batteryStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport class],
     @"cpuInfo" : [GTLRChromeManagement_GoogleChromeManagementV1CpuInfo class],
