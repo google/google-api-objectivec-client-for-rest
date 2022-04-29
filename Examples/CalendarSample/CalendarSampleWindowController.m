@@ -979,6 +979,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"CalendarSample: Google Calendar.
   __weak __typeof(self) weakSelf = self;
   _redirectHTTPHandler.currentAuthorizationFlow =
       [OIDAuthState authStateByPresentingAuthorizationRequest:request
+                  presentingWindow:self.window
                           callback:^(OIDAuthState *_Nullable authState,
                                      NSError *_Nullable error) {
     // Brings this app to the foreground.

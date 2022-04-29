@@ -693,6 +693,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
   __weak __typeof(self) weakSelf = self;
   _redirectHTTPHandler.currentAuthorizationFlow =
       [OIDAuthState authStateByPresentingAuthorizationRequest:request
+                  presentingWindow:self.window
                           callback:^(OIDAuthState *_Nullable authState,
                                      NSError *_Nullable error) {
     // Using weakSelf/strongSelf pattern to avoid retaining self as block execution is indeterminate

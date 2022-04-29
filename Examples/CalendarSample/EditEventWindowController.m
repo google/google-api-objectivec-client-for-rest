@@ -128,6 +128,7 @@
   __block id holdSelf = self;
 
   [window beginSheet:self.window completionHandler:^(NSModalResponse returnCode) {
+    (void)holdSelf;
     holdSelf = nil;
   }];
 }
