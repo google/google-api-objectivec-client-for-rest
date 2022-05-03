@@ -1,0 +1,63 @@
+name: CocoaPods
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+    - 'Examples/**'
+    - '!Examples/**/*.md'
+    - 'Sources/GTLRDefines.h'
+    - 'Sources/GeneratedServices/Calendar/**'
+    - 'Sources/GeneratedServices/Drive/**'
+    - 'Sources/GeneratedServices/Storage/**'
+    - 'Sources/GeneratedServices/YouTube/**'
+    - 'Sources/Objects/**'
+    - 'Sources/Utilities/**'
+    - '*.podspec'
+    - '.github/workflows/examples.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+    - 'Examples/**'
+    - '!Examples/**/*.md'
+    - 'Sources/GTLRDefines.h'
+    - 'Sources/GeneratedServices/Calendar/**'
+    - 'Sources/GeneratedServices/Drive/**'
+    - 'Sources/GeneratedServices/Storage/**'
+    - 'Sources/GeneratedServices/YouTube/**'
+    - 'Sources/Objects/**'
+    - 'Sources/Utilities/**'
+    - '*.podspec'
+    - '.github/workflows/examples.yml'
+  schedule:
+    # Run the first and fifteenth of every month at 6:22 UTC
+    - cron:  '6 22 1,15 * *'
+
+jobs:
+  examples:
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        SAMPLE: ["Calendar", "Drive", "YouTube", "Storage"]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build Debug
+      run:  |
+        set -eu
+        cd Examples/${{ matrix.SAMPLE }}Sample
+        pod install
+        xcodebuild \
+          -workspace "${{ matrix.SAMPLE }}Sample.xcworkspace" \
+          -scheme "${{ matrix.SAMPLE }}Sample" \
+          -configuration Debug \
+          build
+    - name: Build Release
+      run:  |
+        set -eu
+        cd Examples/${{ matrix.SAMPLE }}Sample
+        xcodebuild \
+          -workspace "${{ matrix.SAMPLE }}Sample.xcworkspace" \
+          -scheme "${{ matrix.SAMPLE }}Sample" \
+          -configuration Release \
+          build
