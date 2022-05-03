@@ -1,4 +1,4 @@
-name: SwiftPM
+name: ServiceGenerator
 
 on:
   push:
