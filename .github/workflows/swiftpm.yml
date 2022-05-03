@@ -3,24 +3,16 @@ name: SwiftPM
 on:
   push:
     branches: [ main ]
-    paths-ignore:
-    - '**.md'
-    - 'LICENSE'
-    - '*.podspec'
-    - '**/*.xcodeproj/**'
-    - 'Examples/**'
-    - '.github/workflows/cocoapods.yml'
-    - '.github/workflows/main.yml'
+    paths:
+    - 'Sources/**'
+    - 'Package*.swift'
+    - '.github/workflows/swiftpm.yml'
   pull_request:
     branches: [ main ]
-    paths-ignore:
-    - '**.md'
-    - 'LICENSE'
-    - '*.podspec'
-    - '**/*.xcodeproj/**'
-    - 'Examples/**'
-    - '.github/workflows/cocoapods.yml'
-    - '.github/workflows/main.yml'
+    paths:
+    - 'Sources/**'
+    - 'Package*.swift'
+    - '.github/workflows/swiftpm.yml'
   schedule:
     # Run the first and fifteenth of every month at 6:12 UTC
     - cron:  '6 12 1,15 * *'

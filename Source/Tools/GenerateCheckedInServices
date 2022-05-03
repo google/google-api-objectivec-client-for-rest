@@ -8,11 +8,9 @@ set -eu
 readonly ToolsDir=$(dirname "$(echo $0 | sed -e "s,^\([^/]\),$(pwd)/\1,")")
 readonly ScriptName=$(basename "$0")
 
-readonly ServiceGeneratorDir="${ToolsDir}/ServiceGenerator"
 readonly GeneratedServicesDir="${ToolsDir}/../GeneratedServices"
-# This only works for Xcode default setting on where build output goes and when
-# building with -alltargets and not with -scheme.
-readonly ServiceGeneratorBinary="${ServiceGeneratorDir}/build/Debug/ServiceGenerator"
+readonly Configuration=debug
+readonly ServiceGeneratorBinary="${ToolsDir}/.build/${Configuration}/ServiceGenerator"
 
 BRIEF_MODE=--brief
 if [[ $# -ge 1 && ( "$1" == "--no-brief" ) ]] ; then
@@ -35,11 +33,7 @@ Banner() {
 # -----------------------------------------------------------------------------
 
 Banner "Ensuring ServiceGenerator is up to date..."
-/usr/bin/xcodebuild \
-  -project "${ServiceGeneratorDir}/ServiceGenerator.xcodeproj" \
-  -configuration Debug \
-  -alltargets \
-  build
+( cd "${ToolsDir}" && swift build --configuration "${Configuration}" )
 
 # -----------------------------------------------------------------------------
 
