@@ -111,6 +111,7 @@ NSString * const kGTLRVault_Query_Method_OrgUnit               = @"ORG_UNIT";
 NSString * const kGTLRVault_Query_Method_Room                  = @"ROOM";
 NSString * const kGTLRVault_Query_Method_SearchMethodUnspecified = @"SEARCH_METHOD_UNSPECIFIED";
 NSString * const kGTLRVault_Query_Method_SharedDrive           = @"SHARED_DRIVE";
+NSString * const kGTLRVault_Query_Method_SitesUrl              = @"SITES_URL";
 NSString * const kGTLRVault_Query_Method_TeamDrive             = @"TEAM_DRIVE";
 
 // GTLRVault_Query.searchMethod
@@ -120,6 +121,7 @@ NSString * const kGTLRVault_Query_SearchMethod_OrgUnit         = @"ORG_UNIT";
 NSString * const kGTLRVault_Query_SearchMethod_Room            = @"ROOM";
 NSString * const kGTLRVault_Query_SearchMethod_SearchMethodUnspecified = @"SEARCH_METHOD_UNSPECIFIED";
 NSString * const kGTLRVault_Query_SearchMethod_SharedDrive     = @"SHARED_DRIVE";
+NSString * const kGTLRVault_Query_SearchMethod_SitesUrl        = @"SITES_URL";
 NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 
 // GTLRVault_VoiceExportOptions.exportFormat
@@ -813,8 +815,8 @@ NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemails = @"VOICEMAILS";
 @implementation GTLRVault_Query
 @dynamic accountInfo, corpus, dataScope, driveOptions, endTime,
          hangoutsChatInfo, hangoutsChatOptions, mailOptions, method,
-         orgUnitInfo, searchMethod, sharedDriveInfo, startTime, teamDriveInfo,
-         terms, timeZone, voiceOptions;
+         orgUnitInfo, searchMethod, sharedDriveInfo, sitesUrlInfo, startTime,
+         teamDriveInfo, terms, timeZone, voiceOptions;
 @end
 
 
@@ -904,6 +906,24 @@ NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemails = @"VOICEMAILS";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"sharedDriveIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_SitesUrlInfo
+//
+
+@implementation GTLRVault_SitesUrlInfo
+@dynamic urls;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"urls" : [NSString class]
   };
   return map;
 }

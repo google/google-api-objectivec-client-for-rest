@@ -28,8 +28,19 @@
 @class GTLRCloudRun_GoogleCloudRunV2Condition;
 @class GTLRCloudRun_GoogleCloudRunV2Container;
 @class GTLRCloudRun_GoogleCloudRunV2ContainerPort;
+@class GTLRCloudRun_GoogleCloudRunV2ContainerStatus;
 @class GTLRCloudRun_GoogleCloudRunV2EnvVar;
 @class GTLRCloudRun_GoogleCloudRunV2EnvVarSource;
+@class GTLRCloudRun_GoogleCloudRunV2Execution;
+@class GTLRCloudRun_GoogleCloudRunV2Execution_Annotations;
+@class GTLRCloudRun_GoogleCloudRunV2Execution_Labels;
+@class GTLRCloudRun_GoogleCloudRunV2ExecutionReference;
+@class GTLRCloudRun_GoogleCloudRunV2ExecutionTemplate;
+@class GTLRCloudRun_GoogleCloudRunV2ExecutionTemplate_Annotations;
+@class GTLRCloudRun_GoogleCloudRunV2ExecutionTemplate_Labels;
+@class GTLRCloudRun_GoogleCloudRunV2Job;
+@class GTLRCloudRun_GoogleCloudRunV2Job_Annotations;
+@class GTLRCloudRun_GoogleCloudRunV2Job_Labels;
 @class GTLRCloudRun_GoogleCloudRunV2ResourceRequirements;
 @class GTLRCloudRun_GoogleCloudRunV2ResourceRequirements_Limits;
 @class GTLRCloudRun_GoogleCloudRunV2Revision;
@@ -44,6 +55,11 @@
 @class GTLRCloudRun_GoogleCloudRunV2Service;
 @class GTLRCloudRun_GoogleCloudRunV2Service_Annotations;
 @class GTLRCloudRun_GoogleCloudRunV2Service_Labels;
+@class GTLRCloudRun_GoogleCloudRunV2Task;
+@class GTLRCloudRun_GoogleCloudRunV2Task_Annotations;
+@class GTLRCloudRun_GoogleCloudRunV2Task_Labels;
+@class GTLRCloudRun_GoogleCloudRunV2TaskAttemptResult;
+@class GTLRCloudRun_GoogleCloudRunV2TaskTemplate;
 @class GTLRCloudRun_GoogleCloudRunV2TrafficTarget;
 @class GTLRCloudRun_GoogleCloudRunV2TrafficTargetStatus;
 @class GTLRCloudRun_GoogleCloudRunV2VersionToPath;
@@ -162,12 +178,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Inter
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_ConflictingRevisionName;
 /**
- *  Enabling GCFv2 URI support; this is a transient reason.
- *
- *  Value: "ENABLING_GCFV2_URI_SUPPORT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_EnablingGcfv2UriSupport;
-/**
  *  Default value.
  *
  *  Value: "INTERNAL_REASON_UNDEFINED"
@@ -185,6 +195,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Inter
  *  Value: "REVISION_ORG_POLICY_VIOLATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_RevisionOrgPolicyViolation;
+/**
+ *  Updating GCFv2 URI data; this is a transient reason.
+ *
+ *  Value: "UPDATING_GCFV2_URI_DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_UpdatingGcfv2UriData;
 /**
  *  Updating ingress traffic settings; this is a transient reason.
  *
@@ -436,14 +452,158 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_State
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleCloudRunV2Execution.launchStage
+
+/**
+ *  Alpha is a limited availability test for releases before they are cleared
+ *  for widespread use. By Alpha, all significant design issues are resolved and
+ *  we are in the process of verifying functionality. Alpha customers need to
+ *  apply for access, agree to applicable terms, and have their projects
+ *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
+ *  provided, and there are no technical support obligations, but they will be
+ *  far enough along that customers can actually use them in test environments
+ *  or for limited-use tests -- just like they would in normal production cases.
+ *
+ *  Value: "ALPHA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Execution_LaunchStage_Alpha;
+/**
+ *  Beta is the point at which we are ready to open a release for any customer
+ *  to use. There are no SLA or technical support obligations in a Beta release.
+ *  Products will be complete from a feature perspective, but may have some open
+ *  outstanding issues. Beta releases are suitable for limited production use
+ *  cases.
+ *
+ *  Value: "BETA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Execution_LaunchStage_Beta;
+/**
+ *  Deprecated features are scheduled to be shut down and removed. For more
+ *  information, see the "Deprecation Policy" section of our [Terms of
+ *  Service](https://cloud.google.com/terms/) and the [Google Cloud Platform
+ *  Subject to the Deprecation
+ *  Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *
+ *  Value: "DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Execution_LaunchStage_Deprecated;
+/**
+ *  Early Access features are limited to a closed group of testers. To use these
+ *  features, you must sign up in advance and sign a Trusted Tester agreement
+ *  (which includes confidentiality provisions). These features may be unstable,
+ *  changed in backward-incompatible ways, and are not guaranteed to be
+ *  released.
+ *
+ *  Value: "EARLY_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Execution_LaunchStage_EarlyAccess;
+/**
+ *  GA features are open to all developers and are considered stable and fully
+ *  qualified for production use.
+ *
+ *  Value: "GA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Execution_LaunchStage_Ga;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "LAUNCH_STAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Execution_LaunchStage_LaunchStageUnspecified;
+/**
+ *  Prelaunch features are hidden from users and are only visible internally.
+ *
+ *  Value: "PRELAUNCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Execution_LaunchStage_Prelaunch;
+/**
+ *  The feature is not yet implemented. Users can not use it.
+ *
+ *  Value: "UNIMPLEMENTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Execution_LaunchStage_Unimplemented;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleCloudRunV2Job.launchStage
+
+/**
+ *  Alpha is a limited availability test for releases before they are cleared
+ *  for widespread use. By Alpha, all significant design issues are resolved and
+ *  we are in the process of verifying functionality. Alpha customers need to
+ *  apply for access, agree to applicable terms, and have their projects
+ *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
+ *  provided, and there are no technical support obligations, but they will be
+ *  far enough along that customers can actually use them in test environments
+ *  or for limited-use tests -- just like they would in normal production cases.
+ *
+ *  Value: "ALPHA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Job_LaunchStage_Alpha;
+/**
+ *  Beta is the point at which we are ready to open a release for any customer
+ *  to use. There are no SLA or technical support obligations in a Beta release.
+ *  Products will be complete from a feature perspective, but may have some open
+ *  outstanding issues. Beta releases are suitable for limited production use
+ *  cases.
+ *
+ *  Value: "BETA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Job_LaunchStage_Beta;
+/**
+ *  Deprecated features are scheduled to be shut down and removed. For more
+ *  information, see the "Deprecation Policy" section of our [Terms of
+ *  Service](https://cloud.google.com/terms/) and the [Google Cloud Platform
+ *  Subject to the Deprecation
+ *  Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *
+ *  Value: "DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Job_LaunchStage_Deprecated;
+/**
+ *  Early Access features are limited to a closed group of testers. To use these
+ *  features, you must sign up in advance and sign a Trusted Tester agreement
+ *  (which includes confidentiality provisions). These features may be unstable,
+ *  changed in backward-incompatible ways, and are not guaranteed to be
+ *  released.
+ *
+ *  Value: "EARLY_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Job_LaunchStage_EarlyAccess;
+/**
+ *  GA features are open to all developers and are considered stable and fully
+ *  qualified for production use.
+ *
+ *  Value: "GA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Job_LaunchStage_Ga;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "LAUNCH_STAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Job_LaunchStage_LaunchStageUnspecified;
+/**
+ *  Prelaunch features are hidden from users and are only visible internally.
+ *
+ *  Value: "PRELAUNCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Job_LaunchStage_Prelaunch;
+/**
+ *  The feature is not yet implemented. Users can not use it.
+ *
+ *  Value: "UNIMPLEMENTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Job_LaunchStage_Unimplemented;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRun_GoogleCloudRunV2Revision.executionEnvironment
 
 /**
- *  Uses the Google-default environment.
+ *  Uses the First Generation environment.
  *
- *  Value: "EXECUTION_ENVIRONMENT_DEFAULT"
+ *  Value: "EXECUTION_ENVIRONMENT_GEN1"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_ExecutionEnvironment_ExecutionEnvironmentDefault;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_ExecutionEnvironment_ExecutionEnvironmentGen1;
 /**
  *  Uses Second Generation environment.
  *
@@ -533,11 +693,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_Launch
 // GTLRCloudRun_GoogleCloudRunV2RevisionTemplate.executionEnvironment
 
 /**
- *  Uses the Google-default environment.
+ *  Uses the First Generation environment.
  *
- *  Value: "EXECUTION_ENVIRONMENT_DEFAULT"
+ *  Value: "EXECUTION_ENVIRONMENT_GEN1"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_ExecutionEnvironment_ExecutionEnvironmentDefault;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_ExecutionEnvironment_ExecutionEnvironmentGen1;
 /**
  *  Uses Second Generation environment.
  *
@@ -650,6 +810,122 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_LaunchS
  *  Value: "UNIMPLEMENTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_LaunchStage_Unimplemented;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleCloudRunV2Task.executionEnvironment
+
+/**
+ *  Uses the First Generation environment.
+ *
+ *  Value: "EXECUTION_ENVIRONMENT_GEN1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_ExecutionEnvironment_ExecutionEnvironmentGen1;
+/**
+ *  Uses Second Generation environment.
+ *
+ *  Value: "EXECUTION_ENVIRONMENT_GEN2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_ExecutionEnvironment_ExecutionEnvironmentGen2;
+/**
+ *  Unspecified
+ *
+ *  Value: "EXECUTION_ENVIRONMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_ExecutionEnvironment_ExecutionEnvironmentUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleCloudRunV2Task.launchStage
+
+/**
+ *  Alpha is a limited availability test for releases before they are cleared
+ *  for widespread use. By Alpha, all significant design issues are resolved and
+ *  we are in the process of verifying functionality. Alpha customers need to
+ *  apply for access, agree to applicable terms, and have their projects
+ *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
+ *  provided, and there are no technical support obligations, but they will be
+ *  far enough along that customers can actually use them in test environments
+ *  or for limited-use tests -- just like they would in normal production cases.
+ *
+ *  Value: "ALPHA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Alpha;
+/**
+ *  Beta is the point at which we are ready to open a release for any customer
+ *  to use. There are no SLA or technical support obligations in a Beta release.
+ *  Products will be complete from a feature perspective, but may have some open
+ *  outstanding issues. Beta releases are suitable for limited production use
+ *  cases.
+ *
+ *  Value: "BETA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Beta;
+/**
+ *  Deprecated features are scheduled to be shut down and removed. For more
+ *  information, see the "Deprecation Policy" section of our [Terms of
+ *  Service](https://cloud.google.com/terms/) and the [Google Cloud Platform
+ *  Subject to the Deprecation
+ *  Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *
+ *  Value: "DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Deprecated;
+/**
+ *  Early Access features are limited to a closed group of testers. To use these
+ *  features, you must sign up in advance and sign a Trusted Tester agreement
+ *  (which includes confidentiality provisions). These features may be unstable,
+ *  changed in backward-incompatible ways, and are not guaranteed to be
+ *  released.
+ *
+ *  Value: "EARLY_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_EarlyAccess;
+/**
+ *  GA features are open to all developers and are considered stable and fully
+ *  qualified for production use.
+ *
+ *  Value: "GA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Ga;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "LAUNCH_STAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_LaunchStageUnspecified;
+/**
+ *  Prelaunch features are hidden from users and are only visible internally.
+ *
+ *  Value: "PRELAUNCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Prelaunch;
+/**
+ *  The feature is not yet implemented. Users can not use it.
+ *
+ *  Value: "UNIMPLEMENTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Unimplemented;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleCloudRunV2TaskTemplate.executionEnvironment
+
+/**
+ *  Uses the First Generation environment.
+ *
+ *  Value: "EXECUTION_ENVIRONMENT_GEN1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2TaskTemplate_ExecutionEnvironment_ExecutionEnvironmentGen1;
+/**
+ *  Uses Second Generation environment.
+ *
+ *  Value: "EXECUTION_ENVIRONMENT_GEN2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2TaskTemplate_ExecutionEnvironment_ExecutionEnvironmentGen2;
+/**
+ *  Unspecified
+ *
+ *  Value: "EXECUTION_ENVIRONMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2TaskTemplate_ExecutionEnvironment_ExecutionEnvironmentUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRun_GoogleCloudRunV2TrafficTarget.type
@@ -781,7 +1057,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  how to connect Cloud SQL and Cloud Run. Format:
  *  {project}:{location}:{instance}
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *connections;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *instances;
 
 @end
 
@@ -841,9 +1117,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_ConflictingRevisionName
  *        The revision name provided conflicts with an existing one. (Value:
  *        "CONFLICTING_REVISION_NAME")
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_EnablingGcfv2UriSupport
- *        Enabling GCFv2 URI support; this is a transient reason. (Value:
- *        "ENABLING_GCFV2_URI_SUPPORT")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_InternalReasonUndefined
  *        Default value. (Value: "INTERNAL_REASON_UNDEFINED")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_RevisionMissing
@@ -852,6 +1125,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_RevisionOrgPolicyViolation
  *        The revision can't be created because it violates an org policy
  *        setting. (Value: "REVISION_ORG_POLICY_VIOLATION")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_UpdatingGcfv2UriData
+ *        Updating GCFv2 URI data; this is a transient reason. (Value:
+ *        "UPDATING_GCFV2_URI_DATA")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_UpdatingIngressTrafficAllowed
  *        Updating ingress traffic settings; this is a transient reason. (Value:
  *        "UPDATING_INGRESS_TRAFFIC_ALLOWED")
@@ -1089,6 +1365,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
+ *  ContainerStatus holds the information of container name and image digest
+ *  value.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2ContainerStatus : GTLRObject
+
+/**
+ *  ImageDigest holds the resolved digest for the image specified, regardless of
+ *  whether a tag or digest was originally specified in the Container object.
+ */
+@property(nonatomic, copy, nullable) NSString *imageDigest;
+
+/** The name of the container, if specified. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  EnvVar represents an environment variable present in a Container.
  */
 @interface GTLRCloudRun_GoogleCloudRunV2EnvVar : GTLRObject
@@ -1123,6 +1417,625 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** Selects a secret and a specific version from Cloud Secret Manager. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2SecretKeySelector *secretKeyRef;
+
+@end
+
+
+/**
+ *  Execution represents the configuration of a single execution. A execution an
+ *  immutable resource that references a container image which is run to
+ *  completion.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2Execution : GTLRObject
+
+/** KRM-style annotations for the resource. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Execution_Annotations *annotations;
+
+/**
+ *  Output only. Represents time when the execution was completed. It is not
+ *  guaranteed to be set in happens-before order across separate operations.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *completionTime;
+
+/**
+ *  Output only. The Condition of this Execution, containing its readiness
+ *  status, and detailed error information in case it did not reach the desired
+ *  state.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Condition *> *conditions;
+
+/**
+ *  Output only. Represents time when the execution was acknowledged by the
+ *  execution controller. It is not guaranteed to be set in happens-before order
+ *  across separate operations.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. For a deleted resource, the deletion time. It is only populated
+ *  as a response to a Delete request.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/**
+ *  Output only. A system-generated fingerprint for this version of the
+ *  resource. May be used to detect modification conflict during updates.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. For a deleted resource, the time after which it will be
+ *  permamently deleted. It is only populated as a response to a Delete request.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Output only. The number of tasks which reached phase Failed.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failedCount;
+
+/**
+ *  Output only. A number that monotonically increases every time the user
+ *  modifies the desired state.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generation;
+
+/** Output only. The name of the parent Job. */
+@property(nonatomic, copy, nullable) NSString *job;
+
+/**
+ *  KRM-style labels for the resource. User-provided labels are shared with
+ *  Google's billing system, so they can be used to filter, or break down
+ *  billing charges by team, component, environment, state, etc. For more
+ *  information, visit
+ *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
+ *  https://cloud.google.com/run/docs/configuring/labels Cloud Run will populate
+ *  some labels with 'run.googleapis.com' or 'serving.knative.dev' namespaces.
+ *  Those labels are read-only, and user changes will not be preserved.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Execution_Labels *labels;
+
+/**
+ *  Set the launch stage to a preview stage on write to allow use of preview
+ *  features in that stage. On read, describes whether the resource uses preview
+ *  features. Launch Stages are defined at [Google Cloud Platform Launch
+ *  Stages](https://cloud.google.com/terms/launch-stages).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Execution_LaunchStage_Alpha Alpha is
+ *        a limited availability test for releases before they are cleared for
+ *        widespread use. By Alpha, all significant design issues are resolved
+ *        and we are in the process of verifying functionality. Alpha customers
+ *        need to apply for access, agree to applicable terms, and have their
+ *        projects allowlisted. Alpha releases don't have to be feature
+ *        complete, no SLAs are provided, and there are no technical support
+ *        obligations, but they will be far enough along that customers can
+ *        actually use them in test environments or for limited-use tests --
+ *        just like they would in normal production cases. (Value: "ALPHA")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Execution_LaunchStage_Beta Beta is
+ *        the point at which we are ready to open a release for any customer to
+ *        use. There are no SLA or technical support obligations in a Beta
+ *        release. Products will be complete from a feature perspective, but may
+ *        have some open outstanding issues. Beta releases are suitable for
+ *        limited production use cases. (Value: "BETA")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Execution_LaunchStage_Deprecated
+ *        Deprecated features are scheduled to be shut down and removed. For
+ *        more information, see the "Deprecation Policy" section of our [Terms
+ *        of Service](https://cloud.google.com/terms/) and the [Google Cloud
+ *        Platform Subject to the Deprecation
+ *        Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *        (Value: "DEPRECATED")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Execution_LaunchStage_EarlyAccess
+ *        Early Access features are limited to a closed group of testers. To use
+ *        these features, you must sign up in advance and sign a Trusted Tester
+ *        agreement (which includes confidentiality provisions). These features
+ *        may be unstable, changed in backward-incompatible ways, and are not
+ *        guaranteed to be released. (Value: "EARLY_ACCESS")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Execution_LaunchStage_Ga GA features
+ *        are open to all developers and are considered stable and fully
+ *        qualified for production use. (Value: "GA")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Execution_LaunchStage_LaunchStageUnspecified
+ *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Execution_LaunchStage_Prelaunch
+ *        Prelaunch features are hidden from users and are only visible
+ *        internally. (Value: "PRELAUNCH")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Execution_LaunchStage_Unimplemented
+ *        The feature is not yet implemented. Users can not use it. (Value:
+ *        "UNIMPLEMENTED")
+ */
+@property(nonatomic, copy, nullable) NSString *launchStage;
+
+/** Output only. The unique name of this Execution. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The generation of this Execution. See comments in `reconciling`
+ *  for additional information on reconciliation process in Cloud Run.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *observedGeneration;
+
+/**
+ *  Output only. Specifies the maximum desired number of tasks the execution
+ *  should run at any given time. Must be <= task_count. The actual number of
+ *  tasks running in steady state will be less than this number when
+ *  ((.spec.task_count - .status.successful) < .spec.parallelism), i.e. when the
+ *  work left to do is less than max parallelism. More info:
+ *  https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *parallelism;
+
+/**
+ *  Output only. Indicates whether the resource's reconciliation is still in
+ *  progress. See comments in `Job.reconciling` for additional information on
+ *  reconciliation process in Cloud Run.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. The number of actively running tasks.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *runningCount;
+
+/**
+ *  Output only. Represents time when the execution started to run. It is not
+ *  guaranteed to be set in happens-before order across separate operations.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. The number of tasks which reached phase Succeeded.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *succeededCount;
+
+/**
+ *  Output only. Specifies the desired number of tasks the execution should run.
+ *  Setting to 1 means that parallelism is limited to 1 and the success of that
+ *  task signals the success of the execution. More info:
+ *  https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *taskCount;
+
+/**
+ *  Output only. Describes the task(s) that will be created when executing an
+ *  execution.
+ *
+ *  Remapped to 'templateProperty' to avoid language reserved word 'template'.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2TaskTemplate *templateProperty;
+
+/**
+ *  Output only. Server assigned unique identifier for the Execution. The value
+ *  is a UUID4 string and guaranteed to remain unchanged until the resource is
+ *  deleted.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The last-modified time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  KRM-style annotations for the resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2Execution_Annotations : GTLRObject
+@end
+
+
+/**
+ *  KRM-style labels for the resource. User-provided labels are shared with
+ *  Google's billing system, so they can be used to filter, or break down
+ *  billing charges by team, component, environment, state, etc. For more
+ *  information, visit
+ *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
+ *  https://cloud.google.com/run/docs/configuring/labels Cloud Run will populate
+ *  some labels with 'run.googleapis.com' or 'serving.knative.dev' namespaces.
+ *  Those labels are read-only, and user changes will not be preserved.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2Execution_Labels : GTLRObject
+@end
+
+
+/**
+ *  Reference to an Execution. Use /Executions.GetExecution with the given name
+ *  to get full execution including the latest status.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2ExecutionReference : GTLRObject
+
+/** Creation timestamp of the execution. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Name of the execution. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  ExecutionTemplate describes the data an execution should have when created
+ *  from a template.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2ExecutionTemplate : GTLRObject
+
+/** KRM-style annotations for the resource. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2ExecutionTemplate_Annotations *annotations;
+
+/** KRM-style labels for the resource. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2ExecutionTemplate_Labels *labels;
+
+/**
+ *  Specifies the maximum desired number of tasks the execution should run at
+ *  given time. Must be <= task_count. When the job is run, if this field is 0
+ *  or unset, the maximum possible value will be used for that execution. The
+ *  actual number of tasks running in steady state will be less than this number
+ *  when there are fewer tasks waiting to be completed remaining, i.e. when the
+ *  work left to do is less than max parallelism.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *parallelism;
+
+/**
+ *  Specifies the desired number of tasks the execution should run. Setting to 1
+ *  means that parallelism is limited to 1 and the success of that task signals
+ *  the success of the execution. More info:
+ *  https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *taskCount;
+
+/**
+ *  Required. Describes the task(s) that will be created when executing an
+ *  execution.
+ *
+ *  Remapped to 'templateProperty' to avoid language reserved word 'template'.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2TaskTemplate *templateProperty;
+
+@end
+
+
+/**
+ *  KRM-style annotations for the resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2ExecutionTemplate_Annotations : GTLRObject
+@end
+
+
+/**
+ *  KRM-style labels for the resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2ExecutionTemplate_Labels : GTLRObject
+@end
+
+
+/**
+ *  Job represents the configuration of a single job. A job an immutable
+ *  resource that references a container image which is run to completion.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2Job : GTLRObject
+
+/**
+ *  KRM-style annotations for the resource. Unstructured key value map that may
+ *  be set by external tools to store and arbitrary metadata. They are not
+ *  queryable and should be preserved when modifying objects. Cloud Run will
+ *  populate some annotations using 'run.googleapis.com' or
+ *  'serving.knative.dev' namespaces. This field follows Kubernetes annotations'
+ *  namespacing, limits, and rules. More info:
+ *  https://kubernetes.io/docs/user-guide/annotations
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Job_Annotations *annotations;
+
+/** Settings for the Binary Authorization feature. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2BinaryAuthorization *binaryAuthorization;
+
+/** Arbitrary identifier for the API client. */
+@property(nonatomic, copy, nullable) NSString *client;
+
+/** Arbitrary version identifier for the API client. */
+@property(nonatomic, copy, nullable) NSString *clientVersion;
+
+/**
+ *  Output only. The Conditions of all other associated sub-resources. They
+ *  contain additional diagnostics information in case the Job does not reach
+ *  its desired state. See comments in `reconciling` for additional information
+ *  on reconciliation process in Cloud Run.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Condition *> *conditions;
+
+/** Output only. Status information for each of the containers specified. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2ContainerStatus *> *containerStatuses;
+
+/** Output only. The creation time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. Email address of the authenticated creator. */
+@property(nonatomic, copy, nullable) NSString *creator;
+
+/** Output only. The deletion time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/**
+ *  Output only. A system-generated fingerprint for this version of the
+ *  resource. May be used to detect modification conflict during updates.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. Number of executions created for this job.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *executionCount;
+
+/**
+ *  Output only. For a deleted resource, the time after which it will be
+ *  permamently deleted.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Output only. A number that monotonically increases every time the user
+ *  modifies the desired state.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generation;
+
+/**
+ *  KRM-style labels for the resource. User-provided labels are shared with
+ *  Google's billing system, so they can be used to filter, or break down
+ *  billing charges by team, component, environment, state, etc. For more
+ *  information, visit
+ *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
+ *  https://cloud.google.com/run/docs/configuring/labels Cloud Run will populate
+ *  some labels with 'run.googleapis.com' or 'serving.knative.dev' namespaces.
+ *  Those labels are read-only, and user changes will not be preserved.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Job_Labels *labels;
+
+/** Output only. Email address of the last authenticated modifier. */
+@property(nonatomic, copy, nullable) NSString *lastModifier;
+
+/** Output only. Name of the last created execution. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2ExecutionReference *latestCreatedExecution;
+
+/**
+ *  The launch stage as defined by [Google Cloud Platform Launch
+ *  Stages](https://cloud.google.com/terms/launch-stages). Cloud Run supports
+ *  `ALPHA`, `BETA`, and `GA`. If no value is specified, GA is assumed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Job_LaunchStage_Alpha Alpha is a
+ *        limited availability test for releases before they are cleared for
+ *        widespread use. By Alpha, all significant design issues are resolved
+ *        and we are in the process of verifying functionality. Alpha customers
+ *        need to apply for access, agree to applicable terms, and have their
+ *        projects allowlisted. Alpha releases don't have to be feature
+ *        complete, no SLAs are provided, and there are no technical support
+ *        obligations, but they will be far enough along that customers can
+ *        actually use them in test environments or for limited-use tests --
+ *        just like they would in normal production cases. (Value: "ALPHA")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Job_LaunchStage_Beta Beta is the
+ *        point at which we are ready to open a release for any customer to use.
+ *        There are no SLA or technical support obligations in a Beta release.
+ *        Products will be complete from a feature perspective, but may have
+ *        some open outstanding issues. Beta releases are suitable for limited
+ *        production use cases. (Value: "BETA")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Job_LaunchStage_Deprecated
+ *        Deprecated features are scheduled to be shut down and removed. For
+ *        more information, see the "Deprecation Policy" section of our [Terms
+ *        of Service](https://cloud.google.com/terms/) and the [Google Cloud
+ *        Platform Subject to the Deprecation
+ *        Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *        (Value: "DEPRECATED")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Job_LaunchStage_EarlyAccess Early
+ *        Access features are limited to a closed group of testers. To use these
+ *        features, you must sign up in advance and sign a Trusted Tester
+ *        agreement (which includes confidentiality provisions). These features
+ *        may be unstable, changed in backward-incompatible ways, and are not
+ *        guaranteed to be released. (Value: "EARLY_ACCESS")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Job_LaunchStage_Ga GA features are
+ *        open to all developers and are considered stable and fully qualified
+ *        for production use. (Value: "GA")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Job_LaunchStage_LaunchStageUnspecified
+ *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Job_LaunchStage_Prelaunch Prelaunch
+ *        features are hidden from users and are only visible internally.
+ *        (Value: "PRELAUNCH")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Job_LaunchStage_Unimplemented The
+ *        feature is not yet implemented. Users can not use it. (Value:
+ *        "UNIMPLEMENTED")
+ */
+@property(nonatomic, copy, nullable) NSString *launchStage;
+
+/**
+ *  The fully qualified name of this Job. Format:
+ *  projects/{project}/locations/{location}/jobs/{job}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The generation of this Job. See comments in `reconciling` for
+ *  additional information on reconciliation process in Cloud Run.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *observedGeneration;
+
+/**
+ *  Output only. Returns true if the Job is currently being acted upon by the
+ *  system to bring it into the desired state. When a new Job is created, or an
+ *  existing one is updated, Cloud Run will asynchronously perform all necessary
+ *  steps to bring the Job to the desired state. This process is called
+ *  reconciliation. While reconciliation is in process, `observed_generation`
+ *  and `latest_succeeded_execution`, will have transient values that might
+ *  mismatch the intended state: Once reconciliation is over (and this field is
+ *  false), there are two possible outcomes: reconciliation succeeded and the
+ *  state matches the Job, or there was an error, and reconciliation failed.
+ *  This state can be found in `terminal_condition.state`. If reconciliation
+ *  succeeded, the following fields will match: `observed_generation` and
+ *  `generation`, `latest_succeeded_execution` and `latest_created_execution`.
+ *  If reconciliation failed, `observed_generation` and
+ *  `latest_succeeded_execution` will have the state of the last succeeded
+ *  execution or empty for newly created Job. Additional information on the
+ *  failure can be found in `terminal_condition` and `conditions`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Required. The template used to create executions for this Job.
+ *
+ *  Remapped to 'templateProperty' to avoid language reserved word 'template'.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2ExecutionTemplate *templateProperty;
+
+/**
+ *  Output only. The Condition of this Job, containing its readiness status, and
+ *  detailed error information in case it did not reach the desired state.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Condition *terminalCondition;
+
+/**
+ *  Output only. Server assigned unique identifier for the Execution. The value
+ *  is a UUID4 string and guaranteed to remain unchanged until the resource is
+ *  deleted.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The last-modified time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  KRM-style annotations for the resource. Unstructured key value map that may
+ *  be set by external tools to store and arbitrary metadata. They are not
+ *  queryable and should be preserved when modifying objects. Cloud Run will
+ *  populate some annotations using 'run.googleapis.com' or
+ *  'serving.knative.dev' namespaces. This field follows Kubernetes annotations'
+ *  namespacing, limits, and rules. More info:
+ *  https://kubernetes.io/docs/user-guide/annotations
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2Job_Annotations : GTLRObject
+@end
+
+
+/**
+ *  KRM-style labels for the resource. User-provided labels are shared with
+ *  Google's billing system, so they can be used to filter, or break down
+ *  billing charges by team, component, environment, state, etc. For more
+ *  information, visit
+ *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
+ *  https://cloud.google.com/run/docs/configuring/labels Cloud Run will populate
+ *  some labels with 'run.googleapis.com' or 'serving.knative.dev' namespaces.
+ *  Those labels are read-only, and user changes will not be preserved.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2Job_Labels : GTLRObject
+@end
+
+
+/**
+ *  Response message containing a list of Executions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "executions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2ListExecutionsResponse : GTLRCollectionObject
+
+/**
+ *  The resulting list of Executions.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Execution *> *executions;
+
+/**
+ *  A token indicating there are more items than page_size. Use it in the next
+ *  ListExecutions request to continue.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message containing a list of Jobs.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "jobs" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2ListJobsResponse : GTLRCollectionObject
+
+/**
+ *  The resulting list of Jobs.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Job *> *jobs;
+
+/**
+ *  A token indicating there are more items than page_size. Use it in the next
+ *  ListJobs request to continue.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -1177,6 +2090,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Service *> *services;
+
+@end
+
+
+/**
+ *  Response message containing a list of Tasks.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "tasks" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2ListTasksResponse : GTLRCollectionObject
+
+/**
+ *  A token indicating there are more items than page_size. Use it in the next
+ *  ListTasks request to continue.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The resulting list of Tasks.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Task *> *tasks;
 
 @end
 
@@ -1282,9 +2222,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  The execution environment being used to host this Revision.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Revision_ExecutionEnvironment_ExecutionEnvironmentDefault
- *        Uses the Google-default environment. (Value:
- *        "EXECUTION_ENVIRONMENT_DEFAULT")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Revision_ExecutionEnvironment_ExecutionEnvironmentGen1
+ *        Uses the First Generation environment. (Value:
+ *        "EXECUTION_ENVIRONMENT_GEN1")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Revision_ExecutionEnvironment_ExecutionEnvironmentGen2
  *        Uses Second Generation environment. (Value:
  *        "EXECUTION_ENVIRONMENT_GEN2")
@@ -1524,9 +2464,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  The sandbox environment to host this Revision.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_ExecutionEnvironment_ExecutionEnvironmentDefault
- *        Uses the Google-default environment. (Value:
- *        "EXECUTION_ENVIRONMENT_DEFAULT")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_ExecutionEnvironment_ExecutionEnvironmentGen1
+ *        Uses the First Generation environment. (Value:
+ *        "EXECUTION_ENVIRONMENT_GEN1")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_ExecutionEnvironment_ExecutionEnvironmentGen2
  *        Uses Second Generation environment. (Value:
  *        "EXECUTION_ENVIRONMENT_GEN2")
@@ -1591,6 +2531,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *        fetch them all at once.
  */
 @interface GTLRCloudRun_GoogleCloudRunV2RevisionTemplate_Labels : GTLRObject
+@end
+
+
+/**
+ *  Request message to create a new Execution of a Job.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2RunJobRequest : GTLRObject
+
+/**
+ *  A system-generated fingerprint for this version of the resource. May be used
+ *  to detect modification conflict during updates.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Indicates that the request should be validated without actually deleting any
+ *  resources.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
 @end
 
 
@@ -1960,6 +2922,364 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
+ *  Task represents a single run of a container to completion.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2Task : GTLRObject
+
+/** KRM-style annotations for the resource. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Task_Annotations *annotations;
+
+/**
+ *  Output only. Represents time when the Task was completed. It is not
+ *  guaranteed to be set in happens-before order across separate operations.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *completionTime;
+
+/**
+ *  Output only. The Condition of this Task, containing its readiness status,
+ *  and detailed error information in case it did not reach the desired state.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Condition *> *conditions;
+
+/**
+ *  Holds the single container that defines the unit of execution for this task.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Container *> *containers;
+
+/**
+ *  Output only. Represents time when the task was created by the job
+ *  controller. It is not guaranteed to be set in happens-before order across
+ *  separate operations.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. For a deleted resource, the deletion time. It is only populated
+ *  as a response to a Delete request.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/**
+ *  Output only. A reference to a customer managed encryption key (CMEK) to use
+ *  to encrypt this container image. For more information, go to
+ *  https://cloud.google.com/run/docs/securing/using-cmek
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionKey;
+
+/**
+ *  Output only. A system-generated fingerprint for this version of the
+ *  resource. May be used to detect modification conflict during updates.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Output only. The name of the parent Execution. */
+@property(nonatomic, copy, nullable) NSString *execution;
+
+/**
+ *  The execution environment being used to host this Task.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Task_ExecutionEnvironment_ExecutionEnvironmentGen1
+ *        Uses the First Generation environment. (Value:
+ *        "EXECUTION_ENVIRONMENT_GEN1")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Task_ExecutionEnvironment_ExecutionEnvironmentGen2
+ *        Uses Second Generation environment. (Value:
+ *        "EXECUTION_ENVIRONMENT_GEN2")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Task_ExecutionEnvironment_ExecutionEnvironmentUnspecified
+ *        Unspecified (Value: "EXECUTION_ENVIRONMENT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *executionEnvironment;
+
+/**
+ *  Output only. For a deleted resource, the time after which it will be
+ *  permamently deleted. It is only populated as a response to a Delete request.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Output only. A number that monotonically increases every time the user
+ *  modifies the desired state.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generation;
+
+/**
+ *  Output only. Index of the Task, unique per execution, and beginning at 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
+
+/** Output only. The name of the parent Job. */
+@property(nonatomic, copy, nullable) NSString *job;
+
+/**
+ *  KRM-style labels for the resource. User-provided labels are shared with
+ *  Google's billing system, so they can be used to filter, or break down
+ *  billing charges by team, component, environment, state, etc. For more
+ *  information, visit
+ *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
+ *  https://cloud.google.com/run/docs/configuring/labels Cloud Run will populate
+ *  some labels with 'run.googleapis.com' or 'serving.knative.dev' namespaces.
+ *  Those labels are read-only, and user changes will not be preserved.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Task_Labels *labels;
+
+/** Output only. Result of the last attempt of this Task. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2TaskAttemptResult *lastAttemptResult;
+
+/**
+ *  Set the launch stage to a preview stage on write to allow use of preview
+ *  features in that stage. On read, describes whether the resource uses preview
+ *  features. Launch Stages are defined at [Google Cloud Platform Launch
+ *  Stages](https://cloud.google.com/terms/launch-stages).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Alpha Alpha is a
+ *        limited availability test for releases before they are cleared for
+ *        widespread use. By Alpha, all significant design issues are resolved
+ *        and we are in the process of verifying functionality. Alpha customers
+ *        need to apply for access, agree to applicable terms, and have their
+ *        projects allowlisted. Alpha releases don't have to be feature
+ *        complete, no SLAs are provided, and there are no technical support
+ *        obligations, but they will be far enough along that customers can
+ *        actually use them in test environments or for limited-use tests --
+ *        just like they would in normal production cases. (Value: "ALPHA")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Beta Beta is the
+ *        point at which we are ready to open a release for any customer to use.
+ *        There are no SLA or technical support obligations in a Beta release.
+ *        Products will be complete from a feature perspective, but may have
+ *        some open outstanding issues. Beta releases are suitable for limited
+ *        production use cases. (Value: "BETA")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Deprecated
+ *        Deprecated features are scheduled to be shut down and removed. For
+ *        more information, see the "Deprecation Policy" section of our [Terms
+ *        of Service](https://cloud.google.com/terms/) and the [Google Cloud
+ *        Platform Subject to the Deprecation
+ *        Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *        (Value: "DEPRECATED")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_EarlyAccess Early
+ *        Access features are limited to a closed group of testers. To use these
+ *        features, you must sign up in advance and sign a Trusted Tester
+ *        agreement (which includes confidentiality provisions). These features
+ *        may be unstable, changed in backward-incompatible ways, and are not
+ *        guaranteed to be released. (Value: "EARLY_ACCESS")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Ga GA features are
+ *        open to all developers and are considered stable and fully qualified
+ *        for production use. (Value: "GA")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_LaunchStageUnspecified
+ *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Prelaunch Prelaunch
+ *        features are hidden from users and are only visible internally.
+ *        (Value: "PRELAUNCH")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Unimplemented The
+ *        feature is not yet implemented. Users can not use it. (Value:
+ *        "UNIMPLEMENTED")
+ */
+@property(nonatomic, copy, nullable) NSString *launchStage;
+
+/**
+ *  Number of retries allowed per Task, before marking this Task failed.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxRetries;
+
+/** Output only. The unique name of this Task. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The generation of this Task. See comments in `Job.reconciling`
+ *  for additional information on reconciliation process in Cloud Run.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *observedGeneration;
+
+/**
+ *  Output only. Indicates whether the resource's reconciliation is still in
+ *  progress. See comments in `Job.reconciling` for additional information on
+ *  reconciliation process in Cloud Run.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. The number of times this Task was retried. Tasks are retried
+ *  when they fail up to the maxRetries limit.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *retried;
+
+/**
+ *  Email address of the IAM service account associated with the Task of a Job.
+ *  The service account represents the identity of the running task, and
+ *  determines what permissions the task has. If not provided, the task will use
+ *  the project's default service account.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/**
+ *  Output only. Represents time when the task started to run. It is not
+ *  guaranteed to be set in happens-before order across separate operations.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Max allowed time duration the Task may be active before the system will
+ *  actively try to mark it failed and kill associated containers. This applies
+ *  per attempt of a task, meaning each retry can run for the full timeout.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+/**
+ *  Output only. Server assigned unique identifier for the Task. The value is a
+ *  UUID4 string and guaranteed to remain unchanged until the resource is
+ *  deleted.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The last-modified time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** A list of Volumes to make available to containers. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Volume *> *volumes;
+
+/**
+ *  Output only. VPC Access configuration to use for this Task. For more
+ *  information, visit
+ *  https://cloud.google.com/run/docs/configuring/connecting-vpc.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2VpcAccess *vpcAccess;
+
+@end
+
+
+/**
+ *  KRM-style annotations for the resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2Task_Annotations : GTLRObject
+@end
+
+
+/**
+ *  KRM-style labels for the resource. User-provided labels are shared with
+ *  Google's billing system, so they can be used to filter, or break down
+ *  billing charges by team, component, environment, state, etc. For more
+ *  information, visit
+ *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
+ *  https://cloud.google.com/run/docs/configuring/labels Cloud Run will populate
+ *  some labels with 'run.googleapis.com' or 'serving.knative.dev' namespaces.
+ *  Those labels are read-only, and user changes will not be preserved.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2Task_Labels : GTLRObject
+@end
+
+
+/**
+ *  Result of a task attempt.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2TaskAttemptResult : GTLRObject
+
+/**
+ *  Output only. The exit code of this attempt. This may be unset if the
+ *  container was unable to exit cleanly with a code due to some other failure.
+ *  See status field for possible failure details.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exitCode;
+
+/**
+ *  Output only. The status of this attempt. If the status code is OK, then the
+ *  attempt succeeded.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleRpcStatus *status;
+
+@end
+
+
+/**
+ *  TaskTemplate describes the data a task should have when created from a
+ *  template.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2TaskTemplate : GTLRObject
+
+/**
+ *  Holds the single container that defines the unit of execution for this task.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Container *> *containers;
+
+/**
+ *  A reference to a customer managed encryption key (CMEK) to use to encrypt
+ *  this container image. For more information, go to
+ *  https://cloud.google.com/run/docs/securing/using-cmek
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionKey;
+
+/**
+ *  The execution environment being used to host this Task.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2TaskTemplate_ExecutionEnvironment_ExecutionEnvironmentGen1
+ *        Uses the First Generation environment. (Value:
+ *        "EXECUTION_ENVIRONMENT_GEN1")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2TaskTemplate_ExecutionEnvironment_ExecutionEnvironmentGen2
+ *        Uses Second Generation environment. (Value:
+ *        "EXECUTION_ENVIRONMENT_GEN2")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2TaskTemplate_ExecutionEnvironment_ExecutionEnvironmentUnspecified
+ *        Unspecified (Value: "EXECUTION_ENVIRONMENT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *executionEnvironment;
+
+/**
+ *  Number of retries allowed per Task, before marking this Task failed.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxRetries;
+
+/**
+ *  Email address of the IAM service account associated with the Task of a Job.
+ *  The service account represents the identity of the running task, and
+ *  determines what permissions the task has. If not provided, the task will use
+ *  the project's default service account.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/**
+ *  Max allowed time duration the Task may be active before the system will
+ *  actively try to mark it failed and kill associated containers. This applies
+ *  per attempt of a task, meaning each retry can run for the full timeout.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+/** A list of Volumes to make available to containers. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Volume *> *volumes;
+
+/**
+ *  VPC Access configuration to use for this Task. For more information, visit
+ *  https://cloud.google.com/run/docs/configuring/connecting-vpc.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2VpcAccess *vpcAccess;
+
+@end
+
+
+/**
  *  Holds a single traffic routing entry for the Service. Allocations can be
  *  done to a specific Revision name, or pointing to the latest Ready Revision.
  */
@@ -2239,7 +3559,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleTypeExpr *condition;
 
 /**
- *  Specifies the principals requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Google Cloud resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -2377,7 +3697,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
  *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
- *  but certain Cloud Platform services (such as Projects) might reject them.
+ *  but certain Google Cloud services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleIamV1Policy *policy;
 
@@ -2400,7 +3720,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
  *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;

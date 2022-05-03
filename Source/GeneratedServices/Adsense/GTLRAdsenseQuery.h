@@ -951,6 +951,37 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 @end
 
 /**
+ *  Gets the ad client from the given resource name.
+ *
+ *  Method: adsense.accounts.adclients.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdsense
+ *    @c kGTLRAuthScopeAdsenseReadonly
+ */
+@interface GTLRAdsenseQuery_AccountsAdclientsGet : GTLRAdsenseQuery
+
+/**
+ *  Required. The name of the ad client to retrieve. Format:
+ *  accounts/{account}/adclients/{adclient}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAdsense_AdClient.
+ *
+ *  Gets the ad client from the given resource name.
+ *
+ *  @param name Required. The name of the ad client to retrieve. Format:
+ *    accounts/{account}/adclients/{adclient}
+ *
+ *  @return GTLRAdsenseQuery_AccountsAdclientsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the AdSense code for a given ad client. This returns what was
  *  previously known as the 'auto ad code'. This is only supported for ad
  *  clients with a product_code of AFC. For more information, see [About the
@@ -1033,6 +1064,37 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets information about the selected url channel.
+ *
+ *  Method: adsense.accounts.adclients.urlchannels.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdsense
+ *    @c kGTLRAuthScopeAdsenseReadonly
+ */
+@interface GTLRAdsenseQuery_AccountsAdclientsUrlchannelsGet : GTLRAdsenseQuery
+
+/**
+ *  Required. The name of the url channel to retrieve. Format:
+ *  accounts/{account}/adclients/{adclient}/urlchannels/{urlchannel}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAdsense_UrlChannel.
+ *
+ *  Gets information about the selected url channel.
+ *
+ *  @param name Required. The name of the url channel to retrieve. Format:
+ *    accounts/{account}/adclients/{adclient}/urlchannels/{urlchannel}
+ *
+ *  @return GTLRAdsenseQuery_AccountsAdclientsUrlchannelsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -2037,6 +2099,37 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *  @return GTLRAdsenseQuery_AccountsReportsGenerateCsv
  */
 + (instancetype)queryWithAccount:(NSString *)account;
+
+@end
+
+/**
+ *  Gets the saved report from the given resource name.
+ *
+ *  Method: adsense.accounts.reports.getSaved
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdsense
+ *    @c kGTLRAuthScopeAdsenseReadonly
+ */
+@interface GTLRAdsenseQuery_AccountsReportsGetSaved : GTLRAdsenseQuery
+
+/**
+ *  Required. The name of the saved report to retrieve. Format:
+ *  accounts/{account}/reports/{report}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAdsense_SavedReport.
+ *
+ *  Gets the saved report from the given resource name.
+ *
+ *  @param name Required. The name of the saved report to retrieve. Format:
+ *    accounts/{account}/reports/{report}
+ *
+ *  @return GTLRAdsenseQuery_AccountsReportsGetSaved
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

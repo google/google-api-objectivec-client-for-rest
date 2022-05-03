@@ -142,6 +142,38 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsRequest
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsRequest
+@dynamic filter, pageSize, pageToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsResponse
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsResponse
+@dynamic nextPageToken, promotions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"promotions" : [GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"promotions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ListProductsResponse
 //
 

@@ -197,6 +197,12 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings_Redac
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings_RedactionStrategy_RedactionStrategyUnspecified = @"REDACTION_STRATEGY_UNSPECIFIED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings_RedactionStrategy_RedactWithService = @"REDACT_WITH_SERVICE";
 
+// GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings.audioFormat
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings_AudioFormat_AudioFormatUnspecified = @"AUDIO_FORMAT_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings_AudioFormat_Mp3 = @"MP3";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings_AudioFormat_Mulaw = @"MULAW";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings_AudioFormat_Ogg = @"OGG";
+
 // GTLRDialogflow_GoogleCloudDialogflowCxV3SessionEntityType.entityOverrideMode
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SessionEntityType_EntityOverrideMode_EntityOverrideModeOverride = @"ENTITY_OVERRIDE_MODE_OVERRIDE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SessionEntityType_EntityOverrideMode_EntityOverrideModeSupplement = @"ENTITY_OVERRIDE_MODE_SUPPLEMENT";
@@ -3864,9 +3870,9 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings
-@dynamic deidentifyTemplate, displayName, insightsExportSettings,
-         inspectTemplate, name, purgeDataTypes, redactionScope,
-         redactionStrategy, retentionWindowDays;
+@dynamic audioExportSettings, deidentifyTemplate, displayName,
+         insightsExportSettings, inspectTemplate, name, purgeDataTypes,
+         redactionScope, redactionStrategy, retentionWindowDays;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3875,6 +3881,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings
+@dynamic audioExportPattern, audioFormat, enableAudioRedaction, gcsBucket;
 @end
 
 

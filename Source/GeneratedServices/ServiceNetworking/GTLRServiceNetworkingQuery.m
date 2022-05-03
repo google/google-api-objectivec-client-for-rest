@@ -421,7 +421,7 @@
 
 @implementation GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksGet
 
-@dynamic name;
+@dynamic includeUsedIpRanges, name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

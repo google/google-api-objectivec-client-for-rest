@@ -3,6 +3,8 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Eventarc API (eventarc/v1)
+// Description:
+//   Build event-driven applications on Google Cloud Platform.
 // Documentation:
 //   https://cloud.google.com/eventarc
 
@@ -42,6 +44,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeEventarcCloudPlatform;
 
 /**
  *  Service for executing Eventarc API queries.
+ *
+ *  Build event-driven applications on Google Cloud Platform.
  */
 @interface GTLREventarcService : GTLRService
 

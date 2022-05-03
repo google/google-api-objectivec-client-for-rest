@@ -19,6 +19,23 @@
 
 @end
 
+@implementation GTLRCloudResourceManagerQuery_EffectiveTagsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v3/effectiveTags";
+  GTLRCloudResourceManagerQuery_EffectiveTagsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCloudResourceManager_ListEffectiveTagsResponse class];
+  query.loggingName = @"cloudresourcemanager.effectiveTags.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudResourceManagerQuery_FoldersCreate
 
 + (instancetype)queryWithObject:(GTLRCloudResourceManager_Folder *)object {
@@ -1154,6 +1171,71 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRCloudResourceManager_Policy class];
   query.loggingName = @"cloudresourcemanager.tagValues.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_TagValuesTagHoldsCreate
+
+@dynamic parent, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_TagHold *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/tagHolds";
+  GTLRCloudResourceManagerQuery_TagValuesTagHoldsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
+  query.loggingName = @"cloudresourcemanager.tagValues.tagHolds.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_TagValuesTagHoldsDelete
+
+@dynamic name, validateOnly;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_TagValuesTagHoldsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
+  query.loggingName = @"cloudresourcemanager.tagValues.tagHolds.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_TagValuesTagHoldsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/tagHolds";
+  GTLRCloudResourceManagerQuery_TagValuesTagHoldsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudResourceManager_ListTagHoldsResponse class];
+  query.loggingName = @"cloudresourcemanager.tagValues.tagHolds.list";
   return query;
 }
 

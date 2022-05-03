@@ -1749,8 +1749,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricLineitemBidResponseCount;
 /** Value: "METRIC_MEDIA_COST_ADVERTISER" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricMediaCostAdvertiser;
-/** Value: "METRIC_MEDIA_COST_ADVERTISER_CURRENCY_PER_STORE_VISIT_ADX_ONLY" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricMediaCostAdvertiserCurrencyPerStoreVisitAdxOnly;
 /** Value: "METRIC_MEDIA_COST_ECPA_ADVERTISER" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricMediaCostEcpaAdvertiser;
 /** Value: "METRIC_MEDIA_COST_ECPA_PARTNER" */
@@ -1919,8 +1917,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRefundPlatformFeeAdvertiserCurrency;
 /** Value: "METRIC_REVENUE_ADVERTISER" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRevenueAdvertiser;
-/** Value: "METRIC_REVENUE_ADVERTISER_CURRENCY_PER_STORE_VISIT_ADX_ONLY" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRevenueAdvertiserCurrencyPerStoreVisitAdxOnly;
 /** Value: "METRIC_REVENUE_ECPA_ADVERTISER" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRevenueEcpaAdvertiser;
 /** Value: "METRIC_REVENUE_ECPA_PARTNER" */
@@ -1995,8 +1991,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricStopsAudio;
 /** Value: "METRIC_STORE_VISIT_CONVERSIONS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricStoreVisitConversions;
-/** Value: "METRIC_STORE_VISITS_ADX_ONLY" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricStoreVisitsAdxOnly;
 /** Value: "METRIC_TARGET_RATING_POINTS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTargetRatingPoints;
 /** Value: "METRIC_TEA_TRUEVIEW_IMPRESSIONS" */
@@ -2023,10 +2017,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalInteractionTime;
 /** Value: "METRIC_TOTAL_MEDIA_COST_ADVERTISER" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalMediaCostAdvertiser;
-/**
- *  Value: "METRIC_TOTAL_MEDIA_COST_ADVERTISER_CURRENCY_PER_STORE_VISIT_ADX_ONLY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalMediaCostAdvertiserCurrencyPerStoreVisitAdxOnly;
 /** Value: "METRIC_TOTAL_MEDIA_COST_ECPA_ADVERTISER" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalMediaCostEcpaAdvertiser;
 /** Value: "METRIC_TOTAL_MEDIA_COST_ECPA_PARTNER" */

@@ -1217,7 +1217,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Expr *condition;
 
 /**
- *  Specifies the principals requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Google Cloud resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -4450,6 +4450,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  * use a free text query. Example: `RUNNING`
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  TagKey namespaced names, in the format of {ORG_ID}/{TAG_KEY_SHORT_NAME}. To
+ *  search against the `tagKeys`: * use a field query. Example: -
+ *  `tagKeys:"123456789/env*"` - `tagKeys="123456789/env"` - `tagKeys:"env"` *
+ *  use a free text query. Example: - `env`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tagKeys;
+
+/**
+ *  TagValue IDs, in the format of tagValues/{TAG_VALUE_ID}. To search against
+ *  the `tagValueIds`: * use a field query. Example: - `tagValueIds:"456"` -
+ *  `tagValueIds="tagValues/456"` * use a free text query. Example: - `456`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tagValueIds;
+
+/**
+ *  TagValue namespaced names, in the format of
+ *  {ORG_ID}/{TAG_KEY_SHORT_NAME}/{TAG_VALUE_SHORT_NAME}. To search against the
+ *  `tagValues`: * use a field query. Example: - `tagValues:"env"` -
+ *  `tagValues:"env/prod"` - `tagValues:"123456789/env/prod*"` -
+ *  `tagValues="123456789/env/prod"` * use a free text query. Example: - `prod`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tagValues;
 
 /**
  *  The last update timestamp of this resource, at which the resource was last

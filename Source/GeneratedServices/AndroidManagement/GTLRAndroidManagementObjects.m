@@ -219,6 +219,7 @@ NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_Comp
 NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_Enrollment = @"ENROLLMENT";
 NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_NotificationTypeUnspecified = @"NOTIFICATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_StatusReport = @"STATUS_REPORT";
+NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_UsageLogs = @"USAGE_LOGS";
 
 // GTLRAndroidManagement_KeyedAppState.severity
 NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_Error = @"ERROR";
@@ -431,6 +432,7 @@ NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_Wireless = @"W
 
 // GTLRAndroidManagement_PostureDetail.securityRisk
 NSString * const kGTLRAndroidManagement_PostureDetail_SecurityRisk_CompromisedOs = @"COMPROMISED_OS";
+NSString * const kGTLRAndroidManagement_PostureDetail_SecurityRisk_HardwareBackedEvaluationFailed = @"HARDWARE_BACKED_EVALUATION_FAILED";
 NSString * const kGTLRAndroidManagement_PostureDetail_SecurityRisk_SecurityRiskUnspecified = @"SECURITY_RISK_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_PostureDetail_SecurityRisk_UnknownOs = @"UNKNOWN_OS";
 
@@ -467,6 +469,16 @@ NSString * const kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_SecurityUp
 NSString * const kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_UnknownUpdateAvailable = @"UNKNOWN_UPDATE_AVAILABLE";
 NSString * const kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_UpdateStatusUnknown = @"UPDATE_STATUS_UNKNOWN";
 NSString * const kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_UpToDate = @"UP_TO_DATE";
+
+// GTLRAndroidManagement_UsageLog.enabledLogTypes
+NSString * const kGTLRAndroidManagement_UsageLog_EnabledLogTypes_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_UsageLog_EnabledLogTypes_NetworkActivityLogs = @"NETWORK_ACTIVITY_LOGS";
+NSString * const kGTLRAndroidManagement_UsageLog_EnabledLogTypes_SecurityLogs = @"SECURITY_LOGS";
+
+// GTLRAndroidManagement_UsageLog.uploadOnCellularAllowed
+NSString * const kGTLRAndroidManagement_UsageLog_UploadOnCellularAllowed_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_UsageLog_UploadOnCellularAllowed_NetworkActivityLogs = @"NETWORK_ACTIVITY_LOGS";
+NSString * const kGTLRAndroidManagement_UsageLog_UploadOnCellularAllowed_SecurityLogs = @"SECURITY_LOGS";
 
 // GTLRAndroidManagement_WebApp.displayMode
 NSString * const kGTLRAndroidManagement_WebApp_DisplayMode_DisplayModeUnspecified = @"DISPLAY_MODE_UNSPECIFIED";
@@ -1460,7 +1472,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          shortSupportMessage, skipFirstUseHintsEnabled, smsDisabled,
          statusBarDisabled, statusReportingSettings, stayOnPluggedModes,
          systemUpdate, tetheringConfigDisabled, uninstallAppsDisabled,
-         unmuteMicrophoneDisabled, usbFileTransferDisabled,
+         unmuteMicrophoneDisabled, usageLog, usbFileTransferDisabled,
          usbMassStorageEnabled, version, vpnConfigDisabled, wifiConfigDisabled,
          wifiConfigsLockdownEnabled;
 
@@ -1714,6 +1726,25 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_TermsAndConditions
 @dynamic content, header;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_UsageLog
+//
+
+@implementation GTLRAndroidManagement_UsageLog
+@dynamic enabledLogTypes, uploadOnCellularAllowed;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enabledLogTypes" : [NSString class],
+    @"uploadOnCellularAllowed" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

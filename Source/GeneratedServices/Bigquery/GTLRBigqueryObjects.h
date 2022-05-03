@@ -131,6 +131,8 @@
 @class GTLRBigquery_RangePartitioning_Range;
 @class GTLRBigquery_RankingMetrics;
 @class GTLRBigquery_RegressionMetrics;
+@class GTLRBigquery_RemoteFunctionOptions;
+@class GTLRBigquery_RemoteFunctionOptions_UserDefinedContext;
 @class GTLRBigquery_Routine;
 @class GTLRBigquery_RoutineReference;
 @class GTLRBigquery_Row;
@@ -2358,7 +2360,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) GTLRBigquery_Expr *condition;
 
 /**
- *  Specifies the principals requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Google Cloud resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -2944,7 +2946,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *satisfiesPZS;
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
  *  [Output-only] A URL that can be used to access the resource again. You can
@@ -3697,8 +3699,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSNumber *attribution;
 
 /**
- *  Full name of the feature. For non-numerical features, will be formatted like
- *  .. Overall size of feature name will always be truncated to first 120
+ *  The full feature name. For non-numerical features, will be formatted like
+ *  `.`. Overall size of feature name will always be truncated to first 120
  *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *featureName;
@@ -4225,7 +4227,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 
 /**
- *  Training info of a trial in hyperparameter tuning.
+ *  Training info of a trial in [hyperparameter
+ *  tuning](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview)
+ *  models.
  */
 @interface GTLRBigquery_HparamTuningTrial : GTLRObject
 
@@ -5877,6 +5881,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  */
 @property(nonatomic, strong, nullable) NSNumber *lastRefreshTime;
 
+/**
+ *  [Optional] Max staleness of data that could be returned when materizlized
+ *  view is queried (formatted as Google SQL Interval type).
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *maxStaleness;
+
 /** [Required] A query whose result is persisted. */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -5933,9 +5946,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 /**
  *  Output only. The default trial_id to use in TVFs when the trial_id is not
- *  passed in. For single-objective hyperparameter tuning, this is the best
- *  trial id. For multi-objective hyperparameter tuning, this is the smallest
- *  trial id among all Pareto optimal trials.
+ *  passed in. For single-objective [hyperparameter
+ *  tuning](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview)
+ *  models, this is the best trial ID. For multi-objective [hyperparameter
+ *  tuning](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview)
+ *  models, this is the smallest trial ID among all Pareto optimal trials.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5980,7 +5995,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) GTLRBigquery_HparamSearchSpaces *hparamSearchSpaces;
 
 /**
- *  Output only. Trials of a hyperparameter tuning model sorted by trial_id.
+ *  Output only. Trials of a [hyperparameter
+ *  tuning](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview)
+ *  model sorted by trial_id.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_HparamTuningTrial *> *hparamTrials;
 
@@ -6056,9 +6073,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, copy, nullable) NSString *modelType;
 
 /**
- *  Output only. For single-objective hyperparameter tuning, it only contains
- *  the best trial. For multi-objective hyperparameter tuning, it contains all
- *  Pareto optimal trials sorted by trial_id.
+ *  Output only. For single-objective [hyperparameter
+ *  tuning](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview)
+ *  models, it only contains the best trial. For multi-objective [hyperparameter
+ *  tuning](/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-hp-tuning-overview)
+ *  models, it contains all Pareto optimal trials sorted by trial_id.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -6964,6 +6983,58 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 
 /**
+ *  Options for a remote user-defined function.
+ */
+@interface GTLRBigquery_RemoteFunctionOptions : GTLRObject
+
+/**
+ *  Fully qualified name of the user-provided connection object which holds the
+ *  authentication information to send requests to the remote service.
+ *  projects/{project_id}/locations/{location_id}/connections/{connection_id}
+ */
+@property(nonatomic, copy, nullable) NSString *connection;
+
+/**
+ *  Endpoint of the user-provided remote service (e.g. a function url in Google
+ *  Cloud Functions).
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Max number of rows in each batch sent to the remote service. If absent or if
+ *  0, it means no limit.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxBatchingRows;
+
+/**
+ *  User-defined context as a set of key/value pairs, which will be sent as
+ *  function invocation context together with batched arguments in the requests
+ *  to the remote service. The total number of bytes of keys and values must be
+ *  less than 8KB.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_RemoteFunctionOptions_UserDefinedContext *userDefinedContext;
+
+@end
+
+
+/**
+ *  User-defined context as a set of key/value pairs, which will be sent as
+ *  function invocation context together with batched arguments in the requests
+ *  to the remote service. The total number of bytes of keys and values must be
+ *  less than 8KB.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBigquery_RemoteFunctionOptions_UserDefinedContext : GTLRObject
+@end
+
+
+/**
  *  A user-defined function or a stored procedure.
  */
 @interface GTLRBigquery_Routine : GTLRObject
@@ -7044,6 +7115,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *lastModifiedTime;
+
+/** Optional. Remote function specific options. */
+@property(nonatomic, strong, nullable) GTLRBigquery_RemoteFunctionOptions *remoteFunctionOptions;
 
 /**
  *  Optional. Can be set only if routine_type = "TABLE_VALUED_FUNCTION". If
@@ -7298,7 +7372,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
  *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
- *  but certain Cloud Platform services (such as Projects) might reject them.
+ *  but certain Google Cloud services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_Policy *policy;
 
@@ -7588,6 +7662,73 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) GTLRBigquery_ModelDefinition *model;
 
 /**
+ *  [Output-only] Number of logical bytes that are less than 90 days old.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numActiveLogicalBytes;
+
+/**
+ *  [Output-only] Number of physical bytes less than 90 days old. This data is
+ *  not kept in real time, and might be delayed by a few seconds to a few
+ *  minutes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numActivePhysicalBytes;
+
+/**
+ *  [Output-only] Number of logical bytes that are more than 90 days old.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numLongTermLogicalBytes;
+
+/**
+ *  [Output-only] Number of physical bytes more than 90 days old. This data is
+ *  not kept in real time, and might be delayed by a few seconds to a few
+ *  minutes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numLongTermPhysicalBytes;
+
+/**
+ *  [Output-only] The number of partitions present in the table or materialized
+ *  view. This data is not kept in real time, and might be delayed by a few
+ *  seconds to a few minutes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numPartitions;
+
+/**
+ *  [Output-only] Number of physical bytes used by time travel storage (deleted
+ *  or changed data). This data is not kept in real time, and might be delayed
+ *  by a few seconds to a few minutes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numTimeTravelPhysicalBytes;
+
+/**
+ *  [Output-only] Total number of logical bytes in the table or materialized
+ *  view.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numTotalLogicalBytes;
+
+/**
+ *  [Output-only] The physical size of this table in bytes. This also includes
+ *  storage used for time travel. This data is not kept in real time, and might
+ *  be delayed by a few seconds to a few minutes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numTotalPhysicalBytes;
+
+/**
  *  [Output-only] The size of this table in bytes, excluding any data in the
  *  streaming buffer.
  *
@@ -7847,7 +7988,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  Optional. Collation specification of the field. It only can be set on string
  *  type field.
  */
-@property(nonatomic, copy, nullable) NSString *collationSpec;
+@property(nonatomic, copy, nullable) NSString *collation;
+
+/**
+ *  Optional. A SQL expression to specify the default value for this field. It
+ *  can only be set for top level fields (columns). You can use struct or array
+ *  expression to specify default value for the entire struct or array. The
+ *  valid SQL expressions are: - Literals for all data types, including STRUCT
+ *  and ARRAY. - Following functions: - CURRENT_TIMESTAMP - CURRENT_TIME -
+ *  CURRENT_DATE - CURRENT_DATETIME - GENERATE_UUID - RAND - SESSION_USER -
+ *  ST_GEOGPOINT - Struct or array composed with the above allowed functions,
+ *  for example, [CURRENT_DATE(), DATE '2020-01-01']
+ */
+@property(nonatomic, copy, nullable) NSString *defaultValueExpression;
 
 /**
  *  [Optional] The field description. The maximum length is 1,024 characters.
@@ -8139,7 +8292,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
  *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;

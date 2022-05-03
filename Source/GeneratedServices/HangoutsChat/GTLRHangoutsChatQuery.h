@@ -63,14 +63,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. Opaque thread identifier string that can be specified to group
- *  messages into a single thread. If this is the first message with a given
- *  thread identifier, a new thread is created. Subsequent messages with the
- *  same thread identifier will be posted into the same thread. This relieves
- *  Chat apps and webhooks from having to store the Google Chat thread ID of a
- *  thread (created earlier by them) to post further updates to it. Has no
- *  effect if thread field, corresponding to an existing thread, is set in
- *  message.
+ *  Optional. Opaque thread identifier. To start or add to a thread, create a
+ *  message and specify a `threadKey` instead of thread.name. (Setting
+ *  thread.name has no effect.) The first message with a given `threadKey`
+ *  starts a new thread. Subsequent messages with the same `threadKey` post into
+ *  the same thread.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -113,14 +110,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. Opaque thread identifier string that can be specified to group
- *  messages into a single thread. If this is the first message with a given
- *  thread identifier, a new thread is created. Subsequent messages with the
- *  same thread identifier will be posted into the same thread. This relieves
- *  Chat apps and webhooks from having to store the Google Chat thread ID of a
- *  thread (created earlier by them) to post further updates to it. Has no
- *  effect if thread field, corresponding to an existing thread, is set in
- *  message.
+ *  Optional. Opaque thread identifier. To start or add to a thread, create a
+ *  message and specify a `threadKey` instead of thread.name. (Setting
+ *  thread.name has no effect.) The first message with a given `threadKey`
+ *  starts a new thread. Subsequent messages with the same `threadKey` post into
+ *  the same thread.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -163,14 +157,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. Opaque thread identifier string that can be specified to group
- *  messages into a single thread. If this is the first message with a given
- *  thread identifier, a new thread is created. Subsequent messages with the
- *  same thread identifier will be posted into the same thread. This relieves
- *  Chat apps and webhooks from having to store the Google Chat thread ID of a
- *  thread (created earlier by them) to post further updates to it. Has no
- *  effect if thread field, corresponding to an existing thread, is set in
- *  message.
+ *  Optional. Opaque thread identifier. To start or add to a thread, create a
+ *  message and specify a `threadKey` instead of thread.name. (Setting
+ *  thread.name has no effect.) The first message with a given `threadKey`
+ *  starts a new thread. Subsequent messages with the same `threadKey` post into
+ *  the same thread.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -254,14 +245,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. Opaque thread identifier string that can be specified to group
- *  messages into a single thread. If this is the first message with a given
- *  thread identifier, a new thread is created. Subsequent messages with the
- *  same thread identifier will be posted into the same thread. This relieves
- *  Chat apps and webhooks from having to store the Google Chat thread ID of a
- *  thread (created earlier by them) to post further updates to it. Has no
- *  effect if thread field, corresponding to an existing thread, is set in
- *  message.
+ *  Optional. Opaque thread identifier. To start or add to a thread, create a
+ *  message and specify a `threadKey` instead of thread.name. (Setting
+ *  thread.name has no effect.) The first message with a given `threadKey`
+ *  starts a new thread. Subsequent messages with the same `threadKey` post into
+ *  the same thread.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -304,14 +292,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. Opaque thread identifier string that can be specified to group
- *  messages into a single thread. If this is the first message with a given
- *  thread identifier, a new thread is created. Subsequent messages with the
- *  same thread identifier will be posted into the same thread. This relieves
- *  Chat apps and webhooks from having to store the Google Chat thread ID of a
- *  thread (created earlier by them) to post further updates to it. Has no
- *  effect if thread field, corresponding to an existing thread, is set in
- *  message.
+ *  Optional. Opaque thread identifier. To start or add to a thread, create a
+ *  message and specify a `threadKey` instead of thread.name. (Setting
+ *  thread.name has no effect.) The first message with a given `threadKey`
+ *  starts a new thread. Subsequent messages with the same `threadKey` post into
+ *  the same thread.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -354,14 +339,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. Opaque thread identifier string that can be specified to group
- *  messages into a single thread. If this is the first message with a given
- *  thread identifier, a new thread is created. Subsequent messages with the
- *  same thread identifier will be posted into the same thread. This relieves
- *  Chat apps and webhooks from having to store the Google Chat thread ID of a
- *  thread (created earlier by them) to post further updates to it. Has no
- *  effect if thread field, corresponding to an existing thread, is set in
- *  message.
+ *  Optional. Opaque thread identifier. To start or add to a thread, create a
+ *  message and specify a `threadKey` instead of thread.name. (Setting
+ *  thread.name has no effect.) The first message with a given `threadKey`
+ *  starts a new thread. Subsequent messages with the same `threadKey` post into
+ *  the same thread.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -571,14 +553,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. Opaque thread identifier string that can be specified to group
- *  messages into a single thread. If this is the first message with a given
- *  thread identifier, a new thread is created. Subsequent messages with the
- *  same thread identifier will be posted into the same thread. This relieves
- *  Chat apps and webhooks from having to store the Google Chat thread ID of a
- *  thread (created earlier by them) to post further updates to it. Has no
- *  effect if thread field, corresponding to an existing thread, is set in
- *  message.
+ *  Optional. Opaque thread identifier. To start or add to a thread, create a
+ *  message and specify a `threadKey` instead of thread.name. (Setting
+ *  thread.name has no effect.) The first message with a given `threadKey`
+ *  starts a new thread. Subsequent messages with the same `threadKey` post into
+ *  the same thread.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -721,14 +700,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. Opaque thread identifier string that can be specified to group
- *  messages into a single thread. If this is the first message with a given
- *  thread identifier, a new thread is created. Subsequent messages with the
- *  same thread identifier will be posted into the same thread. This relieves
- *  Chat apps and webhooks from having to store the Google Chat thread ID of a
- *  thread (created earlier by them) to post further updates to it. Has no
- *  effect if thread field, corresponding to an existing thread, is set in
- *  message.
+ *  Optional. Opaque thread identifier. To start or add to a thread, create a
+ *  message and specify a `threadKey` instead of thread.name. (Setting
+ *  thread.name has no effect.) The first message with a given `threadKey`
+ *  starts a new thread. Subsequent messages with the same `threadKey` post into
+ *  the same thread.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 

@@ -193,6 +193,40 @@
 
 @end
 
+@implementation GTLRDoubleclicksearchQuery_ReportsGetIdMappingFile
+
+@dynamic advertiserId, agencyId;
+
++ (instancetype)queryWithAgencyId:(long long)agencyId
+                     advertiserId:(long long)advertiserId {
+  NSArray *pathParams = @[
+    @"advertiserId", @"agencyId"
+  ];
+  NSString *pathURITemplate = @"doubleclicksearch/v2/agency/{agencyId}/advertiser/{advertiserId}/idmapping";
+  GTLRDoubleclicksearchQuery_ReportsGetIdMappingFile *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.agencyId = agencyId;
+  query.advertiserId = advertiserId;
+  query.expectedObjectClass = [GTLRDoubleclicksearch_IdMappingFile class];
+  query.loggingName = @"doubleclicksearch.reports.getIdMappingFile";
+  return query;
+}
+
++ (instancetype)queryForMediaWithAgencyId:(long long)agencyId
+                             advertiserId:(long long)advertiserId {
+  GTLRDoubleclicksearchQuery_ReportsGetIdMappingFile *query =
+    [self queryWithAgencyId:agencyId
+               advertiserId:advertiserId];
+  query.downloadAsDataObjectType = @"media";
+  query.useMediaDownloadService = YES;
+  query.loggingName = @"Download doubleclicksearch.reports.getIdMappingFile";
+  return query;
+}
+
+@end
+
 @implementation GTLRDoubleclicksearchQuery_ReportsRequest
 
 + (instancetype)queryWithObject:(GTLRDoubleclicksearch_ReportRequest *)object {

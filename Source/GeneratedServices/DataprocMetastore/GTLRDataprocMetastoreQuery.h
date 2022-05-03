@@ -23,6 +23,7 @@
 
 @class GTLRDataprocMetastore_Backup;
 @class GTLRDataprocMetastore_ExportMetadataRequest;
+@class GTLRDataprocMetastore_Federation;
 @class GTLRDataprocMetastore_MetadataImport;
 @class GTLRDataprocMetastore_RemoveIamPolicyRequest;
 @class GTLRDataprocMetastore_RestoreServiceRequest;
@@ -44,6 +45,387 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Creates a metastore federation in a project and location.
+ *
+ *  Method: metastore.projects.locations.federations.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsCreate : GTLRDataprocMetastoreQuery
+
+/**
+ *  Required. The ID of the metastore federation, which is used as the final
+ *  component of the metastore federation's name.This value must be between 2
+ *  and 63 characters long inclusive, begin with a letter, end with a letter or
+ *  number, and consist of alpha-numeric ASCII characters or hyphens.
+ */
+@property(nonatomic, copy, nullable) NSString *federationId;
+
+/**
+ *  Required. The relative resource name of the location in which to create a
+ *  federation service, in the following
+ *  form:projects/{project_number}/locations/{location_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A request ID. Specify a unique request ID to allow the server to
+ *  ignore the request if it has completed. The server will ignore subsequent
+ *  requests that provide a duplicate request ID for at least 60 minutes after
+ *  the first request.For example, if an initial request times out, followed by
+ *  another request with the same request ID, the server ignores the second
+ *  request to prevent the creation of duplicate commitments.The request ID must
+ *  be a valid UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier#Format) A zero
+ *  UUID (00000000-0000-0000-0000-000000000000) is not supported.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
+ *
+ *  Creates a metastore federation in a project and location.
+ *
+ *  @param object The @c GTLRDataprocMetastore_Federation to include in the
+ *    query.
+ *  @param parent Required. The relative resource name of the location in which
+ *    to create a federation service, in the following
+ *    form:projects/{project_number}/locations/{location_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_Federation *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single federation.
+ *
+ *  Method: metastore.projects.locations.federations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsDelete : GTLRDataprocMetastoreQuery
+
+/**
+ *  Required. The relative resource name of the metastore federation to delete,
+ *  in the following
+ *  form:projects/{project_number}/locations/{location_id}/federations/{federation_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID. Specify a unique request ID to allow the server to
+ *  ignore the request if it has completed. The server will ignore subsequent
+ *  requests that provide a duplicate request ID for at least 60 minutes after
+ *  the first request.For example, if an initial request times out, followed by
+ *  another request with the same request ID, the server ignores the second
+ *  request to prevent the creation of duplicate commitments.The request ID must
+ *  be a valid UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier#Format) A zero
+ *  UUID (00000000-0000-0000-0000-000000000000) is not supported.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
+ *
+ *  Deletes a single federation.
+ *
+ *  @param name Required. The relative resource name of the metastore federation
+ *    to delete, in the following
+ *    form:projects/{project_number}/locations/{location_id}/federations/{federation_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the details of a single federation.
+ *
+ *  Method: metastore.projects.locations.federations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsGet : GTLRDataprocMetastoreQuery
+
+/**
+ *  Required. The relative resource name of the metastore federation to
+ *  retrieve, in the following
+ *  form:projects/{project_number}/locations/{location_id}/federations/{federation_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Federation.
+ *
+ *  Gets the details of a single federation.
+ *
+ *  @param name Required. The relative resource name of the metastore federation
+ *    to retrieve, in the following
+ *    form:projects/{project_number}/locations/{location_id}/federations/{federation_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: metastore.projects.locations.federations.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsGetIamPolicy : GTLRDataprocMetastoreQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the
+ *  policy.Valid values are 0, 1, and 3. Requests specifying an invalid value
+ *  will be rejected.Requests for policies with any conditional role bindings
+ *  must specify version 3. Policies with no conditional role bindings may
+ *  specify any valid value or leave the field unset.The policy in the response
+ *  might use the policy version that you specified, or it might use a lower
+ *  policy version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1.To learn which
+ *  resources support conditions in their IAM policies, see the IAM
+ *  documentation
+ *  (https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists federations in a project and location.
+ *
+ *  Method: metastore.projects.locations.federations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsList : GTLRDataprocMetastoreQuery
+
+/** Optional. The filter to apply to list results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specify the ordering of results as described in Sorting Order
+ *  (https://cloud.google.com/apis/design/design_patterns#sorting_order). If not
+ *  specified, the results will be sorted in the default order.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of federations to return. The response may
+ *  contain less than the maximum number. If unspecified, no more than 500
+ *  services are returned. The maximum value is 1000; values above 1000 are
+ *  changed to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous ListFederationServices
+ *  call. Provide this token to retrieve the subsequent page.To retrieve the
+ *  first page, supply an empty page token.When paginating, other parameters
+ *  provided to ListFederationServices must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The relative resource name of the location of metastore
+ *  federations to list, in the following form:
+ *  projects/{project_number}/locations/{location_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_ListFederationsResponse.
+ *
+ *  Lists federations in a project and location.
+ *
+ *  @param parent Required. The relative resource name of the location of
+ *    metastore federations to list, in the following form:
+ *    projects/{project_number}/locations/{location_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the fields of a federation.
+ *
+ *  Method: metastore.projects.locations.federations.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsPatch : GTLRDataprocMetastoreQuery
+
+/**
+ *  Immutable. The relative resource name of the federation, of the form:
+ *  projects/{project_number}/locations/{location_id}/federations/{federation_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID. Specify a unique request ID to allow the server to
+ *  ignore the request if it has completed. The server will ignore subsequent
+ *  requests that provide a duplicate request ID for at least 60 minutes after
+ *  the first request.For example, if an initial request times out, followed by
+ *  another request with the same request ID, the server ignores the second
+ *  request to prevent the creation of duplicate commitments.The request ID must
+ *  be a valid UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier#Format) A zero
+ *  UUID (00000000-0000-0000-0000-000000000000) is not supported.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. A field mask used to specify the fields to be overwritten in the
+ *  metastore federation resource by the update. Fields specified in the
+ *  update_mask are relative to the resource (not to the full request). A field
+ *  is overwritten if it is in the mask.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
+ *
+ *  Updates the fields of a federation.
+ *
+ *  @param object The @c GTLRDataprocMetastore_Federation to include in the
+ *    query.
+ *  @param name Immutable. The relative resource name of the federation, of the
+ *    form:
+ *    projects/{project_number}/locations/{location_id}/federations/{federation_id}`.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_Federation *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  Method: metastore.projects.locations.federations.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsSetIamPolicy : GTLRDataprocMetastoreQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  @param object The @c GTLRDataprocMetastore_SetIamPolicyRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: metastore.projects.locations.federations.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsTestIamPermissions : GTLRDataprocMetastoreQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRDataprocMetastore_TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 

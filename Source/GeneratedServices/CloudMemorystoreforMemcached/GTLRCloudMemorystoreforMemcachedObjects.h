@@ -37,6 +37,7 @@
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings_MaintenancePolicies;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata;
+@class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1NotificationParameter;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility_Eligibilities;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource;
@@ -249,6 +250,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudMemorystoreforMemcached_RescheduleMaintenanceRequest.rescheduleType
+
+/**
+ *  If the user wants to schedule the maintenance to happen now.
+ *
+ *  Value: "IMMEDIATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_RescheduleMaintenanceRequest_RescheduleType_Immediate;
+/**
+ *  If the user wants to use the existing maintenance policy to find the next
+ *  available window.
+ *
+ *  Value: "NEXT_AVAILABLE_WINDOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_RescheduleMaintenanceRequest_RescheduleType_NextAvailableWindow;
+/**
+ *  Not set.
+ *
+ *  Value: "RESCHEDULE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_RescheduleMaintenanceRequest_RescheduleType_RescheduleTypeUnspecified;
+/**
+ *  If the user wants to reschedule the maintenance to a specific time.
+ *
+ *  Value: "SPECIFIC_TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_RescheduleMaintenanceRequest_RescheduleType_SpecificTime;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMemorystoreforMemcached_Schedule.day
@@ -492,8 +522,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRCloudMemorystoreforMemcached_Empty : GTLRObject
 @end
@@ -621,7 +650,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
 
 /**
  *  Optional. The instance_type of this instance of format:
- *  projects/{project_id}/locations/{location_id}/instanceTypes/{instance_type_id}.
+ *  projects/{project_number}/locations/{location_id}/instanceTypes/{instance_type_id}.
  *  Instance Type represents a high-level tier or SKU of the service that this
  *  instance belong to. When enabled(eg: Maintenance Rollout), Rollout uses
  *  'instance_type' along with 'software_versions' to determine whether instance
@@ -656,14 +685,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
 
 /**
  *  Unique name of the resource. It uses the form:
- *  `projects/{project_id|project_number}/locations/{location_id}/instances/{instance_id}`
- *  Note: Either project_id or project_number can be used, but keep it
- *  consistent with other APIs (e.g. RescheduleUpdate)
+ *  `projects/{project_number}/locations/{location_id}/instances/{instance_id}`
+ *  Note: This name is passed, stored and logged across the rollout system. So
+ *  use of consumer project_id or any other consumer PII in the name is strongly
+ *  discouraged for wipeout (go/wipeout) compliance. See
+ *  go/elysium/project_ids#storage-guidance for more details.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. notification_parameters are information that service producers may
+ *  Optional. notification_parameter are information that service producers may
  *  like to include that is not relevant to Rollout. This parameter will only be
  *  passed to Gamma and Cloud Logging for notification/logging purpose.
  */
@@ -783,14 +814,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
 
 
 /**
- *  Optional. notification_parameters are information that service producers may
+ *  Optional. notification_parameter are information that service producers may
  *  like to include that is not relevant to Rollout. This parameter will only be
  *  passed to Gamma and Cloud Logging for notification/logging purpose.
  *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1NotificationParameter.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_NotificationParameters : GTLRObject
 @end
@@ -937,6 +969,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
  *  or exclusions for specified SLIs.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility *perSliEligibility;
+
+@end
+
+
+/**
+ *  Contains notification related data.
+ */
+@interface GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1NotificationParameter : GTLRObject
+
+/** Optional. Array of string values. e.g. instance's replica information. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
 @end
 
@@ -1741,6 +1784,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
 
 /** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  Request for RescheduleMaintenance.
+ */
+@interface GTLRCloudMemorystoreforMemcached_RescheduleMaintenanceRequest : GTLRObject
+
+/**
+ *  Required. If reschedule type is SPECIFIC_TIME, must set up schedule_time as
+ *  well.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMemorystoreforMemcached_RescheduleMaintenanceRequest_RescheduleType_Immediate
+ *        If the user wants to schedule the maintenance to happen now. (Value:
+ *        "IMMEDIATE")
+ *    @arg @c kGTLRCloudMemorystoreforMemcached_RescheduleMaintenanceRequest_RescheduleType_NextAvailableWindow
+ *        If the user wants to use the existing maintenance policy to find the
+ *        next available window. (Value: "NEXT_AVAILABLE_WINDOW")
+ *    @arg @c kGTLRCloudMemorystoreforMemcached_RescheduleMaintenanceRequest_RescheduleType_RescheduleTypeUnspecified
+ *        Not set. (Value: "RESCHEDULE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudMemorystoreforMemcached_RescheduleMaintenanceRequest_RescheduleType_SpecificTime
+ *        If the user wants to reschedule the maintenance to a specific time.
+ *        (Value: "SPECIFIC_TIME")
+ */
+@property(nonatomic, copy, nullable) NSString *rescheduleType;
+
+/**
+ *  Timestamp when the maintenance shall be rescheduled to if
+ *  reschedule_type=SPECIFIC_TIME, in RFC 3339 format, for example
+ *  `2012-11-15T16:19:00.094Z`.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *scheduleTime;
 
 @end
 

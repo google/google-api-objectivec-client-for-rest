@@ -347,8 +347,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. Product code of the ad client. For example, "AFC" for AdSense
- *  for Content.
+ *  Output only. Reporting product code of the ad client. For example, "AFC" for
+ *  AdSense for Content. Corresponds to the `PRODUCT_CODE` dimension, and
+ *  present only if the ad client supports reporting.
  */
 @property(nonatomic, copy, nullable) NSString *productCode;
 
@@ -409,7 +410,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
  */
 @interface GTLRAdsense_AdUnit : GTLRObject
 
-/** Settings specific to content ads (AFC). */
+/** Required. Settings specific to content ads (AFC). */
 @property(nonatomic, strong, nullable) GTLRAdsense_ContentAdsSettings *contentAdsSettings;
 
 /**
@@ -419,7 +420,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Required. Resource name of the ad unit. Format:
+ *  Resource name of the ad unit. Format:
  *  accounts/{account}/adclients/{adclient}/adunits/{adunit}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -516,11 +517,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
  */
 @interface GTLRAdsense_ContentAdsSettings : GTLRObject
 
-/** Size of the ad unit. e.g. "728x90", "1x3" (for responsive ad units). */
+/**
+ *  Required. Size of the ad unit. e.g. "728x90", "1x3" (for responsive ad
+ *  units).
+ */
 @property(nonatomic, copy, nullable) NSString *size;
 
 /**
- *  Type of the ad unit.
+ *  Required. Type of the ad unit.
  *
  *  Likely values:
  *    @arg @c kGTLRAdsense_ContentAdsSettings_Type_Article In-article ad unit.
@@ -547,7 +551,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
  */
 @interface GTLRAdsense_CustomChannel : GTLRObject
 
-/** Display name of the custom channel. */
+/** Required. Display name of the custom channel. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**

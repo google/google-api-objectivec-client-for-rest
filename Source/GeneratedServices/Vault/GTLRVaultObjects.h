@@ -63,6 +63,7 @@
 @class GTLRVault_Query;
 @class GTLRVault_SavedQuery;
 @class GTLRVault_SharedDriveInfo;
+@class GTLRVault_SitesUrlInfo;
 @class GTLRVault_Status;
 @class GTLRVault_Status_Details_Item;
 @class GTLRVault_TeamDriveInfo;
@@ -531,6 +532,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_SearchMethodUnspecifi
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_SharedDrive;
 /**
+ *  Search for sites by the published site URLs specified in
+ *  [SitesUrlInfo](https://developers.google.com/vault/reference/rest/v1/Query#sitesurlinfo).
+ *
+ *  Value: "SITES_URL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_SitesUrl;
+/**
  *  Search the data in the Team Drive specified in **team_drive_info**.
  *
  *  Value: "TEAM_DRIVE"
@@ -582,6 +590,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_SearchMethodUns
  *  Value: "SHARED_DRIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_SharedDrive;
+/**
+ *  Search for sites by the published site URLs specified in
+ *  [SitesUrlInfo](https://developers.google.com/vault/reference/rest/v1/Query#sitesurlinfo).
+ *
+ *  Value: "SITES_URL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_SitesUrl;
 /**
  *  Search the data in the Team Drive specified in **team_drive_info**.
  *
@@ -1969,6 +1984,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *        drives specified in
  *        [SharedDriveInfo](https://developers.google.com/vault/reference/rest/v1/Query#shareddriveinfo).
  *        (Value: "SHARED_DRIVE")
+ *    @arg @c kGTLRVault_Query_Method_SitesUrl Search for sites by the published
+ *        site URLs specified in
+ *        [SitesUrlInfo](https://developers.google.com/vault/reference/rest/v1/Query#sitesurlinfo).
+ *        (Value: "SITES_URL")
  *    @arg @c kGTLRVault_Query_Method_TeamDrive Search the data in the Team
  *        Drive specified in **team_drive_info**. (Value: "TEAM_DRIVE")
  */
@@ -2004,6 +2023,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *        shared drives specified in
  *        [SharedDriveInfo](https://developers.google.com/vault/reference/rest/v1/Query#shareddriveinfo).
  *        (Value: "SHARED_DRIVE")
+ *    @arg @c kGTLRVault_Query_SearchMethod_SitesUrl Search for sites by the
+ *        published site URLs specified in
+ *        [SitesUrlInfo](https://developers.google.com/vault/reference/rest/v1/Query#sitesurlinfo).
+ *        (Value: "SITES_URL")
  *    @arg @c kGTLRVault_Query_SearchMethod_TeamDrive Search the data in the
  *        Team Drive specified in **team_drive_info**. (Value: "TEAM_DRIVE")
  */
@@ -2011,6 +2034,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 /** Required when **SearchMethod** is **SHARED_DRIVE**. */
 @property(nonatomic, strong, nullable) GTLRVault_SharedDriveInfo *sharedDriveInfo;
+
+/** Required when **SearchMethod** is **SITES_URL**. */
+@property(nonatomic, strong, nullable) GTLRVault_SitesUrlInfo *sitesUrlInfo;
 
 /**
  *  The start time for the search query. Specify in GMT. The value is rounded to
@@ -2142,6 +2168,17 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *  API](https://developers.google.com/drive).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sharedDriveIds;
+
+@end
+
+
+/**
+ *  The published site URLs of new Google Sites to search
+ */
+@interface GTLRVault_SitesUrlInfo : GTLRObject
+
+/** A list of published site URLs. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *urls;
 
 @end
 

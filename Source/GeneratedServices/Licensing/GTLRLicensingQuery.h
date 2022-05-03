@@ -4,8 +4,8 @@
 // API:
 //   Enterprise License Manager API (licensing/v1)
 // Description:
-//   The Google Enterprise License Manager API's allows you to license apps for
-//   all the users of a domain managed by you.
+//   The Google Enterprise License Manager API lets you manage Google Workspace
+//   and related licenses for all users of a customer that you manage.
 // Documentation:
 //   https://developers.google.com/admin-sdk/licensing/
 
@@ -202,9 +202,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLicensingQuery_LicenseAssignmentsListForProduct : GTLRLicensingQuery
 
 /**
- *  Customer's `customerId`. A previous version of this API accepted the primary
- *  domain name as a value for this field. If the customer is suspended, the
- *  server returns an error.
+ *  The customer's unique ID as defined in the Admin console, such as
+ *  `C00000000`. If the customer is suspended, the server returns an error.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -239,9 +238,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param productId A product's unique identifier. For more information about
  *    products in this version of the API, see Products and SKUs.
- *  @param customerId Customer's `customerId`. A previous version of this API
- *    accepted the primary domain name as a value for this field. If the
- *    customer is suspended, the server returns an error.
+ *  @param customerId The customer's unique ID as defined in the Admin console,
+ *    such as `C00000000`. If the customer is suspended, the server returns an
+ *    error.
  *
  *  @return GTLRLicensingQuery_LicenseAssignmentsListForProduct
  *
@@ -265,9 +264,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLicensingQuery_LicenseAssignmentsListForProductAndSku : GTLRLicensingQuery
 
 /**
- *  Customer's `customerId`. A previous version of this API accepted the primary
- *  domain name as a value for this field. If the customer is suspended, the
- *  server returns an error.
+ *  The customer's unique ID as defined in the Admin console, such as
+ *  `C00000000`. If the customer is suspended, the server returns an error.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -310,9 +308,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    products in this version of the API, see Products and SKUs.
  *  @param skuId A product SKU's unique identifier. For more information about
  *    available SKUs in this version of the API, see Products and SKUs.
- *  @param customerId Customer's `customerId`. A previous version of this API
- *    accepted the primary domain name as a value for this field. If the
- *    customer is suspended, the server returns an error.
+ *  @param customerId The customer's unique ID as defined in the Admin console,
+ *    such as `C00000000`. If the customer is suspended, the server returns an
+ *    error.
  *
  *  @return GTLRLicensingQuery_LicenseAssignmentsListForProductAndSku
  *

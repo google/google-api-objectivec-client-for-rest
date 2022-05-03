@@ -425,7 +425,9 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_ContainerSpec
-@dynamic defaultEnvironment, image, metadata, sdkInfo;
+@dynamic defaultEnvironment, image, imageRepositoryCertPath,
+         imageRepositoryPasswordSecretId, imageRepositoryUsernameSecretId,
+         metadata, sdkInfo;
 @end
 
 

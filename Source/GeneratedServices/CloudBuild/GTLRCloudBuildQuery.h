@@ -845,7 +845,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Remove a Bitbucket Server repository from an given BitbucketServerConfig’s
+ *  Remove a Bitbucket Server repository from a given BitbucketServerConfig's
  *  connected repositories. This API is experimental.
  *
  *  Method: cloudbuild.projects.locations.bitbucketServerConfigs.removeBitbucketServerConnectedRepository
@@ -865,7 +865,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudBuild_Empty.
  *
- *  Remove a Bitbucket Server repository from an given BitbucketServerConfig’s
+ *  Remove a Bitbucket Server repository from a given BitbucketServerConfig's
  *  connected repositories. This API is experimental.
  *
  *  @param object The @c

@@ -468,7 +468,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRe
 
 /**
  *  Required. Id of the category that best describes the core business this
- *  location engages in.
+ *  location engages in. e.g. gcid:bakery.
  */
 @property(nonatomic, copy, nullable) NSString *primaryCategoryId;
 

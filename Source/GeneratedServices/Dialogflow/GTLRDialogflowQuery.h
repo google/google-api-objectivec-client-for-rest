@@ -4045,7 +4045,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 
 /**
  *  Imports the test cases from a Cloud Storage bucket or a local file. It
- *  always creates new test cases and won't overwite any existing ones. The
+ *  always creates new test cases and won't overwrite any existing ones. The
  *  provided ID in the imported test case is neglected. This method is a
  *  [long-running
  *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
@@ -4070,7 +4070,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
  *  Imports the test cases from a Cloud Storage bucket or a local file. It
- *  always creates new test cases and won't overwite any existing ones. The
+ *  always creates new test cases and won't overwrite any existing ones. The
  *  provided ID in the imported test case is neglected. This method is a
  *  [long-running
  *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
@@ -4600,8 +4600,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
- *  language accepts strings like "displayName=tokyo", and is documented in more
- *  detail in [AIP-160](https://google.aip.dev/160).
+ *  language accepts strings like `"displayName=tokyo"`, and is documented in
+ *  more detail in [AIP-160](https://google.aip.dev/160).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

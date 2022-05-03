@@ -24,6 +24,7 @@
 @class GTLRCloudMemorystoreforMemcached_ApplyParametersRequest;
 @class GTLRCloudMemorystoreforMemcached_CancelOperationRequest;
 @class GTLRCloudMemorystoreforMemcached_Instance;
+@class GTLRCloudMemorystoreforMemcached_RescheduleMaintenanceRequest;
 @class GTLRCloudMemorystoreforMemcached_UpdateParametersRequest;
 
 // Generated comments include content from the discovery document; avoid them
@@ -325,6 +326,42 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Reschedules upcoming maintenance event.
+ *
+ *  Method: memcache.projects.locations.instances.rescheduleMaintenance
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudMemorystoreforMemcachedCloudPlatform
+ */
+@interface GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesRescheduleMaintenance : GTLRCloudMemorystoreforMemcachedQuery
+
+/**
+ *  Required. Memcache instance resource name using the form:
+ *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
+ *  where `location_id` refers to a GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/**
+ *  Fetches a @c GTLRCloudMemorystoreforMemcached_Operation.
+ *
+ *  Reschedules upcoming maintenance event.
+ *
+ *  @param object The @c
+ *    GTLRCloudMemorystoreforMemcached_RescheduleMaintenanceRequest to include
+ *    in the query.
+ *  @param instance Required. Memcache instance resource name using the form:
+ *    `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
+ *    where `location_id` refers to a GCP region.
+ *
+ *  @return GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesRescheduleMaintenance
+ */
++ (instancetype)queryWithObject:(GTLRCloudMemorystoreforMemcached_RescheduleMaintenanceRequest *)object
+                       instance:(NSString *)instance;
+
+@end
+
+/**
  *  Updates the defined Memcached parameters for an existing instance. This
  *  method only stages the parameters, it must be followed by `ApplyParameters`
  *  to apply the parameters to nodes of the Memcached instance.
@@ -374,8 +411,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
- *  language accepts strings like "displayName=tokyo", and is documented in more
- *  detail in [AIP-160](https://google.aip.dev/160).
+ *  language accepts strings like `"displayName=tokyo"`, and is documented in
+ *  more detail in [AIP-160](https://google.aip.dev/160).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

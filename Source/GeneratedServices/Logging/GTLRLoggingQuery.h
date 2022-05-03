@@ -866,6 +866,70 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Lists the logs in projects, organizations, folders, or billing accounts.
+ *  Only logs that have entries are listed.
+ *
+ *  Method: logging.billingAccounts.locations.buckets.views.logs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_BillingAccountsLocationsBucketsViewsLogsList : GTLRLoggingQuery
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of nextPageToken in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name that owns the logs: projects/[PROJECT_ID]
+ *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
+ *  folders/[FOLDER_ID]
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The resource name that owns the logs:
+ *  projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
+ *  organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
+ *  billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
+ *  folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]To
+ *  support legacy queries, it could also be: projects/[PROJECT_ID]
+ *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
+ *  folders/[FOLDER_ID]
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
+
+/**
+ *  Fetches a @c GTLRLogging_ListLogsResponse.
+ *
+ *  Lists the logs in projects, organizations, folders, or billing accounts.
+ *  Only logs that have entries are listed.
+ *
+ *  @param parent Required. The resource name that owns the logs:
+ *    projects/[PROJECT_ID] organizations/[ORGANIZATION_ID]
+ *    billingAccounts/[BILLING_ACCOUNT_ID] folders/[FOLDER_ID]
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsLocationsBucketsViewsLogsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Updates a view on a log bucket. This method replaces the following fields in
  *  the existing view with values from the new view: filter. If an UNAVAILABLE
  *  error is returned, this indicates that system is not in a state where it can
@@ -2748,6 +2812,70 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists the logs in projects, organizations, folders, or billing accounts.
+ *  Only logs that have entries are listed.
+ *
+ *  Method: logging.folders.locations.buckets.views.logs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_FoldersLocationsBucketsViewsLogsList : GTLRLoggingQuery
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of nextPageToken in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name that owns the logs: projects/[PROJECT_ID]
+ *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
+ *  folders/[FOLDER_ID]
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The resource name that owns the logs:
+ *  projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
+ *  organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
+ *  billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
+ *  folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]To
+ *  support legacy queries, it could also be: projects/[PROJECT_ID]
+ *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
+ *  folders/[FOLDER_ID]
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
+
+/**
+ *  Fetches a @c GTLRLogging_ListLogsResponse.
+ *
+ *  Lists the logs in projects, organizations, folders, or billing accounts.
+ *  Only logs that have entries are listed.
+ *
+ *  @param parent Required. The resource name that owns the logs:
+ *    projects/[PROJECT_ID] organizations/[ORGANIZATION_ID]
+ *    billingAccounts/[BILLING_ACCOUNT_ID] folders/[FOLDER_ID]
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsBucketsViewsLogsList
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 
@@ -5256,6 +5384,70 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Lists the logs in projects, organizations, folders, or billing accounts.
+ *  Only logs that have entries are listed.
+ *
+ *  Method: logging.organizations.locations.buckets.views.logs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsBucketsViewsLogsList : GTLRLoggingQuery
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of nextPageToken in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name that owns the logs: projects/[PROJECT_ID]
+ *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
+ *  folders/[FOLDER_ID]
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The resource name that owns the logs:
+ *  projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
+ *  organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
+ *  billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
+ *  folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]To
+ *  support legacy queries, it could also be: projects/[PROJECT_ID]
+ *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
+ *  folders/[FOLDER_ID]
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
+
+/**
+ *  Fetches a @c GTLRLogging_ListLogsResponse.
+ *
+ *  Lists the logs in projects, organizations, folders, or billing accounts.
+ *  Only logs that have entries are listed.
+ *
+ *  @param parent Required. The resource name that owns the logs:
+ *    projects/[PROJECT_ID] organizations/[ORGANIZATION_ID]
+ *    billingAccounts/[BILLING_ACCOUNT_ID] folders/[FOLDER_ID]
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsBucketsViewsLogsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Updates a view on a log bucket. This method replaces the following fields in
  *  the existing view with values from the new view: filter. If an UNAVAILABLE
  *  error is returned, this indicates that system is not in a state where it can
@@ -6931,6 +7123,70 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists the logs in projects, organizations, folders, or billing accounts.
+ *  Only logs that have entries are listed.
+ *
+ *  Method: logging.projects.locations.buckets.views.logs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsBucketsViewsLogsList : GTLRLoggingQuery
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of nextPageToken in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name that owns the logs: projects/[PROJECT_ID]
+ *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
+ *  folders/[FOLDER_ID]
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The resource name that owns the logs:
+ *  projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
+ *  organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
+ *  billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
+ *  folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]To
+ *  support legacy queries, it could also be: projects/[PROJECT_ID]
+ *  organizations/[ORGANIZATION_ID] billingAccounts/[BILLING_ACCOUNT_ID]
+ *  folders/[FOLDER_ID]
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
+
+/**
+ *  Fetches a @c GTLRLogging_ListLogsResponse.
+ *
+ *  Lists the logs in projects, organizations, folders, or billing accounts.
+ *  Only logs that have entries are listed.
+ *
+ *  @param parent Required. The resource name that owns the logs:
+ *    projects/[PROJECT_ID] organizations/[ORGANIZATION_ID]
+ *    billingAccounts/[BILLING_ACCOUNT_ID] folders/[FOLDER_ID]
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsBucketsViewsLogsList
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 

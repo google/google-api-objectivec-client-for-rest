@@ -143,8 +143,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Speech-to-Text supports three locations: `global`, `us` (US North America),
  *  and `eu` (Europe). If you are calling the `speech.googleapis.com` endpoint,
  *  use the `global` location. To specify a region, use a [regional
- *  endpoint](/speech-to-text/docs/endpoints) with matching `us` or `eu`
- *  location value.
+ *  endpoint](https://cloud.google.com/speech-to-text/docs/endpoints) with
+ *  matching `us` or `eu` location value.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -160,7 +160,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    Speech-to-Text supports three locations: `global`, `us` (US North
  *    America), and `eu` (Europe). If you are calling the
  *    `speech.googleapis.com` endpoint, use the `global` location. To specify a
- *    region, use a [regional endpoint](/speech-to-text/docs/endpoints) with
+ *    region, use a [regional
+ *    endpoint](https://cloud.google.com/speech-to-text/docs/endpoints) with
  *    matching `us` or `eu` location value.
  *
  *  @return GTLRSpeechQuery_ProjectsLocationsCustomClassesCreate
@@ -186,8 +187,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Speech-to-Text supports three locations: `global`, `us` (US North America),
  *  and `eu` (Europe). If you are calling the `speech.googleapis.com` endpoint,
  *  use the `global` location. To specify a region, use a [regional
- *  endpoint](/speech-to-text/docs/endpoints) with matching `us` or `eu`
- *  location value.
+ *  endpoint](https://cloud.google.com/speech-to-text/docs/endpoints) with
+ *  matching `us` or `eu` location value.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -201,7 +202,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    Speech-to-Text supports three locations: `global`, `us` (US North
  *    America), and `eu` (Europe). If you are calling the
  *    `speech.googleapis.com` endpoint, use the `global` location. To specify a
- *    region, use a [regional endpoint](/speech-to-text/docs/endpoints) with
+ *    region, use a [regional
+ *    endpoint](https://cloud.google.com/speech-to-text/docs/endpoints) with
  *    matching `us` or `eu` location value.
  *
  *  @return GTLRSpeechQuery_ProjectsLocationsCustomClassesDelete
@@ -271,8 +273,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  supports three locations: `global`, `us` (US North America), and `eu`
  *  (Europe). If you are calling the `speech.googleapis.com` endpoint, use the
  *  `global` location. To specify a region, use a [regional
- *  endpoint](/speech-to-text/docs/endpoints) with matching `us` or `eu`
- *  location value.
+ *  endpoint](https://cloud.google.com/speech-to-text/docs/endpoints) with
+ *  matching `us` or `eu` location value.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -286,7 +288,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    Speech-to-Text supports three locations: `global`, `us` (US North
  *    America), and `eu` (Europe). If you are calling the
  *    `speech.googleapis.com` endpoint, use the `global` location. To specify a
- *    region, use a [regional endpoint](/speech-to-text/docs/endpoints) with
+ *    region, use a [regional
+ *    endpoint](https://cloud.google.com/speech-to-text/docs/endpoints) with
  *    matching `us` or `eu` location value.
  *
  *  @return GTLRSpeechQuery_ProjectsLocationsCustomClassesList
@@ -352,8 +355,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  three locations: `global`, `us` (US North America), and `eu` (Europe). If
  *  you are calling the `speech.googleapis.com` endpoint, use the `global`
  *  location. To specify a region, use a [regional
- *  endpoint](/speech-to-text/docs/endpoints) with matching `us` or `eu`
- *  location value.
+ *  endpoint](https://cloud.google.com/speech-to-text/docs/endpoints) with
+ *  matching `us` or `eu` location value.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -371,7 +374,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    Speech-to-Text supports three locations: `global`, `us` (US North
  *    America), and `eu` (Europe). If you are calling the
  *    `speech.googleapis.com` endpoint, use the `global` location. To specify a
- *    region, use a [regional endpoint](/speech-to-text/docs/endpoints) with
+ *    region, use a [regional
+ *    endpoint](https://cloud.google.com/speech-to-text/docs/endpoints) with
  *    matching `us` or `eu` location value.
  *
  *  @return GTLRSpeechQuery_ProjectsLocationsPhraseSetsCreate
@@ -427,8 +431,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Speech-to-Text supports three locations: `global`, `us` (US North America),
  *  and `eu` (Europe). If you are calling the `speech.googleapis.com` endpoint,
  *  use the `global` location. To specify a region, use a [regional
- *  endpoint](/speech-to-text/docs/endpoints) with matching `us` or `eu`
- *  location value.
+ *  endpoint](https://cloud.google.com/speech-to-text/docs/endpoints) with
+ *  matching `us` or `eu` location value.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -442,7 +446,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    Speech-to-Text supports three locations: `global`, `us` (US North
  *    America), and `eu` (Europe). If you are calling the
  *    `speech.googleapis.com` endpoint, use the `global` location. To specify a
- *    region, use a [regional endpoint](/speech-to-text/docs/endpoints) with
+ *    region, use a [regional
+ *    endpoint](https://cloud.google.com/speech-to-text/docs/endpoints) with
  *    matching `us` or `eu` location value.
  *
  *  @return GTLRSpeechQuery_ProjectsLocationsPhraseSetsGet
@@ -480,8 +485,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/{project}/locations/{location}` Speech-to-Text supports three
  *  locations: `global`, `us` (US North America), and `eu` (Europe). If you are
  *  calling the `speech.googleapis.com` endpoint, use the `global` location. To
- *  specify a region, use a [regional endpoint](/speech-to-text/docs/endpoints)
- *  with matching `us` or `eu` location value.
+ *  specify a region, use a [regional
+ *  endpoint](https://cloud.google.com/speech-to-text/docs/endpoints) with
+ *  matching `us` or `eu` location value.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -495,8 +501,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    supports three locations: `global`, `us` (US North America), and `eu`
  *    (Europe). If you are calling the `speech.googleapis.com` endpoint, use the
  *    `global` location. To specify a region, use a [regional
- *    endpoint](/speech-to-text/docs/endpoints) with matching `us` or `eu`
- *    location value.
+ *    endpoint](https://cloud.google.com/speech-to-text/docs/endpoints) with
+ *    matching `us` or `eu` location value.
  *
  *  @return GTLRSpeechQuery_ProjectsLocationsPhraseSetsList
  *

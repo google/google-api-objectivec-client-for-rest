@@ -684,8 +684,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  */
 @interface GTLRDriveQuery_DrivesDelete : GTLRDriveQuery
 
+/**
+ *  Whether any items inside the shared drive should also be deleted. This
+ *  option is only supported when useDomainAdminAccess is also set to true.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL allowItemDeletion;
+
 /** The ID of the shared drive. */
 @property(nonatomic, copy, nullable) NSString *driveId;
+
+/**
+ *  Issue the request as a domain administrator; if set to true, then the
+ *  requester will be granted access if they are an administrator of the domain
+ *  to which the shared drive belongs.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL useDomainAdminAccess;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1533,9 +1550,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Subscribes to changes to a file. While you can establish a channel
- *  forchanges to a file on a shared drive, a change to a shared drive file
- *  won't create a notification.
+ *  Subscribes to changes to a file. While you can establish a channel for
+ *  changes to a file on a shared drive, a change to a shared drive file won't
+ *  create a notification.
  *
  *  Method: drive.files.watch
  *
@@ -1585,9 +1602,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Channel.
  *
- *  Subscribes to changes to a file. While you can establish a channel
- *  forchanges to a file on a shared drive, a change to a shared drive file
- *  won't create a notification.
+ *  Subscribes to changes to a file. While you can establish a channel for
+ *  changes to a file on a shared drive, a change to a shared drive file won't
+ *  create a notification.
  *
  *  @param object The @c GTLRDrive_Channel to include in the query.
  *  @param fileId The ID of the file.
@@ -1600,9 +1617,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches the requested resource data as a @c GTLRDataObject.
  *
- *  Subscribes to changes to a file. While you can establish a channel
- *  forchanges to a file on a shared drive, a change to a shared drive file
- *  won't create a notification.
+ *  Subscribes to changes to a file. While you can establish a channel for
+ *  changes to a file on a shared drive, a change to a shared drive file won't
+ *  create a notification.
  *
  *  @param object The @c GTLRDrive_Channel to include in the query.
  *  @param fileId The ID of the file.

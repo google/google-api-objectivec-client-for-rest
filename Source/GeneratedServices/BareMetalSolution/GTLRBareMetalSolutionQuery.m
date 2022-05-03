@@ -38,6 +38,25 @@
 
 @end
 
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsInstanceProvisioningSettingsFetch
+
+@dynamic location;
+
++ (instancetype)queryWithLocation:(NSString *)location {
+  NSArray *pathParams = @[ @"location" ];
+  NSString *pathURITemplate = @"v2/{+location}/instanceProvisioningSettings:fetch";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsInstanceProvisioningSettingsFetch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.location = location;
+  query.expectedObjectClass = [GTLRBareMetalSolution_FetchInstanceProvisioningSettingsResponse class];
+  query.loggingName = @"baremetalsolution.projects.locations.instanceProvisioningSettings.fetch";
+  return query;
+}
+
+@end
+
 @implementation GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesGet
 
 @dynamic name;
@@ -152,6 +171,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRBareMetalSolution_Operation class];
   query.loggingName = @"baremetalsolution.projects.locations.instances.start";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesStop
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_StopInstanceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:stop";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesStop *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Operation class];
+  query.loggingName = @"baremetalsolution.projects.locations.instances.stop";
   return query;
 }
 

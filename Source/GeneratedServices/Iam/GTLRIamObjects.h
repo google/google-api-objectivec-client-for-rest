@@ -38,6 +38,7 @@
 @class GTLRIam_Policy;
 @class GTLRIam_PolicyDelta;
 @class GTLRIam_Role;
+@class GTLRIam_Saml;
 @class GTLRIam_ServiceAccount;
 @class GTLRIam_ServiceAccountKey;
 @class GTLRIam_Status;
@@ -606,7 +607,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_S
 @property(nonatomic, strong, nullable) GTLRIam_Expr *condition;
 
 /**
- *  Specifies the principals requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Google Cloud resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -669,8 +670,8 @@ FOUNDATION_EXTERN NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_S
 @property(nonatomic, strong, nullable) GTLRIam_Expr *condition;
 
 /**
- *  A single identity requesting access for a Cloud Platform resource. Follows
- *  the same format of Binding.members. Required
+ *  A single identity requesting access for a Google Cloud resource. Follows the
+ *  same format of Binding.members. Required
  */
 @property(nonatomic, copy, nullable) NSString *member;
 
@@ -1625,6 +1626,31 @@ FOUNDATION_EXTERN NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_S
 
 
 /**
+ *  Represents an SAML 2.0 identity provider.
+ */
+@interface GTLRIam_Saml : GTLRObject
+
+/**
+ *  Required. SAML Identity provider configuration metadata xml doc. The xml
+ *  document should comply with [SAML 2.0
+ *  specification](https://www.oasis-open.org/committees/download.php/56785/sstc-saml-metadata-errata-2.0-wd-05.pdf).
+ *  The max size of the acceptable xml document will be bounded to 128k
+ *  characters. The metadata xml document should satisfy the following
+ *  constraints: 1) Must contain an Identity Provider Entity ID. 2) Must contain
+ *  at least one non-expired signing key certificate. 3) For each signing key:
+ *  a) Valid from should be no more than 7 days from now. b) Valid to should be
+ *  no more than 10 years in the future. 4) Upto 3 IdP signing keys are allowed
+ *  in the metadata xml. When updating the provider's metadata xml, at lease one
+ *  non-expired signing key must overlap with the existing metadata. This
+ *  requirement is skipped if there are no non-expired signing keys present in
+ *  the existing metadata
+ */
+@property(nonatomic, copy, nullable) NSString *idpMetadataXml;
+
+@end
+
+
+/**
  *  An IAM service account. A service account is an account for an application
  *  or a virtual machine (VM) instance, not a person. You can use a service
  *  account to call Google APIs. To learn more, read the [overview of service
@@ -1835,7 +1861,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_S
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
  *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
- *  but certain Cloud Platform services (such as Projects) might reject them.
+ *  but certain Google Cloud services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRIam_Policy *policy;
 
@@ -1997,7 +2023,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_S
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
  *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
@@ -2072,9 +2098,10 @@ FOUNDATION_EXTERN NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_S
 @interface GTLRIam_UploadServiceAccountKeyRequest : GTLRObject
 
 /**
- *  A field that allows clients to upload their own public key. If set, use this
- *  public key data to create a service account key for given service account.
- *  Please note, the expected format for this field is X509_PEM.
+ *  The public key to associate with the service account. Must be an RSA public
+ *  key that is wrapped in an X.509 v3 certificate. Include the first line,
+ *  `-----BEGIN CERTIFICATE-----`, and the last line, `-----END
+ *  CERTIFICATE-----`.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2225,6 +2252,9 @@ FOUNDATION_EXTERN NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_S
 
 /** An OpenId Connect 1.0 identity provider. */
 @property(nonatomic, strong, nullable) GTLRIam_Oidc *oidc;
+
+/** An SAML 2.0 identity provider. */
+@property(nonatomic, strong, nullable) GTLRIam_Saml *saml;
 
 /**
  *  Output only. The state of the provider.

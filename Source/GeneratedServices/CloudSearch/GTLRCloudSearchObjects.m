@@ -36,7 +36,6 @@ NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_CalendarApp = @"CALENDAR_A
 NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_ContactsApp = @"CONTACTS_APP";
 NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_DocsApp  = @"DOCS_APP";
 NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_DriveApp = @"DRIVE_APP";
-NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_FileSuggestionApp = @"FILE_SUGGESTION_APP";
 NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_GsuiteAppTypeUnspecified = @"GSUITE_APP_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_MeetApp  = @"MEET_APP";
 NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_SheetsApp = @"SHEETS_APP";
@@ -2371,8 +2370,8 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 //
 
 @implementation GTLRCloudSearch_SpaceInfo
-@dynamic avatarInfo, avatarUrl, descriptionProperty, groupId, isExternal, name,
-         numMembers, userMembershipState;
+@dynamic avatarInfo, avatarUrl, descriptionProperty, groupId, inviterEmail,
+         isExternal, name, numMembers, userMembershipState;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

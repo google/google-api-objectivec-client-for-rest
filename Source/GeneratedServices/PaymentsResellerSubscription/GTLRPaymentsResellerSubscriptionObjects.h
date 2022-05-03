@@ -462,6 +462,70 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 
 
 /**
+ *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsRequest
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsRequest : GTLRObject
+
+/**
+ *  Optional. Specifies the filters for the promotion results. The syntax
+ *  defined in the EBNF grammar:
+ *  https://google.aip.dev/assets/misc/ebnf-filtering.txt. An error will be
+ *  thrown if any specified parameter is not supported. Currently, it can only
+ *  be used by Youtube partners. Allowed parameters are: - regionCodes - zipCode
+ *  - eligibilityId - applicableProducts Multiple parameters can be specified,
+ *  for example: "regionCodes=US zipCode=94043 eligibilityId=2022H1Campaign", or
+ *  "applicableProducts=partners/p1/products/product2"
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of promotions to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 products will be returned.
+ *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListPromotions` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListPromotions` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+@end
+
+
+/**
+ *  Response containing the found promotions for the current user.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "promotions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is empty, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The promotions for the current user.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion *> *promotions;
+
+@end
+
+
+/**
  *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ListProductsResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over

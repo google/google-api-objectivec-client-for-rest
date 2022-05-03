@@ -180,6 +180,15 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_DropLargeObjects
+//
+
+@implementation GTLRDatastream_DropLargeObjects
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_Empty
 //
 
@@ -639,15 +648,6 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 @implementation GTLRDatastream_OracleColumn
 @dynamic column, dataType, encoding, length, nullable, ordinalPosition,
          precision, primaryKey, scale;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDatastream_OracleDropLargeObjects
-//
-
-@implementation GTLRDatastream_OracleDropLargeObjects
 @end
 
 

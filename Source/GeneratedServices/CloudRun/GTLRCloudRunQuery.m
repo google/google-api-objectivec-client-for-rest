@@ -21,6 +21,324 @@
 
 @end
 
+@implementation GTLRCloudRunQuery_ProjectsLocationsJobsCreate
+
+@dynamic jobId, parent, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2Job *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/jobs";
+  GTLRCloudRunQuery_ProjectsLocationsJobsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleLongrunningOperation class];
+  query.loggingName = @"run.projects.locations.jobs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRunQuery_ProjectsLocationsJobsDelete
+
+@dynamic ETag, force, name, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudRunQuery_ProjectsLocationsJobsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleLongrunningOperation class];
+  query.loggingName = @"run.projects.locations.jobs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsDelete
+
+@dynamic ETag, name, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleLongrunningOperation class];
+  query.loggingName = @"run.projects.locations.jobs.executions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunV2Execution class];
+  query.loggingName = @"run.projects.locations.jobs.executions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsList
+
+@dynamic pageSize, pageToken, parent, showDeleted;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/executions";
+  GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunV2ListExecutionsResponse class];
+  query.loggingName = @"run.projects.locations.jobs.executions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsTasksGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsTasksGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunV2Task class];
+  query.loggingName = @"run.projects.locations.jobs.executions.tasks.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsTasksList
+
+@dynamic pageSize, pageToken, parent, showDeleted;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/tasks";
+  GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsTasksList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunV2ListTasksResponse class];
+  query.loggingName = @"run.projects.locations.jobs.executions.tasks.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRunQuery_ProjectsLocationsJobsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudRunQuery_ProjectsLocationsJobsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunV2Job class];
+  query.loggingName = @"run.projects.locations.jobs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRunQuery_ProjectsLocationsJobsGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:getIamPolicy";
+  GTLRCloudRunQuery_ProjectsLocationsJobsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleIamV1Policy class];
+  query.loggingName = @"run.projects.locations.jobs.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRunQuery_ProjectsLocationsJobsList
+
+@dynamic pageSize, pageToken, parent, showDeleted;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/jobs";
+  GTLRCloudRunQuery_ProjectsLocationsJobsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunV2ListJobsResponse class];
+  query.loggingName = @"run.projects.locations.jobs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRunQuery_ProjectsLocationsJobsPatch
+
+@dynamic allowMissing, name, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2Job *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudRunQuery_ProjectsLocationsJobsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleLongrunningOperation class];
+  query.loggingName = @"run.projects.locations.jobs.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRunQuery_ProjectsLocationsJobsRun
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2RunJobRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:run";
+  GTLRCloudRunQuery_ProjectsLocationsJobsRun *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleLongrunningOperation class];
+  query.loggingName = @"run.projects.locations.jobs.run";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRunQuery_ProjectsLocationsJobsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:setIamPolicy";
+  GTLRCloudRunQuery_ProjectsLocationsJobsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleIamV1Policy class];
+  query.loggingName = @"run.projects.locations.jobs.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRunQuery_ProjectsLocationsJobsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:testIamPermissions";
+  GTLRCloudRunQuery_ProjectsLocationsJobsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleIamV1TestIamPermissionsResponse class];
+  query.loggingName = @"run.projects.locations.jobs.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRunQuery_ProjectsLocationsOperationsDelete
 
 @dynamic name;
@@ -191,7 +509,7 @@
 
 @implementation GTLRCloudRunQuery_ProjectsLocationsServicesPatch
 
-@dynamic allowMissing, name, updateMask, validateOnly;
+@dynamic allowMissing, name, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2Service *)object
                            name:(NSString *)name {

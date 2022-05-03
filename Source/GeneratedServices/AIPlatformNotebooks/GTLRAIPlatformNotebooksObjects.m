@@ -70,12 +70,14 @@ NSString * const kGTLRAIPlatformNotebooks_GetInstanceHealthResponse_HealthState_
 // GTLRAIPlatformNotebooks_Instance.bootDiskType
 NSString * const kGTLRAIPlatformNotebooks_Instance_BootDiskType_DiskTypeUnspecified = @"DISK_TYPE_UNSPECIFIED";
 NSString * const kGTLRAIPlatformNotebooks_Instance_BootDiskType_PdBalanced = @"PD_BALANCED";
+NSString * const kGTLRAIPlatformNotebooks_Instance_BootDiskType_PdExtreme = @"PD_EXTREME";
 NSString * const kGTLRAIPlatformNotebooks_Instance_BootDiskType_PdSsd = @"PD_SSD";
 NSString * const kGTLRAIPlatformNotebooks_Instance_BootDiskType_PdStandard = @"PD_STANDARD";
 
 // GTLRAIPlatformNotebooks_Instance.dataDiskType
 NSString * const kGTLRAIPlatformNotebooks_Instance_DataDiskType_DiskTypeUnspecified = @"DISK_TYPE_UNSPECIFIED";
 NSString * const kGTLRAIPlatformNotebooks_Instance_DataDiskType_PdBalanced = @"PD_BALANCED";
+NSString * const kGTLRAIPlatformNotebooks_Instance_DataDiskType_PdExtreme = @"PD_EXTREME";
 NSString * const kGTLRAIPlatformNotebooks_Instance_DataDiskType_PdSsd = @"PD_SSD";
 NSString * const kGTLRAIPlatformNotebooks_Instance_DataDiskType_PdStandard = @"PD_STANDARD";
 
@@ -106,6 +108,7 @@ NSString * const kGTLRAIPlatformNotebooks_Instance_State_Upgrading = @"UPGRADING
 // GTLRAIPlatformNotebooks_LocalDiskInitializeParams.diskType
 NSString * const kGTLRAIPlatformNotebooks_LocalDiskInitializeParams_DiskType_DiskTypeUnspecified = @"DISK_TYPE_UNSPECIFIED";
 NSString * const kGTLRAIPlatformNotebooks_LocalDiskInitializeParams_DiskType_PdBalanced = @"PD_BALANCED";
+NSString * const kGTLRAIPlatformNotebooks_LocalDiskInitializeParams_DiskType_PdExtreme = @"PD_EXTREME";
 NSString * const kGTLRAIPlatformNotebooks_LocalDiskInitializeParams_DiskType_PdSsd = @"PD_SSD";
 NSString * const kGTLRAIPlatformNotebooks_LocalDiskInitializeParams_DiskType_PdStandard = @"PD_STANDARD";
 

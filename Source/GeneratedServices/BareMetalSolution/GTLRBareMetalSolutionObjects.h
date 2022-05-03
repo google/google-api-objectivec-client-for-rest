@@ -30,6 +30,7 @@
 @class GTLRBareMetalSolution_Location;
 @class GTLRBareMetalSolution_Location_Labels;
 @class GTLRBareMetalSolution_Location_Metadata;
+@class GTLRBareMetalSolution_LogicalInterface;
 @class GTLRBareMetalSolution_Lun;
 @class GTLRBareMetalSolution_LunRange;
 @class GTLRBareMetalSolution_Network;
@@ -42,10 +43,12 @@
 @class GTLRBareMetalSolution_NfsShare_Labels;
 @class GTLRBareMetalSolution_Operation_Metadata;
 @class GTLRBareMetalSolution_Operation_Response;
+@class GTLRBareMetalSolution_OSImage;
 @class GTLRBareMetalSolution_ProvisioningConfig;
 @class GTLRBareMetalSolution_ProvisioningQuota;
 @class GTLRBareMetalSolution_QosPolicy;
 @class GTLRBareMetalSolution_Schedule;
+@class GTLRBareMetalSolution_ServerNetworkTemplate;
 @class GTLRBareMetalSolution_SnapshotReservationDetail;
 @class GTLRBareMetalSolution_SnapshotSchedulePolicy;
 @class GTLRBareMetalSolution_SnapshotSchedulePolicy_Labels;
@@ -117,6 +120,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Instance_State_Running
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Instance_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBareMetalSolution_LogicalInterface.type
+
+/**
+ *  Bond interface type.
+ *
+ *  Value: "BOND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_LogicalInterface_Type_Bond;
+/**
+ *  Unspecified value.
+ *
+ *  Value: "INTERFACE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_LogicalInterface_Type_InterfaceTypeUnspecified;
+/**
+ *  NIC interface ytpe.
+ *
+ *  Value: "NIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_LogicalInterface_Type_Nic;
 
 // ----------------------------------------------------------------------------
 // GTLRBareMetalSolution_Lun.multiprotocolType
@@ -366,11 +391,31 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_NfsShare_State_StateUn
 // GTLRBareMetalSolution_ProvisioningConfig.state
 
 /**
+ *  ProvisioningConfig was canceled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Cancelled;
+/**
  *  ProvisioningConfig is a draft and can be freely modified.
  *
  *  Value: "DRAFT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Draft;
+/**
+ *  ProvisioningConfig was provisioned, meaning the resources exist.
+ *
+ *  Value: "PROVISIONED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Provisioned;
+/**
+ *  ProvisioningConfig was in the provisioning state. Initially this state comes
+ *  from the work order table in big query when SNOW is used. Later this field
+ *  can be set by the work order API.
+ *
+ *  Value: "PROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Provisioning;
 /**
  *  State wasn't specified.
  *
@@ -383,6 +428,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_ProvisioningConfig_Sta
  *  Value: "SUBMITTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Submitted;
+/**
+ *  ProvisioningConfig was validated. A validation tool will be run to set this
+ *  state.
+ *
+ *  Value: "VALIDATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Validated;
 
 // ----------------------------------------------------------------------------
 // GTLRBareMetalSolution_ProvisioningQuota.assetType
@@ -639,6 +691,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 
 /**
+ *  Response with all provisioning settings.
+ */
+@interface GTLRBareMetalSolution_FetchInstanceProvisioningSettingsResponse : GTLRObject
+
+/** The OS images available. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_OSImage *> *images;
+
+@end
+
+
+/**
  *  A server.
  */
 @interface GTLRBareMetalSolution_Instance : GTLRObject
@@ -691,6 +754,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 /** List of networks associated with this server. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_Network *> *networks;
+
+/** The OS image currently installed on the server. */
+@property(nonatomic, copy, nullable) NSString *osImage;
 
 /**
  *  The state of the server.
@@ -1134,6 +1200,40 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRBareMetalSolution_Location_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Logical interface.
+ */
+@interface GTLRBareMetalSolution_LogicalInterface : GTLRObject
+
+/**
+ *  Interface name. This is not a globally unique identifier. Name is unique
+ *  only inside the ServerNetworkTemplate.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  If true, interface must have network connected.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *required;
+
+/**
+ *  Interface type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBareMetalSolution_LogicalInterface_Type_Bond Bond interface
+ *        type. (Value: "BOND")
+ *    @arg @c kGTLRBareMetalSolution_LogicalInterface_Type_InterfaceTypeUnspecified
+ *        Unspecified value. (Value: "INTERFACE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBareMetalSolution_LogicalInterface_Type_Nic NIC interface
+ *        ytpe. (Value: "NIC")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
 @end
 
 
@@ -1638,6 +1738,36 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 
 /**
+ *  Operation System image.
+ */
+@interface GTLRBareMetalSolution_OSImage : GTLRObject
+
+/**
+ *  Instance types this image is applicable to. [Available
+ *  types](https://cloud.google.com/bare-metal/docs/bms-planning#server_configurations)
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *applicableInstanceTypes;
+
+/** OS Image code. */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  OS Image description.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. OS Image's unique name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Network templates that can be used with this OS Image. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_ServerNetworkTemplate *> *supportedNetworkTemplates;
+
+@end
+
+
+/**
  *  A provisioning configuration.
  */
 @interface GTLRBareMetalSolution_ProvisioningConfig : GTLRObject
@@ -1676,14 +1806,26 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *  Output only. State of ProvisioningConfig.
  *
  *  Likely values:
+ *    @arg @c kGTLRBareMetalSolution_ProvisioningConfig_State_Cancelled
+ *        ProvisioningConfig was canceled. (Value: "CANCELLED")
  *    @arg @c kGTLRBareMetalSolution_ProvisioningConfig_State_Draft
  *        ProvisioningConfig is a draft and can be freely modified. (Value:
  *        "DRAFT")
+ *    @arg @c kGTLRBareMetalSolution_ProvisioningConfig_State_Provisioned
+ *        ProvisioningConfig was provisioned, meaning the resources exist.
+ *        (Value: "PROVISIONED")
+ *    @arg @c kGTLRBareMetalSolution_ProvisioningConfig_State_Provisioning
+ *        ProvisioningConfig was in the provisioning state. Initially this state
+ *        comes from the work order table in big query when SNOW is used. Later
+ *        this field can be set by the work order API. (Value: "PROVISIONING")
  *    @arg @c kGTLRBareMetalSolution_ProvisioningConfig_State_StateUnspecified
  *        State wasn't specified. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRBareMetalSolution_ProvisioningConfig_State_Submitted
  *        ProvisioningConfig was already submitted and cannot be modified.
  *        (Value: "SUBMITTED")
+ *    @arg @c kGTLRBareMetalSolution_ProvisioningConfig_State_Validated
+ *        ProvisioningConfig was validated. A validation tool will be run to set
+ *        this state. (Value: "VALIDATED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -1808,6 +1950,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *retentionCount;
+
+@end
+
+
+/**
+ *  Network template.
+ */
+@interface GTLRBareMetalSolution_ServerNetworkTemplate : GTLRObject
+
+/** Instance types this template is applicable to. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *applicableInstanceTypes;
+
+/** Logical interfaces. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_LogicalInterface *> *logicalInterfaces;
+
+/** Output only. Template's unique name. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -1964,6 +2123,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 
 /**
+ *  Message requesting to stop a server.
+ */
+@interface GTLRBareMetalSolution_StopInstanceRequest : GTLRObject
+@end
+
+
+/**
  *  Request for SubmitProvisioningConfig.
  */
 @interface GTLRBareMetalSolution_SubmitProvisioningConfigRequest : GTLRObject
@@ -2032,6 +2198,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *currentSizeGib;
+
+/**
+ *  Additional emergency size that was requested for this Volume, in GiB.
+ *  current_size_gib includes this value.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *emergencySizeGib;
 
 /**
  *  An identifier for the `Volume`, generated by the backend.

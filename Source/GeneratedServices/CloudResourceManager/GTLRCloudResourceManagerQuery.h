@@ -29,6 +29,7 @@
 @class GTLRCloudResourceManager_Project;
 @class GTLRCloudResourceManager_SetIamPolicyRequest;
 @class GTLRCloudResourceManager_TagBinding;
+@class GTLRCloudResourceManager_TagHold;
 @class GTLRCloudResourceManager_TagKey;
 @class GTLRCloudResourceManager_TagValue;
 @class GTLRCloudResourceManager_TestIamPermissionsRequest;
@@ -49,6 +50,54 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Return a list of effective tags for the given cloud resource, as specified
+ *  in `parent`.
+ *
+ *  Method: cloudresourcemanager.effectiveTags.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_EffectiveTagsList : GTLRCloudResourceManagerQuery
+
+/**
+ *  Optional. The maximum number of effective tags to return in the response.
+ *  The server allows a maximum of 300 effective tags to return in a single
+ *  page. If unspecified, the server will use 100 as the default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A pagination token returned from a previous call to
+ *  `ListEffectiveTags` that indicates from where this listing should continue.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The full resource name of a resource for which you want to list
+ *  the effective tags. E.g.
+ *  "//cloudresourcemanager.googleapis.com/projects/123"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_ListEffectiveTagsResponse.
+ *
+ *  Return a list of effective tags for the given cloud resource, as specified
+ *  in `parent`.
+ *
+ *  @return GTLRCloudResourceManagerQuery_EffectiveTagsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
 
 @end
 
@@ -205,8 +254,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudResourceManagerQuery_FoldersGetIamPolicy : GTLRCloudResourceManagerQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -222,8 +272,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudResourceManager_GetIamPolicyRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudResourceManagerQuery_FoldersGetIamPolicy
  */
@@ -489,8 +540,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudResourceManagerQuery_FoldersSetIamPolicy : GTLRCloudResourceManagerQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -505,8 +557,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudResourceManager_SetIamPolicyRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudResourceManagerQuery_FoldersSetIamPolicy
  */
@@ -529,7 +582,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -543,8 +597,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudResourceManager_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudResourceManagerQuery_FoldersTestIamPermissions
  */
@@ -824,8 +879,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudResourceManagerQuery_OrganizationsGetIamPolicy : GTLRCloudResourceManagerQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -841,8 +897,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudResourceManager_GetIamPolicyRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudResourceManagerQuery_OrganizationsGetIamPolicy
  */
@@ -930,8 +987,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudResourceManagerQuery_OrganizationsSetIamPolicy : GTLRCloudResourceManagerQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -947,8 +1005,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudResourceManager_SetIamPolicyRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudResourceManagerQuery_OrganizationsSetIamPolicy
  */
@@ -973,7 +1032,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -988,8 +1048,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudResourceManager_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudResourceManagerQuery_OrganizationsTestIamPermissions
  */
@@ -1131,8 +1192,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudResourceManagerQuery_ProjectsGetIamPolicy : GTLRCloudResourceManagerQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1146,8 +1208,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudResourceManager_GetIamPolicyRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudResourceManagerQuery_ProjectsGetIamPolicy
  */
@@ -1423,8 +1486,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudResourceManagerQuery_ProjectsSetIamPolicy : GTLRCloudResourceManagerQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1463,8 +1527,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudResourceManager_SetIamPolicyRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudResourceManagerQuery_ProjectsSetIamPolicy
  */
@@ -1487,7 +1552,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1500,8 +1566,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudResourceManager_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudResourceManagerQuery_ProjectsTestIamPermissions
  */
@@ -1796,8 +1863,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudResourceManagerQuery_TagKeysGetIamPolicy : GTLRCloudResourceManagerQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1813,8 +1881,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudResourceManager_GetIamPolicyRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudResourceManagerQuery_TagKeysGetIamPolicy
  */
@@ -1932,8 +2001,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudResourceManagerQuery_TagKeysSetIamPolicy : GTLRCloudResourceManagerQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1948,8 +2018,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudResourceManager_SetIamPolicyRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudResourceManagerQuery_TagKeysSetIamPolicy
  */
@@ -1972,7 +2043,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1986,8 +2058,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudResourceManager_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudResourceManagerQuery_TagKeysTestIamPermissions
  */
@@ -2127,8 +2200,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudResourceManagerQuery_TagValuesGetIamPolicy : GTLRCloudResourceManagerQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2144,8 +2218,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudResourceManager_GetIamPolicyRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudResourceManagerQuery_TagValuesGetIamPolicy
  */
@@ -2257,8 +2332,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudResourceManagerQuery_TagValuesSetIamPolicy : GTLRCloudResourceManagerQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2274,13 +2350,151 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudResourceManager_SetIamPolicyRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudResourceManagerQuery_TagValuesSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRCloudResourceManager_SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a TagHold. Returns ALREADY_EXISTS if a TagHold with the same
+ *  resource and origin exists under the same TagValue.
+ *
+ *  Method: cloudresourcemanager.tagValues.tagHolds.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_TagValuesTagHoldsCreate : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The resource name of the TagHold's parent TagValue. Must be of the
+ *  form: `tagValues/{tag-value-id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Set to true to perform the validations necessary for creating the
+ *  resource, but not actually perform the action.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Operation.
+ *
+ *  Creates a TagHold. Returns ALREADY_EXISTS if a TagHold with the same
+ *  resource and origin exists under the same TagValue.
+ *
+ *  @param object The @c GTLRCloudResourceManager_TagHold to include in the
+ *    query.
+ *  @param parent Required. The resource name of the TagHold's parent TagValue.
+ *    Must be of the form: `tagValues/{tag-value-id}`.
+ *
+ *  @return GTLRCloudResourceManagerQuery_TagValuesTagHoldsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_TagHold *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a TagHold.
+ *
+ *  Method: cloudresourcemanager.tagValues.tagHolds.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_TagValuesTagHoldsDelete : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The resource name of the TagHold to delete. Must be of the form:
+ *  `tagValues/{tag-value-id}/tagHolds/{tag-hold-id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Set to true to perform the validations necessary for deleting the
+ *  resource, but not actually perform the action.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Operation.
+ *
+ *  Deletes a TagHold.
+ *
+ *  @param name Required. The resource name of the TagHold to delete. Must be of
+ *    the form: `tagValues/{tag-value-id}/tagHolds/{tag-hold-id}`.
+ *
+ *  @return GTLRCloudResourceManagerQuery_TagValuesTagHoldsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists TagHolds under a TagValue.
+ *
+ *  Method: cloudresourcemanager.tagValues.tagHolds.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_TagValuesTagHoldsList : GTLRCloudResourceManagerQuery
+
+/**
+ *  Optional. Criteria used to select a subset of TagHolds parented by the
+ *  TagValue to return. This field follows the syntax defined by aip.dev/160;
+ *  the `holder` and `origin` fields are supported for filtering. Currently only
+ *  `AND` syntax is supported. Some example queries are: * `holder =
+ *  //compute.googleapis.com/compute/projects/myproject/regions/us-east-1/instanceGroupManagers/instance-group`
+ *  * `origin = 35678234` * `holder =
+ *  //compute.googleapis.com/compute/projects/myproject/regions/us-east-1/instanceGroupManagers/instance-group
+ *  AND origin = 35678234`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of TagHolds to return in the response. The
+ *  server allows a maximum of 300 TagHolds to return. If unspecified, the
+ *  server will use 100 as the default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A pagination token returned from a previous call to `ListTagHolds`
+ *  that indicates where this listing should continue from.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the parent TagValue. Must be of the form:
+ *  `tagValues/{tag-value-id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_ListTagHoldsResponse.
+ *
+ *  Lists TagHolds under a TagValue.
+ *
+ *  @param parent Required. The resource name of the parent TagValue. Must be of
+ *    the form: `tagValues/{tag-value-id}`.
+ *
+ *  @return GTLRCloudResourceManagerQuery_TagValuesTagHoldsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -2299,7 +2513,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2314,8 +2529,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudResourceManager_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudResourceManagerQuery_TagValuesTestIamPermissions
  */

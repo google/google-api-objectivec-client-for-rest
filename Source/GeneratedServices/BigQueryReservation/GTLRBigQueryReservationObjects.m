@@ -60,7 +60,15 @@ NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecif
 //
 
 @implementation GTLRBigQueryReservation_BiReservation
-@dynamic name, size, updateTime;
+@dynamic name, preferredTables, size, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"preferredTables" : [GTLRBigQueryReservation_TableReference class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -282,4 +290,14 @@ NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecif
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_TableReference
+//
+
+@implementation GTLRBigQueryReservation_TableReference
+@dynamic datasetId, projectId, tableId;
 @end

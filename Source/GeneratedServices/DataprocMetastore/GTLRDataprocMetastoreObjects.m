@@ -20,6 +20,12 @@ NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType_DataRead = @"DATA
 NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRDataprocMetastore_BackendMetastore.metastoreType
+NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_Bigquery = @"BIGQUERY";
+NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_Dataplex = @"DATAPLEX";
+NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_DataprocMetastore = @"DATAPROC_METASTORE";
+NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_MetastoreTypeUnspecified = @"METASTORE_TYPE_UNSPECIFIED";
+
 // GTLRDataprocMetastore_Backup.state
 NSString * const kGTLRDataprocMetastore_Backup_State_Active    = @"ACTIVE";
 NSString * const kGTLRDataprocMetastore_Backup_State_Creating  = @"CREATING";
@@ -41,6 +47,14 @@ NSString * const kGTLRDataprocMetastore_DatabaseDump_Type_TypeUnspecified = @"TY
 NSString * const kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_Avro = @"AVRO";
 NSString * const kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_Mysql = @"MYSQL";
 NSString * const kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRDataprocMetastore_Federation.state
+NSString * const kGTLRDataprocMetastore_Federation_State_Active = @"ACTIVE";
+NSString * const kGTLRDataprocMetastore_Federation_State_Creating = @"CREATING";
+NSString * const kGTLRDataprocMetastore_Federation_State_Deleting = @"DELETING";
+NSString * const kGTLRDataprocMetastore_Federation_State_Error = @"ERROR";
+NSString * const kGTLRDataprocMetastore_Federation_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_Federation_State_Updating = @"UPDATING";
 
 // GTLRDataprocMetastore_HiveMetastoreConfig.endpointProtocol
 NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_EndpointProtocolUnspecified = @"ENDPOINT_PROTOCOL_UNSPECIFIED";
@@ -175,6 +189,16 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_BackendMetastore
+//
+
+@implementation GTLRDataprocMetastore_BackendMetastore
+@dynamic metastoreType, name;
 @end
 
 
@@ -319,6 +343,45 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_Federation
+//
+
+@implementation GTLRDataprocMetastore_Federation
+@dynamic backendMetastores, createTime, endpointUri, labels, name, state,
+         stateMessage, uid, updateTime, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_Federation_BackendMetastores
+//
+
+@implementation GTLRDataprocMetastore_Federation_BackendMetastores
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDataprocMetastore_BackendMetastore class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_Federation_Labels
+//
+
+@implementation GTLRDataprocMetastore_Federation_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_HiveMetastoreConfig
 //
 
@@ -404,6 +467,29 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 
 + (NSString *)collectionItemsKey {
   return @"backups";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_ListFederationsResponse
+//
+
+@implementation GTLRDataprocMetastore_ListFederationsResponse
+@dynamic federations, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"federations" : [GTLRDataprocMetastore_Federation class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"federations";
 }
 
 @end

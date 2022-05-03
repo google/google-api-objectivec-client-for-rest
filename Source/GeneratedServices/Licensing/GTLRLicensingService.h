@@ -4,8 +4,8 @@
 // API:
 //   Enterprise License Manager API (licensing/v1)
 // Description:
-//   The Google Enterprise License Manager API's allows you to license apps for
-//   all the users of a domain managed by you.
+//   The Google Enterprise License Manager API lets you manage Google Workspace
+//   and related licenses for all users of a customer that you manage.
 // Documentation:
 //   https://developers.google.com/admin-sdk/licensing/
 
@@ -45,8 +45,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeLicensingAppsLicensing;
 /**
  *  Service for executing Enterprise License Manager API queries.
  *
- *  The Google Enterprise License Manager API's allows you to license apps for
- *  all the users of a domain managed by you.
+ *  The Google Enterprise License Manager API lets you manage Google Workspace
+ *  and related licenses for all users of a customer that you manage.
  */
 @interface GTLRLicensingService : GTLRService
 

@@ -29,6 +29,7 @@
 @class GTLRBareMetalSolution_RestoreVolumeSnapshotRequest;
 @class GTLRBareMetalSolution_SnapshotSchedulePolicy;
 @class GTLRBareMetalSolution_StartInstanceRequest;
+@class GTLRBareMetalSolution_StopInstanceRequest;
 @class GTLRBareMetalSolution_SubmitProvisioningConfigRequest;
 @class GTLRBareMetalSolution_Volume;
 @class GTLRBareMetalSolution_VolumeSnapshot;
@@ -73,6 +74,39 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get instance provisioning settings for a given project. This is hidden
+ *  method used by UI only.
+ *
+ *  Method: baremetalsolution.projects.locations.instanceProvisioningSettings.fetch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsInstanceProvisioningSettingsFetch : GTLRBareMetalSolutionQuery
+
+/**
+ *  Required. The parent project and location containing the
+ *  ProvisioningSettings.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Fetches a @c
+ *  GTLRBareMetalSolution_FetchInstanceProvisioningSettingsResponse.
+ *
+ *  Get instance provisioning settings for a given project. This is hidden
+ *  method used by UI only.
+ *
+ *  @param location Required. The parent project and location containing the
+ *    ProvisioningSettings.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsInstanceProvisioningSettingsFetch
+ */
++ (instancetype)queryWithLocation:(NSString *)location;
 
 @end
 
@@ -164,7 +198,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The list of fields to update. The only currently supported fields are:
- *  `labels`
+ *  `labels` `hyperthreading_enabled`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -249,6 +283,35 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Stop a running server.
+ *
+ *  Method: baremetalsolution.projects.locations.instances.stop
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesStop : GTLRBareMetalSolutionQuery
+
+/** Required. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_Operation.
+ *
+ *  Stop a running server.
+ *
+ *  @param object The @c GTLRBareMetalSolution_StopInstanceRequest to include in
+ *    the query.
+ *  @param name Required. Name of the resource.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesStop
+ */
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_StopInstanceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Lists information about the supported locations for this service.
  *
  *  Method: baremetalsolution.projects.locations.list
@@ -260,8 +323,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
- *  language accepts strings like "displayName=tokyo", and is documented in more
- *  detail in [AIP-160](https://google.aip.dev/160).
+ *  language accepts strings like `"displayName=tokyo"`, and is documented in
+ *  more detail in [AIP-160](https://google.aip.dev/160).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

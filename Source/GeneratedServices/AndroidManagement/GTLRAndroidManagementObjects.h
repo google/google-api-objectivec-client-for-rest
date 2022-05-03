@@ -89,6 +89,7 @@
 @class GTLRAndroidManagement_SystemUpdateInfo;
 @class GTLRAndroidManagement_TelephonyInfo;
 @class GTLRAndroidManagement_TermsAndConditions;
+@class GTLRAndroidManagement_UsageLog;
 @class GTLRAndroidManagement_User;
 @class GTLRAndroidManagement_UserFacingMessage;
 @class GTLRAndroidManagement_UserFacingMessage_LocalizedMessages;
@@ -1129,6 +1130,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNoti
  *  Value: "STATUS_REPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_StatusReport;
+/**
+ *  A notification sent when device sends BatchUsageLogEvents.
+ *
+ *  Value: "USAGE_LOGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_UsageLogs;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_KeyedAppState.severity
@@ -2270,6 +2277,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedMo
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PostureDetail_SecurityRisk_CompromisedOs;
 /**
+ *  SafetyNet detects that the device does not have a strong guarantee of system
+ *  integrity, such as a hardware-backed keystore
+ *  (https://developer.android.com/training/articles/security-key-attestation).
+ *
+ *  Value: "HARDWARE_BACKED_EVALUATION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PostureDetail_SecurityRisk_HardwareBackedEvaluationFailed;
+/**
  *  Unspecified.
  *
  *  Value: "SECURITY_RISK_UNSPECIFIED"
@@ -2457,6 +2472,68 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdateInfo_Updat
  *  Value: "UP_TO_DATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_UpToDate;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_UsageLog.enabledLogTypes
+
+/**
+ *  This value is not used.
+ *
+ *  Value: "LOG_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLog_EnabledLogTypes_LogTypeUnspecified;
+/**
+ *  Enable logging of on-device network events, like DNS lookups and TCP
+ *  connections. See event for a complete description of the logged network
+ *  events. Supported for fully managed devices on Android 8 and above.
+ *  Supported for company-owned devices with a work profile on Android 12 and
+ *  above, on which only network events from the work profile are logged.
+ *
+ *  Value: "NETWORK_ACTIVITY_LOGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLog_EnabledLogTypes_NetworkActivityLogs;
+/**
+ *  Enable logging of on-device security events, like when the device password
+ *  is incorrectly entered or removable storage is mounted. See event for a
+ *  complete description of the logged security events. Supported for fully
+ *  managed devices on Android 7.0 and above. Supported for company-owned
+ *  devices with a work profile on Android 12 and above, on which only security
+ *  events from the work profile are logged.
+ *
+ *  Value: "SECURITY_LOGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLog_EnabledLogTypes_SecurityLogs;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_UsageLog.uploadOnCellularAllowed
+
+/**
+ *  This value is not used.
+ *
+ *  Value: "LOG_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLog_UploadOnCellularAllowed_LogTypeUnspecified;
+/**
+ *  Enable logging of on-device network events, like DNS lookups and TCP
+ *  connections. See event for a complete description of the logged network
+ *  events. Supported for fully managed devices on Android 8 and above.
+ *  Supported for company-owned devices with a work profile on Android 12 and
+ *  above, on which only network events from the work profile are logged.
+ *
+ *  Value: "NETWORK_ACTIVITY_LOGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLog_UploadOnCellularAllowed_NetworkActivityLogs;
+/**
+ *  Enable logging of on-device security events, like when the device password
+ *  is incorrectly entered or removable storage is mounted. See event for a
+ *  complete description of the logged security events. Supported for fully
+ *  managed devices on Android 7.0 and above. Supported for company-owned
+ *  devices with a work profile on Android 12 and above, on which only security
+ *  events from the work profile are logged.
+ *
+ *  Value: "SECURITY_LOGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLog_UploadOnCellularAllowed_SecurityLogs;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_WebApp.displayMode
@@ -2786,7 +2863,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /**
  *  A link to an image that can be used as an icon for the app. This image is
- *  suitable for use at up to 512px x 512px
+ *  suitable for use up to a pixel size of 512 x 512.
  */
 @property(nonatomic, copy, nullable) NSString *iconUrl;
 
@@ -2822,7 +2899,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /**
  *  A link to a smaller image that can be used as an icon for the app. This
- *  image is suitable for use at up to 128px x 128px.
+ *  image is suitable for use up to a pixel size of 128 x 128.
  */
 @property(nonatomic, copy, nullable) NSString *smallIconUrl;
 
@@ -3248,15 +3325,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @interface GTLRAndroidManagement_AppVersion : GTLRObject
 
 /**
- *  True if this version is a production track.
+ *  If the value is True, it indicates that this version is a production track.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *production;
 
 /**
- *  Track ids that the app version is published in. This doesn't include the
- *  production track (see production instead).
+ *  Track identifiers that the app version is published in. This does not
+ *  include the production track (see production instead).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *trackIds;
 
@@ -4247,7 +4324,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *primaryColor;
 
 /**
- *  The topic that Cloud Pub/Sub notifications are published to, in the form
+ *  The topic which Pub/Sub notifications are published to, in the form
  *  projects/{project}/topics/{topic}. This field is only required if Pub/Sub
  *  notifications are enabled.
  */
@@ -4278,7 +4355,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, copy, nullable) NSString *notificationReceiver;
 
 /**
- *  Hex-encoded SHA256 hash of the signing certificate of the extension app.
+ *  Hex-encoded SHA-256 hash of the signing certificate of the extension app.
  *  Only hexadecimal string representations of 64 characters are valid.If not
  *  specified, the signature for the corresponding package name is obtained from
  *  the Play Store instead.If this list is empty, the signature of the extension
@@ -6350,6 +6427,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  */
 @property(nonatomic, strong, nullable) NSNumber *unmuteMicrophoneDisabled;
 
+/** Configuration of device activity logging. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_UsageLog *usageLog;
+
 /**
  *  Whether transferring files over USB is disabled.
  *
@@ -6460,6 +6540,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *    @arg @c kGTLRAndroidManagement_PostureDetail_SecurityRisk_CompromisedOs
  *        SafetyNet detects that the device is running a compromised OS
  *        (basicIntegrity check fails). (Value: "COMPROMISED_OS")
+ *    @arg @c kGTLRAndroidManagement_PostureDetail_SecurityRisk_HardwareBackedEvaluationFailed
+ *        SafetyNet detects that the device does not have a strong guarantee of
+ *        system integrity, such as a hardware-backed keystore
+ *        (https://developer.android.com/training/articles/security-key-attestation).
+ *        (Value: "HARDWARE_BACKED_EVALUATION_FAILED")
  *    @arg @c kGTLRAndroidManagement_PostureDetail_SecurityRisk_SecurityRiskUnspecified
  *        Unspecified. (Value: "SECURITY_RISK_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_PostureDetail_SecurityRisk_UnknownOs
@@ -6984,6 +7069,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /** A short header which appears above the HTML content. */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *header;
+
+@end
+
+
+/**
+ *  Controls types of device activity logs collected from the device and
+ *  reported via Pub/Sub notification
+ *  (https://developers.google.com/android/management/notifications).
+ */
+@interface GTLRAndroidManagement_UsageLog : GTLRObject
+
+/**
+ *  Specifies which log types are enabled. Note that users will receive
+ *  on-device messaging when usage logging is enabled.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enabledLogTypes;
+
+/**
+ *  Specifies which of the enabled log types can be uploaded over mobile data.
+ *  By default logs are queued for upload when the device connects to WiFi.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *uploadOnCellularAllowed;
 
 @end
 

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Chrome Verified Access API (verifiedaccess/v1)
+//   Chrome Verified Access API (verifiedaccess/v2)
 // Description:
 //   API for Verified Access chrome extension to provide credential verification
 //   for chrome devices connecting to an enterprise network
@@ -42,30 +42,30 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  CreateChallenge API
+ *  Generates a new challenge.
  *
- *  Method: verifiedaccess.challenge.create
+ *  Method: verifiedaccess.challenge.generate
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeVerifiedaccess
  */
-@interface GTLRVerifiedaccessQuery_ChallengeCreate : GTLRVerifiedaccessQuery
+@interface GTLRVerifiedaccessQuery_ChallengeGenerate : GTLRVerifiedaccessQuery
 
 /**
  *  Fetches a @c GTLRVerifiedaccess_Challenge.
  *
- *  CreateChallenge API
+ *  Generates a new challenge.
  *
  *  @param object The @c GTLRVerifiedaccess_Empty to include in the query.
  *
- *  @return GTLRVerifiedaccessQuery_ChallengeCreate
+ *  @return GTLRVerifiedaccessQuery_ChallengeGenerate
  */
 + (instancetype)queryWithObject:(GTLRVerifiedaccess_Empty *)object;
 
 @end
 
 /**
- *  VerifyChallengeResponse API
+ *  Verifies the challenge response.
  *
  *  Method: verifiedaccess.challenge.verify
  *
@@ -77,7 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRVerifiedaccess_VerifyChallengeResponseResult.
  *
- *  VerifyChallengeResponse API
+ *  Verifies the challenge response.
  *
  *  @param object The @c GTLRVerifiedaccess_VerifyChallengeResponseRequest to
  *    include in the query.

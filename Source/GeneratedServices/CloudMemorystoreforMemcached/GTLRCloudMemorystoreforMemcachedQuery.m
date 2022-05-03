@@ -176,6 +176,33 @@
 
 @end
 
+@implementation GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesRescheduleMaintenance
+
+@dynamic instance;
+
++ (instancetype)queryWithObject:(GTLRCloudMemorystoreforMemcached_RescheduleMaintenanceRequest *)object
+                       instance:(NSString *)instance {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"instance" ];
+  NSString *pathURITemplate = @"v1/{+instance}:rescheduleMaintenance";
+  GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesRescheduleMaintenance *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRCloudMemorystoreforMemcached_Operation class];
+  query.loggingName = @"memcache.projects.locations.instances.rescheduleMaintenance";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesUpdateParameters
 
 @dynamic name;

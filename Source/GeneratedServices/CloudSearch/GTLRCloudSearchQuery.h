@@ -132,8 +132,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Checks whether an item is accessible by specified principal. **Note:** This
- *  API requires an admin account to execute.
+ *  Checks whether an item is accessible by specified principal. Principal must
+ *  be a user; groups and domain values aren't supported. **Note:** This API
+ *  requires an admin account to execute.
  *
  *  Method: cloudsearch.debug.datasources.items.checkAccess
  *
@@ -155,8 +156,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 /**
  *  Fetches a @c GTLRCloudSearch_CheckAccessResponse.
  *
- *  Checks whether an item is accessible by specified principal. **Note:** This
- *  API requires an admin account to execute.
+ *  Checks whether an item is accessible by specified principal. Principal must
+ *  be a user; groups and domain values aren't supported. **Note:** This API
+ *  requires an admin account to execute.
  *
  *  @param object The @c GTLRCloudSearch_Principal to include in the query.
  *  @param name Item name, format: datasources/{source_id}/items/{item_id}

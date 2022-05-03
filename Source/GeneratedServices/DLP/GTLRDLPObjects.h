@@ -53,6 +53,12 @@
 @class GTLRDLP_GooglePrivacyDlpV2CryptoKey;
 @class GTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig;
 @class GTLRDLP_GooglePrivacyDlpV2CustomInfoType;
+@class GTLRDLP_GooglePrivacyDlpV2DataProfileAction;
+@class GTLRDLP_GooglePrivacyDlpV2DataProfileConfigSnapshot;
+@class GTLRDLP_GooglePrivacyDlpV2DataProfileJobConfig;
+@class GTLRDLP_GooglePrivacyDlpV2DataProfileLocation;
+@class GTLRDLP_GooglePrivacyDlpV2DataProfilePubSubCondition;
+@class GTLRDLP_GooglePrivacyDlpV2DataRiskLevel;
 @class GTLRDLP_GooglePrivacyDlpV2DatastoreKey;
 @class GTLRDLP_GooglePrivacyDlpV2DatastoreOptions;
 @class GTLRDLP_GooglePrivacyDlpV2DateShiftConfig;
@@ -71,6 +77,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2Error;
 @class GTLRDLP_GooglePrivacyDlpV2ExcludeInfoTypes;
 @class GTLRDLP_GooglePrivacyDlpV2ExclusionRule;
+@class GTLRDLP_GooglePrivacyDlpV2Export;
 @class GTLRDLP_GooglePrivacyDlpV2Expressions;
 @class GTLRDLP_GooglePrivacyDlpV2FieldId;
 @class GTLRDLP_GooglePrivacyDlpV2FieldTransformation;
@@ -92,6 +99,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription;
 @class GTLRDLP_GooglePrivacyDlpV2InfoTypeLimit;
 @class GTLRDLP_GooglePrivacyDlpV2InfoTypeStats;
+@class GTLRDLP_GooglePrivacyDlpV2InfoTypeSummary;
 @class GTLRDLP_GooglePrivacyDlpV2InfoTypeTransformation;
 @class GTLRDLP_GooglePrivacyDlpV2InfoTypeTransformations;
 @class GTLRDLP_GooglePrivacyDlpV2InspectConfig;
@@ -127,16 +135,21 @@
 @class GTLRDLP_GooglePrivacyDlpV2MetadataLocation;
 @class GTLRDLP_GooglePrivacyDlpV2NumericalStatsConfig;
 @class GTLRDLP_GooglePrivacyDlpV2NumericalStatsResult;
+@class GTLRDLP_GooglePrivacyDlpV2OtherInfoTypeSummary;
 @class GTLRDLP_GooglePrivacyDlpV2OutputStorageConfig;
 @class GTLRDLP_GooglePrivacyDlpV2PartitionId;
 @class GTLRDLP_GooglePrivacyDlpV2PathElement;
 @class GTLRDLP_GooglePrivacyDlpV2PrimitiveTransformation;
 @class GTLRDLP_GooglePrivacyDlpV2PrivacyMetric;
+@class GTLRDLP_GooglePrivacyDlpV2ProfileStatus;
 @class GTLRDLP_GooglePrivacyDlpV2Proximity;
 @class GTLRDLP_GooglePrivacyDlpV2PublishFindingsToCloudDataCatalog;
 @class GTLRDLP_GooglePrivacyDlpV2PublishSummaryToCscc;
 @class GTLRDLP_GooglePrivacyDlpV2PublishToPubSub;
 @class GTLRDLP_GooglePrivacyDlpV2PublishToStackdriver;
+@class GTLRDLP_GooglePrivacyDlpV2PubSubCondition;
+@class GTLRDLP_GooglePrivacyDlpV2PubSubExpressions;
+@class GTLRDLP_GooglePrivacyDlpV2PubSubNotification;
 @class GTLRDLP_GooglePrivacyDlpV2QuasiId;
 @class GTLRDLP_GooglePrivacyDlpV2QuasiIdentifierField;
 @class GTLRDLP_GooglePrivacyDlpV2QuasiIdField;
@@ -159,6 +172,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2Row;
 @class GTLRDLP_GooglePrivacyDlpV2SaveFindings;
 @class GTLRDLP_GooglePrivacyDlpV2Schedule;
+@class GTLRDLP_GooglePrivacyDlpV2SensitivityScore;
 @class GTLRDLP_GooglePrivacyDlpV2StatisticalTable;
 @class GTLRDLP_GooglePrivacyDlpV2StorageConfig;
 @class GTLRDLP_GooglePrivacyDlpV2StorageMetadataLabel;
@@ -170,6 +184,8 @@
 @class GTLRDLP_GooglePrivacyDlpV2SummaryResult;
 @class GTLRDLP_GooglePrivacyDlpV2SurrogateType;
 @class GTLRDLP_GooglePrivacyDlpV2Table;
+@class GTLRDLP_GooglePrivacyDlpV2TableDataProfile;
+@class GTLRDLP_GooglePrivacyDlpV2TableDataProfile_ResourceLabels;
 @class GTLRDLP_GooglePrivacyDlpV2TableLocation;
 @class GTLRDLP_GooglePrivacyDlpV2TableOptions;
 @class GTLRDLP_GooglePrivacyDlpV2TaggedField;
@@ -244,7 +260,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Ty
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Csv;
 /**
- *  excel
+ *  xlsx, xlsm, xltx, xltm
  *
  *  Value: "EXCEL_DOCUMENT"
  */
@@ -286,7 +302,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Ty
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Pdf;
 /**
- *  powerpoint
+ *  pptx, pptm, potx, potm, pot
  *
  *  Value: "POWERPOINT_DOCUMENT"
  */
@@ -587,6 +603,76 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Lik
  *  Value: "VERY_UNLIKELY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage.event
+
+/**
+ *  Changed one of the following profile metrics: * Table data risk score *
+ *  Table sensitivity score * Table resource visibility * Table encryption type
+ *  * Table predicted infoTypes * Table other infoTypes
+ *
+ *  Value: "CHANGED_PROFILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage_Event_ChangedProfile;
+/**
+ *  A user (non-internal) error occurred.
+ *
+ *  Value: "ERROR_CHANGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage_Event_ErrorChanged;
+/**
+ *  Unused.
+ *
+ *  Value: "EVENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage_Event_EventTypeUnspecified;
+/**
+ *  New profile (not a re-profile).
+ *
+ *  Value: "NEW_PROFILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage_Event_NewProfile;
+/**
+ *  Table data risk score or sensitivity score increased.
+ *
+ *  Value: "SCORE_INCREASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage_Event_ScoreIncreased;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2DataRiskLevel.score
+
+/**
+ *  High risk – SPII may be present. Access controls may include public ACLs.
+ *  Exfiltration of data may lead to user data loss. Re-identification of users
+ *  may be possible. Consider limiting usage and or removing SPII.
+ *
+ *  Value: "RISK_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DataRiskLevel_Score_RiskHigh;
+/**
+ *  Low risk - Lower indication of sensitive data that appears to have
+ *  additional access restrictions in place or no indication of sensitive data
+ *  found.
+ *
+ *  Value: "RISK_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DataRiskLevel_Score_RiskLow;
+/**
+ *  Medium risk - Sensitive data may be present but additional access or fine
+ *  grain access restrictions appears to be present. Consider limiting access
+ *  even further or transforming data to mask.
+ *
+ *  Value: "RISK_MODERATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DataRiskLevel_Score_RiskModerate;
+/**
+ *  Unused.
+ *
+ *  Value: "RISK_SCORE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DataRiskLevel_Score_RiskScoreUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2DateTime.dayOfWeek
@@ -988,6 +1074,162 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfi
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_OutputSchemaUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2PubSubCondition.minimumRiskScore
+
+/**
+ *  High risk/sensitivity detected.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubCondition_MinimumRiskScore_High;
+/**
+ *  Medium or high risk/sensitivity detected.
+ *
+ *  Value: "MEDIUM_OR_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubCondition_MinimumRiskScore_MediumOrHigh;
+/**
+ *  Unused.
+ *
+ *  Value: "PROFILE_SCORE_BUCKET_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubCondition_MinimumRiskScore_ProfileScoreBucketUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2PubSubCondition.minimumSensitivityScore
+
+/**
+ *  High risk/sensitivity detected.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubCondition_MinimumSensitivityScore_High;
+/**
+ *  Medium or high risk/sensitivity detected.
+ *
+ *  Value: "MEDIUM_OR_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubCondition_MinimumSensitivityScore_MediumOrHigh;
+/**
+ *  Unused.
+ *
+ *  Value: "PROFILE_SCORE_BUCKET_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubCondition_MinimumSensitivityScore_ProfileScoreBucketUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2PubSubExpressions.logicalOperator
+
+/**
+ *  Conditional AND.
+ *
+ *  Value: "AND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubExpressions_LogicalOperator_And;
+/**
+ *  Unused.
+ *
+ *  Value: "LOGICAL_OPERATOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubExpressions_LogicalOperator_LogicalOperatorUnspecified;
+/**
+ *  Conditional OR.
+ *
+ *  Value: "OR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubExpressions_LogicalOperator_Or;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2PubSubNotification.detailOfMessage
+
+/**
+ *  Unused.
+ *
+ *  Value: "DETAIL_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_DetailOfMessage_DetailLevelUnspecified;
+/**
+ *  The resource name of the table.
+ *
+ *  Value: "RESOURCE_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_DetailOfMessage_ResourceName;
+/**
+ *  The full table data profile.
+ *
+ *  Value: "TABLE_PROFILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_DetailOfMessage_TableProfile;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2PubSubNotification.event
+
+/**
+ *  Changed one of the following profile metrics: * Table data risk score *
+ *  Table sensitivity score * Table resource visibility * Table encryption type
+ *  * Table predicted infoTypes * Table other infoTypes
+ *
+ *  Value: "CHANGED_PROFILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_Event_ChangedProfile;
+/**
+ *  A user (non-internal) error occurred.
+ *
+ *  Value: "ERROR_CHANGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_Event_ErrorChanged;
+/**
+ *  Unused.
+ *
+ *  Value: "EVENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_Event_EventTypeUnspecified;
+/**
+ *  New profile (not a re-profile).
+ *
+ *  Value: "NEW_PROFILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_Event_NewProfile;
+/**
+ *  Table data risk score or sensitivity score increased.
+ *
+ *  Value: "SCORE_INCREASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_Event_ScoreIncreased;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2SensitivityScore.score
+
+/**
+ *  High risk – SPII may be present. Exfiltration of data may lead to user data
+ *  loss. Re-identification of users may be possible. Consider limiting usage
+ *  and or removing SPII.
+ *
+ *  Value: "SENSITIVITY_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2SensitivityScore_Score_SensitivityHigh;
+/**
+ *  No sensitive information detected. Limited access.
+ *
+ *  Value: "SENSITIVITY_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2SensitivityScore_Score_SensitivityLow;
+/**
+ *  Medium risk - PII, potentially sensitive data, or fields with free-text data
+ *  that are at higher risk of having intermittent sensitive data. Consider
+ *  limiting access.
+ *
+ *  Value: "SENSITIVITY_MODERATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2SensitivityScore_Score_SensitivityModerate;
+/**
+ *  Unused.
+ *
+ *  Value: "SENSITIVITY_SCORE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2SensitivityScore_Score_SensitivityScoreUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion.state
 
 /**
@@ -1045,6 +1287,74 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2SummaryResult_Code
  *  Value: "TRANSFORMATION_RESULT_CODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2SummaryResult_Code_TransformationResultCodeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2TableDataProfile.encryptionStatus
+
+/**
+ *  Customer provides the key.
+ *
+ *  Value: "ENCRYPTION_CUSTOMER_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_EncryptionStatus_EncryptionCustomerManaged;
+/**
+ *  Google manages server-side encryption keys on your behalf.
+ *
+ *  Value: "ENCRYPTION_GOOGLE_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_EncryptionStatus_EncryptionGoogleManaged;
+/**
+ *  Unused.
+ *
+ *  Value: "ENCRYPTION_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_EncryptionStatus_EncryptionStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2TableDataProfile.resourceVisibility
+
+/**
+ *  Visible to any user.
+ *
+ *  Value: "RESOURCE_VISIBILITY_PUBLIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_ResourceVisibility_ResourceVisibilityPublic;
+/**
+ *  Visible only to specific users.
+ *
+ *  Value: "RESOURCE_VISIBILITY_RESTRICTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_ResourceVisibility_ResourceVisibilityRestricted;
+/**
+ *  Unused.
+ *
+ *  Value: "RESOURCE_VISIBILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_ResourceVisibility_ResourceVisibilityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2TableDataProfile.state
+
+/**
+ *  The profile is no longer generating. If profile_status.status.code is 0, the
+ *  profile succeeded, otherwise, it failed.
+ *
+ *  Value: "DONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_State_Done;
+/**
+ *  The profile is currently running. Once a profile has finished it will
+ *  transition to DONE.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_State_Running;
+/**
+ *  Unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2TimePartConfig.partToExtract
@@ -1461,7 +1771,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Csv csv (Value:
  *        "CSV")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ExcelDocument
- *        excel (Value: "EXCEL_DOCUMENT")
+ *        xlsx, xlsm, xltx, xltm (Value: "EXCEL_DOCUMENT")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Image Any image
  *        type. (Value: "IMAGE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageBmp bmp
@@ -1475,7 +1785,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Pdf pdf (Value:
  *        "PDF")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_PowerpointDocument
- *        powerpoint (Value: "POWERPOINT_DOCUMENT")
+ *        pptx, pptm, potx, potm, pot (Value: "POWERPOINT_DOCUMENT")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_TextUtf8 plain
  *        text (Value: "TEXT_UTF8")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Tsv tsv (Value:
@@ -2388,6 +2698,180 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  A task to execute when a data profile has been generated.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DataProfileAction : GTLRObject
+
+/** Export data profiles into a provided location. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Export *exportData;
+
+/** Publish a message into the Pub/Sub topic. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PubSubNotification *pubSubNotification;
+
+@end
+
+
+/**
+ *  Snapshot of the configurations used to generate the profile.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DataProfileConfigSnapshot : GTLRObject
+
+/** A copy of the configuration used to generate this profile. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DataProfileJobConfig *dataProfileJob;
+
+/**
+ *  A copy of the inspection config used to generate this profile. This is a
+ *  copy of the inspect_template specified in `DataProfileJobConfig`.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectConfig *inspectConfig;
+
+@end
+
+
+/**
+ *  Configuration for setting up a job to scan resources for profile generation.
+ *  Only one data profile configuration may exist per organization, folder, or
+ *  project. The generated data profiles are retained according to the [data
+ *  retention policy]
+ *  (https://cloud.google.com/dlp/docs/data-profiles#retention).
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DataProfileJobConfig : GTLRObject
+
+/** Actions to execute at the completion of the job. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2DataProfileAction *> *dataProfileActions;
+
+/**
+ *  Detection logic for profile generation. Not all template features are used
+ *  by profiles. FindingLimits, include_quote and exclude_info_types have no
+ *  impact on data profiling. Multiple templates may be provided if there is
+ *  data in multiple regions. At most one template must be specified per-region
+ *  (including "global"). Each region is scanned using the applicable template.
+ *  If no region-specific template is specified, but a "global" template is
+ *  specified, it will be copied to that region and used instead. If no global
+ *  or region-specific template is provided for a region with data, that
+ *  region's data will not be scanned. For more information, see
+ *  https://cloud.google.com/dlp/docs/data-profiles#data_residency.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *inspectTemplates;
+
+/** The data to scan. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DataProfileLocation *location;
+
+/**
+ *  The project that will run the scan. The DLP service account that exists
+ *  within this project must have access to all resources that are profiled, and
+ *  the Cloud DLP API must be enabled.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+@end
+
+
+/**
+ *  The data that will be profiled.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DataProfileLocation : GTLRObject
+
+/**
+ *  The ID of the Folder within an organization to scan.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *folderId;
+
+/**
+ *  The ID of an organization to scan.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *organizationId;
+
+@end
+
+
+/**
+ *  A condition for determining whether a PubSub should be triggered.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DataProfilePubSubCondition : GTLRObject
+
+/** An expression. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PubSubExpressions *expressions;
+
+@end
+
+
+/**
+ *  The message that will be published to a Pub/Sub topic. To receive a message
+ *  of protocol buffer schema type, convert the message data to an object of
+ *  this proto class.
+ *  https://cloud.google.com/pubsub/docs/samples/pubsub-subscribe-proto-messages
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage : GTLRObject
+
+/**
+ *  The event that caused the Pub/Sub message to be sent.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage_Event_ChangedProfile
+ *        Changed one of the following profile metrics: * Table data risk score
+ *        * Table sensitivity score * Table resource visibility * Table
+ *        encryption type * Table predicted infoTypes * Table other infoTypes
+ *        (Value: "CHANGED_PROFILE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage_Event_ErrorChanged
+ *        A user (non-internal) error occurred. (Value: "ERROR_CHANGED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage_Event_EventTypeUnspecified
+ *        Unused. (Value: "EVENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage_Event_NewProfile
+ *        New profile (not a re-profile). (Value: "NEW_PROFILE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage_Event_ScoreIncreased
+ *        Table data risk score or sensitivity score increased. (Value:
+ *        "SCORE_INCREASED")
+ */
+@property(nonatomic, copy, nullable) NSString *event;
+
+/**
+ *  If `DetailLevel` is `TABLE_PROFILE` this will be fully populated. Otherwise,
+ *  if `DetailLevel` is `RESOURCE_NAME`, then only `name` and `full_resource`
+ *  will be populated.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TableDataProfile *profile;
+
+@end
+
+
+/**
+ *  Score is a summary of all elements in the data profile. A higher number
+ *  means more risky.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2DataRiskLevel : GTLRObject
+
+/**
+ *  The score applied to the resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DataRiskLevel_Score_RiskHigh High risk
+ *        – SPII may be present. Access controls may include public ACLs.
+ *        Exfiltration of data may lead to user data loss. Re-identification of
+ *        users may be possible. Consider limiting usage and or removing SPII.
+ *        (Value: "RISK_HIGH")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DataRiskLevel_Score_RiskLow Low risk -
+ *        Lower indication of sensitive data that appears to have additional
+ *        access restrictions in place or no indication of sensitive data found.
+ *        (Value: "RISK_LOW")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DataRiskLevel_Score_RiskModerate Medium
+ *        risk - Sensitive data may be present but additional access or fine
+ *        grain access restrictions appears to be present. Consider limiting
+ *        access even further or transforming data to mask. (Value:
+ *        "RISK_MODERATE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DataRiskLevel_Score_RiskScoreUnspecified
+ *        Unused. (Value: "RISK_SCORE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *score;
+
+@end
+
+
+/**
  *  Record key for a finding in Cloud Datastore.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DatastoreKey : GTLRObject
@@ -2969,6 +3453,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** Regular expression which defines the rule. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Regex *regex;
+
+@end
+
+
+/**
+ *  If set, the detailed data profiles will be persisted to the location of your
+ *  choice whenever updated.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2Export : GTLRObject
+
+/**
+ *  Store all table and column profiles in an existing table or a new table in
+ *  an existing dataset. Each re-generation will result in a new row in
+ *  BigQuery.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryTable *profileTable;
 
 @end
 
@@ -3612,6 +4112,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSNumber *count;
 
 /** The type of finding this stat is for. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infoType;
+
+@end
+
+
+/**
+ *  The infoType details for this column.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2InfoTypeSummary : GTLRObject
+
+/** The infoType. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infoType;
 
 @end
@@ -4710,6 +5221,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Infotype details for other infoTypes found within a column.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2OtherInfoTypeSummary : GTLRObject
+
+/** The other infoType. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infoType;
+
+@end
+
+
+/**
  *  Cloud repository for storing output.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2OutputStorageConfig : GTLRObject
@@ -4884,6 +5406,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  GTLRDLP_GooglePrivacyDlpV2ProfileStatus
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2ProfileStatus : GTLRObject
+
+/** Profiling status code and optional message */
+@property(nonatomic, strong, nullable) GTLRDLP_GoogleRpcStatus *status;
+
+/** Time when the profile generation status was updated */
+@property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
+
+@end
+
+
+/**
  *  Message for specifying a window around a finding to apply a detection rule.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Proximity : GTLRObject
@@ -4961,6 +5497,122 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  under the Stackdriver label 'info_type'.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2PublishToStackdriver : GTLRObject
+@end
+
+
+/**
+ *  A condition consisting of a value.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2PubSubCondition : GTLRObject
+
+/**
+ *  The minimum data risk score that triggers the condition.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubCondition_MinimumRiskScore_High
+ *        High risk/sensitivity detected. (Value: "HIGH")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubCondition_MinimumRiskScore_MediumOrHigh
+ *        Medium or high risk/sensitivity detected. (Value: "MEDIUM_OR_HIGH")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubCondition_MinimumRiskScore_ProfileScoreBucketUnspecified
+ *        Unused. (Value: "PROFILE_SCORE_BUCKET_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *minimumRiskScore;
+
+/**
+ *  The minimum sensitivity level that triggers the condition.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubCondition_MinimumSensitivityScore_High
+ *        High risk/sensitivity detected. (Value: "HIGH")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubCondition_MinimumSensitivityScore_MediumOrHigh
+ *        Medium or high risk/sensitivity detected. (Value: "MEDIUM_OR_HIGH")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubCondition_MinimumSensitivityScore_ProfileScoreBucketUnspecified
+ *        Unused. (Value: "PROFILE_SCORE_BUCKET_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *minimumSensitivityScore;
+
+@end
+
+
+/**
+ *  An expression, consisting of an operator and conditions.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2PubSubExpressions : GTLRObject
+
+/** Conditions to apply to the expression. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2PubSubCondition *> *conditions;
+
+/**
+ *  The operator to apply to the collection of conditions.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubExpressions_LogicalOperator_And
+ *        Conditional AND. (Value: "AND")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubExpressions_LogicalOperator_LogicalOperatorUnspecified
+ *        Unused. (Value: "LOGICAL_OPERATOR_UNSPECIFIED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubExpressions_LogicalOperator_Or
+ *        Conditional OR. (Value: "OR")
+ */
+@property(nonatomic, copy, nullable) NSString *logicalOperator;
+
+@end
+
+
+/**
+ *  Send a Pub/Sub message into the given Pub/Sub topic to connect other systems
+ *  to data profile generation. The message payload data will be the byte
+ *  serialization of `DataProfilePubSubMessage`.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2PubSubNotification : GTLRObject
+
+/**
+ *  How much data to include in the Pub/Sub message. If the user wishes to limit
+ *  the size of the message, they can use resource_name and fetch the profile
+ *  fields they wish to. Per table profile (not per column).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_DetailOfMessage_DetailLevelUnspecified
+ *        Unused. (Value: "DETAIL_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_DetailOfMessage_ResourceName
+ *        The resource name of the table. (Value: "RESOURCE_NAME")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_DetailOfMessage_TableProfile
+ *        The full table data profile. (Value: "TABLE_PROFILE")
+ */
+@property(nonatomic, copy, nullable) NSString *detailOfMessage;
+
+/**
+ *  The type of event that triggers a Pub/Sub. At most one `PubSubNotification`
+ *  per EventType is permitted.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_Event_ChangedProfile
+ *        Changed one of the following profile metrics: * Table data risk score
+ *        * Table sensitivity score * Table resource visibility * Table
+ *        encryption type * Table predicted infoTypes * Table other infoTypes
+ *        (Value: "CHANGED_PROFILE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_Event_ErrorChanged A
+ *        user (non-internal) error occurred. (Value: "ERROR_CHANGED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_Event_EventTypeUnspecified
+ *        Unused. (Value: "EVENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_Event_NewProfile New
+ *        profile (not a re-profile). (Value: "NEW_PROFILE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PubSubNotification_Event_ScoreIncreased
+ *        Table data risk score or sensitivity score increased. (Value:
+ *        "SCORE_INCREASED")
+ */
+@property(nonatomic, copy, nullable) NSString *event;
+
+/**
+ *  Conditions (e.g., data risk or sensitivity level) for triggering a Pub/Sub.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DataProfilePubSubCondition *pubsubCondition;
+
+/**
+ *  Cloud Pub/Sub topic to send notifications to. Format is
+ *  projects/{project}/topics/{topic}.
+ */
+@property(nonatomic, copy, nullable) NSString *topic;
+
 @end
 
 
@@ -5447,6 +6099,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Score is a summary of all elements in the data profile. A higher number
+ *  means more sensitive.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2SensitivityScore : GTLRObject
+
+/**
+ *  The score applied to the resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2SensitivityScore_Score_SensitivityHigh
+ *        High risk – SPII may be present. Exfiltration of data may lead to user
+ *        data loss. Re-identification of users may be possible. Consider
+ *        limiting usage and or removing SPII. (Value: "SENSITIVITY_HIGH")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2SensitivityScore_Score_SensitivityLow
+ *        No sensitive information detected. Limited access. (Value:
+ *        "SENSITIVITY_LOW")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2SensitivityScore_Score_SensitivityModerate
+ *        Medium risk - PII, potentially sensitive data, or fields with
+ *        free-text data that are at higher risk of having intermittent
+ *        sensitive data. Consider limiting access. (Value:
+ *        "SENSITIVITY_MODERATE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2SensitivityScore_Score_SensitivityScoreUnspecified
+ *        Unused. (Value: "SENSITIVITY_SCORE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *score;
+
+@end
+
+
+/**
  *  An auxiliary table containing statistical information on the relative
  *  frequency of different quasi-identifiers values. It has one or several
  *  quasi-identifiers columns, and one column that indicates the relative
@@ -5703,6 +6385,162 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Rows of the table. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Row *> *rows;
 
+@end
+
+
+/**
+ *  The profile for a scanned table.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2TableDataProfile : GTLRObject
+
+/** The snapshot of the configurations used to generate the profile. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DataProfileConfigSnapshot *configSnapshot;
+
+/** The time at which the table was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The data risk level of this table. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DataRiskLevel *dataRiskLevel;
+
+/** The BigQuery dataset ID. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/**
+ *  The BigQuery location where the dataset's data is stored. See
+ *  https://cloud.google.com/bigquery/docs/locations for supported locations.
+ */
+@property(nonatomic, copy, nullable) NSString *datasetLocation;
+
+/** The GCP project ID that owns the BigQuery dataset. */
+@property(nonatomic, copy, nullable) NSString *datasetProjectId;
+
+/**
+ *  How the table is encrypted.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_EncryptionStatus_EncryptionCustomerManaged
+ *        Customer provides the key. (Value: "ENCRYPTION_CUSTOMER_MANAGED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_EncryptionStatus_EncryptionGoogleManaged
+ *        Google manages server-side encryption keys on your behalf. (Value:
+ *        "ENCRYPTION_GOOGLE_MANAGED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_EncryptionStatus_EncryptionStatusUnspecified
+ *        Unused. (Value: "ENCRYPTION_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionStatus;
+
+/** Optional. The time when this table expires. */
+@property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
+
+/**
+ *  The number of columns skipped in the table because of an error.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failedColumnCount;
+
+/**
+ *  The resource name of the table.
+ *  https://cloud.google.com/apis/design/resource_names#full_resource_name
+ */
+@property(nonatomic, copy, nullable) NSString *fullResource;
+
+/** The time when this table was last modified */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastModifiedTime;
+
+/** The name of the profile. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Other infoTypes found in this table's data. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2OtherInfoTypeSummary *> *otherInfoTypes;
+
+/** The infoTypes predicted from this table's data. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoTypeSummary *> *predictedInfoTypes;
+
+/** The last time the profile was generated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *profileLastGenerated;
+
+/**
+ *  Success or error status from the most recent profile generation attempt. May
+ *  be empty if the profile is still being generated.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ProfileStatus *profileStatus;
+
+/** The resource name to the project data profile for this table. */
+@property(nonatomic, copy, nullable) NSString *projectDataProfile;
+
+/**
+ *  The labels applied to the resource at the time the profile was generated.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TableDataProfile_ResourceLabels *resourceLabels;
+
+/**
+ *  How broadly a resource has been shared.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_ResourceVisibility_ResourceVisibilityPublic
+ *        Visible to any user. (Value: "RESOURCE_VISIBILITY_PUBLIC")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_ResourceVisibility_ResourceVisibilityRestricted
+ *        Visible only to specific users. (Value:
+ *        "RESOURCE_VISIBILITY_RESTRICTED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_ResourceVisibility_ResourceVisibilityUnspecified
+ *        Unused. (Value: "RESOURCE_VISIBILITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *resourceVisibility;
+
+/**
+ *  Number of rows in the table when the profile was generated.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowCount;
+
+/**
+ *  The number of columns profiled in the table.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scannedColumnCount;
+
+/** The sensitivity score of this table. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2SensitivityScore *sensitivityScore;
+
+/**
+ *  State of a profile.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_State_Done The profile
+ *        is no longer generating. If profile_status.status.code is 0, the
+ *        profile succeeded, otherwise, it failed. (Value: "DONE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_State_Running The
+ *        profile is currently running. Once a profile has finished it will
+ *        transition to DONE. (Value: "RUNNING")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TableDataProfile_State_StateUnspecified
+ *        Unused. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** The BigQuery table ID. */
+@property(nonatomic, copy, nullable) NSString *tableId;
+
+/**
+ *  The size of the table when the profile was generated.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tableSizeBytes;
+
+@end
+
+
+/**
+ *  The labels applied to the resource at the time the profile was generated.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2TableDataProfile_ResourceLabels : GTLRObject
 @end
 
 

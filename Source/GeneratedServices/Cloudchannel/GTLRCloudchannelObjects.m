@@ -225,6 +225,11 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1RenewalSettings_PaymentPl
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1RenewalSettings_PaymentPlan_PaymentPlanUnspecified = @"PAYMENT_PLAN_UNSPECIFIED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1RenewalSettings_PaymentPlan_Trial = @"TRIAL";
 
+// GTLRCloudchannel_GoogleCloudChannelV1RepricingConfig.rebillingBasis
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1RepricingConfig_RebillingBasis_CostAtList = @"COST_AT_LIST";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1RepricingConfig_RebillingBasis_DirectCustomerCost = @"DIRECT_CUSTOMER_COST";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1RepricingConfig_RebillingBasis_RebillingBasisUnspecified = @"REBILLING_BASIS_UNSPECIFIED";
+
 // GTLRCloudchannel_GoogleCloudChannelV1TransferEligibility.ineligibilityReason
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_IneligibilityReason_PendingTosAcceptance = @"PENDING_TOS_ACCEPTANCE";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_IneligibilityReason_ReasonUnspecified = @"REASON_UNSPECIFIED";
@@ -505,6 +510,16 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerRepricingConfig
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerRepricingConfig
+@dynamic name, repricingConfig, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudchannel_GoogleCloudChannelV1CheckCloudIdentityAccountsExistRequest
 //
 
@@ -636,6 +651,16 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudchannel_GoogleCloudChannelV1CustomerRepricingConfig
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1CustomerRepricingConfig
+@dynamic name, repricingConfig, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudchannel_GoogleCloudChannelV1EduData
 //
 
@@ -703,6 +728,50 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 + (NSString *)collectionItemsKey {
   return @"channelPartnerLinks";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1ListChannelPartnerRepricingConfigsResponse
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1ListChannelPartnerRepricingConfigsResponse
+@dynamic channelPartnerRepricingConfigs, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"channelPartnerRepricingConfigs" : [GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerRepricingConfig class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"channelPartnerRepricingConfigs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1ListCustomerRepricingConfigsResponse
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1ListCustomerRepricingConfigsResponse
+@dynamic customerRepricingConfigs, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customerRepricingConfigs" : [GTLRCloudchannel_GoogleCloudChannelV1CustomerRepricingConfig class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"customerRepricingConfigs";
 }
 
 @end
@@ -1030,6 +1099,16 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudchannel_GoogleCloudChannelV1PercentageAdjustment
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1PercentageAdjustment
+@dynamic percentage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudchannel_GoogleCloudChannelV1Period
 //
 
@@ -1181,6 +1260,46 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1RenewalSettings
 @dynamic enableRenewal, paymentCycle, paymentPlan, resizeUnitCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1RepricingAdjustment
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1RepricingAdjustment
+@dynamic percentageAdjustment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1RepricingConfig
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1RepricingConfig
+@dynamic adjustment, channelPartnerGranularity, effectiveInvoiceMonth,
+         entitlementGranularity, rebillingBasis;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1RepricingConfigChannelPartnerGranularity
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1RepricingConfigChannelPartnerGranularity
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1RepricingConfigEntitlementGranularity
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1RepricingConfigEntitlementGranularity
+@dynamic entitlement;
 @end
 
 
@@ -1484,6 +1603,26 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleTypeDate
+//
+
+@implementation GTLRCloudchannel_GoogleTypeDate
+@dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleTypeDecimal
+//
+
+@implementation GTLRCloudchannel_GoogleTypeDecimal
+@dynamic value;
 @end
 
 

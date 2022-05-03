@@ -48,11 +48,11 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingAlignmentAlignmentEqualAtEnd;
 /**
  *  The time periods shall be consecutive, have width equal to the requested
- *  duration, and be aligned at the `alignment_time` provided in the request.
- *  The `alignment_time` does not have to be inside the query period but even if
- *  it is outside, only time periods are returned which overlap with the query
- *  period. A rounded alignment will typically result in a different size of the
- *  first or the last time period.
+ *  duration, and be aligned at the alignment_time provided in the request. The
+ *  alignment_time does not have to be inside the query period but even if it is
+ *  outside, only time periods are returned which overlap with the query period.
+ *  A rounded alignment will typically result in a different size of the first
+ *  or the last time period.
  *
  *  Value: "ALIGNMENT_EQUAL_ROUNDED"
  */
@@ -353,9 +353,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
 
 /**
  *  Required. The group resource name. Written as
- *  `projects/{projectID}/groups/{group_name}`. Call
- *  [`groupStats.list`](https://cloud.google.com/error-reporting/reference/rest/v1beta1/projects.groupStats/list)
- *  to return a list of groups belonging to this project. Example:
+ *  `projects/{projectID}/groups/{group_name}`. Call groupStats.list to return a
+ *  list of groups belonging to this project. Example:
  *  `projects/my-project-123/groups/my-group`
  */
 @property(nonatomic, copy, nullable) NSString *groupName;
@@ -366,9 +365,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *  Get the specified group.
  *
  *  @param groupName Required. The group resource name. Written as
- *    `projects/{projectID}/groups/{group_name}`. Call
- *    [`groupStats.list`](https://cloud.google.com/error-reporting/reference/rest/v1beta1/projects.groupStats/list)
- *    to return a list of groups belonging to this project. Example:
+ *    `projects/{projectID}/groups/{group_name}`. Call groupStats.list to return
+ *    a list of groups belonging to this project. Example:
  *    `projects/my-project-123/groups/my-group`
  *
  *  @return GTLRClouderrorreportingQuery_ProjectsGroupsGet
@@ -396,8 +394,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *        alignment specified. (Value: "ERROR_COUNT_ALIGNMENT_UNSPECIFIED")
  *    @arg @c kGTLRClouderrorreportingAlignmentAlignmentEqualRounded The time
  *        periods shall be consecutive, have width equal to the requested
- *        duration, and be aligned at the `alignment_time` provided in the
- *        request. The `alignment_time` does not have to be inside the query
+ *        duration, and be aligned at the alignment_time provided in the
+ *        request. The alignment_time does not have to be inside the query
  *        period but even if it is outside, only time periods are returned which
  *        overlap with the query period. A rounded alignment will typically
  *        result in a different size of the first or the last time period.
@@ -446,7 +444,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. A `next_page_token` provided by a previous response. To view
+ *  Optional. A next_page_token provided by a previous response. To view
  *  additional results, pass this token along with the identical query
  *  parameters as the first request.
  */
@@ -480,7 +478,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
 @property(nonatomic, copy, nullable) NSString *serviceFilterVersion;
 
 /**
- *  Optional. The preferred duration for a single returned `TimedCount`. If not
+ *  Optional. The preferred duration for a single returned TimedCount. If not
  *  set, no timed counts are returned.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *timedCountDuration;

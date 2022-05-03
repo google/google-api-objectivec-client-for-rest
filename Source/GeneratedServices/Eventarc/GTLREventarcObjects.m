@@ -3,6 +3,8 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Eventarc API (eventarc/v1)
+// Description:
+//   Build event-driven applications on Google Cloud Platform.
 // Documentation:
 //   https://cloud.google.com/eventarc
 

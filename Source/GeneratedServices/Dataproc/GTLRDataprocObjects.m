@@ -55,6 +55,13 @@ NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_InheritF
 NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_Outbound = @"OUTBOUND";
 NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessUnspecified = @"PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED";
 
+// GTLRDataproc_GkeNodePoolTarget.roles
+NSString * const kGTLRDataproc_GkeNodePoolTarget_Roles_Controller = @"CONTROLLER";
+NSString * const kGTLRDataproc_GkeNodePoolTarget_Roles_Default = @"DEFAULT";
+NSString * const kGTLRDataproc_GkeNodePoolTarget_Roles_RoleUnspecified = @"ROLE_UNSPECIFIED";
+NSString * const kGTLRDataproc_GkeNodePoolTarget_Roles_SparkDriver = @"SPARK_DRIVER";
+NSString * const kGTLRDataproc_GkeNodePoolTarget_Roles_SparkExecutor = @"SPARK_EXECUTOR";
+
 // GTLRDataproc_InstanceGroupConfig.preemptibility
 NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_NonPreemptible = @"NON_PREEMPTIBLE";
 NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_PreemptibilityUnspecified = @"PREEMPTIBILITY_UNSPECIFIED";
@@ -211,6 +218,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_AuxiliaryServicesConfig
+//
+
+@implementation GTLRDataproc_AuxiliaryServicesConfig
+@dynamic metastoreConfig, sparkHistoryServerConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_BasicAutoscalingAlgorithm
 //
 
@@ -335,7 +352,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_Cluster
 @dynamic clusterName, clusterUuid, config, labels, metrics, projectId, status,
-         statusHistory;
+         statusHistory, virtualClusterConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -705,7 +722,90 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_GkeClusterConfig
-@dynamic namespacedGkeDeploymentTarget;
+@dynamic gkeClusterTarget, namespacedGkeDeploymentTarget, nodePoolTarget;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"nodePoolTarget" : [GTLRDataproc_GkeNodePoolTarget class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_GkeNodeConfig
+//
+
+@implementation GTLRDataproc_GkeNodeConfig
+@dynamic accelerators, localSsdCount, machineType, minCpuPlatform, preemptible,
+         spot;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accelerators" : [GTLRDataproc_GkeNodePoolAcceleratorConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_GkeNodePoolAcceleratorConfig
+//
+
+@implementation GTLRDataproc_GkeNodePoolAcceleratorConfig
+@dynamic acceleratorCount, acceleratorType, gpuPartitionSize;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_GkeNodePoolAutoscalingConfig
+//
+
+@implementation GTLRDataproc_GkeNodePoolAutoscalingConfig
+@dynamic maxNodeCount, minNodeCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_GkeNodePoolConfig
+//
+
+@implementation GTLRDataproc_GkeNodePoolConfig
+@dynamic autoscaling, config, locations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_GkeNodePoolTarget
+//
+
+@implementation GTLRDataproc_GkeNodePoolTarget
+@dynamic nodePool, nodePoolConfig, roles;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"roles" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1003,6 +1103,54 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
          keyPasswordUri, keystorePasswordUri, keystoreUri, kmsKeyUri, realm,
          rootPrincipalPasswordUri, tgtLifetimeHours, truststorePasswordUri,
          truststoreUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_KubernetesClusterConfig
+//
+
+@implementation GTLRDataproc_KubernetesClusterConfig
+@dynamic gkeClusterConfig, kubernetesNamespace, kubernetesSoftwareConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_KubernetesSoftwareConfig
+//
+
+@implementation GTLRDataproc_KubernetesSoftwareConfig
+@dynamic componentVersion, properties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_KubernetesSoftwareConfig_ComponentVersion
+//
+
+@implementation GTLRDataproc_KubernetesSoftwareConfig_ComponentVersion
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_KubernetesSoftwareConfig_Properties
+//
+
+@implementation GTLRDataproc_KubernetesSoftwareConfig_Properties
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -2102,6 +2250,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_VirtualClusterConfig
+//
+
+@implementation GTLRDataproc_VirtualClusterConfig
+@dynamic auxiliaryServicesConfig, kubernetesClusterConfig, stagingBucket;
 @end
 
 

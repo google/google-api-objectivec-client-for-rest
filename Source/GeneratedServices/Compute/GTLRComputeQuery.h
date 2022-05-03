@@ -8889,8 +8889,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Creates instances with per-instance configs in this managed instance group.
- *  Instances are created using the current instance template. The create
+ *  Creates instances with per-instance configurations in this managed instance
+ *  group. Instances are created using the current instance template. The create
  *  instances operation is marked DONE if the createInstances request is
  *  successful. The underlying actions take additional time. You must separately
  *  verify the status of the creating or actions with the listmanagedinstances
@@ -8933,8 +8933,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Creates instances with per-instance configs in this managed instance group.
- *  Instances are created using the current instance template. The create
+ *  Creates instances with per-instance configurations in this managed instance
+ *  group. Instances are created using the current instance template. The create
  *  instances operation is marked DONE if the createInstances request is
  *  successful. The underlying actions take additional time. You must separately
  *  verify the status of the creating or actions with the listmanagedinstances
@@ -9096,7 +9096,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Deletes selected per-instance configs for the managed instance group.
+ *  Deletes selected per-instance configurations for the managed instance group.
  *
  *  Method: compute.instanceGroupManagers.deletePerInstanceConfigs
  *
@@ -9123,7 +9123,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes selected per-instance configs for the managed instance group.
+ *  Deletes selected per-instance configurations for the managed instance group.
  *
  *  @param object The @c
  *    GTLRCompute_InstanceGroupManagersDeletePerInstanceConfigsReq to include in
@@ -9588,8 +9588,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Lists all of the per-instance configs defined for the managed instance
- *  group. The orderBy query parameter is not supported.
+ *  Lists all of the per-instance configurations defined for the managed
+ *  instance group. The orderBy query parameter is not supported.
  *
  *  Method: compute.instanceGroupManagers.listPerInstanceConfigs
  *
@@ -9675,8 +9675,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp.
  *
- *  Lists all of the per-instance configs defined for the managed instance
- *  group. The orderBy query parameter is not supported.
+ *  Lists all of the per-instance configurations defined for the managed
+ *  instance group. The orderBy query parameter is not supported.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone where the managed instance group is
@@ -9773,8 +9773,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Inserts or patches per-instance configs for the managed instance group.
- *  perInstanceConfig.name serves as a key used to distinguish whether to
+ *  Inserts or patches per-instance configurations for the managed instance
+ *  group. perInstanceConfig.name serves as a key used to distinguish whether to
  *  perform insert or patch.
  *
  *  Method: compute.instanceGroupManagers.patchPerInstanceConfigs
@@ -9815,8 +9815,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Inserts or patches per-instance configs for the managed instance group.
- *  perInstanceConfig.name serves as a key used to distinguish whether to
+ *  Inserts or patches per-instance configurations for the managed instance
+ *  group. perInstanceConfig.name serves as a key used to distinguish whether to
  *  perform insert or patch.
  *
  *  @param object The @c
@@ -10142,8 +10142,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Inserts or updates per-instance configs for the managed instance group.
- *  perInstanceConfig.name serves as a key used to distinguish whether to
+ *  Inserts or updates per-instance configurations for the managed instance
+ *  group. perInstanceConfig.name serves as a key used to distinguish whether to
  *  perform insert or patch.
  *
  *  Method: compute.instanceGroupManagers.updatePerInstanceConfigs
@@ -10184,8 +10184,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Inserts or updates per-instance configs for the managed instance group.
- *  perInstanceConfig.name serves as a key used to distinguish whether to
+ *  Inserts or updates per-instance configurations for the managed instance
+ *  group. perInstanceConfig.name serves as a key used to distinguish whether to
  *  perform insert or patch.
  *
  *  @param object The @c
@@ -24002,7 +24002,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Creates instances with per-instance configs in this regional managed
+ *  Creates instances with per-instance configurations in this regional managed
  *  instance group. Instances are created using the current instance template.
  *  The create instances operation is marked DONE if the createInstances request
  *  is successful. The underlying actions take additional time. You must
@@ -24044,7 +24044,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Creates instances with per-instance configs in this regional managed
+ *  Creates instances with per-instance configurations in this regional managed
  *  instance group. Instances are created using the current instance template.
  *  The create instances operation is marked DONE if the createInstances request
  *  is successful. The underlying actions take additional time. You must
@@ -24196,7 +24196,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Deletes selected per-instance configs for the managed instance group.
+ *  Deletes selected per-instance configurations for the managed instance group.
  *
  *  Method: compute.regionInstanceGroupManagers.deletePerInstanceConfigs
  *
@@ -24218,7 +24218,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes selected per-instance configs for the managed instance group.
+ *  Deletes selected per-instance configurations for the managed instance group.
  *
  *  @param object The @c
  *    GTLRCompute_RegionInstanceGroupManagerDeleteInstanceConfigReq to include
@@ -24652,8 +24652,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Lists all of the per-instance configs defined for the managed instance
- *  group. The orderBy query parameter is not supported.
+ *  Lists all of the per-instance configurations defined for the managed
+ *  instance group. The orderBy query parameter is not supported.
  *
  *  Method: compute.regionInstanceGroupManagers.listPerInstanceConfigs
  *
@@ -24734,8 +24734,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp.
  *
- *  Lists all of the per-instance configs defined for the managed instance
- *  group. The orderBy query parameter is not supported.
+ *  Lists all of the per-instance configurations defined for the managed
+ *  instance group. The orderBy query parameter is not supported.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request, should conform to
@@ -24827,8 +24827,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Inserts or patches per-instance configs for the managed instance group.
- *  perInstanceConfig.name serves as a key used to distinguish whether to
+ *  Inserts or patches per-instance configurations for the managed instance
+ *  group. perInstanceConfig.name serves as a key used to distinguish whether to
  *  perform insert or patch.
  *
  *  Method: compute.regionInstanceGroupManagers.patchPerInstanceConfigs
@@ -24864,8 +24864,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Inserts or patches per-instance configs for the managed instance group.
- *  perInstanceConfig.name serves as a key used to distinguish whether to
+ *  Inserts or patches per-instance configurations for the managed instance
+ *  group. perInstanceConfig.name serves as a key used to distinguish whether to
  *  perform insert or patch.
  *
  *  @param object The @c
@@ -25142,8 +25142,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Inserts or updates per-instance configs for the managed instance group.
- *  perInstanceConfig.name serves as a key used to distinguish whether to
+ *  Inserts or updates per-instance configurations for the managed instance
+ *  group. perInstanceConfig.name serves as a key used to distinguish whether to
  *  perform insert or patch.
  *
  *  Method: compute.regionInstanceGroupManagers.updatePerInstanceConfigs
@@ -25179,8 +25179,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Inserts or updates per-instance configs for the managed instance group.
- *  perInstanceConfig.name serves as a key used to distinguish whether to
+ *  Inserts or updates per-instance configurations for the managed instance
+ *  group. perInstanceConfig.name serves as a key used to distinguish whether to
  *  perform insert or patch.
  *
  *  @param object The @c

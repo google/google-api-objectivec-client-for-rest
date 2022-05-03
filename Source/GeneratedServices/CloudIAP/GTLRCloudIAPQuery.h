@@ -356,15 +356,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsCreate : GTLRCloudIAPQuery
 
 /**
- *  Required. GCP Project number/id and location. In the following format:
- *  projects/{project_number/id}/iap_tunnel/locations/{location}.
+ *  Required. Google Cloud Project ID and location. In the following format:
+ *  `projects/{project_number/id}/iap_tunnel/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Required. The ID to use for the TunnelDestGroup, which will become the final
- *  component of the resource name. This value should be 4-63 characters, and
- *  valid characters are /a-z-/.
+ *  Required. The ID to use for the TunnelDestGroup, which becomes the final
+ *  component of the resource name. This value must be 4-63 characters, and
+ *  valid characters are `a-z-`.
  */
 @property(nonatomic, copy, nullable) NSString *tunnelDestGroupId;
 
@@ -374,8 +374,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a new TunnelDestGroup.
  *
  *  @param object The @c GTLRCloudIAP_TunnelDestGroup to include in the query.
- *  @param parent Required. GCP Project number/id and location. In the following
- *    format: projects/{project_number/id}/iap_tunnel/locations/{location}.
+ *  @param parent Required. Google Cloud Project ID and location. In the
+ *    following format:
+ *    `projects/{project_number/id}/iap_tunnel/locations/{location}`.
  *
  *  @return GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsCreate
  */
@@ -395,9 +396,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsDelete : GTLRCloudIAPQuery
 
 /**
- *  Required. Name of the TunnelDestGroup to be deleted. In the following
- *  format:
- *  projects/{project_number/id}/iap_tunnel/locations/{location}/destGroups/{dest_group}.
+ *  Required. Name of the TunnelDestGroup to delete. In the following format:
+ *  `projects/{project_number/id}/iap_tunnel/locations/{location}/destGroups/{dest_group}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -406,9 +406,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a TunnelDestGroup.
  *
- *  @param name Required. Name of the TunnelDestGroup to be deleted. In the
+ *  @param name Required. Name of the TunnelDestGroup to delete. In the
  *    following format:
- *    projects/{project_number/id}/iap_tunnel/locations/{location}/destGroups/{dest_group}.
+ *    `projects/{project_number/id}/iap_tunnel/locations/{location}/destGroups/{dest_group}`.
  *
  *  @return GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsDelete
  */
@@ -429,7 +429,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Name of the TunnelDestGroup to be fetched. In the following
  *  format:
- *  projects/{project_number/id}/iap_tunnel/locations/{location}/destGroups/{dest_group}.
+ *  `projects/{project_number/id}/iap_tunnel/locations/{location}/destGroups/{dest_group}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -440,7 +440,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. Name of the TunnelDestGroup to be fetched. In the
  *    following format:
- *    projects/{project_number/id}/iap_tunnel/locations/{location}/destGroups/{dest_group}.
+ *    `projects/{project_number/id}/iap_tunnel/locations/{location}/destGroups/{dest_group}`.
  *
  *  @return GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsGet
  */
@@ -451,7 +451,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Lists the existing TunnelDestGroups. To group across all locations, use a
  *  `-` as the location ID. For example:
- *  /v1/projects/123/iap_tunnel/locations/-/destGroups
+ *  `/v1/projects/123/iap_tunnel/locations/-/destGroups`
  *
  *  Method: iap.projects.iap_tunnel.locations.destGroups.list
  *
@@ -461,9 +461,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsList : GTLRCloudIAPQuery
 
 /**
- *  The maximum number of groups to return. The service may return fewer than
- *  this value. If unspecified, at most 100 groups will be returned. The maximum
- *  value is 1000; values above 1000 will be coerced to 1000.
+ *  The maximum number of groups to return. The service might return fewer than
+ *  this value. If unspecified, at most 100 groups are returned. The maximum
+ *  value is 1000; values above 1000 are coerced to 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -476,8 +476,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. GCP Project number/id and location. In the following format:
- *  projects/{project_number/id}/iap_tunnel/locations/{location}. A `-` can be
+ *  Required. Google Cloud Project ID and location. In the following format:
+ *  `projects/{project_number/id}/iap_tunnel/locations/{location}`. A `-` can be
  *  used for the location to group across all locations.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -487,11 +487,12 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists the existing TunnelDestGroups. To group across all locations, use a
  *  `-` as the location ID. For example:
- *  /v1/projects/123/iap_tunnel/locations/-/destGroups
+ *  `/v1/projects/123/iap_tunnel/locations/-/destGroups`
  *
- *  @param parent Required. GCP Project number/id and location. In the following
- *    format: projects/{project_number/id}/iap_tunnel/locations/{location}. A
- *    `-` can be used for the location to group across all locations.
+ *  @param parent Required. Google Cloud Project ID and location. In the
+ *    following format:
+ *    `projects/{project_number/id}/iap_tunnel/locations/{location}`. A `-` can
+ *    be used for the location to group across all locations.
  *
  *  @return GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsList
  *
@@ -520,8 +521,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The field mask specifying which IAP settings should be updated. If omitted,
- *  then all of the settings are updated. See
+ *  A field mask that specifies which IAP settings to update. If omitted, then
+ *  all of the settings are updated. See
  *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *
  *  String format is a comma-separated list of fields.

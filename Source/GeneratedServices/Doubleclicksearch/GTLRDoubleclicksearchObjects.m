@@ -94,6 +94,15 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDoubleclicksearch_IdMappingFile
+//
+
+@implementation GTLRDoubleclicksearch_IdMappingFile
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDoubleclicksearch_Report
 //
 

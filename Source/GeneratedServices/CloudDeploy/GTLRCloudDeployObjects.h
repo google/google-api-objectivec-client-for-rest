@@ -100,6 +100,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AuditLogConfig_LogType_DataW
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudDeploy_DeliveryPipelineNotificationEvent.type
+
+/**
+ *  A Pub/Sub notification failed to be sent.
+ *
+ *  Value: "TYPE_PUBSUB_NOTIFICATION_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypePubsubNotificationFailure;
+/**
+ *  Release render status changed notification.
+ *
+ *  Value: "TYPE_RENDER_STATUES_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeRenderStatuesChange;
+/**
+ *  Type is unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudDeploy_ExecutionConfig.usages
 
 /**
@@ -148,6 +170,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Release_RenderState_RenderSt
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Release_RenderState_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDeploy_ReleaseNotificationEvent.type
+
+/**
+ *  A Pub/Sub notification failed to be sent.
+ *
+ *  Value: "TYPE_PUBSUB_NOTIFICATION_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypePubsubNotificationFailure;
+/**
+ *  Release render status changed notification.
+ *
+ *  Value: "TYPE_RENDER_STATUES_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeRenderStatuesChange;
+/**
+ *  Type is unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDeploy_Rollout.approvalState
@@ -271,6 +315,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_State_StateUnspecifi
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDeploy_RolloutNotificationEvent.type
+
+/**
+ *  A Pub/Sub notification failed to be sent.
+ *
+ *  Value: "TYPE_PUBSUB_NOTIFICATION_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypePubsubNotificationFailure;
+/**
+ *  Release render status changed notification.
+ *
+ *  Value: "TYPE_RENDER_STATUES_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeRenderStatuesChange;
+/**
+ *  Type is unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDeploy_TargetNotificationEvent.type
+
+/**
+ *  A Pub/Sub notification failed to be sent.
+ *
+ *  Value: "TYPE_PUBSUB_NOTIFICATION_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypePubsubNotificationFailure;
+/**
+ *  Release render status changed notification.
+ *
+ *  Value: "TYPE_RENDER_STATUES_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeRenderStatuesChange;
+/**
+ *  Type is unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDeploy_TargetRender.failureCause
@@ -444,7 +532,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Expr *condition;
 
 /**
- *  Specifies the principals requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Google Cloud resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -692,11 +780,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
 
 
 /**
+ *  Payload proto for "clouddeploy.googleapis.com/deliverypipeline_notification"
+ *  Platform Log event that describes the failure to send delivery pipeline
+ *  status change Pub/Sub notification.
+ */
+@interface GTLRCloudDeploy_DeliveryPipelineNotificationEvent : GTLRObject
+
+/** The name of the `Delivery Pipeline`. */
+@property(nonatomic, copy, nullable) NSString *deliveryPipeline;
+
+/** Debug message for when a notification fails to send. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Type of this notification, e.g. for a Pub/Sub failure.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypePubsubNotificationFailure
+ *        A Pub/Sub notification failed to be sent. (Value:
+ *        "TYPE_PUBSUB_NOTIFICATION_FAILURE")
+ *    @arg @c kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeRenderStatuesChange
+ *        Release render status changed notification. (Value:
+ *        "TYPE_RENDER_STATUES_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeUnspecified
+ *        Type is unspecified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRCloudDeploy_Empty : GTLRObject
 @end
@@ -1492,6 +1610,63 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
 
 
 /**
+ *  Payload proto for "clouddeploy.googleapis.com/release_notification" Platform
+ *  Log event that describes the failure to send release status change Pub/Sub
+ *  notification.
+ */
+@interface GTLRCloudDeploy_ReleaseNotificationEvent : GTLRObject
+
+/** Debug message for when a notification fails to send. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  The name of the `Release`.
+ *
+ *  Remapped to 'releaseProperty' to avoid NSObject's 'release'.
+ */
+@property(nonatomic, copy, nullable) NSString *releaseProperty;
+
+/**
+ *  Type of this notification, e.g. for a Pub/Sub failure.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypePubsubNotificationFailure
+ *        A Pub/Sub notification failed to be sent. (Value:
+ *        "TYPE_PUBSUB_NOTIFICATION_FAILURE")
+ *    @arg @c kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeRenderStatuesChange
+ *        Release render status changed notification. (Value:
+ *        "TYPE_RENDER_STATUES_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeUnspecified
+ *        Type is unspecified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Payload proto for "clouddeploy.googleapis.com/release_render" Platform Log
+ *  event that describes the render status change.
+ */
+@interface GTLRCloudDeploy_ReleaseRenderEvent : GTLRObject
+
+/**
+ *  Debug message for when a render transition occurs. Provides further details
+ *  as rendering progresses through render states.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  The name of the `Release`.
+ *
+ *  Remapped to 'releaseProperty' to avoid NSObject's 'release'.
+ */
+@property(nonatomic, copy, nullable) NSString *releaseProperty;
+
+@end
+
+
+/**
  *  A `Rollout` resource in the Google Cloud Deploy API. A `Rollout` contains
  *  information around a specific deployment to a `Target`.
  */
@@ -1673,6 +1848,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
 
 
 /**
+ *  Payload proto for "clouddeploy.googleapis.com/rollout_notification" Platform
+ *  Log event that describes the failure to send rollout status change Pub/Sub
+ *  notification.
+ */
+@interface GTLRCloudDeploy_RolloutNotificationEvent : GTLRObject
+
+/** Debug message for when a notification fails to send. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** Unique identifier of the `DeliveryPipeline`. */
+@property(nonatomic, copy, nullable) NSString *pipelineUid;
+
+/** Unique identifier of the `Release`. */
+@property(nonatomic, copy, nullable) NSString *releaseUid;
+
+/** The name of the `Rollout`. */
+@property(nonatomic, copy, nullable) NSString *rollout;
+
+/** ID of the `Target` that the rollout is deployed to. */
+@property(nonatomic, copy, nullable) NSString *targetId;
+
+/**
+ *  Type of this notification, e.g. for a Pub/Sub failure.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypePubsubNotificationFailure
+ *        A Pub/Sub notification failed to be sent. (Value:
+ *        "TYPE_PUBSUB_NOTIFICATION_FAILURE")
+ *    @arg @c kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeRenderStatuesChange
+ *        Release render status changed notification. (Value:
+ *        "TYPE_RENDER_STATUES_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeUnspecified
+ *        Type is unspecified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  SerialPipeline defines a sequential set of stages for a `DeliveryPipeline`.
  */
 @interface GTLRCloudDeploy_SerialPipeline : GTLRObject
@@ -1694,7 +1909,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
  *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
- *  but certain Cloud Platform services (such as Projects) might reject them.
+ *  but certain Google Cloud services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Policy *policy;
 
@@ -1936,6 +2151,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
 
 
 /**
+ *  Payload proto for "clouddeploy.googleapis.com/target_notification" Platform
+ *  Log event that describes the failure to send target status change Pub/Sub
+ *  notification.
+ */
+@interface GTLRCloudDeploy_TargetNotificationEvent : GTLRObject
+
+/** Debug message for when a notification fails to send. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** The name of the `Target`. */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/**
+ *  Type of this notification, e.g. for a Pub/Sub failure.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_TargetNotificationEvent_Type_TypePubsubNotificationFailure
+ *        A Pub/Sub notification failed to be sent. (Value:
+ *        "TYPE_PUBSUB_NOTIFICATION_FAILURE")
+ *    @arg @c kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeRenderStatuesChange
+ *        Release render status changed notification. (Value:
+ *        "TYPE_RENDER_STATUES_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeUnspecified Type
+ *        is unspecified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Details of rendering for a single target.
  */
 @interface GTLRCloudDeploy_TargetRender : GTLRObject
@@ -2017,7 +2263,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
  *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;

@@ -257,6 +257,25 @@ NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZoneUnspecified = @"R
 
 @end
 
+@implementation GTLRAdsenseQuery_AccountsAdclientsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRAdsenseQuery_AccountsAdclientsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAdsense_AdClient class];
+  query.loggingName = @"adsense.accounts.adclients.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRAdsenseQuery_AccountsAdclientsGetAdcode
 
 @dynamic name;
@@ -290,6 +309,25 @@ NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZoneUnspecified = @"R
   query.parent = parent;
   query.expectedObjectClass = [GTLRAdsense_ListAdClientsResponse class];
   query.loggingName = @"adsense.accounts.adclients.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdsenseQuery_AccountsAdclientsUrlchannelsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRAdsenseQuery_AccountsAdclientsUrlchannelsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAdsense_UrlChannel class];
+  query.loggingName = @"adsense.accounts.adclients.urlchannels.get";
   return query;
 }
 
@@ -488,6 +526,25 @@ NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZoneUnspecified = @"R
   query.account = account;
   query.expectedObjectClass = [GTLRAdsense_HttpBody class];
   query.loggingName = @"adsense.accounts.reports.generateCsv";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdsenseQuery_AccountsReportsGetSaved
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/saved";
+  GTLRAdsenseQuery_AccountsReportsGetSaved *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAdsense_SavedReport class];
+  query.loggingName = @"adsense.accounts.reports.getSaved";
   return query;
 }
 

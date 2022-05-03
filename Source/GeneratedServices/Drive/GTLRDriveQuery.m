@@ -283,7 +283,7 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_DrivesDelete
 
-@dynamic driveId;
+@dynamic allowItemDeletion, driveId, useDomainAdminAccess;
 
 + (instancetype)queryWithDriveId:(NSString *)driveId {
   NSArray *pathParams = @[ @"driveId" ];

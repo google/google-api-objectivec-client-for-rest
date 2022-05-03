@@ -17,6 +17,11 @@ NSString * const kGTLRCloudDeploy_AuditLogConfig_LogType_DataRead = @"DATA_READ"
 NSString * const kGTLRCloudDeploy_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCloudDeploy_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRCloudDeploy_DeliveryPipelineNotificationEvent.type
+NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypePubsubNotificationFailure = @"TYPE_PUBSUB_NOTIFICATION_FAILURE";
+NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
+NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRCloudDeploy_ExecutionConfig.usages
 NSString * const kGTLRCloudDeploy_ExecutionConfig_Usages_Deploy = @"DEPLOY";
 NSString * const kGTLRCloudDeploy_ExecutionConfig_Usages_ExecutionEnvironmentUsageUnspecified = @"EXECUTION_ENVIRONMENT_USAGE_UNSPECIFIED";
@@ -27,6 +32,11 @@ NSString * const kGTLRCloudDeploy_Release_RenderState_Failed   = @"FAILED";
 NSString * const kGTLRCloudDeploy_Release_RenderState_InProgress = @"IN_PROGRESS";
 NSString * const kGTLRCloudDeploy_Release_RenderState_RenderStateUnspecified = @"RENDER_STATE_UNSPECIFIED";
 NSString * const kGTLRCloudDeploy_Release_RenderState_Succeeded = @"SUCCEEDED";
+
+// GTLRCloudDeploy_ReleaseNotificationEvent.type
+NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypePubsubNotificationFailure = @"TYPE_PUBSUB_NOTIFICATION_FAILURE";
+NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
+NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRCloudDeploy_Rollout.approvalState
 NSString * const kGTLRCloudDeploy_Rollout_ApprovalState_ApprovalStateUnspecified = @"APPROVAL_STATE_UNSPECIFIED";
@@ -51,6 +61,16 @@ NSString * const kGTLRCloudDeploy_Rollout_State_PendingApproval = @"PENDING_APPR
 NSString * const kGTLRCloudDeploy_Rollout_State_PendingRelease = @"PENDING_RELEASE";
 NSString * const kGTLRCloudDeploy_Rollout_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudDeploy_Rollout_State_Succeeded      = @"SUCCEEDED";
+
+// GTLRCloudDeploy_RolloutNotificationEvent.type
+NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypePubsubNotificationFailure = @"TYPE_PUBSUB_NOTIFICATION_FAILURE";
+NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
+NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRCloudDeploy_TargetNotificationEvent.type
+NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypePubsubNotificationFailure = @"TYPE_PUBSUB_NOTIFICATION_FAILURE";
+NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
+NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRCloudDeploy_TargetRender.failureCause
 NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_CloudBuildUnavailable = @"CLOUD_BUILD_UNAVAILABLE";
@@ -248,6 +268,16 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_DeliveryPipelineNotificationEvent
+//
+
+@implementation GTLRCloudDeploy_DeliveryPipelineNotificationEvent
+@dynamic deliveryPipeline, message, type;
 @end
 
 
@@ -668,6 +698,36 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_ReleaseNotificationEvent
+//
+
+@implementation GTLRCloudDeploy_ReleaseNotificationEvent
+@dynamic message, releaseProperty, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"releaseProperty" : @"release" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_ReleaseRenderEvent
+//
+
+@implementation GTLRCloudDeploy_ReleaseRenderEvent
+@dynamic message, releaseProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"releaseProperty" : @"release" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_Rollout
 //
 
@@ -713,6 +773,16 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_RolloutNotificationEvent
+//
+
+@implementation GTLRCloudDeploy_RolloutNotificationEvent
+@dynamic message, pipelineUid, releaseUid, rollout, targetId, type;
 @end
 
 
@@ -867,6 +937,16 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
 
 @implementation GTLRCloudDeploy_TargetArtifact
 @dynamic artifactUri, manifestPath, skaffoldConfigPath;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_TargetNotificationEvent
+//
+
+@implementation GTLRCloudDeploy_TargetNotificationEvent
+@dynamic message, target, type;
 @end
 
 

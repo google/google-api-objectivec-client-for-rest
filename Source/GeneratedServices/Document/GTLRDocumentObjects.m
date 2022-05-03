@@ -258,7 +258,25 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchDeleteDocumentsMetadata
-@dynamic commonMetadata;
+@dynamic commonMetadata, individualBatchDeleteStatuses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"individualBatchDeleteStatuses" : [GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchDeleteDocumentsMetadataIndividualBatchDeleteStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchDeleteDocumentsMetadataIndividualBatchDeleteStatus
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchDeleteDocumentsMetadataIndividualBatchDeleteStatus
+@dynamic documentId, status;
 @end
 
 
@@ -325,6 +343,16 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3CreateLabelerPoolOperationMetadata
+@dynamic commonMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3DeleteDataLabelingJobOperationMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3DeleteDataLabelingJobOperationMetadata
 @dynamic commonMetadata;
 @end
 
@@ -3055,8 +3083,18 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion
-@dynamic createTime, displayName, googleManaged, kmsKeyName, kmsKeyVersionName,
-         name, state;
+@dynamic createTime, deprecationInfo, displayName, googleManaged, kmsKeyName,
+         kmsKeyVersionName, name, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionDeprecationInfo
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionDeprecationInfo
+@dynamic deprecationTime, replacementProcessorVersion;
 @end
 
 

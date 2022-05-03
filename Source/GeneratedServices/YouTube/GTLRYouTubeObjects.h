@@ -857,6 +857,24 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CbfcRating_CbfcU;
  *  Value: "cbfcUA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CbfcRating_CbfcUA;
+/**
+ *  U/A 13+
+ *
+ *  Value: "cbfcUA13plus"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CbfcRating_CbfcUA13plus;
+/**
+ *  U/A 16+
+ *
+ *  Value: "cbfcUA16plus"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CbfcRating_CbfcUA16plus;
+/**
+ *  U/A 7+
+ *
+ *  Value: "cbfcUA7plus"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CbfcRating_CbfcUA7plus;
 /** Value: "cbfcUnrated" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CbfcRating_CbfcUnrated;
 /** Value: "cbfcUnspecified" */
@@ -2600,6 +2618,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacV
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacVm16;
 /** Value: "mibacVm18" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacVm18;
+/** Value: "mibacVm6" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacVm6;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.mocRating
@@ -6637,6 +6657,12 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *    @arg @c kGTLRYouTube_ContentRating_CbfcRating_CbfcS S (Value: "cbfcS")
  *    @arg @c kGTLRYouTube_ContentRating_CbfcRating_CbfcU U (Value: "cbfcU")
  *    @arg @c kGTLRYouTube_ContentRating_CbfcRating_CbfcUA U/A (Value: "cbfcUA")
+ *    @arg @c kGTLRYouTube_ContentRating_CbfcRating_CbfcUA13plus U/A 13+ (Value:
+ *        "cbfcUA13plus")
+ *    @arg @c kGTLRYouTube_ContentRating_CbfcRating_CbfcUA16plus U/A 16+ (Value:
+ *        "cbfcUA16plus")
+ *    @arg @c kGTLRYouTube_ContentRating_CbfcRating_CbfcUA7plus U/A 7+ (Value:
+ *        "cbfcUA7plus")
  *    @arg @c kGTLRYouTube_ContentRating_CbfcRating_CbfcUnrated Value
  *        "cbfcUnrated"
  *    @arg @c kGTLRYouTube_ContentRating_CbfcRating_CbfcUnspecified Value
@@ -7421,6 +7447,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *    @arg @c kGTLRYouTube_ContentRating_MibacRating_MibacVm14 Value "mibacVm14"
  *    @arg @c kGTLRYouTube_ContentRating_MibacRating_MibacVm16 Value "mibacVm16"
  *    @arg @c kGTLRYouTube_ContentRating_MibacRating_MibacVm18 Value "mibacVm18"
+ *    @arg @c kGTLRYouTube_ContentRating_MibacRating_MibacVm6 Value "mibacVm6"
  */
 @property(nonatomic, copy, nullable) NSString *mibacRating;
 

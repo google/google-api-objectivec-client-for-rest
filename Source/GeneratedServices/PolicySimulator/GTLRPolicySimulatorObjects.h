@@ -1426,7 +1426,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 @property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleTypeExpr *condition;
 
 /**
- *  Specifies the principals requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Google Cloud resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents

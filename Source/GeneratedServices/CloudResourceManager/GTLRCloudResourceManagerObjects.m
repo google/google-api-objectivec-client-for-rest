@@ -219,6 +219,16 @@ NSString * const kGTLRCloudResourceManager_Project_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_EffectiveTag
+//
+
+@implementation GTLRCloudResourceManager_EffectiveTag
+@dynamic inherited, namespacedTagKey, namespacedTagValue, tagKey, tagValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_Empty
 //
 
@@ -337,6 +347,28 @@ NSString * const kGTLRCloudResourceManager_Project_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_ListEffectiveTagsResponse
+//
+
+@implementation GTLRCloudResourceManager_ListEffectiveTagsResponse
+@dynamic effectiveTags, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"effectiveTags" : [GTLRCloudResourceManager_EffectiveTag class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"effectiveTags";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_ListFoldersResponse
 //
 
@@ -418,6 +450,28 @@ NSString * const kGTLRCloudResourceManager_Project_State_StateUnspecified = @"ST
 
 + (NSString *)collectionItemsKey {
   return @"tagBindings";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_ListTagHoldsResponse
+//
+
+@implementation GTLRCloudResourceManager_ListTagHoldsResponse
+@dynamic nextPageToken, tagHolds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tagHolds" : [GTLRCloudResourceManager_TagHold class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"tagHolds";
 }
 
 @end
@@ -738,6 +792,16 @@ NSString * const kGTLRCloudResourceManager_Project_State_StateUnspecified = @"ST
 
 @implementation GTLRCloudResourceManager_TagBinding
 @dynamic name, parent, tagValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_TagHold
+//
+
+@implementation GTLRCloudResourceManager_TagHold
+@dynamic createTime, helpLink, holder, name, origin;
 @end
 
 

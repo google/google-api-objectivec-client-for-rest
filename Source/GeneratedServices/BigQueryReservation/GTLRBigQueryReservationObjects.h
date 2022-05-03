@@ -25,6 +25,7 @@
 @class GTLRBigQueryReservation_Reservation;
 @class GTLRBigQueryReservation_Status;
 @class GTLRBigQueryReservation_Status_Details_Item;
+@class GTLRBigQueryReservation_TableReference;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -242,8 +243,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 /**
  *  Output only. Name of the resource. E.g.:
  *  `projects/myproject/locations/US/reservations/team1-prod/assignments/123`.
- *  For the assignment id, it must only contain lower case alphanumeric
- *  characters or dashes and the max length is 64 characters.
+ *  The assignment_id must only contain lower case alphanumeric characters or
+ *  dashes and the max length is 64 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -274,6 +275,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *  the form `projects/{project_id}/locations/{location_id}/biReservation`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Preferred tables to use BI capacity for. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigQueryReservation_TableReference *> *preferredTables;
 
 /**
  *  Size of a reservation, in bytes.
@@ -328,10 +332,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 
 /**
  *  Output only. The resource name of the capacity commitment, e.g.,
- *  `projects/myproject/locations/US/capacityCommitments/123` For the commitment
- *  id, it must only contain lower case alphanumeric characters or dashes.It
- *  must start with a letter and must not end with a dash. Its maximum length is
- *  64 characters.
+ *  `projects/myproject/locations/US/capacityCommitments/123` The commitment_id
+ *  must only contain lower case alphanumeric characters or dashes. It must
+ *  start with a letter and must not end with a dash. Its maximum length is 64
+ *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -588,9 +592,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 
 /**
  *  The resource name of the reservation, e.g., `projects/ * /locations/ *
- *  /reservations/team1-prod`. For the reservation id, it must only contain
- *  lower case alphanumeric characters or dashes.It must start with a letter and
- *  must not end with a dash. Its maximum length is 64 characters.
+ *  /reservations/team1-prod`. The reservation_id must only contain lower case
+ *  alphanumeric characters or dashes. It must start with a letter and must not
+ *  end with a dash. Its maximum length is 64 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -599,12 +603,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *  computational power in BigQuery, and serves as the unit of parallelism.
  *  Queries using this reservation might use more slots during runtime if
  *  ignore_idle_slots is set to false. If the new reservation's slot capacity
- *  exceed the project's slot capacity or if total slot capacity of the new
+ *  exceeds the project's slot capacity or if total slot capacity of the new
  *  reservation and its siblings exceeds the project's slot capacity, the
  *  request will fail with `google.rpc.Code.RESOURCE_EXHAUSTED`. NOTE: for
- *  reservations in US or EU multi-regions slot capacity constraints are checked
- *  separately for default and auxiliary regions. See multi_region_auxiliary
- *  flag for more details.
+ *  reservations in US or EU multi-regions, slot capacity constraints are
+ *  checked separately for default and auxiliary regions. See
+ *  multi_region_auxiliary flag for more details.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -741,6 +745,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRBigQueryReservation_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Fully qualified reference to BigQuery table. Internally stored as
+ *  google.cloud.bi.v1.BqTableReference.
+ */
+@interface GTLRBigQueryReservation_TableReference : GTLRObject
+
+/** The ID of the dataset in the above project. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** The assigned project ID of the project. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** The ID of the table in the above dataset. */
+@property(nonatomic, copy, nullable) NSString *tableId;
+
 @end
 
 NS_ASSUME_NONNULL_END

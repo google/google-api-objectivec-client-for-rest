@@ -172,6 +172,7 @@ NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeFissure = @"typ
 NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeFjord = @"typeFjord";
 NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeFord = @"typeFord";
 NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeFunicularStation = @"typeFunicularStation";
+NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeFutureGeometry = @"typeFutureGeometry";
 NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeGasStation = @"typeGasStation";
 NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeGbCountry = @"typeGbCountry";
 NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeGbDependentLocality = @"typeGbDependentLocality";
@@ -385,6 +386,7 @@ NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeTramwayStation 
 NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeTransient = @"typeTransient";
 NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeTransit = @"typeTransit";
 NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeTransitAgency = @"typeTransitAgency";
+NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeTransitAgencyDeprecatedValue = @"typeTransitAgencyDeprecatedValue";
 NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeTransitDeparture = @"typeTransitDeparture";
 NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeTransitLeg = @"typeTransitLeg";
 NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeTransitLine = @"typeTransitLine";
@@ -770,6 +772,35 @@ NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOfficer = @"specialPu
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCivicInfo_Precinct
+//
+
+@implementation GTLRCivicInfo_Precinct
+@dynamic administrationRegionId, contestId, datasetId, earlyVoteSiteId,
+         electoralDistrictId, identifier, mailOnly, name, number, ocdId,
+         pollingLocationId, spatialBoundaryId, splitName, ward;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"contestId" : [NSString class],
+    @"earlyVoteSiteId" : [NSString class],
+    @"electoralDistrictId" : [NSString class],
+    @"ocdId" : [NSString class],
+    @"pollingLocationId" : [NSString class],
+    @"spatialBoundaryId" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCivicInfo_RepresentativeInfoData
 //
 
@@ -861,7 +892,8 @@ NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOfficer = @"specialPu
 
 @implementation GTLRCivicInfo_VoterInfoResponse
 @dynamic contests, dropOffLocations, earlyVoteSites, election, kind, mailOnly,
-         normalizedInput, otherElections, pollingLocations, precinctId, state;
+         normalizedInput, otherElections, pollingLocations, precinctId,
+         precincts, state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -870,6 +902,7 @@ NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOfficer = @"specialPu
     @"earlyVoteSites" : [GTLRCivicInfo_PollingLocation class],
     @"otherElections" : [GTLRCivicInfo_Election class],
     @"pollingLocations" : [GTLRCivicInfo_PollingLocation class],
+    @"precincts" : [GTLRCivicInfo_Precinct class],
     @"state" : [GTLRCivicInfo_AdministrationRegion class]
   };
   return map;

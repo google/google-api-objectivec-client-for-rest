@@ -140,15 +140,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 
 /**
  *  Whether the enterprise admin has seen and agreed to the managed Google Play
- *  Agreement (https://www.android.com/enterprise/terms/). Always set this to
- *  true when creating an EMM-managed enterprise. Do not create the enterprise
- *  until the admin has viewed and accepted the agreement.
+ *  Agreement (https://www.android.com/enterprise/terms/). Do not set this field
+ *  for any customer-managed enterprise
+ *  (https://developers.google.com/android/management/create-enterprise#customer-managed_enterprises).
+ *  Set this to field to true for all EMM-managed enterprises
+ *  (https://developers.google.com/android/management/create-enterprise#emm-managed_enterprises).
  */
 @property(nonatomic, assign) BOOL agreementAccepted;
 
 /**
- *  The enterprise token appended to the callback URL. Only set this when
- *  creating a customer-managed enterprise.
+ *  The enterprise token appended to the callback URL. Set this when creating a
+ *  customer-managed enterprise
+ *  (https://developers.google.com/android/management/create-enterprise#customer-managed_enterprises)
+ *  and not when creating a deprecated EMM-managed enterprise
+ *  (https://developers.google.com/android/management/create-enterprise#emm-managed_enterprises).
  */
 @property(nonatomic, copy, nullable) NSString *enterpriseToken;
 
@@ -158,8 +163,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  The name of the SignupUrl used to sign up for the enterprise. Only set this
- *  when creating a customer-managed enterprise.
+ *  The name of the SignupUrl used to sign up for the enterprise. Set this when
+ *  creating a customer-managed enterprise
+ *  (https://developers.google.com/android/management/create-enterprise#customer-managed_enterprises)
+ *  and not when creating a deprecated EMM-managed enterprise
+ *  (https://developers.google.com/android/management/create-enterprise#emm-managed_enterprises).
  */
 @property(nonatomic, copy, nullable) NSString *signupUrlName;
 

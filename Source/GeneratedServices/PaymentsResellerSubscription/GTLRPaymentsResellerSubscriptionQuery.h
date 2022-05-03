@@ -21,6 +21,7 @@
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionRequest;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ExtendSubscriptionRequest;
+@class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsRequest;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1UndoCancelSubscriptionRequest;
 
@@ -42,12 +43,23 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Used by partners to list products that can be resold to their customers. It
- *  should be called directly by the partner using service accounts.
+ *  To retrieve the products that can be resold by the partner. It should be
+ *  autenticated with a service account.
  *
  *  Method: paymentsresellersubscription.partners.products.list
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersProductsList : GTLRPaymentsResellerSubscriptionQuery
+
+/**
+ *  Optional. Specifies the filters for the products results. The syntax defined
+ *  in the EBNF grammar: https://google.aip.dev/assets/misc/ebnf-filtering.txt.
+ *  An error will be thrown if any specified parameter is not supported.
+ *  Currently, it can only be used by Youtube partners. Allowed parameters are:
+ *  - regionCodes - zipCode - eligibilityId Multiple parameters can be
+ *  specified, for example: "regionCodes=US zipCode=94043
+ *  eligibilityId=2022H1Campaign"
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Optional. The maximum number of products to return. The service may return
@@ -74,8 +86,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ListProductsResponse.
  *
- *  Used by partners to list products that can be resold to their customers. It
- *  should be called directly by the partner using service accounts.
+ *  To retrieve the products that can be resold by the partner. It should be
+ *  autenticated with a service account.
  *
  *  @param parent Required. The parent, the partner that can resell. Format:
  *    partners/{partner}
@@ -91,9 +103,44 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Used by partners to list promotions, such as free trial, that can be applied
- *  on subscriptions. It should be called directly by the partner using service
- *  accounts.
+ *  To find eligible promotions for the current user. The API requires user
+ *  authorization via OAuth. The user is inferred from the authenticated OAuth
+ *  credential.
+ *
+ *  Method: paymentsresellersubscription.partners.promotions.findEligible
+ */
+@interface GTLRPaymentsResellerSubscriptionQuery_PartnersPromotionsFindEligible : GTLRPaymentsResellerSubscriptionQuery
+
+/**
+ *  Required. The parent, the partner that can resell. Format:
+ *  partners/{partner}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsResponse.
+ *
+ *  To find eligible promotions for the current user. The API requires user
+ *  authorization via OAuth. The user is inferred from the authenticated OAuth
+ *  credential.
+ *
+ *  @param object The @c
+ *    GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsRequest
+ *    to include in the query.
+ *  @param parent Required. The parent, the partner that can resell. Format:
+ *    partners/{partner}
+ *
+ *  @return GTLRPaymentsResellerSubscriptionQuery_PartnersPromotionsFindEligible
+ */
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  To retrieve the promotions, such as free trial, that can be used by the
+ *  partner. It should be autenticated with a service account.
  *
  *  Method: paymentsresellersubscription.partners.promotions.list
  */
@@ -102,9 +149,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. Specifies the filters for the promotion results. The syntax
  *  defined in the EBNF grammar:
- *  https://google.aip.dev/assets/misc/ebnf-filtering.txt. Examples: -
- *  applicable_products: "sku1" - region_codes: "US" - applicable_products:
- *  "sku1" AND region_codes: "US"
+ *  https://google.aip.dev/assets/misc/ebnf-filtering.txt. An error will be
+ *  thrown if the specified parameter(s) is not supported. Currently, it can
+ *  only be used by Youtube partners. Allowed parameters are: - region_codes:
+ *  "US" - zip_code: "94043" - eligibility_id: "2022H1Campaign" Multiple
+ *  parameters can be specified, for example: "region_codes=US zip_code=94043
+ *  eligibility_id=2022H1Campaign"
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -133,9 +183,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ListPromotionsResponse.
  *
- *  Used by partners to list promotions, such as free trial, that can be applied
- *  on subscriptions. It should be called directly by the partner using service
- *  accounts.
+ *  To retrieve the promotions, such as free trial, that can be used by the
+ *  partner. It should be autenticated with a service account.
  *
  *  @param parent Required. The parent, the partner that can resell. Format:
  *    partners/{partner}

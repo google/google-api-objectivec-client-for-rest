@@ -42,6 +42,7 @@
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings_MaintenancePolicies;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata;
+@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1NotificationParameter;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility_Eligibilities;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource;
@@ -696,11 +697,11 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  *  Represents a whole or partial calendar date, such as a birthday. The time of
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
- *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day, with a zero year (e.g., an anniversary) * A year on its own,
- *  with a zero month and a zero day * A year and month, with a zero day (e.g.,
- *  a credit card expiration date) Related types: * google.type.TimeOfDay *
- *  google.type.DateTime * google.protobuf.Timestamp
+ *  following: * A full date, with non-zero year, month, and day values. * A
+ *  month and day, with a zero year (for example, an anniversary). * A year on
+ *  its own, with a zero month and a zero day. * A year and month, with a zero
+ *  day (for example, a credit card expiration date). Related types: *
+ *  google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Date : GTLRObject
 
@@ -894,8 +895,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Empty : GTLRObject
 @end
@@ -1115,7 +1115,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. notification_parameters are information that service producers may
+ *  Optional. notification_parameter are information that service producers may
  *  like to include that is not relevant to Rollout. This parameter will only be
  *  passed to Gamma and Cloud Logging for notification/logging purpose.
  */
@@ -1235,14 +1235,15 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 
 /**
- *  Optional. notification_parameters are information that service producers may
+ *  Optional. notification_parameter are information that service producers may
  *  like to include that is not relevant to Rollout. This parameter will only be
  *  passed to Gamma and Cloud Logging for notification/logging purpose.
  *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
+ *  @note This class is documented as having more properties of
+ *        GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1NotificationParameter.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_NotificationParameters : GTLRObject
 @end
@@ -1389,6 +1390,17 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  *  or exclusions for specified SLIs.
  */
 @property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility *perSliEligibility;
+
+@end
+
+
+/**
+ *  Contains notification related data.
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1NotificationParameter : GTLRObject
+
+/** Optional. Array of string values. e.g. instance's replica information. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
 @end
 

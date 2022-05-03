@@ -37,6 +37,117 @@ NSString * const kGTLRCloudchannelViewUnspecified = @"UNSPECIFIED";
 
 @end
 
+@implementation GTLRCloudchannelQuery_AccountsChannelPartnerLinksChannelPartnerRepricingConfigsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerRepricingConfig *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/channelPartnerRepricingConfigs";
+  GTLRCloudchannelQuery_AccountsChannelPartnerLinksChannelPartnerRepricingConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerRepricingConfig class];
+  query.loggingName = @"cloudchannel.accounts.channelPartnerLinks.channelPartnerRepricingConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudchannelQuery_AccountsChannelPartnerLinksChannelPartnerRepricingConfigsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudchannelQuery_AccountsChannelPartnerLinksChannelPartnerRepricingConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleProtobufEmpty class];
+  query.loggingName = @"cloudchannel.accounts.channelPartnerLinks.channelPartnerRepricingConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudchannelQuery_AccountsChannelPartnerLinksChannelPartnerRepricingConfigsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudchannelQuery_AccountsChannelPartnerLinksChannelPartnerRepricingConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerRepricingConfig class];
+  query.loggingName = @"cloudchannel.accounts.channelPartnerLinks.channelPartnerRepricingConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudchannelQuery_AccountsChannelPartnerLinksChannelPartnerRepricingConfigsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/channelPartnerRepricingConfigs";
+  GTLRCloudchannelQuery_AccountsChannelPartnerLinksChannelPartnerRepricingConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1ListChannelPartnerRepricingConfigsResponse class];
+  query.loggingName = @"cloudchannel.accounts.channelPartnerLinks.channelPartnerRepricingConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudchannelQuery_AccountsChannelPartnerLinksChannelPartnerRepricingConfigsPatch
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerRepricingConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudchannelQuery_AccountsChannelPartnerLinksChannelPartnerRepricingConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerRepricingConfig class];
+  query.loggingName = @"cloudchannel.accounts.channelPartnerLinks.channelPartnerRepricingConfigs.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudchannelQuery_AccountsChannelPartnerLinksCreate
 
 @dynamic parent;
@@ -316,6 +427,117 @@ NSString * const kGTLRCloudchannelViewUnspecified = @"UNSPECIFIED";
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1Customer class];
   query.loggingName = @"cloudchannel.accounts.customers.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudchannelQuery_AccountsCustomersCustomerRepricingConfigsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudchannel_GoogleCloudChannelV1CustomerRepricingConfig *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/customerRepricingConfigs";
+  GTLRCloudchannelQuery_AccountsCustomersCustomerRepricingConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1CustomerRepricingConfig class];
+  query.loggingName = @"cloudchannel.accounts.customers.customerRepricingConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudchannelQuery_AccountsCustomersCustomerRepricingConfigsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudchannelQuery_AccountsCustomersCustomerRepricingConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleProtobufEmpty class];
+  query.loggingName = @"cloudchannel.accounts.customers.customerRepricingConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudchannelQuery_AccountsCustomersCustomerRepricingConfigsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudchannelQuery_AccountsCustomersCustomerRepricingConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1CustomerRepricingConfig class];
+  query.loggingName = @"cloudchannel.accounts.customers.customerRepricingConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudchannelQuery_AccountsCustomersCustomerRepricingConfigsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/customerRepricingConfigs";
+  GTLRCloudchannelQuery_AccountsCustomersCustomerRepricingConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1ListCustomerRepricingConfigsResponse class];
+  query.loggingName = @"cloudchannel.accounts.customers.customerRepricingConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudchannelQuery_AccountsCustomersCustomerRepricingConfigsPatch
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudchannel_GoogleCloudChannelV1CustomerRepricingConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudchannelQuery_AccountsCustomersCustomerRepricingConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1CustomerRepricingConfig class];
+  query.loggingName = @"cloudchannel.accounts.customers.customerRepricingConfigs.patch";
   return query;
 }
 

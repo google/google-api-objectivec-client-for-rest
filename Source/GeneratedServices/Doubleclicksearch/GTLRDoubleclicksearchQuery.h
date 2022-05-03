@@ -282,6 +282,59 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Downloads a csv file(encoded in UTF-8) that contains ID mappings between
+ *  legacy SA360 and new SA360. The file includes all children entities of the
+ *  given advertiser(e.g. engine accounts, campaigns, ad groups, etc.) that
+ *  exist in both legacy SA360 and new SA360.
+ *
+ *  Method: doubleclicksearch.reports.getIdMappingFile
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDoubleclicksearch
+ */
+@interface GTLRDoubleclicksearchQuery_ReportsGetIdMappingFile : GTLRDoubleclicksearchQuery
+
+/** Legacy SA360 advertiser ID. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** Legacy SA360 agency ID. */
+@property(nonatomic, assign) long long agencyId;
+
+/**
+ *  Fetches a @c GTLRDoubleclicksearch_IdMappingFile.
+ *
+ *  Downloads a csv file(encoded in UTF-8) that contains ID mappings between
+ *  legacy SA360 and new SA360. The file includes all children entities of the
+ *  given advertiser(e.g. engine accounts, campaigns, ad groups, etc.) that
+ *  exist in both legacy SA360 and new SA360.
+ *
+ *  @param agencyId Legacy SA360 agency ID.
+ *  @param advertiserId Legacy SA360 advertiser ID.
+ *
+ *  @return GTLRDoubleclicksearchQuery_ReportsGetIdMappingFile
+ */
++ (instancetype)queryWithAgencyId:(long long)agencyId
+                     advertiserId:(long long)advertiserId;
+
+/**
+ *  Fetches the requested resource data as a @c GTLRDataObject.
+ *
+ *  Downloads a csv file(encoded in UTF-8) that contains ID mappings between
+ *  legacy SA360 and new SA360. The file includes all children entities of the
+ *  given advertiser(e.g. engine accounts, campaigns, ad groups, etc.) that
+ *  exist in both legacy SA360 and new SA360.
+ *
+ *  @param agencyId Legacy SA360 agency ID.
+ *  @param advertiserId Legacy SA360 advertiser ID.
+ *
+ *  @return GTLRDoubleclicksearchQuery_ReportsGetIdMappingFile
+ */
++ (instancetype)queryForMediaWithAgencyId:(long long)agencyId
+                             advertiserId:(long long)advertiserId;
+
+@end
+
+/**
  *  Inserts a report request into the reporting system.
  *
  *  Method: doubleclicksearch.reports.request

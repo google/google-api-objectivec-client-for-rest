@@ -24,6 +24,7 @@
 @class GTLRVMMigrationService_ApplianceVersion;
 @class GTLRVMMigrationService_AppliedLicense;
 @class GTLRVMMigrationService_AvailableUpdates;
+@class GTLRVMMigrationService_AwsSourceVmDetails;
 @class GTLRVMMigrationService_CloneJob;
 @class GTLRVMMigrationService_ComputeEngineTargetDefaults;
 @class GTLRVMMigrationService_ComputeEngineTargetDefaults_Labels;
@@ -100,6 +101,28 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AppliedLicense_Type_P
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AppliedLicense_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRVMMigrationService_AwsSourceVmDetails.firmware
+
+/**
+ *  The firmware is BIOS.
+ *
+ *  Value: "BIOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_Bios;
+/**
+ *  The firmware is EFI.
+ *
+ *  Value: "EFI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_Efi;
+/**
+ *  The firmware is unknown.
+ *
+ *  Value: "FIRMWARE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_FirmwareUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRVMMigrationService_CloneJob.state
@@ -813,6 +836,27 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  a new appliance.
  */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_ApplianceVersion *newDeployableAppliance NS_RETURNS_NOT_RETAINED;
+
+@end
+
+
+/**
+ *  Represent the source AWS VM details.
+ */
+@interface GTLRVMMigrationService_AwsSourceVmDetails : GTLRObject
+
+/**
+ *  The firmware type of the source VM.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_Bios The
+ *        firmware is BIOS. (Value: "BIOS")
+ *    @arg @c kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_Efi The
+ *        firmware is EFI. (Value: "EFI")
+ *    @arg @c kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_FirmwareUnspecified
+ *        The firmware is unknown. (Value: "FIRMWARE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *firmware;
 
 @end
 
@@ -1856,6 +1900,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  and its replication state.
  */
 @interface GTLRVMMigrationService_MigratingVm : GTLRObject
+
+/** Output only. Details of the VM from an AWS source. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_AwsSourceVmDetails *awsSourceVmDetails;
 
 /** Details of the target VM in Compute Engine. */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_ComputeEngineTargetDefaults *computeEngineTargetDefaults;

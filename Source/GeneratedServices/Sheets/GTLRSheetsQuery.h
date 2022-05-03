@@ -382,16 +382,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 
 /**
  *  Returns the spreadsheet at the given ID. The caller must specify the
- *  spreadsheet ID. By default, data within grids will not be returned. You can
- *  include grid data one of two ways: * Specify a field mask listing your
+ *  spreadsheet ID. By default, data within grids is not returned. You can
+ *  include grid data in one of 2 ways: * Specify a field mask listing your
  *  desired fields using the `fields` URL parameter in HTTP * Set the
  *  includeGridData URL parameter to true. If a field mask is set, the
- *  `includeGridData` parameter is ignored For large spreadsheets, it is
- *  recommended to retrieve only the specific fields of the spreadsheet that you
- *  want. To retrieve only subsets of the spreadsheet, use the ranges URL
- *  parameter. Multiple ranges can be specified. Limiting the range will return
- *  only the portions of the spreadsheet that intersect the requested ranges.
- *  Ranges are specified using A1 notation.
+ *  `includeGridData` parameter is ignored For large spreadsheets, as a best
+ *  practice, retrieve only the specific spreadsheet fields that you want. To
+ *  retrieve only subsets of spreadsheet data, use the ranges URL parameter.
+ *  Ranges are specified using [A1 notation](/sheets/api/guides/concepts#cell).
+ *  You can define a single cell (for example, `A1`) or multiple cells (for
+ *  example, `A1:D5`). You can also get cells from other sheets within the same
+ *  spreadsheet (for example, `Sheet2!A1:C4`) or retrieve multiple ranges at
+ *  once (for example, `?ranges=A1:D5&ranges=Sheet2!A1:C4`). Limiting the range
+ *  returns only the portions of the spreadsheet that intersect the requested
+ *  ranges.
  *
  *  Method: sheets.spreadsheets.get
  *
@@ -420,16 +424,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  Fetches a @c GTLRSheets_Spreadsheet.
  *
  *  Returns the spreadsheet at the given ID. The caller must specify the
- *  spreadsheet ID. By default, data within grids will not be returned. You can
- *  include grid data one of two ways: * Specify a field mask listing your
+ *  spreadsheet ID. By default, data within grids is not returned. You can
+ *  include grid data in one of 2 ways: * Specify a field mask listing your
  *  desired fields using the `fields` URL parameter in HTTP * Set the
  *  includeGridData URL parameter to true. If a field mask is set, the
- *  `includeGridData` parameter is ignored For large spreadsheets, it is
- *  recommended to retrieve only the specific fields of the spreadsheet that you
- *  want. To retrieve only subsets of the spreadsheet, use the ranges URL
- *  parameter. Multiple ranges can be specified. Limiting the range will return
- *  only the portions of the spreadsheet that intersect the requested ranges.
- *  Ranges are specified using A1 notation.
+ *  `includeGridData` parameter is ignored For large spreadsheets, as a best
+ *  practice, retrieve only the specific spreadsheet fields that you want. To
+ *  retrieve only subsets of spreadsheet data, use the ranges URL parameter.
+ *  Ranges are specified using [A1 notation](/sheets/api/guides/concepts#cell).
+ *  You can define a single cell (for example, `A1`) or multiple cells (for
+ *  example, `A1:D5`). You can also get cells from other sheets within the same
+ *  spreadsheet (for example, `Sheet2!A1:C4`) or retrieve multiple ranges at
+ *  once (for example, `?ranges=A1:D5&ranges=Sheet2!A1:C4`). Limiting the range
+ *  returns only the portions of the spreadsheet that intersect the requested
+ *  ranges.
  *
  *  @param spreadsheetId The spreadsheet to request.
  *
@@ -444,14 +452,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  spreadsheet ID. This method differs from GetSpreadsheet in that it allows
  *  selecting which subsets of spreadsheet data to return by specifying a
  *  dataFilters parameter. Multiple DataFilters can be specified. Specifying one
- *  or more data filters will return the portions of the spreadsheet that
- *  intersect ranges matched by any of the filters. By default, data within
- *  grids will not be returned. You can include grid data one of two ways: *
- *  Specify a field mask listing your desired fields using the `fields` URL
- *  parameter in HTTP * Set the includeGridData parameter to true. If a field
- *  mask is set, the `includeGridData` parameter is ignored For large
- *  spreadsheets, it is recommended to retrieve only the specific fields of the
- *  spreadsheet that you want.
+ *  or more data filters returns the portions of the spreadsheet that intersect
+ *  ranges matched by any of the filters. By default, data within grids is not
+ *  returned. You can include grid data one of 2 ways: * Specify a field mask
+ *  listing your desired fields using the `fields` URL parameter in HTTP * Set
+ *  the includeGridData parameter to true. If a field mask is set, the
+ *  `includeGridData` parameter is ignored For large spreadsheets, as a best
+ *  practice, retrieve only the specific spreadsheet fields that you want.
  *
  *  Method: sheets.spreadsheets.getByDataFilter
  *
@@ -472,14 +479,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  spreadsheet ID. This method differs from GetSpreadsheet in that it allows
  *  selecting which subsets of spreadsheet data to return by specifying a
  *  dataFilters parameter. Multiple DataFilters can be specified. Specifying one
- *  or more data filters will return the portions of the spreadsheet that
- *  intersect ranges matched by any of the filters. By default, data within
- *  grids will not be returned. You can include grid data one of two ways: *
- *  Specify a field mask listing your desired fields using the `fields` URL
- *  parameter in HTTP * Set the includeGridData parameter to true. If a field
- *  mask is set, the `includeGridData` parameter is ignored For large
- *  spreadsheets, it is recommended to retrieve only the specific fields of the
- *  spreadsheet that you want.
+ *  or more data filters returns the portions of the spreadsheet that intersect
+ *  ranges matched by any of the filters. By default, data within grids is not
+ *  returned. You can include grid data one of 2 ways: * Specify a field mask
+ *  listing your desired fields using the `fields` URL parameter in HTTP * Set
+ *  the includeGridData parameter to true. If a field mask is set, the
+ *  `includeGridData` parameter is ignored For large spreadsheets, as a best
+ *  practice, retrieve only the specific spreadsheet fields that you want.
  *
  *  @param object The @c GTLRSheets_GetSpreadsheetByDataFilterRequest to include
  *    in the query.

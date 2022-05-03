@@ -268,10 +268,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Output only. The resource name of the capacity commitment, e.g.,
- *  `projects/myproject/locations/US/capacityCommitments/123` For the commitment
- *  id, it must only contain lower case alphanumeric characters or dashes.It
- *  must start with a letter and must not end with a dash. Its maximum length is
- *  64 characters.
+ *  `projects/myproject/locations/US/capacityCommitments/123` The commitment_id
+ *  must only contain lower case alphanumeric characters or dashes. It must
+ *  start with a letter and must not end with a dash. Its maximum length is 64
+ *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -293,9 +293,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRBigQueryReservation_CapacityCommitment to include
  *    in the query.
  *  @param name Output only. The resource name of the capacity commitment, e.g.,
- *    `projects/myproject/locations/US/capacityCommitments/123` For the
- *    commitment id, it must only contain lower case alphanumeric characters or
- *    dashes.It must start with a letter and must not end with a dash. Its
+ *    `projects/myproject/locations/US/capacityCommitments/123` The
+ *    commitment_id must only contain lower case alphanumeric characters or
+ *    dashes. It must start with a letter and must not end with a dash. Its
  *    maximum length is 64 characters.
  *
  *  @return GTLRBigQueryReservationQuery_ProjectsLocationsCapacityCommitmentsPatch
@@ -310,8 +310,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  `commitment_end_time`. A common use case is to enable downgrading
  *  commitments. For example, in order to downgrade from 10000 slots to 8000,
  *  you might split a 10000 capacity commitment into commitments of 2000 and
- *  8000. Then, you would change the plan of the first one to `FLEX` and then
- *  delete it.
+ *  8000. Then, you delete the first one after the commitment end time passes.
  *
  *  Method: bigqueryreservation.projects.locations.capacityCommitments.split
  *
@@ -334,8 +333,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  `commitment_end_time`. A common use case is to enable downgrading
  *  commitments. For example, in order to downgrade from 10000 slots to 8000,
  *  you might split a 10000 capacity commitment into commitments of 2000 and
- *  8000. Then, you would change the plan of the first one to `FLEX` and then
- *  delete it.
+ *  8000. Then, you delete the first one after the commitment end time passes.
  *
  *  @param object The @c GTLRBigQueryReservation_SplitCapacityCommitmentRequest
  *    to include in the query.
@@ -608,6 +606,51 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Updates an existing assignment. Only the `priority` field can be updated.
+ *
+ *  Method: bigqueryreservation.projects.locations.reservations.assignments.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryReservationBigquery
+ *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
+ */
+@interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsPatch : GTLRBigQueryReservationQuery
+
+/**
+ *  Output only. Name of the resource. E.g.:
+ *  `projects/myproject/locations/US/reservations/team1-prod/assignments/123`.
+ *  The assignment_id must only contain lower case alphanumeric characters or
+ *  dashes and the max length is 64 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Standard field mask for the set of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBigQueryReservation_Assignment.
+ *
+ *  Updates an existing assignment. Only the `priority` field can be updated.
+ *
+ *  @param object The @c GTLRBigQueryReservation_Assignment to include in the
+ *    query.
+ *  @param name Output only. Name of the resource. E.g.:
+ *    `projects/myproject/locations/US/reservations/team1-prod/assignments/123`.
+ *    The assignment_id must only contain lower case alphanumeric characters or
+ *    dashes and the max length is 64 characters.
+ *
+ *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsPatch
+ */
++ (instancetype)queryWithObject:(GTLRBigQueryReservation_Assignment *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new reservation resource.
  *
  *  Method: bigqueryreservation.projects.locations.reservations.create
@@ -623,7 +666,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The reservation ID. It must only contain lower case alphanumeric characters
- *  or dashes.It must start with a letter and must not end with a dash. Its
+ *  or dashes. It must start with a letter and must not end with a dash. Its
  *  maximum length is 64 characters.
  */
 @property(nonatomic, copy, nullable) NSString *reservationId;
@@ -765,9 +808,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The resource name of the reservation, e.g., `projects/ * /locations/ *
- *  /reservations/team1-prod`. For the reservation id, it must only contain
- *  lower case alphanumeric characters or dashes.It must start with a letter and
- *  must not end with a dash. Its maximum length is 64 characters.
+ *  /reservations/team1-prod`. The reservation_id must only contain lower case
+ *  alphanumeric characters or dashes. It must start with a letter and must not
+ *  end with a dash. Its maximum length is 64 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -786,10 +829,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRBigQueryReservation_Reservation to include in the
  *    query.
  *  @param name The resource name of the reservation, e.g., `projects/ *
- *    /locations/ * /reservations/team1-prod`. For the reservation id, it must
- *    only contain lower case alphanumeric characters or dashes.It must start
- *    with a letter and must not end with a dash. Its maximum length is 64
- *    characters.
+ *    /locations/ * /reservations/team1-prod`. The reservation_id must only
+ *    contain lower case alphanumeric characters or dashes. It must start with a
+ *    letter and must not end with a dash. Its maximum length is 64 characters.
  *
  *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationsPatch
  */

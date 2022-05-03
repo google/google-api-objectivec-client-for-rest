@@ -172,6 +172,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3RolloutConfigRolloutStep;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3RolloutState;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsInsightsExportSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SentimentAnalysisResult;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SessionEntityType;
@@ -1317,6 +1318,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Secu
  *  Value: "REDACT_WITH_SERVICE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings_RedactionStrategy_RedactWithService;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings.audioFormat
+
+/**
+ *  Unspecified. Do not use.
+ *
+ *  Value: "AUDIO_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings_AudioFormat_AudioFormatUnspecified;
+/**
+ *  MP3 file format.
+ *
+ *  Value: "MP3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings_AudioFormat_Mp3;
+/**
+ *  G.711 mu-law PCM with 8kHz sample rate.
+ *
+ *  Value: "MULAW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings_AudioFormat_Mulaw;
+/**
+ *  OGG Vorbis.
+ *
+ *  Value: "OGG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings_AudioFormat_Ogg;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3SessionEntityType.entityOverrideMode
@@ -4018,8 +4047,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3beta1FulfillmentSetParameterAction *> *setParameterActions;
 
 /**
- *  The tag used by the webhook to identify which fulfillment is being called.
- *  This field is required if `webhook` is specified.
+ *  The value of this field will be populated in the WebhookRequest
+ *  `fulfillmentInfo.tag` field by Dialogflow when the associated webhook is
+ *  called. The tag is typically used by the webhook service to identify which
+ *  fulfillment is being called, but it could be used for other purposes. This
+ *  field is required if `webhook` is specified.
  */
 @property(nonatomic, copy, nullable) NSString *tag;
 
@@ -4537,7 +4569,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Page : GTLRObject
 
-/** Required. The human-readable name of the page, unique within the agent. */
+/** Required. The human-readable name of the page, unique within the flow. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /** The fulfillment to call when the session is entering the page. */
@@ -5460,7 +5492,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestFulfillmentInfo : GTLRObject
 
 /**
- *  Always present. The tag used to identify which fulfillment is being called.
+ *  Always present. The value of the Fulfillment.tag field will be populated in
+ *  this field by Dialogflow when the associated webhook is called. The tag is
+ *  typically used by the webhook service to identify which fulfillment is being
+ *  called, but it could be used for other purposes.
  */
 @property(nonatomic, copy, nullable) NSString *tag;
 
@@ -6918,7 +6953,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  saying "help" or "can I talk to a human?", which can be handled in a common
  *  way regardless of the current page. Transition routes defined in the page
  *  have higher priority than those defined in the flow. TransitionRoutes are
- *  evalauted in the following order: * TransitionRoutes with intent specified..
+ *  evalauted in the following order: * TransitionRoutes with intent specified.
  *  * TransitionRoutes with only condition specified. TransitionRoutes with
  *  intent specified are inherited by pages in the flow.
  */
@@ -7147,8 +7182,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3FulfillmentSetParameterAction *> *setParameterActions;
 
 /**
- *  The tag used by the webhook to identify which fulfillment is being called.
- *  This field is required if `webhook` is specified.
+ *  The value of this field will be populated in the WebhookRequest
+ *  `fulfillmentInfo.tag` field by Dialogflow when the associated webhook is
+ *  called. The tag is typically used by the webhook service to identify which
+ *  fulfillment is being called, but it could be used for other purposes. This
+ *  field is required if `webhook` is specified.
  */
 @property(nonatomic, copy, nullable) NSString *tag;
 
@@ -8553,7 +8591,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3Page : GTLRObject
 
-/** Required. The human-readable name of the page, unique within the agent. */
+/** Required. The human-readable name of the page, unique within the flow. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /** The fulfillment to call when the session is entering the page. */
@@ -9560,6 +9598,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings : GTLRObject
 
 /**
+ *  Controls audio export settings for post-conversation analytics when
+ *  ingesting audio to conversations via Participants.AnalyzeContent or
+ *  Participants.StreamingAnalyzeContent. If retention_strategy is set to
+ *  REMOVE_AFTER_CONVERSATION or audio_export_settings.gcs_bucket is empty,
+ *  audio export is disabled. If audio export is enabled, audio is recorded and
+ *  saved to audio_export_settings.gcs_bucket, subject to retention policy of
+ *  audio_export_settings.gcs_bucket. This setting won't effect audio input for
+ *  implicit sessions via Sessions.DetectIntent or
+ *  Sessions.StreamingDetectIntent.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings *audioExportSettings;
+
+/**
  *  [DLP](https://cloud.google.com/dlp/docs) deidentify template name. Use this
  *  template to define de-identification configuration for the content. The `DLP
  *  De-identify Templates Reader` role is needed on the Dialogflow service
@@ -9648,6 +9699,46 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *retentionWindowDays;
+
+@end
+
+
+/**
+ *  Settings for exporting audio.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings : GTLRObject
+
+/** Filename pattern for exported audio. */
+@property(nonatomic, copy, nullable) NSString *audioExportPattern;
+
+/**
+ *  File format for exported audio file. Currently only in telephony recordings.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings_AudioFormat_AudioFormatUnspecified
+ *        Unspecified. Do not use. (Value: "AUDIO_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings_AudioFormat_Mp3
+ *        MP3 file format. (Value: "MP3")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings_AudioFormat_Mulaw
+ *        G.711 mu-law PCM with 8kHz sample rate. (Value: "MULAW")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings_AudioFormat_Ogg
+ *        OGG Vorbis. (Value: "OGG")
+ */
+@property(nonatomic, copy, nullable) NSString *audioFormat;
+
+/**
+ *  Enable audio redaction if it is true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableAudioRedaction;
+
+/**
+ *  Cloud Storage bucket to export audio record to. You need to grant
+ *  `service-\@gcp-sa-dialogflow.iam.gserviceaccount.com` the `Storage Object
+ *  Admin` role in this bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *gcsBucket;
 
 @end
 
@@ -10213,7 +10304,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  Required. The human-readable name of the transition route group, unique
- *  within the Agent. The display name can be no longer than 30 characters.
+ *  within the flow. The display name can be no longer than 30 characters.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -10724,7 +10815,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestFulfillmentInfo : GTLRObject
 
 /**
- *  Always present. The tag used to identify which fulfillment is being called.
+ *  Always present. The value of the Fulfillment.tag field will be populated in
+ *  this field by Dialogflow when the associated webhook is called. The tag is
+ *  typically used by the webhook service to identify which fulfillment is being
+ *  called, but it could be used for other purposes.
  */
 @property(nonatomic, copy, nullable) NSString *tag;
 

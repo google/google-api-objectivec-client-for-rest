@@ -1204,7 +1204,31 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_NodeKubeletConfig
-@dynamic cpuCfsQuota, cpuCfsQuotaPeriod, cpuManagerPolicy;
+@dynamic cpuCfsQuota, cpuCfsQuotaPeriod, cpuManagerPolicy, podPidsLimit;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_NodeLabels
+//
+
+@implementation GTLRContainer_NodeLabels
+@dynamic labels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_NodeLabels_Labels
+//
+
+@implementation GTLRContainer_NodeLabels_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -1288,6 +1312,24 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_NodeTaint
 @dynamic effect, key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_NodeTaints
+//
+
+@implementation GTLRContainer_NodeTaints
+@dynamic taints;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"taints" : [GTLRContainer_NodeTaint class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1857,9 +1899,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_UpdateNodePoolRequest
-@dynamic clusterId, gcfsConfig, gvnic, imageType, kubeletConfig,
+@dynamic clusterId, gcfsConfig, gvnic, imageType, kubeletConfig, labels,
          linuxNodeConfig, locations, name, nodePoolId, nodeVersion, projectId,
-         upgradeSettings, workloadMetadataConfig, zoneProperty;
+         tags, taints, upgradeSettings, workloadMetadataConfig, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };

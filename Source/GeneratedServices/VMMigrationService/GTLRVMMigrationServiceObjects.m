@@ -20,6 +20,11 @@ NSString * const kGTLRVMMigrationService_AppliedLicense_Type_None = @"NONE";
 NSString * const kGTLRVMMigrationService_AppliedLicense_Type_Payg = @"PAYG";
 NSString * const kGTLRVMMigrationService_AppliedLicense_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRVMMigrationService_AwsSourceVmDetails.firmware
+NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_Bios = @"BIOS";
+NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_Efi = @"EFI";
+NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_FirmwareUnspecified = @"FIRMWARE_UNSPECIFIED";
+
 // GTLRVMMigrationService_CloneJob.state
 NSString * const kGTLRVMMigrationService_CloneJob_State_Active = @"ACTIVE";
 NSString * const kGTLRVMMigrationService_CloneJob_State_AdaptingOs = @"ADAPTING_OS";
@@ -186,6 +191,16 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 @implementation GTLRVMMigrationService_AvailableUpdates
 @dynamic inPlaceUpdate, newDeployableAppliance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_AwsSourceVmDetails
+//
+
+@implementation GTLRVMMigrationService_AwsSourceVmDetails
+@dynamic firmware;
 @end
 
 
@@ -718,10 +733,10 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_MigratingVm
-@dynamic computeEngineTargetDefaults, createTime, currentSyncInfo,
-         descriptionProperty, displayName, error, group, labels, lastSync, name,
-         policy, recentCloneJobs, recentCutoverJobs, sourceVmId, state,
-         stateTime, updateTime;
+@dynamic awsSourceVmDetails, computeEngineTargetDefaults, createTime,
+         currentSyncInfo, descriptionProperty, displayName, error, group,
+         labels, lastSync, name, policy, recentCloneJobs, recentCutoverJobs,
+         sourceVmId, state, stateTime, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

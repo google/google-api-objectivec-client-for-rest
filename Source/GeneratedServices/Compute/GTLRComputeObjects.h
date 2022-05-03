@@ -18006,41 +18006,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warni
 // GTLRCompute_PerInstanceConfig.status
 
 /**
- *  The per-instance config is being applied to the instance, but is not yet
- *  effective, possibly waiting for the instance to, for example, REFRESH.
+ *  The per-instance configuration is being applied to the instance, but is not
+ *  yet effective, possibly waiting for the instance to, for example, REFRESH.
  *
  *  Value: "APPLYING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PerInstanceConfig_Status_Applying;
 /**
- *  The per-instance config deletion is being applied on the instance, possibly
- *  waiting for the instance to, for example, REFRESH.
+ *  The per-instance configuration deletion is being applied on the instance,
+ *  possibly waiting for the instance to, for example, REFRESH.
  *
  *  Value: "DELETING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PerInstanceConfig_Status_Deleting;
 /**
- *  The per-instance config is effective on the instance, meaning that all
- *  disks, ips and metadata specified in this config are attached or set on the
- *  instance.
+ *  The per-instance configuration is effective on the instance, meaning that
+ *  all disks, ips and metadata specified in this configuration are attached or
+ *  set on the instance.
  *
  *  Value: "EFFECTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PerInstanceConfig_Status_Effective;
 /**
- *  *[Default]* The default status, when no per-instance config exists.
+ *  *[Default]* The default status, when no per-instance configuration exists.
  *
  *  Value: "NONE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PerInstanceConfig_Status_None;
 /**
- *  The per-instance config is set on an instance but not been applied yet.
+ *  The per-instance configuration is set on an instance but not been applied
+ *  yet.
  *
  *  Value: "UNAPPLIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PerInstanceConfig_Status_Unapplied;
 /**
- *  The per-instance config has been deleted, but the deletion is not yet
+ *  The per-instance configuration has been deleted, but the deletion is not yet
  *  applied.
  *
  *  Value: "UNAPPLIED_DELETION"
@@ -32698,9 +32699,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  [Input Only] Specifies the parameters for a new disk that will be created
  *  alongside the new instance. Use initialization parameters to create boot
- *  disks or local SSDs attached to the new instance. This property is mutually
- *  exclusive with the source property; you can only define one or the other,
- *  but not both.
+ *  disks or local SSDs attached to the new instance. This field is persisted
+ *  and returned for instanceTemplate and not returned in the context of
+ *  instance. This property is mutually exclusive with the source property; you
+ *  can only define one or the other, but not both.
  */
 @interface GTLRCompute_AttachedDiskInitializeParams : GTLRObject
 
@@ -34426,8 +34428,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includeHttpHeaders;
 
 /**
- *  Names of query string parameters to include in cache keys. All other
- *  parameters will be excluded. '&' and '=' will be percent encoded and not
+ *  Names of query string parameters to include in cache keys. Default
+ *  parameters are always included. '&' and '=' will be percent encoded and not
  *  treated as delimiters.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *queryStringWhitelist;
@@ -36405,7 +36407,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) GTLRCompute_Expr *condition;
 
 /**
- *  Specifies the principals requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Google Cloud resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -47071,8 +47073,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_InstanceGroupManagersPatchPerInstanceConfigsReq : GTLRObject
 
 /**
- *  The list of per-instance configs to insert or patch on this managed instance
- *  group.
+ *  The list of per-instance configurations to insert or patch on this managed
+ *  instance group.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_PerInstanceConfig *> *perInstanceConfigs;
 
@@ -47327,15 +47329,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  [Output Only] A bit indicating whether the managed instance group has
  *  stateful configuration, that is, if you have configured any items in a
  *  stateful policy or in per-instance configs. The group might report that it
- *  has no stateful config even when there is still some preserved state on a
- *  managed instance, for example, if you have deleted all PICs but not yet
+ *  has no stateful configuration even when there is still some preserved state
+ *  on a managed instance, for example, if you have deleted all PICs but not yet
  *  applied those deletions.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hasStatefulConfig;
 
-/** [Output Only] Status of per-instance configs on the instance. */
+/** [Output Only] Status of per-instance configurations on the instance. */
 @property(nonatomic, strong, nullable) GTLRCompute_InstanceGroupManagerStatusStatefulPerInstanceConfigs *perInstanceConfigs;
 
 @end
@@ -47347,9 +47349,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_InstanceGroupManagerStatusStatefulPerInstanceConfigs : GTLRObject
 
 /**
- *  A bit indicating if all of the group's per-instance configs (listed in the
- *  output of a listPerInstanceConfigs API call) have status EFFECTIVE or there
- *  are no per-instance-configs.
+ *  A bit indicating if all of the group's per-instance configurations (listed
+ *  in the output of a listPerInstanceConfigs API call) have status EFFECTIVE or
+ *  there are no per-instance-configs.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -47382,8 +47384,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_InstanceGroupManagersUpdatePerInstanceConfigsReq : GTLRObject
 
 /**
- *  The list of per-instance configs to insert or patch on this managed instance
- *  group.
+ *  The list of per-instance configurations to insert or patch on this managed
+ *  instance group.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_PerInstanceConfig *> *perInstanceConfigs;
 
@@ -53871,7 +53873,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The target service url used to set up private service connection to a Google
- *  API. An example value is: "asia-northeast3-cloudkms.googleapis.com"
+ *  API or a PSC Producer Service Attachment. An example value is:
+ *  "asia-northeast3-cloudkms.googleapis.com"
  */
 @property(nonatomic, copy, nullable) NSString *pscTargetService;
 
@@ -59648,7 +59651,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Fingerprint of this per-instance config. This field can be used in
  *  optimistic locking. It is ignored when inserting a per-instance config. An
  *  up-to-date fingerprint must be provided in order to update an existing
- *  per-instance config or the field needs to be unset.
+ *  per-instance configuration or the field needs to be unset.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -59656,12 +59659,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  The name of a per-instance config and its corresponding instance. Serves as
- *  a merge key during UpdatePerInstanceConfigs operations, that is, if a
- *  per-instance config with the same name exists then it will be updated,
- *  otherwise a new one will be created for the VM instance with the same name.
- *  An attempt to create a per-instance config for a VM instance that either
- *  doesn't exist or is not part of the group will result in an error.
+ *  The name of a per-instance configuration and its corresponding instance.
+ *  Serves as a merge key during UpdatePerInstanceConfigs operations, that is,
+ *  if a per-instance configuration with the same name exists then it will be
+ *  updated, otherwise a new one will be created for the VM instance with the
+ *  same name. An attempt to create a per-instance configconfiguration for a VM
+ *  instance that either doesn't exist or is not part of the group will result
+ *  in an error.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -59672,29 +59676,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) GTLRCompute_PreservedState *preservedState;
 
 /**
- *  The status of applying this per-instance config on the corresponding managed
- *  instance.
+ *  The status of applying this per-instance configuration on the corresponding
+ *  managed instance.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_PerInstanceConfig_Status_Applying The per-instance
- *        config is being applied to the instance, but is not yet effective,
- *        possibly waiting for the instance to, for example, REFRESH. (Value:
- *        "APPLYING")
+ *        configuration is being applied to the instance, but is not yet
+ *        effective, possibly waiting for the instance to, for example, REFRESH.
+ *        (Value: "APPLYING")
  *    @arg @c kGTLRCompute_PerInstanceConfig_Status_Deleting The per-instance
- *        config deletion is being applied on the instance, possibly waiting for
- *        the instance to, for example, REFRESH. (Value: "DELETING")
+ *        configuration deletion is being applied on the instance, possibly
+ *        waiting for the instance to, for example, REFRESH. (Value: "DELETING")
  *    @arg @c kGTLRCompute_PerInstanceConfig_Status_Effective The per-instance
- *        config is effective on the instance, meaning that all disks, ips and
- *        metadata specified in this config are attached or set on the instance.
- *        (Value: "EFFECTIVE")
+ *        configuration is effective on the instance, meaning that all disks,
+ *        ips and metadata specified in this configuration are attached or set
+ *        on the instance. (Value: "EFFECTIVE")
  *    @arg @c kGTLRCompute_PerInstanceConfig_Status_None *[Default]* The default
- *        status, when no per-instance config exists. (Value: "NONE")
+ *        status, when no per-instance configuration exists. (Value: "NONE")
  *    @arg @c kGTLRCompute_PerInstanceConfig_Status_Unapplied The per-instance
- *        config is set on an instance but not been applied yet. (Value:
+ *        configuration is set on an instance but not been applied yet. (Value:
  *        "UNAPPLIED")
  *    @arg @c kGTLRCompute_PerInstanceConfig_Status_UnappliedDeletion The
- *        per-instance config has been deleted, but the deletion is not yet
- *        applied. (Value: "UNAPPLIED_DELETION")
+ *        per-instance configuration has been deleted, but the deletion is not
+ *        yet applied. (Value: "UNAPPLIED_DELETION")
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -62156,8 +62160,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_RegionInstanceGroupManagerPatchInstanceConfigReq : GTLRObject
 
 /**
- *  The list of per-instance configs to insert or patch on this managed instance
- *  group.
+ *  The list of per-instance configurations to insert or patch on this managed
+ *  instance group.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_PerInstanceConfig *> *perInstanceConfigs;
 
@@ -62561,8 +62565,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_RegionInstanceGroupManagerUpdateInstanceConfigReq : GTLRObject
 
 /**
- *  The list of per-instance configs to insert or patch on this managed instance
- *  group.
+ *  The list of per-instance configurations to insert or patch on this managed
+ *  instance group.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_PerInstanceConfig *> *perInstanceConfigs;
 

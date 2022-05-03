@@ -308,7 +308,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  `projects.locations.jobs.create` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.create` is not recommended, as your job will always start in
- *  `us-central1`.
+ *  `us-central1`. Do not enter confidential information when you supply string
+ *  values using the API.
  *
  *  Method: dataflow.projects.jobs.create
  *
@@ -359,7 +360,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  `projects.locations.jobs.create` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.create` is not recommended, as your job will always start in
- *  `us-central1`.
+ *  `us-central1`. Do not enter confidential information when you supply string
+ *  values using the API.
  *
  *  @param object The @c GTLRDataflow_Job to include in the query.
  *  @param projectId The ID of the Cloud Platform project that the job belongs
@@ -994,7 +996,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  `projects.locations.jobs.create` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.create` is not recommended, as your job will always start in
- *  `us-central1`.
+ *  `us-central1`. Do not enter confidential information when you supply string
+ *  values using the API.
  *
  *  Method: dataflow.projects.locations.jobs.create
  *
@@ -1045,7 +1048,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  `projects.locations.jobs.create` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.create` is not recommended, as your job will always start in
- *  `us-central1`.
+ *  `us-central1`. Do not enter confidential information when you supply string
+ *  values using the API.
  *
  *  @param object The @c GTLRDataflow_Job to include in the query.
  *  @param projectId The ID of the Cloud Platform project that the job belongs
@@ -2046,7 +2050,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  Creates a Cloud Dataflow job from a template.
+ *  Creates a Cloud Dataflow job from a template. Do not enter confidential
+ *  information when you supply string values using the API.
  *
  *  Method: dataflow.projects.locations.templates.create
  *
@@ -2071,7 +2076,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /**
  *  Fetches a @c GTLRDataflow_Job.
  *
- *  Creates a Cloud Dataflow job from a template.
+ *  Creates a Cloud Dataflow job from a template. Do not enter confidential
+ *  information when you supply string values using the API.
  *
  *  @param object The @c GTLRDataflow_CreateJobFromTemplateRequest to include in
  *    the query.
@@ -2330,7 +2336,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  Creates a Cloud Dataflow job from a template.
+ *  Creates a Cloud Dataflow job from a template. Do not enter confidential
+ *  information when you supply string values using the API.
  *
  *  Method: dataflow.projects.templates.create
  *
@@ -2348,7 +2355,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /**
  *  Fetches a @c GTLRDataflow_Job.
  *
- *  Creates a Cloud Dataflow job from a template.
+ *  Creates a Cloud Dataflow job from a template. Do not enter confidential
+ *  information when you supply string values using the API.
  *
  *  @param object The @c GTLRDataflow_CreateJobFromTemplateRequest to include in
  *    the query.

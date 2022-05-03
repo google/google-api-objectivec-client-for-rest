@@ -1574,8 +1574,8 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 @dynamic additionalAttributes, assetType, attachedResources, createTime,
          descriptionProperty, displayName, folders, kmsKey, labels, location,
          name, networkTags, organization, parentAssetType,
-         parentFullResourceName, project, relationships, state, updateTime,
-         versionedResources;
+         parentFullResourceName, project, relationships, state, tagKeys,
+         tagValueIds, tagValues, updateTime, versionedResources;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1586,6 +1586,9 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
     @"attachedResources" : [GTLRCloudAsset_AttachedResource class],
     @"folders" : [NSString class],
     @"networkTags" : [NSString class],
+    @"tagKeys" : [NSString class],
+    @"tagValueIds" : [NSString class],
+    @"tagValues" : [NSString class],
     @"versionedResources" : [GTLRCloudAsset_VersionedResource class]
   };
   return map;

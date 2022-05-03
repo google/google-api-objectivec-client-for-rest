@@ -25,6 +25,7 @@
 @class GTLRDataprocMetastore_AuditLogConfig;
 @class GTLRDataprocMetastore_AuxiliaryVersionConfig;
 @class GTLRDataprocMetastore_AuxiliaryVersionConfig_ConfigOverrides;
+@class GTLRDataprocMetastore_BackendMetastore;
 @class GTLRDataprocMetastore_Backup;
 @class GTLRDataprocMetastore_Binding;
 @class GTLRDataprocMetastore_Consumer;
@@ -34,6 +35,9 @@
 @class GTLRDataprocMetastore_DataplexConfig_LakeResources;
 @class GTLRDataprocMetastore_EncryptionConfig;
 @class GTLRDataprocMetastore_Expr;
+@class GTLRDataprocMetastore_Federation;
+@class GTLRDataprocMetastore_Federation_BackendMetastores;
+@class GTLRDataprocMetastore_Federation_Labels;
 @class GTLRDataprocMetastore_HiveMetastoreConfig;
 @class GTLRDataprocMetastore_HiveMetastoreConfig_AuxiliaryVersions;
 @class GTLRDataprocMetastore_HiveMetastoreConfig_ConfigOverrides;
@@ -97,6 +101,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_BackendMetastore.metastoreType
+
+/**
+ *  The backend metastore is BigQuery.
+ *
+ *  Value: "BIGQUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_Bigquery;
+/**
+ *  The backend metastore is Dataplex.
+ *
+ *  Value: "DATAPLEX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_Dataplex;
+/**
+ *  The backend metastore is Dataproc Metastore.
+ *
+ *  Value: "DATAPROC_METASTORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_DataprocMetastore;
+/**
+ *  The metastore type is not set.
+ *
+ *  Value: "METASTORE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_MetastoreTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataprocMetastore_Backup.state
@@ -197,6 +229,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ExportMetadataRequest_
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_Federation.state
+
+/**
+ *  The metastore federation is running and ready to serve queries.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Federation_State_Active;
+/**
+ *  The metastore federation is in the process of being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Federation_State_Creating;
+/**
+ *  The metastore federation is undergoing deletion. It cannot be used.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Federation_State_Deleting;
+/**
+ *  The metastore federation has encountered an error and cannot be used. The
+ *  metastore federation should be deleted.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Federation_State_Error;
+/**
+ *  The state of the metastore federation is unknown.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Federation_State_StateUnspecified;
+/**
+ *  The metastore federation is being updated. It remains usable but cannot
+ *  accept additional update requests or be deleted at this time.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Federation_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRDataprocMetastore_HiveMetastoreConfig.endpointProtocol
@@ -678,6 +752,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 
 
 /**
+ *  Represents a backend metastore for the federation.
+ */
+@interface GTLRDataprocMetastore_BackendMetastore : GTLRObject
+
+/**
+ *  The type of the backend metastore.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_BackendMetastore_MetastoreType_Bigquery The
+ *        backend metastore is BigQuery. (Value: "BIGQUERY")
+ *    @arg @c kGTLRDataprocMetastore_BackendMetastore_MetastoreType_Dataplex The
+ *        backend metastore is Dataplex. (Value: "DATAPLEX")
+ *    @arg @c kGTLRDataprocMetastore_BackendMetastore_MetastoreType_DataprocMetastore
+ *        The backend metastore is Dataproc Metastore. (Value:
+ *        "DATAPROC_METASTORE")
+ *    @arg @c kGTLRDataprocMetastore_BackendMetastore_MetastoreType_MetastoreTypeUnspecified
+ *        The metastore type is not set. (Value: "METASTORE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *metastoreType;
+
+/**
+ *  The relative resource name of the metastore that is being federated. The
+ *  formats of the relative resource names for the currently supported
+ *  metastores are listed below: Dataplex:
+ *  projects/{project_id}/locations/{location}/lakes/{lake_id} BigQuery:
+ *  projects/{project_id} Dataproc Metastore:
+ *  projects/{project_id}/locations/{location}/services/{service_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  The details of a backup resource.
  */
 @interface GTLRDataprocMetastore_Backup : GTLRObject
@@ -746,7 +854,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 @property(nonatomic, strong, nullable) GTLRDataprocMetastore_Expr *condition;
 
 /**
- *  Specifies the principals requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Google Cloud resource.
  *  members can have the following values: allUsers: A special identifier that
  *  represents anyone who is on the internet; with or without a Google account.
  *  allAuthenticatedUsers: A special identifier that represents anyone who is
@@ -902,8 +1010,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for Empty is empty JSON object {}.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRDataprocMetastore_Empty : GTLRObject
 @end
@@ -1010,6 +1117,110 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
+@end
+
+
+/**
+ *  Represents a federation of multiple backend metastores.
+ */
+@interface GTLRDataprocMetastore_Federation : GTLRObject
+
+/**
+ *  A map from BackendMetastore rank to BackendMetastores from which the
+ *  federation service serves metadata at query time. The map key is an integer
+ *  that represents the order in which BackendMetastores should be evaluated to
+ *  resolve database names at query time. A BackendMetastore with a lower number
+ *  will be evaluated before a BackendMetastore with a higher number.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_Federation_BackendMetastores *backendMetastores;
+
+/** Output only. The time when the metastore federation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The federation endpoint. */
+@property(nonatomic, copy, nullable) NSString *endpointUri;
+
+/** User-defined labels for the metastore federation. */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_Federation_Labels *labels;
+
+/**
+ *  Immutable. The relative resource name of the federation, of the form:
+ *  projects/{project_number}/locations/{location_id}/federations/{federation_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The current state of the federation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_Federation_State_Active The metastore
+ *        federation is running and ready to serve queries. (Value: "ACTIVE")
+ *    @arg @c kGTLRDataprocMetastore_Federation_State_Creating The metastore
+ *        federation is in the process of being created. (Value: "CREATING")
+ *    @arg @c kGTLRDataprocMetastore_Federation_State_Deleting The metastore
+ *        federation is undergoing deletion. It cannot be used. (Value:
+ *        "DELETING")
+ *    @arg @c kGTLRDataprocMetastore_Federation_State_Error The metastore
+ *        federation has encountered an error and cannot be used. The metastore
+ *        federation should be deleted. (Value: "ERROR")
+ *    @arg @c kGTLRDataprocMetastore_Federation_State_StateUnspecified The state
+ *        of the metastore federation is unknown. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDataprocMetastore_Federation_State_Updating The metastore
+ *        federation is being updated. It remains usable but cannot accept
+ *        additional update requests or be deleted at this time. (Value:
+ *        "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. Additional information about the current state of the metastore
+ *  federation, if available.
+ */
+@property(nonatomic, copy, nullable) NSString *stateMessage;
+
+/**
+ *  Output only. The globally unique resource identifier of the metastore
+ *  federation.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The time when the metastore federation was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Immutable. The Apache Hive metastore version of the federation. All backend
+ *  metastore versions must be compatible with the federation version.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  A map from BackendMetastore rank to BackendMetastores from which the
+ *  federation service serves metadata at query time. The map key is an integer
+ *  that represents the order in which BackendMetastores should be evaluated to
+ *  resolve database names at query time. A BackendMetastore with a lower number
+ *  will be evaluated before a BackendMetastore with a higher number.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDataprocMetastore_BackendMetastore. Use @c -additionalJSONKeys and
+ *        @c -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataprocMetastore_Federation_BackendMetastores : GTLRObject
+@end
+
+
+/**
+ *  User-defined labels for the metastore federation.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataprocMetastore_Federation_Labels : GTLRObject
 @end
 
 
@@ -1185,6 +1396,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataprocMetastore_Backup *> *backups;
+
+/**
+ *  A token that can be sent as page_token to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for ListFederations
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "federations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDataprocMetastore_ListFederationsResponse : GTLRCollectionObject
+
+/**
+ *  The services in the specified location.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataprocMetastore_Federation *> *federations;
 
 /**
  *  A token that can be sent as page_token to retrieve the next page. If this
@@ -2098,7 +2339,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 /**
  *  REQUIRED: The complete policy to be applied to the resource. The size of the
  *  policy is limited to a few 10s of KB. An empty policy is a valid policy but
- *  certain Cloud Platform services (such as Projects) might reject them.
+ *  certain Google Cloud services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRDataprocMetastore_Policy *policy;
 
@@ -2166,7 +2407,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 
 /**
  *  The set of permissions to check for the resource. Permissions with wildcards
- *  (such as '*' or 'storage.*') are not allowed. For more information see IAM
+ *  (such as * or storage.*) are not allowed. For more information see IAM
  *  Overview (https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;

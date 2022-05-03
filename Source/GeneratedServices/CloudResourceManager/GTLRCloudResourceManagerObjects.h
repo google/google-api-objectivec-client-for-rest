@@ -24,6 +24,7 @@
 @class GTLRCloudResourceManager_AuditConfig;
 @class GTLRCloudResourceManager_AuditLogConfig;
 @class GTLRCloudResourceManager_Binding;
+@class GTLRCloudResourceManager_EffectiveTag;
 @class GTLRCloudResourceManager_Expr;
 @class GTLRCloudResourceManager_Folder;
 @class GTLRCloudResourceManager_GetPolicyOptions;
@@ -37,6 +38,7 @@
 @class GTLRCloudResourceManager_Status;
 @class GTLRCloudResourceManager_Status_Details_Item;
 @class GTLRCloudResourceManager_TagBinding;
+@class GTLRCloudResourceManager_TagHold;
 @class GTLRCloudResourceManager_TagKey;
 @class GTLRCloudResourceManager_TagValue;
 
@@ -292,8 +294,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Project_State_State
  *  "audit_log_configs": [ { "log_type": "DATA_READ" }, { "log_type":
  *  "DATA_WRITE", "exempted_members": [ "user:aliya\@example.com" ] } ] } ] }
  *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
- *  logging. It also exempts jose\@example.com from DATA_READ logging, and
- *  aliya\@example.com from DATA_WRITE logging.
+ *  logging. It also exempts `jose\@example.com` from DATA_READ logging, and
+ *  `aliya\@example.com` from DATA_WRITE logging.
  */
 @interface GTLRCloudResourceManager_AuditConfig : GTLRObject
 
@@ -360,7 +362,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Project_State_State
 @property(nonatomic, strong, nullable) GTLRCloudResourceManager_Expr *condition;
 
 /**
- *  Specifies the principals requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Google Cloud resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -509,6 +511,48 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Project_State_State
  *  Runtime operation information for deleting a TagValue.
  */
 @interface GTLRCloudResourceManager_DeleteTagValueMetadata : GTLRObject
+@end
+
+
+/**
+ *  An EffectiveTag represents a tag that applies to a resource during policy
+ *  evaluation. Tags can be either directly bound to a resource or inherited
+ *  from its ancestor. EffectiveTag contains the name and namespaced_name of the
+ *  tag value and tag key, with additional fields of `inherited` to indicate the
+ *  inheritance status of the effective tag.
+ */
+@interface GTLRCloudResourceManager_EffectiveTag : GTLRObject
+
+/**
+ *  Indicates the inheritance status of a tag value attached to the given
+ *  resource. If the tag value is inherited from one of the resource's
+ *  ancestors, inherited will be true. If false, then the tag value is directly
+ *  attached to the resource, inherited will be false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inherited;
+
+/**
+ *  The namespaced_name of the TagKey, in the format of
+ *  `{organization_id}/{tag_key_short_name}`
+ */
+@property(nonatomic, copy, nullable) NSString *namespacedTagKey;
+
+/**
+ *  Namespaced name of the TagValue. Must be in the format
+ *  `{organization_id}/{tag_key_short_name}/{tag_value_short_name}`.
+ */
+@property(nonatomic, copy, nullable) NSString *namespacedTagValue;
+
+/**
+ *  The name of the TagKey, in the format `tagKeys/{id}`, such as `tagKeys/123`.
+ */
+@property(nonatomic, copy, nullable) NSString *tagKey;
+
+/** Resource name for TagValue in the format `tagValues/456`. */
+@property(nonatomic, copy, nullable) NSString *tagValue;
+
 @end
 
 
@@ -872,6 +916,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Project_State_State
 
 
 /**
+ *  The response of ListEffectiveTags.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "effectiveTags" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudResourceManager_ListEffectiveTagsResponse : GTLRCollectionObject
+
+/**
+ *  A possibly paginated list of effective tags for the specified resource.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_EffectiveTag *> *effectiveTags;
+
+/**
+ *  Pagination token. If the result set is too large to fit in a single
+ *  response, this token is returned. It encodes the position of the current
+ *  result cursor. Feeding this value into a new list request with the
+ *  `page_token` parameter gives the next page of the results. When
+ *  `next_page_token` is not filled in, there is no next page and the list
+ *  returned is the last page in the result set. Pagination tokens have a
+ *  limited lifetime.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The ListFolders response message.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -990,6 +1066,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Project_State_State
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_TagBinding *> *tagBindings;
+
+@end
+
+
+/**
+ *  The ListTagHolds response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "tagHolds" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudResourceManager_ListTagHoldsResponse : GTLRCollectionObject
+
+/**
+ *  Pagination token. If the result set is too large to fit in a single
+ *  response, this token is returned. It encodes the position of the current
+ *  result cursor. Feeding this value into a new list request with the
+ *  `page_token` parameter gives the next page of the results. When
+ *  `next_page_token` is not filled in, there is no next page and the list
+ *  returned is the last page in the result set. Pagination tokens have a
+ *  limited lifetime.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A possibly paginated list of TagHolds.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_TagHold *> *tagHolds;
 
 @end
 
@@ -1564,7 +1672,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Project_State_State
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
  *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
- *  but certain Cloud Platform services (such as Projects) might reject them.
+ *  but certain Google Cloud services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRCloudResourceManager_Policy *policy;
 
@@ -1647,6 +1755,49 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Project_State_State
 
 /** The TagValue of the TagBinding. Must be of the form `tagValues/456`. */
 @property(nonatomic, copy, nullable) NSString *tagValue;
+
+@end
+
+
+/**
+ *  A TagHold represents the use of a TagValue that is not captured by
+ *  TagBindings. If a TagValue has any TagHolds, deletion will be blocked. This
+ *  resource is intended to be created in the same cloud location as the
+ *  `holder`.
+ */
+@interface GTLRCloudResourceManager_TagHold : GTLRObject
+
+/** Output only. The time this TagHold was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. A URL where an end user can learn more about removing this hold.
+ *  E.g.
+ *  `https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing`
+ */
+@property(nonatomic, copy, nullable) NSString *helpLink;
+
+/**
+ *  Required. The name of the resource where the TagValue is being used. Must be
+ *  less than 200 characters. E.g.
+ *  `//compute.googleapis.com/compute/projects/myproject/regions/us-east-1/instanceGroupManagers/instance-group`
+ */
+@property(nonatomic, copy, nullable) NSString *holder;
+
+/**
+ *  Output only. The resource name of a TagHold. This is a String of the form:
+ *  `tagValues/{tag-value-id}/tagHolds/{tag-hold-id}` (e.g.
+ *  `tagValues/123/tagHolds/456`). This resource name is generated by the
+ *  server.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional string representing the origin of this request. This
+ *  field should include human-understandable information to distinguish origins
+ *  from each other. Must be less than 200 characters. E.g. `migs-35678234`
+ */
+@property(nonatomic, copy, nullable) NSString *origin;
 
 @end
 
@@ -1766,7 +1917,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Project_State_State
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
  *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;

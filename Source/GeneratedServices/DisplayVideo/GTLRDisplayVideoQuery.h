@@ -2187,13 +2187,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  `{field} {operator} {value}`. * The operator must be `EQUALS (=)` for the
  *  following fields: - `entityStatus` - `creativeType`. - `dimensions` -
  *  `minDuration` - `maxDuration` - `approvalStatus` - `exchangeReviewStatus` -
- *  `dynamic` - `creativeId` * The operator must be `HAS (:)` for the following
- *  fields: - `lineItemIds` * For `entityStatus`, `minDuration`, `maxDuration`,
- *  and `dynamic` there may be at most one restriction. * For `dimensions`, the
- *  value is in the form of `"{width}x{height}"`. * For `exchangeReviewStatus`,
- *  the value is in the form of `{exchange}-{reviewStatus}`. * For `minDuration`
- *  and `maxDuration`, the value is in the form of `"{duration}s"`. Only seconds
- *  are supported with millisecond granularity. * There may be multiple
+ *  `dynamic` - `creativeId` - `minModifiedTime` - `maxModifiedTime` * The
+ *  operator must be `HAS (:)` for the following fields: - `lineItemIds` * For
+ *  `entityStatus`, `minDuration`, `maxDuration`, `minModifiedTime`,
+ *  `maxModifiedTime`, and `dynamic`, there may be at most one restriction. *
+ *  For `dimensions`, the value is in the form of `"{width}x{height}"`. * For
+ *  `exchangeReviewStatus`, the value is in the form of
+ *  `{exchange}-{reviewStatus}`. * For `minDuration` and `maxDuration`, the
+ *  value is in the form of `"{duration}s"`. Only seconds are supported with
+ *  millisecond granularity. * For `minModifiedTime` and `maxModifiedTime`, the
+ *  value is a unix timestamp (GMT) in seconds. The time filtered is against the
+ *  update_time field in the creative, which includes system updates to the
+ *  creative (e.g. creative review updates). * There may be multiple
  *  `lineItemIds` restrictions in order to search against multiple possible line
  *  item IDs. * There may be multiple `creativeId` restrictions in order to
  *  search against multiple possible creative IDs. Examples: * All native
@@ -3799,8 +3804,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Field by which to sort the list. Acceptable values are: * "displayName"
- *  (default) * "entityStatus" * “flight.dateRange.endDate” * "updateTime" The
+ *  Field by which to sort the list. Acceptable values are: * `displayName`
+ *  (default) * `entityStatus` * `flight.dateRange.endDate` * `updateTime` The
  *  default sorting order is ascending. To specify descending order for a field,
  *  a suffix "desc" should be added to the field name. Example: `displayName
  *  desc`.

@@ -252,7 +252,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_CommitResponse
-@dynamic indexUpdates, mutationResults;
+@dynamic commitTime, indexUpdates, mutationResults;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -321,7 +321,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_EntityResult
-@dynamic cursor, entity, version;
+@dynamic cursor, entity, updateTime, version;
 @end
 
 
@@ -829,7 +829,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_LookupResponse
-@dynamic deferred, found, missing;
+@dynamic deferred, found, missing, readTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -849,7 +849,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_Mutation
-@dynamic baseVersion, deleteProperty, insert, update, upsert;
+@dynamic baseVersion, deleteProperty, insert, update, updateTime, upsert;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"deleteProperty" : @"delete" };
@@ -864,7 +864,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_MutationResult
-@dynamic conflictDetected, key, version;
+@dynamic conflictDetected, key, updateTime, version;
 @end
 
 
@@ -967,8 +967,8 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_QueryResultBatch
-@dynamic endCursor, entityResults, entityResultType, moreResults, skippedCursor,
-         skippedResults, snapshotVersion;
+@dynamic endCursor, entityResults, entityResultType, moreResults, readTime,
+         skippedCursor, skippedResults, snapshotVersion;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -986,6 +986,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_ReadOnly
+@dynamic readTime;
 @end
 
 
@@ -995,7 +996,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_ReadOptions
-@dynamic readConsistency, transaction;
+@dynamic readConsistency, readTime, transaction;
 @end
 
 

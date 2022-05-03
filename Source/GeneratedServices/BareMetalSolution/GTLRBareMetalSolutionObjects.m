@@ -25,6 +25,11 @@ NSString * const kGTLRBareMetalSolution_Instance_State_Provisioning = @"PROVISIO
 NSString * const kGTLRBareMetalSolution_Instance_State_Running = @"RUNNING";
 NSString * const kGTLRBareMetalSolution_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRBareMetalSolution_LogicalInterface.type
+NSString * const kGTLRBareMetalSolution_LogicalInterface_Type_Bond = @"BOND";
+NSString * const kGTLRBareMetalSolution_LogicalInterface_Type_InterfaceTypeUnspecified = @"INTERFACE_TYPE_UNSPECIFIED";
+NSString * const kGTLRBareMetalSolution_LogicalInterface_Type_Nic = @"NIC";
+
 // GTLRBareMetalSolution_Lun.multiprotocolType
 NSString * const kGTLRBareMetalSolution_Lun_MultiprotocolType_Linux = @"LINUX";
 NSString * const kGTLRBareMetalSolution_Lun_MultiprotocolType_MultiprotocolTypeUnspecified = @"MULTIPROTOCOL_TYPE_UNSPECIFIED";
@@ -80,9 +85,13 @@ NSString * const kGTLRBareMetalSolution_NfsShare_State_Provisioned = @"PROVISION
 NSString * const kGTLRBareMetalSolution_NfsShare_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRBareMetalSolution_ProvisioningConfig.state
+NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Cancelled = @"CANCELLED";
 NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Draft = @"DRAFT";
+NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Provisioned = @"PROVISIONED";
+NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Provisioning = @"PROVISIONING";
 NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Submitted = @"SUBMITTED";
+NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Validated = @"VALIDATED";
 
 // GTLRBareMetalSolution_ProvisioningQuota.assetType
 NSString * const kGTLRBareMetalSolution_ProvisioningQuota_AssetType_AssetTypeNetwork = @"ASSET_TYPE_NETWORK";
@@ -148,13 +157,31 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBareMetalSolution_FetchInstanceProvisioningSettingsResponse
+//
+
+@implementation GTLRBareMetalSolution_FetchInstanceProvisioningSettingsResponse
+@dynamic images;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"images" : [GTLRBareMetalSolution_OSImage class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBareMetalSolution_Instance
 //
 
 @implementation GTLRBareMetalSolution_Instance
 @dynamic createTime, hyperthreadingEnabled, identifier,
          interactiveSerialConsoleEnabled, labels, luns, machineType, name,
-         networks, state, updateTime;
+         networks, osImage, state, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -488,6 +515,16 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBareMetalSolution_LogicalInterface
+//
+
+@implementation GTLRBareMetalSolution_LogicalInterface
+@dynamic name, required, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBareMetalSolution_Lun
 //
 
@@ -683,6 +720,30 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBareMetalSolution_OSImage
+//
+
+@implementation GTLRBareMetalSolution_OSImage
+@dynamic applicableInstanceTypes, code, descriptionProperty, name,
+         supportedNetworkTemplates;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"applicableInstanceTypes" : [NSString class],
+    @"supportedNetworkTemplates" : [GTLRBareMetalSolution_ServerNetworkTemplate class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBareMetalSolution_ProvisioningConfig
 //
 
@@ -748,6 +809,25 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 @implementation GTLRBareMetalSolution_Schedule
 @dynamic crontabSpec, prefix, retentionCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_ServerNetworkTemplate
+//
+
+@implementation GTLRBareMetalSolution_ServerNetworkTemplate
+@dynamic applicableInstanceTypes, logicalInterfaces, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"applicableInstanceTypes" : [NSString class],
+    @"logicalInterfaces" : [GTLRBareMetalSolution_LogicalInterface class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -845,6 +925,15 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBareMetalSolution_StopInstanceRequest
+//
+
+@implementation GTLRBareMetalSolution_StopInstanceRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBareMetalSolution_SubmitProvisioningConfigRequest
 //
 
@@ -879,8 +968,8 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_Volume
-@dynamic autoGrownSizeGib, currentSizeGib, identifier, labels, name,
-         remainingSpaceGib, requestedSizeGib, snapshotAutoDeleteBehavior,
+@dynamic autoGrownSizeGib, currentSizeGib, emergencySizeGib, identifier, labels,
+         name, remainingSpaceGib, requestedSizeGib, snapshotAutoDeleteBehavior,
          snapshotEnabled, snapshotReservationDetail, snapshotSchedulePolicy,
          state, storageType;
 

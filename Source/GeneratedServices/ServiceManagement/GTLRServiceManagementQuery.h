@@ -176,8 +176,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  Required. The name of the service. See the
- *  [overview](/service-management/overview) for naming requirements. For
- *  example: `example.googleapis.com`.
+ *  [overview](https://cloud.google.com/service-management/overview) for naming
+ *  requirements. For example: `example.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
@@ -192,8 +192,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *
  *  @param object The @c GTLRServiceManagement_Service to include in the query.
  *  @param serviceName Required. The name of the service. See the
- *    [overview](/service-management/overview) for naming requirements. For
- *    example: `example.googleapis.com`.
+ *    [overview](https://cloud.google.com/service-management/overview) for
+ *    naming requirements. For example: `example.googleapis.com`.
  *
  *  @return GTLRServiceManagementQuery_ServicesConfigsCreate
  */
@@ -223,8 +223,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  Required. The name of the service. See the
- *  [overview](/service-management/overview) for naming requirements. For
- *  example: `example.googleapis.com`.
+ *  [overview](https://cloud.google.com/service-management/overview) for naming
+ *  requirements. For example: `example.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
@@ -249,8 +249,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  Gets a service configuration (version) for a managed service.
  *
  *  @param serviceName Required. The name of the service. See the
- *    [overview](/service-management/overview) for naming requirements. For
- *    example: `example.googleapis.com`.
+ *    [overview](https://cloud.google.com/service-management/overview) for
+ *    naming requirements. For example: `example.googleapis.com`.
  *  @param configId Required. The id of the service configuration resource. This
  *    field must be specified for the server to return all fields, including
  *    `SourceInfo`.
@@ -287,8 +287,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  Required. The name of the service. See the
- *  [overview](/service-management/overview) for naming requirements. For
- *  example: `example.googleapis.com`.
+ *  [overview](https://cloud.google.com/service-management/overview) for naming
+ *  requirements. For example: `example.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
@@ -299,8 +299,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  the newest to the oldest.
  *
  *  @param serviceName Required. The name of the service. See the
- *    [overview](/service-management/overview) for naming requirements. For
- *    example: `example.googleapis.com`.
+ *    [overview](https://cloud.google.com/service-management/overview) for
+ *    naming requirements. For example: `example.googleapis.com`.
  *
  *  @return GTLRServiceManagementQuery_ServicesConfigsList
  *
@@ -331,8 +331,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  Required. The name of the service. See the
- *  [overview](/service-management/overview) for naming requirements. For
- *  example: `example.googleapis.com`.
+ *  [overview](https://cloud.google.com/service-management/overview) for naming
+ *  requirements. For example: `example.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
@@ -350,8 +350,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  @param object The @c GTLRServiceManagement_SubmitConfigSourceRequest to
  *    include in the query.
  *  @param serviceName Required. The name of the service. See the
- *    [overview](/service-management/overview) for naming requirements. For
- *    example: `example.googleapis.com`.
+ *    [overview](https://cloud.google.com/service-management/overview) for
+ *    naming requirements. For example: `example.googleapis.com`.
  *
  *  @return GTLRServiceManagementQuery_ServicesConfigsSubmit
  */
@@ -532,8 +532,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  Required. The name of the service. See the
- *  [overview](/service-management/overview) for naming requirements. For
- *  example: `example.googleapis.com`.
+ *  [overview](https://cloud.google.com/service-management/overview) for naming
+ *  requirements. For example: `example.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
@@ -546,8 +546,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  be permanently deleted. Operation
  *
  *  @param serviceName Required. The name of the service. See the
- *    [overview](/service-management/overview) for naming requirements. For
- *    example: `example.googleapis.com`.
+ *    [overview](https://cloud.google.com/service-management/overview) for
+ *    naming requirements. For example: `example.googleapis.com`.
  *
  *  @return GTLRServiceManagementQuery_ServicesDelete
  */
@@ -653,8 +653,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  Required. The name of the service. See the
- *  [overview](/service-management/overview) for naming requirements. For
- *  example: `example.googleapis.com`.
+ *  [overview](https://cloud.google.com/service-management/overview) for naming
+ *  requirements. For example: `example.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
@@ -679,8 +679,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  Gets a service configuration (version) for a managed service.
  *
  *  @param serviceName Required. The name of the service. See the
- *    [overview](/service-management/overview) for naming requirements. For
- *    example: `example.googleapis.com`.
+ *    [overview](https://cloud.google.com/service-management/overview) for
+ *    naming requirements. For example: `example.googleapis.com`.
  *
  *  @return GTLRServiceManagementQuery_ServicesGetConfig
  */
@@ -801,8 +801,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  Required. The name of the service. See the
- *  [overview](/service-management/overview) for naming requirements. For
- *  example: `example.googleapis.com`.
+ *  [overview](https://cloud.google.com/service-management/overview) for naming
+ *  requirements. For example: `example.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
@@ -821,8 +821,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *
  *  @param object The @c GTLRServiceManagement_Rollout to include in the query.
  *  @param serviceName Required. The name of the service. See the
- *    [overview](/service-management/overview) for naming requirements. For
- *    example: `example.googleapis.com`.
+ *    [overview](https://cloud.google.com/service-management/overview) for
+ *    naming requirements. For example: `example.googleapis.com`.
  *
  *  @return GTLRServiceManagementQuery_ServicesRolloutsCreate
  */
@@ -849,8 +849,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  Required. The name of the service. See the
- *  [overview](/service-management/overview) for naming requirements. For
- *  example: `example.googleapis.com`.
+ *  [overview](https://cloud.google.com/service-management/overview) for naming
+ *  requirements. For example: `example.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
@@ -860,8 +860,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  Gets a service configuration rollout.
  *
  *  @param serviceName Required. The name of the service. See the
- *    [overview](/service-management/overview) for naming requirements. For
- *    example: `example.googleapis.com`.
+ *    [overview](https://cloud.google.com/service-management/overview) for
+ *    naming requirements. For example: `example.googleapis.com`.
  *  @param rolloutId Required. The id of the rollout resource.
  *
  *  @return GTLRServiceManagementQuery_ServicesRolloutsGet
@@ -887,11 +887,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  Required. Use `filter` to return subset of rollouts. The following filters
- *  are supported: -- To limit the results to only those in
- *  [status](google.api.servicemanagement.v1.RolloutStatus) 'SUCCESS', use
- *  filter='status=SUCCESS' -- To limit the results to those in
- *  [status](google.api.servicemanagement.v1.RolloutStatus) 'CANCELLED' or
- *  'FAILED', use filter='status=CANCELLED OR status=FAILED'
+ *  are supported: -- By status. For example, `filter='status=SUCCESS'` -- By
+ *  strategy. For example, `filter='strategy=TrafficPercentStrategy'`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -906,8 +903,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  Required. The name of the service. See the
- *  [overview](/service-management/overview) for naming requirements. For
- *  example: `example.googleapis.com`.
+ *  [overview](https://cloud.google.com/service-management/overview) for naming
+ *  requirements. For example: `example.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
@@ -918,8 +915,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  service, from the newest to the oldest.
  *
  *  @param serviceName Required. The name of the service. See the
- *    [overview](/service-management/overview) for naming requirements. For
- *    example: `example.googleapis.com`.
+ *    [overview](https://cloud.google.com/service-management/overview) for
+ *    naming requirements. For example: `example.googleapis.com`.
  *
  *  @return GTLRServiceManagementQuery_ServicesRolloutsList
  *
@@ -1031,8 +1028,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  Required. The name of the service. See the
- *  [overview](/service-management/overview) for naming requirements. For
- *  example: `example.googleapis.com`.
+ *  [overview](https://cloud.google.com/service-management/overview) for naming
+ *  requirements. For example: `example.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
@@ -1045,8 +1042,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  days. Operation
  *
  *  @param serviceName Required. The name of the service. See the
- *    [overview](/service-management/overview) for naming requirements. For
- *    example: `example.googleapis.com`.
+ *    [overview](https://cloud.google.com/service-management/overview) for
+ *    naming requirements. For example: `example.googleapis.com`.
  *
  *  @return GTLRServiceManagementQuery_ServicesUndelete
  */

@@ -251,6 +251,28 @@ NSString * const kGTLRNetworkServices_EndpointPolicy_Type_SidecarProxy = @"SIDEC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkServices_ListServiceBindingsResponse
+//
+
+@implementation GTLRNetworkServices_ListServiceBindingsResponse
+@dynamic nextPageToken, serviceBindings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"serviceBindings" : [GTLRNetworkServices_ServiceBinding class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"serviceBindings";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkServices_Location
 //
 
@@ -354,6 +376,35 @@ NSString * const kGTLRNetworkServices_EndpointPolicy_Type_SidecarProxy = @"SIDEC
     @"bindings" : [GTLRNetworkServices_Binding class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_ServiceBinding
+//
+
+@implementation GTLRNetworkServices_ServiceBinding
+@dynamic createTime, descriptionProperty, labels, name, service, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_ServiceBinding_Labels
+//
+
+@implementation GTLRNetworkServices_ServiceBinding_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

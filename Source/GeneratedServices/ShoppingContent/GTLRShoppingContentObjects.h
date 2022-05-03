@@ -78,6 +78,8 @@
 @class GTLRShoppingContent_DatafeedTarget;
 @class GTLRShoppingContent_Date;
 @class GTLRShoppingContent_DateTime;
+@class GTLRShoppingContent_DeliveryArea;
+@class GTLRShoppingContent_DeliveryAreaPostalCodeRange;
 @class GTLRShoppingContent_DeliveryTime;
 @class GTLRShoppingContent_ECommercePlatformLinkInfo;
 @class GTLRShoppingContent_Error;
@@ -174,7 +176,10 @@
 @class GTLRShoppingContent_PriceAmount;
 @class GTLRShoppingContent_Product;
 @class GTLRShoppingContent_ProductAmount;
+@class GTLRShoppingContent_ProductDeliveryTimeAreaDeliveryTime;
+@class GTLRShoppingContent_ProductDeliveryTimeAreaDeliveryTimeDeliveryTime;
 @class GTLRShoppingContent_ProductDimension;
+@class GTLRShoppingContent_ProductId;
 @class GTLRShoppingContent_ProductProductDetail;
 @class GTLRShoppingContent_ProductsCustomBatchRequestEntry;
 @class GTLRShoppingContent_ProductsCustomBatchResponseEntry;
@@ -4204,6 +4209,67 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
+ *  A delivery area for the product. Only one of `countryCode` or
+ *  `postalCodeRange` must be set.
+ */
+@interface GTLRShoppingContent_DeliveryArea : GTLRObject
+
+/**
+ *  Required. The country that the product can be delivered to. Submit a
+ *  [unicode CLDR
+ *  region](http://www.unicode.org/repos/cldr/tags/latest/common/main/en.xml)
+ *  such as `US` or `CH`.
+ */
+@property(nonatomic, copy, nullable) NSString *countryCode;
+
+/**
+ *  A postal code, postal code range or postal code prefix that defines this
+ *  area. Limited to US and AUS.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_DeliveryAreaPostalCodeRange *postalCodeRange;
+
+/**
+ *  A state, territory, or prefecture. This is supported for the United States,
+ *  Australia, and Japan. Provide a subdivision code from the ISO 3166-2 code
+ *  tables ([US](https://en.wikipedia.org/wiki/ISO_3166-2:US),
+ *  [AU](https://en.wikipedia.org/wiki/ISO_3166-2:AU), or
+ *  [JP](https://en.wikipedia.org/wiki/ISO_3166-2:JP)) without country prefix
+ *  (for example, `"NY"`, `"NSW"`, `"03"`).
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+@end
+
+
+/**
+ *  A range of postal codes that defines the delivery area. Only set
+ *  `firstPostalCode` when specifying a single postal code.
+ */
+@interface GTLRShoppingContent_DeliveryAreaPostalCodeRange : GTLRObject
+
+/**
+ *  Required. A postal code or a pattern of the form prefix* denoting the
+ *  inclusive lower bound of the range defining the area. Examples values:
+ *  `"94108"`, `"9410*"`, `"9*"`.
+ */
+@property(nonatomic, copy, nullable) NSString *firstPostalCode;
+
+/**
+ *  A postal code or a pattern of the form prefix* denoting the inclusive upper
+ *  bound of the range defining the area (for example [070* - 078*] results in
+ *  the range [07000 - 07899]). It must have the same length as
+ *  `firstPostalCode`: if `firstPostalCode` is a postal code then
+ *  `lastPostalCode` must be a postal code too; if firstPostalCode is a pattern
+ *  then `lastPostalCode` must be a pattern with the same prefix length. Ignored
+ *  if not set, then the area is defined as being all the postal codes matching
+ *  `firstPostalCode`.
+ */
+@property(nonatomic, copy, nullable) NSString *lastPostalCode;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_DeliveryTime
  */
 @interface GTLRShoppingContent_DeliveryTime : GTLRObject
@@ -5795,6 +5861,39 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *clicks;
+
+/**
+ *  Number of conversions divided by the number of clicks, reported on the
+ *  impression date. The metric is currently available only for the
+ *  FREE_PRODUCT_LISTING program.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversionRate;
+
+/**
+ *  Number of conversions attributed to the product, reported on the conversion
+ *  date. Depending on the attribution model, a conversion might be distributed
+ *  across multiple clicks, where each click gets its own credit assigned. This
+ *  metric is a sum of all such credits. The metric is currently available only
+ *  for the FREE_PRODUCT_LISTING program.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversions;
+
+/**
+ *  Value of conversions in micros attributed to the product, reported on the
+ *  conversion date. The metric is currently available only for the
+ *  FREE_PRODUCT_LISTING program. The currency of the returned value is stored
+ *  in the currency_code segment. If this metric is selected,
+ *  'segments.currency_code' is automatically added to the SELECT clause in the
+ *  search query (unless it is explicitly selected by the user) and the
+ *  currency_code segment is populated in the response.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversionValueMicros;
 
 /**
  *  Click-through rate - the number of clicks merchant's products receive
@@ -9777,6 +9876,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *pattern;
 
 /**
+ *  Publication of this item should be temporarily paused. Acceptable values
+ *  are: - "`ads`"
+ */
+@property(nonatomic, copy, nullable) NSString *pause;
+
+/**
  *  The pick up option for the item. Acceptable values are: - "`buy`" -
  *  "`reserve`" - "`ship to store`" - "`not supported`"
  */
@@ -9946,6 +10051,88 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
+ *  The estimated days to deliver a product after an order is placed. Only
+ *  authorized shipping signals partners working with a merchant can use this
+ *  resource. Merchants should use the
+ *  [`products`](https://developers.google.com/shopping-content/reference/rest/v2.1/products#productshipping)
+ *  resource instead.
+ */
+@interface GTLRShoppingContent_ProductDeliveryTime : GTLRObject
+
+/**
+ *  Required. A set of associations between `DeliveryArea` and `DeliveryTime`
+ *  entries. The total number of `areaDeliveryTimes` can be at most 100.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ProductDeliveryTimeAreaDeliveryTime *> *areaDeliveryTimes;
+
+/** Required. The `id` of the product. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ProductId *productId;
+
+@end
+
+
+/**
+ *  A pairing of `DeliveryArea` associated with a `DeliveryTime` for this
+ *  product.
+ */
+@interface GTLRShoppingContent_ProductDeliveryTimeAreaDeliveryTime : GTLRObject
+
+/**
+ *  Required. The delivery area associated with `deliveryTime` for this product.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_DeliveryArea *deliveryArea;
+
+/**
+ *  Required. The delivery time associated with `deliveryArea` for this product.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ProductDeliveryTimeAreaDeliveryTimeDeliveryTime *deliveryTime;
+
+@end
+
+
+/**
+ *  A delivery time for this product.
+ */
+@interface GTLRShoppingContent_ProductDeliveryTimeAreaDeliveryTimeDeliveryTime : GTLRObject
+
+/**
+ *  Required. The maximum number of business days (inclusive) between when an
+ *  order is placed and when the product ships. If a product ships in the same
+ *  day, set this value to 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxHandlingTimeDays;
+
+/**
+ *  Required. The maximum number of business days (inclusive) between when the
+ *  product ships and when the product is delivered.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxTransitTimeDays;
+
+/**
+ *  Required. The minimum number of business days (inclusive) between when an
+ *  order is placed and when the product ships. If a product ships in the same
+ *  day, set this value to 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minHandlingTimeDays;
+
+/**
+ *  Required. The minimum number of business days (inclusive) between when the
+ *  product ships and when the product is delivered.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minTransitTimeDays;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_ProductDimension
  */
 @interface GTLRShoppingContent_ProductDimension : GTLRObject
@@ -9960,6 +10147,20 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
+ *  The Content API ID of the product.
+ */
+@interface GTLRShoppingContent_ProductId : GTLRObject
+
+/**
+ *  The Content API ID of the product, in the form
+ *  `channel:contentLanguage:targetCountry:offerId`.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
 
 @end
 
@@ -10615,9 +10816,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
- *  The Promotions feature is currently in alpha and is not yet publicly
- *  available in Content API for Shopping. This documentation is provided for
- *  reference only may be subject to change. Represents a promotion. See the
+ *  The Promotions feature is publicly available for the US and CA locale (en
+ *  language only) in Content API for Shopping. Represents a promotion. See the
  *  following articles for more details. * [Promotions feed
  *  specification](https://support.google.com/merchants/answer/2906014) * [Local
  *  promotions feed
@@ -10710,7 +10910,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Required. Output only. The REST promotion id to uniquely identify the
  *  promotion. Content API methods that operate on promotions take this as their
  *  promotionId parameter. The REST ID for a promotion is of the form
- *  channel:contentLanguage:targetCountry:promotionId The channel field will
+ *  [channel]:contentLanguage:targetCountry:promotionId The channel field will
  *  have a value of "online", "in_store", or "online_in_store".
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -10739,7 +10939,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /** Maximum purchase value for the promotion. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_PriceAmount *limitValue;
 
-/** Long title for the promotion. */
+/** Required. Long title for the promotion. */
 @property(nonatomic, copy, nullable) NSString *longTitle;
 
 /** Minimum purchase amount for the promotion. */
