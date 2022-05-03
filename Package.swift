@@ -1009,9 +1009,6 @@ let package = Package(
             dependencies: [
                 "GoogleAPIClientForRESTCore"
             ],
-            exclude: [
-                "CompiledTestNoARC.m"
-            ],
             sources: [
                 ".",
                 "TestingSvc"
