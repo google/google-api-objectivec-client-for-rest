@@ -17,7 +17,7 @@ on:
     - '.github/workflows/swiftpm.yml'
   schedule:
     # Run the first and fifteenth of every month at 6:12 UTC
-    - cron:  '6 12 1,15 * *'
+    - cron:  '12 6 1,15 * *'
 
 jobs:
   swift:

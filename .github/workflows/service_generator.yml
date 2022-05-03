@@ -29,7 +29,7 @@ on:
     - '.github/workflows/service_generator.yml'
   schedule:
     # Run the first and fifteenth of every month at 6:32 UTC
-    - cron:  '6 32 1,15 * *'
+    - cron:  '32 6 1,15 * *'
 
 jobs:
   swift:

@@ -31,7 +31,7 @@ on:
     - '.github/workflows/examples.yml'
   schedule:
     # Run the first and fifteenth of every month at 6:22 UTC
-    - cron:  '6 22 1,15 * *'
+    - cron:  '22 6 1,15 * *'
 
 jobs:
   examples:
