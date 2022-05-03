@@ -5,12 +5,14 @@ on:
     branches: [ main ]
     paths:
     - 'Source/**'
+    - 'UnitTests/**'
     - 'Package*.swift'
     - '.github/workflows/swiftpm.yml'
   pull_request:
     branches: [ main ]
     paths:
     - 'Source/**'
+    - 'UnitTests/**'
     - 'Package*.swift'
     - '.github/workflows/swiftpm.yml'
   schedule:

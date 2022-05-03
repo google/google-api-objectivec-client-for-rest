@@ -7,7 +7,7 @@ set -e
 readonly TestsDir=$(dirname "$(echo $0 | sed -e "s,^\([^/]\),$(pwd)/\1,")")
 readonly ScriptName=$(basename "$0")
 
-readonly ToolsDir="${TestsDir}/../../Tools"
+readonly ToolsDir="${TestsDir}/../Tools"
 readonly Configuration=debug
 readonly ServiceGeneratorBinary="${ToolsDir}/.build/${Configuration}/ServiceGenerator"
 
