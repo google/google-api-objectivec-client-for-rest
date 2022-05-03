@@ -1,4 +1,4 @@
-name: CocoaPods
+name: Examples
 
 on:
   push:
