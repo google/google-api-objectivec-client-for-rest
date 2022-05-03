@@ -36,21 +36,6 @@
   XCTAssertTrue(major != NSUIntegerMax, @"version unset");
   XCTAssertTrue(minor != NSUIntegerMax, @"version unset");
   XCTAssertTrue(release != NSUIntegerMax, @"version unset");
-// The package managers don't set a version for the test to pick up.
-#if !SWIFT_PACKAGE && !COCOAPODS
-  // Check that the Framework bundle's Info.plist has the proper version,
-  // matching the GTLRFrameworkVersion call
-  NSBundle *testBundle = [NSBundle bundleForClass:[self class]];
-  NSDictionary *infoDict = [testBundle infoDictionary];
-  XCTAssertNotNil(infoDict, @"Could not find GTLRFramework-Info.plist at %@", testBundle);
-
-  if (infoDict) {
-    NSString *binaryVersionStr = GTLRFrameworkVersionString();
-    NSString *plistVersionStr = [infoDict valueForKey:@"CFBundleVersion"];
-
-    XCTAssertEqualObjects(binaryVersionStr, plistVersionStr);
-  }
-#endif
 }
 
 @end
