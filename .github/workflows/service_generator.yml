@@ -1,0 +1,67 @@
+name: SwiftPM
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+    - 'Source/GTLRDefines.h'
+    - 'Source/GeneratedServices/Discovery/**'
+    - 'Source/Objects/**'
+    - 'Source/Utilities/**'
+    - 'Tools/**'
+    - '!Tools/**/*.md'
+    - '!Tools/**/*.py'
+    - '!Tools/GenerateCheckedInServices*'
+    - 'Package*.swift'
+    - '.github/workflows/service_generator.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+    - 'Source/GTLRDefines.h'
+    - 'Source/GeneratedServices/Discovery/**'
+    - 'Source/Objects/**'
+    - 'Source/Utilities/**'
+    - 'Tools/**'
+    - '!Tools/**/*.md'
+    - '!Tools/**/*.py'
+    - '!Tools/GenerateCheckedInServices*'
+    - 'Package*.swift'
+    - '.github/workflows/service_generator.yml'
+  schedule:
+    # Run the first and fifteenth of every month at 6:32 UTC
+    - cron:  '6 32 1,15 * *'
+
+jobs:
+  swift:
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        CONFIGURATION: ["debug", "release"]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build ServiceGenerator
+      run:  |
+        set -eu
+        cd Tools
+        swift build --configuration ${{ matrix.CONFIGURATION }}
+
+  xcodebuild:
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        CONFIGURATION: ["Debug", "Release"]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build ServiceGenerator
+      run:  |
+        set -eu
+        cd Tools
+        set -o pipefail
+        xcodebuild \
+            -scheme GTLR_ServiceGenerator \
+            -configuration ${{ matrix.CONFIGURATION }} \
+            -destination "platform=macOS" \
+            build \
+          | xcpretty

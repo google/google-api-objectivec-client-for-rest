@@ -3,7 +3,7 @@
 
 # Xcode
 build/
-Source/Tools/ServiceGenerator/build/
+Tools/ServiceGenerator/build/
 *.pbxuser
 !default.pbxuser
 *.mode1v3

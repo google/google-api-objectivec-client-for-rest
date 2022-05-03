@@ -4,13 +4,13 @@ on:
   push:
     branches: [ main ]
     paths:
-    - 'Sources/**'
+    - 'Source/**'
     - 'Package*.swift'
     - '.github/workflows/swiftpm.yml'
   pull_request:
     branches: [ main ]
     paths:
-    - 'Sources/**'
+    - 'Source/**'
     - 'Package*.swift'
     - '.github/workflows/swiftpm.yml'
   schedule:
@@ -32,11 +32,6 @@ jobs:
         set -eu
         swift build --configuration ${{ matrix.CONFIGURATION }}
         swift test --configuration ${{ matrix.CONFIGURATION }}
-    - name: Build ServiceGenerator
-      run:  |
-        set -eu
-        cd Source/Tools
-        swift build --configuration ${{ matrix.CONFIGURATION }}
 
   xcodebuild:
     # Job(s) to build for all the platforms to ensure that is working and the
@@ -73,16 +68,4 @@ jobs:
             -configuration ${{ matrix.CONFIGURATION }} \
             -destination "${DESTINATION}" \
             build test \
-          | xcpretty
-    - name: Build ServiceGenerator
-      if: ${{ matrix.PLATFORM == 'macos' }}
-      run:  |
-        set -eu
-        cd Source/Tools
-        set -o pipefail
-        xcodebuild \
-            -scheme GTLR_ServiceGenerator \
-            -configuration ${{ matrix.CONFIGURATION }} \
-            -destination "platform=macOS" \
-            build \
           | xcpretty

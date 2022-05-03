@@ -7,11 +7,9 @@ set -e
 readonly TestsDir=$(dirname "$(echo $0 | sed -e "s,^\([^/]\),$(pwd)/\1,")")
 readonly ScriptName=$(basename "$0")
 
-readonly ServiceGeneratorDir="${TestsDir}/../Tools/ServiceGenerator"
-
-readonly TMP_INSTALL_DIR=$(mktemp -dt "$ScriptName") || exit 1
-trap "rm -rf $TMP_INSTALL_DIR" EXIT HUP INT QUIT TERM
-readonly ServiceGeneratorBinary="${TMP_INSTALL_DIR}/usr/local/bin/ServiceGenerator"
+readonly ToolsDir="${TestsDir}/../../Tools"
+readonly Configuration=debug
+readonly ServiceGeneratorBinary="${ToolsDir}/.build/${Configuration}/ServiceGenerator"
 
 # -----------------------------------------------------------------------------
 
@@ -27,12 +25,7 @@ Banner() {
 # -----------------------------------------------------------------------------
 
 Banner "Ensuring ServiceGenerator is up to date..."
-/usr/bin/xcodebuild \
-  -project "${ServiceGeneratorDir}/ServiceGenerator.xcodeproj" \
-  -scheme ServiceGenerator \
-  -configuration Debug \
-  install \
-  DSTROOT="${TMP_INSTALL_DIR}"
+( cd "${ToolsDir}" && swift build --configuration "${Configuration}" )
 
 # -----------------------------------------------------------------------------
 

@@ -83,7 +83,7 @@ def Main(args):
   """Main method."""
   assert not args, 'No args supported on this script!'
   script_dir = os.path.dirname(os.path.realpath(__file__))
-  root_dir = os.path.dirname(os.path.dirname(script_dir))
+  root_dir = os.path.dirname(script_dir)
   podspec_path = os.path.join(root_dir, _PODSPEC_NAME)
   assert os.path.isfile(podspec_path), (
       'Failed to find %r' % _PODSPEC_NAME)
