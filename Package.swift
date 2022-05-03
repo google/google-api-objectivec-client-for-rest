@@ -991,7 +991,6 @@ let package = Package(
             path: "Source",
             exclude: [
                 "GeneratedServices",
-                "Tests"
             ],
             sources: [
                 "Objects",
@@ -1009,6 +1008,7 @@ let package = Package(
             dependencies: [
                 "GoogleAPIClientForRESTCore"
             ],
+            path: "UnitTests",
             sources: [
                 ".",
                 "TestingSvc"

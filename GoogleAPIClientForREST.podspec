@@ -37,9 +37,9 @@ Pod::Spec.new do |s|
   s.default_subspec = 'Core'
 
   s.test_spec 'Tests' do |sp|
-    sp.source_files = 'Source/Tests/*.{h,m}',
-                      'Source/Tests/TestingSvc/*.{h,m}'
-    sp.resource = 'Source/Tests/Data/*.{json,txt}'
+    sp.source_files = 'UnitTests/*.{h,m}',
+                      'UnitTests/TestingSvc/*.{h,m}'
+    sp.resource = 'UnitTests/Data/*.{json,txt}'
 
     sp.platforms = {
       :ios => ios_deployment_target,

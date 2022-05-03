@@ -5,12 +5,14 @@ on:
     branches: [ main ]
     paths:
     - 'Source/**'
+    - 'UnitTests/**'
     - '*.podspec'
     - '.github/workflows/cocoapods.yml'
   pull_request:
     branches: [ main ]
     paths:
     - 'Source/**'
+    - 'UnitTests/**'
     - '*.podspec'
     - '.github/workflows/cocoapods.yml'
   schedule:
