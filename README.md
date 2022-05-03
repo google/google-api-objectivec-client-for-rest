@@ -5,7 +5,6 @@
 
 [![CocoaPods](https://github.com/google/google-api-objectivec-client-for-rest/actions/workflows/cocoapods.yml/badge.svg?branch=main)](https://github.com/google/google-api-objectivec-client-for-rest/actions/workflows/cocoapods.yml)
 [![SwiftPM](https://github.com/google/google-api-objectivec-client-for-rest/actions/workflows/swiftpm.yml/badge.svg?branch=main)](https://github.com/google/google-api-objectivec-client-for-rest/actions/workflows/swiftpm.yml)
-[![Xcode](https://github.com/google/google-api-objectivec-client-for-rest/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/google/google-api-objectivec-client-for-rest/actions/workflows/main.yml)
 
 Written by Google, this library is a flexible and efficient Objective-C
 framework for accessing JSON APIs.
