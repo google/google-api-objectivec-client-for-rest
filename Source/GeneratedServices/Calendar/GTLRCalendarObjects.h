@@ -898,8 +898,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *anyoneCanAddSelf;
 
 /**
- *  File attachments for the event. Currently only Google Drive attachments are
- *  supported.
+ *  File attachments for the event.
  *  In order to modify attachments the supportsAttachments request parameter
  *  should be set to true.
  *  There can be at most 25 attachments per event,
@@ -1436,7 +1435,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *fileUrl;
 
-/** URL link to the attachment's icon. Read-only. */
+/**
+ *  URL link to the attachment's icon. This field can only be modified for
+ *  custom third-party attachments.
+ */
 @property(nonatomic, copy, nullable) NSString *iconLink;
 
 /** Internet media type (MIME type) of the attachment. */

@@ -22,6 +22,11 @@ NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateSucceed
 NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateUnspecified = @"OPERATION_STATE_UNSPECIFIED";
 NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateWaitingForPermissions = @"OPERATION_STATE_WAITING_FOR_PERMISSIONS";
 
+// GTLRLogging_IndexConfig.type
+NSString * const kGTLRLogging_IndexConfig_Type_IndexTypeInteger = @"INDEX_TYPE_INTEGER";
+NSString * const kGTLRLogging_IndexConfig_Type_IndexTypeString = @"INDEX_TYPE_STRING";
+NSString * const kGTLRLogging_IndexConfig_Type_IndexTypeUnspecified = @"INDEX_TYPE_UNSPECIFIED";
+
 // GTLRLogging_LabelDescriptor.valueType
 NSString * const kGTLRLogging_LabelDescriptor_ValueType_Bool   = @"BOOL";
 NSString * const kGTLRLogging_LabelDescriptor_ValueType_Int64  = @"INT64";
@@ -229,6 +234,16 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 @dynamic cacheFillBytes, cacheHit, cacheLookup, cacheValidatedWithOriginServer,
          latency, protocol, referer, remoteIp, requestMethod, requestSize,
          requestUrl, responseSize, serverIp, status, userAgent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_IndexConfig
+//
+
+@implementation GTLRLogging_IndexConfig
+@dynamic createTime, fieldPath, type;
 @end
 
 
@@ -536,8 +551,9 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 //
 
 @implementation GTLRLogging_LogBucket
-@dynamic cmekSettings, createTime, descriptionProperty, lifecycleState, locked,
-         name, restrictedFields, retentionDays, updateTime;
+@dynamic cmekSettings, createTime, descriptionProperty, indexConfigs,
+         lifecycleState, locked, name, restrictedFields, retentionDays,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -545,6 +561,7 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"indexConfigs" : [GTLRLogging_IndexConfig class],
     @"restrictedFields" : [NSString class]
   };
   return map;

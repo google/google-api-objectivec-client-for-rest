@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Firebase App Check API (firebaseappcheck/v1beta)
+//   Firebase App Check API (firebaseappcheck/v1)
 // Description:
 //   Firebase App Check works alongside other Firebase services to help protect
 //   your backend resources from abuse, such as billing fraud or phishing.

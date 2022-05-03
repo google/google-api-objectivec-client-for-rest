@@ -1644,6 +1644,26 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_DeliveryArea
+//
+
+@implementation GTLRShoppingContent_DeliveryArea
+@dynamic countryCode, postalCodeRange, regionCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_DeliveryAreaPostalCodeRange
+//
+
+@implementation GTLRShoppingContent_DeliveryAreaPostalCodeRange
+@dynamic firstPostalCode, lastPostalCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_DeliveryTime
 //
 
@@ -2610,7 +2630,8 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_Metrics
-@dynamic aos, aovMicros, clicks, ctr, daysToShip, impressions, itemDaysToShip,
+@dynamic aos, aovMicros, clicks, conversionRate, conversions,
+         conversionValueMicros, ctr, daysToShip, impressions, itemDaysToShip,
          itemFillRate, orderedItems, orderedItemSalesMicros, orders,
          rejectedItems, returnedItems, returnRate, returnsMicros, shippedItems,
          shippedItemSalesMicros, shippedOrders, unshippedItems, unshippedOrders;
@@ -4395,14 +4416,15 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
          installment, isBundle, itemGroupId, kind, link, linkTemplate,
          loyaltyPoints, material, maxEnergyEfficiencyClass, maxHandlingTime,
          minEnergyEfficiencyClass, minHandlingTime, mobileLink,
-         mobileLinkTemplate, mpn, multipack, offerId, pattern, pickupMethod,
-         pickupSla, price, productDetails, productHeight, productHighlights,
-         productLength, productTypes, productWeight, productWidth, promotionIds,
-         salePrice, salePriceEffectiveDate, sellOnGoogleQuantity, shipping,
-         shippingHeight, shippingLabel, shippingLength, shippingWeight,
-         shippingWidth, shoppingAdsExcludedCountries, sizes, sizeSystem,
-         sizeType, source, subscriptionCost, targetCountry, taxCategory, taxes,
-         title, transitTimeLabel, unitPricingBaseMeasure, unitPricingMeasure;
+         mobileLinkTemplate, mpn, multipack, offerId, pattern, pause,
+         pickupMethod, pickupSla, price, productDetails, productHeight,
+         productHighlights, productLength, productTypes, productWeight,
+         productWidth, promotionIds, salePrice, salePriceEffectiveDate,
+         sellOnGoogleQuantity, shipping, shippingHeight, shippingLabel,
+         shippingLength, shippingWeight, shippingWidth,
+         shoppingAdsExcludedCountries, sizes, sizeSystem, sizeType, source,
+         subscriptionCost, targetCountry, taxCategory, taxes, title,
+         transitTimeLabel, unitPricingBaseMeasure, unitPricingMeasure;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -4453,11 +4475,60 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_ProductDeliveryTime
+//
+
+@implementation GTLRShoppingContent_ProductDeliveryTime
+@dynamic areaDeliveryTimes, productId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"areaDeliveryTimes" : [GTLRShoppingContent_ProductDeliveryTimeAreaDeliveryTime class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ProductDeliveryTimeAreaDeliveryTime
+//
+
+@implementation GTLRShoppingContent_ProductDeliveryTimeAreaDeliveryTime
+@dynamic deliveryArea, deliveryTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ProductDeliveryTimeAreaDeliveryTimeDeliveryTime
+//
+
+@implementation GTLRShoppingContent_ProductDeliveryTimeAreaDeliveryTimeDeliveryTime
+@dynamic maxHandlingTimeDays, maxTransitTimeDays, minHandlingTimeDays,
+         minTransitTimeDays;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_ProductDimension
 //
 
 @implementation GTLRShoppingContent_ProductDimension
 @dynamic unit, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ProductId
+//
+
+@implementation GTLRShoppingContent_ProductId
+@dynamic productId;
 @end
 
 

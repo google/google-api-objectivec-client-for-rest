@@ -19,13 +19,32 @@
 
 @end
 
+@implementation GTLRMyBusinessQAQuery_LocationsQuestionsAnswersDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/answers:delete";
+  GTLRMyBusinessQAQuery_LocationsQuestionsAnswersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMyBusinessQA_Empty class];
+  query.loggingName = @"mybusinessqanda.locations.questions.answers.delete";
+  return query;
+}
+
+@end
+
 @implementation GTLRMyBusinessQAQuery_LocationsQuestionsAnswersList
 
 @dynamic orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}";
+  NSString *pathURITemplate = @"v1/{+parent}/answers";
   GTLRMyBusinessQAQuery_LocationsQuestionsAnswersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -106,25 +125,6 @@
   query.name = name;
   query.expectedObjectClass = [GTLRMyBusinessQA_Empty class];
   query.loggingName = @"mybusinessqanda.locations.questions.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRMyBusinessQAQuery_LocationsQuestionsDeleteAnswers
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}/answers";
-  GTLRMyBusinessQAQuery_LocationsQuestionsDeleteAnswers *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRMyBusinessQA_Empty class];
-  query.loggingName = @"mybusinessqanda.locations.questions.deleteAnswers";
   return query;
 }
 

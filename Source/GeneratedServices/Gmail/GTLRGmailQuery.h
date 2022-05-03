@@ -1658,7 +1658,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Deletes a filter.
+ *  Immediately and permanently deletes the specified filter.
  *
  *  Method: gmail.users.settings.filters.delete
  *
@@ -1686,7 +1686,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes a filter.
+ *  Immediately and permanently deletes the specified filter.
  *
  *  @param userId User's email address. The special value "me" can be used to
  *    indicate the authenticated user. (Default me)

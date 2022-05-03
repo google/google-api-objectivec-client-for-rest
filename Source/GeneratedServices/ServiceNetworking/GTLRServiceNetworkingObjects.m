@@ -445,11 +445,13 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
          consumerImportCustomRoutes, consumerImportSubnetRoutesWithPublicIp,
          producerExportCustomRoutes, producerExportSubnetRoutesWithPublicIp,
          producerImportCustomRoutes, producerImportSubnetRoutesWithPublicIp,
-         producerNetwork, reservedRanges, vpcScReferenceArchitectureEnabled;
+         producerNetwork, reservedRanges, usedIpRanges,
+         vpcScReferenceArchitectureEnabled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"reservedRanges" : [GTLRServiceNetworking_GoogleCloudServicenetworkingV1ConsumerConfigReservedRange class]
+    @"reservedRanges" : [GTLRServiceNetworking_GoogleCloudServicenetworkingV1ConsumerConfigReservedRange class],
+    @"usedIpRanges" : [NSString class]
   };
   return map;
 }
@@ -848,7 +850,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_JwtLocation
-@dynamic header, query, valuePrefix;
+@dynamic cookie, header, query, valuePrefix;
 @end
 
 

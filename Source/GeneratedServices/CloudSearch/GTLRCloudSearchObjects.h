@@ -244,7 +244,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_AppType_IncomingWebhoo
 /** Value: "ACTIVITY_FEED_APP" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_ActivityFeedApp;
 /**
- *  TODO (b/220205747): replace the above FILE_SUGGESTION_APP in the future.
+ *  Powered by Bullseye
  *
  *  Value: "ASSISTIVE_SUGGESTION_APP"
  */
@@ -257,12 +257,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_Contacts
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_DocsApp;
 /** Value: "DRIVE_APP" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_DriveApp;
-/**
- *  Powered by Bullseye
- *
- *  Value: "FILE_SUGGESTION_APP"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_FileSuggestionApp;
 /** Value: "GSUITE_APP_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_GsuiteAppTypeUnspecified;
 /** Value: "MEET_APP" */
@@ -1275,17 +1269,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_ActivityFeedApp Value
  *        "ACTIVITY_FEED_APP"
- *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_AssistiveSuggestionApp TODO
- *        (b/220205747): replace the above FILE_SUGGESTION_APP in the future.
- *        (Value: "ASSISTIVE_SUGGESTION_APP")
+ *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_AssistiveSuggestionApp
+ *        Powered by Bullseye (Value: "ASSISTIVE_SUGGESTION_APP")
  *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_CalendarApp Value
  *        "CALENDAR_APP"
  *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_ContactsApp Value
  *        "CONTACTS_APP"
  *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_DocsApp Value "DOCS_APP"
  *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_DriveApp Value "DRIVE_APP"
- *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_FileSuggestionApp Powered by
- *        Bullseye (Value: "FILE_SUGGESTION_APP")
  *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_GsuiteAppTypeUnspecified
  *        Value "GSUITE_APP_TYPE_UNSPECIFIED"
  *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_MeetApp Value "MEET_APP"
@@ -5546,6 +5537,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 @property(nonatomic, strong, nullable) GTLRCloudSearch_GroupId *groupId;
+
+/**
+ *  The email address of the user that invited the calling user to the room, if
+ *  available. This field will only be populated for direct invites, it will be
+ *  empty if the user was indirectly invited to the group.
+ */
+@property(nonatomic, copy, nullable) NSString *inviterEmail;
 
 /**
  *  Whether this is a space that enables guest access

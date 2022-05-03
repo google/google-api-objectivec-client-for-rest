@@ -54,33 +54,6 @@
 
 @end
 
-@implementation GTLRApiKeysServiceQuery_ProjectsLocationsKeysClone
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRApiKeysService_V2CloneKeyRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v2/{+name}:clone";
-  GTLRApiKeysServiceQuery_ProjectsLocationsKeysClone *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRApiKeysService_Operation class];
-  query.loggingName = @"apikeys.projects.locations.keys.clone";
-  return query;
-}
-
-@end
-
 @implementation GTLRApiKeysServiceQuery_ProjectsLocationsKeysCreate
 
 @dynamic keyId, parent;
@@ -171,7 +144,7 @@
 
 @implementation GTLRApiKeysServiceQuery_ProjectsLocationsKeysList
 
-@dynamic filter, pageSize, pageToken, parent, showDeleted;
+@dynamic pageSize, pageToken, parent, showDeleted;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

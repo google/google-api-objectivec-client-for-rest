@@ -146,16 +146,6 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRApiKeysService_V2CloneKeyRequest
-//
-
-@implementation GTLRApiKeysService_V2CloneKeyRequest
-@dynamic keyId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRApiKeysService_V2GetKeyStringResponse
 //
 

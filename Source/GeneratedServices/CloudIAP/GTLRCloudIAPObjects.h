@@ -54,11 +54,11 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRCloudIAP_ReauthSettings.method
 
 /**
- *  Mimicks the behavior as if the user had logged out and tried to log in
- *  again. Users with 2SV (step verification) enabled will see their 2SV
- *  challenges if they did not opt to have their second factor responses saved.
- *  Apps Core (GSuites) admins can configure settings to disable 2SV cookies and
- *  require 2-step verification for all Apps Core users in their domains.
+ *  Mimics the behavior as if the user had logged out and tried to log in again.
+ *  Users with 2SV (2-step verification) enabled see their 2SV challenges if
+ *  they did not opt to have their second factor responses saved. Apps Core
+ *  (GSuites) admins can configure settings to disable 2SV cookies and require
+ *  2SV for all Apps Core users in their domains.
  *
  *  Value: "LOGIN"
  */
@@ -99,7 +99,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Defau
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Minimum;
 /**
- *  Default value. This value is unused/invalid.
+ *  Default value. This value is unused.
  *
  *  Value: "POLICY_TYPE_UNSPECIFIED"
  */
@@ -190,7 +190,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 @property(nonatomic, strong, nullable) GTLRCloudIAP_Expr *condition;
 
 /**
- *  Specifies the principals requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Google Cloud resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -498,8 +498,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 @interface GTLRCloudIAP_ListTunnelDestGroupsResponse : GTLRCollectionObject
 
 /**
- *  A token, which can be send as `page_token` to retrieve the next page. If
- *  this field is omitted, there are no subsequent pages.
+ *  A token that you can send as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -697,13 +697,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *  Reauth method required by the policy.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudIAP_ReauthSettings_Method_Login Mimicks the behavior as
+ *    @arg @c kGTLRCloudIAP_ReauthSettings_Method_Login Mimics the behavior as
  *        if the user had logged out and tried to log in again. Users with 2SV
- *        (step verification) enabled will see their 2SV challenges if they did
- *        not opt to have their second factor responses saved. Apps Core
- *        (GSuites) admins can configure settings to disable 2SV cookies and
- *        require 2-step verification for all Apps Core users in their domains.
- *        (Value: "LOGIN")
+ *        (2-step verification) enabled see their 2SV challenges if they did not
+ *        opt to have their second factor responses saved. Apps Core (GSuites)
+ *        admins can configure settings to disable 2SV cookies and require 2SV
+ *        for all Apps Core users in their domains. (Value: "LOGIN")
  *    @arg @c kGTLRCloudIAP_ReauthSettings_Method_MethodUnspecified
  *        Reauthentication disabled. (Value: "METHOD_UNSPECIFIED")
  *    @arg @c kGTLRCloudIAP_ReauthSettings_Method_Password User must type their
@@ -724,7 +723,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *        as a minimum to other policies, lower in the hierarchy. Effective
  *        policy may only be the same or stricter. (Value: "MINIMUM")
  *    @arg @c kGTLRCloudIAP_ReauthSettings_PolicyType_PolicyTypeUnspecified
- *        Default value. This value is unused/invalid. (Value:
+ *        Default value. This value is unused. (Value:
  *        "POLICY_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *policyType;
@@ -826,7 +825,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
  *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
- *  but certain Cloud Platform services (such as Projects) might reject them.
+ *  but certain Google Cloud services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_Policy *policy;
 
@@ -840,7 +839,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
  *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;

@@ -18,7 +18,7 @@
 
 @implementation GTLRPaymentsResellerSubscriptionQuery_PartnersProductsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -30,6 +30,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ListProductsResponse class];
   query.loggingName = @"paymentsresellersubscription.partners.products.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRPaymentsResellerSubscriptionQuery_PartnersPromotionsFindEligible
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/promotions:findEligible";
+  GTLRPaymentsResellerSubscriptionQuery_PartnersPromotionsFindEligible *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsResponse class];
+  query.loggingName = @"paymentsresellersubscription.partners.promotions.findEligible";
   return query;
 }
 

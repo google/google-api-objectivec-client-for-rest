@@ -39,6 +39,7 @@
 @class GTLROnDemandScanning_Envelope;
 @class GTLROnDemandScanning_EnvelopeSignature;
 @class GTLROnDemandScanning_FileHashes;
+@class GTLROnDemandScanning_FileLocation;
 @class GTLROnDemandScanning_Fingerprint;
 @class GTLROnDemandScanning_GerritSourceContext;
 @class GTLROnDemandScanning_GitSourceContext;
@@ -1338,6 +1339,20 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  Indicates the location at which a package was found.
+ */
+@interface GTLROnDemandScanning_FileLocation : GTLRObject
+
+/**
+ *  For jars that are contained inside .war files, this filepath can indicate
+ *  the path to war file combined with the path to jar file.
+ */
+@property(nonatomic, copy, nullable) NSString *filePath;
+
+@end
+
+
+/**
  *  A set of properties that uniquely identify a given Docker image.
  */
 @interface GTLROnDemandScanning_Fingerprint : GTLRObject
@@ -1897,6 +1912,15 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  for vulnerable jar.
  */
 @property(nonatomic, copy, nullable) NSString *cpeUri;
+
+/** The path to the jar file / go binary file. */
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_FileLocation *> *fileLocation;
+
+/**
+ *  HashDigest stores the SHA512 hash digest of the jar file if the package is
+ *  of type Maven. This field will be unset for non Maven packages.
+ */
+@property(nonatomic, copy, nullable) NSString *hashDigest;
 
 /**
  *  The OS affected by a vulnerability This field is deprecated and the

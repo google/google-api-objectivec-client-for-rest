@@ -1144,14 +1144,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @property(nonatomic, copy, nullable) NSString *jwksUri;
 
 /**
- *  Defines the locations to extract the JWT. JWT locations can be either from
- *  HTTP headers or URL query parameters. The rule is that the first match wins.
- *  The checking order is: checking all headers first, then URL query
- *  parameters. If not specified, default to use following 3 locations: 1)
- *  Authorization: Bearer 2) x-goog-iap-jwt-assertion 3) access_token query
- *  parameter Default locations can be specified as followings: jwt_locations: -
- *  header: Authorization value_prefix: "Bearer " - header:
- *  x-goog-iap-jwt-assertion - query: access_token
+ *  Defines the locations to extract the JWT. For now it is only used by the
+ *  Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+ *  (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+ *  JWT locations can be one of HTTP headers, URL query parameters or cookies.
+ *  The rule is that the first match wins. If not specified, default to use
+ *  following 3 locations: 1) Authorization: Bearer 2) x-goog-iap-jwt-assertion
+ *  3) access_token query parameter Default locations can be specified as
+ *  followings: jwt_locations: - header: Authorization value_prefix: "Bearer " -
+ *  header: x-goog-iap-jwt-assertion - query: access_token
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_JwtLocation *> *jwtLocations;
 
@@ -1376,7 +1377,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @property(nonatomic, strong, nullable) GTLRServiceManagement_Expr *condition;
 
 /**
- *  Specifies the principals requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Google Cloud resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -2480,6 +2481,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  */
 @interface GTLRServiceManagement_JwtLocation : GTLRObject
 
+/** Specifies cookie name to extract JWT token. */
+@property(nonatomic, copy, nullable) NSString *cookie;
+
 /** Specifies HTTP header name to extract JWT token. */
 @property(nonatomic, copy, nullable) NSString *header;
 
@@ -2731,7 +2735,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @property(nonatomic, copy, nullable) NSString *producerProjectId;
 
 /**
- *  The name of the service. See the [overview](/service-management/overview)
+ *  The name of the service. See the
+ *  [overview](https://cloud.google.com/service-infrastructure/docs/overview)
  *  for naming requirements.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
@@ -4047,7 +4052,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
  *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
- *  but certain Cloud Platform services (such as Projects) might reject them.
+ *  but certain Google Cloud services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRServiceManagement_Policy *policy;
 
@@ -4295,7 +4300,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
  *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;

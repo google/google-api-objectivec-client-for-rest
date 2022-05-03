@@ -1029,6 +1029,74 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
+ *  Lists hot tablets in a cluster, within the time range provided. Hot tablets
+ *  are ordered based on CPU usage.
+ *
+ *  Method: bigtableadmin.projects.instances.clusters.hotTablets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesClustersHotTabletsList : GTLRBigtableAdminQuery
+
+/** The end time to list hot tablets. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Maximum number of results per page. A page_size that is empty or zero lets
+ *  the server choose the number of items to return. A page_size which is
+ *  strictly positive will return at most that many items. A negative page_size
+ *  will cause an error. Following the first request, subsequent paginated calls
+ *  do not need a page_size field. If a page_size is set in subsequent calls, it
+ *  must match the page_size given in the first request.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The value of `next_page_token` returned by a previous call. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The cluster name to list hot tablets. Value is in the following
+ *  form: `projects/{project}/instances/{instance}/clusters/{cluster}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  The start time to list hot tablets. The hot tablets in the response will
+ *  have start times between the requested start time and end time. Start time
+ *  defaults to Now if it is unset, and end time defaults to Now - 24 hours if
+ *  it is unset. The start time should be less than the end time, and the
+ *  maximum allowed time range between start time and end time is 48 hours.
+ *  Start time and end time should have values between Now and Now - 14 days.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_ListHotTabletsResponse.
+ *
+ *  Lists hot tablets in a cluster, within the time range provided. Hot tablets
+ *  are ordered based on CPU usage.
+ *
+ *  @param parent Required. The cluster name to list hot tablets. Value is in
+ *    the following form:
+ *    `projects/{project}/instances/{instance}/clusters/{cluster}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersHotTabletsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Lists information about clusters in an instance.
  *
  *  Method: bigtableadmin.projects.instances.clusters.list
@@ -2141,8 +2209,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
- *  language accepts strings like "displayName=tokyo", and is documented in more
- *  detail in [AIP-160](https://google.aip.dev/160).
+ *  language accepts strings like `"displayName=tokyo"`, and is documented in
+ *  more detail in [AIP-160](https://google.aip.dev/160).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

@@ -42,6 +42,7 @@
 @class GTLRBigtableAdmin_Expr;
 @class GTLRBigtableAdmin_GcRule;
 @class GTLRBigtableAdmin_GetPolicyOptions;
+@class GTLRBigtableAdmin_HotTablet;
 @class GTLRBigtableAdmin_Instance;
 @class GTLRBigtableAdmin_Instance_Labels;
 @class GTLRBigtableAdmin_Intersection;
@@ -657,7 +658,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Expr *condition;
 
 /**
- *  Specifies the principals requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Google Cloud resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -1012,8 +1013,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  Required. The clusters to be created within the instance, mapped by desired
  *  cluster ID, e.g., just `mycluster` rather than
  *  `projects/myproject/instances/myinstance/clusters/mycluster`. Fields marked
- *  `OutputOnly` must be left blank. Currently, at most four clusters can be
- *  specified.
+ *  `OutputOnly` must be left blank.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_CreateInstanceRequest_Clusters *clusters;
 
@@ -1043,8 +1043,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  Required. The clusters to be created within the instance, mapped by desired
  *  cluster ID, e.g., just `mycluster` rather than
  *  `projects/myproject/instances/myinstance/clusters/mycluster`. Fields marked
- *  `OutputOnly` must be left blank. Currently, at most four clusters can be
- *  specified.
+ *  `OutputOnly` must be left blank.
  *
  *  @note This class is documented as having more properties of
  *        GTLRBigtableAdmin_Cluster. Use @c -additionalJSONKeys and @c
@@ -1133,8 +1132,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  Cloud Bigtable service account associated with the project that contains
  *  this cluster must be granted the `cloudkms.cryptoKeyEncrypterDecrypter` role
  *  on the CMEK key. 2) Only regional keys can be used and the region of the
- *  CMEK key must match the region of the cluster. 3) All clusters within an
- *  instance must use the same CMEK key. Values are of the form
+ *  CMEK key must match the region of the cluster. Values are of the form
  *  `projects/{project}/locations/{location}/keyRings/{keyring}/cryptoKeys/{key}`
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
@@ -1320,6 +1318,52 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *requestedPolicyVersion;
+
+@end
+
+
+/**
+ *  A tablet is a defined by a start and end key and is explained in
+ *  https://cloud.google.com/bigtable/docs/overview#architecture and
+ *  https://cloud.google.com/bigtable/docs/performance#optimization. A Hot
+ *  tablet is a tablet that exhibits high average cpu usage during the time
+ *  interval from start time to end time.
+ */
+@interface GTLRBigtableAdmin_HotTablet : GTLRObject
+
+/** Tablet End Key (inclusive). */
+@property(nonatomic, copy, nullable) NSString *endKey;
+
+/** Output only. The end time of the hot tablet. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The unique name of the hot tablet. Values are of the form
+ *  `projects/{project}/instances/{instance}/clusters/{cluster}/hotTablets/[a-zA-Z0-9_-]*`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The average CPU usage spent by a node on this tablet over the
+ *  start_time to end_time time range. The percentage is the amount of CPU used
+ *  by the node to serve the tablet, from 0% (tablet was not interacted with) to
+ *  100% (the node spent all cycles serving the hot tablet).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nodeCpuUsagePercent;
+
+/** Tablet Start Key (inclusive). */
+@property(nonatomic, copy, nullable) NSString *startKey;
+
+/** Output only. The start time of the hot tablet. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Name of the table that contains the tablet. Values are of the form
+ *  `projects/{project}/instances/{instance}/tables/_a-zA-Z0-9*`.
+ */
+@property(nonatomic, copy, nullable) NSString *tableName;
 
 @end
 
@@ -1519,6 +1563,37 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, strong, nullable) NSArray<NSString *> *failedLocations;
 
 /** DEPRECATED: This field is unused and ignored. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for BigtableInstanceAdmin.ListHotTablets.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "hotTablets" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRBigtableAdmin_ListHotTabletsResponse : GTLRCollectionObject
+
+/**
+ *  List of hot tablets in the tables of the requested cluster that fall within
+ *  the requested time range. Hot tablets are ordered by node cpu usage percent.
+ *  If there are multiple hot tablets that correspond to the same tablet within
+ *  a 15-minute interval, only the hot tablet with the highest node cpu usage
+ *  will be included in the response.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_HotTablet *> *hotTablets;
+
+/**
+ *  Set if not all hot tablets could be returned in a single response. Pass this
+ *  value to `page_token` in another request to get the next page of results.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
@@ -2127,7 +2202,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
  *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
- *  but certain Cloud Platform services (such as Projects) might reject them.
+ *  but certain Google Cloud services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Policy *policy;
 
@@ -2357,7 +2432,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
  *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;

@@ -71,6 +71,7 @@
 @class GTLRShoppingContent_PosSaleRequest;
 @class GTLRShoppingContent_PosStore;
 @class GTLRShoppingContent_Product;
+@class GTLRShoppingContent_ProductDeliveryTime;
 @class GTLRShoppingContent_ProductsCustomBatchRequest;
 @class GTLRShoppingContent_ProductstatusesCustomBatchRequest;
 @class GTLRShoppingContent_Promotion;
@@ -359,6 +360,40 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  @return GTLRShoppingContentQuery_AccountsAuthinfo
  */
 + (instancetype)query;
+
+@end
+
+/**
+ *  Gets data of the account with the specified external_seller_id belonging to
+ *  the MCA with the specified merchant_id.
+ *
+ *  Method: content.accountsbyexternalsellerid.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_AccountsbyexternalselleridGet : GTLRShoppingContentQuery
+
+/** Required. The External Seller ID of the seller account to be retrieved. */
+@property(nonatomic, copy, nullable) NSString *externalSellerId;
+
+/** Required. The ID of the MCA containing the seller. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_Account.
+ *
+ *  Gets data of the account with the specified external_seller_id belonging to
+ *  the MCA with the specified merchant_id.
+ *
+ *  @param merchantId Required. The ID of the MCA containing the seller.
+ *  @param externalSellerId Required. The External Seller ID of the seller
+ *    account to be retrieved.
+ *
+ *  @return GTLRShoppingContentQuery_AccountsbyexternalselleridGet
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                   externalSellerId:(NSString *)externalSellerId;
 
 @end
 
@@ -1072,6 +1107,46 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
+ *  Gets status of the account with the specified external_seller_id belonging
+ *  to the MCA with the specified merchant_id.
+ *
+ *  Method: content.accountstatusesbyexternalsellerid.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_AccountstatusesbyexternalselleridGet : GTLRShoppingContentQuery
+
+/**
+ *  If set, only issues for the specified destinations are returned, otherwise
+ *  only issues for the Shopping destination.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *destinations;
+
+/** Required. The External Seller ID of the seller account to be retrieved. */
+@property(nonatomic, copy, nullable) NSString *externalSellerId;
+
+/** Required. The ID of the MCA containing the seller. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_AccountStatus.
+ *
+ *  Gets status of the account with the specified external_seller_id belonging
+ *  to the MCA with the specified merchant_id.
+ *
+ *  @param merchantId Required. The ID of the MCA containing the seller.
+ *  @param externalSellerId Required. The External Seller ID of the seller
+ *    account to be retrieved.
+ *
+ *  @return GTLRShoppingContentQuery_AccountstatusesbyexternalselleridGet
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                   externalSellerId:(NSString *)externalSellerId;
+
+@end
+
+/**
  *  Retrieves multiple Merchant Center account statuses in a single request.
  *
  *  Method: content.accountstatuses.custombatch
@@ -1460,8 +1535,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 
 /**
  *  Reactivates the BoG program in your Merchant Center account. Moves the
- *  program to the active state when allowed, e.g. when paused. Important: This
- *  method is only whitelisted for selected merchants.
+ *  program to the active state when allowed, for example, when paused. This
+ *  method is only available to selected merchants.
  *
  *  Method: content.buyongoogleprograms.activate
  *
@@ -1485,8 +1560,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  be nil. This query does not fetch an object.
  *
  *  Reactivates the BoG program in your Merchant Center account. Moves the
- *  program to the active state when allowed, e.g. when paused. Important: This
- *  method is only whitelisted for selected merchants.
+ *  program to the active state when allowed, for example, when paused. This
+ *  method is only available to selected merchants.
  *
  *  @param object The @c GTLRShoppingContent_ActivateBuyOnGoogleProgramRequest
  *    to include in the query.
@@ -1643,8 +1718,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Pauses the BoG program in your Merchant Center account. Important: This
- *  method is only whitelisted for selected merchants.
+ *  Pauses the BoG program in your Merchant Center account. This method is only
+ *  available to selected merchants.
  *
  *  Method: content.buyongoogleprograms.pause
  *
@@ -1667,8 +1742,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Pauses the BoG program in your Merchant Center account. Important: This
- *  method is only whitelisted for selected merchants.
+ *  Pauses the BoG program in your Merchant Center account. This method is only
+ *  available to selected merchants.
  *
  *  @param object The @c GTLRShoppingContent_PauseBuyOnGoogleProgramRequest to
  *    include in the query.
@@ -1688,7 +1763,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 /**
  *  Requests review and then activates the BoG program in your Merchant Center
  *  account for the first time. Moves the program to the REVIEW_PENDING state.
- *  Important: This method is only whitelisted for selected merchants.
+ *  This method is only available to selected merchants.
  *
  *  Method: content.buyongoogleprograms.requestreview
  *
@@ -1713,7 +1788,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *
  *  Requests review and then activates the BoG program in your Merchant Center
  *  account for the first time. Moves the program to the REVIEW_PENDING state.
- *  Important: This method is only whitelisted for selected merchants.
+ *  This method is only available to selected merchants.
  *
  *  @param object The @c
  *    GTLRShoppingContent_RequestReviewBuyOnGoogleProgramRequest to include in
@@ -2487,8 +2562,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Requests a review of free listings in a specific region Important: This
- *  method is only whitelisted for selected merchants.
+ *  Requests a review of free listings in a specific region. This method is only
+ *  available to selected merchants.
  *
  *  Method: content.freelistingsprogram.requestreview
  *
@@ -2504,8 +2579,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Requests a review of free listings in a specific region Important: This
- *  method is only whitelisted for selected merchants.
+ *  Requests a review of free listings in a specific region. This method is only
+ *  available to selected merchants.
  *
  *  @param object The @c GTLRShoppingContent_RequestReviewFreeListingsRequest to
  *    include in the query.
@@ -4774,6 +4849,118 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
+ *  Creates or updates the delivery time of a product.
+ *
+ *  Method: content.productdeliverytime.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ProductdeliverytimeCreate : GTLRShoppingContentQuery
+
+/**
+ *  The Google merchant ID of the account that contains the product. This
+ *  account cannot be a multi-client account.
+ */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ProductDeliveryTime.
+ *
+ *  Creates or updates the delivery time of a product.
+ *
+ *  @param object The @c GTLRShoppingContent_ProductDeliveryTime to include in
+ *    the query.
+ *  @param merchantId The Google merchant ID of the account that contains the
+ *    product. This account cannot be a multi-client account.
+ *
+ *  @return GTLRShoppingContentQuery_ProductdeliverytimeCreate
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_ProductDeliveryTime *)object
+                     merchantId:(long long)merchantId;
+
+@end
+
+/**
+ *  Deletes the delivery time of a product.
+ *
+ *  Method: content.productdeliverytime.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ProductdeliverytimeDelete : GTLRShoppingContentQuery
+
+/**
+ *  Required. The Google merchant ID of the account that contains the product.
+ *  This account cannot be a multi-client account.
+ */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Required. The Content API ID of the product, in the form
+ *  `channel:contentLanguage:targetCountry:offerId`.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes the delivery time of a product.
+ *
+ *  @param merchantId Required. The Google merchant ID of the account that
+ *    contains the product. This account cannot be a multi-client account.
+ *  @param productId Required. The Content API ID of the product, in the form
+ *    `channel:contentLanguage:targetCountry:offerId`.
+ *
+ *  @return GTLRShoppingContentQuery_ProductdeliverytimeDelete
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                          productId:(NSString *)productId;
+
+@end
+
+/**
+ *  Gets `productDeliveryTime` by `productId`.
+ *
+ *  Method: content.productdeliverytime.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ProductdeliverytimeGet : GTLRShoppingContentQuery
+
+/**
+ *  Required. The Google merchant ID of the account that contains the product.
+ *  This account cannot be a multi-client account.
+ */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Required. The Content API ID of the product, in the form
+ *  `channel:contentLanguage:targetCountry:offerId`.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ProductDeliveryTime.
+ *
+ *  Gets `productDeliveryTime` by `productId`.
+ *
+ *  @param merchantId Required. The Google merchant ID of the account that
+ *    contains the product. This account cannot be a multi-client account.
+ *  @param productId Required. The Content API ID of the product, in the form
+ *    `channel:contentLanguage:targetCountry:offerId`.
+ *
+ *  @return GTLRShoppingContentQuery_ProductdeliverytimeGet
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                          productId:(NSString *)productId;
+
+@end
+
+/**
  *  Retrieves, inserts, and deletes multiple products in a single request.
  *
  *  Method: content.products.custombatch
@@ -6753,7 +6940,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Requests a review of Shopping ads in a specific region.
+ *  Requests a review of Shopping ads in a specific region. This method is only
+ *  available to selected merchants.
  *
  *  Method: content.shoppingadsprogram.requestreview
  *
@@ -6769,7 +6957,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Requests a review of Shopping ads in a specific region.
+ *  Requests a review of Shopping ads in a specific region. This method is only
+ *  available to selected merchants.
  *
  *  @param object The @c GTLRShoppingContent_RequestReviewShoppingAdsRequest to
  *    include in the query.

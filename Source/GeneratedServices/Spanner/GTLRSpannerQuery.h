@@ -203,6 +203,169 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: spanner.projects.instanceConfigs.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstanceConfigsOperationsCancel : GTLRSpannerQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSpanner_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstanceConfigsOperationsCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: spanner.projects.instanceConfigs.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstanceConfigsOperationsDelete : GTLRSpannerQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSpanner_Empty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstanceConfigsOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: spanner.projects.instanceConfigs.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstanceConfigsOperationsGet : GTLRSpannerQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSpanner_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstanceConfigsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
+ *
+ *  Method: spanner.projects.instanceConfigs.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstanceConfigsOperationsList : GTLRSpannerQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRSpanner_ListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstanceConfigsOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists the backup long-running operations in the given instance. A backup
  *  operation has a name of the form
  *  `projects//instances//backups//operations/`. The long-running operation
@@ -241,8 +404,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  operation is complete. *
  *  `(metadata.\@type=type.googleapis.com/google.spanner.admin.database.v1.CreateBackupMetadata)
  *  AND` \\ `metadata.database:prod` - Returns operations where: * The
- *  operation's metadata type is CreateBackupMetadata. * The database the backup
- *  was taken from has a name containing the string "prod". *
+ *  operation's metadata type is CreateBackupMetadata. * The source database
+ *  name of backup contains the string "prod". *
  *  `(metadata.\@type=type.googleapis.com/google.spanner.admin.database.v1.CreateBackupMetadata)
  *  AND` \\ `(metadata.name:howl) AND` \\ `(metadata.progress.start_time <
  *  \\"2018-03-28T14:50:00Z\\") AND` \\ `(error:*)` - Returns operations where:
@@ -253,19 +416,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  AND` \\ `(metadata.source_backup:test) AND` \\
  *  `(metadata.progress.start_time < \\"2022-01-18T14:50:00Z\\") AND` \\
  *  `(error:*)` - Returns operations where: * The operation's metadata type is
- *  CopyBackupMetadata. * The source backup of the copied backup name contains
- *  the string "test". * The operation started before 2022-01-18T14:50:00Z. *
- *  The operation resulted in an error. *
+ *  CopyBackupMetadata. * The source backup name contains the string "test". *
+ *  The operation started before 2022-01-18T14:50:00Z. * The operation resulted
+ *  in an error. *
  *  `((metadata.\@type=type.googleapis.com/google.spanner.admin.database.v1.CreateBackupMetadata)
  *  AND` \\ `(metadata.database:test_db)) OR` \\
  *  `((metadata.\@type=type.googleapis.com/google.spanner.admin.database.v1.CopyBackupMetadata)
  *  AND` \\ `(metadata.source_backup:test_bkp)) AND` \\ `(error:*)` - Returns
  *  operations where: * The operation's metadata matches either of criteria: *
- *  The operation's metadata type is CreateBackupMetadata AND the database the
- *  backup was taken from has name containing string "test_db" * The operation's
- *  metadata type is CopyBackupMetadata AND the backup the backup was copied
- *  from has name containing string "test_bkp" * The operation resulted in an
- *  error.
+ *  The operation's metadata type is CreateBackupMetadata AND the source
+ *  database name of the backup contains the string "test_db" * The operation's
+ *  metadata type is CopyBackupMetadata AND the source backup name contains the
+ *  string "test_bkp" * The operation resulted in an error.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

@@ -122,6 +122,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_AuthorizedBuyersMarketplace"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_BackupforGKE",
+            targets: ["GoogleAPIClientForREST_BackupforGKE"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_BareMetalSolution",
             targets: ["GoogleAPIClientForREST_BareMetalSolution"]
         ),
@@ -1173,6 +1177,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_AuthorizedBuyersMarketplace",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/AuthorizedBuyersMarketplace",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_BackupforGKE",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/BackupforGKE",
             publicHeadersPath: "."
         ),
         .target(

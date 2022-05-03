@@ -37,6 +37,7 @@
 @class GTLRCivicInfo_Office;
 @class GTLRCivicInfo_Official;
 @class GTLRCivicInfo_PollingLocation;
+@class GTLRCivicInfo_Precinct;
 @class GTLRCivicInfo_RepresentativeInfoData_Divisions;
 @class GTLRCivicInfo_RepresentativeInfoResponse_Divisions;
 @class GTLRCivicInfo_SimpleAddressType;
@@ -786,6 +787,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_T
  *  Value: "typeFunicularStation"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeFunicularStation;
+/**
+ *  A feature whose geometry is planned to replace the geometry on another
+ *  feature.
+ *
+ *  Value: "typeFutureGeometry"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeFutureGeometry;
 /**
  *  DEPRECATED
  *
@@ -1928,6 +1936,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_T
  */
 FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeTransitAgency;
 /**
+ *  TYPE_TRANSIT_AGENCY was moved to 0xC91. This deprecated enum value still
+ *  exists for debugging purposes only.
+ *
+ *  Value: "typeTransitAgencyDeprecatedValue"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeTransitAgencyDeprecatedValue;
+/**
  *  DEPRECATED
  *
  *  Value: "typeTransitDeparture"
@@ -3063,6 +3078,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOff
  *        place where water may be waded through. (Value: "typeFord")
  *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeFunicularStation
  *        DEPRECATED (Value: "typeFunicularStation")
+ *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeFutureGeometry A
+ *        feature whose geometry is planned to replace the geometry on another
+ *        feature. (Value: "typeFutureGeometry")
  *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeGasStation
  *        DEPRECATED (Value: "typeGasStation")
  *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeGbCountry
@@ -3612,6 +3630,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOff
  *        transit agency operates a number of lines, typically all in the same
  *        city, region or country. See also transitagency.proto (Value:
  *        "typeTransitAgency")
+ *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeTransitAgencyDeprecatedValue
+ *        TYPE_TRANSIT_AGENCY was moved to 0xC91. This deprecated enum value
+ *        still exists for debugging purposes only. (Value:
+ *        "typeTransitAgencyDeprecatedValue")
  *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeTransitDeparture
  *        DEPRECATED (Value: "typeTransitDeparture")
  *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeTransitLeg
@@ -3912,6 +3934,78 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOff
 
 
 /**
+ *  GTLRCivicInfo_Precinct
+ */
+@interface GTLRCivicInfo_Precinct : GTLRObject
+
+/**
+ *  ID of the AdministrationRegion message for this precinct. Corresponds to
+ *  LocalityId xml tag.
+ */
+@property(nonatomic, copy, nullable) NSString *administrationRegionId;
+
+/** ID(s) of the Contest message(s) for this precinct. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *contestId;
+
+/**
+ *  Required. Dataset ID. What datasets our Precincts come from.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *datasetId;
+
+/** ID(s) of the PollingLocation message(s) for this precinct. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *earlyVoteSiteId;
+
+/** ID(s) of the ElectoralDistrict message(s) for this precinct. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *electoralDistrictId;
+
+/**
+ *  Required. A unique identifier for this precinct.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Specifies if the precinct runs mail-only elections.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mailOnly;
+
+/** Required. The name of the precinct. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The number of the precinct. */
+@property(nonatomic, copy, nullable) NSString *number;
+
+/** Encouraged. The OCD ID of the precinct */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ocdId;
+
+/** ID(s) of the PollingLocation message(s) for this precinct. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pollingLocationId;
+
+/**
+ *  ID(s) of the SpatialBoundary message(s) for this precinct. Used to specify a
+ *  geometrical boundary of the precinct.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *spatialBoundaryId;
+
+/**
+ *  If present, this proto corresponds to one portion of split precinct. Other
+ *  portions of this precinct are guaranteed to have the same `name`. If not
+ *  present, this proto represents a full precicnt.
+ */
+@property(nonatomic, copy, nullable) NSString *splitName;
+
+/** Specifies the ward the precinct is contained within. */
+@property(nonatomic, copy, nullable) NSString *ward;
+
+@end
+
+
+/**
  *  GTLRCivicInfo_RepresentativeInfoData
  */
 @interface GTLRCivicInfo_RepresentativeInfoData : GTLRObject
@@ -4105,6 +4199,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOff
 @property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_PollingLocation *> *pollingLocations;
 
 @property(nonatomic, copy, nullable) NSString *precinctId;
+
+/**
+ *  The precincts that match this voter's address. Will only be returned for
+ *  project IDs which have been whitelisted as "partner projects".
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_Precinct *> *precincts;
 
 /**
  *  Local Election Information for the state that the voter votes in. For the

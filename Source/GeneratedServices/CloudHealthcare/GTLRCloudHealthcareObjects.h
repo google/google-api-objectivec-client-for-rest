@@ -993,7 +993,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_Expr *condition;
 
 /**
- *  Specifies the principals requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Google Cloud resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -1527,7 +1527,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  */
 @interface GTLRCloudHealthcare_DeidentifyDatasetRequest : GTLRObject
 
-/** Deidentify configuration. */
+/**
+ *  Deidentify configuration. Only one of `config` and `gcs_config_uri` can be
+ *  specified.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_DeidentifyConfig *config;
 
 /**
@@ -1538,6 +1541,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  */
 @property(nonatomic, copy, nullable) NSString *destinationDataset;
 
+/**
+ *  Cloud Storage location to read the JSON
+ *  cloud.healthcare.deidentify.DeidentifyConfig from, overriding the default
+ *  config. Must be of the form `gs://{bucket_id}/path/to/object`. The Cloud
+ *  Storage location must grant the Cloud IAM role `roles/storage.objectViewer`
+ *  to the project's Cloud Healthcare Service Agent service account. Only one of
+ *  `config` and `gcs_config_uri` can be specified.
+ */
+@property(nonatomic, copy, nullable) NSString *gcsConfigUri;
+
 @end
 
 
@@ -1546,7 +1559,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  */
 @interface GTLRCloudHealthcare_DeidentifyDicomStoreRequest : GTLRObject
 
-/** Deidentify configuration. */
+/**
+ *  Deidentify configuration. Only one of `config` and `gcs_config_uri` can be
+ *  specified.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_DeidentifyConfig *config;
 
 /**
@@ -1564,6 +1580,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 /** Filter configuration. */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_DicomFilterConfig *filterConfig;
 
+/**
+ *  Cloud Storage location to read the JSON
+ *  cloud.healthcare.deidentify.DeidentifyConfig from, overriding the default
+ *  config. Must be of the form `gs://{bucket_id}/path/to/object`. The Cloud
+ *  Storage location must grant the Cloud IAM role `roles/storage.objectViewer`
+ *  to the project's Cloud Healthcare Service Agent service account. Only one of
+ *  `config` and `gcs_config_uri` can be specified.
+ */
+@property(nonatomic, copy, nullable) NSString *gcsConfigUri;
+
 @end
 
 
@@ -1572,7 +1598,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  */
 @interface GTLRCloudHealthcare_DeidentifyFhirStoreRequest : GTLRObject
 
-/** Deidentify configuration. */
+/**
+ *  Deidentify configuration. Only one of `config` and `gcs_config_uri` can be
+ *  specified.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_DeidentifyConfig *config;
 
 /**
@@ -1586,6 +1615,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  to write to the destination FHIR store.
  */
 @property(nonatomic, copy, nullable) NSString *destinationStore;
+
+/**
+ *  Cloud Storage location to read the JSON
+ *  cloud.healthcare.deidentify.DeidentifyConfig from, overriding the default
+ *  config. Must be of the form `gs://{bucket_id}/path/to/object`. The Cloud
+ *  Storage location must grant the Cloud IAM role `roles/storage.objectViewer`
+ *  to the project's Cloud Healthcare Service Agent service account. Only one of
+ *  `config` and `gcs_config_uri` can be specified.
+ */
+@property(nonatomic, copy, nullable) NSString *gcsConfigUri;
 
 /**
  *  A filter specifying the resources to include in the output. If not
@@ -1729,8 +1768,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRCloudHealthcare_Empty : GTLRObject
 @end
@@ -4523,7 +4561,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
  *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
- *  but certain Cloud Platform services (such as Projects) might reject them.
+ *  but certain Google Cloud services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_Policy *policy;
 
@@ -4693,7 +4731,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
  *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;

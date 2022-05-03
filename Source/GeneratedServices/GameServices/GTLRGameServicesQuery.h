@@ -805,8 +805,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
- *  language accepts strings like "displayName=tokyo", and is documented in more
- *  detail in [AIP-160](https://google.aip.dev/160).
+ *  language accepts strings like `"displayName=tokyo"`, and is documented in
+ *  more detail in [AIP-160](https://google.aip.dev/160).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

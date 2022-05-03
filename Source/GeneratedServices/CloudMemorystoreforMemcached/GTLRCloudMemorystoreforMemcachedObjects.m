@@ -51,6 +51,12 @@ NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Ready = @"READY";
 NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Updating = @"UPDATING";
 
+// GTLRCloudMemorystoreforMemcached_RescheduleMaintenanceRequest.rescheduleType
+NSString * const kGTLRCloudMemorystoreforMemcached_RescheduleMaintenanceRequest_RescheduleType_Immediate = @"IMMEDIATE";
+NSString * const kGTLRCloudMemorystoreforMemcached_RescheduleMaintenanceRequest_RescheduleType_NextAvailableWindow = @"NEXT_AVAILABLE_WINDOW";
+NSString * const kGTLRCloudMemorystoreforMemcached_RescheduleMaintenanceRequest_RescheduleType_RescheduleTypeUnspecified = @"RESCHEDULE_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudMemorystoreforMemcached_RescheduleMaintenanceRequest_RescheduleType_SpecificTime = @"SPECIFIC_TIME";
+
 // GTLRCloudMemorystoreforMemcached_Schedule.day
 NSString * const kGTLRCloudMemorystoreforMemcached_Schedule_Day_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
 NSString * const kGTLRCloudMemorystoreforMemcached_Schedule_Day_Friday = @"FRIDAY";
@@ -280,7 +286,7 @@ NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_W
 @implementation GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_NotificationParameters
 
 + (Class)classForAdditionalProperties {
-  return [NSString class];
+  return [GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1NotificationParameter class];
 }
 
 @end
@@ -356,6 +362,24 @@ NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_W
 
 @implementation GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata
 @dynamic location, nodeId, perSliEligibility;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1NotificationParameter
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1NotificationParameter
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -747,6 +771,16 @@ NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_W
 @implementation GTLRCloudMemorystoreforMemcached_OperationMetadata
 @dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
          verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_RescheduleMaintenanceRequest
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_RescheduleMaintenanceRequest
+@dynamic rescheduleType, scheduleTime;
 @end
 
 

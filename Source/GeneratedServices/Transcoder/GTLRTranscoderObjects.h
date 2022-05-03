@@ -255,14 +255,16 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @interface GTLRTranscoder_Audio : GTLRObject
 
 /**
- *  Enable boosting high frequency components. The default is `false`.
+ *  Enable boosting high frequency components. The default is `false`. **Note:**
+ *  This field is not supported.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *highBoost;
 
 /**
- *  Enable boosting low frequency components. The default is `false`.
+ *  Enable boosting low frequency components. The default is `false`. **Note:**
+ *  This field is not supported.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -380,7 +382,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 
 /**
- *  Color preprocessing configuration.
+ *  Color preprocessing configuration. **Note:** This configuration is not
+ *  supported.
  */
 @interface GTLRTranscoder_Color : GTLRObject
 
@@ -452,7 +455,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 
 /**
- *  Deblock preprocessing configuration.
+ *  Deblock preprocessing configuration. **Note:** This configuration is not
+ *  supported.
  */
 @interface GTLRTranscoder_Deblock : GTLRObject
 
@@ -475,7 +479,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 
 /**
- *  Denoise preprocessing configuration.
+ *  Denoise preprocessing configuration. **Note:** This configuration is not
+ *  supported.
  */
 @interface GTLRTranscoder_Denoise : GTLRObject
 
@@ -554,8 +559,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRTranscoder_Empty : GTLRObject
 @end
@@ -958,7 +962,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 /**
  *  URI of the media. Input files must be at least 5 seconds in duration and
  *  stored in Cloud Storage (for example, `gs://bucket/inputs/file.mp4`). If
- *  empty, the value will be populated from `Job.input_uri`.
+ *  empty, the value is populated from `Job.input_uri`. See [Supported input and
+ *  output
+ *  formats](https://cloud.google.com/transcoder/docs/concepts/supported-input-and-output-formats).
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -990,7 +996,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  *  element of `Job.config.inputs` or `JobTemplate.config.inputs` when using
  *  template. URI of the media. Input files must be at least 5 seconds in
  *  duration and stored in Cloud Storage (for example,
- *  `gs://bucket/inputs/file.mp4`).
+ *  `gs://bucket/inputs/file.mp4`). See [Supported input and output
+ *  formats](https://cloud.google.com/transcoder/docs/concepts/supported-input-and-output-formats).
  */
 @property(nonatomic, copy, nullable) NSString *inputUri;
 
@@ -1004,7 +1011,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  *  Input only. Specify the `output_uri` to populate an empty
  *  `Job.config.output.uri` or `JobTemplate.config.output.uri` when using
  *  template. URI for the output file(s). For example,
- *  `gs://my-bucket/outputs/`.
+ *  `gs://my-bucket/outputs/`. See [Supported input and output
+ *  formats](https://cloud.google.com/transcoder/docs/concepts/supported-input-and-output-formats).
  */
 @property(nonatomic, copy, nullable) NSString *outputUri;
 
@@ -1207,6 +1215,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 /**
  *  The container format. The default is `mp4` Supported container formats: -
  *  `ts` - `fmp4`- the corresponding file extension is `.m4s` - `mp4` - `vtt`
+ *  See also: [Supported input and output
+ *  formats](https://cloud.google.com/transcoder/docs/concepts/supported-input-and-output-formats)
  */
 @property(nonatomic, copy, nullable) NSString *container;
 
@@ -1261,8 +1271,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @interface GTLRTranscoder_Output : GTLRObject
 
 /**
- *  URI for the output file(s). For example, `gs://my-bucket/outputs/`. If empty
- *  the value is populated from `Job.output_uri`.
+ *  URI for the output file(s). For example, `gs://my-bucket/outputs/`. If
+ *  empty, the value is populated from `Job.output_uri`. See [Supported input
+ *  and output
+ *  formats](https://cloud.google.com/transcoder/docs/concepts/supported-input-and-output-formats).
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -1595,7 +1607,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  Target CRF level. Must be between 10 and 36, where 10 is the highest quality
- *  and 36 is the most efficient compression. The default is 21. *Note*: This
+ *  and 36 is the most efficient compression. The default is 21. **Note:** This
  *  field is not supported.
  *
  *  Uses NSNumber of intValue.

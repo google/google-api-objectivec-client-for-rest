@@ -539,7 +539,7 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_DeidentifyDatasetRequest
-@dynamic config, destinationDataset;
+@dynamic config, destinationDataset, gcsConfigUri;
 @end
 
 
@@ -549,7 +549,7 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_DeidentifyDicomStoreRequest
-@dynamic config, destinationStore, filterConfig;
+@dynamic config, destinationStore, filterConfig, gcsConfigUri;
 @end
 
 
@@ -559,7 +559,7 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_DeidentifyFhirStoreRequest
-@dynamic config, destinationStore, resourceFilter;
+@dynamic config, destinationStore, gcsConfigUri, resourceFilter;
 @end
 
 

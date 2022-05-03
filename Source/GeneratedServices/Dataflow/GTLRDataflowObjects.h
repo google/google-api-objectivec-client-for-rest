@@ -2036,6 +2036,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 /** Name of the docker container image. E.g., gcr.io/project/some-image */
 @property(nonatomic, copy, nullable) NSString *image;
 
+/** Cloud Storage path to self-signed certificate of private registry. */
+@property(nonatomic, copy, nullable) NSString *imageRepositoryCertPath;
+
+/**
+ *  Secret Manager secret id for password to authenticate to private registry.
+ */
+@property(nonatomic, copy, nullable) NSString *imageRepositoryPasswordSecretId;
+
+/**
+ *  Secret Manager secret id for username to authenticate to private registry.
+ */
+@property(nonatomic, copy, nullable) NSString *imageRepositoryUsernameSecretId;
+
 /**
  *  Metadata describing a template including description and validation rules.
  */
@@ -3474,7 +3487,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  Defines a job to be run by the Cloud Dataflow service.
+ *  Defines a job to be run by the Cloud Dataflow service. Do not enter
+ *  confidential information when you supply string values using the API.
  */
 @interface GTLRDataflow_Job : GTLRObject
 
@@ -3618,7 +3632,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /**
  *  The user-specified Cloud Dataflow job name. Only one Job with a given name
- *  may exist in a project at any given time. If a caller attempts to create a
+ *  can exist in a project within one region at any given time. Jobs in
+ *  different regions can have the same name. If a caller attempts to create a
  *  Job with the same name as an already-existing Job, the attempt returns the
  *  existing Job. The name must match the regular expression
  *  `[a-z]([-a-z0-9]{0,38}[a-z0-9])?`
@@ -4176,7 +4191,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  Parameters to provide to the template being launched.
+ *  Parameters to provide to the template being launched. Note that the
+ *  [metadata in the pipeline code]
+ *  (https://cloud.google.com/dataflow/docs/guides/templates/creating-templates#metadata)
+ *  determines which runtime parameters are valid.
  */
 @interface GTLRDataflow_LaunchTemplateParameters : GTLRObject
 
@@ -5345,7 +5363,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  The initial number of Google Compute Engine instnaces for the job.
+ *  The initial number of Google Compute Engine instances for the job.
  *
  *  Uses NSNumber of intValue.
  */
@@ -5433,13 +5451,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  Defines a SDK harness container for executing Dataflow pipelines.
+ *  Defines an SDK harness container for executing Dataflow pipelines.
  */
 @interface GTLRDataflow_SdkHarnessContainerImage : GTLRObject
 
 /**
  *  The set of capabilities enumerated in the above Environment proto. See also
- *  https://github.com/apache/beam/blob/master/model/pipeline/src/main/proto/beam_runner_api.proto
+ *  [beam_runner_api.proto](https://github.com/apache/beam/blob/master/model/pipeline/src/main/proto/org/apache/beam/model/pipeline/v1/beam_runner_api.proto)
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *capabilities;
 

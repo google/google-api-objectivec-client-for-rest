@@ -2097,7 +2097,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 
 /**
  *  Required. Resource name for this grant, following the pattern
- *  "developers/{developer}/users/{email}/grants/{package_name}".
+ *  "developers/{developer}/users/{email}/grants/{package_name}". If this grant
+ *  is for a draft app, the app ID will be used in this resource name instead of
+ *  the package name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2115,7 +2117,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *
  *  @param object The @c GTLRAndroidPublisher_Grant to include in the query.
  *  @param name Required. Resource name for this grant, following the pattern
- *    "developers/{developer}/users/{email}/grants/{package_name}".
+ *    "developers/{developer}/users/{email}/grants/{package_name}". If this
+ *    grant is for a draft app, the app ID will be used in this resource name
+ *    instead of the package name.
  *
  *  @return GTLRAndroidPublisherQuery_GrantsPatch
  */

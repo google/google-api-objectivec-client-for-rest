@@ -315,8 +315,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfi
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRNetworkSecurity_Empty : GTLRObject
 @end
@@ -489,7 +488,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfi
 @property(nonatomic, strong, nullable) GTLRNetworkSecurity_Expr *condition;
 
 /**
- *  Specifies the principals requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Google Cloud resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -627,7 +626,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfi
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
  *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
- *  but certain Cloud Platform services (such as Projects) might reject them.
+ *  but certain Google Cloud services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkSecurity_GoogleIamV1Policy *policy;
 
@@ -650,7 +649,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfi
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
  *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
@@ -1060,6 +1059,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfi
  *  is not exclusive of other encryption modes. For example, if `allow_open` and
  *  `mtls_policy` are set, server allows both plain text and mTLS connections.
  *  See documentation of other encryption modes to confirm compatibility.
+ *  Consider using it if you wish to upgrade in place your deployment to TLS
+ *  while having mixed TLS and non-TLS traffic reaching port :80.
  *
  *  Uses NSNumber of boolValue.
  */

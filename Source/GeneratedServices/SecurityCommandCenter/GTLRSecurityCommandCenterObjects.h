@@ -28,6 +28,7 @@
 @class GTLRSecurityCommandCenter_AuditConfig;
 @class GTLRSecurityCommandCenter_AuditLogConfig;
 @class GTLRSecurityCommandCenter_Binding;
+@class GTLRSecurityCommandCenter_Connection;
 @class GTLRSecurityCommandCenter_Cve;
 @class GTLRSecurityCommandCenter_Cvssv3;
 @class GTLRSecurityCommandCenter_Expr;
@@ -49,6 +50,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource;
 @class GTLRSecurityCommandCenter_GroupResult;
 @class GTLRSecurityCommandCenter_GroupResult_Properties;
+@class GTLRSecurityCommandCenter_IamBinding;
 @class GTLRSecurityCommandCenter_IamPolicy;
 @class GTLRSecurityCommandCenter_Indicator;
 @class GTLRSecurityCommandCenter_ListAssetsResult;
@@ -132,6 +134,46 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_Log
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Connection.protocol
+
+/**
+ *  Encap Security Payload.
+ *
+ *  Value: "ESP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Connection_Protocol_Esp;
+/**
+ *  Generic Routing Encapsulation.
+ *
+ *  Value: "GRE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Connection_Protocol_Gre;
+/**
+ *  Internet Control Message Protocol.
+ *
+ *  Value: "ICMP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Connection_Protocol_Icmp;
+/**
+ *  Unspecified protocol (not HOPOPT).
+ *
+ *  Value: "PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Connection_Protocol_ProtocolUnspecified;
+/**
+ *  Transmission Control Protocol.
+ *
+ *  Value: "TCP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Connection_Protocol_Tcp;
+/**
+ *  User Datagram Protocol.
+ *
+ *  Value: "UDP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Connection_Protocol_Udp;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_Cvssv3.attackComplexity
@@ -667,6 +709,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Terminated;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_IamBinding.action
+
+/**
+ *  Unspecified.
+ *
+ *  Value: "ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_IamBinding_Action_ActionUnspecified;
+/**
+ *  Addition of a Binding.
+ *
+ *  Value: "ADD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_IamBinding_Action_Add;
+/**
+ *  Removal of a Binding.
+ *
+ *  Value: "REMOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_IamBinding_Action_Remove;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_ListAssetsResult.stateChange
 
 /**
@@ -870,6 +934,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  *  Value: "DATA_DESTRUCTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DataDestruction;
+/**
+ *  T1484
+ *
+ *  Value: "DOMAIN_POLICY_MODIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DomainPolicyModification;
 /**
  *  T1568
  *
@@ -1148,6 +1218,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "DATA_DESTRUCTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DataDestruction;
+/**
+ *  T1484
+ *
+ *  Value: "DOMAIN_POLICY_MODIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DomainPolicyModification;
 /**
  *  T1568
  *
@@ -1560,7 +1636,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Expr *condition;
 
 /**
- *  Specifies the principals requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Google Cloud resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -1627,6 +1703,57 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  *  findings based on the filter.
  */
 @property(nonatomic, copy, nullable) NSString *muteAnnotation;
+
+@end
+
+
+/**
+ *  Contains information about the IP connection associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_Connection : GTLRObject
+
+/**
+ *  Destination IP address. Not present for sockets that are listening and not
+ *  connected.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationIp;
+
+/**
+ *  Destination port. Not present for sockets that are listening and not
+ *  connected.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *destinationPort;
+
+/**
+ *  IANA Internet Protocol Number such as TCP(6) and UDP(17).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Connection_Protocol_Esp Encap Security
+ *        Payload. (Value: "ESP")
+ *    @arg @c kGTLRSecurityCommandCenter_Connection_Protocol_Gre Generic Routing
+ *        Encapsulation. (Value: "GRE")
+ *    @arg @c kGTLRSecurityCommandCenter_Connection_Protocol_Icmp Internet
+ *        Control Message Protocol. (Value: "ICMP")
+ *    @arg @c kGTLRSecurityCommandCenter_Connection_Protocol_ProtocolUnspecified
+ *        Unspecified protocol (not HOPOPT). (Value: "PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_Connection_Protocol_Tcp Transmission
+ *        Control Protocol. (Value: "TCP")
+ *    @arg @c kGTLRSecurityCommandCenter_Connection_Protocol_Udp User Datagram
+ *        Protocol. (Value: "UDP")
+ */
+@property(nonatomic, copy, nullable) NSString *protocol;
+
+/** Source IP address. */
+@property(nonatomic, copy, nullable) NSString *sourceIp;
+
+/**
+ *  Source port.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sourcePort;
 
 @end
 
@@ -1927,8 +2054,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  */
 @property(nonatomic, copy, nullable) NSString *category;
 
+/**
+ *  Contains information about the IP connection associated with the finding.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Connection *> *connections;
+
 /** The time at which the finding was created in Security Command Center. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Contains more detail about the finding.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  The time the finding was first detected. If an existing finding is updated,
@@ -1975,6 +2114,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  *        Confidentiality & Integrity & Availability. (Value: "VULNERABILITY")
  */
 @property(nonatomic, copy, nullable) NSString *findingClass;
+
+/** Represents IAM bindings associated with the Finding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_IamBinding *> *iamBindings;
 
 /**
  *  Represents what's commonly known as an Indicator of compromise (IoC) in
@@ -2025,6 +2167,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Next steps associate to the finding. */
+@property(nonatomic, copy, nullable) NSString *nextSteps;
 
 /**
  *  The relative resource name of the source the finding belongs to. See:
@@ -3128,6 +3273,40 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 
 
 /**
+ *  Represents a particular IAM binding, which captures a member's role
+ *  addition, removal, or state.
+ */
+@interface GTLRSecurityCommandCenter_IamBinding : GTLRObject
+
+/**
+ *  The action that was performed on a Binding.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_IamBinding_Action_ActionUnspecified
+ *        Unspecified. (Value: "ACTION_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_IamBinding_Action_Add Addition of a
+ *        Binding. (Value: "ADD")
+ *    @arg @c kGTLRSecurityCommandCenter_IamBinding_Action_Remove Removal of a
+ *        Binding. (Value: "REMOVE")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  A single identity requesting access for a Cloud Platform resource, e.g.
+ *  "foo\@google.com".
+ */
+@property(nonatomic, copy, nullable) NSString *member;
+
+/**
+ *  Role that is assigned to "members". For example, "roles/viewer",
+ *  "roles/editor", or "roles/owner".
+ */
+@property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
  *  Cloud IAM Policy information associated with the Google Cloud resource
  *  described by the Security Command Center asset. This information is managed
  *  and defined by the Google Cloud resource and cannot be modified by the user.
@@ -3945,7 +4124,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
  *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
- *  but certain Cloud Platform services (such as Projects) might reject them.
+ *  but certain Google Cloud services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Policy *policy;
 
@@ -4105,7 +4284,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
  *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;

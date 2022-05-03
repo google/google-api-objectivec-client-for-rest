@@ -2361,7 +2361,15 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1OperationMetadata
-@dynamic operationType, progress, state, targetResourceName;
+@dynamic operationType, progress, state, targetResourceName, warnings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"warnings" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

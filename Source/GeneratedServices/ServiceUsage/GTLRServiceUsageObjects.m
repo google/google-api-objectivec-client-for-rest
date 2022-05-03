@@ -936,7 +936,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_JwtLocation
-@dynamic header, query, valuePrefix;
+@dynamic cookie, header, query, valuePrefix;
 @end
 
 

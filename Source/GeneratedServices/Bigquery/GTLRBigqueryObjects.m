@@ -799,7 +799,7 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
          defaultEncryptionConfiguration, defaultPartitionExpirationMs,
          defaultTableExpirationMs, descriptionProperty, ETag, friendlyName,
          identifier, isCaseInsensitive, kind, labels, lastModifiedTime,
-         location, maxTimeTravelHours, satisfiesPZS, selfLink, tags;
+         location, maxTimeTravelHours, satisfiesPzs, selfLink, tags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1862,7 +1862,7 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 //
 
 @implementation GTLRBigquery_MaterializedViewDefinition
-@dynamic enableRefresh, lastRefreshTime, query, refreshIntervalMs;
+@dynamic enableRefresh, lastRefreshTime, maxStaleness, query, refreshIntervalMs;
 @end
 
 
@@ -2287,13 +2287,38 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_RemoteFunctionOptions
+//
+
+@implementation GTLRBigquery_RemoteFunctionOptions
+@dynamic connection, endpoint, maxBatchingRows, userDefinedContext;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_RemoteFunctionOptions_UserDefinedContext
+//
+
+@implementation GTLRBigquery_RemoteFunctionOptions_UserDefinedContext
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_Routine
 //
 
 @implementation GTLRBigquery_Routine
 @dynamic arguments, creationTime, definitionBody, descriptionProperty,
          determinismLevel, ETag, importedLibraries, language, lastModifiedTime,
-         returnTableType, returnType, routineReference, routineType, strictMode;
+         remoteFunctionOptions, returnTableType, returnType, routineReference,
+         routineType, strictMode;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2529,7 +2554,10 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 @dynamic cloneDefinition, clustering, creationTime, defaultCollation,
          descriptionProperty, encryptionConfiguration, ETag, expirationTime,
          externalDataConfiguration, friendlyName, identifier, kind, labels,
-         lastModifiedTime, location, materializedView, model, numBytes,
+         lastModifiedTime, location, materializedView, model,
+         numActiveLogicalBytes, numActivePhysicalBytes, numLongTermLogicalBytes,
+         numLongTermPhysicalBytes, numPartitions, numTimeTravelPhysicalBytes,
+         numTotalLogicalBytes, numTotalPhysicalBytes, numBytes,
          numLongTermBytes, numPhysicalBytes, numRows, rangePartitioning,
          requirePartitionFilter, schema, selfLink, snapshotDefinition,
          streamingBuffer, tableReference, timePartitioning, type, view;
@@ -2538,7 +2566,15 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
   NSDictionary<NSString *, NSString *> *map = @{
     @"descriptionProperty" : @"description",
     @"ETag" : @"etag",
-    @"identifier" : @"id"
+    @"identifier" : @"id",
+    @"numActiveLogicalBytes" : @"num_active_logical_bytes",
+    @"numActivePhysicalBytes" : @"num_active_physical_bytes",
+    @"numLongTermLogicalBytes" : @"num_long_term_logical_bytes",
+    @"numLongTermPhysicalBytes" : @"num_long_term_physical_bytes",
+    @"numPartitions" : @"num_partitions",
+    @"numTimeTravelPhysicalBytes" : @"num_time_travel_physical_bytes",
+    @"numTotalLogicalBytes" : @"num_total_logical_bytes",
+    @"numTotalPhysicalBytes" : @"num_total_physical_bytes"
   };
   return map;
 }
@@ -2662,8 +2698,8 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 //
 
 @implementation GTLRBigquery_TableFieldSchema
-@dynamic categories, collationSpec, descriptionProperty, fields, maxLength,
-         mode, name, policyTags, precision, scale, type;
+@dynamic categories, collation, defaultValueExpression, descriptionProperty,
+         fields, maxLength, mode, name, policyTags, precision, scale, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

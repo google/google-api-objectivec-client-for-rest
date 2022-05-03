@@ -68,6 +68,7 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2Promotion;
 @class GTLRCloudRetail_GoogleCloudRetailV2PurchaseTransaction;
 @class GTLRCloudRetail_GoogleCloudRetailV2Rating;
+@class GTLRCloudRetail_GoogleCloudRetailV2SearchRequest_Labels;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchRequestBoostSpec;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchRequestBoostSpecConditionBoostSpec;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchRequestDynamicFacetSpec;
@@ -1681,12 +1682,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @interface GTLRCloudRetail_GoogleCloudRetailV2CustomAttribute : GTLRObject
 
 /**
- *  This field will only be used when AttributesConfig.attribute_config_level of
- *  the Catalog is 'PRODUCT_LEVEL_ATTRIBUTE_CONFIG', if true, custom attribute
- *  values are indexed, so that it can be filtered, faceted or boosted in
- *  SearchService.Search. This field is ignored in a UserEvent. See
- *  SearchRequest.filter, SearchRequest.facet_specs and SearchRequest.boost_spec
- *  for more details.
+ *  This field is normally ignored unless
+ *  AttributesConfig.attribute_config_level of the Catalog is set to the
+ *  deprecated 'PRODUCT_LEVEL_ATTRIBUTE_CONFIG' mode. You may learn more on
+ *  [configuration mode]
+ *  (https://cloud.google.com/retail/docs/attribute-config#config-modes). if
+ *  true, custom attribute values are indexed, so that it can be filtered,
+ *  faceted or boosted in SearchService.Search. This field is ignored in a
+ *  UserEvent. See SearchRequest.filter, SearchRequest.facet_specs and
+ *  SearchRequest.boost_spec for more details.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1702,11 +1706,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *numbers;
 
 /**
- *  This field will only be used when AttributesConfig.attribute_config_level of
- *  the Catalog is 'PRODUCT_LEVEL_ATTRIBUTE_CONFIG', if true, custom attribute
- *  values are searchable by text queries in SearchService.Search. This field is
- *  ignored in a UserEvent. Only set if type text is set. Otherwise, a
- *  INVALID_ARGUMENT error is returned.
+ *  This field is normally ignored unless
+ *  AttributesConfig.attribute_config_level of the Catalog is set to the
+ *  deprecated 'PRODUCT_LEVEL_ATTRIBUTE_CONFIG' mode. You may learn more on
+ *  [configuration mode]
+ *  (https://cloud.google.com/retail/docs/attribute-config#config-modes). If
+ *  true, custom attribute values are searchable by text queries in
+ *  SearchService.Search. This field is ignored in a UserEvent. Only set if type
+ *  text is set. Otherwise, a INVALID_ARGUMENT error is returned.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1946,10 +1953,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2ProductInputConfig *inputConfig;
 
 /**
- *  Pub/Sub topic for receiving notification. If this field is set, when the
- *  import is finished, a notification will be sent to specified Pub/Sub topic.
- *  The message data will be JSON string of a Operation. Format of the Pub/Sub
- *  topic is `projects/{project}/topics/{topic}`. Only supported when
+ *  Full Pub/Sub topic name for receiving notification. If this field is set,
+ *  when the import is finished, a notification will be sent to specified
+ *  Pub/Sub topic. The message data will be JSON string of a Operation. Format
+ *  of the Pub/Sub topic is `projects/{project}/topics/{topic}`. It has to be
+ *  within the same project as ImportProductsRequest.parent. Make sure that both
+ *  `cloud-retail-customer-data-access\@system.gserviceaccount.com` and
+ *  `service-\@gcp-sa-retail.iam.gserviceaccount.com` have the
+ *  `pubsub.topics.publish` IAM permission on the topic. Only supported when
  *  ImportProductsRequest.reconciliation_mode is set to `FULL`.
  */
 @property(nonatomic, copy, nullable) NSString *notificationPubsubTopic;
@@ -2285,7 +2296,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  Required. Context about the user, what they are looking at and what action
  *  they took to trigger the predict request. Note that this user event detail
  *  won't be ingested to userEvent logs. Thus, a separate userEvent write
- *  request is required for event logging.
+ *  request is required for event logging. Don't set UserEvent.visitor_id or
+ *  UserInfo.user_id to the same fixed ID for different users. If you are trying
+ *  to receive non-personalized recommendations (not recommended; this can
+ *  negatively impact model performance), instead set UserEvent.visitor_id to a
+ *  random unique ID and leave UserInfo.user_id unset.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2UserEvent *userEvent;
 
@@ -2451,7 +2466,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  Price of the product without any discount. If zero, by default set to be the
- *  price.
+ *  price. If set, original_price should be greater than or equal to price,
+ *  otherwise an INVALID_ARGUMENT error is thrown.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -3003,13 +3019,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  The type of Products allowed to be ingested into the catalog. Acceptable
  *  values are: * `primary` (default): You can ingest Products of all types.
  *  When ingesting a Product, its type will default to Product.Type.PRIMARY if
- *  unset. * `variant`: You can only ingest Product.Type.VARIANT Products. This
- *  means Product.primary_product_id cannot be empty. If this field is set to an
- *  invalid value other than these, an INVALID_ARGUMENT error is returned. If
- *  this field is `variant` and merchant_center_product_id_field is
- *  `itemGroupId`, an INVALID_ARGUMENT error is returned. See [Using product
- *  levels](https://cloud.google.com/retail/recommendations-ai/docs/catalog#product-levels)
- *  for more details.
+ *  unset. * `variant` (incompatible with Retail Search): You can only ingest
+ *  Product.Type.VARIANT Products. This means Product.primary_product_id cannot
+ *  be empty. If this field is set to an invalid value other than these, an
+ *  INVALID_ARGUMENT error is returned. If this field is `variant` and
+ *  merchant_center_product_id_field is `itemGroupId`, an INVALID_ARGUMENT error
+ *  is returned. See [Product
+ *  levels](https://cloud.google.com/retail/docs/catalog#product-levels) for
+ *  more details.
  */
 @property(nonatomic, copy, nullable) NSString *ingestionProductType;
 
@@ -3022,9 +3039,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  the same `itemGroupId`, and use it to represent the item group. If this
  *  field is set to an invalid value other than these, an INVALID_ARGUMENT error
  *  is returned. If this field is `itemGroupId` and ingestion_product_type is
- *  `variant`, an INVALID_ARGUMENT error is returned. See [Using product
- *  levels](https://cloud.google.com/retail/recommendations-ai/docs/catalog#product-levels)
- *  for more details.
+ *  `variant`, an INVALID_ARGUMENT error is returned. See [Product
+ *  levels](https://cloud.google.com/retail/docs/catalog#product-levels) for
+ *  more details.
  */
 @property(nonatomic, copy, nullable) NSString *merchantCenterProductIdField;
 
@@ -3405,6 +3422,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
+ *  The labels applied to a resource must meet the following requirements: *
+ *  Each resource can have multiple labels, up to a maximum of 64. * Each label
+ *  must be a key-value pair. * Keys have a minimum length of 1 character and a
+ *  maximum length of 63 characters, and cannot be empty. Values can be empty,
+ *  and have a maximum length of 63 characters. * Keys and values can contain
+ *  only lowercase letters, numeric characters, underscores, and dashes. All
+ *  characters must use UTF-8 encoding, and international characters are
+ *  allowed. * The key portion of a label must be unique. However, you can use
+ *  the same key with multiple resources. * Keys must start with a lowercase
+ *  letter or international character. See [Google Cloud
+ *  Document](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements)
+ *  for more details.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchRequest_Labels *labels;
+
+/**
  *  A 0-indexed integer that specifies the current offset (that is, starting
  *  result location, amongst the Products deemed by the API as relevant) in
  *  search results. This field is only considered if page_token is unset. If
@@ -3456,7 +3489,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /** The specification for personalization. */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec *personalizationSpec;
 
-/** Raw search query. */
+/**
+ *  Raw search query. If this field is empty, the request is considered a
+ *  category browsing request and returned results are based on filter and
+ *  page_categories.
+ */
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
@@ -3538,6 +3575,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  */
 @property(nonatomic, copy, nullable) NSString *visitorId;
 
+@end
+
+
+/**
+ *  The labels applied to a resource must meet the following requirements: *
+ *  Each resource can have multiple labels, up to a maximum of 64. * Each label
+ *  must be a key-value pair. * Keys have a minimum length of 1 character and a
+ *  maximum length of 63 characters, and cannot be empty. Values can be empty,
+ *  and have a maximum length of 63 characters. * Keys and values can contain
+ *  only lowercase letters, numeric characters, underscores, and dashes. All
+ *  characters must use UTF-8 encoding, and international characters are
+ *  allowed. * The key portion of a label must be unique. However, you can use
+ *  the same key with multiple resources. * Keys must start with a lowercase
+ *  letter or international character. See [Google Cloud
+ *  Document](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements)
+ *  for more details.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2SearchRequest_Labels : GTLRObject
 @end
 
 
@@ -3840,7 +3900,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  */
 @property(nonatomic, copy, nullable) NSString *attributionToken;
 
-/** If spell correction applies, the corrected query. Otherwise, empty. */
+/**
+ *  Contains the spell corrected query, if found. If the spell correction type
+ *  is AUTOMATIC, then the search results will be based on corrected_query,
+ *  otherwise the original query will be used for search.
+ */
 @property(nonatomic, copy, nullable) NSString *correctedQuery;
 
 /** Results of facets requested by user. */
@@ -4306,14 +4370,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @property(nonatomic, copy, nullable) NSString *pageViewId;
 
 /**
- *  The main product details related to the event. This field is required for
- *  the following event types: * `add-to-cart` * `detail-page-view` *
- *  `purchase-complete` * `search` In a `search` event, this field represents
- *  the products returned to the end user on the current page (the end user may
- *  have not finished browsing the whole page yet). When a new page is returned
- *  to the end user, after pagination/filtering/ordering even for the same
- *  query, a new `search` event with different product_details is desired. The
- *  end user may have not finished browsing the whole page yet.
+ *  The main product details related to the event. This field is optional except
+ *  for the following event types: * `add-to-cart` * `detail-page-view` *
+ *  `purchase-complete` In a `search` event, this field represents the products
+ *  returned to the end user on the current page (the end user may have not
+ *  finished browsing the whole page yet). When a new page is returned to the
+ *  end user, after pagination/filtering/ordering even for the same query, a new
+ *  `search` event with different product_details is desired. The end user may
+ *  have not finished browsing the whole page yet.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2ProductDetail *> *productDetails;
 
@@ -4365,8 +4429,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  Required. A unique identifier for tracking visitors. For example, this could
  *  be implemented with an HTTP cookie, which should be able to uniquely
  *  identify a visitor on a single device. This unique identifier should not
- *  change if the visitor log in/out of the website. The field must be a UTF-8
- *  encoded string with a length limit of 128 characters. Otherwise, an
+ *  change if the visitor log in/out of the website. Don't set the field to the
+ *  same fixed ID for different users. This mixes the event history of those
+ *  users together, which results in degraded model quality. The field must be a
+ *  UTF-8 encoded string with a length limit of 128 characters. Otherwise, an
  *  INVALID_ARGUMENT error is returned. The field should not contain PII or
  *  user-data. We recommend to use Google Analystics [Client
  *  ID](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#clientId)
@@ -4499,9 +4565,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  Highly recommended for logged-in users. Unique identifier for logged-in
- *  user, such as a user name. Always use a hashed value for this ID. The field
- *  must be a UTF-8 encoded string with a length limit of 128 characters.
- *  Otherwise, an INVALID_ARGUMENT error is returned.
+ *  user, such as a user name. Don't set for anonymous users. Always use a
+ *  hashed value for this ID. Don't set the field to the same fixed ID for
+ *  different users. This mixes the event history of those users together, which
+ *  results in degraded model quality. The field must be a UTF-8 encoded string
+ *  with a length limit of 128 characters. Otherwise, an INVALID_ARGUMENT error
+ *  is returned.
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 

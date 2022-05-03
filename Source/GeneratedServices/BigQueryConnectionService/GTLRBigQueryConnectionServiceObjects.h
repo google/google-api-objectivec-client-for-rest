@@ -173,7 +173,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProper
 @property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_Expr *condition;
 
 /**
- *  Specifies the principals requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Google Cloud resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -536,7 +536,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProper
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
  *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
- *  but certain Cloud Platform services (such as Projects) might reject them.
+ *  but certain Google Cloud services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_Policy *policy;
 
@@ -559,7 +559,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProper
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
  *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;

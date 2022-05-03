@@ -25,6 +25,7 @@
 @class GTLRDatastream_ConnectionProfile;
 @class GTLRDatastream_ConnectionProfile_Labels;
 @class GTLRDatastream_DestinationConfig;
+@class GTLRDatastream_DropLargeObjects;
 @class GTLRDatastream_Error;
 @class GTLRDatastream_Error_Details;
 @class GTLRDatastream_ForwardSshTunnelConnectivity;
@@ -46,7 +47,6 @@
 @class GTLRDatastream_Operation_Metadata;
 @class GTLRDatastream_Operation_Response;
 @class GTLRDatastream_OracleColumn;
-@class GTLRDatastream_OracleDropLargeObjects;
 @class GTLRDatastream_OracleObjectIdentifier;
 @class GTLRDatastream_OracleProfile;
 @class GTLRDatastream_OracleProfile_ConnectionAttributes;
@@ -566,6 +566,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Enriched Oracle RDBMS object. */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleRdbms *oracleRdbms;
 
+@end
+
+
+/**
+ *  Configuration to drop large object values.
+ */
+@interface GTLRDatastream_DropLargeObjects : GTLRObject
 @end
 
 
@@ -1381,13 +1388,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  Configuration to drop large object values.
- */
-@interface GTLRDatastream_OracleDropLargeObjects : GTLRObject
-@end
-
-
-/**
  *  Oracle data source object identifier.
  */
 @interface GTLRDatastream_OracleObjectIdentifier : GTLRObject
@@ -1474,7 +1474,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @interface GTLRDatastream_OracleSourceConfig : GTLRObject
 
 /** Drop large object values. */
-@property(nonatomic, strong, nullable) GTLRDatastream_OracleDropLargeObjects *dropLargeObjects;
+@property(nonatomic, strong, nullable) GTLRDatastream_DropLargeObjects *dropLargeObjects;
 
 /** Oracle objects to exclude from the stream. */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleRdbms *excludeObjects;

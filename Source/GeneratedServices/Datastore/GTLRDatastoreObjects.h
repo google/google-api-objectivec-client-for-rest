@@ -899,6 +899,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_CommitResponse : GTLRObject
 
 /**
+ *  The transaction commit timestamp. Not set for non-transactional commits.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *commitTime;
+
+/**
  *  The number of index entries updated during the commit, or zero if none were
  *  updated.
  *
@@ -1004,6 +1009,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /** The resulting entity. */
 @property(nonatomic, strong, nullable) GTLRDatastore_Entity *entity;
+
+/**
+ *  The time at which the entity was last changed. This field is set for `FULL`
+ *  entity results. If this entity is missing, this field will not be set.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
  *  The version of the entity, a strictly positive number that monotonically
@@ -2116,6 +2127,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_EntityResult *> *missing;
 
+/** The time at which these entities were read or found missing. */
+@property(nonatomic, strong, nullable) GTLRDateTime *readTime;
+
 @end
 
 
@@ -2153,6 +2167,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRDatastore_Entity *update;
 
 /**
+ *  The update time of the entity that this mutation is being applied to. If
+ *  this does not match the current update time on the server, the mutation
+ *  conflicts.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
  *  The entity to upsert. The entity may or may not already exist. The entity
  *  key's final path element may be incomplete.
  */
@@ -2178,6 +2199,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  The automatically allocated key. Set only when the mutation allocated a key.
  */
 @property(nonatomic, strong, nullable) GTLRDatastore_Key *key;
+
+/**
+ *  The update time of the entity on the server after processing the mutation.
+ *  If the mutation doesn't change anything on the server, then the timestamp
+ *  will be the update timestamp of the current entity. This field will not be
+ *  set after a 'delete'.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
  *  The version of the entity on the server after processing the mutation. If
@@ -2479,6 +2508,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *moreResults;
 
 /**
+ *  Read timestamp this batch was returned from. This applies to the range of
+ *  results from the query's `start_cursor` (or the beginning of the query if no
+ *  cursor was given) to this batch's `end_cursor` (not the query's
+ *  `end_cursor`). In a single transaction, subsequent query result batches for
+ *  the same query can have a greater timestamp. Each batch's read timestamp is
+ *  valid for all preceding batches. This value will not be set for eventually
+ *  consistent queries in Cloud Datastore.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *readTime;
+
+/**
  *  A cursor that points to the position after the last skipped result. Will be
  *  set when `skipped_results` != 0.
  *
@@ -2514,6 +2554,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  Options specific to read-only transactions.
  */
 @interface GTLRDatastore_ReadOnly : GTLRObject
+
+/**
+ *  Reads entities at the given time. This may not be older than 60 seconds.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *readTime;
+
 @end
 
 
@@ -2536,6 +2582,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *        consistency. (Value: "STRONG")
  */
 @property(nonatomic, copy, nullable) NSString *readConsistency;
+
+/**
+ *  Reads entities as they were at the given time. This may not be older than
+ *  270 seconds. This value is only supported for Cloud Firestore in Datastore
+ *  mode.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
 /**
  *  The identifier of the transaction in which to read. A transaction identifier
@@ -2618,7 +2671,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @interface GTLRDatastore_RunQueryRequest : GTLRObject
 
-/** The GQL query to run. */
+/** The GQL query to run. This query must be a non-aggregation query. */
 @property(nonatomic, strong, nullable) GTLRDatastore_GqlQuery *gqlQuery;
 
 /**

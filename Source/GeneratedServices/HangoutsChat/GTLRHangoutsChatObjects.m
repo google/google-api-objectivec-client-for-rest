@@ -366,6 +366,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_ChatAppLogEntry
+//
+
+@implementation GTLRHangoutsChat_ChatAppLogEntry
+@dynamic deployment, deploymentFunction, error;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_Color
 //
 
@@ -471,16 +481,6 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 @implementation GTLRHangoutsChat_DriveDataRef
 @dynamic driveFileId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRHangoutsChat_DynamiteIntegrationLogEntry
-//
-
-@implementation GTLRHangoutsChat_DynamiteIntegrationLogEntry
-@dynamic deployment, deploymentFunction, error;
 @end
 
 

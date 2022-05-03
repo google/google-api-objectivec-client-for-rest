@@ -643,7 +643,15 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEventPartitionDetails
-@dynamic entity, partition, type;
+@dynamic entity, partition, sampledDataLocations, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sampledDataLocations" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

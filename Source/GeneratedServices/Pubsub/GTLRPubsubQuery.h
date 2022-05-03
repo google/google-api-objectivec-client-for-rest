@@ -577,10 +577,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @end
 
 /**
- *  Gets the configuration details of a snapshot. Snapshots are used in Seek
- *  operations, which allow you to manage message acknowledgments in bulk. That
- *  is, you can set the acknowledgment state of messages in an existing
- *  subscription to the state captured by a snapshot.
+ *  Gets the configuration details of a snapshot. Snapshots are used in
+ *  [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
+ *  which allow you to manage message acknowledgments in bulk. That is, you can
+ *  set the acknowledgment state of messages in an existing subscription to the
+ *  state captured by a snapshot.
  *
  *  Method: pubsub.projects.snapshots.get
  *
@@ -599,10 +600,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 /**
  *  Fetches a @c GTLRPubsub_Snapshot.
  *
- *  Gets the configuration details of a snapshot. Snapshots are used in Seek
- *  operations, which allow you to manage message acknowledgments in bulk. That
- *  is, you can set the acknowledgment state of messages in an existing
- *  subscription to the state captured by a snapshot.
+ *  Gets the configuration details of a snapshot. Snapshots are used in
+ *  [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
+ *  which allow you to manage message acknowledgments in bulk. That is, you can
+ *  set the acknowledgment state of messages in an existing subscription to the
+ *  state captured by a snapshot.
  *
  *  @param snapshot Required. The name of the snapshot to get. Format is
  *    `projects/{project}/snapshots/{snap}`.
@@ -715,9 +717,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @end
 
 /**
- *  Updates an existing snapshot. Snapshots are used in Seek operations, which
- *  allow you to manage message acknowledgments in bulk. That is, you can set
- *  the acknowledgment state of messages in an existing subscription to the
+ *  Updates an existing snapshot. Snapshots are used in
+ *  [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
+ *  which allow you to manage message acknowledgments in bulk. That is, you can
+ *  set the acknowledgment state of messages in an existing subscription to the
  *  state captured by a snapshot.
  *
  *  Method: pubsub.projects.snapshots.patch
@@ -734,9 +737,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 /**
  *  Fetches a @c GTLRPubsub_Snapshot.
  *
- *  Updates an existing snapshot. Snapshots are used in Seek operations, which
- *  allow you to manage message acknowledgments in bulk. That is, you can set
- *  the acknowledgment state of messages in an existing subscription to the
+ *  Updates an existing snapshot. Snapshots are used in
+ *  [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
+ *  which allow you to manage message acknowledgments in bulk. That is, you can
+ *  set the acknowledgment state of messages in an existing subscription to the
  *  state captured by a snapshot.
  *
  *  @param object The @c GTLRPubsub_UpdateSnapshotRequest to include in the

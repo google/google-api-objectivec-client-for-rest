@@ -703,6 +703,16 @@ NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_StateUnspecified = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRIam_Saml
+//
+
+@implementation GTLRIam_Saml
+@dynamic idpMetadataXml;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRIam_ServiceAccount
 //
 
@@ -934,7 +944,7 @@ NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_StateUnspecified = 
 
 @implementation GTLRIam_WorkloadIdentityPoolProvider
 @dynamic attributeCondition, attributeMapping, aws, descriptionProperty,
-         disabled, displayName, name, oidc, state;
+         disabled, displayName, name, oidc, saml, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

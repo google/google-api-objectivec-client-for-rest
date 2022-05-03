@@ -37,6 +37,7 @@
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1Value_ProtoValue;
 @class GTLRCloudchannel_GoogleCloudChannelV1AssociationInfo;
 @class GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink;
+@class GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerRepricingConfig;
 @class GTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount;
 @class GTLRCloudchannel_GoogleCloudChannelV1CloudIdentityInfo;
 @class GTLRCloudchannel_GoogleCloudChannelV1CommitmentSettings;
@@ -45,6 +46,7 @@
 @class GTLRCloudchannel_GoogleCloudChannelV1Customer;
 @class GTLRCloudchannel_GoogleCloudChannelV1CustomerConstraints;
 @class GTLRCloudchannel_GoogleCloudChannelV1CustomerEvent;
+@class GTLRCloudchannel_GoogleCloudChannelV1CustomerRepricingConfig;
 @class GTLRCloudchannel_GoogleCloudChannelV1EduData;
 @class GTLRCloudchannel_GoogleCloudChannelV1Entitlement;
 @class GTLRCloudchannel_GoogleCloudChannelV1EntitlementEvent;
@@ -53,6 +55,7 @@
 @class GTLRCloudchannel_GoogleCloudChannelV1Offer;
 @class GTLRCloudchannel_GoogleCloudChannelV1Parameter;
 @class GTLRCloudchannel_GoogleCloudChannelV1ParameterDefinition;
+@class GTLRCloudchannel_GoogleCloudChannelV1PercentageAdjustment;
 @class GTLRCloudchannel_GoogleCloudChannelV1Period;
 @class GTLRCloudchannel_GoogleCloudChannelV1Plan;
 @class GTLRCloudchannel_GoogleCloudChannelV1Price;
@@ -64,6 +67,10 @@
 @class GTLRCloudchannel_GoogleCloudChannelV1PurchasableOffer;
 @class GTLRCloudchannel_GoogleCloudChannelV1PurchasableSku;
 @class GTLRCloudchannel_GoogleCloudChannelV1RenewalSettings;
+@class GTLRCloudchannel_GoogleCloudChannelV1RepricingAdjustment;
+@class GTLRCloudchannel_GoogleCloudChannelV1RepricingConfig;
+@class GTLRCloudchannel_GoogleCloudChannelV1RepricingConfigChannelPartnerGranularity;
+@class GTLRCloudchannel_GoogleCloudChannelV1RepricingConfigEntitlementGranularity;
 @class GTLRCloudchannel_GoogleCloudChannelV1Sku;
 @class GTLRCloudchannel_GoogleCloudChannelV1TransferableOffer;
 @class GTLRCloudchannel_GoogleCloudChannelV1TransferableSku;
@@ -76,6 +83,8 @@
 @class GTLRCloudchannel_GoogleLongrunningOperation_Response;
 @class GTLRCloudchannel_GoogleRpcStatus;
 @class GTLRCloudchannel_GoogleRpcStatus_Details_Item;
+@class GTLRCloudchannel_GoogleTypeDate;
+@class GTLRCloudchannel_GoogleTypeDecimal;
 @class GTLRCloudchannel_GoogleTypeMoney;
 @class GTLRCloudchannel_GoogleTypePostalAddress;
 
@@ -1153,6 +1162,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Renewal
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1RenewalSettings_PaymentPlan_Trial;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudchannel_GoogleCloudChannelV1RepricingConfig.rebillingBasis
+
+/**
+ *  Use the list cost, also known as the MSRP.
+ *
+ *  Value: "COST_AT_LIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1RepricingConfig_RebillingBasis_CostAtList;
+/**
+ *  Pass through all discounts except the Reseller Program Discount. If this is
+ *  the default cost base and no adjustments are specified, the output cost will
+ *  be exactly what the customer would see if they viewed the bill in the Google
+ *  Cloud Console.
+ *
+ *  Value: "DIRECT_CUSTOMER_COST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1RepricingConfig_RebillingBasis_DirectCustomerCost;
+/**
+ *  Not used.
+ *
+ *  Value: "REBILLING_BASIS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1RepricingConfig_RebillingBasis_RebillingBasisUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudchannel_GoogleCloudChannelV1TransferEligibility.ineligibilityReason
 
 /**
@@ -1944,6 +1978,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 
 /**
+ *  Configuration for how a distributor will rebill a channel partner (also
+ *  known as a distributor-authorized reseller).
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerRepricingConfig : GTLRObject
+
+/**
+ *  Output only. Resource name of the ChannelPartnerRepricingConfig. Format:
+ *  accounts/{account_id}/channelPartnerLinks/{channel_partner_id}/channelPartnerRepricingConfigs/{id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The configuration for bill modifications made by a reseller before
+ *  sending it to ChannelPartner.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1RepricingConfig *repricingConfig;
+
+/**
+ *  Output only. Timestamp of an update to the repricing rule. If `update_time`
+ *  is after RepricingConfig.effective_invoice_month then it indicates this was
+ *  set mid-month.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Request message for CloudChannelService.CheckCloudIdentityAccountsExist.
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1CheckCloudIdentityAccountsExistRequest : GTLRObject
@@ -2256,6 +2318,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 
 /**
+ *  Configuration for how a reseller will reprice a Customer.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1CustomerRepricingConfig : GTLRObject
+
+/**
+ *  Output only. Resource name of the CustomerRepricingConfig. Format:
+ *  accounts/{account_id}/customers/{customer_id}/customerRepricingConfigs/{id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The configuration for bill modifications made by a reseller before
+ *  sending it to customers.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1RepricingConfig *repricingConfig;
+
+/**
+ *  Output only. Timestamp of an update to the repricing rule. If `update_time`
+ *  is after RepricingConfig.effective_invoice_month then it indicates this was
+ *  set mid-month.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Required Edu Attributes
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1EduData : GTLRObject
@@ -2503,6 +2592,60 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 /**
  *  A token to retrieve the next page of results. Pass to
  *  ListChannelPartnerLinksRequest.page_token to obtain that page.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for CloudChannelService.ListChannelPartnerRepricingConfigs.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "channelPartnerRepricingConfigs" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1ListChannelPartnerRepricingConfigsResponse : GTLRCollectionObject
+
+/**
+ *  The repricing configs for this channel partner.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerRepricingConfig *> *channelPartnerRepricingConfigs;
+
+/**
+ *  A token to retrieve the next page of results. Pass to
+ *  ListChannelPartnerRepricingConfigsRequest.page_token to obtain that page.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for CloudChannelService.ListCustomerRepricingConfigs.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "customerRepricingConfigs" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1ListCustomerRepricingConfigsResponse : GTLRCollectionObject
+
+/**
+ *  The repricing configs for this channel partner.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1CustomerRepricingConfig *> *customerRepricingConfigs;
+
+/**
+ *  A token to retrieve the next page of results. Pass to
+ *  ListCustomerRepricingConfigsRequest.page_token to obtain that page.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -3063,6 +3206,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 
 /**
+ *  An adjustment that applies a flat markup or markdown to an entire bill.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1PercentageAdjustment : GTLRObject
+
+/**
+ *  The percentage of the bill to adjust. For example: Mark down by 1% =>
+ *  "-1.00" Mark up by 1% => "1.00" Pass-Through => "0.00"
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeDecimal *percentage;
+
+@end
+
+
+/**
  *  Represents period in days/months/years.
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1Period : GTLRObject
@@ -3450,6 +3607,86 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *resizeUnitCount;
+
+@end
+
+
+/**
+ *  A type that represents the various adjustments you can apply to a bill.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1RepricingAdjustment : GTLRObject
+
+/** Flat markup or markdown on an entire bill. */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1PercentageAdjustment *percentageAdjustment;
+
+@end
+
+
+/**
+ *  Configuration for repricing a Google bill over a period of time.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1RepricingConfig : GTLRObject
+
+/** Required. Information about the adjustment. */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1RepricingAdjustment *adjustment;
+
+/**
+ *  Applies the repricing configuration at the channel partner level. This is
+ *  the only supported value for ChannelPartnerRepricingConfig.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1RepricingConfigChannelPartnerGranularity *channelPartnerGranularity;
+
+/**
+ *  Required. The YearMonth when these adjustments activate. The Day field needs
+ *  to be "0" since we only accept YearMonth repricing boundaries.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeDate *effectiveInvoiceMonth;
+
+/**
+ *  Applies the repricing configuration at the entitlement level. This is the
+ *  only supported value for CustomerRepricingConfig.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1RepricingConfigEntitlementGranularity *entitlementGranularity;
+
+/**
+ *  Required. The RebillingBasis to use for this bill. Specifies the relative
+ *  cost based on repricing costs you will apply.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1RepricingConfig_RebillingBasis_CostAtList
+ *        Use the list cost, also known as the MSRP. (Value: "COST_AT_LIST")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1RepricingConfig_RebillingBasis_DirectCustomerCost
+ *        Pass through all discounts except the Reseller Program Discount. If
+ *        this is the default cost base and no adjustments are specified, the
+ *        output cost will be exactly what the customer would see if they viewed
+ *        the bill in the Google Cloud Console. (Value: "DIRECT_CUSTOMER_COST")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1RepricingConfig_RebillingBasis_RebillingBasisUnspecified
+ *        Not used. (Value: "REBILLING_BASIS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *rebillingBasis;
+
+@end
+
+
+/**
+ *  Applies the repricing configuration at the channel partner level. The
+ *  channel partner value is derived from the resource name. Takes an empty json
+ *  object.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1RepricingConfigChannelPartnerGranularity : GTLRObject
+@end
+
+
+/**
+ *  Applies the repricing configuration at the entitlement level.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1RepricingConfigEntitlementGranularity : GTLRObject
+
+/**
+ *  Resource name of the entitlement. Format:
+ *  accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
+ */
+@property(nonatomic, copy, nullable) NSString *entitlement;
 
 @end
 
@@ -3948,6 +4185,97 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudchannel_GoogleRpcStatus_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Represents a whole or partial calendar date, such as a birthday. The time of
+ *  day and time zone are either specified elsewhere or are insignificant. The
+ *  date is relative to the Gregorian Calendar. This can represent one of the
+ *  following: * A full date, with non-zero year, month, and day values. * A
+ *  month and day, with a zero year (for example, an anniversary). * A year on
+ *  its own, with a zero month and a zero day. * A year and month, with a zero
+ *  day (for example, a credit card expiration date). Related types: *
+ *  google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
+ */
+@interface GTLRCloudchannel_GoogleTypeDate : GTLRObject
+
+/**
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
+ *  significant.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *day;
+
+/**
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+ *  month and day.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *month;
+
+/**
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
+ *  year.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *year;
+
+@end
+
+
+/**
+ *  A representation of a decimal value, such as 2.5. Clients may convert values
+ *  into language-native decimal formats, such as Java's BigDecimal or Python's
+ *  decimal.Decimal. [BigDecimal]:
+ *  https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/math/BigDecimal.html
+ *  [decimal.Decimal]: https://docs.python.org/3/library/decimal.html
+ */
+@interface GTLRCloudchannel_GoogleTypeDecimal : GTLRObject
+
+/**
+ *  The decimal value, as a string. The string representation consists of an
+ *  optional sign, `+` (`U+002B`) or `-` (`U+002D`), followed by a sequence of
+ *  zero or more decimal digits ("the integer"), optionally followed by a
+ *  fraction, optionally followed by an exponent. The fraction consists of a
+ *  decimal point followed by zero or more decimal digits. The string must
+ *  contain at least one digit in either the integer or the fraction. The number
+ *  formed by the sign, the integer and the fraction is referred to as the
+ *  significand. The exponent consists of the character `e` (`U+0065`) or `E`
+ *  (`U+0045`) followed by one or more decimal digits. Services **should**
+ *  normalize decimal values before storing them by: - Removing an
+ *  explicitly-provided `+` sign (`+2.5` -> `2.5`). - Replacing a zero-length
+ *  integer value with `0` (`.5` -> `0.5`). - Coercing the exponent character to
+ *  lower-case (`2.5E8` -> `2.5e8`). - Removing an explicitly-provided zero
+ *  exponent (`2.5e0` -> `2.5`). Services **may** perform additional
+ *  normalization based on its own needs and the internal decimal implementation
+ *  selected, such as shifting the decimal point and exponent value together
+ *  (example: `2.5e-1` <-> `0.25`). Additionally, services **may** preserve
+ *  trailing zeroes in the fraction to indicate increased precision, but are not
+ *  required to do so. Note that only the `.` character is supported to divide
+ *  the integer and the fraction; `,` **should not** be supported regardless of
+ *  locale. Additionally, thousand separators **should not** be supported. If a
+ *  service does support them, values **must** be normalized. The ENBF grammar
+ *  is: DecimalString = [Sign] Significand [Exponent]; Sign = '+' | '-';
+ *  Significand = Digits '.' | [Digits] '.' Digits; Exponent = ('e' | 'E')
+ *  [Sign] Digits; Digits = { '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' |
+ *  '8' | '9' }; Services **should** clearly document the range of supported
+ *  values, the maximum supported precision (total number of digits), and, if
+ *  applicable, the scale (number of digits after the decimal point), as well as
+ *  how it behaves when receiving out-of-bounds values. Services **may** choose
+ *  to accept values passed as input even when the value has a higher precision
+ *  or scale than the service supports, and **should** round the value to fit
+ *  the supported scale. Alternatively, the service **may** error with `400 Bad
+ *  Request` (`INVALID_ARGUMENT` in gRPC) if precision would be lost. Services
+ *  **should** error with `400 Bad Request` (`INVALID_ARGUMENT` in gRPC) if the
+ *  service receives a value outside of the supported range.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
+
 @end
 
 

@@ -61,6 +61,24 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRArtifactRegistry_BatchDeleteVersionsMetadata
+//
+
+@implementation GTLRArtifactRegistry_BatchDeleteVersionsMetadata
+@dynamic failedVersions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"failedVersions" : [GTLRArtifactRegistry_Version class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRArtifactRegistry_Binding
 //
 
@@ -700,6 +718,15 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRArtifactRegistry_UploadAptArtifactMetadata
+//
+
+@implementation GTLRArtifactRegistry_UploadAptArtifactMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRArtifactRegistry_UploadAptArtifactRequest
 //
 
@@ -732,6 +759,15 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 @implementation GTLRArtifactRegistry_UploadYumArtifactMediaResponse
 @dynamic operation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_UploadYumArtifactMetadata
+//
+
+@implementation GTLRArtifactRegistry_UploadYumArtifactMetadata
 @end
 
 

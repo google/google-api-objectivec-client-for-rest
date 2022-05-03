@@ -1856,7 +1856,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, strong, nullable) NSNumber *readOnly;
 
-/** Output only. List of revisons defined for the API proxy. */
+/** Output only. List of revisions defined for the API proxy. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *revision;
 
 @end
@@ -4731,7 +4731,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  GTLRApigee_GoogleCloudApigeeV1ListApiProxiesResponse
+ *  To change this message, in the same CL add a change log in
+ *  go/changing-api-proto-breaks-ui
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ListApiProxiesResponse : GTLRObject
 
@@ -5138,7 +5139,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  GTLRApigee_GoogleCloudApigeeV1ListSharedFlowsResponse
+ *  To change this message, in the same CL add a change log in
+ *  go/changing-api-proto-breaks-ui
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ListSharedFlowsResponse : GTLRObject
 
@@ -5383,6 +5385,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** Name of the resource for which the operation is operating on. */
 @property(nonatomic, copy, nullable) NSString *targetResourceName;
+
+/** Warnings encountered while executing the operation. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *warnings;
 
 @end
 
@@ -7673,7 +7678,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleTypeExpr *condition;
 
 /**
- *  Specifies the principals requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Google Cloud resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -7811,7 +7816,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
  *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
- *  but certain Cloud Platform services (such as Projects) might reject them.
+ *  but certain Google Cloud services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleIamV1Policy *policy;
 
@@ -7834,7 +7839,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
  *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;

@@ -150,10 +150,11 @@ NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLogConfig_LogType_Log
 //
 
 @implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse
-@dynamic access, explainedPolicies;
+@dynamic access, errors, explainedPolicies;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRPolicyTroubleshooter_GoogleRpcStatus class],
     @"explainedPolicies" : [GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy class]
   };
   return map;
@@ -234,6 +235,38 @@ NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLogConfig_LogType_Log
     @"bindings" : [GTLRPolicyTroubleshooter_GoogleIamV1Binding class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicyTroubleshooter_GoogleRpcStatus
+//
+
+@implementation GTLRPolicyTroubleshooter_GoogleRpcStatus
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRPolicyTroubleshooter_GoogleRpcStatus_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicyTroubleshooter_GoogleRpcStatus_Details_Item
+//
+
+@implementation GTLRPolicyTroubleshooter_GoogleRpcStatus_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

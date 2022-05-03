@@ -34,6 +34,8 @@
 @class GTLRNetworkServices_Operation_Metadata;
 @class GTLRNetworkServices_Operation_Response;
 @class GTLRNetworkServices_Policy;
+@class GTLRNetworkServices_ServiceBinding;
+@class GTLRNetworkServices_ServiceBinding_Labels;
 @class GTLRNetworkServices_Status;
 @class GTLRNetworkServices_Status_Details_Item;
 @class GTLRNetworkServices_TrafficPortSelector;
@@ -205,7 +207,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_Side
 @property(nonatomic, strong, nullable) GTLRNetworkServices_Expr *condition;
 
 /**
- *  Specifies the principals requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Google Cloud resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -256,8 +258,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_Side
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRNetworkServices_Empty : GTLRObject
 @end
@@ -564,6 +565,34 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_Side
 
 
 /**
+ *  Response returned by the ListServiceBindings method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "serviceBindings" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRNetworkServices_ListServiceBindingsResponse : GTLRCollectionObject
+
+/**
+ *  If there might be more results than those appearing in this response, then
+ *  `next_page_token` is included. To get the next set of results, call this
+ *  method again using the value of `next_page_token` as `page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of ServiceBinding resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_ServiceBinding *> *serviceBindings;
+
+@end
+
+
+/**
  *  A resource that represents Google Cloud Platform location.
  */
 @interface GTLRNetworkServices_Location : GTLRObject
@@ -833,6 +862,58 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_Side
 
 
 /**
+ *  ServiceBinding is the resource that defines a Service Directory Service to
+ *  be used in a BackendService resource.
+ */
+@interface GTLRNetworkServices_ServiceBinding : GTLRObject
+
+/** Output only. The timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. A free-text description of the resource. Max length 1024
+ *  characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Set of label tags associated with the ServiceBinding resource.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_ServiceBinding_Labels *labels;
+
+/**
+ *  Required. Name of the ServiceBinding resource. It matches pattern `projects/
+ *  * /locations/global/serviceBindings/service_binding_name>`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The full service directory service name of the format /projects/ *
+ *  /locations/ * /namespaces/ * /services/ *
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/** Output only. The timestamp when the resource was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Set of label tags associated with the ServiceBinding resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkServices_ServiceBinding_Labels : GTLRObject
+@end
+
+
+/**
  *  Request message for `SetIamPolicy` method.
  */
 @interface GTLRNetworkServices_SetIamPolicyRequest : GTLRObject
@@ -840,7 +921,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_Side
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
  *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
- *  but certain Cloud Platform services (such as Projects) might reject them.
+ *  but certain Google Cloud services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_Policy *policy;
 
@@ -908,7 +989,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_Side
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
  *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;

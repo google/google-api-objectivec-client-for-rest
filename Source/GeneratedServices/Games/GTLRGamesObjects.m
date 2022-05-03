@@ -936,8 +936,8 @@ NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecified = @"SNAPSHOT_T
 
 @implementation GTLRGames_Player
 @dynamic avatarImageUrl, bannerUrlLandscape, bannerUrlPortrait, displayName,
-         experienceInfo, friendStatus, kind, name, originalPlayerId, playerId,
-         profileSettings, title;
+         experienceInfo, friendStatus, gamePlayerId, kind, name,
+         originalPlayerId, playerId, profileSettings, title;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to

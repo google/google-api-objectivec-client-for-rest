@@ -41,6 +41,7 @@
 @class GTLRAndroidEnterprise_DeviceReport;
 @class GTLRAndroidEnterprise_DeviceReportUpdateEvent;
 @class GTLRAndroidEnterprise_Enterprise;
+@class GTLRAndroidEnterprise_EnterpriseAuthenticationAppLinkConfig;
 @class GTLRAndroidEnterprise_Entitlement;
 @class GTLRAndroidEnterprise_GroupLicense;
 @class GTLRAndroidEnterprise_Install;
@@ -1609,6 +1610,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 
 
 /**
+ *  An authentication URL configuration for the authenticator app of an identity
+ *  provider.
+ */
+@interface GTLRAndroidEnterprise_EnterpriseAuthenticationAppLinkConfig : GTLRObject
+
+/** An authentication url. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  GTLRAndroidEnterprise_EnterprisesListResponse
  */
 @interface GTLRAndroidEnterprise_EnterprisesListResponse : GTLRObject
@@ -2753,6 +2766,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *        at any time. (Value: "autoUpdatePostponed")
  */
 @property(nonatomic, copy, nullable) NSString *autoUpdateMode;
+
+/**
+ *  An authentication URL configuration for the authenticator app of an identity
+ *  provider. This helps to launch the identity provider's authenticator app
+ *  during the authentication happening in a private app using Android WebView.
+ *  Authenticator app should already be the [default
+ *  handler](https://developer.android.com/training/app-links/verify-site-associations)
+ *  for the authentication url on the device.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_EnterpriseAuthenticationAppLinkConfig *> *enterpriseAuthenticationAppLinkConfigs;
 
 /** The managed configuration for the product. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_ManagedConfiguration *managedConfiguration;

@@ -478,6 +478,17 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigtableAdmin_HotTablet
+//
+
+@implementation GTLRBigtableAdmin_HotTablet
+@dynamic endKey, endTime, name, nodeCpuUsagePercent, startKey, startTime,
+         tableName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigtableAdmin_Instance
 //
 
@@ -581,6 +592,28 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 + (NSString *)collectionItemsKey {
   return @"clusters";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_ListHotTabletsResponse
+//
+
+@implementation GTLRBigtableAdmin_ListHotTabletsResponse
+@dynamic hotTablets, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"hotTablets" : [GTLRBigtableAdmin_HotTablet class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"hotTablets";
 }
 
 @end

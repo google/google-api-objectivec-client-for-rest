@@ -501,6 +501,16 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROnDemandScanning_FileLocation
+//
+
+@implementation GTLROnDemandScanning_FileLocation
+@dynamic filePath;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROnDemandScanning_Fingerprint
 //
 
@@ -797,7 +807,16 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_PackageData
-@dynamic cpeUri, os, osVersion, package, packageType, unused, version;
+@dynamic cpeUri, fileLocation, hashDigest, os, osVersion, package, packageType,
+         unused, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fileLocation" : [GTLROnDemandScanning_FileLocation class]
+  };
+  return map;
+}
+
 @end
 
 

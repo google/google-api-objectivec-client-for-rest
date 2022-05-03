@@ -177,7 +177,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 @property(nonatomic, strong, nullable) GTLRPubsub_Expr *condition;
 
 /**
- *  Specifies the principals requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Google Cloud resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -562,7 +562,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  messages published with the same non-empty `ordering_key` value will be
  *  delivered to subscribers in the order in which they are received by the
  *  Pub/Sub system. All `PubsubMessage`s published in a given `PublishRequest`
- *  must specify the same `ordering_key` value.
+ *  must specify the same `ordering_key` value. For more information, see
+ *  [ordering messages](https://cloud.google.com/pubsub/docs/ordering).
  */
 @property(nonatomic, copy, nullable) NSString *orderingKey;
 
@@ -652,6 +653,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 /**
  *  Contains information needed for generating an [OpenID Connect
  *  token](https://developers.google.com/identity/protocols/OpenIDConnect).
+ *  [Service account email](https://cloud.google.com/iam/docs/service-accounts)
+ *  used for generating the OIDC token. For more information on setting up
+ *  authentication, see [Push
+ *  subscriptions](https://cloud.google.com/pubsub/docs/push).
  */
 @interface GTLRPubsub_OidcToken : GTLRObject
 
@@ -665,12 +670,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  */
 @property(nonatomic, copy, nullable) NSString *audience;
 
-/**
- *  [Service account email](https://cloud.google.com/iam/docs/service-accounts)
- *  to be used for generating the OIDC token. See [Setting up push
- *  authentication](/pubsub/docs/push#setting_up_for_push_authentication) for
- *  more details.
- */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
 
 @end
@@ -1065,7 +1064,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
  *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
- *  but certain Cloud Platform services (such as Projects) might reject them.
+ *  but certain Google Cloud services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_Policy *policy;
 
@@ -1318,7 +1317,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
  *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;

@@ -86,6 +86,29 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
 
 @end
 
+@implementation GTLRShoppingContentQuery_AccountsbyexternalselleridGet
+
+@dynamic externalSellerId, merchantId;
+
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                   externalSellerId:(NSString *)externalSellerId {
+  NSArray *pathParams = @[
+    @"externalSellerId", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/accountsbyexternalsellerid/{externalSellerId}";
+  GTLRShoppingContentQuery_AccountsbyexternalselleridGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.externalSellerId = externalSellerId;
+  query.expectedObjectClass = [GTLRShoppingContent_Account class];
+  query.loggingName = @"content.accountsbyexternalsellerid.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_AccountsClaimwebsite
 
 @dynamic accountId, merchantId, overwrite;
@@ -527,6 +550,36 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
   query.carrierAccountId = carrierAccountId;
   query.expectedObjectClass = [GTLRShoppingContent_AccountReturnCarrier class];
   query.loggingName = @"content.accounts.returncarrier.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_AccountstatusesbyexternalselleridGet
+
+@dynamic destinations, externalSellerId, merchantId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"destinations" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                   externalSellerId:(NSString *)externalSellerId {
+  NSArray *pathParams = @[
+    @"externalSellerId", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/accountstatusesbyexternalsellerid/{externalSellerId}";
+  GTLRShoppingContentQuery_AccountstatusesbyexternalselleridGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.externalSellerId = externalSellerId;
+  query.expectedObjectClass = [GTLRShoppingContent_AccountStatus class];
+  query.loggingName = @"content.accountstatusesbyexternalsellerid.get";
   return query;
 }
 
@@ -2879,6 +2932,78 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
   query.targetMerchantId = targetMerchantId;
   query.expectedObjectClass = [GTLRShoppingContent_PosSaleResponse class];
   query.loggingName = @"content.pos.sale";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ProductdeliverytimeCreate
+
+@dynamic merchantId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_ProductDeliveryTime *)object
+                     merchantId:(long long)merchantId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/productdeliverytime";
+  GTLRShoppingContentQuery_ProductdeliverytimeCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_ProductDeliveryTime class];
+  query.loggingName = @"content.productdeliverytime.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ProductdeliverytimeDelete
+
+@dynamic merchantId, productId;
+
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                          productId:(NSString *)productId {
+  NSArray *pathParams = @[
+    @"merchantId", @"productId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/productdeliverytime/{productId}";
+  GTLRShoppingContentQuery_ProductdeliverytimeDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.productId = productId;
+  query.loggingName = @"content.productdeliverytime.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ProductdeliverytimeGet
+
+@dynamic merchantId, productId;
+
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                          productId:(NSString *)productId {
+  NSArray *pathParams = @[
+    @"merchantId", @"productId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/productdeliverytime/{productId}";
+  GTLRShoppingContentQuery_ProductdeliverytimeGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.productId = productId;
+  query.expectedObjectClass = [GTLRShoppingContent_ProductDeliveryTime class];
+  query.loggingName = @"content.productdeliverytime.get";
   return query;
 }
 

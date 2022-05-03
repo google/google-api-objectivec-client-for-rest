@@ -302,7 +302,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The Google Analytics Realtime API returns a customized report of realtime
  *  event data for your property. These reports show events and usage from the
- *  last 30 minutes.
+ *  last 30 minutes. For a guide to constructing realtime requests &
+ *  understanding responses, see [Creating a Realtime
+ *  Report](https://developers.google.com/analytics/devguides/reporting/data/v1/realtime-basics).
  *
  *  Method: analyticsdata.properties.runRealtimeReport
  *
@@ -326,7 +328,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  The Google Analytics Realtime API returns a customized report of realtime
  *  event data for your property. These reports show events and usage from the
- *  last 30 minutes.
+ *  last 30 minutes. For a guide to constructing realtime requests &
+ *  understanding responses, see [Creating a Realtime
+ *  Report](https://developers.google.com/analytics/devguides/reporting/data/v1/realtime-basics).
  *
  *  @param object The @c GTLRAnalyticsData_RunRealtimeReportRequest to include
  *    in the query.
@@ -350,7 +354,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  the requested dimensions and metrics. Metrics are individual measurements of
  *  user activity on your property, such as active users or event count.
  *  Dimensions break down metrics across some common criteria, such as country
- *  or event name.
+ *  or event name. For a guide to constructing requests & understanding
+ *  responses, see [Creating a
+ *  Report](https://developers.google.com/analytics/devguides/reporting/data/v1/basics).
  *
  *  Method: analyticsdata.properties.runReport
  *
@@ -379,7 +385,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  the requested dimensions and metrics. Metrics are individual measurements of
  *  user activity on your property, such as active users or event count.
  *  Dimensions break down metrics across some common criteria, such as country
- *  or event name.
+ *  or event name. For a guide to constructing requests & understanding
+ *  responses, see [Creating a
+ *  Report](https://developers.google.com/analytics/devguides/reporting/data/v1/basics).
  *
  *  @param object The @c GTLRAnalyticsData_RunReportRequest to include in the
  *    query.

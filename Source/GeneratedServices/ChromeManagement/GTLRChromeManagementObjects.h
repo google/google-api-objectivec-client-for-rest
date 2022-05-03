@@ -171,7 +171,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_System_SystemAndroid;
 /**
- *  Chrome OS operating system.
+ *  ChromeOS operating system.
  *
  *  Value: "SYSTEM_CROS"
  */
@@ -667,7 +667,10 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 /** Output only. Timestamp of when the sample was collected on device */
 @property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
 
-/** Output only. Sampling data for the battery. */
+/**
+ *  Output only. Sampling data for the battery sorted in a decreasing order of
+ *  report_time.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1BatterySampleReport *> *sample;
 
 /** Output only. Battery serial number. */
@@ -717,7 +720,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_System_SystemAndroid
  *        Android operating system. (Value: "SYSTEM_ANDROID")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_System_SystemCros
- *        Chrome OS operating system. (Value: "SYSTEM_CROS")
+ *        ChromeOS operating system. (Value: "SYSTEM_CROS")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_System_SystemIos
  *        Apple iOS operating system. (Value: "SYSTEM_IOS")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_System_SystemLinux
@@ -760,7 +763,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 @property(nonatomic, strong, nullable) NSNumber *isCwsHosted;
 
 /**
- *  Output only. Whether the app is only for Kiosk mode on Chrome OS devices
+ *  Output only. Whether the app is only for Kiosk mode on ChromeOS devices
  *
  *  Uses NSNumber of boolValue.
  */
@@ -774,7 +777,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 @property(nonatomic, strong, nullable) NSNumber *isTheme;
 
 /**
- *  Output only. Whether this app is enabled for Kiosk mode on Chrome OS devices
+ *  Output only. Whether this app is enabled for Kiosk mode on ChromeOS devices
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1602,7 +1605,10 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryDevice : GTLRObject
 
-/** Output only. Audio reports collected periodically. */
+/**
+ *  Output only. Audio reports collected periodically sorted in a decreasing
+ *  order of report_time.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1AudioStatusReport *> *audioStatusReport;
 
 /** Output only. Information on battery specs for the device. */
@@ -1614,7 +1620,10 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 /** Output only. Information regarding CPU specs for the device. */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1CpuInfo *> *cpuInfo;
 
-/** Output only. CPU status reports collected periodically. */
+/**
+ *  Output only. CPU status reports collected periodically sorted in a
+ *  decreasing order of report_time.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1CpuStatusReport *> *cpuStatusReport;
 
 /**
@@ -1624,7 +1633,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /**
  *  Output only. The unique Directory API ID of the device. This value is the
- *  same as the Admin Console's Directory API ID in the Chrome OS Devices tab
+ *  same as the Admin Console's Directory API ID in the ChromeOS Devices tab
  */
 @property(nonatomic, copy, nullable) NSString *deviceId;
 
@@ -1640,7 +1649,10 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 /** Output only. Information regarding memory specs for the device. */
 @property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1MemoryInfo *memoryInfo;
 
-/** Output only. Memory status reports collected periodically. */
+/**
+ *  Output only. Memory status reports collected periodically sorted decreasing
+ *  by report_time.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1MemoryStatusReport *> *memoryStatusReport;
 
 /** Output only. Resource name of the device. */
@@ -1659,7 +1671,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /**
  *  Output only. Device serial number. This value is the same as the Admin
- *  Console's Serial Number in the Chrome OS Devices tab.
+ *  Console's Serial Number in the ChromeOS Devices tab.
  */
 @property(nonatomic, copy, nullable) NSString *serialNumber;
 

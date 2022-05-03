@@ -294,6 +294,33 @@
 
 @end
 
+@implementation GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRBigQueryReservation_Assignment *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigQueryReservation_Assignment class];
+  query.loggingName = @"bigqueryreservation.projects.locations.reservations.assignments.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigQueryReservationQuery_ProjectsLocationsReservationsCreate
 
 @dynamic parent, reservationId;

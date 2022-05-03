@@ -24,6 +24,7 @@
 @class GTLRDataproc_AutoscalingConfig;
 @class GTLRDataproc_AutoscalingPolicy;
 @class GTLRDataproc_AutoscalingPolicy_Labels;
+@class GTLRDataproc_AuxiliaryServicesConfig;
 @class GTLRDataproc_BasicAutoscalingAlgorithm;
 @class GTLRDataproc_BasicYarnAutoscalingConfig;
 @class GTLRDataproc_Batch;
@@ -54,6 +55,11 @@
 @class GTLRDataproc_GceClusterConfig_Metadata;
 @class GTLRDataproc_GetPolicyOptions;
 @class GTLRDataproc_GkeClusterConfig;
+@class GTLRDataproc_GkeNodeConfig;
+@class GTLRDataproc_GkeNodePoolAcceleratorConfig;
+@class GTLRDataproc_GkeNodePoolAutoscalingConfig;
+@class GTLRDataproc_GkeNodePoolConfig;
+@class GTLRDataproc_GkeNodePoolTarget;
 @class GTLRDataproc_HadoopJob;
 @class GTLRDataproc_HadoopJob_Properties;
 @class GTLRDataproc_HiveJob;
@@ -73,6 +79,10 @@
 @class GTLRDataproc_JobScheduling;
 @class GTLRDataproc_JobStatus;
 @class GTLRDataproc_KerberosConfig;
+@class GTLRDataproc_KubernetesClusterConfig;
+@class GTLRDataproc_KubernetesSoftwareConfig;
+@class GTLRDataproc_KubernetesSoftwareConfig_ComponentVersion;
+@class GTLRDataproc_KubernetesSoftwareConfig_Properties;
 @class GTLRDataproc_LifecycleConfig;
 @class GTLRDataproc_LoggingConfig;
 @class GTLRDataproc_LoggingConfig_DriverLogLevels;
@@ -131,6 +141,7 @@
 @class GTLRDataproc_Status_Details_Item;
 @class GTLRDataproc_TemplateParameter;
 @class GTLRDataproc_ValueValidation;
+@class GTLRDataproc_VirtualClusterConfig;
 @class GTLRDataproc_WorkflowGraph;
 @class GTLRDataproc_WorkflowMetadata_Parameters;
 @class GTLRDataproc_WorkflowNode;
@@ -363,6 +374,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6Goo
  *  Value: "PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_GkeNodePoolTarget.roles
+
+/**
+ *  Run controllers and webhooks.
+ *
+ *  Value: "CONTROLLER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_GkeNodePoolTarget_Roles_Controller;
+/**
+ *  Any roles that are not directly assigned to a NodePool run on the default
+ *  role's NodePool.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_GkeNodePoolTarget_Roles_Default;
+/**
+ *  Role is unspecified.
+ *
+ *  Value: "ROLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_GkeNodePoolTarget_Roles_RoleUnspecified;
+/**
+ *  Run spark driver.
+ *
+ *  Value: "SPARK_DRIVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_GkeNodePoolTarget_Roles_SparkDriver;
+/**
+ *  Run spark executors.
+ *
+ *  Value: "SPARK_EXECUTOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_GkeNodePoolTarget_Roles_SparkExecutor;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_InstanceGroupConfig.preemptibility
@@ -1019,6 +1065,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  Auxiliary services configuration for a Cluster.
+ */
+@interface GTLRDataproc_AuxiliaryServicesConfig : GTLRObject
+
+/** Optional. The Hive Metastore configuration for this workload. */
+@property(nonatomic, strong, nullable) GTLRDataproc_MetastoreConfig *metastoreConfig;
+
+/** Optional. The Spark History Server configuration for the workload. */
+@property(nonatomic, strong, nullable) GTLRDataproc_SparkHistoryServerConfig *sparkHistoryServerConfig;
+
+@end
+
+
+/**
  *  Basic algorithm for autoscaling.
  */
 @interface GTLRDataproc_BasicAutoscalingAlgorithm : GTLRObject
@@ -1355,7 +1415,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. The cluster config for a cluster of Compute Engine Instances. Note
  *  that Dataproc may set default values, and values may change when clusters
- *  are updated.
+ *  are updated.Exactly one of ClusterConfig or VirtualClusterConfig must be
+ *  specified.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_ClusterConfig *config;
 
@@ -1386,6 +1447,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /** Output only. The previous cluster status. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_ClusterStatus *> *statusHistory;
+
+/**
+ *  Optional. The virtual cluster config, used when creating a Dataproc cluster
+ *  that does not directly control the underlying compute resources, for
+ *  example, when creating a Dataproc-on-GKE cluster
+ *  (https://cloud.google.com/dataproc/docs/concepts/jobs/dataproc-gke#create-a-dataproc-on-gke-cluster).
+ *  Note that Dataproc may set default values, and values may change when
+ *  clusters are updated. Exactly one of config or virtualClusterConfig must be
+ *  specified.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_VirtualClusterConfig *virtualClusterConfig;
 
 @end
 
@@ -1447,10 +1519,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) GTLRDataproc_GceClusterConfig *gceClusterConfig;
 
 /**
- *  Optional. BETA. The Kubernetes Engine config for Dataproc clusters deployed
- *  to Kubernetes. Setting this is considered mutually exclusive with Compute
- *  Engine-based options such as gce_cluster_config, master_config,
- *  worker_config, secondary_worker_config, and autoscaling_config.
+ *  Optional. Deprecated. Use VirtualClusterConfig based clusters instead. BETA.
+ *  The Kubernetes Engine config for Dataproc clusters deployed to Kubernetes.
+ *  Setting this is considered mutually exclusive with Compute Engine-based
+ *  options such as gce_cluster_config, master_config, worker_config,
+ *  secondary_worker_config, and autoscaling_config.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_GkeClusterConfig *gkeClusterConfig;
 
@@ -2169,8 +2242,188 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @interface GTLRDataproc_GkeClusterConfig : GTLRObject
 
-/** Optional. A target for the deployment. */
+/**
+ *  Optional. A target GKE cluster to deploy to. It must be in the same project
+ *  and region as the Dataproc cluster (the GKE cluster can be zonal or
+ *  regional). Format:
+ *  'projects/{project}/locations/{location}/clusters/{cluster_id}'
+ */
+@property(nonatomic, copy, nullable) NSString *gkeClusterTarget;
+
+/**
+ *  Optional. Deprecated. Use gkeClusterTarget. Used only for the deprecated
+ *  beta. A target for the deployment.
+ */
 @property(nonatomic, strong, nullable) GTLRDataproc_NamespacedGkeDeploymentTarget *namespacedGkeDeploymentTarget;
+
+/**
+ *  Optional. GKE NodePools where workloads will be scheduled. At least one node
+ *  pool must be assigned the 'default' role. Each role can be given to only a
+ *  single NodePoolTarget. All NodePools must have the same location settings.
+ *  If a nodePoolTarget is not specified, Dataproc constructs a default
+ *  nodePoolTarget.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_GkeNodePoolTarget *> *nodePoolTarget;
+
+@end
+
+
+/**
+ *  Parameters that describe cluster nodes.
+ */
+@interface GTLRDataproc_GkeNodeConfig : GTLRObject
+
+/**
+ *  Optional. A list of hardware accelerators
+ *  (https://cloud.google.com/compute/docs/gpus) to attach to each node.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_GkeNodePoolAcceleratorConfig *> *accelerators;
+
+/**
+ *  Optional. The number of local SSD disks to attach to the node, which is
+ *  limited by the maximum number of disks allowable per zone (see Adding Local
+ *  SSDs (https://cloud.google.com/compute/docs/disks/local-ssd)).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *localSsdCount;
+
+/**
+ *  Optional. The name of a Compute Engine machine type
+ *  (https://cloud.google.com/compute/docs/machine-types).
+ */
+@property(nonatomic, copy, nullable) NSString *machineType;
+
+/**
+ *  Optional. Minimum CPU platform
+ *  (https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform)
+ *  to be used by this instance. The instance may be scheduled on the specified
+ *  or a newer CPU platform. Specify the friendly names of CPU platforms, such
+ *  as "Intel Haswell"` or Intel Sandy Bridge".
+ */
+@property(nonatomic, copy, nullable) NSString *minCpuPlatform;
+
+/**
+ *  Optional. Whether the nodes are created as preemptible VM instances
+ *  (https://cloud.google.com/compute/docs/instances/preemptible).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *preemptible;
+
+/**
+ *  Optional. Spot flag for enabling Spot VM, which is a rebrand of the existing
+ *  preemptible flag.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *spot;
+
+@end
+
+
+/**
+ *  A GkeNodeConfigAcceleratorConfig represents a Hardware Accelerator request
+ *  for a NodePool.
+ */
+@interface GTLRDataproc_GkeNodePoolAcceleratorConfig : GTLRObject
+
+/**
+ *  The number of accelerator cards exposed to an instance.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *acceleratorCount;
+
+/** The accelerator type resource namename (see GPUs on Compute Engine). */
+@property(nonatomic, copy, nullable) NSString *acceleratorType;
+
+/**
+ *  Size of partitions to create on the GPU. Valid values are described in the
+ *  NVIDIA mig user guide
+ *  (https://docs.nvidia.com/datacenter/tesla/mig-user-guide/#partitioning).
+ */
+@property(nonatomic, copy, nullable) NSString *gpuPartitionSize;
+
+@end
+
+
+/**
+ *  GkeNodePoolAutoscaling contains information the cluster autoscaler needs to
+ *  adjust the size of the node pool to the current cluster usage.
+ */
+@interface GTLRDataproc_GkeNodePoolAutoscalingConfig : GTLRObject
+
+/**
+ *  The maximum number of nodes in the NodePool. Must be >= min_node_count.
+ *  Note: Quota must be sufficient to scale up the cluster.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxNodeCount;
+
+/**
+ *  The minimum number of nodes in the NodePool. Must be >= 0 and <=
+ *  max_node_count.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minNodeCount;
+
+@end
+
+
+/**
+ *  The configuration of a GKE NodePool used by a Dataproc-on-GKE cluster
+ *  (https://cloud.google.com/dataproc/docs/concepts/jobs/dataproc-gke#create-a-dataproc-on-gke-cluster).
+ */
+@interface GTLRDataproc_GkeNodePoolConfig : GTLRObject
+
+/**
+ *  Optional. The autoscaler configuration for this NodePool. The autoscaler is
+ *  enabled only when a valid configuration is present.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_GkeNodePoolAutoscalingConfig *autoscaling;
+
+/** Optional. The node pool configuration. */
+@property(nonatomic, strong, nullable) GTLRDataproc_GkeNodeConfig *config;
+
+/**
+ *  Optional. The list of Compute Engine zones
+ *  (https://cloud.google.com/compute/docs/zones#available) where NodePool's
+ *  nodes will be located.Note: Currently, only one zone may be specified.If a
+ *  location is not specified during NodePool creation, Dataproc will choose a
+ *  location.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
+
+@end
+
+
+/**
+ *  GKE NodePools that Dataproc workloads run on.
+ */
+@interface GTLRDataproc_GkeNodePoolTarget : GTLRObject
+
+/**
+ *  Required. The target GKE NodePool. Format:
+ *  'projects/{project}/locations/{location}/clusters/{cluster}/nodePools/{node_pool}'
+ */
+@property(nonatomic, copy, nullable) NSString *nodePool;
+
+/**
+ *  Input only. The configuration for the GKE NodePool.If specified, Dataproc
+ *  attempts to create a NodePool with the specified shape. If one with the same
+ *  name already exists, it is verified against all specified fields. If a field
+ *  differs, the virtual cluster creation will fail.If omitted, any NodePool
+ *  with the specified name is used. If a NodePool with the specified name does
+ *  not exist, Dataproc create a NodePool with default values.This is an input
+ *  only field. It will not be returned by the API.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_GkeNodePoolConfig *nodePoolConfig;
+
+/** Required. The types of role for a GKE NodePool */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
 
 @end
 
@@ -2991,6 +3244,87 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  The configuration for running the Dataproc cluster on Kubernetes.
+ */
+@interface GTLRDataproc_KubernetesClusterConfig : GTLRObject
+
+/** Required. The configuration for running the Dataproc cluster on GKE. */
+@property(nonatomic, strong, nullable) GTLRDataproc_GkeClusterConfig *gkeClusterConfig;
+
+/**
+ *  Optional. A namespace within the Kubernetes cluster to deploy into. If this
+ *  namespace does not exist, it is created. If it exists, Dataproc verifies
+ *  that another Dataproc VirtualCluster is not installed into it. If not
+ *  specified, the name of the Dataproc Cluster is used.
+ */
+@property(nonatomic, copy, nullable) NSString *kubernetesNamespace;
+
+/**
+ *  Optional. The software configuration for this Dataproc cluster running on
+ *  Kubernetes.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_KubernetesSoftwareConfig *kubernetesSoftwareConfig;
+
+@end
+
+
+/**
+ *  The software configuration for this Dataproc cluster running on Kubernetes.
+ */
+@interface GTLRDataproc_KubernetesSoftwareConfig : GTLRObject
+
+/**
+ *  The components that should be installed in this Dataproc cluster. The key
+ *  must be a string from the KubernetesComponent enumeration. The value is the
+ *  version of the software to be installed. At least one entry must be
+ *  specified.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_KubernetesSoftwareConfig_ComponentVersion *componentVersion;
+
+/**
+ *  The properties to set on daemon config files.Property keys are specified in
+ *  prefix:property format, for example spark:spark.kubernetes.container.image.
+ *  The following are supported prefixes and their mappings: spark:
+ *  spark-defaults.confFor more information, see Cluster properties
+ *  (https://cloud.google.com/dataproc/docs/concepts/cluster-properties).
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_KubernetesSoftwareConfig_Properties *properties;
+
+@end
+
+
+/**
+ *  The components that should be installed in this Dataproc cluster. The key
+ *  must be a string from the KubernetesComponent enumeration. The value is the
+ *  version of the software to be installed. At least one entry must be
+ *  specified.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_KubernetesSoftwareConfig_ComponentVersion : GTLRObject
+@end
+
+
+/**
+ *  The properties to set on daemon config files.Property keys are specified in
+ *  prefix:property format, for example spark:spark.kubernetes.container.image.
+ *  The following are supported prefixes and their mappings: spark:
+ *  spark-defaults.confFor more information, see Cluster properties
+ *  (https://cloud.google.com/dataproc/docs/concepts/cluster-properties).
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_KubernetesSoftwareConfig_Properties : GTLRObject
+@end
+
+
+/**
  *  Specifies the cluster auto-delete schedule configuration.
  */
 @interface GTLRDataproc_LifecycleConfig : GTLRObject
@@ -3348,7 +3682,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  A full, namespace-isolated deployment target for an existing GKE cluster.
+ *  Deprecated. Used only for the deprecated beta. A full, namespace-isolated
+ *  deployment target for an existing GKE cluster.
  */
 @interface GTLRDataproc_NamespacedGkeDeploymentTarget : GTLRObject
 
@@ -4900,6 +5235,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /** Required. List of allowed values for the parameter. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  Dataproc cluster config for a cluster that does not directly control the
+ *  underlying compute resources, such as a Dataproc-on-GKE cluster
+ *  (https://cloud.google.com/dataproc/docs/concepts/jobs/dataproc-gke#create-a-dataproc-on-gke-cluster).
+ */
+@interface GTLRDataproc_VirtualClusterConfig : GTLRObject
+
+/** Optional. Configuration of auxiliary services used by this cluster. */
+@property(nonatomic, strong, nullable) GTLRDataproc_AuxiliaryServicesConfig *auxiliaryServicesConfig;
+
+/**
+ *  Required. The configuration for running the Dataproc cluster on Kubernetes.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_KubernetesClusterConfig *kubernetesClusterConfig;
+
+/**
+ *  Optional. A Storage bucket used to stage job dependencies, config files, and
+ *  job driver console output. If you do not specify a staging bucket, Cloud
+ *  Dataproc will determine a Cloud Storage location (US, ASIA, or EU) for your
+ *  cluster's staging bucket according to the Compute Engine zone where your
+ *  cluster is deployed, and then create and manage this project-level,
+ *  per-location bucket (see Dataproc staging and temp buckets
+ *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/staging-bucket)).
+ *  This field requires a Cloud Storage bucket name, not a gs://... URI to a
+ *  Cloud Storage bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *stagingBucket;
 
 @end
 

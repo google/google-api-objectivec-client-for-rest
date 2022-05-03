@@ -28,9 +28,11 @@
 @class GTLRCloudchannel_GoogleCloudChannelV1ChangeParametersRequest;
 @class GTLRCloudchannel_GoogleCloudChannelV1ChangeRenewalSettingsRequest;
 @class GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink;
+@class GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerRepricingConfig;
 @class GTLRCloudchannel_GoogleCloudChannelV1CheckCloudIdentityAccountsExistRequest;
 @class GTLRCloudchannel_GoogleCloudChannelV1CreateEntitlementRequest;
 @class GTLRCloudchannel_GoogleCloudChannelV1Customer;
+@class GTLRCloudchannel_GoogleCloudChannelV1CustomerRepricingConfig;
 @class GTLRCloudchannel_GoogleCloudChannelV1ImportCustomerRequest;
 @class GTLRCloudchannel_GoogleCloudChannelV1ListTransferableOffersRequest;
 @class GTLRCloudchannel_GoogleCloudChannelV1ListTransferableSkusRequest;
@@ -110,6 +112,324 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Creates a ChannelPartnerRepricingConfig. Call this method to set
+ *  modifications for a specific ChannelPartner's bill. You can only create
+ *  configs if the RepricingConfig.effective_invoice_month is a future month. If
+ *  needed, you can create a config for the current month, with some
+ *  restrictions. When creating a config for a future month, make sure there are
+ *  no existing configs for that RepricingConfig.effective_invoice_month. The
+ *  following restrictions are for creating configs in the current month. * This
+ *  functionality is reserved for recovering from an erroneous config, and
+ *  should not be used for regular business cases. * The new config will not
+ *  modify exports used with other configs. Changes to the config may be
+ *  immediate, but may take up to 24 hours. * There is a limit of ten configs
+ *  for any ChannelPartner or RepricingConfig.effective_invoice_month. * The
+ *  contained ChannelPartnerRepricingConfig.repricing_config vaule must be
+ *  different from the value used in the current config for a ChannelPartner.
+ *  Possible Error Codes: * PERMISSION_DENIED: If the account making the request
+ *  and the account being queried are different. * INVALID_ARGUMENT: Missing or
+ *  invalid required parameters in the request. Also displays if the updated
+ *  config is for the current month or past months. * NOT_FOUND: The
+ *  ChannelPartnerRepricingConfig specified does not exist or is not associated
+ *  with the given account. * INTERNAL: Any non-user error related to technical
+ *  issues in the backend. In this case, contact Cloud Channel support. Return
+ *  Value: If successful, the updated ChannelPartnerRepricingConfig resource,
+ *  otherwise returns an error.
+ *
+ *  Method: cloudchannel.accounts.channelPartnerLinks.channelPartnerRepricingConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_AccountsChannelPartnerLinksChannelPartnerRepricingConfigsCreate : GTLRCloudchannelQuery
+
+/**
+ *  Required. The resource name of the ChannelPartner that will receive the
+ *  repricing config. Parent uses the format:
+ *  accounts/{account_id}/channelPartnerLinks/{channel_partner_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerRepricingConfig.
+ *
+ *  Creates a ChannelPartnerRepricingConfig. Call this method to set
+ *  modifications for a specific ChannelPartner's bill. You can only create
+ *  configs if the RepricingConfig.effective_invoice_month is a future month. If
+ *  needed, you can create a config for the current month, with some
+ *  restrictions. When creating a config for a future month, make sure there are
+ *  no existing configs for that RepricingConfig.effective_invoice_month. The
+ *  following restrictions are for creating configs in the current month. * This
+ *  functionality is reserved for recovering from an erroneous config, and
+ *  should not be used for regular business cases. * The new config will not
+ *  modify exports used with other configs. Changes to the config may be
+ *  immediate, but may take up to 24 hours. * There is a limit of ten configs
+ *  for any ChannelPartner or RepricingConfig.effective_invoice_month. * The
+ *  contained ChannelPartnerRepricingConfig.repricing_config vaule must be
+ *  different from the value used in the current config for a ChannelPartner.
+ *  Possible Error Codes: * PERMISSION_DENIED: If the account making the request
+ *  and the account being queried are different. * INVALID_ARGUMENT: Missing or
+ *  invalid required parameters in the request. Also displays if the updated
+ *  config is for the current month or past months. * NOT_FOUND: The
+ *  ChannelPartnerRepricingConfig specified does not exist or is not associated
+ *  with the given account. * INTERNAL: Any non-user error related to technical
+ *  issues in the backend. In this case, contact Cloud Channel support. Return
+ *  Value: If successful, the updated ChannelPartnerRepricingConfig resource,
+ *  otherwise returns an error.
+ *
+ *  @param object The @c
+ *    GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerRepricingConfig to
+ *    include in the query.
+ *  @param parent Required. The resource name of the ChannelPartner that will
+ *    receive the repricing config. Parent uses the format:
+ *    accounts/{account_id}/channelPartnerLinks/{channel_partner_id}
+ *
+ *  @return GTLRCloudchannelQuery_AccountsChannelPartnerLinksChannelPartnerRepricingConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerRepricingConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the given ChannelPartnerRepricingConfig permanently. You can only
+ *  delete configs if their RepricingConfig.effective_invoice_month is set to a
+ *  date after the current month. Possible error codes: * PERMISSION_DENIED: The
+ *  account making the request does not own this customer. * INVALID_ARGUMENT:
+ *  Required request parameters are missing or invalid. * FAILED_PRECONDITION:
+ *  The ChannelPartnerRepricingConfig is active or in the past. * NOT_FOUND: No
+ *  ChannelPartnerRepricingConfig found for the name in the request.
+ *
+ *  Method: cloudchannel.accounts.channelPartnerLinks.channelPartnerRepricingConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_AccountsChannelPartnerLinksChannelPartnerRepricingConfigsDelete : GTLRCloudchannelQuery
+
+/**
+ *  Required. The resource name of the channel partner repricing config rule to
+ *  delete.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudchannel_GoogleProtobufEmpty.
+ *
+ *  Deletes the given ChannelPartnerRepricingConfig permanently. You can only
+ *  delete configs if their RepricingConfig.effective_invoice_month is set to a
+ *  date after the current month. Possible error codes: * PERMISSION_DENIED: The
+ *  account making the request does not own this customer. * INVALID_ARGUMENT:
+ *  Required request parameters are missing or invalid. * FAILED_PRECONDITION:
+ *  The ChannelPartnerRepricingConfig is active or in the past. * NOT_FOUND: No
+ *  ChannelPartnerRepricingConfig found for the name in the request.
+ *
+ *  @param name Required. The resource name of the channel partner repricing
+ *    config rule to delete.
+ *
+ *  @return GTLRCloudchannelQuery_AccountsChannelPartnerLinksChannelPartnerRepricingConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets information about how a Distributor modifies their bill before sending
+ *  it to a ChannelPartner. Possible Error Codes: * PERMISSION_DENIED: If the
+ *  account making the request and the account being queried are different. *
+ *  NOT_FOUND: The ChannelPartnerRepricingConfig was not found. * INTERNAL: Any
+ *  non-user error related to technical issues in the backend. In this case,
+ *  contact Cloud Channel support. Return Value: If successful, the
+ *  ChannelPartnerRepricingConfig resource, otherwise returns an error.
+ *
+ *  Method: cloudchannel.accounts.channelPartnerLinks.channelPartnerRepricingConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_AccountsChannelPartnerLinksChannelPartnerRepricingConfigsGet : GTLRCloudchannelQuery
+
+/**
+ *  Required. The resource name of the ChannelPartnerRepricingConfig Format:
+ *  accounts/{account_id}/channelPartnerLinks/{channel_partner_id}/channelPartnerRepricingConfigs/{id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerRepricingConfig.
+ *
+ *  Gets information about how a Distributor modifies their bill before sending
+ *  it to a ChannelPartner. Possible Error Codes: * PERMISSION_DENIED: If the
+ *  account making the request and the account being queried are different. *
+ *  NOT_FOUND: The ChannelPartnerRepricingConfig was not found. * INTERNAL: Any
+ *  non-user error related to technical issues in the backend. In this case,
+ *  contact Cloud Channel support. Return Value: If successful, the
+ *  ChannelPartnerRepricingConfig resource, otherwise returns an error.
+ *
+ *  @param name Required. The resource name of the ChannelPartnerRepricingConfig
+ *    Format:
+ *    accounts/{account_id}/channelPartnerLinks/{channel_partner_id}/channelPartnerRepricingConfigs/{id}.
+ *
+ *  @return GTLRCloudchannelQuery_AccountsChannelPartnerLinksChannelPartnerRepricingConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists information about how a Reseller modifies their bill before sending it
+ *  to a ChannelPartner. Possible Error Codes: * PERMISSION_DENIED: If the
+ *  account making the request and the account being queried are different. *
+ *  NOT_FOUND: The ChannelPartnerRepricingConfig specified does not exist or is
+ *  not associated with the given account. * INTERNAL: Any non-user error
+ *  related to technical issues in the backend. In this case, contact Cloud
+ *  Channel support. Return Value: If successful, the
+ *  ChannelPartnerRepricingConfig resources. The data for each resource is
+ *  displayed in the ascending order of: * channel partner ID *
+ *  RepricingConfig.effective_invoice_month *
+ *  ChannelPartnerRepricingConfig.update_time If unsuccessful, returns an error.
+ *
+ *  Method: cloudchannel.accounts.channelPartnerLinks.channelPartnerRepricingConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_AccountsChannelPartnerLinksChannelPartnerRepricingConfigsList : GTLRCloudchannelQuery
+
+/**
+ *  Optional. A filter for
+ *  [CloudChannelService.ListChannelPartnerRepricingConfigs] results
+ *  (channel_partner_link only). You can use this filter when you support a
+ *  BatchGet-like query. To use the filter, you must set
+ *  `parent=accounts/{account_id}/channelPartnerLinks/-`. Example:
+ *  `channel_partner_link = accounts/account_id/channelPartnerLinks/c1` OR
+ *  `channel_partner_link = accounts/account_id/channelPartnerLinks/c2`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of repricing configs to return. The service may
+ *  return fewer than this value. If unspecified, returns a maximum of 50 rules.
+ *  The maximum value is 100; values above 100 will be coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results beyond the first page.
+ *  Obtained through ListChannelPartnerRepricingConfigsResponse.next_page_token
+ *  of the previous CloudChannelService.ListChannelPartnerRepricingConfigs call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the account's ChannelPartnerLink. Parent uses
+ *  the format: accounts/{account_id}/channelPartnerLinks/{channel_partner_id}.
+ *  Supports accounts/{account_id}/channelPartnerLinks/- to retrieve configs for
+ *  all channel partners.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudchannel_GoogleCloudChannelV1ListChannelPartnerRepricingConfigsResponse.
+ *
+ *  Lists information about how a Reseller modifies their bill before sending it
+ *  to a ChannelPartner. Possible Error Codes: * PERMISSION_DENIED: If the
+ *  account making the request and the account being queried are different. *
+ *  NOT_FOUND: The ChannelPartnerRepricingConfig specified does not exist or is
+ *  not associated with the given account. * INTERNAL: Any non-user error
+ *  related to technical issues in the backend. In this case, contact Cloud
+ *  Channel support. Return Value: If successful, the
+ *  ChannelPartnerRepricingConfig resources. The data for each resource is
+ *  displayed in the ascending order of: * channel partner ID *
+ *  RepricingConfig.effective_invoice_month *
+ *  ChannelPartnerRepricingConfig.update_time If unsuccessful, returns an error.
+ *
+ *  @param parent Required. The resource name of the account's
+ *    ChannelPartnerLink. Parent uses the format:
+ *    accounts/{account_id}/channelPartnerLinks/{channel_partner_id}. Supports
+ *    accounts/{account_id}/channelPartnerLinks/- to retrieve configs for all
+ *    channel partners.
+ *
+ *  @return GTLRCloudchannelQuery_AccountsChannelPartnerLinksChannelPartnerRepricingConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a ChannelPartnerRepricingConfig. Call this method to set
+ *  modifications for a specific ChannelPartner's bill. This method overwrites
+ *  the existing CustomerRepricingConfig. You can only update configs if the
+ *  RepricingConfig.effective_invoice_month is a future month. To make changes
+ *  to configs for the current month, use CreateChannelPartnerRepricingConfig,
+ *  taking note of its restrictions. You cannot update the
+ *  RepricingConfig.effective_invoice_month. When updating a config in the
+ *  future: * This config must already exist. Possible Error Codes: *
+ *  PERMISSION_DENIED: If the account making the request and the account being
+ *  queried are different. * INVALID_ARGUMENT: Missing or invalid required
+ *  parameters in the request. Also displays if the updated config is for the
+ *  current month or past months. * NOT_FOUND: The ChannelPartnerRepricingConfig
+ *  specified does not exist or is not associated with the given account. *
+ *  INTERNAL: Any non-user error related to technical issues in the backend. In
+ *  this case, contact Cloud Channel support. Return Value: If successful, the
+ *  updated ChannelPartnerRepricingConfig resource, otherwise returns an error.
+ *
+ *  Method: cloudchannel.accounts.channelPartnerLinks.channelPartnerRepricingConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_AccountsChannelPartnerLinksChannelPartnerRepricingConfigsPatch : GTLRCloudchannelQuery
+
+/**
+ *  Output only. Resource name of the ChannelPartnerRepricingConfig. Format:
+ *  accounts/{account_id}/channelPartnerLinks/{channel_partner_id}/channelPartnerRepricingConfigs/{id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerRepricingConfig.
+ *
+ *  Updates a ChannelPartnerRepricingConfig. Call this method to set
+ *  modifications for a specific ChannelPartner's bill. This method overwrites
+ *  the existing CustomerRepricingConfig. You can only update configs if the
+ *  RepricingConfig.effective_invoice_month is a future month. To make changes
+ *  to configs for the current month, use CreateChannelPartnerRepricingConfig,
+ *  taking note of its restrictions. You cannot update the
+ *  RepricingConfig.effective_invoice_month. When updating a config in the
+ *  future: * This config must already exist. Possible Error Codes: *
+ *  PERMISSION_DENIED: If the account making the request and the account being
+ *  queried are different. * INVALID_ARGUMENT: Missing or invalid required
+ *  parameters in the request. Also displays if the updated config is for the
+ *  current month or past months. * NOT_FOUND: The ChannelPartnerRepricingConfig
+ *  specified does not exist or is not associated with the given account. *
+ *  INTERNAL: Any non-user error related to technical issues in the backend. In
+ *  this case, contact Cloud Channel support. Return Value: If successful, the
+ *  updated ChannelPartnerRepricingConfig resource, otherwise returns an error.
+ *
+ *  @param object The @c
+ *    GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerRepricingConfig to
+ *    include in the query.
+ *  @param name Output only. Resource name of the ChannelPartnerRepricingConfig.
+ *    Format:
+ *    accounts/{account_id}/channelPartnerLinks/{channel_partner_id}/channelPartnerRepricingConfigs/{id}.
+ *
+ *  @return GTLRCloudchannelQuery_AccountsChannelPartnerLinksChannelPartnerRepricingConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerRepricingConfig *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -739,6 +1059,321 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRCloudchannel_GoogleCloudChannelV1Customer *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a CustomerRepricingConfig. Call this method to set modifications for
+ *  a specific customer's bill. You can only create configs if the
+ *  RepricingConfig.effective_invoice_month is a future month. If needed, you
+ *  can create a config for the current month, with some restrictions. When
+ *  creating a config for a future month, make sure there are no existing
+ *  configs for that RepricingConfig.effective_invoice_month. The following
+ *  restrictions are for creating configs in the current month. * This
+ *  functionality is reserved for recovering from an erroneous config, and
+ *  should not be used for regular business cases. * The new config will not
+ *  modify exports used with other configs. Changes to the config may be
+ *  immediate, but may take up to 24 hours. * There is a limit of ten configs
+ *  for any RepricingConfig.EntitlementGranularity.entitlement or
+ *  RepricingConfig.effective_invoice_month. * The contained
+ *  CustomerRepricingConfig.repricing_config vaule must be different from the
+ *  value used in the current config for a
+ *  RepricingConfig.EntitlementGranularity.entitlement. Possible Error Codes: *
+ *  PERMISSION_DENIED: If the account making the request and the account being
+ *  queried are different. * INVALID_ARGUMENT: Missing or invalid required
+ *  parameters in the request. Also displays if the updated config is for the
+ *  current month or past months. * NOT_FOUND: The CustomerRepricingConfig
+ *  specified does not exist or is not associated with the given account. *
+ *  INTERNAL: Any non-user error related to technical issues in the backend. In
+ *  this case, contact Cloud Channel support. Return Value: If successful, the
+ *  updated CustomerRepricingConfig resource, otherwise returns an error.
+ *
+ *  Method: cloudchannel.accounts.customers.customerRepricingConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_AccountsCustomersCustomerRepricingConfigsCreate : GTLRCloudchannelQuery
+
+/**
+ *  Required. The resource name of the customer that will receive this repricing
+ *  config. Parent uses the format:
+ *  accounts/{account_id}/customers/{customer_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1CustomerRepricingConfig.
+ *
+ *  Creates a CustomerRepricingConfig. Call this method to set modifications for
+ *  a specific customer's bill. You can only create configs if the
+ *  RepricingConfig.effective_invoice_month is a future month. If needed, you
+ *  can create a config for the current month, with some restrictions. When
+ *  creating a config for a future month, make sure there are no existing
+ *  configs for that RepricingConfig.effective_invoice_month. The following
+ *  restrictions are for creating configs in the current month. * This
+ *  functionality is reserved for recovering from an erroneous config, and
+ *  should not be used for regular business cases. * The new config will not
+ *  modify exports used with other configs. Changes to the config may be
+ *  immediate, but may take up to 24 hours. * There is a limit of ten configs
+ *  for any RepricingConfig.EntitlementGranularity.entitlement or
+ *  RepricingConfig.effective_invoice_month. * The contained
+ *  CustomerRepricingConfig.repricing_config vaule must be different from the
+ *  value used in the current config for a
+ *  RepricingConfig.EntitlementGranularity.entitlement. Possible Error Codes: *
+ *  PERMISSION_DENIED: If the account making the request and the account being
+ *  queried are different. * INVALID_ARGUMENT: Missing or invalid required
+ *  parameters in the request. Also displays if the updated config is for the
+ *  current month or past months. * NOT_FOUND: The CustomerRepricingConfig
+ *  specified does not exist or is not associated with the given account. *
+ *  INTERNAL: Any non-user error related to technical issues in the backend. In
+ *  this case, contact Cloud Channel support. Return Value: If successful, the
+ *  updated CustomerRepricingConfig resource, otherwise returns an error.
+ *
+ *  @param object The @c
+ *    GTLRCloudchannel_GoogleCloudChannelV1CustomerRepricingConfig to include in
+ *    the query.
+ *  @param parent Required. The resource name of the customer that will receive
+ *    this repricing config. Parent uses the format:
+ *    accounts/{account_id}/customers/{customer_id}
+ *
+ *  @return GTLRCloudchannelQuery_AccountsCustomersCustomerRepricingConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudchannel_GoogleCloudChannelV1CustomerRepricingConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the given CustomerRepricingConfig permanently. You can only delete
+ *  configs if their RepricingConfig.effective_invoice_month is set to a date
+ *  after the current month. Possible error codes: * PERMISSION_DENIED: The
+ *  account making the request does not own this customer. * INVALID_ARGUMENT:
+ *  Required request parameters are missing or invalid. * FAILED_PRECONDITION:
+ *  The CustomerRepricingConfig is active or in the past. * NOT_FOUND: No
+ *  CustomerRepricingConfig found for the name in the request.
+ *
+ *  Method: cloudchannel.accounts.customers.customerRepricingConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_AccountsCustomersCustomerRepricingConfigsDelete : GTLRCloudchannelQuery
+
+/**
+ *  Required. The resource name of the customer repricing config rule to delete.
+ *  Format:
+ *  accounts/{account_id}/customers/{customer_id}/customerRepricingConfigs/{id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudchannel_GoogleProtobufEmpty.
+ *
+ *  Deletes the given CustomerRepricingConfig permanently. You can only delete
+ *  configs if their RepricingConfig.effective_invoice_month is set to a date
+ *  after the current month. Possible error codes: * PERMISSION_DENIED: The
+ *  account making the request does not own this customer. * INVALID_ARGUMENT:
+ *  Required request parameters are missing or invalid. * FAILED_PRECONDITION:
+ *  The CustomerRepricingConfig is active or in the past. * NOT_FOUND: No
+ *  CustomerRepricingConfig found for the name in the request.
+ *
+ *  @param name Required. The resource name of the customer repricing config
+ *    rule to delete. Format:
+ *    accounts/{account_id}/customers/{customer_id}/customerRepricingConfigs/{id}.
+ *
+ *  @return GTLRCloudchannelQuery_AccountsCustomersCustomerRepricingConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets information about how a Reseller modifies their bill before sending it
+ *  to a Customer. Possible Error Codes: * PERMISSION_DENIED: If the account
+ *  making the request and the account being queried are different. * NOT_FOUND:
+ *  The CustomerRepricingConfig was not found. * INTERNAL: Any non-user error
+ *  related to technical issues in the backend. In this case, contact Cloud
+ *  Channel support. Return Value: If successful, the CustomerRepricingConfig
+ *  resource, otherwise returns an error.
+ *
+ *  Method: cloudchannel.accounts.customers.customerRepricingConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_AccountsCustomersCustomerRepricingConfigsGet : GTLRCloudchannelQuery
+
+/**
+ *  Required. The resource name of the CustomerRepricingConfig. Format:
+ *  accounts/{account_id}/customers/{customer_id}/customerRepricingConfigs/{id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1CustomerRepricingConfig.
+ *
+ *  Gets information about how a Reseller modifies their bill before sending it
+ *  to a Customer. Possible Error Codes: * PERMISSION_DENIED: If the account
+ *  making the request and the account being queried are different. * NOT_FOUND:
+ *  The CustomerRepricingConfig was not found. * INTERNAL: Any non-user error
+ *  related to technical issues in the backend. In this case, contact Cloud
+ *  Channel support. Return Value: If successful, the CustomerRepricingConfig
+ *  resource, otherwise returns an error.
+ *
+ *  @param name Required. The resource name of the CustomerRepricingConfig.
+ *    Format:
+ *    accounts/{account_id}/customers/{customer_id}/customerRepricingConfigs/{id}.
+ *
+ *  @return GTLRCloudchannelQuery_AccountsCustomersCustomerRepricingConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists information about how a Reseller modifies their bill before sending it
+ *  to a Customer. Possible Error Codes: * PERMISSION_DENIED: If the account
+ *  making the request and the account being queried are different. * NOT_FOUND:
+ *  The CustomerRepricingConfig specified does not exist or is not associated
+ *  with the given account. * INTERNAL: Any non-user error related to technical
+ *  issues in the backend. In this case, contact Cloud Channel support. Return
+ *  Value: If successful, the CustomerRepricingConfig resources. The data for
+ *  each resource is displayed in the ascending order of: * customer ID *
+ *  RepricingConfig.EntitlementGranularity.entitlement *
+ *  RepricingConfig.effective_invoice_month *
+ *  CustomerRepricingConfig.update_time If unsuccessful, returns an error.
+ *
+ *  Method: cloudchannel.accounts.customers.customerRepricingConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_AccountsCustomersCustomerRepricingConfigsList : GTLRCloudchannelQuery
+
+/**
+ *  Optional. A filter for [CloudChannelService.ListCustomerRepricingConfigs]
+ *  results (customer only). You can use this filter when you support a
+ *  BatchGet-like query. To use the filter, you must set
+ *  `parent=accounts/{account_id}/customers/-`. Example: customer =
+ *  accounts/account_id/customers/c1 OR customer =
+ *  accounts/account_id/customers/c2.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of repricing configs to return. The service may
+ *  return fewer than this value. If unspecified, returns a maximum of 50 rules.
+ *  The maximum value is 100; values above 100 will be coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results beyond the first page.
+ *  Obtained through ListCustomerRepricingConfigsResponse.next_page_token of the
+ *  previous CloudChannelService.ListCustomerRepricingConfigs call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the customer. Parent uses the format:
+ *  accounts/{account_id}/customers/{customer_id}. Supports
+ *  accounts/{account_id}/customers/- to retrieve configs for all customers.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudchannel_GoogleCloudChannelV1ListCustomerRepricingConfigsResponse.
+ *
+ *  Lists information about how a Reseller modifies their bill before sending it
+ *  to a Customer. Possible Error Codes: * PERMISSION_DENIED: If the account
+ *  making the request and the account being queried are different. * NOT_FOUND:
+ *  The CustomerRepricingConfig specified does not exist or is not associated
+ *  with the given account. * INTERNAL: Any non-user error related to technical
+ *  issues in the backend. In this case, contact Cloud Channel support. Return
+ *  Value: If successful, the CustomerRepricingConfig resources. The data for
+ *  each resource is displayed in the ascending order of: * customer ID *
+ *  RepricingConfig.EntitlementGranularity.entitlement *
+ *  RepricingConfig.effective_invoice_month *
+ *  CustomerRepricingConfig.update_time If unsuccessful, returns an error.
+ *
+ *  @param parent Required. The resource name of the customer. Parent uses the
+ *    format: accounts/{account_id}/customers/{customer_id}. Supports
+ *    accounts/{account_id}/customers/- to retrieve configs for all customers.
+ *
+ *  @return GTLRCloudchannelQuery_AccountsCustomersCustomerRepricingConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a CustomerRepricingConfig. Call this method to set modifications for
+ *  a specific customer's bill. This method overwrites the existing
+ *  CustomerRepricingConfig. You can only update configs if the
+ *  RepricingConfig.effective_invoice_month is a future month. To make changes
+ *  to configs for the current month, use CreateCustomerRepricingConfig, taking
+ *  note of its restrictions. You cannot update the
+ *  RepricingConfig.effective_invoice_month. When updating a config in the
+ *  future: * This config must already exist. Possible Error Codes: *
+ *  PERMISSION_DENIED: If the account making the request and the account being
+ *  queried are different. * INVALID_ARGUMENT: Missing or invalid required
+ *  parameters in the request. Also displays if the updated config is for the
+ *  current month or past months. * NOT_FOUND: The CustomerRepricingConfig
+ *  specified does not exist or is not associated with the given account. *
+ *  INTERNAL: Any non-user error related to technical issues in the backend. In
+ *  this case, contact Cloud Channel support. Return Value: If successful, the
+ *  updated CustomerRepricingConfig resource, otherwise returns an error.
+ *
+ *  Method: cloudchannel.accounts.customers.customerRepricingConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_AccountsCustomersCustomerRepricingConfigsPatch : GTLRCloudchannelQuery
+
+/**
+ *  Output only. Resource name of the CustomerRepricingConfig. Format:
+ *  accounts/{account_id}/customers/{customer_id}/customerRepricingConfigs/{id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1CustomerRepricingConfig.
+ *
+ *  Updates a CustomerRepricingConfig. Call this method to set modifications for
+ *  a specific customer's bill. This method overwrites the existing
+ *  CustomerRepricingConfig. You can only update configs if the
+ *  RepricingConfig.effective_invoice_month is a future month. To make changes
+ *  to configs for the current month, use CreateCustomerRepricingConfig, taking
+ *  note of its restrictions. You cannot update the
+ *  RepricingConfig.effective_invoice_month. When updating a config in the
+ *  future: * This config must already exist. Possible Error Codes: *
+ *  PERMISSION_DENIED: If the account making the request and the account being
+ *  queried are different. * INVALID_ARGUMENT: Missing or invalid required
+ *  parameters in the request. Also displays if the updated config is for the
+ *  current month or past months. * NOT_FOUND: The CustomerRepricingConfig
+ *  specified does not exist or is not associated with the given account. *
+ *  INTERNAL: Any non-user error related to technical issues in the backend. In
+ *  this case, contact Cloud Channel support. Return Value: If successful, the
+ *  updated CustomerRepricingConfig resource, otherwise returns an error.
+ *
+ *  @param object The @c
+ *    GTLRCloudchannel_GoogleCloudChannelV1CustomerRepricingConfig to include in
+ *    the query.
+ *  @param name Output only. Resource name of the CustomerRepricingConfig.
+ *    Format:
+ *    accounts/{account_id}/customers/{customer_id}/customerRepricingConfigs/{id}.
+ *
+ *  @return GTLRCloudchannelQuery_AccountsCustomersCustomerRepricingConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudchannel_GoogleCloudChannelV1CustomerRepricingConfig *)object
+                           name:(NSString *)name;
 
 @end
 

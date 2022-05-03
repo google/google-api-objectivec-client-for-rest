@@ -2382,7 +2382,9 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
- *  Creates a ServiceAccountKey, using a public key that you provide.
+ *  Uploads the public key portion of a key pair that you manage, and associates
+ *  the public key with a ServiceAccount. After you upload the public key, you
+ *  can use the private key from the key pair as a service account key.
  *
  *  Method: iam.projects.serviceAccounts.keys.upload
  *
@@ -2402,7 +2404,9 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 /**
  *  Fetches a @c GTLRIam_ServiceAccountKey.
  *
- *  Creates a ServiceAccountKey, using a public key that you provide.
+ *  Uploads the public key portion of a key pair that you manage, and associates
+ *  the public key with a ServiceAccount. After you upload the public key, you
+ *  can use the private key from the key pair as a service account key.
  *
  *  @param object The @c GTLRIam_UploadServiceAccountKeyRequest to include in
  *    the query.

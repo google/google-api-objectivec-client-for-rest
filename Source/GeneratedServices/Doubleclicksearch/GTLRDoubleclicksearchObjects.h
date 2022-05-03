@@ -351,6 +351,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  File returned to
+ *  https://developers.google.com/search-ads/v2/reference/reports/getIdMappingFile.
+ */
+@interface GTLRDoubleclicksearch_IdMappingFile : GTLRObject
+@end
+
+
+/**
  *  A DoubleClick Search report. This object contains the report request, some
  *  report metadata such as currency code, and the generated report rows or
  *  report files.

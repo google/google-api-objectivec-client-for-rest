@@ -607,7 +607,7 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_JwtLocation
-@dynamic header, query, valuePrefix;
+@dynamic cookie, header, query, valuePrefix;
 @end
 
 

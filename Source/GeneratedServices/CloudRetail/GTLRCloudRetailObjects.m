@@ -1607,7 +1607,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansion
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2SearchRequest
 @dynamic boostSpec, branch, canonicalFilter, dynamicFacetSpec, facetSpecs,
-         filter, offset, orderBy, pageCategories, pageSize, pageToken,
+         filter, labels, offset, orderBy, pageCategories, pageSize, pageToken,
          personalizationSpec, query, queryExpansionSpec, searchMode, userInfo,
          variantRollupKeys, visitorId;
 
@@ -1618,6 +1618,20 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansion
     @"variantRollupKeys" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2SearchRequest_Labels
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2SearchRequest_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

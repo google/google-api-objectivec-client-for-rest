@@ -397,8 +397,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Optional. Used to prevent updating the attestor when another request has
- *  updated it since it was retrieved.
+ *  Optional. A checksum, returned by the server, that can be sent on update
+ *  requests to ensure the attestor has an up-to-date value before attempting to
+ *  update it. See https://google.aip.dev/154.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -479,7 +480,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
 @property(nonatomic, strong, nullable) GTLRBinaryAuthorization_Expr *condition;
 
 /**
- *  Specifies the principals requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Google Cloud resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -825,8 +826,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Optional. Used to prevent updating the policy when another request has
- *  updated it since it was retrieved.
+ *  Optional. A checksum, returned by the server, that can be sent on update
+ *  requests to ensure the policy has an up-to-date value before attempting to
+ *  update it. See https://google.aip.dev/154.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -942,7 +944,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
  *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
- *  but certain Cloud Platform services (such as Projects) might reject them.
+ *  but certain Google Cloud services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRBinaryAuthorization_IamPolicy *policy;
 
@@ -1008,7 +1010,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
  *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;

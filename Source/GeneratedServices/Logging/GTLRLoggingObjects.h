@@ -27,6 +27,7 @@
 @class GTLRLogging_Explicit;
 @class GTLRLogging_Exponential;
 @class GTLRLogging_HttpRequest;
+@class GTLRLogging_IndexConfig;
 @class GTLRLogging_LabelDescriptor;
 @class GTLRLogging_Linear;
 @class GTLRLogging_Location;
@@ -119,6 +120,28 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_Ope
  *  Value: "OPERATION_STATE_WAITING_FOR_PERMISSIONS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateWaitingForPermissions;
+
+// ----------------------------------------------------------------------------
+// GTLRLogging_IndexConfig.type
+
+/**
+ *  The index is a integer-type index.
+ *
+ *  Value: "INDEX_TYPE_INTEGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_IndexConfig_Type_IndexTypeInteger;
+/**
+ *  The index is a string-type index.
+ *
+ *  Value: "INDEX_TYPE_STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_IndexConfig_Type_IndexTypeString;
+/**
+ *  The index's type is unspecified.
+ *
+ *  Value: "INDEX_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_IndexConfig_Type_IndexTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRLogging_LabelDescriptor.valueType
@@ -1046,6 +1069,42 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
+ *  Configuration for an indexed field.
+ */
+@interface GTLRLogging_IndexConfig : GTLRObject
+
+/**
+ *  Output only. The timestamp when the index was last modified.This is used to
+ *  return the timestamp, and will be ignored if supplied during update.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. The LogEntry field path to index.Note that some paths are
+ *  automatically indexed, and other paths are not eligible for indexing. See
+ *  indexing documentation(
+ *  https://cloud.google.com/logging/docs/view/advanced-queries#indexed-fields)
+ *  for details.For example: jsonPayload.request.status
+ */
+@property(nonatomic, copy, nullable) NSString *fieldPath;
+
+/**
+ *  Required. The type of data in this index.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRLogging_IndexConfig_Type_IndexTypeInteger The index is a
+ *        integer-type index. (Value: "INDEX_TYPE_INTEGER")
+ *    @arg @c kGTLRLogging_IndexConfig_Type_IndexTypeString The index is a
+ *        string-type index. (Value: "INDEX_TYPE_STRING")
+ *    @arg @c kGTLRLogging_IndexConfig_Type_IndexTypeUnspecified The index's
+ *        type is unspecified. (Value: "INDEX_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  A description of a label.
  */
 @interface GTLRLogging_LabelDescriptor : GTLRObject
@@ -1536,6 +1595,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** A list of indexed fields and related configuration data. */
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_IndexConfig *> *indexConfigs;
 
 /**
  *  Output only. The bucket lifecycle state.
@@ -3384,11 +3446,12 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, copy, nullable) NSString *logName;
 
 /**
- *  Optional. Whether valid entries should be written even if some other entries
- *  fail due to INVALID_ARGUMENT or PERMISSION_DENIED errors. If any entry is
- *  not written, then the response status is the error associated with one of
- *  the failed entries and the response includes error details keyed by the
- *  entries' zero-based index in the entries.write method.
+ *  Optional. Whether a batch's valid entries should be written even if some
+ *  other entry failed due to a permanent error such as INVALID_ARGUMENT or
+ *  PERMISSION_DENIED. If any entry failed, then the response status is the
+ *  response status is the status of one of the failed entries. The response
+ *  will include error details keyed by the entries' zero-based index in the
+ *  entries.write method.
  *
  *  Uses NSNumber of boolValue.
  */

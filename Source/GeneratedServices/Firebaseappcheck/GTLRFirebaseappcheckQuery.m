@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Firebase App Check API (firebaseappcheck/v1beta)
+//   Firebase App Check API (firebaseappcheck/v1)
 // Description:
 //   Firebase App Check works alongside other Firebase services to help protect
 //   your backend resources from abuse, such as billing fraud or phishing.
@@ -25,13 +25,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRFirebaseappcheckQuery_JwksGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPublicJwkSet class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PublicJwkSet class];
   query.loggingName = @"firebaseappcheck.jwks.get";
   return query;
 }
@@ -51,13 +51,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/apps/-/appAttestConfig:batchGet";
+  NSString *pathURITemplate = @"v1/{+parent}/apps/-/appAttestConfig:batchGet";
   GTLRFirebaseappcheckQuery_ProjectsAppsAppAttestConfigBatchGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetAppAttestConfigsResponse class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchGetAppAttestConfigsResponse class];
   query.loggingName = @"firebaseappcheck.projects.apps.appAttestConfig.batchGet";
   return query;
 }
@@ -70,13 +70,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRFirebaseappcheckQuery_ProjectsAppsAppAttestConfigGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppAttestConfig class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppAttestConfig class];
   query.loggingName = @"firebaseappcheck.projects.apps.appAttestConfig.get";
   return query;
 }
@@ -87,7 +87,7 @@
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppAttestConfig *)object
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppAttestConfig *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -96,14 +96,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRFirebaseappcheckQuery_ProjectsAppsAppAttestConfigPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppAttestConfig class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppAttestConfig class];
   query.loggingName = @"firebaseappcheck.projects.apps.appAttestConfig.patch";
   return query;
 }
@@ -114,7 +114,7 @@
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaDebugToken *)object
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1DebugToken *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -123,14 +123,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/debugTokens";
+  NSString *pathURITemplate = @"v1/{+parent}/debugTokens";
   GTLRFirebaseappcheckQuery_ProjectsAppsDebugTokensCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaDebugToken class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1DebugToken class];
   query.loggingName = @"firebaseappcheck.projects.apps.debugTokens.create";
   return query;
 }
@@ -143,7 +143,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRFirebaseappcheckQuery_ProjectsAppsDebugTokensDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -162,13 +162,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRFirebaseappcheckQuery_ProjectsAppsDebugTokensGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaDebugToken class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1DebugToken class];
   query.loggingName = @"firebaseappcheck.projects.apps.debugTokens.get";
   return query;
 }
@@ -181,13 +181,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/debugTokens";
+  NSString *pathURITemplate = @"v1/{+parent}/debugTokens";
   GTLRFirebaseappcheckQuery_ProjectsAppsDebugTokensList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaListDebugTokensResponse class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ListDebugTokensResponse class];
   query.loggingName = @"firebaseappcheck.projects.apps.debugTokens.list";
   return query;
 }
@@ -198,7 +198,7 @@
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaDebugToken *)object
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1DebugToken *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -207,14 +207,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRFirebaseappcheckQuery_ProjectsAppsDebugTokensPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaDebugToken class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1DebugToken class];
   query.loggingName = @"firebaseappcheck.projects.apps.debugTokens.patch";
   return query;
 }
@@ -234,13 +234,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/apps/-/deviceCheckConfig:batchGet";
+  NSString *pathURITemplate = @"v1/{+parent}/apps/-/deviceCheckConfig:batchGet";
   GTLRFirebaseappcheckQuery_ProjectsAppsDeviceCheckConfigBatchGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetDeviceCheckConfigsResponse class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchGetDeviceCheckConfigsResponse class];
   query.loggingName = @"firebaseappcheck.projects.apps.deviceCheckConfig.batchGet";
   return query;
 }
@@ -253,13 +253,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRFirebaseappcheckQuery_ProjectsAppsDeviceCheckConfigGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaDeviceCheckConfig class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1DeviceCheckConfig class];
   query.loggingName = @"firebaseappcheck.projects.apps.deviceCheckConfig.get";
   return query;
 }
@@ -270,7 +270,7 @@
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaDeviceCheckConfig *)object
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1DeviceCheckConfig *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -279,14 +279,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRFirebaseappcheckQuery_ProjectsAppsDeviceCheckConfigPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaDeviceCheckConfig class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1DeviceCheckConfig class];
   query.loggingName = @"firebaseappcheck.projects.apps.deviceCheckConfig.patch";
   return query;
 }
@@ -297,7 +297,7 @@
 
 @dynamic app;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeAppAttestAssertionRequest *)object
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeAppAttestAssertionRequest *)object
                             app:(NSString *)app {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -306,14 +306,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"app" ];
-  NSString *pathURITemplate = @"v1beta/{+app}:exchangeAppAttestAssertion";
+  NSString *pathURITemplate = @"v1/{+app}:exchangeAppAttestAssertion";
   GTLRFirebaseappcheckQuery_ProjectsAppsExchangeAppAttestAssertion *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.app = app;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppCheckToken class];
   query.loggingName = @"firebaseappcheck.projects.apps.exchangeAppAttestAssertion";
   return query;
 }
@@ -324,7 +324,7 @@
 
 @dynamic app;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationRequest *)object
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeAppAttestAttestationRequest *)object
                             app:(NSString *)app {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -333,14 +333,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"app" ];
-  NSString *pathURITemplate = @"v1beta/{+app}:exchangeAppAttestAttestation";
+  NSString *pathURITemplate = @"v1/{+app}:exchangeAppAttestAttestation";
   GTLRFirebaseappcheckQuery_ProjectsAppsExchangeAppAttestAttestation *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.app = app;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationResponse class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeAppAttestAttestationResponse class];
   query.loggingName = @"firebaseappcheck.projects.apps.exchangeAppAttestAttestation";
   return query;
 }
@@ -351,7 +351,7 @@
 
 @dynamic app;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeCustomTokenRequest *)object
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeCustomTokenRequest *)object
                             app:(NSString *)app {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -360,14 +360,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"app" ];
-  NSString *pathURITemplate = @"v1beta/{+app}:exchangeCustomToken";
+  NSString *pathURITemplate = @"v1/{+app}:exchangeCustomToken";
   GTLRFirebaseappcheckQuery_ProjectsAppsExchangeCustomToken *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.app = app;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppCheckToken class];
   query.loggingName = @"firebaseappcheck.projects.apps.exchangeCustomToken";
   return query;
 }
@@ -378,7 +378,7 @@
 
 @dynamic app;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeDebugTokenRequest *)object
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeDebugTokenRequest *)object
                             app:(NSString *)app {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -387,14 +387,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"app" ];
-  NSString *pathURITemplate = @"v1beta/{+app}:exchangeDebugToken";
+  NSString *pathURITemplate = @"v1/{+app}:exchangeDebugToken";
   GTLRFirebaseappcheckQuery_ProjectsAppsExchangeDebugToken *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.app = app;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppCheckToken class];
   query.loggingName = @"firebaseappcheck.projects.apps.exchangeDebugToken";
   return query;
 }
@@ -405,7 +405,7 @@
 
 @dynamic app;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeDeviceCheckTokenRequest *)object
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeDeviceCheckTokenRequest *)object
                             app:(NSString *)app {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -414,14 +414,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"app" ];
-  NSString *pathURITemplate = @"v1beta/{+app}:exchangeDeviceCheckToken";
+  NSString *pathURITemplate = @"v1/{+app}:exchangeDeviceCheckToken";
   GTLRFirebaseappcheckQuery_ProjectsAppsExchangeDeviceCheckToken *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.app = app;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppCheckToken class];
   query.loggingName = @"firebaseappcheck.projects.apps.exchangeDeviceCheckToken";
   return query;
 }
@@ -432,7 +432,7 @@
 
 @dynamic app;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangePlayIntegrityTokenRequest *)object
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangePlayIntegrityTokenRequest *)object
                             app:(NSString *)app {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -441,14 +441,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"app" ];
-  NSString *pathURITemplate = @"v1beta/{+app}:exchangePlayIntegrityToken";
+  NSString *pathURITemplate = @"v1/{+app}:exchangePlayIntegrityToken";
   GTLRFirebaseappcheckQuery_ProjectsAppsExchangePlayIntegrityToken *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.app = app;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppCheckToken class];
   query.loggingName = @"firebaseappcheck.projects.apps.exchangePlayIntegrityToken";
   return query;
 }
@@ -459,7 +459,7 @@
 
 @dynamic app;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaEnterpriseTokenRequest *)object
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeRecaptchaEnterpriseTokenRequest *)object
                             app:(NSString *)app {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -468,42 +468,15 @@
     return nil;
   }
   NSArray *pathParams = @[ @"app" ];
-  NSString *pathURITemplate = @"v1beta/{+app}:exchangeRecaptchaEnterpriseToken";
+  NSString *pathURITemplate = @"v1/{+app}:exchangeRecaptchaEnterpriseToken";
   GTLRFirebaseappcheckQuery_ProjectsAppsExchangeRecaptchaEnterpriseToken *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.app = app;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppCheckToken class];
   query.loggingName = @"firebaseappcheck.projects.apps.exchangeRecaptchaEnterpriseToken";
-  return query;
-}
-
-@end
-
-@implementation GTLRFirebaseappcheckQuery_ProjectsAppsExchangeRecaptchaToken
-
-@dynamic app;
-
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaTokenRequest *)object
-                            app:(NSString *)app {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"app" ];
-  NSString *pathURITemplate = @"v1beta/{+app}:exchangeRecaptchaToken";
-  GTLRFirebaseappcheckQuery_ProjectsAppsExchangeRecaptchaToken *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.app = app;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken class];
-  query.loggingName = @"firebaseappcheck.projects.apps.exchangeRecaptchaToken";
   return query;
 }
 
@@ -513,7 +486,7 @@
 
 @dynamic app;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaV3TokenRequest *)object
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeRecaptchaV3TokenRequest *)object
                             app:(NSString *)app {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -522,14 +495,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"app" ];
-  NSString *pathURITemplate = @"v1beta/{+app}:exchangeRecaptchaV3Token";
+  NSString *pathURITemplate = @"v1/{+app}:exchangeRecaptchaV3Token";
   GTLRFirebaseappcheckQuery_ProjectsAppsExchangeRecaptchaV3Token *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.app = app;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppCheckToken class];
   query.loggingName = @"firebaseappcheck.projects.apps.exchangeRecaptchaV3Token";
   return query;
 }
@@ -540,7 +513,7 @@
 
 @dynamic app;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeSafetyNetTokenRequest *)object
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeSafetyNetTokenRequest *)object
                             app:(NSString *)app {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -549,14 +522,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"app" ];
-  NSString *pathURITemplate = @"v1beta/{+app}:exchangeSafetyNetToken";
+  NSString *pathURITemplate = @"v1/{+app}:exchangeSafetyNetToken";
   GTLRFirebaseappcheckQuery_ProjectsAppsExchangeSafetyNetToken *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.app = app;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppCheckToken class];
   query.loggingName = @"firebaseappcheck.projects.apps.exchangeSafetyNetToken";
   return query;
 }
@@ -567,7 +540,7 @@
 
 @dynamic app;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeRequest *)object
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1GenerateAppAttestChallengeRequest *)object
                             app:(NSString *)app {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -576,14 +549,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"app" ];
-  NSString *pathURITemplate = @"v1beta/{+app}:generateAppAttestChallenge";
+  NSString *pathURITemplate = @"v1/{+app}:generateAppAttestChallenge";
   GTLRFirebaseappcheckQuery_ProjectsAppsGenerateAppAttestChallenge *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.app = app;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeResponse class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1GenerateAppAttestChallengeResponse class];
   query.loggingName = @"firebaseappcheck.projects.apps.generateAppAttestChallenge";
   return query;
 }
@@ -594,7 +567,7 @@
 
 @dynamic app;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeRequest *)object
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1GeneratePlayIntegrityChallengeRequest *)object
                             app:(NSString *)app {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -603,14 +576,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"app" ];
-  NSString *pathURITemplate = @"v1beta/{+app}:generatePlayIntegrityChallenge";
+  NSString *pathURITemplate = @"v1/{+app}:generatePlayIntegrityChallenge";
   GTLRFirebaseappcheckQuery_ProjectsAppsGeneratePlayIntegrityChallenge *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.app = app;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeResponse class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1GeneratePlayIntegrityChallengeResponse class];
   query.loggingName = @"firebaseappcheck.projects.apps.generatePlayIntegrityChallenge";
   return query;
 }
@@ -630,13 +603,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/apps/-/playIntegrityConfig:batchGet";
+  NSString *pathURITemplate = @"v1/{+parent}/apps/-/playIntegrityConfig:batchGet";
   GTLRFirebaseappcheckQuery_ProjectsAppsPlayIntegrityConfigBatchGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetPlayIntegrityConfigsResponse class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchGetPlayIntegrityConfigsResponse class];
   query.loggingName = @"firebaseappcheck.projects.apps.playIntegrityConfig.batchGet";
   return query;
 }
@@ -649,13 +622,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRFirebaseappcheckQuery_ProjectsAppsPlayIntegrityConfigGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPlayIntegrityConfig class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfig class];
   query.loggingName = @"firebaseappcheck.projects.apps.playIntegrityConfig.get";
   return query;
 }
@@ -666,7 +639,7 @@
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPlayIntegrityConfig *)object
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfig *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -675,87 +648,15 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRFirebaseappcheckQuery_ProjectsAppsPlayIntegrityConfigPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPlayIntegrityConfig class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfig class];
   query.loggingName = @"firebaseappcheck.projects.apps.playIntegrityConfig.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaConfigBatchGet
-
-@dynamic names, parent;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"names" : [NSString class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/apps/-/recaptchaConfig:batchGet";
-  GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaConfigBatchGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetRecaptchaConfigsResponse class];
-  query.loggingName = @"firebaseappcheck.projects.apps.recaptchaConfig.batchGet";
-  return query;
-}
-
-@end
-
-@implementation GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaConfigGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
-  GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaConfigGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaConfig class];
-  query.loggingName = @"firebaseappcheck.projects.apps.recaptchaConfig.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaConfigPatch
-
-@dynamic name, updateMask;
-
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaConfig *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
-  GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaConfigPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaConfig class];
-  query.loggingName = @"firebaseappcheck.projects.apps.recaptchaConfig.patch";
   return query;
 }
 
@@ -774,13 +675,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/apps/-/recaptchaEnterpriseConfig:batchGet";
+  NSString *pathURITemplate = @"v1/{+parent}/apps/-/recaptchaEnterpriseConfig:batchGet";
   GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaEnterpriseConfigBatchGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetRecaptchaEnterpriseConfigsResponse class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchGetRecaptchaEnterpriseConfigsResponse class];
   query.loggingName = @"firebaseappcheck.projects.apps.recaptchaEnterpriseConfig.batchGet";
   return query;
 }
@@ -793,13 +694,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaEnterpriseConfigGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaEnterpriseConfig class];
   query.loggingName = @"firebaseappcheck.projects.apps.recaptchaEnterpriseConfig.get";
   return query;
 }
@@ -810,7 +711,7 @@
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig *)object
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaEnterpriseConfig *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -819,14 +720,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaEnterpriseConfigPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaEnterpriseConfig class];
   query.loggingName = @"firebaseappcheck.projects.apps.recaptchaEnterpriseConfig.patch";
   return query;
 }
@@ -846,13 +747,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/apps/-/recaptchaV3Config:batchGet";
+  NSString *pathURITemplate = @"v1/{+parent}/apps/-/recaptchaV3Config:batchGet";
   GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaV3ConfigBatchGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetRecaptchaV3ConfigsResponse class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchGetRecaptchaV3ConfigsResponse class];
   query.loggingName = @"firebaseappcheck.projects.apps.recaptchaV3Config.batchGet";
   return query;
 }
@@ -865,13 +766,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaV3ConfigGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaV3Config class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaV3Config class];
   query.loggingName = @"firebaseappcheck.projects.apps.recaptchaV3Config.get";
   return query;
 }
@@ -882,7 +783,7 @@
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaV3Config *)object
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaV3Config *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -891,14 +792,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaV3ConfigPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaV3Config class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaV3Config class];
   query.loggingName = @"firebaseappcheck.projects.apps.recaptchaV3Config.patch";
   return query;
 }
@@ -918,13 +819,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/apps/-/safetyNetConfig:batchGet";
+  NSString *pathURITemplate = @"v1/{+parent}/apps/-/safetyNetConfig:batchGet";
   GTLRFirebaseappcheckQuery_ProjectsAppsSafetyNetConfigBatchGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetSafetyNetConfigsResponse class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchGetSafetyNetConfigsResponse class];
   query.loggingName = @"firebaseappcheck.projects.apps.safetyNetConfig.batchGet";
   return query;
 }
@@ -937,13 +838,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRFirebaseappcheckQuery_ProjectsAppsSafetyNetConfigGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaSafetyNetConfig class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1SafetyNetConfig class];
   query.loggingName = @"firebaseappcheck.projects.apps.safetyNetConfig.get";
   return query;
 }
@@ -954,7 +855,7 @@
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaSafetyNetConfig *)object
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1SafetyNetConfig *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -963,14 +864,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRFirebaseappcheckQuery_ProjectsAppsSafetyNetConfigPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaSafetyNetConfig class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1SafetyNetConfig class];
   query.loggingName = @"firebaseappcheck.projects.apps.safetyNetConfig.patch";
   return query;
 }
@@ -981,7 +882,7 @@
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchUpdateServicesRequest *)object
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchUpdateServicesRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -990,14 +891,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/services:batchUpdate";
+  NSString *pathURITemplate = @"v1/{+parent}/services:batchUpdate";
   GTLRFirebaseappcheckQuery_ProjectsServicesBatchUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchUpdateServicesResponse class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchUpdateServicesResponse class];
   query.loggingName = @"firebaseappcheck.projects.services.batchUpdate";
   return query;
 }
@@ -1010,13 +911,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRFirebaseappcheckQuery_ProjectsServicesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service class];
   query.loggingName = @"firebaseappcheck.projects.services.get";
   return query;
 }
@@ -1029,13 +930,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/services";
+  NSString *pathURITemplate = @"v1/{+parent}/services";
   GTLRFirebaseappcheckQuery_ProjectsServicesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaListServicesResponse class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ListServicesResponse class];
   query.loggingName = @"firebaseappcheck.projects.services.list";
   return query;
 }
@@ -1046,7 +947,7 @@
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService *)object
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -1055,14 +956,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRFirebaseappcheckQuery_ProjectsServicesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService class];
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service class];
   query.loggingName = @"firebaseappcheck.projects.services.patch";
   return query;
 }

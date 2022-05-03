@@ -25,6 +25,14 @@ NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_DataRead = @"
 NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRSecurityCommandCenter_Connection.protocol
+NSString * const kGTLRSecurityCommandCenter_Connection_Protocol_Esp = @"ESP";
+NSString * const kGTLRSecurityCommandCenter_Connection_Protocol_Gre = @"GRE";
+NSString * const kGTLRSecurityCommandCenter_Connection_Protocol_Icmp = @"ICMP";
+NSString * const kGTLRSecurityCommandCenter_Connection_Protocol_ProtocolUnspecified = @"PROTOCOL_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_Connection_Protocol_Tcp = @"TCP";
+NSString * const kGTLRSecurityCommandCenter_Connection_Protocol_Udp = @"UDP";
+
 // GTLRSecurityCommandCenter_Cvssv3.attackComplexity
 NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackComplexity_AttackComplexityHigh = @"ATTACK_COMPLEXITY_HIGH";
 NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackComplexity_AttackComplexityLow = @"ATTACK_COMPLEXITY_LOW";
@@ -127,6 +135,11 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetD
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Superseded = @"SUPERSEDED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Terminated = @"TERMINATED";
 
+// GTLRSecurityCommandCenter_IamBinding.action
+NSString * const kGTLRSecurityCommandCenter_IamBinding_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_IamBinding_Action_Add = @"ADD";
+NSString * const kGTLRSecurityCommandCenter_IamBinding_Action_Remove = @"REMOVE";
+
 // GTLRSecurityCommandCenter_ListAssetsResult.stateChange
 NSString * const kGTLRSecurityCommandCenter_ListAssetsResult_StateChange_Active = @"ACTIVE";
 NSString * const kGTLRSecurityCommandCenter_ListAssetsResult_StateChange_Added = @"ADDED";
@@ -165,6 +178,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_Clo
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CommandAndScriptingInterpreter = @"COMMAND_AND_SCRIPTING_INTERPRETER";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CreateOrModifySystemProcess = @"CREATE_OR_MODIFY_SYSTEM_PROCESS";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DataDestruction = @"DATA_DESTRUCTION";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DomainPolicyModification = @"DOMAIN_POLICY_MODIFICATION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DynamicResolution = @"DYNAMIC_RESOLUTION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExfiltrationOverWebService = @"EXFILTRATION_OVER_WEB_SERVICE";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExfiltrationToCloudStorage = @"EXFILTRATION_TO_CLOUD_STORAGE";
@@ -214,6 +228,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CloudG
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CommandAndScriptingInterpreter = @"COMMAND_AND_SCRIPTING_INTERPRETER";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CreateOrModifySystemProcess = @"CREATE_OR_MODIFY_SYSTEM_PROCESS";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DataDestruction = @"DATA_DESTRUCTION";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DomainPolicyModification = @"DOMAIN_POLICY_MODIFICATION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DynamicResolution = @"DYNAMIC_RESOLUTION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExfiltrationOverWebService = @"EXFILTRATION_OVER_WEB_SERVICE";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExfiltrationToCloudStorage = @"EXFILTRATION_TO_CLOUD_STORAGE";
@@ -370,6 +385,16 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_Connection
+//
+
+@implementation GTLRSecurityCommandCenter_Connection
+@dynamic destinationIp, destinationPort, protocol, sourceIp, sourcePort;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_Cve
 //
 
@@ -432,10 +457,24 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 //
 
 @implementation GTLRSecurityCommandCenter_Finding
-@dynamic access, canonicalName, category, createTime, eventTime,
-         externalSystems, externalUri, findingClass, indicator, mitreAttack,
-         mute, muteInitiator, muteUpdateTime, name, parent, resourceName,
-         securityMarks, severity, sourceProperties, state, vulnerability;
+@dynamic access, canonicalName, category, connections, createTime,
+         descriptionProperty, eventTime, externalSystems, externalUri,
+         findingClass, iamBindings, indicator, mitreAttack, mute, muteInitiator,
+         muteUpdateTime, name, nextSteps, parent, resourceName, securityMarks,
+         severity, sourceProperties, state, vulnerability;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"connections" : [GTLRSecurityCommandCenter_Connection class],
+    @"iamBindings" : [GTLRSecurityCommandCenter_IamBinding class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -797,6 +836,16 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_IamBinding
+//
+
+@implementation GTLRSecurityCommandCenter_IamBinding
+@dynamic action, member, role;
 @end
 
 

@@ -19,6 +19,194 @@
 
 @end
 
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsCreate
+
+@dynamic federationId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_Federation *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta/{+parent}/federations";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataprocMetastore_Operation class];
+  query.loggingName = @"metastore.projects.locations.federations.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataprocMetastore_Operation class];
+  query.loggingName = @"metastore.projects.locations.federations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataprocMetastore_Federation class];
+  query.loggingName = @"metastore.projects.locations.federations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta/{+resource}:getIamPolicy";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataprocMetastore_Policy class];
+  query.loggingName = @"metastore.projects.locations.federations.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta/{+parent}/federations";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataprocMetastore_ListFederationsResponse class];
+  query.loggingName = @"metastore.projects.locations.federations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_Federation *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataprocMetastore_Operation class];
+  query.loggingName = @"metastore.projects.locations.federations.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta/{+resource}:setIamPolicy";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataprocMetastore_Policy class];
+  query.loggingName = @"metastore.projects.locations.federations.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta/{+resource}:testIamPermissions";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataprocMetastore_TestIamPermissionsResponse class];
+  query.loggingName = @"metastore.projects.locations.federations.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataprocMetastoreQuery_ProjectsLocationsGet
 
 @dynamic name;

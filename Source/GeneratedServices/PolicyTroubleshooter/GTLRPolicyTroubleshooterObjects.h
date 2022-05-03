@@ -27,6 +27,8 @@
 @class GTLRPolicyTroubleshooter_GoogleIamV1AuditLogConfig;
 @class GTLRPolicyTroubleshooter_GoogleIamV1Binding;
 @class GTLRPolicyTroubleshooter_GoogleIamV1Policy;
+@class GTLRPolicyTroubleshooter_GoogleRpcStatus;
+@class GTLRPolicyTroubleshooter_GoogleRpcStatus_Details_Item;
 @class GTLRPolicyTroubleshooter_GoogleTypeExpr;
 
 // Generated comments include content from the discovery document; avoid them
@@ -686,6 +688,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
  */
 @property(nonatomic, copy, nullable) NSString *access;
 
+/** The general errors contained in the troubleshooting response. */
+@property(nonatomic, strong, nullable) NSArray<GTLRPolicyTroubleshooter_GoogleRpcStatus *> *errors;
+
 /**
  *  List of IAM policies that were evaluated to check the principal's
  *  permissions, with annotations to indicate how each policy contributed to the
@@ -715,8 +720,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
  *  "audit_log_configs": [ { "log_type": "DATA_READ" }, { "log_type":
  *  "DATA_WRITE", "exempted_members": [ "user:aliya\@example.com" ] } ] } ] }
  *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
- *  logging. It also exempts jose\@example.com from DATA_READ logging, and
- *  aliya\@example.com from DATA_WRITE logging.
+ *  logging. It also exempts `jose\@example.com` from DATA_READ logging, and
+ *  `aliya\@example.com` from DATA_WRITE logging.
  */
 @interface GTLRPolicyTroubleshooter_GoogleIamV1AuditConfig : GTLRObject
 
@@ -910,6 +915,51 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
 
+@end
+
+
+/**
+ *  The `Status` type defines a logical error model that is suitable for
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
+ */
+@interface GTLRPolicyTroubleshooter_GoogleRpcStatus : GTLRObject
+
+/**
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPolicyTroubleshooter_GoogleRpcStatus_Details_Item *> *details;
+
+/**
+ *  A developer-facing error message, which should be in English. Any
+ *  user-facing error message should be localized and sent in the
+ *  google.rpc.Status.details field, or localized by the client.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRPolicyTroubleshooter_GoogleRpcStatus_Details_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRPolicyTroubleshooter_GoogleRpcStatus_Details_Item : GTLRObject
 @end
 
 

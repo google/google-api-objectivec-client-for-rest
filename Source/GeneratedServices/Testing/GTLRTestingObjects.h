@@ -1096,10 +1096,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /** Tags for this dimension. Examples: "default", "preview", "deprecated". */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
-/**
- *  URL of a thumbnail image (photo) of the device. e.g.
- *  https://lh3.googleusercontent.com/90WcauuJiCYABEl8U0lcZeuS5STUbf2yW...
- */
+/** URL of a thumbnail image (photo) of the device. */
 @property(nonatomic, copy, nullable) NSString *thumbnailUrl;
 
 @end
@@ -2261,7 +2258,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @property(nonatomic, strong, nullable) NSNumber *shardIndex;
 
-/** Output only. Test targets for each shard. */
+/** Output only. Test targets for each shard. Only set for manual sharding. */
 @property(nonatomic, strong, nullable) GTLRTesting_TestTargetsForShard *testTargetsForShard;
 
 @end

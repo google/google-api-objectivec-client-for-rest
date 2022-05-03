@@ -623,6 +623,16 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standa
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidEnterprise_EnterpriseAuthenticationAppLinkConfig
+//
+
+@implementation GTLRAndroidEnterprise_EnterpriseAuthenticationAppLinkConfig
+@dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidEnterprise_EnterprisesListResponse
 //
 
@@ -1109,11 +1119,13 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standa
 //
 
 @implementation GTLRAndroidEnterprise_ProductPolicy
-@dynamic autoInstallPolicy, autoUpdateMode, managedConfiguration, productId,
-         trackIds, tracks;
+@dynamic autoInstallPolicy, autoUpdateMode,
+         enterpriseAuthenticationAppLinkConfigs, managedConfiguration,
+         productId, trackIds, tracks;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"enterpriseAuthenticationAppLinkConfigs" : [GTLRAndroidEnterprise_EnterpriseAuthenticationAppLinkConfig class],
     @"trackIds" : [NSString class],
     @"tracks" : [NSString class]
   };

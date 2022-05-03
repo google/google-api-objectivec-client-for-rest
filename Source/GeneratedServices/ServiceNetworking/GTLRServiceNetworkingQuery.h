@@ -758,6 +758,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksGet : GTLRServiceNetworkingQuery
 
 /**
+ *  Optional. When true, include the used IP ranges as part of the
+ *  GetConsumerConfig output. This includes routes created inside the service
+ *  networking network, consumer network, peers of the consumer network, and
+ *  reserved ranges inside the service networking network. By default, this is
+ *  false
+ */
+@property(nonatomic, assign) BOOL includeUsedIpRanges;
+
+/**
  *  Required. Name of the consumer config to retrieve in the format:
  *  `services/{service}/projects/{project}/global/networks/{network}`. {service}
  *  is the peering service that is managing connectivity for the service

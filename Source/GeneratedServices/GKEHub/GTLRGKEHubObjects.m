@@ -113,6 +113,11 @@ NSString * const kGTLRGKEHub_FeatureState_Code_Error           = @"ERROR";
 NSString * const kGTLRGKEHub_FeatureState_Code_Ok              = @"OK";
 NSString * const kGTLRGKEHub_FeatureState_Code_Warning         = @"WARNING";
 
+// GTLRGKEHub_IdentityServiceMembershipState.state
+NSString * const kGTLRGKEHub_IdentityServiceMembershipState_State_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_IdentityServiceMembershipState_State_Error = @"ERROR";
+NSString * const kGTLRGKEHub_IdentityServiceMembershipState_State_Ok = @"OK";
+
 // GTLRGKEHub_MembershipState.code
 NSString * const kGTLRGKEHub_MembershipState_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
 NSString * const kGTLRGKEHub_MembershipState_Code_Creating     = @"CREATING";
@@ -120,6 +125,21 @@ NSString * const kGTLRGKEHub_MembershipState_Code_Deleting     = @"DELETING";
 NSString * const kGTLRGKEHub_MembershipState_Code_Ready        = @"READY";
 NSString * const kGTLRGKEHub_MembershipState_Code_ServiceUpdating = @"SERVICE_UPDATING";
 NSString * const kGTLRGKEHub_MembershipState_Code_Updating     = @"UPDATING";
+
+// GTLRGKEHub_ServiceMeshControlPlaneManagement.state
+NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Active = @"ACTIVE";
+NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Degraded = @"DEGRADED";
+NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Disabled = @"DISABLED";
+NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_FailedPrecondition = @"FAILED_PRECONDITION";
+NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_LifecycleStateUnspecified = @"LIFECYCLE_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_NeedsAttention = @"NEEDS_ATTENTION";
+NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Provisioning = @"PROVISIONING";
+NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Stalled = @"STALLED";
+
+// GTLRGKEHub_ServiceMeshMembershipSpec.controlPlane
+NSString * const kGTLRGKEHub_ServiceMeshMembershipSpec_ControlPlane_Automatic = @"AUTOMATIC";
+NSString * const kGTLRGKEHub_ServiceMeshMembershipSpec_ControlPlane_ControlPlaneManagementUnspecified = @"CONTROL_PLANE_MANAGEMENT_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ServiceMeshMembershipSpec_ControlPlane_Manual = @"MANUAL";
 
 // GTLRGKEHub_Status.code
 NSString * const kGTLRGKEHub_Status_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
@@ -678,6 +698,57 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEHub_IdentityServiceAuthMethod
+//
+
+@implementation GTLRGKEHub_IdentityServiceAuthMethod
+@dynamic name, oidcConfig, proxy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_IdentityServiceMembershipSpec
+//
+
+@implementation GTLRGKEHub_IdentityServiceMembershipSpec
+@dynamic authMethods;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"authMethods" : [GTLRGKEHub_IdentityServiceAuthMethod class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_IdentityServiceMembershipState
+//
+
+@implementation GTLRGKEHub_IdentityServiceMembershipState
+@dynamic failureReason, installedVersion, memberConfig, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_IdentityServiceOidcConfig
+//
+
+@implementation GTLRGKEHub_IdentityServiceOidcConfig
+@dynamic certificateAuthorityData, clientId, clientSecret,
+         deployCloudConsoleProxy, encryptedClientSecret, extraParams,
+         groupPrefix, groupsClaim, issuerUri, kubectlRedirectUri, scopes,
+         userClaim, userPrefix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEHub_KubernetesMetadata
 //
 
@@ -882,7 +953,7 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_MembershipFeatureSpec
-@dynamic configmanagement;
+@dynamic configmanagement, identityservice, mesh;
 @end
 
 
@@ -892,7 +963,8 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_MembershipFeatureState
-@dynamic appdevexperience, configmanagement, state;
+@dynamic appdevexperience, configmanagement, identityservice, servicemesh,
+         state;
 @end
 
 
@@ -1025,6 +1097,54 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 @implementation GTLRGKEHub_ResourceOptions
 @dynamic connectVersion, k8sVersion, v1beta1Crd;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ServiceMeshControlPlaneManagement
+//
+
+@implementation GTLRGKEHub_ServiceMeshControlPlaneManagement
+@dynamic details, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRGKEHub_ServiceMeshStatusDetails class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ServiceMeshMembershipSpec
+//
+
+@implementation GTLRGKEHub_ServiceMeshMembershipSpec
+@dynamic controlPlane;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ServiceMeshMembershipState
+//
+
+@implementation GTLRGKEHub_ServiceMeshMembershipState
+@dynamic controlPlaneManagement;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ServiceMeshStatusDetails
+//
+
+@implementation GTLRGKEHub_ServiceMeshStatusDetails
+@dynamic code, details;
 @end
 
 

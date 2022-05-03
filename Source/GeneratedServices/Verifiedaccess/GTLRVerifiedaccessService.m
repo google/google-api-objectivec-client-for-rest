@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Chrome Verified Access API (verifiedaccess/v1)
+//   Chrome Verified Access API (verifiedaccess/v2)
 // Description:
 //   API for Verified Access chrome extension to provide credential verification
 //   for chrome devices connecting to an enterprise network

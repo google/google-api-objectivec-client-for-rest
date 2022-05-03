@@ -847,7 +847,6 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricLastTouchTo
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricLastTouchViewThroughConversions = @"METRIC_LAST_TOUCH_VIEW_THROUGH_CONVERSIONS";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricLineitemBidResponseCount = @"METRIC_LINEITEM_BID_RESPONSE_COUNT";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricMediaCostAdvertiser = @"METRIC_MEDIA_COST_ADVERTISER";
-NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricMediaCostAdvertiserCurrencyPerStoreVisitAdxOnly = @"METRIC_MEDIA_COST_ADVERTISER_CURRENCY_PER_STORE_VISIT_ADX_ONLY";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricMediaCostEcpaAdvertiser = @"METRIC_MEDIA_COST_ECPA_ADVERTISER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricMediaCostEcpaPartner = @"METRIC_MEDIA_COST_ECPA_PARTNER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricMediaCostEcpapcAdvertiser = @"METRIC_MEDIA_COST_ECPAPC_ADVERTISER";
@@ -930,7 +929,6 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRefundBilla
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRefundMediaCostAdvertiserCurrency = @"METRIC_REFUND_MEDIA_COST_ADVERTISER_CURRENCY";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRefundPlatformFeeAdvertiserCurrency = @"METRIC_REFUND_PLATFORM_FEE_ADVERTISER_CURRENCY";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRevenueAdvertiser = @"METRIC_REVENUE_ADVERTISER";
-NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRevenueAdvertiserCurrencyPerStoreVisitAdxOnly = @"METRIC_REVENUE_ADVERTISER_CURRENCY_PER_STORE_VISIT_ADX_ONLY";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRevenueEcpaAdvertiser = @"METRIC_REVENUE_ECPA_ADVERTISER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRevenueEcpaPartner = @"METRIC_REVENUE_ECPA_PARTNER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRevenueEcpapcAdvertiser = @"METRIC_REVENUE_ECPAPC_ADVERTISER";
@@ -968,7 +966,6 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRichMediaVi
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricStartsAudio = @"METRIC_STARTS_AUDIO";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricStopsAudio = @"METRIC_STOPS_AUDIO";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricStoreVisitConversions = @"METRIC_STORE_VISIT_CONVERSIONS";
-NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricStoreVisitsAdxOnly = @"METRIC_STORE_VISITS_ADX_ONLY";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTargetRatingPoints = @"METRIC_TARGET_RATING_POINTS";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTeaTrueviewImpressions = @"METRIC_TEA_TRUEVIEW_IMPRESSIONS";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTeaTrueviewUniqueCookies = @"METRIC_TEA_TRUEVIEW_UNIQUE_COOKIES";
@@ -982,7 +979,6 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalExposu
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalImpressionCustomValue = @"METRIC_TOTAL_IMPRESSION_CUSTOM_VALUE";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalInteractionTime = @"METRIC_TOTAL_INTERACTION_TIME";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalMediaCostAdvertiser = @"METRIC_TOTAL_MEDIA_COST_ADVERTISER";
-NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalMediaCostAdvertiserCurrencyPerStoreVisitAdxOnly = @"METRIC_TOTAL_MEDIA_COST_ADVERTISER_CURRENCY_PER_STORE_VISIT_ADX_ONLY";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalMediaCostEcpaAdvertiser = @"METRIC_TOTAL_MEDIA_COST_ECPA_ADVERTISER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalMediaCostEcpaPartner = @"METRIC_TOTAL_MEDIA_COST_ECPA_PARTNER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalMediaCostEcpapcAdvertiser = @"METRIC_TOTAL_MEDIA_COST_ECPAPC_ADVERTISER";

@@ -75,6 +75,82 @@ NSString * const kGTLRSpannerViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @end
 
+@implementation GTLRSpannerQuery_ProjectsInstanceConfigsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRSpannerQuery_ProjectsInstanceConfigsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSpanner_Empty class];
+  query.loggingName = @"spanner.projects.instanceConfigs.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRSpannerQuery_ProjectsInstanceConfigsOperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSpannerQuery_ProjectsInstanceConfigsOperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSpanner_Empty class];
+  query.loggingName = @"spanner.projects.instanceConfigs.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRSpannerQuery_ProjectsInstanceConfigsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSpannerQuery_ProjectsInstanceConfigsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSpanner_Operation class];
+  query.loggingName = @"spanner.projects.instanceConfigs.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSpannerQuery_ProjectsInstanceConfigsOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSpannerQuery_ProjectsInstanceConfigsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSpanner_ListOperationsResponse class];
+  query.loggingName = @"spanner.projects.instanceConfigs.operations.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRSpannerQuery_ProjectsInstancesBackupOperationsList
 
 @dynamic filter, pageSize, pageToken, parent;

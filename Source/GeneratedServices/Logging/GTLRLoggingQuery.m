@@ -389,6 +389,32 @@
 
 @end
 
+@implementation GTLRLoggingQuery_BillingAccountsLocationsBucketsViewsLogsList
+
+@dynamic pageSize, pageToken, parent, resourceNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceNames" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/logs";
+  GTLRLoggingQuery_BillingAccountsLocationsBucketsViewsLogsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLogging_ListLogsResponse class];
+  query.loggingName = @"logging.billingAccounts.locations.buckets.views.logs.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_BillingAccountsLocationsBucketsViewsPatch
 
 @dynamic name, updateMask;
@@ -1267,6 +1293,32 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRLogging_ListViewsResponse class];
   query.loggingName = @"logging.folders.locations.buckets.views.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_FoldersLocationsBucketsViewsLogsList
+
+@dynamic pageSize, pageToken, parent, resourceNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceNames" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/logs";
+  GTLRLoggingQuery_FoldersLocationsBucketsViewsLogsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLogging_ListLogsResponse class];
+  query.loggingName = @"logging.folders.locations.buckets.views.logs.list";
   return query;
 }
 
@@ -2397,6 +2449,32 @@
 
 @end
 
+@implementation GTLRLoggingQuery_OrganizationsLocationsBucketsViewsLogsList
+
+@dynamic pageSize, pageToken, parent, resourceNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceNames" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/logs";
+  GTLRLoggingQuery_OrganizationsLocationsBucketsViewsLogsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLogging_ListLogsResponse class];
+  query.loggingName = @"logging.organizations.locations.buckets.views.logs.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_OrganizationsLocationsBucketsViewsPatch
 
 @dynamic name, updateMask;
@@ -3130,6 +3208,32 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRLogging_ListViewsResponse class];
   query.loggingName = @"logging.projects.locations.buckets.views.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_ProjectsLocationsBucketsViewsLogsList
+
+@dynamic pageSize, pageToken, parent, resourceNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceNames" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/logs";
+  GTLRLoggingQuery_ProjectsLocationsBucketsViewsLogsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLogging_ListLogsResponse class];
+  query.loggingName = @"logging.projects.locations.buckets.views.logs.list";
   return query;
 }
 

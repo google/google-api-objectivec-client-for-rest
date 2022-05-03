@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Chrome Verified Access API (verifiedaccess/v1)
+//   Chrome Verified Access API (verifiedaccess/v2)
 // Description:
 //   API for Verified Access chrome extension to provide credential verification
 //   for chrome devices connecting to an enterprise network
@@ -10,6 +10,16 @@
 //   https://developers.google.com/chrome/verified-access
 
 #import "GTLRVerifiedaccessObjects.h"
+
+// ----------------------------------------------------------------------------
+// Constants
+
+// GTLRVerifiedaccess_VerifyChallengeResponseResult.keyTrustLevel
+NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeBrowserOsKey = @"CHROME_BROWSER_OS_KEY";
+NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeBrowserTpmKey = @"CHROME_BROWSER_TPM_KEY";
+NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeOsDeveloperMode = @"CHROME_OS_DEVELOPER_MODE";
+NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeOsVerifiedMode = @"CHROME_OS_VERIFIED_MODE";
+NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_KeyTrustLevelUnspecified = @"KEY_TRUST_LEVEL_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -32,16 +42,6 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRVerifiedaccess_SignedData
-//
-
-@implementation GTLRVerifiedaccess_SignedData
-@dynamic data, signature;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRVerifiedaccess_VerifyChallengeResponseRequest
 //
 
@@ -56,6 +56,6 @@
 //
 
 @implementation GTLRVerifiedaccess_VerifyChallengeResponseResult
-@dynamic deviceEnrollmentId, devicePermanentId, signedPublicKeyAndChallenge,
-         verificationOutput;
+@dynamic devicePermanentId, deviceSignal, keyTrustLevel,
+         signedPublicKeyAndChallenge;
 @end

@@ -88,7 +88,7 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRFirestore_CompositeFilter.op
 
 /**
- *  The results are required to satisfy each of the combined filters.
+ *  Documents are required to satisfy all of the combined filters.
  *
  *  Value: "AND"
  */
@@ -956,15 +956,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @interface GTLRFirestore_CompositeFilter : GTLRObject
 
-/** The list of filters to combine. Must contain at least one filter. */
+/**
+ *  The list of filters to combine. Requires: * At least one filter is present.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_Filter *> *filters;
 
 /**
  *  The operator for combining multiple filters.
  *
  *  Likely values:
- *    @arg @c kGTLRFirestore_CompositeFilter_Op_And The results are required to
- *        satisfy each of the combined filters. (Value: "AND")
+ *    @arg @c kGTLRFirestore_CompositeFilter_Op_And Documents are required to
+ *        satisfy all of the combined filters. (Value: "AND")
  *    @arg @c kGTLRFirestore_CompositeFilter_Op_OperatorUnspecified Unspecified.
  *        This value must not be used. (Value: "OPERATOR_UNSPECIFIED")
  */

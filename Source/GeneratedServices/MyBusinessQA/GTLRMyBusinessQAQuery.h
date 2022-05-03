@@ -42,6 +42,29 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Deletes the answer written by the current user to a question.
+ *
+ *  Method: mybusinessqanda.locations.questions.answers.delete
+ */
+@interface GTLRMyBusinessQAQuery_LocationsQuestionsAnswersDelete : GTLRMyBusinessQAQuery
+
+/** Required. The name of the question to delete an answer for. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRMyBusinessQA_Empty.
+ *
+ *  Deletes the answer written by the current user to a question.
+ *
+ *  @param name Required. The name of the question to delete an answer for.
+ *
+ *  @return GTLRMyBusinessQAQuery_LocationsQuestionsAnswersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Returns the paginated list of answers for a specified question.
  *
  *  Method: mybusinessqanda.locations.questions.answers.list
@@ -156,29 +179,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Required. The name of the question to delete.
  *
  *  @return GTLRMyBusinessQAQuery_LocationsQuestionsDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Deletes the answer written by the current user to a question.
- *
- *  Method: mybusinessqanda.locations.questions.deleteAnswers
- */
-@interface GTLRMyBusinessQAQuery_LocationsQuestionsDeleteAnswers : GTLRMyBusinessQAQuery
-
-/** Required. The name of the question to delete an answer for. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRMyBusinessQA_Empty.
- *
- *  Deletes the answer written by the current user to a question.
- *
- *  @param name Required. The name of the question to delete an answer for.
- *
- *  @return GTLRMyBusinessQAQuery_LocationsQuestionsDeleteAnswers
  */
 + (instancetype)queryWithName:(NSString *)name;
 

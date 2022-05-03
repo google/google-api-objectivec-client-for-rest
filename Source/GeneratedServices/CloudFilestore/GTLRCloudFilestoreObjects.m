@@ -276,7 +276,7 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_UpdateChannelUnspecifi
 @implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_NotificationParameters
 
 + (Class)classForAdditionalProperties {
-  return [NSString class];
+  return [GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NotificationParameter class];
 }
 
 @end
@@ -352,6 +352,24 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_UpdateChannelUnspecifi
 
 @implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata
 @dynamic location, nodeId, perSliEligibility;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NotificationParameter
+//
+
+@implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NotificationParameter
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

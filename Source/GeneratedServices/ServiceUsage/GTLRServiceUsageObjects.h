@@ -994,14 +994,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *jwksUri;
 
 /**
- *  Defines the locations to extract the JWT. JWT locations can be either from
- *  HTTP headers or URL query parameters. The rule is that the first match wins.
- *  The checking order is: checking all headers first, then URL query
- *  parameters. If not specified, default to use following 3 locations: 1)
- *  Authorization: Bearer 2) x-goog-iap-jwt-assertion 3) access_token query
- *  parameter Default locations can be specified as followings: jwt_locations: -
- *  header: Authorization value_prefix: "Bearer " - header:
- *  x-goog-iap-jwt-assertion - query: access_token
+ *  Defines the locations to extract the JWT. For now it is only used by the
+ *  Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+ *  (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+ *  JWT locations can be one of HTTP headers, URL query parameters or cookies.
+ *  The rule is that the first match wins. If not specified, default to use
+ *  following 3 locations: 1) Authorization: Bearer 2) x-goog-iap-jwt-assertion
+ *  3) access_token query parameter Default locations can be specified as
+ *  followings: jwt_locations: - header: Authorization value_prefix: "Bearer " -
+ *  header: x-goog-iap-jwt-assertion - query: access_token
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_JwtLocation *> *jwtLocations;
 
@@ -2490,6 +2491,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  Specifies a location to extract JWT from an API request.
  */
 @interface GTLRServiceUsage_JwtLocation : GTLRObject
+
+/** Specifies cookie name to extract JWT token. */
+@property(nonatomic, copy, nullable) NSString *cookie;
 
 /** Specifies HTTP header name to extract JWT token. */
 @property(nonatomic, copy, nullable) NSString *header;

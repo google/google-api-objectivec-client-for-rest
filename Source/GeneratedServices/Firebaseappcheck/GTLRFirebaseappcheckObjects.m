@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Firebase App Check API (firebaseappcheck/v1beta)
+//   Firebase App Check API (firebaseappcheck/v1)
 // Description:
 //   Firebase App Check works alongside other Firebase services to help protect
 //   your backend resources from abuse, such as billing fraud or phishing.
@@ -14,52 +14,42 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService.enforcementMode
-NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_EnforcementMode_Enforced = @"ENFORCED";
-NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_EnforcementMode_Off = @"OFF";
-NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_EnforcementMode_Unenforced = @"UNENFORCED";
+// GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service.enforcementMode
+NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_EnforcementMode_Enforced = @"ENFORCED";
+NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_EnforcementMode_Off = @"OFF";
+NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_EnforcementMode_Unenforced = @"UNENFORCED";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppAttestConfig
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppAttestConfig
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppAttestConfig
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppAttestConfig
 @dynamic name, tokenTtl;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppCheckToken
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppCheckToken
-@dynamic attestationToken, token, ttl;
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppCheckToken
+@dynamic token, ttl;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAttestationTokenResponse
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchGetAppAttestConfigsResponse
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAttestationTokenResponse
-@dynamic attestationToken, ttl;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetAppAttestConfigsResponse
-//
-
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetAppAttestConfigsResponse
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchGetAppAttestConfigsResponse
 @dynamic configs;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"configs" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppAttestConfig class]
+    @"configs" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppAttestConfig class]
   };
   return map;
 }
@@ -69,15 +59,15 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetDeviceCheckConfigsResponse
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchGetDeviceCheckConfigsResponse
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetDeviceCheckConfigsResponse
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchGetDeviceCheckConfigsResponse
 @dynamic configs;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"configs" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaDeviceCheckConfig class]
+    @"configs" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1DeviceCheckConfig class]
   };
   return map;
 }
@@ -87,15 +77,15 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetPlayIntegrityConfigsResponse
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchGetPlayIntegrityConfigsResponse
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetPlayIntegrityConfigsResponse
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchGetPlayIntegrityConfigsResponse
 @dynamic configs;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"configs" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPlayIntegrityConfig class]
+    @"configs" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfig class]
   };
   return map;
 }
@@ -105,15 +95,15 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetRecaptchaConfigsResponse
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchGetRecaptchaEnterpriseConfigsResponse
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetRecaptchaConfigsResponse
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchGetRecaptchaEnterpriseConfigsResponse
 @dynamic configs;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"configs" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaConfig class]
+    @"configs" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaEnterpriseConfig class]
   };
   return map;
 }
@@ -123,15 +113,15 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetRecaptchaEnterpriseConfigsResponse
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchGetRecaptchaV3ConfigsResponse
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetRecaptchaEnterpriseConfigsResponse
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchGetRecaptchaV3ConfigsResponse
 @dynamic configs;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"configs" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig class]
+    @"configs" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaV3Config class]
   };
   return map;
 }
@@ -141,15 +131,15 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetRecaptchaV3ConfigsResponse
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchGetSafetyNetConfigsResponse
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetRecaptchaV3ConfigsResponse
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchGetSafetyNetConfigsResponse
 @dynamic configs;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"configs" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaV3Config class]
+    @"configs" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1SafetyNetConfig class]
   };
   return map;
 }
@@ -159,33 +149,15 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetSafetyNetConfigsResponse
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchUpdateServicesRequest
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetSafetyNetConfigsResponse
-@dynamic configs;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"configs" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaSafetyNetConfig class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchUpdateServicesRequest
-//
-
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchUpdateServicesRequest
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchUpdateServicesRequest
 @dynamic requests, updateMask;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"requests" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaUpdateServiceRequest class]
+    @"requests" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1UpdateServiceRequest class]
   };
   return map;
 }
@@ -195,15 +167,15 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchUpdateServicesResponse
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchUpdateServicesResponse
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchUpdateServicesResponse
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchUpdateServicesResponse
 @dynamic services;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"services" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService class]
+    @"services" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service class]
   };
   return map;
 }
@@ -213,183 +185,173 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaDebugToken
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1DebugToken
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaDebugToken
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1DebugToken
 @dynamic displayName, name, token;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaDeviceCheckConfig
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1DeviceCheckConfig
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaDeviceCheckConfig
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1DeviceCheckConfig
 @dynamic keyId, name, privateKey, privateKeySet, tokenTtl;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeAppAttestAssertionRequest
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeAppAttestAssertionRequest
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeAppAttestAssertionRequest
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeAppAttestAssertionRequest
 @dynamic artifact, assertion, challenge;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationRequest
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeAppAttestAttestationRequest
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationRequest
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeAppAttestAttestationRequest
 @dynamic attestationStatement, challenge, keyId;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationResponse
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeAppAttestAttestationResponse
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationResponse
-@dynamic appCheckToken, artifact, attestationToken;
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeAppAttestAttestationResponse
+@dynamic appCheckToken, artifact;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeCustomTokenRequest
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeCustomTokenRequest
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeCustomTokenRequest
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeCustomTokenRequest
 @dynamic customToken;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeDebugTokenRequest
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeDebugTokenRequest
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeDebugTokenRequest
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeDebugTokenRequest
 @dynamic debugToken;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeDeviceCheckTokenRequest
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeDeviceCheckTokenRequest
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeDeviceCheckTokenRequest
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeDeviceCheckTokenRequest
 @dynamic deviceToken;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangePlayIntegrityTokenRequest
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangePlayIntegrityTokenRequest
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangePlayIntegrityTokenRequest
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangePlayIntegrityTokenRequest
 @dynamic playIntegrityToken;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaEnterpriseTokenRequest
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeRecaptchaEnterpriseTokenRequest
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaEnterpriseTokenRequest
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeRecaptchaEnterpriseTokenRequest
 @dynamic recaptchaEnterpriseToken;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaTokenRequest
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeRecaptchaV3TokenRequest
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaTokenRequest
-@dynamic recaptchaToken;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaV3TokenRequest
-//
-
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaV3TokenRequest
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeRecaptchaV3TokenRequest
 @dynamic recaptchaV3Token;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeSafetyNetTokenRequest
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeSafetyNetTokenRequest
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeSafetyNetTokenRequest
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeSafetyNetTokenRequest
 @dynamic safetyNetToken;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeRequest
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1GenerateAppAttestChallengeRequest
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeRequest
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1GenerateAppAttestChallengeRequest
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeResponse
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1GenerateAppAttestChallengeResponse
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeResponse
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1GenerateAppAttestChallengeResponse
 @dynamic challenge, ttl;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeRequest
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1GeneratePlayIntegrityChallengeRequest
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeRequest
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1GeneratePlayIntegrityChallengeRequest
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeResponse
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1GeneratePlayIntegrityChallengeResponse
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGeneratePlayIntegrityChallengeResponse
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1GeneratePlayIntegrityChallengeResponse
 @dynamic challenge, ttl;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaListDebugTokensResponse
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ListDebugTokensResponse
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaListDebugTokensResponse
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ListDebugTokensResponse
 @dynamic debugTokens, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"debugTokens" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaDebugToken class]
+    @"debugTokens" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1DebugToken class]
   };
   return map;
 }
@@ -403,15 +365,15 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaListServicesResponse
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ListServicesResponse
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaListServicesResponse
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ListServicesResponse
 @dynamic nextPageToken, services;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"services" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService class]
+    @"services" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service class]
   };
   return map;
 }
@@ -425,35 +387,35 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPlayIntegrityConfig
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfig
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPlayIntegrityConfig
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfig
 @dynamic name, tokenTtl;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPublicJwk
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PublicJwk
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPublicJwk
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PublicJwk
 @dynamic alg, e, kid, kty, n, use;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPublicJwkSet
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PublicJwkSet
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPublicJwkSet
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PublicJwkSet
 @dynamic keys;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"keys" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPublicJwk class]
+    @"keys" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PublicJwk class]
   };
   return map;
 }
@@ -463,60 +425,50 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaConfig
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaEnterpriseConfig
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaConfig
-@dynamic name, siteSecret, siteSecretSet, tokenTtl;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig
-//
-
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaEnterpriseConfig
 @dynamic name, siteKey, tokenTtl;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaV3Config
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaV3Config
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaV3Config
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaV3Config
 @dynamic name, siteSecret, siteSecretSet, tokenTtl;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaSafetyNetConfig
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1SafetyNetConfig
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaSafetyNetConfig
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1SafetyNetConfig
 @dynamic name, tokenTtl;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service
 @dynamic enforcementMode, name;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaUpdateServiceRequest
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1UpdateServiceRequest
 //
 
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaUpdateServiceRequest
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1UpdateServiceRequest
 @dynamic service, updateMask;
 @end
 

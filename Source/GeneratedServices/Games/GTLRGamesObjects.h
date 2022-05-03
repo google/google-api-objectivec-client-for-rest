@@ -2007,6 +2007,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  */
 @property(nonatomic, copy, nullable) NSString *friendStatus;
 
+/** Per-application unique player identifier. */
+@property(nonatomic, copy, nullable) NSString *gamePlayerId;
+
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string `games#player`

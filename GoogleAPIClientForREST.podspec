@@ -156,6 +156,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/AuthorizedBuyersMarketplace/*.{h,m}'
   end
+  s.subspec 'BackupforGKE' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/BackupforGKE/*.{h,m}'
+  end
   s.subspec 'BareMetalSolution' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/BareMetalSolution/*.{h,m}'

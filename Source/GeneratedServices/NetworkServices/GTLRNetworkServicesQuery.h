@@ -20,6 +20,7 @@
 
 @class GTLRNetworkServices_CancelOperationRequest;
 @class GTLRNetworkServices_EndpointPolicy;
+@class GTLRNetworkServices_ServiceBinding;
 @class GTLRNetworkServices_SetIamPolicyRequest;
 @class GTLRNetworkServices_TestIamPermissionsRequest;
 
@@ -775,8 +776,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
- *  language accepts strings like "displayName=tokyo", and is documented in more
- *  detail in [AIP-160](https://google.aip.dev/160).
+ *  language accepts strings like `"displayName=tokyo"`, and is documented in
+ *  more detail in [AIP-160](https://google.aip.dev/160).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -971,6 +972,274 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new ServiceBinding in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.serviceBindings.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsCreate : GTLRNetworkServicesQuery
+
+/**
+ *  Required. The parent resource of the ServiceBinding. Must be in the format
+ *  `projects/ * /locations/global`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. Short name of the ServiceBinding resource to be created. */
+@property(nonatomic, copy, nullable) NSString *serviceBindingId;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Creates a new ServiceBinding in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkServices_ServiceBinding to include in the
+ *    query.
+ *  @param parent Required. The parent resource of the ServiceBinding. Must be
+ *    in the format `projects/ * /locations/global`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_ServiceBinding *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single ServiceBinding.
+ *
+ *  Method: networkservices.projects.locations.serviceBindings.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsDelete : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the ServiceBinding to delete. Must be in the format
+ *  `projects/ * /locations/global/serviceBindings/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Deletes a single ServiceBinding.
+ *
+ *  @param name Required. A name of the ServiceBinding to delete. Must be in the
+ *    format `projects/ * /locations/global/serviceBindings/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single ServiceBinding.
+ *
+ *  Method: networkservices.projects.locations.serviceBindings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsGet : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the ServiceBinding to get. Must be in the format
+ *  `projects/ * /locations/global/serviceBindings/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ServiceBinding.
+ *
+ *  Gets details of a single ServiceBinding.
+ *
+ *  @param name Required. A name of the ServiceBinding to get. Must be in the
+ *    format `projects/ * /locations/global/serviceBindings/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: networkservices.projects.locations.serviceBindings.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsGetIamPolicy : GTLRNetworkServicesQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists ServiceBinding in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.serviceBindings.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsList : GTLRNetworkServicesQuery
+
+/** Maximum number of ServiceBindings to return per call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListServiceBindingsResponse` Indicates that
+ *  this is a continuation of a prior `ListRouters` call, and that the system
+ *  should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the ServiceBindings should be
+ *  listed, specified in the format `projects/ * /locations/global`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ListServiceBindingsResponse.
+ *
+ *  Lists ServiceBinding in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the
+ *    ServiceBindings should be listed, specified in the format `projects/ *
+ *    /locations/global`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: networkservices.projects.locations.serviceBindings.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsSetIamPolicy : GTLRNetworkServicesQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRNetworkServices_SetIamPolicyRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: networkservices.projects.locations.serviceBindings.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsTestIamPermissions : GTLRNetworkServicesQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRNetworkServices_TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 

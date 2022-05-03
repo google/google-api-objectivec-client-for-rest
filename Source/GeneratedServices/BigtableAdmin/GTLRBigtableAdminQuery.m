@@ -477,6 +477,25 @@ NSString * const kGTLRBigtableAdminViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @end
 
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesClustersHotTabletsList
+
+@dynamic endTime, pageSize, pageToken, parent, startTime;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/hotTablets";
+  GTLRBigtableAdminQuery_ProjectsInstancesClustersHotTabletsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBigtableAdmin_ListHotTabletsResponse class];
+  query.loggingName = @"bigtableadmin.projects.instances.clusters.hotTablets.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigtableAdminQuery_ProjectsInstancesClustersList
 
 @dynamic pageToken, parent;

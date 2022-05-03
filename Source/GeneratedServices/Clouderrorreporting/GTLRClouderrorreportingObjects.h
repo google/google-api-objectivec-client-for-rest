@@ -210,11 +210,11 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
 
 /**
  *  Approximate number of affected users in the given group that match the
- *  filter criteria. Users are distinguished by data in the `ErrorContext` of
- *  the individual error events, such as their login name or their remote IP
- *  address in case of HTTP requests. The number of affected users can be zero
- *  even if the number of errors is non-zero if no data was provided from which
- *  the affected user could be deduced. Users are counted based on data in the
+ *  filter criteria. Users are distinguished by data in the ErrorContext of the
+ *  individual error events, such as their login name or their remote IP address
+ *  in case of HTTP requests. The number of affected users can be zero even if
+ *  the number of errors is non-zero if no data was provided from which the
+ *  affected user could be deduced. Users are counted based on data in the
  *  request context that was provided in the error report. If more users are
  *  implicitly affected, such as due to a crash of the whole service, this is
  *  not reflected here.
@@ -414,9 +414,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
  *  [`Exception.backtrace`](https://ruby-doc.org/core-2.2.0/Exception.html#method-i-backtrace).
  *  * **C#**: Must be the return value of
  *  [`Exception.ToString()`](https://msdn.microsoft.com/en-us/library/system.exception.tostring.aspx).
- *  * **PHP**: Must start with `PHP (Notice|Parse error|Fatal error|Warning)`
- *  and contain the result of
- *  [`(string)$exception`](http://php.net/manual/en/exception.tostring.php). *
+ *  * **PHP**: Must be prefixed with `"PHP (Notice|Parse error|Fatal
+ *  error|Warning): "` and contain the result of
+ *  [`(string)$exception`](https://php.net/manual/en/exception.tostring.php). *
  *  **Go**: Must be the return value of
  *  [`runtime.Stack()`](https://golang.org/pkg/runtime/debug/#Stack).
  */
