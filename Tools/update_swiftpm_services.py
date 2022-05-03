@@ -108,7 +108,7 @@ def Main(args):
   """Main method."""
   assert not args, 'No args supported on this script!'
   script_dir = os.path.dirname(os.path.realpath(__file__))
-  root_dir = os.path.dirname(os.path.dirname(script_dir))
+  root_dir = os.path.dirname(script_dir)
   package_path = os.path.join(root_dir, _PACKAGE_FILE)
   assert os.path.isfile(package_path), (
       'Failed to find %r' % _PACKAGE_FILE)

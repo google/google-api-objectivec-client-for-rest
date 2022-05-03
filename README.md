@@ -5,6 +5,7 @@
 
 [![CocoaPods](https://github.com/google/google-api-objectivec-client-for-rest/actions/workflows/cocoapods.yml/badge.svg?branch=main)](https://github.com/google/google-api-objectivec-client-for-rest/actions/workflows/cocoapods.yml)
 [![SwiftPM](https://github.com/google/google-api-objectivec-client-for-rest/actions/workflows/swiftpm.yml/badge.svg?branch=main)](https://github.com/google/google-api-objectivec-client-for-rest/actions/workflows/swiftpm.yml)
+[![ServiceGenerator](https://github.com/google/google-api-objectivec-client-for-rest/actions/workflows/service_generator.yml/badge.svg?branch=main)](https://github.com/google/google-api-objectivec-client-for-rest/actions/workflows/service_generator.yml)
 
 Written by Google, this library is a flexible and efficient Objective-C
 framework for accessing JSON APIs.
@@ -26,7 +27,7 @@ In addition to the pre generated classes included with the library, you can
 generate your own source for other services that have a
 [discovery document](https://developers.google.com/discovery/v1/reference/apis#resource-representations)
 by using the
-[ServiceGenerator](https://github.com/google/google-api-objectivec-client-for-rest/tree/main/Source/Tools/ServiceGenerator).
+[ServiceGenerator](https://github.com/google/google-api-objectivec-client-for-rest/tree/main/Tools/ServiceGenerator).
 
 **If you have a problem** or want a new feature to be included in the library,
 please join the

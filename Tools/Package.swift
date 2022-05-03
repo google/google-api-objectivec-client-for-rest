@@ -15,7 +15,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/google/gtm-session-fetcher.git", "1.6.1" ..< "2.0.0"),
-        .package(path: "../..")
+        .package(path: "..")
     ],
     targets: [
         .target(
