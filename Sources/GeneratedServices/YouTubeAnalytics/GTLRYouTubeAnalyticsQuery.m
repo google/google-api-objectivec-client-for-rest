@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/youtube/analytics
 
-#import "GTLRYouTubeAnalyticsQuery.h"
+#import <GoogleAPIClientForREST/GTLRYouTubeAnalyticsQuery.h>
 
 @implementation GTLRYouTubeAnalyticsQuery
 

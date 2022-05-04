@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/shell/docs/
 
-#import "GTLRCloudShell.h"
+#import <GoogleAPIClientForREST/GTLRCloudShell.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

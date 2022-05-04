@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/dataproc/
 
-#import "GTLRDataprocQuery.h"
+#import <GoogleAPIClientForREST/GTLRDataprocQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

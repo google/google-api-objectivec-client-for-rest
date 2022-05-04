@@ -9,7 +9,7 @@
 // Documentation:
 //   https://firebase.google.com/docs/cloud-messaging
 
-#import "GTLRFcmdataObjects.h"
+#import <GoogleAPIClientForREST/GTLRFcmdataObjects.h>
 
 // ----------------------------------------------------------------------------
 //

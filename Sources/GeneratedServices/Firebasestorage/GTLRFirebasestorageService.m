@@ -9,7 +9,7 @@
 // Documentation:
 //   https://firebase.google.com/docs/storage
 
-#import "GTLRFirebasestorage.h"
+#import <GoogleAPIClientForREST/GTLRFirebasestorage.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

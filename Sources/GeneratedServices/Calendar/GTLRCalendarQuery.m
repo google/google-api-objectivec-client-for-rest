@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/google-apps/calendar/firstapp
 
-#import "GTLRCalendarQuery.h"
+#import <GoogleAPIClientForREST/GTLRCalendarQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

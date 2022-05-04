@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/channel
 
-#import "GTLRCloudchannel.h"
+#import <GoogleAPIClientForREST/GTLRCloudchannel.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

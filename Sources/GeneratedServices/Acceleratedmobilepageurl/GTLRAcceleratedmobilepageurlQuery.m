@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/amp/cache/
 
-#import "GTLRAcceleratedmobilepageurlQuery.h"
+#import <GoogleAPIClientForREST/GTLRAcceleratedmobilepageurlQuery.h>
 
 @implementation GTLRAcceleratedmobilepageurlQuery
 

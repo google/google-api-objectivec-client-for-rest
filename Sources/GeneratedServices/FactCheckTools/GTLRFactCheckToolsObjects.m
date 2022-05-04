@@ -6,7 +6,7 @@
 // Documentation:
 //   https://developers.google.com/fact-check/tools/api/
 
-#import "GTLRFactCheckToolsObjects.h"
+#import <GoogleAPIClientForREST/GTLRFactCheckToolsObjects.h>
 
 // ----------------------------------------------------------------------------
 //

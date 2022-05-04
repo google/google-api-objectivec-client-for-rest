@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/functions
 
-#import "GTLRCloudFunctionsObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudFunctionsObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

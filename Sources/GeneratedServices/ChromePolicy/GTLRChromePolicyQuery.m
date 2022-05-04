@@ -10,7 +10,7 @@
 // Documentation:
 //   http://developers.google.com/chrome/policy
 
-#import "GTLRChromePolicyQuery.h"
+#import <GoogleAPIClientForREST/GTLRChromePolicyQuery.h>
 
 @implementation GTLRChromePolicyQuery
 

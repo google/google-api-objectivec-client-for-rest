@@ -9,9 +9,9 @@
 // Documentation:
 //   https://developers.google.com/fonts/docs/developer_api
 
-#import "GTLRWebfontsQuery.h"
+#import <GoogleAPIClientForREST/GTLRWebfontsQuery.h>
 
-#import "GTLRWebfontsObjects.h"
+#import <GoogleAPIClientForREST/GTLRWebfontsObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

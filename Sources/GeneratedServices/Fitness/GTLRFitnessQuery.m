@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/fit/rest/v1/get-started
 
-#import "GTLRFitnessQuery.h"
+#import <GoogleAPIClientForREST/GTLRFitnessQuery.h>
 
 @implementation GTLRFitnessQuery
 

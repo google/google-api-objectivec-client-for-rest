@@ -8,7 +8,7 @@
 // Documentation:
 //   https://firebase.google.com/docs/test-lab/
 
-#import "GTLRToolResultsObjects.h"
+#import <GoogleAPIClientForREST/GTLRToolResultsObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

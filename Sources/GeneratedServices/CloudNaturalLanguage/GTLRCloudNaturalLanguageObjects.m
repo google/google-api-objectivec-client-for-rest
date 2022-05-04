@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/natural-language/
 
-#import "GTLRCloudNaturalLanguageObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudNaturalLanguageObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

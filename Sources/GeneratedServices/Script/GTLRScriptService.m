@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/apps-script/api/
 
-#import "GTLRScript.h"
+#import <GoogleAPIClientForREST/GTLRScript.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

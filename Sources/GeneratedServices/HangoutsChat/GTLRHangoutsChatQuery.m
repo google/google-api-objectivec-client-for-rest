@@ -10,7 +10,7 @@
 // Documentation:
 //   https://developers.google.com/hangouts/chat
 
-#import "GTLRHangoutsChatQuery.h"
+#import <GoogleAPIClientForREST/GTLRHangoutsChatQuery.h>
 
 @implementation GTLRHangoutsChatQuery
 

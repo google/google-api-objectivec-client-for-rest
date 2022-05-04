@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/dataflow
 
-#import "GTLRDataflowQuery.h"
+#import <GoogleAPIClientForREST/GTLRDataflowQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

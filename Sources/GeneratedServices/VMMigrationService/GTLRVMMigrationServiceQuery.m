@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/migrate/compute-engine
 
-#import "GTLRVMMigrationServiceQuery.h"
+#import <GoogleAPIClientForREST/GTLRVMMigrationServiceQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

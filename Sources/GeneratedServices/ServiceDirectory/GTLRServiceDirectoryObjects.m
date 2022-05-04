@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/service-directory
 
-#import "GTLRServiceDirectoryObjects.h"
+#import <GoogleAPIClientForREST/GTLRServiceDirectoryObjects.h>
 
 // ----------------------------------------------------------------------------
 //

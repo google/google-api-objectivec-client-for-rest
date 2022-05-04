@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/identity/protocols/oauth2/
 
-#import "GTLROauth2Objects.h"
+#import <GoogleAPIClientForREST/GTLROauth2Objects.h>
 
 // ----------------------------------------------------------------------------
 //

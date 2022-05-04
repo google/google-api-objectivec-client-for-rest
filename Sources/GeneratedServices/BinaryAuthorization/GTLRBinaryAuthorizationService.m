@@ -11,7 +11,7 @@
 // Documentation:
 //   https://cloud.google.com/binary-authorization/
 
-#import "GTLRBinaryAuthorization.h"
+#import <GoogleAPIClientForREST/GTLRBinaryAuthorization.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

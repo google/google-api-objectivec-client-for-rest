@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/admin-sdk/alertcenter/
 
-#import "GTLRAlertCenter.h"
+#import <GoogleAPIClientForREST/GTLRAlertCenter.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

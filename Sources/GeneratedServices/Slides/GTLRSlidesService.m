@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/slides/
 
-#import "GTLRSlides.h"
+#import <GoogleAPIClientForREST/GTLRSlides.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

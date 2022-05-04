@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/spanner/
 
-#import "GTLRSpanner.h"
+#import <GoogleAPIClientForREST/GTLRSpanner.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/access-context-manager/docs/reference/rest/
 
-#import "GTLRAccessContextManagerObjects.h"
+#import <GoogleAPIClientForREST/GTLRAccessContextManagerObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

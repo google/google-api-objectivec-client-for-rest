@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/life-sciences
 
-#import "GTLRCloudLifeSciences.h"
+#import <GoogleAPIClientForREST/GTLRCloudLifeSciences.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

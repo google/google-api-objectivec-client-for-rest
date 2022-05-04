@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/bigquery-transfer/
 
-#import "GTLRBigQueryDataTransferQuery.h"
+#import <GoogleAPIClientForREST/GTLRBigQueryDataTransferQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/google-apps/groups-settings/get_started
 
-#import "GTLRGroupsSettings.h"
+#import <GoogleAPIClientForREST/GTLRGroupsSettings.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

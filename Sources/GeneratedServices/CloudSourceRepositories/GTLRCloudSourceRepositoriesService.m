@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/source-repositories/docs/apis
 
-#import "GTLRCloudSourceRepositories.h"
+#import <GoogleAPIClientForREST/GTLRCloudSourceRepositories.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

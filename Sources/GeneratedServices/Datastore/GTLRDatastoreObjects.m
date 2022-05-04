@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/datastore/
 
-#import "GTLRDatastoreObjects.h"
+#import <GoogleAPIClientForREST/GTLRDatastoreObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

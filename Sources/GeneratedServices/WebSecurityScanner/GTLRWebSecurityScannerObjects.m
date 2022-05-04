@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/security-command-center/docs/concepts-web-security-scanner-overview/
 
-#import "GTLRWebSecurityScannerObjects.h"
+#import <GoogleAPIClientForREST/GTLRWebSecurityScannerObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

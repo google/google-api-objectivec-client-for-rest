@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/video-intelligence/docs/
 
-#import "GTLRCloudVideoIntelligenceObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudVideoIntelligenceObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

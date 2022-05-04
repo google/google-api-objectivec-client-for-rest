@@ -11,7 +11,7 @@
 // Documentation:
 //   https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/rest/
 
-#import "GTLRRealTimeBiddingObjects.h"
+#import <GoogleAPIClientForREST/GTLRRealTimeBiddingObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

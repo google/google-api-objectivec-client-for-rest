@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/android/management
 
-#import "GTLRAndroidManagement.h"
+#import <GoogleAPIClientForREST/GTLRAndroidManagement.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

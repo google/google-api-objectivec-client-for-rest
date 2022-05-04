@@ -11,7 +11,7 @@
 // Documentation:
 //   https://cloud.google.com/run/
 
-#import "GTLRCloudRunObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudRunObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

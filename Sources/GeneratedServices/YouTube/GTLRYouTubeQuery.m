@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/youtube/
 
-#import "GTLRYouTubeQuery.h"
+#import <GoogleAPIClientForREST/GTLRYouTubeQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

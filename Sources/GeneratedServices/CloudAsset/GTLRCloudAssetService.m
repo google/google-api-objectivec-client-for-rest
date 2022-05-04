@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/asset-inventory/docs/quickstart
 
-#import "GTLRCloudAsset.h"
+#import <GoogleAPIClientForREST/GTLRCloudAsset.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

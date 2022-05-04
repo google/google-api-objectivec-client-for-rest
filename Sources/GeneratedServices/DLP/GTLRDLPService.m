@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/dlp/docs/
 
-#import "GTLRDLP.h"
+#import <GoogleAPIClientForREST/GTLRDLP.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

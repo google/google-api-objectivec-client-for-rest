@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/dialogflow/
 
-#import "GTLRDialogflow.h"
+#import <GoogleAPIClientForREST/GTLRDialogflow.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

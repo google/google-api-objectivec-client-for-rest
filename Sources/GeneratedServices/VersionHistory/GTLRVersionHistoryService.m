@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.chrome.com/versionhistory
 
-#import "GTLRVersionHistory.h"
+#import <GoogleAPIClientForREST/GTLRVersionHistory.h>
 
 @implementation GTLRVersionHistoryService
 

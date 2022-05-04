@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/tasks/
 
-#import "GTLRCloudTasks.h"
+#import <GoogleAPIClientForREST/GTLRCloudTasks.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

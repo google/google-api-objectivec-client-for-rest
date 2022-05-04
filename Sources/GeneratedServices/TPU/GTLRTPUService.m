@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/tpu/
 
-#import "GTLRTPU.h"
+#import <GoogleAPIClientForREST/GTLRTPU.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

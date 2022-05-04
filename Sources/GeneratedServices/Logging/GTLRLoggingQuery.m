@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/logging/docs/
 
-#import "GTLRLoggingQuery.h"
+#import <GoogleAPIClientForREST/GTLRLoggingQuery.h>
 
 @implementation GTLRLoggingQuery
 

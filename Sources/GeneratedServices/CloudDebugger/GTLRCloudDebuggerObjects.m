@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/debugger
 
-#import "GTLRCloudDebuggerObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudDebuggerObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

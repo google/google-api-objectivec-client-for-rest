@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/apps-script/api/
 
-#import "GTLRScriptObjects.h"
+#import <GoogleAPIClientForREST/GTLRScriptObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

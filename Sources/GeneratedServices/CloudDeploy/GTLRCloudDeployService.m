@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/deploy/
 
-#import "GTLRCloudDeploy.h"
+#import <GoogleAPIClientForREST/GTLRCloudDeploy.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

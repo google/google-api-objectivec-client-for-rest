@@ -29,12 +29,11 @@
 
 #import "SGMain.h"
 
+#import <GoogleAPIClientForREST/GTLRDiscovery.h>
+
 #if SWIFT_PACKAGE
-  @import GoogleAPIClientForRESTCore;
-  @import GoogleAPIClientForREST_Discovery;
   @import GTMSessionFetcherCore;
 #else
-  #import "GTLRDiscovery.h"
   #import "GTMSessionFetcherService.h"
   #import "GTMSessionFetcherLogging.h"
 #endif
@@ -76,6 +75,10 @@ static ArgInfo optionalFlags[] = {
   { "--gtlrImportPrefix PREFIX",
     "Will generate sources that include GTLR's headers as if they are in the"
     " given directory."
+  },
+  { "--publicHeadersSubDir SUBDIR",
+    "Will put the generated headers in a subdirectory prefixed with 'Public'"
+    " and this name."
   },
   { "--apiLogDir DIR",
     "Write out a file into DIR for each JSON API description processed.  These"
@@ -218,6 +221,7 @@ typedef enum {
 @property(copy) NSString *gtlrFrameworkName;
 @property(copy) NSString *gtlrModularFramework;
 @property(copy) NSString *gtlrImportPrefix;
+@property(copy) NSString *publicHeadersSubDir;
 @property(copy) NSString *apiLogDir;
 @property(copy) NSString *httpLogDir;
 @property(copy) NSString *messageFilterPath;
@@ -294,6 +298,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
             gtlrFrameworkName = _gtlrFrameworkName,
             gtlrModularFramework = _gtlrModularFramework,
             gtlrImportPrefix = _gtlrImportPrefix,
+            publicHeadersSubDir = _publicHeadersSubDir,
             apiLogDir = _apiLogDir,
             httpLogDir = _httpLogDir,
             messageFilterPath = _messageFilterPath,
@@ -785,6 +790,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
     { "gtlrFrameworkName",   required_argument, NULL,                 'n' },
     { "gtlrModularFramework",required_argument, NULL,                 'm' },
     { "gtlrImportPrefix",    required_argument, NULL,                 'i' },
+    { "publicHeadersSubDir", required_argument, NULL,                 's' },
     { "apiLogDir",           required_argument, NULL,                 'a' },
 #if !STRIP_GTM_FETCH_LOGGING
     { "httpLogDir",          required_argument, NULL,                 'h' },
@@ -823,6 +829,9 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
         break;
       case 'i':
         self.gtlrImportPrefix = @(optarg);
+        break;
+      case 's':
+        self.publicHeadersSubDir = @(optarg);
         break;
       case 'a':
         self.apiLogDir = @(optarg);
@@ -950,6 +959,12 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
   }
   if (self.gtlrImportPrefix.length == 0) {
     self.gtlrImportPrefix = nil;
+  }
+  while ([self.publicHeadersSubDir hasSuffix:@"/"]) {
+    self.publicHeadersSubDir = [self.publicHeadersSubDir substringToIndex:self.publicHeadersSubDir.length - 1];
+  }
+  if (self.publicHeadersSubDir.length == 0) {
+    self.publicHeadersSubDir = nil;
   }
 
   if (self.gtlrModularFramework.length == 0) {
@@ -1353,7 +1368,8 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
                                                        options:options
                                                   verboseLevel:self.verboseLevel
                                          formattedNameOverride:formattedNameOverride
-                                                  importPrefix:importPrefix];
+                                                  importPrefix:importPrefix
+                                           publicHeadersSubDir:self.publicHeadersSubDir];
 
         NSDictionary *generatedFiles =
           [aGenerator generateFilesWithHandler:^(SGGeneratorHandlerMessageType msgType,
@@ -1425,6 +1441,17 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
       self.state = SGMain_Done;
       return;
     }
+    // And also make any subdirs needed for the public headers nesting.
+    if (self.publicHeadersSubDir) {
+      NSString *publicHeadersSubDir =
+        [[dirToWriteTo stringByAppendingPathComponent:@"Public"] stringByAppendingPathComponent:self.publicHeadersSubDir];
+      if (![SGUtils createDir:publicHeadersSubDir error:&err]) {
+        [self reportError:@"Failed to make the service directory in the output dir. error: %@", err];
+        self.status = 31;
+        self.state = SGMain_Done;
+        return;
+      }
+    }
 
     // Write out the files (sort the names so .h/.m pairs get written together)
     NSArray *sortedNames =
@@ -1460,12 +1487,32 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
     }
 
     // Collect the list of files there to report unknown files.
-    NSError *listErr = nil;
-    NSArray *fileNamesOnDisk = [fm contentsOfDirectoryAtPath:dirToWriteTo
-                                                       error:&listErr];
-    if (listErr != nil) {
-      [self reportWarning:@"Failed to list output directory '%@'. Error: %@",
-       dirToWriteTo, listErr];
+    // If publicHeadersSubDir enabled, look in subdirs, otherwise, assume
+    // no subdirs for reporting.
+    NSArray *fileNamesOnDisk;
+    if (self.publicHeadersSubDir) {
+      NSMutableArray *builder = [NSMutableArray array];
+      NSDirectoryEnumerator *dirEnum = [fm enumeratorAtURL:[NSURL fileURLWithPath:dirToWriteTo]
+                                includingPropertiesForKeys:@[NSURLIsDirectoryKey]
+                                                   options:NSDirectoryEnumerationSkipsHiddenFiles
+                                              errorHandler:nil];
+      NSURL *fileURL;
+      while ((fileURL = [dirEnum nextObject])) {
+        NSNumber *isDirectory = nil;
+        [fileURL getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:nil];
+        if (isDirectory.boolValue) {
+          continue;
+        }
+        [builder addObject:[[fileURL path] substringFromIndex:dirToWriteTo.length + 1]];
+      }
+      fileNamesOnDisk = builder;
+    } else {
+      NSError *listErr = nil;
+      fileNamesOnDisk = [fm contentsOfDirectoryAtPath:dirToWriteTo error:&listErr];
+      if (listErr != nil) {
+        [self reportWarning:@"Failed to list output directory '%@'. Error: %@",
+         dirToWriteTo, listErr];
+      }
     }
     for (NSString *fileName in fileNamesOnDisk) {
       NSString *fullPath = [dirToWriteTo stringByAppendingPathComponent:fileName];

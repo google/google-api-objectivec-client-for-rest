@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/data-catalog/docs/
 
-#import "GTLRDataCatalog.h"
+#import <GoogleAPIClientForREST/GTLRDataCatalog.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

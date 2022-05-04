@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/google-apps/reseller/
 
-#import "GTLRResellerQuery.h"
+#import <GoogleAPIClientForREST/GTLRResellerQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

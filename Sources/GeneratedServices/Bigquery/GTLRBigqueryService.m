@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/bigquery/
 
-#import "GTLRBigquery.h"
+#import <GoogleAPIClientForREST/GTLRBigquery.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

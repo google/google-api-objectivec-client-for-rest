@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.chrome.com/versionhistory
 
-#import "GTLRVersionHistoryObjects.h"
+#import <GoogleAPIClientForREST/GTLRVersionHistoryObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

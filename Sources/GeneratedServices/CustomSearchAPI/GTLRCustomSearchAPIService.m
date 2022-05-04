@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/custom-search/v1/introduction
 
-#import "GTLRCustomSearchAPI.h"
+#import <GoogleAPIClientForREST/GTLRCustomSearchAPI.h>
 
 @implementation GTLRCustomSearchAPIService
 

@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/drive/activity/
 
-#import "GTLRDriveActivityQuery.h"
+#import <GoogleAPIClientForREST/GTLRDriveActivityQuery.h>
 
 @implementation GTLRDriveActivityQuery
 

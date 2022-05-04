@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/source-repositories/docs/apis
 
-#import "GTLRCloudSourceRepositoriesQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudSourceRepositoriesQuery.h>
 
 @implementation GTLRCloudSourceRepositoriesQuery
 

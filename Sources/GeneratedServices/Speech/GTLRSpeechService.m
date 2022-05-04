@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/speech-to-text/docs/quickstart-protocol
 
-#import "GTLRSpeech.h"
+#import <GoogleAPIClientForREST/GTLRSpeech.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

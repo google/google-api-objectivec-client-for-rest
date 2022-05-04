@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/workflows
 
-#import "GTLRWorkflowsObjects.h"
+#import <GoogleAPIClientForREST/GTLRWorkflowsObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

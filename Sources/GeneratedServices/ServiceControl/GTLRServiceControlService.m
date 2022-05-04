@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/service-control/
 
-#import "GTLRServiceControl.h"
+#import <GoogleAPIClientForREST/GTLRServiceControl.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

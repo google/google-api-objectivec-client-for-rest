@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/appengine/docs/admin-api/
 
-#import "GTLRAppengine.h"
+#import <GoogleAPIClientForREST/GTLRAppengine.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

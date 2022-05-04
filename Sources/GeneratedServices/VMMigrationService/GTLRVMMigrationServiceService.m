@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/migrate/compute-engine
 
-#import "GTLRVMMigrationService.h"
+#import <GoogleAPIClientForREST/GTLRVMMigrationService.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

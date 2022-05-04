@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/vision/
 
-#import "GTLRVision.h"
+#import <GoogleAPIClientForREST/GTLRVision.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

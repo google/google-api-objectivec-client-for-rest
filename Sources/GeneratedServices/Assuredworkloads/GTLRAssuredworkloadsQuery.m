@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com
 
-#import "GTLRAssuredworkloadsQuery.h"
+#import <GoogleAPIClientForREST/GTLRAssuredworkloadsQuery.h>
 
 @implementation GTLRAssuredworkloadsQuery
 

@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/service-management/
 
-#import "GTLRServiceManagementQuery.h"
+#import <GoogleAPIClientForREST/GTLRServiceManagementQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

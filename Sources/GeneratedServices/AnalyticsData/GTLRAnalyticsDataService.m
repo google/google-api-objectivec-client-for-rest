@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/analytics/devguides/reporting/data/v1/
 
-#import "GTLRAnalyticsData.h"
+#import <GoogleAPIClientForREST/GTLRAnalyticsData.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

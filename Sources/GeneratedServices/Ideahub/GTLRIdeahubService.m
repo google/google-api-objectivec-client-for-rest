@@ -8,7 +8,7 @@
 // Documentation:
 //   https://console.cloud.google.com/apis/library/ideahub.googleapis.com
 
-#import "GTLRIdeahub.h"
+#import <GoogleAPIClientForREST/GTLRIdeahub.h>
 
 @implementation GTLRIdeahubService
 

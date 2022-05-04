@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/poly/
 
-#import "GTLRPolyService.h"
+#import <GoogleAPIClientForREST/GTLRPolyService.h>
 
 @implementation GTLRPolyServiceService
 

@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/tasks/
 
-#import "GTLRCloudTasksObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudTasksObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

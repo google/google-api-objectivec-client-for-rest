@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/blogger/docs/3.0/getting_started
 
-#import "GTLRBloggerQuery.h"
+#import <GoogleAPIClientForREST/GTLRBloggerQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

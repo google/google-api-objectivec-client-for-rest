@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/support/docs/apis
 
-#import "GTLRCloudSupportObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudSupportObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

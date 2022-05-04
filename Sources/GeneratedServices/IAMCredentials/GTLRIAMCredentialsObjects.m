@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/iam/docs/creating-short-lived-service-account-credentials
 
-#import "GTLRIAMCredentialsObjects.h"
+#import <GoogleAPIClientForREST/GTLRIAMCredentialsObjects.h>
 
 // ----------------------------------------------------------------------------
 //

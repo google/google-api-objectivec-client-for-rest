@@ -9,9 +9,9 @@
 // Documentation:
 //   https://developers.google.com/ad-experience-report/
 
-#import "GTLRAdExperienceReportQuery.h"
+#import <GoogleAPIClientForREST/GTLRAdExperienceReportQuery.h>
 
-#import "GTLRAdExperienceReportObjects.h"
+#import <GoogleAPIClientForREST/GTLRAdExperienceReportObjects.h>
 
 @implementation GTLRAdExperienceReportQuery
 

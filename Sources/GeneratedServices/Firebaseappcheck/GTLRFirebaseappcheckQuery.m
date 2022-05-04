@@ -9,7 +9,7 @@
 // Documentation:
 //   https://firebase.google.com/docs/app-check
 
-#import "GTLRFirebaseappcheckQuery.h"
+#import <GoogleAPIClientForREST/GTLRFirebaseappcheckQuery.h>
 
 @implementation GTLRFirebaseappcheckQuery
 

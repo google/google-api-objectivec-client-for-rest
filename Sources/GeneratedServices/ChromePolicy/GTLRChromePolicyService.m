@@ -10,7 +10,7 @@
 // Documentation:
 //   http://developers.google.com/chrome/policy
 
-#import "GTLRChromePolicy.h"
+#import <GoogleAPIClientForREST/GTLRChromePolicy.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

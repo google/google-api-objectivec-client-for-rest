@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/container-engine/
 
-#import "GTLRContainer.h"
+#import <GoogleAPIClientForREST/GTLRContainer.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

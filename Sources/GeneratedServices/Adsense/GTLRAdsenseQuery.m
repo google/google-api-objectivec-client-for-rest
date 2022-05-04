@@ -9,9 +9,9 @@
 // Documentation:
 //   https://developers.google.com/adsense/management/
 
-#import "GTLRAdsenseQuery.h"
+#import <GoogleAPIClientForREST/GTLRAdsenseQuery.h>
 
-#import "GTLRAdsenseObjects.h"
+#import <GoogleAPIClientForREST/GTLRAdsenseObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

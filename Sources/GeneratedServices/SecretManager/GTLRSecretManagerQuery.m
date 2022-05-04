@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/secret-manager/
 
-#import "GTLRSecretManagerQuery.h"
+#import <GoogleAPIClientForREST/GTLRSecretManagerQuery.h>
 
 @implementation GTLRSecretManagerQuery
 

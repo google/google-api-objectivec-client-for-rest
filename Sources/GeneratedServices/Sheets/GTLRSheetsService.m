@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/sheets/
 
-#import "GTLRSheets.h"
+#import <GoogleAPIClientForREST/GTLRSheets.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/analytics/
 
-#import "GTLRAnalyticsQuery.h"
+#import <GoogleAPIClientForREST/GTLRAnalyticsQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

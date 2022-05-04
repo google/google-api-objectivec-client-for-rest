@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/compute/
 
-#import "GTLRComputeObjects.h"
+#import <GoogleAPIClientForREST/GTLRComputeObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

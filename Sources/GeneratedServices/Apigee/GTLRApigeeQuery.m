@@ -12,7 +12,7 @@
 // Documentation:
 //   https://cloud.google.com/apigee-api-management/
 
-#import "GTLRApigeeQuery.h"
+#import <GoogleAPIClientForREST/GTLRApigeeQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

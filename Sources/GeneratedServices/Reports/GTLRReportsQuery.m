@@ -10,7 +10,7 @@
 // Documentation:
 //   https://developers.google.com/admin-sdk/
 
-#import "GTLRReportsQuery.h"
+#import <GoogleAPIClientForREST/GTLRReportsQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

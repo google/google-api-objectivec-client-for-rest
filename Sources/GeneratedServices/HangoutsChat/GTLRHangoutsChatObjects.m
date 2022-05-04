@@ -10,7 +10,7 @@
 // Documentation:
 //   https://developers.google.com/hangouts/chat
 
-#import "GTLRHangoutsChatObjects.h"
+#import <GoogleAPIClientForREST/GTLRHangoutsChatObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

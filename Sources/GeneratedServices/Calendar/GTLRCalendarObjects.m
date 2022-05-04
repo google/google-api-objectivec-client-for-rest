@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/google-apps/calendar/firstapp
 
-#import "GTLRCalendarObjects.h"
+#import <GoogleAPIClientForREST/GTLRCalendarObjects.h>
 
 // ----------------------------------------------------------------------------
 //

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/orgpolicy/docs/reference/rest/index.html
 
-#import "GTLROrgPolicyAPIQuery.h"
+#import <GoogleAPIClientForREST/GTLROrgPolicyAPIQuery.h>
 
 @implementation GTLROrgPolicyAPIQuery
 

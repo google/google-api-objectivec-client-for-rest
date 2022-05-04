@@ -11,7 +11,7 @@
 // Documentation:
 //   https://firebase.google.com/docs/hosting/
 
-#import "GTLRFirebaseHostingQuery.h"
+#import <GoogleAPIClientForREST/GTLRFirebaseHostingQuery.h>
 
 @implementation GTLRFirebaseHostingQuery
 

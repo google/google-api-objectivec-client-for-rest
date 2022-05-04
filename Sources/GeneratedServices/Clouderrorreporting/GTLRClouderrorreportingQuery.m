@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/error-reporting/
 
-#import "GTLRClouderrorreportingQuery.h"
+#import <GoogleAPIClientForREST/GTLRClouderrorreportingQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/google-apps/groups-migration/
 
-#import "GTLRGroupsMigration.h"
+#import <GoogleAPIClientForREST/GTLRGroupsMigration.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

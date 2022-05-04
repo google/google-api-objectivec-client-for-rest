@@ -10,7 +10,7 @@
 // Documentation:
 //   https://developers.google.com/admin-sdk/
 
-#import "GTLRDirectory.h"
+#import <GoogleAPIClientForREST/GTLRDirectory.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/ad-experience-report/
 
-#import "GTLRAdExperienceReportObjects.h"
+#import <GoogleAPIClientForREST/GTLRAdExperienceReportObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

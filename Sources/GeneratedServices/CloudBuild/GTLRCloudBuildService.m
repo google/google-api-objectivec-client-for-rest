@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/cloud-build/docs/
 
-#import "GTLRCloudBuild.h"
+#import <GoogleAPIClientForREST/GTLRCloudBuild.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

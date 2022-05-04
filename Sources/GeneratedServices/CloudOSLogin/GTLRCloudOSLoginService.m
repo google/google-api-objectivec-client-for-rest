@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/compute/docs/oslogin/
 
-#import "GTLRCloudOSLogin.h"
+#import <GoogleAPIClientForREST/GTLRCloudOSLogin.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

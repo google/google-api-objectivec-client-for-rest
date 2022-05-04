@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/admob/api/
 
-#import "GTLRAdMob.h"
+#import <GoogleAPIClientForREST/GTLRAdMob.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

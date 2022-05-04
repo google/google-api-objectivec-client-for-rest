@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/anthos/multicluster-management/connect/registering-a-cluster
 
-#import "GTLRGKEHubObjects.h"
+#import <GoogleAPIClientForREST/GTLRGKEHubObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

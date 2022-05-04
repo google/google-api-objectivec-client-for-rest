@@ -6,7 +6,7 @@
 // Documentation:
 //   https://support.google.com/area120-tables/answer/10011390
 
-#import "GTLRArea120TablesObjects.h"
+#import <GoogleAPIClientForREST/GTLRArea120TablesObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

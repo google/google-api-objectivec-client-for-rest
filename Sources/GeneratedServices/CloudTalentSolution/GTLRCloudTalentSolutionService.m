@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/talent-solution/job-search/docs/
 
-#import "GTLRCloudTalentSolution.h"
+#import <GoogleAPIClientForREST/GTLRCloudTalentSolution.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

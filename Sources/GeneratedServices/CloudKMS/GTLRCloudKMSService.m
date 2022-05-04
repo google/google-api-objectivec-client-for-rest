@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/kms/
 
-#import "GTLRCloudKMS.h"
+#import <GoogleAPIClientForREST/GTLRCloudKMS.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

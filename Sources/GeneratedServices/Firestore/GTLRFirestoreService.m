@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/firestore
 
-#import "GTLRFirestore.h"
+#import <GoogleAPIClientForREST/GTLRFirestore.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

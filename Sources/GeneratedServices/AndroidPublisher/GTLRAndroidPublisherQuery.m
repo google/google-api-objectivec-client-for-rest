@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/android-publisher
 
-#import "GTLRAndroidPublisherQuery.h"
+#import <GoogleAPIClientForREST/GTLRAndroidPublisherQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

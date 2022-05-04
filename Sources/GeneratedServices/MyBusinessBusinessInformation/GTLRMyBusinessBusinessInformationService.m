@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/my-business/
 
-#import "GTLRMyBusinessBusinessInformation.h"
+#import <GoogleAPIClientForREST/GTLRMyBusinessBusinessInformation.h>
 
 @implementation GTLRMyBusinessBusinessInformationService
 

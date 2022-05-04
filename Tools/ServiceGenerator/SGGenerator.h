@@ -15,11 +15,7 @@
 
 #import <Foundation/Foundation.h>
 
-#if SWIFT_PACKAGE
-  @import GoogleAPIClientForREST_Discovery;
-#else
-  #import "GTLRDiscovery.h"
-#endif
+#import <GoogleAPIClientForREST/GTLRDiscovery.h>
 
 typedef NS_ENUM(NSUInteger, SGGeneratorHandlerMessageType) {
   kSGGeneratorHandlerMessageError = 1,
@@ -44,15 +40,17 @@ typedef NS_OPTIONS(NSUInteger, SGGeneratorOptions) {
 @property(readonly) SGGeneratorOptions options;
 @property(readonly) NSUInteger verboseLevel;
 @property(readonly) NSString *importPrefix;
+@property(readonly) NSString *publicHeadersSubDir;
 
 // The API name formatted for use as a directory name.
-@property (readonly) NSString *formattedAPIName;
+@property(readonly) NSString *formattedAPIName;
 
 + (instancetype)generatorForApi:(GTLRDiscovery_RestDescription *)api
                         options:(SGGeneratorOptions)options
                    verboseLevel:(NSUInteger)verboseLevel
           formattedNameOverride:(NSString *)formattedNameOverride
-                   importPrefix:(NSString *)importPrefix;
+                   importPrefix:(NSString *)importPrefix
+            publicHeadersSubDir:(NSString *)publicHeadersSubDir;
 
 // Keys are the file names; values are the contents of the files.
 - (NSDictionary *)generateFilesWithHandler:(SGGeneratorMessageHandler)messageHandler;

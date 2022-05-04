@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/recommender/docs/
 
-#import "GTLRRecommenderObjects.h"
+#import <GoogleAPIClientForREST/GTLRRecommenderObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

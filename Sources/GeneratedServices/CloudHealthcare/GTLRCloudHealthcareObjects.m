@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/healthcare
 
-#import "GTLRCloudHealthcareObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudHealthcareObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/authorized-buyers/apis/marketplace/reference/rest/
 
-#import "GTLRAuthorizedBuyersMarketplace.h"
+#import <GoogleAPIClientForREST/GTLRAuthorizedBuyersMarketplace.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/webmaster-tools/search-console-api/
 
-#import "GTLRSearchConsoleQuery.h"
+#import <GoogleAPIClientForREST/GTLRSearchConsoleQuery.h>
 
 @implementation GTLRSearchConsoleQuery
 

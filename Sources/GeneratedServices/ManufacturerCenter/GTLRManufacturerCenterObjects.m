@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/manufacturers/
 
-#import "GTLRManufacturerCenterObjects.h"
+#import <GoogleAPIClientForREST/GTLRManufacturerCenterObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

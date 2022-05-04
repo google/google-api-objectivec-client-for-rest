@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/search-ads
 
-#import "GTLRDoubleclicksearch.h"
+#import <GoogleAPIClientForREST/GTLRDoubleclicksearch.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

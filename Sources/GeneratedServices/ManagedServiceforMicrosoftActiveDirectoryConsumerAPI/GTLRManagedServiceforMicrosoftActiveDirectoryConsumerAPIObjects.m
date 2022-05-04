@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/managed-microsoft-ad/
 
-#import "GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIObjects.h"
+#import <GoogleAPIClientForREST/GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

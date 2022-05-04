@@ -11,7 +11,7 @@
 // Documentation:
 //   https://cloud.google.com/
 
-#import "GTLRCertificateAuthorityServiceQuery.h"
+#import <GoogleAPIClientForREST/GTLRCertificateAuthorityServiceQuery.h>
 
 @implementation GTLRCertificateAuthorityServiceQuery
 

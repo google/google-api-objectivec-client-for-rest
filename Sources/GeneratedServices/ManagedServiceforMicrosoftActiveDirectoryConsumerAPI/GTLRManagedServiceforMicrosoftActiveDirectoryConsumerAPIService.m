@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/managed-microsoft-ad/
 
-#import "GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI.h"
+#import <GoogleAPIClientForREST/GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/orgpolicy/docs/reference/rest/index.html
 
-#import "GTLROrgPolicyAPIObjects.h"
+#import <GoogleAPIClientForREST/GTLROrgPolicyAPIObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

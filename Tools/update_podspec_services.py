@@ -52,7 +52,8 @@ class PodspecUpdater(object):
     """Generates the updated content an iterable of services dir names."""
     template = string.Template(r"""  s.subspec '${Name}' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Sources/GeneratedServices/${Name}/*.{h,m}'
+    sp.source_files = 'Sources/GeneratedServices/${Name}/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/${Name}/Public/GoogleAPIClientForREST/*.h'
   end
 """)
     result = self._file_start

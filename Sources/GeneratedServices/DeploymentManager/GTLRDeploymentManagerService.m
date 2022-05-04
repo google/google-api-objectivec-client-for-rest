@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/deployment-manager
 
-#import "GTLRDeploymentManager.h"
+#import <GoogleAPIClientForREST/GTLRDeploymentManager.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

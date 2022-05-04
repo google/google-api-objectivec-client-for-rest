@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/cloud-sql/
 
-#import "GTLRSQLAdminQuery.h"
+#import <GoogleAPIClientForREST/GTLRSQLAdminQuery.h>
 
 @implementation GTLRSQLAdminQuery
 

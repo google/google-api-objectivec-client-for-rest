@@ -10,7 +10,7 @@
 // Documentation:
 //   https://firebase.google.com
 
-#import "GTLRFirebaseManagementQuery.h"
+#import <GoogleAPIClientForREST/GTLRFirebaseManagementQuery.h>
 
 @implementation GTLRFirebaseManagementQuery
 

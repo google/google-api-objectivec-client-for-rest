@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/games/
 
-#import "GTLRGamesManagementQuery.h"
+#import <GoogleAPIClientForREST/GTLRGamesManagementQuery.h>
 
 @implementation GTLRGamesManagementQuery
 

@@ -8,7 +8,7 @@
 // Documentation:
 //   https://firebase.google.com/docs/test-lab/
 
-#import "GTLRToolResults.h"
+#import <GoogleAPIClientForREST/GTLRToolResults.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

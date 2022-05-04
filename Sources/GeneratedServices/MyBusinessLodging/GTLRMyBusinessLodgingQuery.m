@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/my-business/
 
-#import "GTLRMyBusinessLodgingQuery.h"
+#import <GoogleAPIClientForREST/GTLRMyBusinessLodgingQuery.h>
 
 @implementation GTLRMyBusinessLodgingQuery
 

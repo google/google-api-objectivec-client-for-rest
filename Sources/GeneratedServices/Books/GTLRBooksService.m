@@ -8,7 +8,7 @@
 // Documentation:
 //   https://code.google.com/apis/books/docs/v1/getting_started.html
 
-#import "GTLRBooks.h"
+#import <GoogleAPIClientForREST/GTLRBooks.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

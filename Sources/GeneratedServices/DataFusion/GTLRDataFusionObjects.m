@@ -14,7 +14,7 @@
 // Documentation:
 //   https://cloud.google.com/data-fusion/docs
 
-#import "GTLRDataFusionObjects.h"
+#import <GoogleAPIClientForREST/GTLRDataFusionObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants
@@ -150,10 +150,35 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataFusion_DnsPeering
+//
+
+@implementation GTLRDataFusion_DnsPeering
+@dynamic descriptionProperty, domain, name, targetNetwork, targetProject;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataFusion_Empty
 //
 
 @implementation GTLRDataFusion_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_EventPublishConfig
+//
+
+@implementation GTLRDataFusion_EventPublishConfig
+@dynamic eventPublishEnabled, project, topic;
 @end
 
 
@@ -181,10 +206,10 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 @dynamic accelerators, apiEndpoint, availableVersion, createTime,
          cryptoKeyConfig, dataprocServiceAccount, descriptionProperty,
          disabledReason, displayName, enableRbac, enableStackdriverLogging,
-         enableStackdriverMonitoring, gcsBucket, labels, name, networkConfig,
-         options, p4ServiceAccount, privateInstance, serviceAccount,
-         serviceEndpoint, state, stateMessage, tenantProjectId, type,
-         updateTime, version, zoneProperty;
+         enableStackdriverMonitoring, eventPublishConfig, gcsBucket, labels,
+         name, networkConfig, options, p4ServiceAccount, privateInstance,
+         serviceAccount, serviceEndpoint, state, stateMessage, tenantProjectId,
+         type, updateTime, version, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -251,6 +276,28 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 
 + (NSString *)collectionItemsKey {
   return @"availableVersions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_ListDnsPeeringsResponse
+//
+
+@implementation GTLRDataFusion_ListDnsPeeringsResponse
+@dynamic dnsPeerings, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dnsPeerings" : [GTLRDataFusion_DnsPeering class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"dnsPeerings";
 }
 
 @end

@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/recommender/docs/
 
-#import "GTLRRecommender.h"
+#import <GoogleAPIClientForREST/GTLRRecommender.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

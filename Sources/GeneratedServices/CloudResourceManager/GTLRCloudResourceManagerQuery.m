@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/resource-manager
 
-#import "GTLRCloudResourceManagerQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudResourceManagerQuery.h>
 
 @implementation GTLRCloudResourceManagerQuery
 

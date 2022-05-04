@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com
 
-#import "GTLRAssuredworkloads.h"
+#import <GoogleAPIClientForREST/GTLRAssuredworkloads.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

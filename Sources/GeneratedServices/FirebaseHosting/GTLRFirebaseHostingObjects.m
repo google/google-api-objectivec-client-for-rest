@@ -11,7 +11,7 @@
 // Documentation:
 //   https://firebase.google.com/docs/hosting/
 
-#import "GTLRFirebaseHostingObjects.h"
+#import <GoogleAPIClientForREST/GTLRFirebaseHostingObjects.h>
 
 // ----------------------------------------------------------------------------
 //

@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/dataproc/
 
-#import "GTLRDataproc.h"
+#import <GoogleAPIClientForREST/GTLRDataproc.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

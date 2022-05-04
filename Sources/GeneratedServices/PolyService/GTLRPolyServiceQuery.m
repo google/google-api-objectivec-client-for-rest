@@ -9,9 +9,9 @@
 // Documentation:
 //   https://developers.google.com/poly/
 
-#import "GTLRPolyServiceQuery.h"
+#import <GoogleAPIClientForREST/GTLRPolyServiceQuery.h>
 
-#import "GTLRPolyServiceObjects.h"
+#import <GoogleAPIClientForREST/GTLRPolyServiceObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

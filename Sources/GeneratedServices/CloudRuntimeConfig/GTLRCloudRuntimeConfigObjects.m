@@ -11,7 +11,7 @@
 // Documentation:
 //   https://cloud.google.com/deployment-manager/runtime-configurator/
 
-#import "GTLRCloudRuntimeConfigObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudRuntimeConfigObjects.h>
 
 // ----------------------------------------------------------------------------
 //

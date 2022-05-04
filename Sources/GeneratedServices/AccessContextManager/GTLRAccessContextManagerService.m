@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/access-context-manager/docs/reference/rest/
 
-#import "GTLRAccessContextManager.h"
+#import <GoogleAPIClientForREST/GTLRAccessContextManager.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

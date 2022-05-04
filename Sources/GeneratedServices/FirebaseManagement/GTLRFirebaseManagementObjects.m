@@ -10,7 +10,7 @@
 // Documentation:
 //   https://firebase.google.com
 
-#import "GTLRFirebaseManagementObjects.h"
+#import <GoogleAPIClientForREST/GTLRFirebaseManagementObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

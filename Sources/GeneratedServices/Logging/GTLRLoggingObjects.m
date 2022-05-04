@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/logging/docs/
 
-#import "GTLRLoggingObjects.h"
+#import <GoogleAPIClientForREST/GTLRLoggingObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

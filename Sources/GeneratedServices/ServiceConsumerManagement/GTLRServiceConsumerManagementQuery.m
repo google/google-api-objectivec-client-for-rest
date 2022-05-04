@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/service-consumer-management/docs/overview
 
-#import "GTLRServiceConsumerManagementQuery.h"
+#import <GoogleAPIClientForREST/GTLRServiceConsumerManagementQuery.h>
 
 @implementation GTLRServiceConsumerManagementQuery
 

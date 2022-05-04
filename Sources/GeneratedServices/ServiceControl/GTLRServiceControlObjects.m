@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/service-control/
 
-#import "GTLRServiceControlObjects.h"
+#import <GoogleAPIClientForREST/GTLRServiceControlObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

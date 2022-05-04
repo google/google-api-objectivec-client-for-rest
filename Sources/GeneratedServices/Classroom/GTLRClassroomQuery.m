@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/classroom/
 
-#import "GTLRClassroomQuery.h"
+#import <GoogleAPIClientForREST/GTLRClassroomQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/document-ai/docs/
 
-#import "GTLRDocument.h"
+#import <GoogleAPIClientForREST/GTLRDocument.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

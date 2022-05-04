@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/bid-manager/
 
-#import "GTLRDoubleClickBidManagerObjects.h"
+#import <GoogleAPIClientForREST/GTLRDoubleClickBidManagerObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

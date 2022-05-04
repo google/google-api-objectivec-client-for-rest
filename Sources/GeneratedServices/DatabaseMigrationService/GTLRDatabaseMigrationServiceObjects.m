@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/database-migration/
 
-#import "GTLRDatabaseMigrationServiceObjects.h"
+#import <GoogleAPIClientForREST/GTLRDatabaseMigrationServiceObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

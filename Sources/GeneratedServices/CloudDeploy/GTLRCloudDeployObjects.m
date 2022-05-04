@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/deploy/
 
-#import "GTLRCloudDeployObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudDeployObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants
@@ -296,8 +296,8 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
 //
 
 @implementation GTLRCloudDeploy_ExecutionConfig
-@dynamic artifactStorage, defaultPool, privatePool, serviceAccount, usages,
-         workerPool;
+@dynamic artifactStorage, defaultPool, executionTimeout, privatePool,
+         serviceAccount, usages, workerPool;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

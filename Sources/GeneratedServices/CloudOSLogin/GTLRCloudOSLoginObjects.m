@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/compute/docs/oslogin/
 
-#import "GTLRCloudOSLoginObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudOSLoginObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

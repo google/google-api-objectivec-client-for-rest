@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/
 
-#import "GTLRNetworkManagementQuery.h"
+#import <GoogleAPIClientForREST/GTLRNetworkManagementQuery.h>
 
 @implementation GTLRNetworkManagementQuery
 

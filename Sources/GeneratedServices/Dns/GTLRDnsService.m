@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/dns/docs
 
-#import "GTLRDns.h"
+#import <GoogleAPIClientForREST/GTLRDns.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

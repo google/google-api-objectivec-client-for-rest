@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/talent-solution/job-search/docs/
 
-#import "GTLRCloudTalentSolutionObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudTalentSolutionObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

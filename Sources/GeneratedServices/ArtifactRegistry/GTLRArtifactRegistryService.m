@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/artifacts/docs/
 
-#import "GTLRArtifactRegistry.h"
+#import <GoogleAPIClientForREST/GTLRArtifactRegistry.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

@@ -8,7 +8,7 @@
 // Documentation:
 //   https://code.google.com/apis/books/docs/v1/getting_started.html
 
-#import "GTLRBooksQuery.h"
+#import <GoogleAPIClientForREST/GTLRBooksQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

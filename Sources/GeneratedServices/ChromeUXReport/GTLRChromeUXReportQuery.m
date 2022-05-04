@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/web/tools/chrome-user-experience-report/api/reference
 
-#import "GTLRChromeUXReportQuery.h"
+#import <GoogleAPIClientForREST/GTLRChromeUXReportQuery.h>
 
 @implementation GTLRChromeUXReportQuery
 

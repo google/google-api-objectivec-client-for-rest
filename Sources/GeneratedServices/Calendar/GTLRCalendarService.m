@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/google-apps/calendar/firstapp
 
-#import "GTLRCalendar.h"
+#import <GoogleAPIClientForREST/GTLRCalendar.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

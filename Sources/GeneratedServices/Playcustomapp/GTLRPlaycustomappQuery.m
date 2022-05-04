@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/android/work/play/custom-app-api/
 
-#import "GTLRPlaycustomappQuery.h"
+#import <GoogleAPIClientForREST/GTLRPlaycustomappQuery.h>
 
 @implementation GTLRPlaycustomappQuery
 

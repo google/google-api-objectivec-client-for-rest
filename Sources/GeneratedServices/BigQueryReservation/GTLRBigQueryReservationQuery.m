@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/bigquery/
 
-#import "GTLRBigQueryReservationQuery.h"
+#import <GoogleAPIClientForREST/GTLRBigQueryReservationQuery.h>
 
 @implementation GTLRBigQueryReservationQuery
 

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/abusive-experience-report/
 
-#import "GTLRAbusiveExperienceReportObjects.h"
+#import <GoogleAPIClientForREST/GTLRAbusiveExperienceReportObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/networking
 
-#import "GTLRNetworkSecurityQuery.h"
+#import <GoogleAPIClientForREST/GTLRNetworkSecurityQuery.h>
 
 @implementation GTLRNetworkSecurityQuery
 

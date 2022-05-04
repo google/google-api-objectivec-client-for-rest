@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/service-consumer-management/docs/overview
 
-#import "GTLRServiceConsumerManagement.h"
+#import <GoogleAPIClientForREST/GTLRServiceConsumerManagement.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

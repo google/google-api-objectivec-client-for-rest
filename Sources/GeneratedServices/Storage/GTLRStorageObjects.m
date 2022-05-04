@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/storage/docs/json_api/
 
-#import "GTLRStorageObjects.h"
+#import <GoogleAPIClientForREST/GTLRStorageObjects.h>
 
 // ----------------------------------------------------------------------------
 //

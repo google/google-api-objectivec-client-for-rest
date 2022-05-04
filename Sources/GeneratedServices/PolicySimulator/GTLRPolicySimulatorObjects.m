@@ -14,7 +14,7 @@
 // Documentation:
 //   https://cloud.google.com/iam/docs/simulating-access
 
-#import "GTLRPolicySimulatorObjects.h"
+#import <GoogleAPIClientForREST/GTLRPolicySimulatorObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

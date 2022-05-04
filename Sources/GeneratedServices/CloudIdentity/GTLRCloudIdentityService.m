@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/identity/
 
-#import "GTLRCloudIdentity.h"
+#import <GoogleAPIClientForREST/GTLRCloudIdentity.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

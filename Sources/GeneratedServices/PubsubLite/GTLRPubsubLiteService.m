@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/pubsub/lite/docs
 
-#import "GTLRPubsubLite.h"
+#import <GoogleAPIClientForREST/GTLRPubsubLite.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/contact-center/insights/docs
 
-#import "GTLRContactcenterinsights.h"
+#import <GoogleAPIClientForREST/GTLRContactcenterinsights.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

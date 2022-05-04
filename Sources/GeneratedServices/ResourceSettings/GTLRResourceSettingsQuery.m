@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/resource-manager/docs/resource-settings/overview
 
-#import "GTLRResourceSettingsQuery.h"
+#import <GoogleAPIClientForREST/GTLRResourceSettingsQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

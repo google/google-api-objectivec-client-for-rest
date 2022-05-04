@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/android-publisher
 
-#import "GTLRAndroidPublisher.h"
+#import <GoogleAPIClientForREST/GTLRAndroidPublisher.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

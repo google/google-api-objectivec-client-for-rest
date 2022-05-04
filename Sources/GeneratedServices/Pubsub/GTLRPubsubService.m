@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/pubsub/docs
 
-#import "GTLRPubsub.h"
+#import <GoogleAPIClientForREST/GTLRPubsub.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/dataplex/docs
 
-#import "GTLRCloudDataplex.h"
+#import <GoogleAPIClientForREST/GTLRCloudDataplex.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

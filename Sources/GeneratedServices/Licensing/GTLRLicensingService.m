@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/admin-sdk/licensing/
 
-#import "GTLRLicensing.h"
+#import <GoogleAPIClientForREST/GTLRLicensing.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

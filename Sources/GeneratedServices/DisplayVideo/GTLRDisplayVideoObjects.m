@@ -10,7 +10,7 @@
 // Documentation:
 //   https://developers.google.com/display-video/
 
-#import "GTLRDisplayVideoObjects.h"
+#import <GoogleAPIClientForREST/GTLRDisplayVideoObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

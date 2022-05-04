@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/bare-metal
 
-#import "GTLRBareMetalSolution.h"
+#import <GoogleAPIClientForREST/GTLRBareMetalSolution.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

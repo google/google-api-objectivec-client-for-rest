@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/service-consumer-management/docs/overview
 
-#import "GTLRServiceConsumerManagementObjects.h"
+#import <GoogleAPIClientForREST/GTLRServiceConsumerManagementObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

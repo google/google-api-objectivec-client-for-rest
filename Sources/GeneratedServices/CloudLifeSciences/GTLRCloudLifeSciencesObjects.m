@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/life-sciences
 
-#import "GTLRCloudLifeSciencesObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudLifeSciencesObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

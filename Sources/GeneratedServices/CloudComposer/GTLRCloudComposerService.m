@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/composer/
 
-#import "GTLRCloudComposer.h"
+#import <GoogleAPIClientForREST/GTLRCloudComposer.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

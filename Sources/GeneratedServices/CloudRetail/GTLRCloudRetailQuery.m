@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/recommendations
 
-#import "GTLRCloudRetailQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudRetailQuery.h>
 
 @implementation GTLRCloudRetailQuery
 

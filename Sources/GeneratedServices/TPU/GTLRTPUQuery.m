@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/tpu/
 
-#import "GTLRTPUQuery.h"
+#import <GoogleAPIClientForREST/GTLRTPUQuery.h>
 
 @implementation GTLRTPUQuery
 

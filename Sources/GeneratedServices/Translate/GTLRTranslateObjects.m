@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/translate/docs/quickstarts
 
-#import "GTLRTranslateObjects.h"
+#import <GoogleAPIClientForREST/GTLRTranslateObjects.h>
 
 // ----------------------------------------------------------------------------
 //

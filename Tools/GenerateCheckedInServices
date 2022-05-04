@@ -43,6 +43,7 @@ SERVICE_GENERATOR_COMMAND=(
     --addServiceNameDir yes
     --removeUnknownFiles yes
     --gtlrFrameworkName GoogleAPIClientForREST
+    --publicHeadersSubDir GoogleAPIClientForREST
     --auditJSON
     --guessFormattedNames
     --httpHeader X-User-IP:0.0.0.0

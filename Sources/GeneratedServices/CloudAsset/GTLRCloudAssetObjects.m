@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/asset-inventory/docs/quickstart
 
-#import "GTLRCloudAssetObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudAssetObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

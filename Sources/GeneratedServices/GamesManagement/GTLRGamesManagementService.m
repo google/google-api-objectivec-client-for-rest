@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/games/
 
-#import "GTLRGamesManagement.h"
+#import <GoogleAPIClientForREST/GTLRGamesManagement.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

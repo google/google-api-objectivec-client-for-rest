@@ -10,7 +10,7 @@
 // Documentation:
 //   https://developers.google.com/authorized-buyers/apis/reference/rest/
 
-#import "GTLRAdExchangeBuyerIIObjects.h"
+#import <GoogleAPIClientForREST/GTLRAdExchangeBuyerIIObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

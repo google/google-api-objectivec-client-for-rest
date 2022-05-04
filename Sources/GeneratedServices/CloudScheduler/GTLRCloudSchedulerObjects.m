@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/scheduler/
 
-#import "GTLRCloudSchedulerObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudSchedulerObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

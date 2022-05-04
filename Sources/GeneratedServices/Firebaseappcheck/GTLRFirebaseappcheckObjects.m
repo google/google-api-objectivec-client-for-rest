@@ -9,7 +9,7 @@
 // Documentation:
 //   https://firebase.google.com/docs/app-check
 
-#import "GTLRFirebaseappcheckObjects.h"
+#import <GoogleAPIClientForREST/GTLRFirebaseappcheckObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

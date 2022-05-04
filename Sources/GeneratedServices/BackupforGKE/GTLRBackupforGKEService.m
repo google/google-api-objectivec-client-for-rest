@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke
 
-#import "GTLRBackupforGKE.h"
+#import <GoogleAPIClientForREST/GTLRBackupforGKE.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

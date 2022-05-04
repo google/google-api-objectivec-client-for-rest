@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/search/apis/indexing-api/
 
-#import "GTLRIndexing.h"
+#import <GoogleAPIClientForREST/GTLRIndexing.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

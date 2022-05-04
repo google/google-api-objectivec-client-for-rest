@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/iap
 
-#import "GTLRCloudIAP.h"
+#import <GoogleAPIClientForREST/GTLRCloudIAP.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

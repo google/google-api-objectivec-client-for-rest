@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/speech-to-text/docs/quickstart-protocol
 
-#import "GTLRSpeechQuery.h"
+#import <GoogleAPIClientForREST/GTLRSpeechQuery.h>
 
 @implementation GTLRSpeechQuery
 

@@ -10,7 +10,7 @@
 // Documentation:
 //   http://developers.google.com/chrome/management/
 
-#import "GTLRChromeManagementObjects.h"
+#import <GoogleAPIClientForREST/GTLRChromeManagementObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

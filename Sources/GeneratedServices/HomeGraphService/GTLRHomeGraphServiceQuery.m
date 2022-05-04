@@ -6,7 +6,7 @@
 // Documentation:
 //   https://developers.google.com/actions/smarthome/create-app#request-sync
 
-#import "GTLRHomeGraphServiceQuery.h"
+#import <GoogleAPIClientForREST/GTLRHomeGraphServiceQuery.h>
 
 @implementation GTLRHomeGraphServiceQuery
 

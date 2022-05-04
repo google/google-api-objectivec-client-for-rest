@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/drive/
 
-#import "GTLRDriveQuery.h"
+#import <GoogleAPIClientForREST/GTLRDriveQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

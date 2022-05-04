@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/digital-asset-links/
 
-#import "GTLRDigitalAssetLinks.h"
+#import <GoogleAPIClientForREST/GTLRDigitalAssetLinks.h>
 
 @implementation GTLRDigitalAssetLinksService
 

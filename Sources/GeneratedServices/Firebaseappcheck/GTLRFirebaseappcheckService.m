@@ -9,7 +9,7 @@
 // Documentation:
 //   https://firebase.google.com/docs/app-check
 
-#import "GTLRFirebaseappcheck.h"
+#import <GoogleAPIClientForREST/GTLRFirebaseappcheck.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

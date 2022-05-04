@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/memorystore/
 
-#import "GTLRCloudMemorystoreforMemcached.h"
+#import <GoogleAPIClientForREST/GTLRCloudMemorystoreforMemcached.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

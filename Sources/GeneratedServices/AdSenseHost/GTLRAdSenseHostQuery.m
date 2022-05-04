@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/adsense/host/
 
-#import "GTLRAdSenseHostQuery.h"
+#import <GoogleAPIClientForREST/GTLRAdSenseHostQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

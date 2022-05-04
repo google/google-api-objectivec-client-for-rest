@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/service-directory
 
-#import "GTLRServiceDirectoryQuery.h"
+#import <GoogleAPIClientForREST/GTLRServiceDirectoryQuery.h>
 
 @implementation GTLRServiceDirectoryQuery
 

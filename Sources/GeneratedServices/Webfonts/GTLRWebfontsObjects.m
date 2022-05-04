@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/fonts/docs/developer_api
 
-#import "GTLRWebfontsObjects.h"
+#import <GoogleAPIClientForREST/GTLRWebfontsObjects.h>
 
 // ----------------------------------------------------------------------------
 //

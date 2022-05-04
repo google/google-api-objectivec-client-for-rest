@@ -10,9 +10,9 @@
 // Documentation:
 //   https://developers.google.com/gmail/postmaster
 
-#import "GTLRPostmasterToolsQuery.h"
+#import <GoogleAPIClientForREST/GTLRPostmasterToolsQuery.h>
 
-#import "GTLRPostmasterToolsObjects.h"
+#import <GoogleAPIClientForREST/GTLRPostmasterToolsObjects.h>
 
 @implementation GTLRPostmasterToolsQuery
 

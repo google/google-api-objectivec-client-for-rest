@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/appengine/docs/admin-api/
 
-#import "GTLRAppengineQuery.h"
+#import <GoogleAPIClientForREST/GTLRAppengineQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

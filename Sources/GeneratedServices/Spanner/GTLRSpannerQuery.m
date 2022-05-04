@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/spanner/
 
-#import "GTLRSpannerQuery.h"
+#import <GoogleAPIClientForREST/GTLRSpannerQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

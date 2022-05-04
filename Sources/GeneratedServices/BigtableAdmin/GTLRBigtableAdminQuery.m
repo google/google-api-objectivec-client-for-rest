@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/bigtable/
 
-#import "GTLRBigtableAdminQuery.h"
+#import <GoogleAPIClientForREST/GTLRBigtableAdminQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

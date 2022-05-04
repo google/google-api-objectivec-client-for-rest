@@ -6,7 +6,7 @@
 // Documentation:
 //   https://developers.google.com/spectrum-access-system/
 
-#import "GTLRSASPortal.h"
+#import <GoogleAPIClientForREST/GTLRSASPortal.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

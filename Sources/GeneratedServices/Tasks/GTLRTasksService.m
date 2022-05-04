@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/tasks/
 
-#import "GTLRTasks.h"
+#import <GoogleAPIClientForREST/GTLRTasks.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

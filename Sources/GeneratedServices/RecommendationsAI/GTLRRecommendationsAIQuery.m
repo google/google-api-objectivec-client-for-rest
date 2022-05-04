@@ -14,7 +14,7 @@
 // Documentation:
 //   https://cloud.google.com/recommendations-ai/docs
 
-#import "GTLRRecommendationsAIQuery.h"
+#import <GoogleAPIClientForREST/GTLRRecommendationsAIQuery.h>
 
 @implementation GTLRRecommendationsAIQuery
 

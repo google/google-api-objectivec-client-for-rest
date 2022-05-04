@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/dataplex/docs
 
-#import "GTLRCloudDataplexQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudDataplexQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

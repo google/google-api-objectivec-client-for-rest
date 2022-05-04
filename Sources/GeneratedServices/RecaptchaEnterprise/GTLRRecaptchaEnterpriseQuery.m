@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/recaptcha-enterprise/
 
-#import "GTLRRecaptchaEnterpriseQuery.h"
+#import <GoogleAPIClientForREST/GTLRRecaptchaEnterpriseQuery.h>
 
 @implementation GTLRRecaptchaEnterpriseQuery
 

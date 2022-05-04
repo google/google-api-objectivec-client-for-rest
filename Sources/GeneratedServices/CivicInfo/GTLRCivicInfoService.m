@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/civic-information/
 
-#import "GTLRCivicInfo.h"
+#import <GoogleAPIClientForREST/GTLRCivicInfo.h>
 
 @implementation GTLRCivicInfoService
 

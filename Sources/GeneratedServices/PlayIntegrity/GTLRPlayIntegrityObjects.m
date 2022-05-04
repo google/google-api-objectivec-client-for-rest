@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developer.android.com/google/play/integrity
 
-#import "GTLRPlayIntegrityObjects.h"
+#import <GoogleAPIClientForREST/GTLRPlayIntegrityObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

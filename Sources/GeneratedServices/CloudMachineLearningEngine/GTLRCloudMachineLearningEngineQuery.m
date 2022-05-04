@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/ml/
 
-#import "GTLRCloudMachineLearningEngineQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudMachineLearningEngineQuery.h>
 
 @implementation GTLRCloudMachineLearningEngineQuery
 

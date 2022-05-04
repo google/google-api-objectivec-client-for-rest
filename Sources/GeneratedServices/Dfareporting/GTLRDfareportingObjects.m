@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/doubleclick-advertisers/
 
-#import "GTLRDfareportingObjects.h"
+#import <GoogleAPIClientForREST/GTLRDfareportingObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

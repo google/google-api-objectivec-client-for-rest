@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/identity/
 
-#import "GTLRCloudIdentityQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudIdentityQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

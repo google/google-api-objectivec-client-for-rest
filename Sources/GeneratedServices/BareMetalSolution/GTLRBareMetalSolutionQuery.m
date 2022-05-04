@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/bare-metal
 
-#import "GTLRBareMetalSolutionQuery.h"
+#import <GoogleAPIClientForREST/GTLRBareMetalSolutionQuery.h>
 
 @implementation GTLRBareMetalSolutionQuery
 

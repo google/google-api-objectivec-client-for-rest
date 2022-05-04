@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/cloud-test-lab/
 
-#import "GTLRTestingObjects.h"
+#import <GoogleAPIClientForREST/GTLRTestingObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

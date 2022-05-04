@@ -75,7 +75,7 @@ class SwiftPMUpdater(object):
             name: "GoogleAPIClientForREST_${Name}",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/${Name}",
-            publicHeadersPath: "."
+            publicHeadersPath: "Public"
         ),
 """)
     section = "".join([template.safe_substitute({'Name': x}) for x in sorted_services])

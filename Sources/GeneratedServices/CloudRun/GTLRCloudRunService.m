@@ -11,7 +11,7 @@
 // Documentation:
 //   https://cloud.google.com/run/
 
-#import "GTLRCloudRun.h"
+#import <GoogleAPIClientForREST/GTLRCloudRun.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

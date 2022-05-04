@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/people/
 
-#import "GTLRPeopleService.h"
+#import <GoogleAPIClientForREST/GTLRPeopleService.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

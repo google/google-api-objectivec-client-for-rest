@@ -9,7 +9,7 @@
 // Documentation:
 //   http://cloud.google.com/iam/docs/workload-identity-federation
 
-#import "GTLRCloudSecurityToken.h"
+#import <GoogleAPIClientForREST/GTLRCloudSecurityToken.h>
 
 @implementation GTLRCloudSecurityTokenService
 

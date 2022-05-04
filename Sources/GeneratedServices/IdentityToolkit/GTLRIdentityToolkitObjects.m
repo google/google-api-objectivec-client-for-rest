@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/identity-toolkit/v3/
 
-#import "GTLRIdentityToolkitObjects.h"
+#import <GoogleAPIClientForREST/GTLRIdentityToolkitObjects.h>
 
 // ----------------------------------------------------------------------------
 //

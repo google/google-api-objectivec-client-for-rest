@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/artifacts/docs/
 
-#import "GTLRArtifactRegistryQuery.h"
+#import <GoogleAPIClientForREST/GTLRArtifactRegistryQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

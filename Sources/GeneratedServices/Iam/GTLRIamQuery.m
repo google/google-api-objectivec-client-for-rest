@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/iam/
 
-#import "GTLRIamQuery.h"
+#import <GoogleAPIClientForREST/GTLRIamQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/admob/api/
 
-#import "GTLRAdMobQuery.h"
+#import <GoogleAPIClientForREST/GTLRAdMobQuery.h>
 
 @implementation GTLRAdMobQuery
 

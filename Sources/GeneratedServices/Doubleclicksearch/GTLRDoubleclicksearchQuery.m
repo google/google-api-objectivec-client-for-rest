@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/search-ads
 
-#import "GTLRDoubleclicksearchQuery.h"
+#import <GoogleAPIClientForREST/GTLRDoubleclicksearchQuery.h>
 
 @implementation GTLRDoubleclicksearchQuery
 

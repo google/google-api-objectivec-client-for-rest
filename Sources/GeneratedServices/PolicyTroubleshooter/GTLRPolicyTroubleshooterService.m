@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/iam/
 
-#import "GTLRPolicyTroubleshooter.h"
+#import <GoogleAPIClientForREST/GTLRPolicyTroubleshooter.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

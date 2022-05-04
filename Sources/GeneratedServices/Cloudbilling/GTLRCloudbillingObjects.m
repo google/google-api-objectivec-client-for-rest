@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/billing/
 
-#import "GTLRCloudbillingObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudbillingObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

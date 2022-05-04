@@ -11,7 +11,7 @@
 // Documentation:
 //   https://developers.google.com/speed/docs/insights/v5/about
 
-#import "GTLRPagespeedInsightsObjects.h"
+#import <GoogleAPIClientForREST/GTLRPagespeedInsightsObjects.h>
 
 // ----------------------------------------------------------------------------
 //

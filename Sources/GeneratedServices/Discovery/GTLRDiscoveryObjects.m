@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/discovery/
 
-#import "GTLRDiscoveryObjects.h"
+#import <GoogleAPIClientForREST/GTLRDiscoveryObjects.h>
 
 // ----------------------------------------------------------------------------
 //

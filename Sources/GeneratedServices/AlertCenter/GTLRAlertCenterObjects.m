@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/admin-sdk/alertcenter/
 
-#import "GTLRAlertCenterObjects.h"
+#import <GoogleAPIClientForREST/GTLRAlertCenterObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/essentialcontacts/docs/
 
-#import "GTLREssentialcontacts.h"
+#import <GoogleAPIClientForREST/GTLREssentialcontacts.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

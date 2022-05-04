@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/iap
 
-#import "GTLRCloudIAPQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudIAPQuery.h>
 
 @implementation GTLRCloudIAPQuery
 

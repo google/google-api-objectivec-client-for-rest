@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/datastream/
 
-#import "GTLRDatastreamObjects.h"
+#import <GoogleAPIClientForREST/GTLRDatastreamObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

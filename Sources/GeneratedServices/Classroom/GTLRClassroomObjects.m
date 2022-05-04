@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/classroom/
 
-#import "GTLRClassroomObjects.h"
+#import <GoogleAPIClientForREST/GTLRClassroomObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/dialogflow/
 
-#import "GTLRDialogflowQuery.h"
+#import <GoogleAPIClientForREST/GTLRDialogflowQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

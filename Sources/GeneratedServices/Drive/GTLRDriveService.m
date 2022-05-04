@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/drive/
 
-#import "GTLRDrive.h"
+#import <GoogleAPIClientForREST/GTLRDrive.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

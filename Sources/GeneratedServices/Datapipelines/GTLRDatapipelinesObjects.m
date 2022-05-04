@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/dataflow/docs/guides/data-pipelines
 
-#import "GTLRDatapipelinesObjects.h"
+#import <GoogleAPIClientForREST/GTLRDatapipelinesObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/domains/
 
-#import "GTLRCloudDomains.h"
+#import <GoogleAPIClientForREST/GTLRCloudDomains.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

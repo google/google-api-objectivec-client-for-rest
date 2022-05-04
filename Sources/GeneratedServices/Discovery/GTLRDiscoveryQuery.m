@@ -9,9 +9,9 @@
 // Documentation:
 //   https://developers.google.com/discovery/
 
-#import "GTLRDiscoveryQuery.h"
+#import <GoogleAPIClientForREST/GTLRDiscoveryQuery.h>
 
-#import "GTLRDiscoveryObjects.h"
+#import <GoogleAPIClientForREST/GTLRDiscoveryObjects.h>
 
 @implementation GTLRDiscoveryQuery
 

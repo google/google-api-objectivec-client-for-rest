@@ -6,7 +6,7 @@
 // Documentation:
 //   https://www.google.com
 
-#import "GTLRPolicyAnalyzerObjects.h"
+#import <GoogleAPIClientForREST/GTLRPolicyAnalyzerObjects.h>
 
 // ----------------------------------------------------------------------------
 //

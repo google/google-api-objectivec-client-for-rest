@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/natural-language/
 
-#import "GTLRCloudNaturalLanguage.h"
+#import <GoogleAPIClientForREST/GTLRCloudNaturalLanguage.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

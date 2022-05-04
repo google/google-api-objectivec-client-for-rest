@@ -6,7 +6,7 @@
 // Documentation:
 //   https://developers.google.com/spectrum-access-system/
 
-#import "GTLRSASPortalObjects.h"
+#import <GoogleAPIClientForREST/GTLRSASPortalObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

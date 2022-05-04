@@ -9,7 +9,7 @@
 // Documentation:
 //   https://firebase.google.com/docs/storage/security
 
-#import "GTLRFirebaseRulesObjects.h"
+#import <GoogleAPIClientForREST/GTLRFirebaseRulesObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

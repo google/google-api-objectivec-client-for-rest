@@ -8,9 +8,9 @@
 // Documentation:
 //   https://developers.google.com/identity/protocols/oauth2/
 
-#import "GTLROauth2Query.h"
+#import <GoogleAPIClientForREST/GTLROauth2Query.h>
 
-#import "GTLROauth2Objects.h"
+#import <GoogleAPIClientForREST/GTLROauth2Objects.h>
 
 @implementation GTLROauth2Query
 

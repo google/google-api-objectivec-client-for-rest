@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/people/
 
-#import "GTLRPeopleServiceQuery.h"
+#import <GoogleAPIClientForREST/GTLRPeopleServiceQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

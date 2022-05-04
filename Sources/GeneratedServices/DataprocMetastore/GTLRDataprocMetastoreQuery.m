@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/dataproc-metastore/docs
 
-#import "GTLRDataprocMetastoreQuery.h"
+#import <GoogleAPIClientForREST/GTLRDataprocMetastoreQuery.h>
 
 @implementation GTLRDataprocMetastoreQuery
 

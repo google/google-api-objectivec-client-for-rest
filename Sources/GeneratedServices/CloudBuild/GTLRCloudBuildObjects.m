@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/cloud-build/docs/
 
-#import "GTLRCloudBuildObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudBuildObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

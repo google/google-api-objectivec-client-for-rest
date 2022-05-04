@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/drive/activity/
 
-#import "GTLRDriveActivityObjects.h"
+#import <GoogleAPIClientForREST/GTLRDriveActivityObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

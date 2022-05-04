@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/certificate-manager
 
-#import "GTLRCertificateManagerQuery.h"
+#import <GoogleAPIClientForREST/GTLRCertificateManagerQuery.h>
 
 @implementation GTLRCertificateManagerQuery
 

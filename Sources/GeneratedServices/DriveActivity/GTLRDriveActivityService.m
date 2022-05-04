@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/drive/activity/
 
-#import "GTLRDriveActivity.h"
+#import <GoogleAPIClientForREST/GTLRDriveActivity.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

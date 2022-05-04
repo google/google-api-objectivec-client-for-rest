@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/api-gateway/docs
 
-#import "GTLRAPIGateway.h"
+#import <GoogleAPIClientForREST/GTLRAPIGateway.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

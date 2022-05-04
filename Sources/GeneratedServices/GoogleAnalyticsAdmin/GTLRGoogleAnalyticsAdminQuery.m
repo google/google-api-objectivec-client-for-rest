@@ -6,7 +6,7 @@
 // Documentation:
 //   http://code.google.com/apis/analytics/docs/mgmt/home.html
 
-#import "GTLRGoogleAnalyticsAdminQuery.h"
+#import <GoogleAPIClientForREST/GTLRGoogleAnalyticsAdminQuery.h>
 
 @implementation GTLRGoogleAnalyticsAdminQuery
 

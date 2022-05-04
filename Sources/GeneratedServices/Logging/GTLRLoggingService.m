@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/logging/docs/
 
-#import "GTLRLogging.h"
+#import <GoogleAPIClientForREST/GTLRLogging.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

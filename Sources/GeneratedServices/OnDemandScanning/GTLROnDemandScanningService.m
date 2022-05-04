@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/container-analysis/docs/on-demand-scanning/
 
-#import "GTLROnDemandScanning.h"
+#import <GoogleAPIClientForREST/GTLROnDemandScanning.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/pubsub/lite/docs
 
-#import "GTLRPubsubLiteQuery.h"
+#import <GoogleAPIClientForREST/GTLRPubsubLiteQuery.h>
 
 @implementation GTLRPubsubLiteQuery
 

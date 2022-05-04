@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/solutions/gaming/
 
-#import "GTLRGameServicesQuery.h"
+#import <GoogleAPIClientForREST/GTLRGameServicesQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

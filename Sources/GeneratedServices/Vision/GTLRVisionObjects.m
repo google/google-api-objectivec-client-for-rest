@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/vision/
 
-#import "GTLRVisionObjects.h"
+#import <GoogleAPIClientForREST/GTLRVisionObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

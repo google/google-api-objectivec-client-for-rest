@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/notebooks/docs/
 
-#import "GTLRAIPlatformNotebooks.h"
+#import <GoogleAPIClientForREST/GTLRAIPlatformNotebooks.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

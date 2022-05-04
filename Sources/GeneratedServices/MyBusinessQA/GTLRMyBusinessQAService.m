@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/my-business/
 
-#import "GTLRMyBusinessQA.h"
+#import <GoogleAPIClientForREST/GTLRMyBusinessQA.h>
 
 @implementation GTLRMyBusinessQAService
 

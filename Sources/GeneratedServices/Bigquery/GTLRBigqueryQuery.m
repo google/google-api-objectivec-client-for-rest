@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/bigquery/
 
-#import "GTLRBigqueryQuery.h"
+#import <GoogleAPIClientForREST/GTLRBigqueryQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

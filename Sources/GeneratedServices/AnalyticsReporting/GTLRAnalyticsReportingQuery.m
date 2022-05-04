@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/analytics/devguides/reporting/core/v4/
 
-#import "GTLRAnalyticsReportingQuery.h"
+#import <GoogleAPIClientForREST/GTLRAnalyticsReportingQuery.h>
 
 @implementation GTLRAnalyticsReportingQuery
 

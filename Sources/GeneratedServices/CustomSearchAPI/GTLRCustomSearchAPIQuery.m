@@ -8,9 +8,9 @@
 // Documentation:
 //   https://developers.google.com/custom-search/v1/introduction
 
-#import "GTLRCustomSearchAPIQuery.h"
+#import <GoogleAPIClientForREST/GTLRCustomSearchAPIQuery.h>
 
-#import "GTLRCustomSearchAPIObjects.h"
+#import <GoogleAPIClientForREST/GTLRCustomSearchAPIObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

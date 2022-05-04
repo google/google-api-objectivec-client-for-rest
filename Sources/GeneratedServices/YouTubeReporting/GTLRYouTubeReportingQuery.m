@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/youtube/reporting/v1/reports/
 
-#import "GTLRYouTubeReportingQuery.h"
+#import <GoogleAPIClientForREST/GTLRYouTubeReportingQuery.h>
 
 @implementation GTLRYouTubeReportingQuery
 

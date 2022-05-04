@@ -12,7 +12,7 @@
 // Documentation:
 //   https://developers.google.com/safe-browsing/
 
-#import "GTLRSafebrowsingQuery.h"
+#import <GoogleAPIClientForREST/GTLRSafebrowsingQuery.h>
 
 @implementation GTLRSafebrowsingQuery
 

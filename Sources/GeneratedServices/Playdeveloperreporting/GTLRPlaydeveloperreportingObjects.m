@@ -6,7 +6,7 @@
 // Documentation:
 //   https://developers.google.com/play/developer/reporting
 
-#import "GTLRPlaydeveloperreportingObjects.h"
+#import <GoogleAPIClientForREST/GTLRPlaydeveloperreportingObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/dns/docs
 
-#import "GTLRDnsQuery.h"
+#import <GoogleAPIClientForREST/GTLRDnsQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

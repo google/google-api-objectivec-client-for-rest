@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/bare-metal
 
-#import "GTLRBareMetalSolutionObjects.h"
+#import <GoogleAPIClientForREST/GTLRBareMetalSolutionObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/database-migration/
 
-#import "GTLRDatabaseMigrationService.h"
+#import <GoogleAPIClientForREST/GTLRDatabaseMigrationService.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

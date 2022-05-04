@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/billing/docs/how-to/budget-api-overview
 
-#import "GTLRCloudBillingBudgetObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudBillingBudgetObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

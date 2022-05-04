@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/certificate-manager
 
-#import "GTLRCertificateManager.h"
+#import <GoogleAPIClientForREST/GTLRCertificateManager.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

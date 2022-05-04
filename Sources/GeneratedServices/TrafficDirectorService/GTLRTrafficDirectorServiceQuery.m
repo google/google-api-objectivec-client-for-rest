@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/traffic-director
 
-#import "GTLRTrafficDirectorServiceQuery.h"
+#import <GoogleAPIClientForREST/GTLRTrafficDirectorServiceQuery.h>
 
 @implementation GTLRTrafficDirectorServiceQuery
 

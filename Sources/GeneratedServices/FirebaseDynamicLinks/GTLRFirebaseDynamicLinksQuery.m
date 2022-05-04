@@ -8,7 +8,7 @@
 // Documentation:
 //   https://firebase.google.com/docs/dynamic-links/
 
-#import "GTLRFirebaseDynamicLinksQuery.h"
+#import <GoogleAPIClientForREST/GTLRFirebaseDynamicLinksQuery.h>
 
 @implementation GTLRFirebaseDynamicLinksQuery
 

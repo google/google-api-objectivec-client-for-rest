@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/profiler/
 
-#import "GTLRCloudProfiler.h"
+#import <GoogleAPIClientForREST/GTLRCloudProfiler.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

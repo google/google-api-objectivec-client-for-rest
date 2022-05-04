@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/text-to-speech/
 
-#import "GTLRTexttospeechObjects.h"
+#import <GoogleAPIClientForREST/GTLRTexttospeechObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

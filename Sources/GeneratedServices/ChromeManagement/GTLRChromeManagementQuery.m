@@ -10,9 +10,9 @@
 // Documentation:
 //   http://developers.google.com/chrome/management/
 
-#import "GTLRChromeManagementQuery.h"
+#import <GoogleAPIClientForREST/GTLRChromeManagementQuery.h>
 
-#import "GTLRChromeManagementObjects.h"
+#import <GoogleAPIClientForREST/GTLRChromeManagementObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants
@@ -164,6 +164,25 @@ NSString * const kGTLRChromeManagementAppTypeTheme             = @"THEME";
   query.customer = customer;
   query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1FindInstalledAppDevicesResponse class];
   query.loggingName = @"chromemanagement.customers.reports.findInstalledAppDevices";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersTelemetryDevicesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRChromeManagementQuery_CustomersTelemetryDevicesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1TelemetryDevice class];
+  query.loggingName = @"chromemanagement.customers.telemetry.devices.get";
   return query;
 }
 

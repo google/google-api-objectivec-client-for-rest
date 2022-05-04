@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/workflows
 
-#import "GTLRWorkflowExecutionsQuery.h"
+#import <GoogleAPIClientForREST/GTLRWorkflowExecutionsQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

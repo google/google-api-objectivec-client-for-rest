@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/cloud-sql/
 
-#import "GTLRSQLAdmin.h"
+#import <GoogleAPIClientForREST/GTLRSQLAdmin.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

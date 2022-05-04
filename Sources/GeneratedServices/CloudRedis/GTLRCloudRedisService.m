@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/memorystore/docs/redis/
 
-#import "GTLRCloudRedis.h"
+#import <GoogleAPIClientForREST/GTLRCloudRedis.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

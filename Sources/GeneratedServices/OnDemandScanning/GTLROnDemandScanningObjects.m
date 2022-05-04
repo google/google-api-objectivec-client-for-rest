@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/container-analysis/docs/on-demand-scanning/
 
-#import "GTLROnDemandScanningObjects.h"
+#import <GoogleAPIClientForREST/GTLROnDemandScanningObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

@@ -11,7 +11,7 @@
 // Documentation:
 //   https://cloud.google.com/
 
-#import "GTLRCertificateAuthorityServiceObjects.h"
+#import <GoogleAPIClientForREST/GTLRCertificateAuthorityServiceObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

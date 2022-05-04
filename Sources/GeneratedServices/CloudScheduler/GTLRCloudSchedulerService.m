@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/scheduler/
 
-#import "GTLRCloudScheduler.h"
+#import <GoogleAPIClientForREST/GTLRCloudScheduler.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

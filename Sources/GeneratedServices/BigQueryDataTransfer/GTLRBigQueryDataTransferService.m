@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/bigquery-transfer/
 
-#import "GTLRBigQueryDataTransfer.h"
+#import <GoogleAPIClientForREST/GTLRBigQueryDataTransfer.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

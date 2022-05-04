@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/dataflow
 
-#import "GTLRDataflowObjects.h"
+#import <GoogleAPIClientForREST/GTLRDataflowObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

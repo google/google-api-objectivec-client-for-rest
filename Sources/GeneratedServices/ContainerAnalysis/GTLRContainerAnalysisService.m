@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/container-analysis/api/reference/rest/
 
-#import "GTLRContainerAnalysis.h"
+#import <GoogleAPIClientForREST/GTLRContainerAnalysis.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

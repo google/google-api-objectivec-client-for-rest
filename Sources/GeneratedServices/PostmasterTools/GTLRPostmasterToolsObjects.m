@@ -10,7 +10,7 @@
 // Documentation:
 //   https://developers.google.com/gmail/postmaster
 
-#import "GTLRPostmasterToolsObjects.h"
+#import <GoogleAPIClientForREST/GTLRPostmasterToolsObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

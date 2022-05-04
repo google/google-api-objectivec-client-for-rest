@@ -10,7 +10,7 @@
 // Documentation:
 //   https://developers.google.com/streetview/publish/
 
-#import "GTLRStreetViewPublishQuery.h"
+#import <GoogleAPIClientForREST/GTLRStreetViewPublishQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://firebase.google.com/docs/storage
 
-#import "GTLRFirebasestorageQuery.h"
+#import <GoogleAPIClientForREST/GTLRFirebasestorageQuery.h>
 
 @implementation GTLRFirebasestorageQuery
 
