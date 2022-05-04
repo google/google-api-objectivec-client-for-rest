@@ -59,6 +59,14 @@
   #import "GTMMIMEDocument.h"
 #endif  // GTLR_USE_FRAMEWORK_IMPORTS
 
+// This can be redefined via a prefix if you are prefixing symbols to prefix the
+// names used in strings. Something like:
+//   #define _HELPER(x) "MyPrefix" #x
+//   #define GTLR_CLASSNAME_STR(x) @_HELPER(x)
+#ifndef GTLR_CLASSNAME_STR
+  #define _GTLR_CLASSNAME_HELPER(x) #x
+  #define GTLR_CLASSNAME_STR(x) @_GTLR_CLASSNAME_HELPER(x)
+#endif
 
 #ifndef STRIP_GTM_FETCH_LOGGING
   #error GTMSessionFetcher headers should have defaulted this if it wasn't already defined.
@@ -912,7 +920,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 
   NSString *uploadClassName = GTLR_CLASSNAME_STR(GTMSessionUploadFetcher);
   Class uploadClass = NSClassFromString(uploadClassName);
-  GTLR_ASSERT(uploadClass != nil, @"GTMSessionUploadFetcher needed");
+  NSAssert(uploadClass != nil, @"GTMSessionUploadFetcher needed");
 
   NSString *uploadMIMEType = uploadParams.MIMEType;
   NSData *uploadData = uploadParams.data;
@@ -1990,8 +1998,8 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
   // In the bizarre case that the fetch didn't begin, newTicket will be
   // nil.  So long as the new ticket is the same as the ticket we're
   // continuing, then we're happy.
-  GTLR_ASSERT(newTicket == ticket || newTicket == nil,
-              @"Pagination should not create an additional ticket: %@", newTicket);
+  NSAssert(newTicket == ticket || newTicket == nil,
+           @"Pagination should not create an additional ticket: %@", newTicket);
 
   BOOL isFetchingNextPageWithCurrentTicket = (newTicket == ticket);
   return isFetchingNextPageWithCurrentTicket;

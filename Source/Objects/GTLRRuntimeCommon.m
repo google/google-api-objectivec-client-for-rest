@@ -28,6 +28,15 @@
 #import "GTLRObject.h"
 #import "GTLRUtilities.h"
 
+// This can be redefined via a prefix if you are prefixing symbols to prefix the
+// names used in strings. Something like:
+//   #define _HELPER(x) "MyPrefix" #x
+//   #define GTLR_CLASSNAME_CSTR(x) _HELPER(x)
+#ifndef GTLR_CLASSNAME_CSTR
+  #define _GTLR_CLASSNAME_HELPER(x) #x
+  #define GTLR_CLASSNAME_CSTR(x) _GTLR_CLASSNAME_HELPER(x)
+#endif
+
 // Note: NSObject's class is used as a marker for the expected/default class
 // when Discovery says it can be any type of object.
 
