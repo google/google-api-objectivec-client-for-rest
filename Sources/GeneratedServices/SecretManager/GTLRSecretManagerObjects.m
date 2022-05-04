@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/secret-manager/
 
-#import "GTLRSecretManagerObjects.h"
+#import <GoogleAPIClientForREST/GTLRSecretManagerObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

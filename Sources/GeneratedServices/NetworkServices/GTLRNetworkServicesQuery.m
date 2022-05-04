@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/networking
 
-#import "GTLRNetworkServicesQuery.h"
+#import <GoogleAPIClientForREST/GTLRNetworkServicesQuery.h>
 
 @implementation GTLRNetworkServicesQuery
 

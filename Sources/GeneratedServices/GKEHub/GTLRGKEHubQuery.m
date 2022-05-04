@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/anthos/multicluster-management/connect/registering-a-cluster
 
-#import "GTLRGKEHubQuery.h"
+#import <GoogleAPIClientForREST/GTLRGKEHubQuery.h>
 
 @implementation GTLRGKEHubQuery
 

@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/admin-sdk/alertcenter/
 
-#import "GTLRAlertCenterQuery.h"
+#import <GoogleAPIClientForREST/GTLRAlertCenterQuery.h>
 
 @implementation GTLRAlertCenterQuery
 

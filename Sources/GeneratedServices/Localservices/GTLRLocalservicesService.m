@@ -6,7 +6,7 @@
 // Documentation:
 //   https://ads.google.com/local-services-ads/
 
-#import "GTLRLocalservices.h"
+#import <GoogleAPIClientForREST/GTLRLocalservices.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

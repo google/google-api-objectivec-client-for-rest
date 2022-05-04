@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/datastore/
 
-#import "GTLRDatastore.h"
+#import <GoogleAPIClientForREST/GTLRDatastore.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

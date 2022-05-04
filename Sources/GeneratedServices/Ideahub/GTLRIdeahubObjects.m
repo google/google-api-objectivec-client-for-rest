@@ -8,7 +8,7 @@
 // Documentation:
 //   https://console.cloud.google.com/apis/library/ideahub.googleapis.com
 
-#import "GTLRIdeahubObjects.h"
+#import <GoogleAPIClientForREST/GTLRIdeahubObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

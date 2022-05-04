@@ -10,7 +10,7 @@
 // Documentation:
 //   https://developers.google.com/cloud-search/docs/guides/
 
-#import "GTLRCloudSearchObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudSearchObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

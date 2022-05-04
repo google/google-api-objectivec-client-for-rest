@@ -9,7 +9,7 @@
 // Documentation:
 //   https://firebase.google.com/docs/cloud-messaging
 
-#import "GTLRFirebaseCloudMessagingObjects.h"
+#import <GoogleAPIClientForREST/GTLRFirebaseCloudMessagingObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

@@ -6,7 +6,7 @@
 // Documentation:
 //   https://ads.google.com/local-services-ads/
 
-#import "GTLRLocalservicesObjects.h"
+#import <GoogleAPIClientForREST/GTLRLocalservicesObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

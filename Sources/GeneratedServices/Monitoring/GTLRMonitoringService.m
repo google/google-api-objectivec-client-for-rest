@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/monitoring/api/
 
-#import "GTLRMonitoring.h"
+#import <GoogleAPIClientForREST/GTLRMonitoring.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

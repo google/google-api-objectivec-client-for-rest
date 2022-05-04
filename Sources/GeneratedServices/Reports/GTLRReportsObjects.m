@@ -10,7 +10,7 @@
 // Documentation:
 //   https://developers.google.com/admin-sdk/
 
-#import "GTLRReportsObjects.h"
+#import <GoogleAPIClientForREST/GTLRReportsObjects.h>
 
 // ----------------------------------------------------------------------------
 //

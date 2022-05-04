@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/civic-information/
 
-#import "GTLRCivicInfoObjects.h"
+#import <GoogleAPIClientForREST/GTLRCivicInfoObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

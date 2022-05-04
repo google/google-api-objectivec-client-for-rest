@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/document-ai/docs/
 
-#import "GTLRDocumentObjects.h"
+#import <GoogleAPIClientForREST/GTLRDocumentObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/youtube/analytics
 
-#import "GTLRYouTubeAnalytics.h"
+#import <GoogleAPIClientForREST/GTLRYouTubeAnalytics.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

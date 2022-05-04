@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/android/work/play/emm-api
 
-#import "GTLRAndroidEnterpriseObjects.h"
+#import <GoogleAPIClientForREST/GTLRAndroidEnterpriseObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

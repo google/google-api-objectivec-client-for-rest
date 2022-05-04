@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/manufacturers/
 
-#import "GTLRManufacturerCenter.h"
+#import <GoogleAPIClientForREST/GTLRManufacturerCenter.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

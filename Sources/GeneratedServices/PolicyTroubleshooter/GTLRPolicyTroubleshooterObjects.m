@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/iam/
 
-#import "GTLRPolicyTroubleshooterObjects.h"
+#import <GoogleAPIClientForREST/GTLRPolicyTroubleshooterObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

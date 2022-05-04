@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/web/tools/chrome-user-experience-report/api/reference
 
-#import "GTLRChromeUXReportObjects.h"
+#import <GoogleAPIClientForREST/GTLRChromeUXReportObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

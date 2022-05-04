@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/bigquery/
 
-#import "GTLRBigQueryConnectionServiceQuery.h"
+#import <GoogleAPIClientForREST/GTLRBigQueryConnectionServiceQuery.h>
 
 @implementation GTLRBigQueryConnectionServiceQuery
 

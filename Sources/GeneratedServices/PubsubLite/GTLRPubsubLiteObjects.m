@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/pubsub/lite/docs
 
-#import "GTLRPubsubLiteObjects.h"
+#import <GoogleAPIClientForREST/GTLRPubsubLiteObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

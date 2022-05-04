@@ -10,7 +10,7 @@
 // Documentation:
 //   http://developers.google.com/chrome/policy
 
-#import "GTLRChromePolicyObjects.h"
+#import <GoogleAPIClientForREST/GTLRChromePolicyObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

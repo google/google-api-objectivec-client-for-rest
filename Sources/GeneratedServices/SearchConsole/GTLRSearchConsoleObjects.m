@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/webmaster-tools/search-console-api/
 
-#import "GTLRSearchConsoleObjects.h"
+#import <GoogleAPIClientForREST/GTLRSearchConsoleObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

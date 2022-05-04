@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/nest/device-access
 
-#import "GTLRSmartDeviceManagementQuery.h"
+#import <GoogleAPIClientForREST/GTLRSmartDeviceManagementQuery.h>
 
 @implementation GTLRSmartDeviceManagementQuery
 

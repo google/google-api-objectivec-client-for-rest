@@ -9,9 +9,9 @@
 // Documentation:
 //   https://developers.google.com/abusive-experience-report/
 
-#import "GTLRAbusiveExperienceReportQuery.h"
+#import <GoogleAPIClientForREST/GTLRAbusiveExperienceReportQuery.h>
 
-#import "GTLRAbusiveExperienceReportObjects.h"
+#import <GoogleAPIClientForREST/GTLRAbusiveExperienceReportObjects.h>
 
 @implementation GTLRAbusiveExperienceReportQuery
 

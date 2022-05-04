@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/ml/
 
-#import "GTLRCloudMachineLearningEngineObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudMachineLearningEngineObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

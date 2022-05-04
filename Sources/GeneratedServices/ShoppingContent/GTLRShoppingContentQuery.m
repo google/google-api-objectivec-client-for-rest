@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/shopping-content/v2/
 
-#import "GTLRShoppingContentQuery.h"
+#import <GoogleAPIClientForREST/GTLRShoppingContentQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

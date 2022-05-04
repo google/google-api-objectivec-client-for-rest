@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/web-risk/
 
-#import "GTLRWebRisk.h"
+#import <GoogleAPIClientForREST/GTLRWebRisk.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

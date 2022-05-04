@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/domains/
 
-#import "GTLRCloudDomainsObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudDomainsObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

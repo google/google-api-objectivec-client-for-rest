@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/forms/api
 
-#import "GTLRFormsObjects.h"
+#import <GoogleAPIClientForREST/GTLRFormsObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

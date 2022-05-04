@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/compute/docs/oslogin/
 
-#import "GTLRCloudOSLoginQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudOSLoginQuery.h>
 
 @implementation GTLRCloudOSLoginQuery
 

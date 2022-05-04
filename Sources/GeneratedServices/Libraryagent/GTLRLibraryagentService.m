@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/docs/quota
 
-#import "GTLRLibraryagent.h"
+#import <GoogleAPIClientForREST/GTLRLibraryagent.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

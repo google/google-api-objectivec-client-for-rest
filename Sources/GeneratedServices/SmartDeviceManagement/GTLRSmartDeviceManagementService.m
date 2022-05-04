@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/nest/device-access
 
-#import "GTLRSmartDeviceManagement.h"
+#import <GoogleAPIClientForREST/GTLRSmartDeviceManagement.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

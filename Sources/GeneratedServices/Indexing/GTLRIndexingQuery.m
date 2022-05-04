@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/search/apis/indexing-api/
 
-#import "GTLRIndexingQuery.h"
+#import <GoogleAPIClientForREST/GTLRIndexingQuery.h>
 
 @implementation GTLRIndexingQuery
 

@@ -13,7 +13,7 @@
 // Documentation:
 //   https://cloud.google.com/trace
 
-#import "GTLRCloudTraceObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudTraceObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

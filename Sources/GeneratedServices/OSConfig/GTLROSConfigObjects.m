@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/compute/docs/osconfig/rest
 
-#import "GTLROSConfigObjects.h"
+#import <GoogleAPIClientForREST/GTLROSConfigObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

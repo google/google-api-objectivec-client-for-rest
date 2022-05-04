@@ -10,7 +10,7 @@
 // Documentation:
 //   https://developers.google.com/authorized-buyers/apis/reference/rest/
 
-#import "GTLRAdExchangeBuyerII.h"
+#import <GoogleAPIClientForREST/GTLRAdExchangeBuyerII.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/domains/rdap/
 
-#import "GTLRDomainsRDAP.h"
+#import <GoogleAPIClientForREST/GTLRDomainsRDAP.h>
 
 @implementation GTLRDomainsRDAPService
 

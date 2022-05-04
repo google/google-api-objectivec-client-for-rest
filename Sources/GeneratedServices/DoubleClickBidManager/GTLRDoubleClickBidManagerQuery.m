@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/bid-manager/
 
-#import "GTLRDoubleClickBidManagerQuery.h"
+#import <GoogleAPIClientForREST/GTLRDoubleClickBidManagerQuery.h>
 
 @implementation GTLRDoubleClickBidManagerQuery
 

@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/data-labeling/docs/
 
-#import "GTLRDataLabelingObjects.h"
+#import <GoogleAPIClientForREST/GTLRDataLabelingObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

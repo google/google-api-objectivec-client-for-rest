@@ -12,7 +12,7 @@
 // Documentation:
 //   https://developers.google.com/safe-browsing/
 
-#import "GTLRSafebrowsing.h"
+#import <GoogleAPIClientForREST/GTLRSafebrowsing.h>
 
 @implementation GTLRSafebrowsingService
 

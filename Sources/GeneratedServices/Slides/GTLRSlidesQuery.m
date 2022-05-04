@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/slides/
 
-#import "GTLRSlidesQuery.h"
+#import <GoogleAPIClientForREST/GTLRSlidesQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

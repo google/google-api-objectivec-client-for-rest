@@ -11,7 +11,7 @@
 // Documentation:
 //   https://developers.google.com/speed/docs/insights/v5/about
 
-#import "GTLRPagespeedInsights.h"
+#import <GoogleAPIClientForREST/GTLRPagespeedInsights.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

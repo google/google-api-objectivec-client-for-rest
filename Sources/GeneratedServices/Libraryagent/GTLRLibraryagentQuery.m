@@ -8,9 +8,9 @@
 // Documentation:
 //   https://cloud.google.com/docs/quota
 
-#import "GTLRLibraryagentQuery.h"
+#import <GoogleAPIClientForREST/GTLRLibraryagentQuery.h>
 
-#import "GTLRLibraryagentObjects.h"
+#import <GoogleAPIClientForREST/GTLRLibraryagentObjects.h>
 
 @implementation GTLRLibraryagentQuery
 

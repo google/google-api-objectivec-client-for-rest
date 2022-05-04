@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/my-business/
 
-#import "GTLRMyBusinessNotificationSettingsQuery.h"
+#import <GoogleAPIClientForREST/GTLRMyBusinessNotificationSettingsQuery.h>
 
 @implementation GTLRMyBusinessNotificationSettingsQuery
 

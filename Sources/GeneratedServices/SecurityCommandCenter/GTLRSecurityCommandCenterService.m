@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/security-command-center
 
-#import "GTLRSecurityCommandCenter.h"
+#import <GoogleAPIClientForREST/GTLRSecurityCommandCenter.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

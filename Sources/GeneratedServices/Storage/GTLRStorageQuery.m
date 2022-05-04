@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/storage/docs/json_api/
 
-#import "GTLRStorageQuery.h"
+#import <GoogleAPIClientForREST/GTLRStorageQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

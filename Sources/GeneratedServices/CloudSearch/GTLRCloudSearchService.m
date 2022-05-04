@@ -10,7 +10,7 @@
 // Documentation:
 //   https://developers.google.com/cloud-search/docs/guides/
 
-#import "GTLRCloudSearch.h"
+#import <GoogleAPIClientForREST/GTLRCloudSearch.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/ml/
 
-#import "GTLRCloudMachineLearningEngine.h"
+#import <GoogleAPIClientForREST/GTLRCloudMachineLearningEngine.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/keep/api
 
-#import "GTLRKeepObjects.h"
+#import <GoogleAPIClientForREST/GTLRKeepObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

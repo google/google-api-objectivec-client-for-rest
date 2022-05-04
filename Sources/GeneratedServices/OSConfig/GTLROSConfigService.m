@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/compute/docs/osconfig/rest
 
-#import "GTLROSConfig.h"
+#import <GoogleAPIClientForREST/GTLROSConfig.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

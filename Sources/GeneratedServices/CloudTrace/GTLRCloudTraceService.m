@@ -13,7 +13,7 @@
 // Documentation:
 //   https://cloud.google.com/trace
 
-#import "GTLRCloudTrace.h"
+#import <GoogleAPIClientForREST/GTLRCloudTrace.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

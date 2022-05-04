@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/resource-manager
 
-#import "GTLRCloudResourceManagerObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudResourceManagerObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

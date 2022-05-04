@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com
 
-#import "GTLRAssuredworkloadsObjects.h"
+#import <GoogleAPIClientForREST/GTLRAssuredworkloadsObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

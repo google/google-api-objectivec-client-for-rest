@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/channel
 
-#import "GTLRCloudchannelObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudchannelObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

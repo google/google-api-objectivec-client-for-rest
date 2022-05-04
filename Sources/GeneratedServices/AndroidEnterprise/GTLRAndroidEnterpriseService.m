@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/android/work/play/emm-api
 
-#import "GTLRAndroidEnterprise.h"
+#import <GoogleAPIClientForREST/GTLRAndroidEnterprise.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

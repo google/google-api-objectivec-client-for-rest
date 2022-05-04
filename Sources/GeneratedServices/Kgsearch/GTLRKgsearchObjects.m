@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/knowledge-graph/
 
-#import "GTLRKgsearchObjects.h"
+#import <GoogleAPIClientForREST/GTLRKgsearchObjects.h>
 
 // ----------------------------------------------------------------------------
 //

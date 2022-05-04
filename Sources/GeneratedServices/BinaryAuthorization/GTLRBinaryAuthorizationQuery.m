@@ -11,7 +11,7 @@
 // Documentation:
 //   https://cloud.google.com/binary-authorization/
 
-#import "GTLRBinaryAuthorizationQuery.h"
+#import <GoogleAPIClientForREST/GTLRBinaryAuthorizationQuery.h>
 
 @implementation GTLRBinaryAuthorizationQuery
 

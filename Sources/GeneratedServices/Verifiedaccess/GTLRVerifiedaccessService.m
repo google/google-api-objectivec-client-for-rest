@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/chrome/verified-access
 
-#import "GTLRVerifiedaccess.h"
+#import <GoogleAPIClientForREST/GTLRVerifiedaccess.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

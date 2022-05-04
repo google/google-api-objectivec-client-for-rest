@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/analytics/
 
-#import "GTLRAnalyticsObjects.h"
+#import <GoogleAPIClientForREST/GTLRAnalyticsObjects.h>
 
 // ----------------------------------------------------------------------------
 //

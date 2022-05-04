@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/identity-toolkit/v3/
 
-#import "GTLRIdentityToolkit.h"
+#import <GoogleAPIClientForREST/GTLRIdentityToolkit.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

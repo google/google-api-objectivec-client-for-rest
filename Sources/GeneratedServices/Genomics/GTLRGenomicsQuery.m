@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/genomics
 
-#import "GTLRGenomicsQuery.h"
+#import <GoogleAPIClientForREST/GTLRGenomicsQuery.h>
 
 @implementation GTLRGenomicsQuery
 

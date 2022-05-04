@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/storage/docs/json_api/
 
-#import "GTLRStorage.h"
+#import <GoogleAPIClientForREST/GTLRStorage.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

@@ -12,7 +12,7 @@
 // Documentation:
 //   https://cloud.google.com/
 
-#import "GTLRIDSQuery.h"
+#import <GoogleAPIClientForREST/GTLRIDSQuery.h>
 
 @implementation GTLRIDSQuery
 

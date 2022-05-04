@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/storage-transfer/docs
 
-#import "GTLRStorageTransferQuery.h"
+#import <GoogleAPIClientForREST/GTLRStorageTransferQuery.h>
 
 @implementation GTLRStorageTransferQuery
 

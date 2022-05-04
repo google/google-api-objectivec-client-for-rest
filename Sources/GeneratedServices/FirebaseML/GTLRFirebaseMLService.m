@@ -8,7 +8,7 @@
 // Documentation:
 //   https://firebase.google.com
 
-#import "GTLRFirebaseML.h"
+#import <GoogleAPIClientForREST/GTLRFirebaseML.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

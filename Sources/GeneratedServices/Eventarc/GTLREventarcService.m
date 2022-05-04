@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/eventarc
 
-#import "GTLREventarc.h"
+#import <GoogleAPIClientForREST/GTLREventarc.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

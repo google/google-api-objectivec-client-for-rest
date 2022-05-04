@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/managed-microsoft-ad/
 
-#import "GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery.h"
+#import <GoogleAPIClientForREST/GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery.h>
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
 

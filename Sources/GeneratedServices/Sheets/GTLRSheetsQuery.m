@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/sheets/
 
-#import "GTLRSheetsQuery.h"
+#import <GoogleAPIClientForREST/GTLRSheetsQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

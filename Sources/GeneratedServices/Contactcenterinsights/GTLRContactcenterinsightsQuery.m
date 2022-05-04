@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/contact-center/insights/docs
 
-#import "GTLRContactcenterinsightsQuery.h"
+#import <GoogleAPIClientForREST/GTLRContactcenterinsightsQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

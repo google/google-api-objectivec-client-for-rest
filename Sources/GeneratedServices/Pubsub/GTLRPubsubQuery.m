@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/pubsub/docs
 
-#import "GTLRPubsubQuery.h"
+#import <GoogleAPIClientForREST/GTLRPubsubQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

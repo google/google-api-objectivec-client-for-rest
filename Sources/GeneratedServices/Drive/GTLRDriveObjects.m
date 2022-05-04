@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/drive/
 
-#import "GTLRDriveObjects.h"
+#import <GoogleAPIClientForREST/GTLRDriveObjects.h>
 
 // ----------------------------------------------------------------------------
 //

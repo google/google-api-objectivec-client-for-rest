@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/video-intelligence/docs/
 
-#import "GTLRCloudVideoIntelligenceQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudVideoIntelligenceQuery.h>
 
 @implementation GTLRCloudVideoIntelligenceQuery
 

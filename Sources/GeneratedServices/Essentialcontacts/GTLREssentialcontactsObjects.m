@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/essentialcontacts/docs/
 
-#import "GTLREssentialcontactsObjects.h"
+#import <GoogleAPIClientForREST/GTLREssentialcontactsObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

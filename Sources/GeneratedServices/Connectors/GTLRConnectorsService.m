@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/apigee/docs/api-platform/connectors/about-connectors
 
-#import "GTLRConnectors.h"
+#import <GoogleAPIClientForREST/GTLRConnectors.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

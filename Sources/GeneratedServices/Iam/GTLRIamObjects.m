@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/iam/
 
-#import "GTLRIamObjects.h"
+#import <GoogleAPIClientForREST/GTLRIamObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

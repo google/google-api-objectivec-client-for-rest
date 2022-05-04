@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/forms/api
 
-#import "GTLRForms.h"
+#import <GoogleAPIClientForREST/GTLRForms.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

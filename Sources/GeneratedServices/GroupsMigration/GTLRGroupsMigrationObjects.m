@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/google-apps/groups-migration/
 
-#import "GTLRGroupsMigrationObjects.h"
+#import <GoogleAPIClientForREST/GTLRGroupsMigrationObjects.h>
 
 // ----------------------------------------------------------------------------
 //

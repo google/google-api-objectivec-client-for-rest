@@ -10,7 +10,7 @@
 // Documentation:
 //   https://developers.google.com/streetview/publish/
 
-#import "GTLRStreetViewPublish.h"
+#import <GoogleAPIClientForREST/GTLRStreetViewPublish.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

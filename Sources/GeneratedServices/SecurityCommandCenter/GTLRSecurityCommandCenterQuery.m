@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/security-command-center
 
-#import "GTLRSecurityCommandCenterQuery.h"
+#import <GoogleAPIClientForREST/GTLRSecurityCommandCenterQuery.h>
 
 @implementation GTLRSecurityCommandCenterQuery
 

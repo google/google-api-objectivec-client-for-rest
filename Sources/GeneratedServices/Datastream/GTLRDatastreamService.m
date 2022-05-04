@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/datastream/
 
-#import "GTLRDatastream.h"
+#import <GoogleAPIClientForREST/GTLRDatastream.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

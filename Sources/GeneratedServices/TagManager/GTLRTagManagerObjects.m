@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/tag-manager
 
-#import "GTLRTagManagerObjects.h"
+#import <GoogleAPIClientForREST/GTLRTagManagerObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

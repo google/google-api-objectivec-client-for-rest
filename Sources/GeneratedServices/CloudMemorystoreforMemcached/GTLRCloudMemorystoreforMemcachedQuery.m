@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/memorystore/
 
-#import "GTLRCloudMemorystoreforMemcachedQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudMemorystoreforMemcachedQuery.h>
 
 @implementation GTLRCloudMemorystoreforMemcachedQuery
 

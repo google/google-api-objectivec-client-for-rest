@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/memorystore/docs/redis/
 
-#import "GTLRCloudRedisQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudRedisQuery.h>
 
 @implementation GTLRCloudRedisQuery
 

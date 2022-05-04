@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/datastream/
 
-#import "GTLRDatastreamQuery.h"
+#import <GoogleAPIClientForREST/GTLRDatastreamQuery.h>
 
 @implementation GTLRDatastreamQuery
 

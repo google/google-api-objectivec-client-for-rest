@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity/rest
 
-#import "GTLRNetworkconnectivityQuery.h"
+#import <GoogleAPIClientForREST/GTLRNetworkconnectivityQuery.h>
 
 @implementation GTLRNetworkconnectivityQuery
 

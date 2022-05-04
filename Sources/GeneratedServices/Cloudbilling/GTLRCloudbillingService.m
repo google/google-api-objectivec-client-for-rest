@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/billing/
 
-#import "GTLRCloudbilling.h"
+#import <GoogleAPIClientForREST/GTLRCloudbilling.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

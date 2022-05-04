@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/debugger
 
-#import "GTLRCloudDebugger.h"
+#import <GoogleAPIClientForREST/GTLRCloudDebugger.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

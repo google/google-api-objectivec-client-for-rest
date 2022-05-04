@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/admob/api/
 
-#import "GTLRAdMobObjects.h"
+#import <GoogleAPIClientForREST/GTLRAdMobObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://firebase.google.com/docs/cloud-messaging
 
-#import "GTLRFirebaseCloudMessagingQuery.h"
+#import <GoogleAPIClientForREST/GTLRFirebaseCloudMessagingQuery.h>
 
 @implementation GTLRFirebaseCloudMessagingQuery
 

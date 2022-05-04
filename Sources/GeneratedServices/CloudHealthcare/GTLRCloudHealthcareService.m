@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/healthcare
 
-#import "GTLRCloudHealthcare.h"
+#import <GoogleAPIClientForREST/GTLRCloudHealthcare.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

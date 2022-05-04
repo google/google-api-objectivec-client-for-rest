@@ -9,7 +9,7 @@
 // Documentation:
 //   https://firebase.google.com/docs/reference/rest/database/database-management/rest/
 
-#import "GTLRFirebaseRealtimeDatabaseObjects.h"
+#import <GoogleAPIClientForREST/GTLRFirebaseRealtimeDatabaseObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

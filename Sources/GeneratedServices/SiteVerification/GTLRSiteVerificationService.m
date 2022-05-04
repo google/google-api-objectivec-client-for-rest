@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/site-verification/
 
-#import "GTLRSiteVerification.h"
+#import <GoogleAPIClientForREST/GTLRSiteVerification.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

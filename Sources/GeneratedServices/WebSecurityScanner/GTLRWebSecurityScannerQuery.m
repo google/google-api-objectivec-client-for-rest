@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/security-command-center/docs/concepts-web-security-scanner-overview/
 
-#import "GTLRWebSecurityScannerQuery.h"
+#import <GoogleAPIClientForREST/GTLRWebSecurityScannerQuery.h>
 
 @implementation GTLRWebSecurityScannerQuery
 

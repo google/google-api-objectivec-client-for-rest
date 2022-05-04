@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/translate/docs/quickstarts
 
-#import "GTLRTranslate.h"
+#import <GoogleAPIClientForREST/GTLRTranslate.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

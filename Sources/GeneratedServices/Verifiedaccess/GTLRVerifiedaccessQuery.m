@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/chrome/verified-access
 
-#import "GTLRVerifiedaccessQuery.h"
+#import <GoogleAPIClientForREST/GTLRVerifiedaccessQuery.h>
 
 @implementation GTLRVerifiedaccessQuery
 

@@ -10,7 +10,7 @@
 // Documentation:
 //   https://developers.google.com/display-video/
 
-#import "GTLRDisplayVideo.h"
+#import <GoogleAPIClientForREST/GTLRDisplayVideo.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

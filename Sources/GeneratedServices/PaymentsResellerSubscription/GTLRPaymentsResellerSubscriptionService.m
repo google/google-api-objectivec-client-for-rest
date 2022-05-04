@@ -6,7 +6,7 @@
 // Documentation:
 //   https://developers.google.com/payments/reseller/subscription/
 
-#import "GTLRPaymentsResellerSubscription.h"
+#import <GoogleAPIClientForREST/GTLRPaymentsResellerSubscription.h>
 
 @implementation GTLRPaymentsResellerSubscriptionService
 

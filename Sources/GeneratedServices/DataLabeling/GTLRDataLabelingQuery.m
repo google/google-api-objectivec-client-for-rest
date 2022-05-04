@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/data-labeling/docs/
 
-#import "GTLRDataLabelingQuery.h"
+#import <GoogleAPIClientForREST/GTLRDataLabelingQuery.h>
 
 @implementation GTLRDataLabelingQuery
 

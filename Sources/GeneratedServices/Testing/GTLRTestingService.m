@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/cloud-test-lab/
 
-#import "GTLRTesting.h"
+#import <GoogleAPIClientForREST/GTLRTesting.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

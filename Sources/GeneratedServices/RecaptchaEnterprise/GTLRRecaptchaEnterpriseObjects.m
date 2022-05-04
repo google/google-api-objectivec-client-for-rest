@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/recaptcha-enterprise/
 
-#import "GTLRRecaptchaEnterpriseObjects.h"
+#import <GoogleAPIClientForREST/GTLRRecaptchaEnterpriseObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

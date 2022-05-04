@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/docs/
 
-#import "GTLRDocs.h"
+#import <GoogleAPIClientForREST/GTLRDocs.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

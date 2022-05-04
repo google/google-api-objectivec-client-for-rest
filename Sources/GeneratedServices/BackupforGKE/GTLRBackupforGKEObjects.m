@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke
 
-#import "GTLRBackupforGKEObjects.h"
+#import <GoogleAPIClientForREST/GTLRBackupforGKEObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

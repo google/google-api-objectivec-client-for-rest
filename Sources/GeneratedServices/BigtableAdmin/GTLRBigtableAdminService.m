@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/bigtable/
 
-#import "GTLRBigtableAdmin.h"
+#import <GoogleAPIClientForREST/GTLRBigtableAdmin.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

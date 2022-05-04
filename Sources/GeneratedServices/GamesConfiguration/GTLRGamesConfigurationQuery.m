@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/games/
 
-#import "GTLRGamesConfigurationQuery.h"
+#import <GoogleAPIClientForREST/GTLRGamesConfigurationQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

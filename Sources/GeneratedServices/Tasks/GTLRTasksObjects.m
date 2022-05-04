@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/tasks/
 
-#import "GTLRTasksObjects.h"
+#import <GoogleAPIClientForREST/GTLRTasksObjects.h>
 
 // ----------------------------------------------------------------------------
 //

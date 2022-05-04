@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/support/docs/apis
 
-#import "GTLRCloudSupport.h"
+#import <GoogleAPIClientForREST/GTLRCloudSupport.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/data-catalog/docs/
 
-#import "GTLRDataCatalogQuery.h"
+#import <GoogleAPIClientForREST/GTLRDataCatalogQuery.h>
 
 @implementation GTLRDataCatalogQuery
 

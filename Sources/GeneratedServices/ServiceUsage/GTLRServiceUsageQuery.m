@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/service-usage/
 
-#import "GTLRServiceUsageQuery.h"
+#import <GoogleAPIClientForREST/GTLRServiceUsageQuery.h>
 
 @implementation GTLRServiceUsageQuery
 

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/kms/
 
-#import "GTLRCloudKMSObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudKMSObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

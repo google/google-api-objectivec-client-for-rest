@@ -17,11 +17,8 @@
 #error "This file needs to be compiled with ARC enabled."
 #endif
 
-#if SWIFT_PACKAGE
-  @import GoogleAPIClientForRESTCore;
-#else
-  #import "GTLRUtilities.h"
-#endif
+
+#import <GoogleAPIClientForREST/GTLRUtilities.h>
 
 #import "SGGenerator.h"
 #import "SGUtils.h"
@@ -317,7 +314,8 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
 @synthesize api = _api,
             options = _options,
             verboseLevel = _verboseLevel,
-            importPrefix = _importPrefix;
+            importPrefix = _importPrefix,
+            publicHeadersSubDir = _publicHeadersSubDir;
 
 @synthesize warnings = _warnings,
             infos = _infos;
@@ -326,19 +324,22 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
                         options:(SGGeneratorOptions)options
                    verboseLevel:(NSUInteger)verboseLevel
           formattedNameOverride:(NSString *)formattedNameOverride
-                   importPrefix:(NSString *)importPrefix {
+                   importPrefix:(NSString *)importPrefix
+            publicHeadersSubDir:(NSString *)publicHeadersSubDir {
   return [[self alloc] initWithApi:api
                            options:options
                       verboseLevel:verboseLevel
              formattedNameOverride:formattedNameOverride
-                      importPrefix:importPrefix];
+                      importPrefix:importPrefix
+               publicHeadersSubDir:publicHeadersSubDir];
 }
 
 - (instancetype)initWithApi:(GTLRDiscovery_RestDescription *)api
                     options:(SGGeneratorOptions)options
                verboseLevel:(NSUInteger)verboseLevel
       formattedNameOverride:(NSString *)formattedNameOverride
-               importPrefix:(NSString *)importPrefix {
+               importPrefix:(NSString *)importPrefix
+        publicHeadersSubDir:(NSString *)publicHeadersSubDir {
   self = [super init];
   if (self != nil) {
     NSAssert(!(((options & kSGGeneratorOptionImportPrefixIsFramework) != 0) &&
@@ -349,6 +350,7 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
     _verboseLevel = verboseLevel;
     _formattedName = [formattedNameOverride copy];
     _importPrefix = [importPrefix copy];
+    _publicHeadersSubDir = [publicHeadersSubDir copy];
     if (api) {
       NSValue *generatorAsValue = [NSValue valueWithNonretainedObject:self];
       [self.api sg_setProperty:generatorAsValue forKey:kWrappedGeneratorKey];
@@ -429,15 +431,20 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
   NSString *objectsFileNameBase = self.objcObjectsBaseFileName;
 
   NSString *umbrellaHeader = [self umbrellaHeader];
-  NSString *umbrellaHeaderName = self.umbrellaHeaderName;
+  NSString *umbrellaHeaderBaseFileName = self.umbrellaHeaderBaseFileName;
+
+  NSString *headersDir = @"";
+  if (self.publicHeadersSubDir) {
+    headersDir = [NSString stringWithFormat:@"Public/%@/", self.publicHeadersSubDir];
+  }
 
   NSDictionary *result = @{
-    umbrellaHeaderName : umbrellaHeader,
-    [serviceFileNameBase stringByAppendingPathExtension:@"h"] : serviceHeader,
+    [headersDir stringByAppendingPathComponent:[umbrellaHeaderBaseFileName stringByAppendingPathExtension:@"h"]] : umbrellaHeader,
+    [headersDir stringByAppendingPathComponent:[serviceFileNameBase stringByAppendingPathExtension:@"h"]] : serviceHeader,
     [serviceFileNameBase stringByAppendingPathExtension:@"m"] : serviceSource,
-    [queryFileNameBase stringByAppendingPathExtension:@"h"] : queryHeader,
+    [headersDir stringByAppendingPathComponent:[queryFileNameBase stringByAppendingPathExtension:@"h"]] : queryHeader,
     [queryFileNameBase stringByAppendingPathExtension:@"m"] : querySource,
-    [objectsFileNameBase stringByAppendingPathExtension:@"h"] : objectsHeader,
+    [headersDir stringByAppendingPathComponent:[objectsFileNameBase stringByAppendingPathExtension:@"h"]] : objectsHeader,
     [objectsFileNameBase stringByAppendingPathExtension:@"m"] : objectsSource,
   };
 
@@ -866,8 +873,8 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
   return result;
 }
 
-- (NSString *)umbrellaHeaderName {
-  NSString *result = [NSString stringWithFormat:@"%@%@.h",
+- (NSString *)umbrellaHeaderBaseFileName {
+  NSString *result = [NSString stringWithFormat:@"%@%@",
                       kProjectPrefix, self.formattedAPIName];
   return result;
 }
@@ -889,7 +896,7 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
 
   [parts addObject:[self generatedInfo]];
 
-  NSString *importServiceBase = [self frameworkedImport:kServiceBaseClass];
+  NSString *importServiceBase = [self frameworkImport:kServiceBaseClass];
   [parts addObject:importServiceBase];
 
   NSString *versionCheck = [self headerVersionCheck];
@@ -969,9 +976,7 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
 
   [parts addObject:[self generatedInfo]];
 
-  NSString *headerImport = [NSString stringWithFormat:@"#import \"%@\"\n",
-                            self.umbrellaHeaderName];
-  [parts addObject:headerImport];
+  [parts addObject:[self implementationHeaderImport:self.umbrellaHeaderBaseFileName]];
 
   NSArray *scopesConstants =
     [self oauth2ScopesConstantsBlocksForMode:kGenerateImplementation];
@@ -1143,7 +1148,7 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
 
   [parts addObject:[self generatedInfo]];
 
-  NSString *importQueryBase = [self frameworkedImport:kQueryBaseClass];
+  NSString *importQueryBase = [self frameworkImport:kQueryBaseClass];
   [parts addObject:importQueryBase];
 
   NSString *versionCheck = [self headerVersionCheck];
@@ -1191,9 +1196,7 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
 
   [parts addObject:[self generatedInfo]];
 
-  NSString *headerImport = [NSString stringWithFormat:@"#import \"%@.h\"\n",
-                            self.objcQueryBaseClassName];
-  [parts addObject:headerImport];
+  [parts addObject:[self implementationHeaderImport:self.objcQueryBaseClassName]];
 
   // If the header didn't need to import the Objects header for some parameters,
   // then it needs to be imported for the classes for expectedObjectType.
@@ -1201,10 +1204,7 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
     for (GTLRDiscovery_RestMethod *method in self.api.sg_allMethods) {
       GTLRDiscovery_JsonSchema *returnsSchema = method.response.sg_resolvedSchema;
       if (returnsSchema) {
-        NSString *objectsImport =
-          [NSMutableString stringWithFormat:@"#import \"%@.h\"\n",
-           self.objcObjectsBaseFileName];
-        [parts addObject:objectsImport];
+        [parts addObject:[self implementationHeaderImport:self.objcObjectsBaseFileName]];
         break;
       }
     }
@@ -1234,7 +1234,7 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
 
   [parts addObject:[self generatedInfo]];
 
-  NSString *importObjectBase = [self frameworkedImport:kBaseObjectClass];
+  NSString *importObjectBase = [self frameworkImport:kBaseObjectClass];
   [parts addObject:importObjectBase];
 
   NSString *versionCheck = [self headerVersionCheck];
@@ -1305,9 +1305,7 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
 
   [parts addObject:[self generatedInfo]];
 
-  NSString *headerImport = [NSString stringWithFormat:@"#import \"%@.h\"\n",
-                            self.objcObjectsBaseFileName];
-  [parts addObject:headerImport];
+  [parts addObject:[self implementationHeaderImport:self.objcObjectsBaseFileName]];
 
   NSArray *blocks = [self constantsBlocksForMode:kGenerateImplementation
                                         enumsMap:self.api.sg_objectEnumsMap
@@ -2856,8 +2854,17 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
   return result;
 }
 
-- (NSString *)frameworkedImport:(NSString *)headerName {
+// An import for a generated header from an implementation file.
+- (NSString *)implementationHeaderImport:(NSString *)headerName {
+  if (self.publicHeadersSubDir) {
+    return [NSString stringWithFormat:@"#import <%@/%@.h>\n", self.publicHeadersSubDir, headerName];
+  } else {
+    return [NSString stringWithFormat:@"#import \"%@.h\"\n", headerName];
+  }
+}
 
+// An import directive for a header from the GTLR framework.
+- (NSString *)frameworkImport:(NSString *)headerName {
   if (self.importPrefix) {
     if ((_options & kSGGeneratorOptionImportPrefixIsFramework) != 0) {
       return [NSString stringWithFormat:@"#import <%@/%@.h>\n", self.importPrefix, headerName];

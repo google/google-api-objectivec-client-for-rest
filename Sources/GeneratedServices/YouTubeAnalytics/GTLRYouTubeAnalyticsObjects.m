@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/youtube/analytics
 
-#import "GTLRYouTubeAnalyticsObjects.h"
+#import <GoogleAPIClientForREST/GTLRYouTubeAnalyticsObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/filestore/
 
-#import "GTLRCloudFilestore.h"
+#import <GoogleAPIClientForREST/GTLRCloudFilestore.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

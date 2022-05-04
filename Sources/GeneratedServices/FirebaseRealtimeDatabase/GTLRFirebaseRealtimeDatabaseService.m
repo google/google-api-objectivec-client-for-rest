@@ -9,7 +9,7 @@
 // Documentation:
 //   https://firebase.google.com/docs/reference/rest/database/database-management/rest/
 
-#import "GTLRFirebaseRealtimeDatabase.h"
+#import <GoogleAPIClientForREST/GTLRFirebaseRealtimeDatabase.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

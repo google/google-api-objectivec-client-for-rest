@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/chrome/verified-access
 
-#import "GTLRVerifiedaccessObjects.h"
+#import <GoogleAPIClientForREST/GTLRVerifiedaccessObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

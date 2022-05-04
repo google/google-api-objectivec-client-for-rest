@@ -6,9 +6,9 @@
 // Documentation:
 //   https://ads.google.com/local-services-ads/
 
-#import "GTLRLocalservicesQuery.h"
+#import <GoogleAPIClientForREST/GTLRLocalservicesQuery.h>
 
-#import "GTLRLocalservicesObjects.h"
+#import <GoogleAPIClientForREST/GTLRLocalservicesObjects.h>
 
 @implementation GTLRLocalservicesQuery
 

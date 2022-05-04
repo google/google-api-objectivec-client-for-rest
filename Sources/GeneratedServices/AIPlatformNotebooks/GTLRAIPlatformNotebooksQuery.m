@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/notebooks/docs/
 
-#import "GTLRAIPlatformNotebooksQuery.h"
+#import <GoogleAPIClientForREST/GTLRAIPlatformNotebooksQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

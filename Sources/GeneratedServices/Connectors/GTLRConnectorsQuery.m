@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/apigee/docs/api-platform/connectors/about-connectors
 
-#import "GTLRConnectorsQuery.h"
+#import <GoogleAPIClientForREST/GTLRConnectorsQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

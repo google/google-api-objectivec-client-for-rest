@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/cloud-sql/
 
-#import "GTLRSQLAdminObjects.h"
+#import <GoogleAPIClientForREST/GTLRSQLAdminObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

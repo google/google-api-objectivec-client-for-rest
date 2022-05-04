@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/natural-language/
 
-#import "GTLRCloudNaturalLanguageQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudNaturalLanguageQuery.h>
 
 @implementation GTLRCloudNaturalLanguageQuery
 

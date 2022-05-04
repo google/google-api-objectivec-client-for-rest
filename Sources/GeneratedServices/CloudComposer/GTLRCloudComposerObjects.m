@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/composer/
 
-#import "GTLRCloudComposerObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudComposerObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

@@ -10,7 +10,7 @@
 // Documentation:
 //   https://developers.google.com/admin-sdk/
 
-#import "GTLRDataTransferObjects.h"
+#import <GoogleAPIClientForREST/GTLRDataTransferObjects.h>
 
 // ----------------------------------------------------------------------------
 //

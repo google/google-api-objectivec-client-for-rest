@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/monitoring/api/
 
-#import "GTLRMonitoringObjects.h"
+#import <GoogleAPIClientForREST/GTLRMonitoringObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

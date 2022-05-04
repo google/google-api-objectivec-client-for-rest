@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/site-verification/
 
-#import "GTLRSiteVerificationObjects.h"
+#import <GoogleAPIClientForREST/GTLRSiteVerificationObjects.h>
 
 // ----------------------------------------------------------------------------
 //

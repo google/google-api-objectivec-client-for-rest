@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/identity-toolkit/v3/
 
-#import "GTLRIdentityToolkitQuery.h"
+#import <GoogleAPIClientForREST/GTLRIdentityToolkitQuery.h>
 
 @implementation GTLRIdentityToolkitQuery
 

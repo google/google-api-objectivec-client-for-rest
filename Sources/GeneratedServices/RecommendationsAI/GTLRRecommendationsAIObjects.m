@@ -14,7 +14,7 @@
 // Documentation:
 //   https://cloud.google.com/recommendations-ai/docs
 
-#import "GTLRRecommendationsAIObjects.h"
+#import <GoogleAPIClientForREST/GTLRRecommendationsAIObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

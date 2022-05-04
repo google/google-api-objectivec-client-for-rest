@@ -14,7 +14,7 @@
 // Documentation:
 //   https://cloud.google.com/recommendations-ai/docs
 
-#import "GTLRRecommendationsAI.h"
+#import <GoogleAPIClientForREST/GTLRRecommendationsAI.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

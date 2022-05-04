@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/billing/
 
-#import "GTLRCloudbillingQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudbillingQuery.h>
 
 @implementation GTLRCloudbillingQuery
 

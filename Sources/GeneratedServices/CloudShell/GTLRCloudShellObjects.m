@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/shell/docs/
 
-#import "GTLRCloudShellObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudShellObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

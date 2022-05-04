@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/service-infrastructure/docs/service-networking/getting-started
 
-#import "GTLRServiceNetworking.h"
+#import <GoogleAPIClientForREST/GTLRServiceNetworking.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

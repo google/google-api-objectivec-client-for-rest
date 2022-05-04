@@ -6,9 +6,9 @@
 // Documentation:
 //   https://www.google.com
 
-#import "GTLRPolicyAnalyzerQuery.h"
+#import <GoogleAPIClientForREST/GTLRPolicyAnalyzerQuery.h>
 
-#import "GTLRPolicyAnalyzerObjects.h"
+#import <GoogleAPIClientForREST/GTLRPolicyAnalyzerObjects.h>
 
 @implementation GTLRPolicyAnalyzerQuery
 

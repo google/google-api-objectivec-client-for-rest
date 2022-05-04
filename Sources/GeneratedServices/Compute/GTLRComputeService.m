@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/compute/
 
-#import "GTLRCompute.h"
+#import <GoogleAPIClientForREST/GTLRCompute.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

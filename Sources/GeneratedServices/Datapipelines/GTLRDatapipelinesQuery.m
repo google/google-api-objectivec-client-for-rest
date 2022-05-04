@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/dataflow/docs/guides/data-pipelines
 
-#import "GTLRDatapipelinesQuery.h"
+#import <GoogleAPIClientForREST/GTLRDatapipelinesQuery.h>
 
 @implementation GTLRDatapipelinesQuery
 

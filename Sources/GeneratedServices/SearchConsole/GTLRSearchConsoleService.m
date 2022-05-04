@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/webmaster-tools/search-console-api/
 
-#import "GTLRSearchConsole.h"
+#import <GoogleAPIClientForREST/GTLRSearchConsole.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

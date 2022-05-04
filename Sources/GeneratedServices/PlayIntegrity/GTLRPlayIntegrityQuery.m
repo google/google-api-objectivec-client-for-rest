@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developer.android.com/google/play/integrity
 
-#import "GTLRPlayIntegrityQuery.h"
+#import <GoogleAPIClientForREST/GTLRPlayIntegrityQuery.h>
 
 @implementation GTLRPlayIntegrityQuery
 

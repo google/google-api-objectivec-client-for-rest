@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/cloud-provider-access-management/access-approval/docs
 
-#import "GTLRAccessApprovalQuery.h"
+#import <GoogleAPIClientForREST/GTLRAccessApprovalQuery.h>
 
 @implementation GTLRAccessApprovalQuery
 

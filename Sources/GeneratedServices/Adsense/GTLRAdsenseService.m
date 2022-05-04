@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/adsense/management/
 
-#import "GTLRAdsense.h"
+#import <GoogleAPIClientForREST/GTLRAdsense.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

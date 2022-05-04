@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/data-labeling/docs/
 
-#import "GTLRDataLabeling.h"
+#import <GoogleAPIClientForREST/GTLRDataLabeling.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/web-risk/
 
-#import "GTLRWebRiskQuery.h"
+#import <GoogleAPIClientForREST/GTLRWebRiskQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

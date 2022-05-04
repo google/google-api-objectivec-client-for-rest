@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/gmail/api/
 
-#import "GTLRGmail.h"
+#import <GoogleAPIClientForREST/GTLRGmail.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

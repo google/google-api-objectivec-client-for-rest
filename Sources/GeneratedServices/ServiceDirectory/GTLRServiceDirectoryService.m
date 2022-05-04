@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/service-directory
 
-#import "GTLRServiceDirectory.h"
+#import <GoogleAPIClientForREST/GTLRServiceDirectory.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

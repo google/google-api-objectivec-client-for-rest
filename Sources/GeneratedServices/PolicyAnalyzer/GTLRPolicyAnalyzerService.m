@@ -6,7 +6,7 @@
 // Documentation:
 //   https://www.google.com
 
-#import "GTLRPolicyAnalyzer.h"
+#import <GoogleAPIClientForREST/GTLRPolicyAnalyzer.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

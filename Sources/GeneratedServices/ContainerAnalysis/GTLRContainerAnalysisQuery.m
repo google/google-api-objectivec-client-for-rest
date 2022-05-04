@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/container-analysis/api/reference/rest/
 
-#import "GTLRContainerAnalysisQuery.h"
+#import <GoogleAPIClientForREST/GTLRContainerAnalysisQuery.h>
 
 @implementation GTLRContainerAnalysisQuery
 

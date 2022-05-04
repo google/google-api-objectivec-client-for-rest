@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/text-to-speech/
 
-#import "GTLRTexttospeech.h"
+#import <GoogleAPIClientForREST/GTLRTexttospeech.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

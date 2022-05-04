@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/google-apps/reseller/
 
-#import "GTLRReseller.h"
+#import <GoogleAPIClientForREST/GTLRReseller.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

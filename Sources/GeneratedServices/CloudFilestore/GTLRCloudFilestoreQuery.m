@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/filestore/
 
-#import "GTLRCloudFilestoreQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudFilestoreQuery.h>
 
 @implementation GTLRCloudFilestoreQuery
 

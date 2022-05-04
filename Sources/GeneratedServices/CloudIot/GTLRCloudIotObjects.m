@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/iot
 
-#import "GTLRCloudIotObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudIotObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

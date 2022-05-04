@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/functions
 
-#import "GTLRCloudFunctionsQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudFunctionsQuery.h>
 
 @implementation GTLRCloudFunctionsQuery
 

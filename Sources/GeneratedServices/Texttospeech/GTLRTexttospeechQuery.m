@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/text-to-speech/
 
-#import "GTLRTexttospeechQuery.h"
+#import <GoogleAPIClientForREST/GTLRTexttospeechQuery.h>
 
 @implementation GTLRTexttospeechQuery
 

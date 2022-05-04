@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/eventarc
 
-#import "GTLREventarcObjects.h"
+#import <GoogleAPIClientForREST/GTLREventarcObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants
@@ -18,6 +18,12 @@ NSString * const kGTLREventarc_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
 NSString * const kGTLREventarc_AuditLogConfig_LogType_DataRead = @"DATA_READ";
 NSString * const kGTLREventarc_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
+
+// GTLREventarc_Channel.state
+NSString * const kGTLREventarc_Channel_State_Active           = @"ACTIVE";
+NSString * const kGTLREventarc_Channel_State_Inactive         = @"INACTIVE";
+NSString * const kGTLREventarc_Channel_State_Pending          = @"PENDING";
+NSString * const kGTLREventarc_Channel_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -70,6 +76,17 @@ NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_Channel
+//
+
+@implementation GTLREventarc_Channel
+@dynamic activationToken, createTime, name, provider, pubsubTopic, state, uid,
+         updateTime;
 @end
 
 
@@ -280,6 +297,29 @@ NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_ListChannelsResponse
+//
+
+@implementation GTLREventarc_ListChannelsResponse
+@dynamic channels, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"channels" : [GTLREventarc_Channel class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"channels";
 }
 
 @end
@@ -515,7 +555,7 @@ NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
 //
 
 @implementation GTLREventarc_Trigger
-@dynamic createTime, destination, ETag, eventFilters, labels, name,
+@dynamic channel, createTime, destination, ETag, eventFilters, labels, name,
          serviceAccount, transport, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

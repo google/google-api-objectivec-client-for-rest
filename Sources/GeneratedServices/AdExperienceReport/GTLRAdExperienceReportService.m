@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/ad-experience-report/
 
-#import "GTLRAdExperienceReport.h"
+#import <GoogleAPIClientForREST/GTLRAdExperienceReport.h>
 
 @implementation GTLRAdExperienceReportService
 

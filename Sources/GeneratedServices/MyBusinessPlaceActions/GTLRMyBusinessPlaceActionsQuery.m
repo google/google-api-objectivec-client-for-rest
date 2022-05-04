@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/my-business/
 
-#import "GTLRMyBusinessPlaceActionsQuery.h"
+#import <GoogleAPIClientForREST/GTLRMyBusinessPlaceActionsQuery.h>
 
 @implementation GTLRMyBusinessPlaceActionsQuery
 

@@ -9,9 +9,9 @@
 // Documentation:
 //   https://developers.google.com/google-apps/groups-migration/
 
-#import "GTLRGroupsMigrationQuery.h"
+#import <GoogleAPIClientForREST/GTLRGroupsMigrationQuery.h>
 
-#import "GTLRGroupsMigrationObjects.h"
+#import <GoogleAPIClientForREST/GTLRGroupsMigrationObjects.h>
 
 @implementation GTLRGroupsMigrationQuery
 

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/admin-sdk/licensing/
 
-#import "GTLRLicensingObjects.h"
+#import <GoogleAPIClientForREST/GTLRLicensingObjects.h>
 
 // ----------------------------------------------------------------------------
 //

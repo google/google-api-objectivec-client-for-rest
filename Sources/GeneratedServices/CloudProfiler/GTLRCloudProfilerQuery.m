@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/profiler/
 
-#import "GTLRCloudProfilerQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudProfilerQuery.h>
 
 @implementation GTLRCloudProfilerQuery
 

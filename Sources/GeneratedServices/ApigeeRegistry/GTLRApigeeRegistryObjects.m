@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/apigee/docs/api-hub/what-is-api-hub
 
-#import "GTLRApigeeRegistryObjects.h"
+#import <GoogleAPIClientForREST/GTLRApigeeRegistryObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

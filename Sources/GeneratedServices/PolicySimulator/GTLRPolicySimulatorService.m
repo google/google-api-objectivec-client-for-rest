@@ -14,7 +14,7 @@
 // Documentation:
 //   https://cloud.google.com/iam/docs/simulating-access
 
-#import "GTLRPolicySimulator.h"
+#import <GoogleAPIClientForREST/GTLRPolicySimulator.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/storage-transfer/docs
 
-#import "GTLRStorageTransferObjects.h"
+#import <GoogleAPIClientForREST/GTLRStorageTransferObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

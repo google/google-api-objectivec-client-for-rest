@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/shell/docs/
 
-#import "GTLRCloudShellQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudShellQuery.h>
 
 @implementation GTLRCloudShellQuery
 

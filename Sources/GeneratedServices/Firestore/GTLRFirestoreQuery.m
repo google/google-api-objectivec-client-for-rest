@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/firestore
 
-#import "GTLRFirestoreQuery.h"
+#import <GoogleAPIClientForREST/GTLRFirestoreQuery.h>
 
 @implementation GTLRFirestoreQuery
 
@@ -592,6 +592,33 @@
   query.database = database;
   query.expectedObjectClass = [GTLRFirestore_Empty class];
   query.loggingName = @"firestore.projects.databases.documents.rollback";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesDocumentsRunAggregationQuery
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRFirestore_RunAggregationQueryRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:runAggregationQuery";
+  GTLRFirestoreQuery_ProjectsDatabasesDocumentsRunAggregationQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirestore_RunAggregationQueryResponse class];
+  query.loggingName = @"firestore.projects.databases.documents.runAggregationQuery";
   return query;
 }
 

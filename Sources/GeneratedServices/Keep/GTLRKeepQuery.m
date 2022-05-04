@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/keep/api
 
-#import "GTLRKeepQuery.h"
+#import <GoogleAPIClientForREST/GTLRKeepQuery.h>
 
 @implementation GTLRKeepQuery
 

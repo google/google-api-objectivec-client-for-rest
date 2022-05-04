@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/digital-asset-links/
 
-#import "GTLRDigitalAssetLinksObjects.h"
+#import <GoogleAPIClientForREST/GTLRDigitalAssetLinksObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

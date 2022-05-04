@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/traffic-director
 
-#import "GTLRTrafficDirectorService.h"
+#import <GoogleAPIClientForREST/GTLRTrafficDirectorService.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

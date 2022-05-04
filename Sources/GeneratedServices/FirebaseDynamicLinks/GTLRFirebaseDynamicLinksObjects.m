@@ -8,7 +8,7 @@
 // Documentation:
 //   https://firebase.google.com/docs/dynamic-links/
 
-#import "GTLRFirebaseDynamicLinksObjects.h"
+#import <GoogleAPIClientForREST/GTLRFirebaseDynamicLinksObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

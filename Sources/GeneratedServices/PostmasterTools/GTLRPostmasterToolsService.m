@@ -10,7 +10,7 @@
 // Documentation:
 //   https://developers.google.com/gmail/postmaster
 
-#import "GTLRPostmasterTools.h"
+#import <GoogleAPIClientForREST/GTLRPostmasterTools.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

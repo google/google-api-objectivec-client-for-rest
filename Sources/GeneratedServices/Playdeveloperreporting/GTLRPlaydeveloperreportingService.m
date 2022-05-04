@@ -6,7 +6,7 @@
 // Documentation:
 //   https://developers.google.com/play/developer/reporting
 
-#import "GTLRPlaydeveloperreporting.h"
+#import <GoogleAPIClientForREST/GTLRPlaydeveloperreporting.h>
 
 @implementation GTLRPlaydeveloperreportingService
 

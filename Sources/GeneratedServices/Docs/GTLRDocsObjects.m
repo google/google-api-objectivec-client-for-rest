@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/docs/
 
-#import "GTLRDocsObjects.h"
+#import <GoogleAPIClientForREST/GTLRDocsObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants
@@ -1557,8 +1557,8 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 @dynamic alignment, avoidWidowAndOrphan, borderBetween, borderBottom,
          borderLeft, borderRight, borderTop, direction, headingId, indentEnd,
          indentFirstLine, indentStart, keepLinesTogether, keepWithNext,
-         lineSpacing, namedStyleType, shading, spaceAbove, spaceBelow,
-         spacingMode, tabStops;
+         lineSpacing, namedStyleType, pageBreakBefore, shading, spaceAbove,
+         spaceBelow, spacingMode, tabStops;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1582,8 +1582,8 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
          headingIdSuggested, indentEndSuggested, indentFirstLineSuggested,
          indentStartSuggested, keepLinesTogetherSuggested,
          keepWithNextSuggested, lineSpacingSuggested, namedStyleTypeSuggested,
-         shadingSuggestionState, spaceAboveSuggested, spaceBelowSuggested,
-         spacingModeSuggested;
+         pageBreakBeforeSuggested, shadingSuggestionState, spaceAboveSuggested,
+         spaceBelowSuggested, spacingModeSuggested;
 @end
 
 

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/support/docs/apis
 
-#import "GTLRCloudSupportQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudSupportQuery.h>
 
 @implementation GTLRCloudSupportQuery
 

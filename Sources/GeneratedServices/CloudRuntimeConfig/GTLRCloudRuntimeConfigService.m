@@ -11,7 +11,7 @@
 // Documentation:
 //   https://cloud.google.com/deployment-manager/runtime-configurator/
 
-#import "GTLRCloudRuntimeConfig.h"
+#import <GoogleAPIClientForREST/GTLRCloudRuntimeConfig.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

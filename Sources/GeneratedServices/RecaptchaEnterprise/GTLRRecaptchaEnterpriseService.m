@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/recaptcha-enterprise/
 
-#import "GTLRRecaptchaEnterprise.h"
+#import <GoogleAPIClientForREST/GTLRRecaptchaEnterprise.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

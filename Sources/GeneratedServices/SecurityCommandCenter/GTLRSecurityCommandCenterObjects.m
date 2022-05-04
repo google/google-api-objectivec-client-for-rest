@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/security-command-center
 
-#import "GTLRSecurityCommandCenterObjects.h"
+#import <GoogleAPIClientForREST/GTLRSecurityCommandCenterObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

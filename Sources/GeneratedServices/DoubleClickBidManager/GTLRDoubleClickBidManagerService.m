@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/bid-manager/
 
-#import "GTLRDoubleClickBidManager.h"
+#import <GoogleAPIClientForREST/GTLRDoubleClickBidManager.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

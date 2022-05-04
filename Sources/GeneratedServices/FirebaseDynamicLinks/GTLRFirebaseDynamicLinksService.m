@@ -8,7 +8,7 @@
 // Documentation:
 //   https://firebase.google.com/docs/dynamic-links/
 
-#import "GTLRFirebaseDynamicLinks.h"
+#import <GoogleAPIClientForREST/GTLRFirebaseDynamicLinks.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

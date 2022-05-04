@@ -11,7 +11,7 @@
 // Documentation:
 //   https://cloud.google.com/
 
-#import "GTLRCertificateAuthorityService.h"
+#import <GoogleAPIClientForREST/GTLRCertificateAuthorityService.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

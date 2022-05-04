@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/android/work/play/custom-app-api/
 
-#import "GTLRPlaycustomapp.h"
+#import <GoogleAPIClientForREST/GTLRPlaycustomapp.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

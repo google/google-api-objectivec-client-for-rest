@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/data-catalog/docs/
 
-#import "GTLRDataCatalogObjects.h"
+#import <GoogleAPIClientForREST/GTLRDataCatalogObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

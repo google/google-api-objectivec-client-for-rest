@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/service-control/
 
-#import "GTLRServiceControlQuery.h"
+#import <GoogleAPIClientForREST/GTLRServiceControlQuery.h>
 
 @implementation GTLRServiceControlQuery
 

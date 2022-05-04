@@ -9,7 +9,7 @@
 // Documentation:
 //   http://cloud.google.com/iam/docs/workload-identity-federation
 
-#import "GTLRCloudSecurityTokenQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudSecurityTokenQuery.h>
 
 @implementation GTLRCloudSecurityTokenQuery
 

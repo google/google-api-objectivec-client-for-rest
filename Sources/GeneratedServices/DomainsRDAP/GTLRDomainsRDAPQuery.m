@@ -9,9 +9,9 @@
 // Documentation:
 //   https://developers.google.com/domains/rdap/
 
-#import "GTLRDomainsRDAPQuery.h"
+#import <GoogleAPIClientForREST/GTLRDomainsRDAPQuery.h>
 
-#import "GTLRDomainsRDAPObjects.h"
+#import <GoogleAPIClientForREST/GTLRDomainsRDAPObjects.h>
 
 @implementation GTLRDomainsRDAPQuery
 

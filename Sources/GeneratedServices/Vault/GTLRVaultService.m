@@ -14,7 +14,7 @@
 // Documentation:
 //   https://developers.google.com/vault
 
-#import "GTLRVault.h"
+#import <GoogleAPIClientForREST/GTLRVault.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

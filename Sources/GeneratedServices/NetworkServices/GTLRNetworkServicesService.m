@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/networking
 
-#import "GTLRNetworkServices.h"
+#import <GoogleAPIClientForREST/GTLRNetworkServices.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

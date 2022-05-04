@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/certificate-manager
 
-#import "GTLRCertificateManagerObjects.h"
+#import <GoogleAPIClientForREST/GTLRCertificateManagerObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

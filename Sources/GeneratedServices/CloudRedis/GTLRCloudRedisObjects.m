@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/memorystore/docs/redis/
 
-#import "GTLRCloudRedisObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudRedisObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

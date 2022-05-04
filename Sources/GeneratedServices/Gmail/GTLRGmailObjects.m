@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/gmail/api/
 
-#import "GTLRGmailObjects.h"
+#import <GoogleAPIClientForREST/GTLRGmailObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

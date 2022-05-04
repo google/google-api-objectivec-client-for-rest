@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/cloud-build/docs/
 
-#import "GTLRCloudBuildQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudBuildQuery.h>
 
 @implementation GTLRCloudBuildQuery
 

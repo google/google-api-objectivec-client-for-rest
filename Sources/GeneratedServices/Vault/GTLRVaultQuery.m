@@ -14,7 +14,7 @@
 // Documentation:
 //   https://developers.google.com/vault
 
-#import "GTLRVaultQuery.h"
+#import <GoogleAPIClientForREST/GTLRVaultQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

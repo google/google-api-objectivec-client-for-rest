@@ -12,7 +12,7 @@
 // Documentation:
 //   https://cloud.google.com/
 
-#import "GTLRIDS.h"
+#import <GoogleAPIClientForREST/GTLRIDS.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

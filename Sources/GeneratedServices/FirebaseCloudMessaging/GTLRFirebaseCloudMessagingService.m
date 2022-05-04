@@ -9,7 +9,7 @@
 // Documentation:
 //   https://firebase.google.com/docs/cloud-messaging
 
-#import "GTLRFirebaseCloudMessaging.h"
+#import <GoogleAPIClientForREST/GTLRFirebaseCloudMessaging.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

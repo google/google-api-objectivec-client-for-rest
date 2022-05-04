@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/deployment-manager
 
-#import "GTLRDeploymentManagerQuery.h"
+#import <GoogleAPIClientForREST/GTLRDeploymentManagerQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

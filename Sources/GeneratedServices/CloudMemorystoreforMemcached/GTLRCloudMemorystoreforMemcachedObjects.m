@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/memorystore/
 
-#import "GTLRCloudMemorystoreforMemcachedObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudMemorystoreforMemcachedObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

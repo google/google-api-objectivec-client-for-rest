@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/zero-touch/
 
-#import "GTLRAndroidProvisioningPartnerObjects.h"
+#import <GoogleAPIClientForREST/GTLRAndroidProvisioningPartnerObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

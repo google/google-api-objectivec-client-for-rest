@@ -6,7 +6,7 @@
 // Documentation:
 //   https://developers.google.com/spectrum-access-system/
 
-#import "GTLRSASPortalQuery.h"
+#import <GoogleAPIClientForREST/GTLRSASPortalQuery.h>
 
 @implementation GTLRSASPortalQuery
 

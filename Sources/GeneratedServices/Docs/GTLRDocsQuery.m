@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/docs/
 
-#import "GTLRDocsQuery.h"
+#import <GoogleAPIClientForREST/GTLRDocsQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

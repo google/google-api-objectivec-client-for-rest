@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/transcoder/docs/
 
-#import "GTLRTranscoder.h"
+#import <GoogleAPIClientForREST/GTLRTranscoder.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

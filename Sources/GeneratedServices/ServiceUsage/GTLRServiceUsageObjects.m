@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/service-usage/
 
-#import "GTLRServiceUsageObjects.h"
+#import <GoogleAPIClientForREST/GTLRServiceUsageObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

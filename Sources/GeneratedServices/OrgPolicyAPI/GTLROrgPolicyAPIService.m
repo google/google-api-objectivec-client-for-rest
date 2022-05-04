@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/orgpolicy/docs/reference/rest/index.html
 
-#import "GTLROrgPolicyAPI.h"
+#import <GoogleAPIClientForREST/GTLROrgPolicyAPI.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

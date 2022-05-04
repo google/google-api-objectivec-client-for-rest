@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/iap
 
-#import "GTLRCloudIAPObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudIAPObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

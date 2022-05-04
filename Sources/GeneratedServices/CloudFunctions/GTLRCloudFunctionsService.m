@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/functions
 
-#import "GTLRCloudFunctions.h"
+#import <GoogleAPIClientForREST/GTLRCloudFunctions.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

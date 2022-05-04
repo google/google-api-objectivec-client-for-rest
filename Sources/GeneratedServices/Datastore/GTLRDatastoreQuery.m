@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/datastore/
 
-#import "GTLRDatastoreQuery.h"
+#import <GoogleAPIClientForREST/GTLRDatastoreQuery.h>
 
 @implementation GTLRDatastoreQuery
 

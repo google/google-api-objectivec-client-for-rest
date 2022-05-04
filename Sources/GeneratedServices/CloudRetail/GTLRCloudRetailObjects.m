@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/recommendations
 
-#import "GTLRCloudRetailObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudRetailObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants
@@ -57,6 +57,11 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizatio
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansionSpec_Condition_Auto = @"AUTO";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansionSpec_Condition_ConditionUnspecified = @"CONDITION_UNSPECIFIED";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansionSpec_Condition_Disabled = @"DISABLED";
+
+// GTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectionSpec.mode
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectionSpec_Mode_Auto = @"AUTO";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectionSpec_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectionSpec_Mode_SuggestionOnly = @"SUGGESTION_ONLY";
 
 // ----------------------------------------------------------------------------
 //
@@ -1608,8 +1613,8 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansion
 @implementation GTLRCloudRetail_GoogleCloudRetailV2SearchRequest
 @dynamic boostSpec, branch, canonicalFilter, dynamicFacetSpec, facetSpecs,
          filter, labels, offset, orderBy, pageCategories, pageSize, pageToken,
-         personalizationSpec, query, queryExpansionSpec, searchMode, userInfo,
-         variantRollupKeys, visitorId;
+         personalizationSpec, query, queryExpansionSpec, searchMode,
+         spellCorrectionSpec, userInfo, variantRollupKeys, visitorId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1731,6 +1736,16 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansion
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansionSpec
 @dynamic condition, pinUnexpandedResults;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectionSpec
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectionSpec
+@dynamic mode;
 @end
 
 

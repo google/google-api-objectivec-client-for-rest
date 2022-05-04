@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/poly/
 
-#import "GTLRPolyServiceObjects.h"
+#import <GoogleAPIClientForREST/GTLRPolyServiceObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

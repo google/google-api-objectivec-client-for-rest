@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/knowledge-graph/
 
-#import "GTLRKgsearch.h"
+#import <GoogleAPIClientForREST/GTLRKgsearch.h>
 
 @implementation GTLRKgsearchService
 

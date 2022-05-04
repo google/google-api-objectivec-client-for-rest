@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/my-business/
 
-#import "GTLRMyBusinessVerificationsQuery.h"
+#import <GoogleAPIClientForREST/GTLRMyBusinessVerificationsQuery.h>
 
 @implementation GTLRMyBusinessVerificationsQuery
 

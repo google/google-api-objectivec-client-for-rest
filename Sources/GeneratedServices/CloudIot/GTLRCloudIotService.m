@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/iot
 
-#import "GTLRCloudIot.h"
+#import <GoogleAPIClientForREST/GTLRCloudIot.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

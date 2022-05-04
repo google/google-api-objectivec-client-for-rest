@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/secret-manager/
 
-#import "GTLRSecretManager.h"
+#import <GoogleAPIClientForREST/GTLRSecretManager.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

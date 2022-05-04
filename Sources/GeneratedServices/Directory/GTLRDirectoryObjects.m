@@ -10,7 +10,7 @@
 // Documentation:
 //   https://developers.google.com/admin-sdk/
 
-#import "GTLRDirectoryObjects.h"
+#import <GoogleAPIClientForREST/GTLRDirectoryObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

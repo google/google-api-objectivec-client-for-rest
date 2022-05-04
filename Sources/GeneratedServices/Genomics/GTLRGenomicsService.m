@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/genomics
 
-#import "GTLRGenomics.h"
+#import <GoogleAPIClientForREST/GTLRGenomics.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

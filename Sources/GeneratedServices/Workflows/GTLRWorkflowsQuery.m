@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/workflows
 
-#import "GTLRWorkflowsQuery.h"
+#import <GoogleAPIClientForREST/GTLRWorkflowsQuery.h>
 
 @implementation GTLRWorkflowsQuery
 

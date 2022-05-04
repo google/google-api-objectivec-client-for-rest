@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/scheduler/
 
-#import "GTLRCloudSchedulerQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudSchedulerQuery.h>
 
 @implementation GTLRCloudSchedulerQuery
 

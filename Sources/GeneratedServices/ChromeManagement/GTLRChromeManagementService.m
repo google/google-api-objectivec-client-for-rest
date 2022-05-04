@@ -10,7 +10,7 @@
 // Documentation:
 //   http://developers.google.com/chrome/management/
 
-#import "GTLRChromeManagement.h"
+#import <GoogleAPIClientForREST/GTLRChromeManagement.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

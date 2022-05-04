@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/
 
-#import "GTLRNetworkManagement.h"
+#import <GoogleAPIClientForREST/GTLRNetworkManagement.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

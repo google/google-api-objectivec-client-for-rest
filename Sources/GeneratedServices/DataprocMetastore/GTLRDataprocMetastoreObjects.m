@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/dataproc-metastore/docs
 
-#import "GTLRDataprocMetastoreObjects.h"
+#import <GoogleAPIClientForREST/GTLRDataprocMetastoreObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

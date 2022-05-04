@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/document-ai/docs/
 
-#import "GTLRDocumentQuery.h"
+#import <GoogleAPIClientForREST/GTLRDocumentQuery.h>
 
 @implementation GTLRDocumentQuery
 

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/resource-manager
 
-#import "GTLRCloudResourceManager.h"
+#import <GoogleAPIClientForREST/GTLRCloudResourceManager.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

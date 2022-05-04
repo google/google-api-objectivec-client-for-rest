@@ -11,7 +11,7 @@
 // Documentation:
 //   https://cloud.google.com/run/
 
-#import "GTLRCloudRunQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudRunQuery.h>
 
 @implementation GTLRCloudRunQuery
 

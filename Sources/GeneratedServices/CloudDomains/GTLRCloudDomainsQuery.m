@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/domains/
 
-#import "GTLRCloudDomainsQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudDomainsQuery.h>
 
 @implementation GTLRCloudDomainsQuery
 

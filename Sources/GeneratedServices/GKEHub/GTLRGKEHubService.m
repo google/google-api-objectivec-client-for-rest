@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/anthos/multicluster-management/connect/registering-a-cluster
 
-#import "GTLRGKEHub.h"
+#import <GoogleAPIClientForREST/GTLRGKEHub.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

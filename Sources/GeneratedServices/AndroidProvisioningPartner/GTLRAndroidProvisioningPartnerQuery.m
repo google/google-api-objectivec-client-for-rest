@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/zero-touch/
 
-#import "GTLRAndroidProvisioningPartnerQuery.h"
+#import <GoogleAPIClientForREST/GTLRAndroidProvisioningPartnerQuery.h>
 
 @implementation GTLRAndroidProvisioningPartnerQuery
 

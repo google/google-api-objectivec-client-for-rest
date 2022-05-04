@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/solutions/gaming/
 
-#import "GTLRGameServices.h"
+#import <GoogleAPIClientForREST/GTLRGameServices.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

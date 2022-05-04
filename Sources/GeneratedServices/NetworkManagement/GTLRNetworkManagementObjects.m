@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/
 
-#import "GTLRNetworkManagementObjects.h"
+#import <GoogleAPIClientForREST/GTLRNetworkManagementObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

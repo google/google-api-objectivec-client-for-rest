@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/adsense/host/
 
-#import "GTLRAdSenseHost.h"
+#import <GoogleAPIClientForREST/GTLRAdSenseHost.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

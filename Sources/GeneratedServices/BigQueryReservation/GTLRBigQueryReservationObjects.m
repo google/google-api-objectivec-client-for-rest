@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/bigquery/
 
-#import "GTLRBigQueryReservationObjects.h"
+#import <GoogleAPIClientForREST/GTLRBigQueryReservationObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

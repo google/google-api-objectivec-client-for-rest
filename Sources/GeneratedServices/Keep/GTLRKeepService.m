@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/keep/api
 
-#import "GTLRKeep.h"
+#import <GoogleAPIClientForREST/GTLRKeep.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/youtube/
 
-#import "GTLRYouTube.h"
+#import <GoogleAPIClientForREST/GTLRYouTube.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

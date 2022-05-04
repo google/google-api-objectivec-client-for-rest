@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/my-business/
 
-#import "GTLRMyBusinessBusinessCalls.h"
+#import <GoogleAPIClientForREST/GTLRMyBusinessBusinessCalls.h>
 
 @implementation GTLRMyBusinessBusinessCallsService
 

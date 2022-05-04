@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/kms/
 
-#import "GTLRCloudKMSQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudKMSQuery.h>
 
 // ----------------------------------------------------------------------------
 // Constants

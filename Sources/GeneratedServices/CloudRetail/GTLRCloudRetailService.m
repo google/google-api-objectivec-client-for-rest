@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/recommendations
 
-#import "GTLRCloudRetail.h"
+#import <GoogleAPIClientForREST/GTLRCloudRetail.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

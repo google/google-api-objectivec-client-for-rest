@@ -14,7 +14,7 @@
 // Documentation:
 //   https://cloud.google.com/iam/docs/simulating-access
 
-#import "GTLRPolicySimulatorQuery.h"
+#import <GoogleAPIClientForREST/GTLRPolicySimulatorQuery.h>
 
 @implementation GTLRPolicySimulatorQuery
 

@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/apigee/docs/api-hub/what-is-api-hub
 
-#import "GTLRApigeeRegistry.h"
+#import <GoogleAPIClientForREST/GTLRApigeeRegistry.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/tpu/
 
-#import "GTLRTPUObjects.h"
+#import <GoogleAPIClientForREST/GTLRTPUObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/dataflow/docs/guides/data-pipelines
 
-#import "GTLRDatapipelines.h"
+#import <GoogleAPIClientForREST/GTLRDatapipelines.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

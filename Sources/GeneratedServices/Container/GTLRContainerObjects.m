@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/container-engine/
 
-#import "GTLRContainerObjects.h"
+#import <GoogleAPIClientForREST/GTLRContainerObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

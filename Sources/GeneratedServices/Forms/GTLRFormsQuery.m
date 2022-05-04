@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/forms/api
 
-#import "GTLRFormsQuery.h"
+#import <GoogleAPIClientForREST/GTLRFormsQuery.h>
 
 @implementation GTLRFormsQuery
 

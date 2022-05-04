@@ -14,7 +14,7 @@
 // Documentation:
 //   https://cloud.google.com/data-fusion/docs
 
-#import "GTLRDataFusion.h"
+#import <GoogleAPIClientForREST/GTLRDataFusion.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

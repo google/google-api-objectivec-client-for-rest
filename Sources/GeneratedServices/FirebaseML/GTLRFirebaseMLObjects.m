@@ -8,7 +8,7 @@
 // Documentation:
 //   https://firebase.google.com
 
-#import "GTLRFirebaseMLObjects.h"
+#import <GoogleAPIClientForREST/GTLRFirebaseMLObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

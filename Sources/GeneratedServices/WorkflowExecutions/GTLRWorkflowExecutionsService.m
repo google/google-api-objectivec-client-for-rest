@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/workflows
 
-#import "GTLRWorkflowExecutions.h"
+#import <GoogleAPIClientForREST/GTLRWorkflowExecutions.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

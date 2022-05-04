@@ -6,7 +6,7 @@
 // Documentation:
 //   https://developers.google.com/fact-check/tools/api/
 
-#import "GTLRFactCheckTools.h"
+#import <GoogleAPIClientForREST/GTLRFactCheckTools.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

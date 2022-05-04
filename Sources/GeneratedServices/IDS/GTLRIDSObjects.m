@@ -12,7 +12,7 @@
 // Documentation:
 //   https://cloud.google.com/
 
-#import "GTLRIDSObjects.h"
+#import <GoogleAPIClientForREST/GTLRIDSObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

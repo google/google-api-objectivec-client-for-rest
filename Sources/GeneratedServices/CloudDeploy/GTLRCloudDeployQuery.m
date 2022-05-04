@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/deploy/
 
-#import "GTLRCloudDeployQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudDeployQuery.h>
 
 @implementation GTLRCloudDeployQuery
 

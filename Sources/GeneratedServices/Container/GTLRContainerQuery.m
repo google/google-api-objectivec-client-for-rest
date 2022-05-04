@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/container-engine/
 
-#import "GTLRContainerQuery.h"
+#import <GoogleAPIClientForREST/GTLRContainerQuery.h>
 
 @implementation GTLRContainerQuery
 

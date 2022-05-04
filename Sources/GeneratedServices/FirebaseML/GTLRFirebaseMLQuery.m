@@ -8,7 +8,7 @@
 // Documentation:
 //   https://firebase.google.com
 
-#import "GTLRFirebaseMLQuery.h"
+#import <GoogleAPIClientForREST/GTLRFirebaseMLQuery.h>
 
 @implementation GTLRFirebaseMLQuery
 

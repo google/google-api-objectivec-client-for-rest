@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/my-business/
 
-#import "GTLRMyBusinessAccountManagementQuery.h"
+#import <GoogleAPIClientForREST/GTLRMyBusinessAccountManagementQuery.h>
 
 @implementation GTLRMyBusinessAccountManagementQuery
 

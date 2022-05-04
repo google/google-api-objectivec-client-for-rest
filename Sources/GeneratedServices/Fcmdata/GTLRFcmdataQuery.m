@@ -9,9 +9,9 @@
 // Documentation:
 //   https://firebase.google.com/docs/cloud-messaging
 
-#import "GTLRFcmdataQuery.h"
+#import <GoogleAPIClientForREST/GTLRFcmdataQuery.h>
 
-#import "GTLRFcmdataObjects.h"
+#import <GoogleAPIClientForREST/GTLRFcmdataObjects.h>
 
 @implementation GTLRFcmdataQuery
 

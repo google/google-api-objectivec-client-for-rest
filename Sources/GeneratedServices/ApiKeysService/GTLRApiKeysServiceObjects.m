@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/api-keys/docs
 
-#import "GTLRApiKeysServiceObjects.h"
+#import <GoogleAPIClientForREST/GTLRApiKeysServiceObjects.h>
 
 // ----------------------------------------------------------------------------
 //

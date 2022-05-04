@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/life-sciences
 
-#import "GTLRCloudLifeSciencesQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudLifeSciencesQuery.h>
 
 @implementation GTLRCloudLifeSciencesQuery
 

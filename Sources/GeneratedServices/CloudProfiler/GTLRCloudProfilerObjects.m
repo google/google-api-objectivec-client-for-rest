@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/profiler/
 
-#import "GTLRCloudProfilerObjects.h"
+#import <GoogleAPIClientForREST/GTLRCloudProfilerObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/tag-manager
 
-#import "GTLRTagManager.h"
+#import <GoogleAPIClientForREST/GTLRTagManager.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

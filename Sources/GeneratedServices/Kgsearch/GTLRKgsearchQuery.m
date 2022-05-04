@@ -8,9 +8,9 @@
 // Documentation:
 //   https://developers.google.com/knowledge-graph/
 
-#import "GTLRKgsearchQuery.h"
+#import <GoogleAPIClientForREST/GTLRKgsearchQuery.h>
 
-#import "GTLRKgsearchObjects.h"
+#import <GoogleAPIClientForREST/GTLRKgsearchObjects.h>
 
 @implementation GTLRKgsearchQuery
 

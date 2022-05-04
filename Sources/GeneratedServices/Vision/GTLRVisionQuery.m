@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/vision/
 
-#import "GTLRVisionQuery.h"
+#import <GoogleAPIClientForREST/GTLRVisionQuery.h>
 
 @implementation GTLRVisionQuery
 

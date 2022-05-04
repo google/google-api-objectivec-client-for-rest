@@ -9,7 +9,7 @@
 // Documentation:
 //   https://firebase.google.com/docs/reference/rest/database/database-management/rest/
 
-#import "GTLRFirebaseRealtimeDatabaseQuery.h"
+#import <GoogleAPIClientForREST/GTLRFirebaseRealtimeDatabaseQuery.h>
 
 @implementation GTLRFirebaseRealtimeDatabaseQuery
 

@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/video-intelligence/docs/
 
-#import "GTLRCloudVideoIntelligence.h"
+#import <GoogleAPIClientForREST/GTLRCloudVideoIntelligence.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

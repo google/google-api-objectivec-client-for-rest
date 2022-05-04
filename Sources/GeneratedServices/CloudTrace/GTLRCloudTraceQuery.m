@@ -13,7 +13,7 @@
 // Documentation:
 //   https://cloud.google.com/trace
 
-#import "GTLRCloudTraceQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudTraceQuery.h>
 
 @implementation GTLRCloudTraceQuery
 

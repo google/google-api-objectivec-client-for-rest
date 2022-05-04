@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/storage-transfer/docs
 
-#import "GTLRStorageTransfer.h"
+#import <GoogleAPIClientForREST/GTLRStorageTransfer.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

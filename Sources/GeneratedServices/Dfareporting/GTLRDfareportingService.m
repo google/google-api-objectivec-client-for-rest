@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/doubleclick-advertisers/
 
-#import "GTLRDfareporting.h"
+#import <GoogleAPIClientForREST/GTLRDfareporting.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

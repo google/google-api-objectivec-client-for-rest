@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/transcoder/docs/
 
-#import "GTLRTranscoderQuery.h"
+#import <GoogleAPIClientForREST/GTLRTranscoderQuery.h>
 
 @implementation GTLRTranscoderQuery
 

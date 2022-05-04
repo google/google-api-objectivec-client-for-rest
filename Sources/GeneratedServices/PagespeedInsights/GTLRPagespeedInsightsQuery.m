@@ -11,9 +11,9 @@
 // Documentation:
 //   https://developers.google.com/speed/docs/insights/v5/about
 
-#import "GTLRPagespeedInsightsQuery.h"
+#import <GoogleAPIClientForREST/GTLRPagespeedInsightsQuery.h>
 
-#import "GTLRPagespeedInsightsObjects.h"
+#import <GoogleAPIClientForREST/GTLRPagespeedInsightsObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

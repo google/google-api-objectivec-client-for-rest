@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/iam/
 
-#import "GTLRPolicyTroubleshooterQuery.h"
+#import <GoogleAPIClientForREST/GTLRPolicyTroubleshooterQuery.h>
 
 @implementation GTLRPolicyTroubleshooterQuery
 

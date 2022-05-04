@@ -12,7 +12,7 @@
 // Documentation:
 //   https://developers.google.com/safe-browsing/
 
-#import "GTLRSafebrowsingObjects.h"
+#import <GoogleAPIClientForREST/GTLRSafebrowsingObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

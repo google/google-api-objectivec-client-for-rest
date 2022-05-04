@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/transcoder/docs/
 
-#import "GTLRTranscoderObjects.h"
+#import <GoogleAPIClientForREST/GTLRTranscoderObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

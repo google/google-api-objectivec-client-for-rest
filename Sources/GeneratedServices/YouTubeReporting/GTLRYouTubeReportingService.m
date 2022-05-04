@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/youtube/reporting/v1/reports/
 
-#import "GTLRYouTubeReporting.h"
+#import <GoogleAPIClientForREST/GTLRYouTubeReporting.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

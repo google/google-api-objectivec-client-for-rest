@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/api-keys/docs
 
-#import "GTLRApiKeysService.h"
+#import <GoogleAPIClientForREST/GTLRApiKeysService.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

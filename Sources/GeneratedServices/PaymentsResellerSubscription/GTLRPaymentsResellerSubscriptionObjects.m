@@ -6,7 +6,7 @@
 // Documentation:
 //   https://developers.google.com/payments/reseller/subscription/
 
-#import "GTLRPaymentsResellerSubscriptionObjects.h"
+#import <GoogleAPIClientForREST/GTLRPaymentsResellerSubscriptionObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

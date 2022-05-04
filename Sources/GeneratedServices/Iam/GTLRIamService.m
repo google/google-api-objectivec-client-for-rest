@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/iam/
 
-#import "GTLRIam.h"
+#import <GoogleAPIClientForREST/GTLRIam.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

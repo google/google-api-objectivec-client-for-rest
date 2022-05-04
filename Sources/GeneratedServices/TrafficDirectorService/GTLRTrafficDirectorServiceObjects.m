@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/traffic-director
 
-#import "GTLRTrafficDirectorServiceObjects.h"
+#import <GoogleAPIClientForREST/GTLRTrafficDirectorServiceObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

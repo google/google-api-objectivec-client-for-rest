@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/recommender/docs/
 
-#import "GTLRRecommenderQuery.h"
+#import <GoogleAPIClientForREST/GTLRRecommenderQuery.h>
 
 @implementation GTLRRecommenderQuery
 

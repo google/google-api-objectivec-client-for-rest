@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/amp/cache/
 
-#import "GTLRAcceleratedmobilepageurlObjects.h"
+#import <GoogleAPIClientForREST/GTLRAcceleratedmobilepageurlObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

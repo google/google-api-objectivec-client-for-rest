@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity/rest
 
-#import "GTLRNetworkconnectivity.h"
+#import <GoogleAPIClientForREST/GTLRNetworkconnectivity.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/my-business/
 
-#import "GTLRMyBusinessBusinessInformationObjects.h"
+#import <GoogleAPIClientForREST/GTLRMyBusinessBusinessInformationObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

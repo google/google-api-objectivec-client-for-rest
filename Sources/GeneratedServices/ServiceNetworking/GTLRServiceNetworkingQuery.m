@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/service-infrastructure/docs/service-networking/getting-started
 
-#import "GTLRServiceNetworkingQuery.h"
+#import <GoogleAPIClientForREST/GTLRServiceNetworkingQuery.h>
 
 @implementation GTLRServiceNetworkingQuery
 

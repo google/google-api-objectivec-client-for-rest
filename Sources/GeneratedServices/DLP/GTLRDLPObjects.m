@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/dlp/docs/
 
-#import "GTLRDLPObjects.h"
+#import <GoogleAPIClientForREST/GTLRDLPObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

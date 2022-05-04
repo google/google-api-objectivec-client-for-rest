@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/database-migration/
 
-#import "GTLRDatabaseMigrationServiceQuery.h"
+#import <GoogleAPIClientForREST/GTLRDatabaseMigrationServiceQuery.h>
 
 @implementation GTLRDatabaseMigrationServiceQuery
 

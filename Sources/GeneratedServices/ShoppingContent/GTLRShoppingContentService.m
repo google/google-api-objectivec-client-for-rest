@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/shopping-content/v2/
 
-#import "GTLRShoppingContent.h"
+#import <GoogleAPIClientForREST/GTLRShoppingContent.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

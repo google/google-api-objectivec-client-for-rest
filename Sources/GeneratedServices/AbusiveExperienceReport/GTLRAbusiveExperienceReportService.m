@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/abusive-experience-report/
 
-#import "GTLRAbusiveExperienceReport.h"
+#import <GoogleAPIClientForREST/GTLRAbusiveExperienceReport.h>
 
 @implementation GTLRAbusiveExperienceReportService
 

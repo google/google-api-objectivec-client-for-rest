@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/networking
 
-#import "GTLRNetworkSecurityObjects.h"
+#import <GoogleAPIClientForREST/GTLRNetworkSecurityObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

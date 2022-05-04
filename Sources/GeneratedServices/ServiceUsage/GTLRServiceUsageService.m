@@ -10,7 +10,7 @@
 // Documentation:
 //   https://cloud.google.com/service-usage/
 
-#import "GTLRServiceUsage.h"
+#import <GoogleAPIClientForREST/GTLRServiceUsage.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

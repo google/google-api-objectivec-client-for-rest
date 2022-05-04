@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/iam/docs/creating-short-lived-service-account-credentials
 
-#import "GTLRIAMCredentials.h"
+#import <GoogleAPIClientForREST/GTLRIAMCredentials.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

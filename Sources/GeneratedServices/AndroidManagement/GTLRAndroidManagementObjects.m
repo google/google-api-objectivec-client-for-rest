@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/android/management
 
-#import "GTLRAndroidManagementObjects.h"
+#import <GoogleAPIClientForREST/GTLRAndroidManagementObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

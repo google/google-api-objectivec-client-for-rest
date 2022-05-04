@@ -10,7 +10,7 @@
 // Documentation:
 //   https://firebase.google.com
 
-#import "GTLRFirebaseManagement.h"
+#import <GoogleAPIClientForREST/GTLRFirebaseManagement.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

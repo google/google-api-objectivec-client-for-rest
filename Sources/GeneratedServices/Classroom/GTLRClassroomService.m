@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/classroom/
 
-#import "GTLRClassroom.h"
+#import <GoogleAPIClientForREST/GTLRClassroom.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

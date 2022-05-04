@@ -6,7 +6,7 @@
 // Documentation:
 //   https://cloud.google.com/api-gateway/docs
 
-#import "GTLRAPIGatewayObjects.h"
+#import <GoogleAPIClientForREST/GTLRAPIGatewayObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

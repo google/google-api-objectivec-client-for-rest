@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/genomics
 
-#import "GTLRGenomicsObjects.h"
+#import <GoogleAPIClientForREST/GTLRGenomicsObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

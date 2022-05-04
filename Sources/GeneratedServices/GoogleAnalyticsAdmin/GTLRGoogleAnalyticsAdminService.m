@@ -6,7 +6,7 @@
 // Documentation:
 //   http://code.google.com/apis/analytics/docs/mgmt/home.html
 
-#import "GTLRGoogleAnalyticsAdmin.h"
+#import <GoogleAPIClientForREST/GTLRGoogleAnalyticsAdmin.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

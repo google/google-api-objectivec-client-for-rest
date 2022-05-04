@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/composer/
 
-#import "GTLRCloudComposerQuery.h"
+#import <GoogleAPIClientForREST/GTLRCloudComposerQuery.h>
 
 @implementation GTLRCloudComposerQuery
 

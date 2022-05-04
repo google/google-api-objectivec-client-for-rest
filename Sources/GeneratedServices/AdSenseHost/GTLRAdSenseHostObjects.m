@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/adsense/host/
 
-#import "GTLRAdSenseHostObjects.h"
+#import <GoogleAPIClientForREST/GTLRAdSenseHostObjects.h>
 
 // ----------------------------------------------------------------------------
 //

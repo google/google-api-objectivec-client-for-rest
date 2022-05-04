@@ -9,7 +9,7 @@
 // Documentation:
 //   https://developers.google.com/my-business/
 
-#import "GTLRMyBusinessNotificationSettingsObjects.h"
+#import <GoogleAPIClientForREST/GTLRMyBusinessNotificationSettingsObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants

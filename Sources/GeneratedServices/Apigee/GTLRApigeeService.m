@@ -12,7 +12,7 @@
 // Documentation:
 //   https://cloud.google.com/apigee-api-management/
 
-#import "GTLRApigee.h"
+#import <GoogleAPIClientForREST/GTLRApigee.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

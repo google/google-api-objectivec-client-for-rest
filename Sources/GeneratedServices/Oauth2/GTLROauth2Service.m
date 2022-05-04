@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developers.google.com/identity/protocols/oauth2/
 
-#import "GTLROauth2.h"
+#import <GoogleAPIClientForREST/GTLROauth2.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

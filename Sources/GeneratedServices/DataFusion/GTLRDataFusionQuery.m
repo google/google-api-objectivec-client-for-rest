@@ -14,7 +14,7 @@
 // Documentation:
 //   https://cloud.google.com/data-fusion/docs
 
-#import "GTLRDataFusionQuery.h"
+#import <GoogleAPIClientForREST/GTLRDataFusionQuery.h>
 
 @implementation GTLRDataFusionQuery
 
@@ -82,6 +82,71 @@
   query.name = name;
   query.expectedObjectClass = [GTLRDataFusion_Operation class];
   query.loggingName = @"datafusion.projects.locations.instances.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataFusionQuery_ProjectsLocationsInstancesDnsPeeringsCreate
+
+@dynamic dnsPeeringId, parent;
+
++ (instancetype)queryWithObject:(GTLRDataFusion_DnsPeering *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dnsPeerings";
+  GTLRDataFusionQuery_ProjectsLocationsInstancesDnsPeeringsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataFusion_DnsPeering class];
+  query.loggingName = @"datafusion.projects.locations.instances.dnsPeerings.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataFusionQuery_ProjectsLocationsInstancesDnsPeeringsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataFusionQuery_ProjectsLocationsInstancesDnsPeeringsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataFusion_Empty class];
+  query.loggingName = @"datafusion.projects.locations.instances.dnsPeerings.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataFusionQuery_ProjectsLocationsInstancesDnsPeeringsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dnsPeerings";
+  GTLRDataFusionQuery_ProjectsLocationsInstancesDnsPeeringsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataFusion_ListDnsPeeringsResponse class];
+  query.loggingName = @"datafusion.projects.locations.instances.dnsPeerings.list";
   return query;
 }
 

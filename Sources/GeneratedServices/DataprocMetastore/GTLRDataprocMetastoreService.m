@@ -9,7 +9,7 @@
 // Documentation:
 //   https://cloud.google.com/dataproc-metastore/docs
 
-#import "GTLRDataprocMetastore.h"
+#import <GoogleAPIClientForREST/GTLRDataprocMetastore.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope

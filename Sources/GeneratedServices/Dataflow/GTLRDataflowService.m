@@ -8,7 +8,7 @@
 // Documentation:
 //   https://cloud.google.com/dataflow
 
-#import "GTLRDataflow.h"
+#import <GoogleAPIClientForREST/GTLRDataflow.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes

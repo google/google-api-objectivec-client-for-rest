@@ -8,7 +8,7 @@
 // Documentation:
 //   https://developer.android.com/google/play/integrity
 
-#import "GTLRPlayIntegrity.h"
+#import <GoogleAPIClientForREST/GTLRPlayIntegrity.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope
