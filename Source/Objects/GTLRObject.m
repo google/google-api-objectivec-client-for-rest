@@ -246,8 +246,8 @@ static NSMutableDictionary *DeepMutableCopyOfJSONDictionary(NSDictionary *initia
         }
       }
     } else {
-      GTLR_ASSERT(0, @"GTLRObject unknown field element for %@ (%@)",
-                  key, NSStringFromClass([value class]));
+      NSAssert(0, @"GTLRObject unknown field element for %@ (%@)",
+               key, NSStringFromClass([value class]));
     }
   }
   return resultFields;
