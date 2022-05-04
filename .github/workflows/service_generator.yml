@@ -4,10 +4,8 @@ on:
   push:
     branches: [ main ]
     paths:
-    - 'Source/GTLRDefines.h'
-    - 'Source/GeneratedServices/Discovery/**'
-    - 'Source/Objects/**'
-    - 'Source/Utilities/**'
+    - 'Sources/Core/**'
+    - 'Sources/GeneratedServices/Discovery/**'
     - 'Tools/**'
     - '!Tools/**/*.md'
     - '!Tools/**/*.py'
@@ -17,10 +15,8 @@ on:
   pull_request:
     branches: [ main ]
     paths:
-    - 'Source/GTLRDefines.h'
-    - 'Source/GeneratedServices/Discovery/**'
-    - 'Source/Objects/**'
-    - 'Source/Utilities/**'
+    - 'Sources/Core/**'
+    - 'Sources/GeneratedServices/Discovery/**'
     - 'Tools/**'
     - '!Tools/**/*.md'
     - '!Tools/**/*.py'

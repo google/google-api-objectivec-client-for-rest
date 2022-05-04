@@ -33,9 +33,6 @@ static NSString *kBaseObjectClass       = @"GTLRObject";
 static NSString *kCollectionObjectClass = @"GTLRCollectionObject";
 static NSString *kResultArrayClass      = @"GTLRResultArray";
 static NSString *kExternPrefix          = @"FOUNDATION_EXTERN";
-static NSString *kFrameworkIncludeGate  = @"GTLR_BUILT_AS_FRAMEWORK";
-static NSString *kModularIncludeGate    = @"GTLR_USE_MODULAR_IMPORT";
-static NSString *kSwiftPMPackageName    = @"GoogleAPIClientForRESTCore";
 
 static NSString *kFatalGeneration = @"FatalGeneration";
 
@@ -2900,10 +2897,10 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
   }
 
   NSMutableString *result = [NSMutableString string];
-  [result appendFormat:@"#if SWIFT_PACKAGE || %@\n", kModularIncludeGate];
-  [result appendFormat:@"  @import %@;\n", kSwiftPMPackageName];
-  [result appendFormat:@"#elif %@\n", kFrameworkIncludeGate];
-  [result appendFormat:@"  #import \"%@/%@.h\"\n", kProjectPrefix, headerName];
+  [result appendString:@"#if defined(SWIFT_PACKAGE) && SWIFT_PACKAGE\n"];
+  [result appendString:@"  @import GoogleAPIClientForRESTCore;\n"];
+  [result appendFormat:@"#elif __has_include(<GoogleAPIClientForREST/%@.h>)\n", headerName];
+  [result appendFormat:@"  #import <GoogleAPIClientForREST/%@.h>\n", headerName];
   [result appendString:@"#else\n"];
   [result appendFormat:@"  #import \"%@.h\"\n", headerName];
   [result appendString:@"#endif\n"];

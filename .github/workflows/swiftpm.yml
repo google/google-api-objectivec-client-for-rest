@@ -4,14 +4,14 @@ on:
   push:
     branches: [ main ]
     paths:
-    - 'Source/**'
+    - 'Sources/**'
     - 'UnitTests/**'
     - 'Package*.swift'
     - '.github/workflows/swiftpm.yml'
   pull_request:
     branches: [ main ]
     paths:
-    - 'Source/**'
+    - 'Sources/**'
     - 'UnitTests/**'
     - 'Package*.swift'
     - '.github/workflows/swiftpm.yml'

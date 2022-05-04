@@ -32,8 +32,7 @@ Banner "Ensuring ServiceGenerator is up to date..."
 Banner "Running the ServiceGenerator..."
 "${ServiceGeneratorBinary}" \
     --outputDir "${TestsDir}" \
-    --addServiceNameDir yes \
-    --removeUnknownFiles yes \
+    --gtlrFrameworkName GoogleAPIClientForREST \
     --auditJSON \
     --brief \
     "${TestsDir}/TestingSvc.json"

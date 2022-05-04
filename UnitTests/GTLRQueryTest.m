@@ -17,11 +17,7 @@
 
 #import <objc/runtime.h>
 
-#if SWIFT_PACKAGE
-@import GoogleAPIClientForRESTCore;
-#else
-#import "GTLRQuery.h"
-#endif
+#import <GoogleAPIClientForREST/GTLRQuery.h>
 
 // Custom subclass for testing the property handling.
 @interface GTLRTestingQuery : GTLRQuery

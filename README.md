@@ -21,7 +21,7 @@ can also help answer some questions, but there isn't an example for every
 service as there are just to many services.
 
 Generated interfaces for Google APIs are in the
-[GeneratedServices folder](https://github.com/google/google-api-objectivec-client-for-rest/tree/main/Source/GeneratedServices).
+[GeneratedServices folder](https://github.com/google/google-api-objectivec-client-for-rest/tree/main/Sources/GeneratedServices).
 
 In addition to the pre generated classes included with the library, you can
 generate your own source for other services that have a

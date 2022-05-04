@@ -15,11 +15,7 @@
 
 #import <XCTest/XCTest.h>
 
-#if SWIFT_PACKAGE
-@import GoogleAPIClientForRESTCore;
-#else
-#import "GTLRFramework.h"
-#endif
+#import <GoogleAPIClientForREST/GTLRFramework.h>
 
 @interface GTLRFrameworkTest : XCTestCase
 @end
