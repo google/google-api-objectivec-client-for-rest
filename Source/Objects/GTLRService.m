@@ -52,21 +52,14 @@
 #elif GTLR_USE_FRAMEWORK_IMPORTS
   #import <GTMSessionFetcher/GTMSessionFetcher.h>
   #import <GTMSessionFetcher/GTMSessionFetcherService.h>
+  #import <GTMSessionFetcher/GTMSessionUploadFetcher.h>
   #import <GTMSessionFetcher/GTMMIMEDocument.h>
 #else
   #import "GTMSessionFetcher.h"
   #import "GTMSessionFetcherService.h"
+  #import "GTMSessionUploadFetcher.h"
   #import "GTMMIMEDocument.h"
 #endif  // GTLR_USE_FRAMEWORK_IMPORTS
-
-// This can be redefined via a prefix if you are prefixing symbols to prefix the
-// names used in strings. Something like:
-//   #define _HELPER(x) "MyPrefix" #x
-//   #define GTLR_CLASSNAME_STR(x) @_HELPER(x)
-#ifndef GTLR_CLASSNAME_STR
-  #define _GTLR_CLASSNAME_HELPER(x) #x
-  #define GTLR_CLASSNAME_STR(x) @_GTLR_CLASSNAME_HELPER(x)
-#endif
 
 #ifndef STRIP_GTM_FETCH_LOGGING
   #error GTMSessionFetcher headers should have defaulted this if it wasn't already defined.
@@ -193,51 +186,6 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
                                       object:(id)object
                                     userInfo:(NSDictionary *)userInfo;
 @end
-
-#if !defined(GTLR_HAS_SESSION_UPLOAD_FETCHER_IMPORT)
-  #if defined(COCOAPODS) && COCOAPODS
-    #define GTLR_HAS_SESSION_UPLOAD_FETCHER_IMPORT 1
-  #else
-    #define GTLR_HAS_SESSION_UPLOAD_FETCHER_IMPORT 0
-  #endif
-#endif
-
-#if GTLR_HAS_SESSION_UPLOAD_FETCHER_IMPORT
- #if GTLR_USE_FRAMEWORK_IMPORTS
-  #import <GTMSessionFetcher/GTMSessionUploadFetcher.h>
- #else
-  #import "GTMSessionUploadFetcher.h"
- #endif // GTLR_USE_FRAMEWORK_IMPORTS
-#else
-// If the upload fetcher class is available, it can be used for chunked uploads
-//
-// We locally declare some methods of the upload fetcher so we
-// do not need to import the header, as some projects may not have it available
-#if !SWIFT_PACKAGE
-@interface GTMSessionUploadFetcher : GTMSessionFetcher
-
-+ (instancetype)uploadFetcherWithRequest:(NSURLRequest *)request
-                          uploadMIMEType:(NSString *)uploadMIMEType
-                               chunkSize:(int64_t)chunkSize
-                          fetcherService:(nullable GTMSessionFetcherService *)fetcherServiceOrNil;
-
-+ (instancetype)uploadFetcherWithLocation:(NSURL *)uploadLocationURL
-                           uploadMIMEType:(NSString *)uploadMIMEType
-                                chunkSize:(int64_t)chunkSize
-                           fetcherService:(nullable GTMSessionFetcherService *)fetcherServiceOrNil;
-
-@property(strong) NSURL *uploadLocationURL;
-@property(strong) NSData *uploadData;
-@property(strong) NSURL *uploadFileURL;
-@property(strong) NSFileHandle *uploadFileHandle;
-
-- (void)pauseFetching;
-- (void)resumeFetching;
-- (BOOL)isPaused;
-@end
-#endif  // !SWIFT_PACKAGE
-#endif  // GTLR_HAS_SESSION_UPLOAD_FETCHER_IMPORT
-
 
 @interface GTLRObject (StandardProperties)
 // Common properties on GTLRObject that are invoked below.
@@ -918,10 +866,6 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
     uploadChunkSize = kMinimumUploadChunkSize;
   }
 
-  NSString *uploadClassName = GTLR_CLASSNAME_STR(GTMSessionUploadFetcher);
-  Class uploadClass = NSClassFromString(uploadClassName);
-  NSAssert(uploadClass != nil, @"GTMSessionUploadFetcher needed");
-
   NSString *uploadMIMEType = uploadParams.MIMEType;
   NSData *uploadData = uploadParams.data;
   NSURL *uploadFileURL = uploadParams.fileURL;
@@ -933,16 +877,16 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
   if (uploadLocationURL) {
     // Resuming with the session fetcher and a file URL.
     GTLR_DEBUG_ASSERT(uploadFileURL != nil, @"Resume requires a file URL");
-    fetcher = [uploadClass uploadFetcherWithLocation:uploadLocationURL
-                                      uploadMIMEType:uploadMIMEType
-                                           chunkSize:(int64_t)uploadChunkSize
-                                      fetcherService:fetcherService];
+    fetcher = [GTMSessionUploadFetcher uploadFetcherWithLocation:uploadLocationURL
+                                                  uploadMIMEType:uploadMIMEType
+                                                       chunkSize:(int64_t)uploadChunkSize
+                                                  fetcherService:fetcherService];
     fetcher.uploadFileURL = uploadFileURL;
   } else {
-    fetcher = [uploadClass uploadFetcherWithRequest:request
-                                     uploadMIMEType:uploadMIMEType
-                                          chunkSize:(int64_t)uploadChunkSize
-                                     fetcherService:fetcherService];
+    fetcher = [GTMSessionUploadFetcher uploadFetcherWithRequest:request
+                                                 uploadMIMEType:uploadMIMEType
+                                                      chunkSize:(int64_t)uploadChunkSize
+                                                 fetcherService:fetcherService];
     if (uploadFileURL) {
       fetcher.uploadFileURL = uploadFileURL;
     } else if (uploadData) {

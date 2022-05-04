@@ -986,7 +986,7 @@ let package = Package(
         .target(
             name: "GoogleAPIClientForRESTCore",
             dependencies: [
-                "GTMSessionFetcher"
+                "GTMSessionFetcherFull"
             ],
             path: "Source",
             exclude: [
