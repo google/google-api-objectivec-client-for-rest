@@ -16,22 +16,19 @@
 #import <XCTest/XCTest.h>
 #import <objc/runtime.h>
 
-#if SWIFT_PACKAGE
-@import GoogleAPIClientForRESTCore;
-#else
-#import "GTLRService.h"
-#import "GTLRUtilities.h"
-#import "GTMMIMEDocument.h"
-#endif
+#import <GoogleAPIClientForREST/GTLRService.h>
+#import <GoogleAPIClientForREST/GTLRUtilities.h>
 
-#import "GTLRTestingSvc.h"
-
+// TODO: Simplify when the 2.0 SessionFetcher is the min dependency.
 #if SWIFT_PACKAGE
 @import GTMSessionFetcherCore;
 @import GTMSessionFetcherFull;
 #else
 #import "GTMSessionFetcherService.h"
+#import "GTMMIMEDocument.h"
 #endif
+
+#import "GTLRTestingSvc.h"
 
 @interface GTLRServiceTest : XCTestCase
 @end

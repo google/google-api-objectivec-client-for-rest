@@ -63,15 +63,15 @@ static ArgInfo optionalFlags[] = {
   { "--gtlrFrameworkName NAME",
     "Will generate sources that include GTLR's headers as if they are in a"
     " framework with the given name.  If you are using GTLR via CocoaPods,"
-    " you'll likely want to pass \"GoogleApiClientForRest\" as the value for"
+    " you'll likely want to pass \"GoogleAPIClientForREST\" as the value for"
     " this."
   },
   { "--gtlrModularFramework NAME",
     "Will generate sources that include GTLR's headers as a modular import"
     " (`@import`) with the given name.  If you are using GTLR via CocoaPods,"
-    " you'll likely want to pass \"GoogleApiClientForRest\" as the value for"
-    " this. If you are using SwiftPM, you like want"
-    " \"GoogleAPIClientForRESTCore\" as the value for this."
+    " you'll likely want to pass \"GoogleAPIClientForREST\" as the value for"
+    " this. If you are using SwiftPM, you likely want"
+    " \"GoogleAPIClientForRESTCore\" as the value."
   },
   { "--gtlrImportPrefix PREFIX",
     "Will generate sources that include GTLR's headers as if they are in the"

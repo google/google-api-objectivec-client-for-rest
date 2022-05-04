@@ -16,12 +16,8 @@
 #import <XCTest/XCTest.h>
 #import <objc/runtime.h>
 
-#if SWIFT_PACKAGE
-@import GoogleAPIClientForRESTCore;
-#else
-#import "GTLRErrorObject.h"
-#import "GTLRService.h"
-#endif
+#import <GoogleAPIClientForREST/GTLRErrorObject.h>
+#import <GoogleAPIClientForREST/GTLRService.h>
 
 // GTLRServiceTest doesn't have a header file, but we'll use its method for reading a
 // test data file anyway.

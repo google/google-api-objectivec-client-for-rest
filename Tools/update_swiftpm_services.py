@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-"""Looks at Source/GeneratedServices and updates the Package.swift file."""
+"""Looks at Sources/GeneratedServices and updates the Package.swift file."""
 
 import os
 import re
@@ -74,7 +74,7 @@ class SwiftPMUpdater(object):
     template = string.Template(r"""        .target(
             name: "GoogleAPIClientForREST_${Name}",
             dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Source/GeneratedServices/${Name}",
+            path: "Sources/GeneratedServices/${Name}",
             publicHeadersPath: "."
         ),
 """)
@@ -112,9 +112,9 @@ def Main(args):
   package_path = os.path.join(root_dir, _PACKAGE_FILE)
   assert os.path.isfile(package_path), (
       'Failed to find %r' % _PACKAGE_FILE)
-  services_dir = os.path.join(root_dir, 'Source', 'GeneratedServices')
+  services_dir = os.path.join(root_dir, 'Sources', 'GeneratedServices')
   assert os.path.isdir(services_dir), (
-      'Failed to find Source/GeneratedServices directory')
+      'Failed to find Sources/GeneratedServices directory')
 
   updater = SwiftPMUpdater(open(package_path).read())
   services = _DirNamesInDirectory(services_dir)

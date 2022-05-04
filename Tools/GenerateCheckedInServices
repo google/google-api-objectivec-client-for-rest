@@ -1,6 +1,6 @@
 #!/bin/bash
 # This script does work currently needed to regenerate the sources found
-# in Source/GeneratedServices.
+# in Sources/GeneratedServices.
 
 set -eu
 
@@ -8,7 +8,7 @@ set -eu
 readonly ToolsDir=$(dirname "$(echo $0 | sed -e "s,^\([^/]\),$(pwd)/\1,")")
 readonly ScriptName=$(basename "$0")
 
-readonly GeneratedServicesDir="${ToolsDir}/../Source/GeneratedServices"
+readonly GeneratedServicesDir="${ToolsDir}/../Sources/GeneratedServices"
 readonly Configuration=debug
 readonly ServiceGeneratorBinary="${ToolsDir}/.build/${Configuration}/ServiceGenerator"
 
@@ -42,6 +42,7 @@ SERVICE_GENERATOR_COMMAND=(
     --outputDir "${GeneratedServicesDir}"
     --addServiceNameDir yes
     --removeUnknownFiles yes
+    --gtlrFrameworkName GoogleAPIClientForREST
     --auditJSON
     --guessFormattedNames
     --httpHeader X-User-IP:0.0.0.0

@@ -15,11 +15,7 @@
 
 #import <XCTest/XCTest.h>
 
-#if SWIFT_PACKAGE
-@import GoogleAPIClientForRESTCore;
-#else
-#import "GTLRDuration.h"
-#endif
+#import <GoogleAPIClientForREST/GTLRDuration.h>
 
 #define ARRAY_SIZE(a) ((sizeof(a) / sizeof((a[0]))))
 

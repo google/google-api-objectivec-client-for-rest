@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-"""Looks at Source/GeneratedServices and updates the podspec file."""
+"""Looks at Sources/GeneratedServices and updates the podspec file."""
 
 import os
 import re
@@ -52,7 +52,7 @@ class PodspecUpdater(object):
     """Generates the updated content an iterable of services dir names."""
     template = string.Template(r"""  s.subspec '${Name}' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/${Name}/*.{h,m}'
+    sp.source_files = 'Sources/GeneratedServices/${Name}/*.{h,m}'
   end
 """)
     result = self._file_start
@@ -87,9 +87,9 @@ def Main(args):
   podspec_path = os.path.join(root_dir, _PODSPEC_NAME)
   assert os.path.isfile(podspec_path), (
       'Failed to find %r' % _PODSPEC_NAME)
-  services_dir = os.path.join(root_dir, 'Source', 'GeneratedServices')
+  services_dir = os.path.join(root_dir, 'Sources', 'GeneratedServices')
   assert os.path.isdir(services_dir), (
-      'Failed to find Source/GeneratedServices directory')
+      'Failed to find Sources/GeneratedServices directory')
 
   updater = PodspecUpdater(open(podspec_path).read())
   services = _DirNamesInDirectory(services_dir)
