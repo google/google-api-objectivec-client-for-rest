@@ -300,7 +300,10 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
   NSString *userAgent = self.userAgent;
   if (userAgent.length == 0) {
     // The service instance is missing an explicit user-agent; use the bundle ID
-    // or process name.  Don't use the bundle ID of the library's framework.
+    // or process name. The check for the specific bundle is basically a noop as
+    // it was the hardcoded value from the framework when the project included
+    // and Xcode project. It is kept just incase someone happened to use the
+    // same bundle id so the behavior remains consistent.
     NSBundle *owningBundle = [NSBundle bundleForClass:[self class]];
     if (owningBundle == nil
         || [owningBundle.bundleIdentifier isEqual:@"com.google.GTLR"]) {
