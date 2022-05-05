@@ -28,7 +28,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "GTLRYouTube.h"
+#import <GoogleAPIClientForREST/GTLRYouTube.h>
 
 
 @interface YouTubeSampleWindowController : NSWindowController {

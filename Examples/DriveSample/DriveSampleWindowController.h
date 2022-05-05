@@ -28,7 +28,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "GTLRDrive.h"
+#import <GoogleAPIClientForREST/GTLRDrive.h>
 
 @interface DriveSampleWindowController : NSWindowController {
  @private
