@@ -337,7 +337,9 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 }
 
 - (GTLRService *)driveServiceForTest {
-  // Has valid authorization.
+  // TestingSvsService is a minimal clone of Drive, but the tests don't use the
+  // "real" Drive service so the tests won't break if/when the Drive api
+  // evolves.
   GTLRService *service = [[GTLRTestingSvcService alloc] init];
   service.authorizer = [GTLRTestAuthorizer authorizerWithValue:@"catpaws"];
   return service;
