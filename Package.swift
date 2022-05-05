@@ -999,6 +999,16 @@ let package = Package(
             path: "UnitTests",
             exclude: ["GenerateTestingSvc", "TestingSvc.json"]
         ),
+        .testTarget(
+            name: "swift-import-test",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "SwiftPMTests/SwiftImportTest"
+        ),
+        .testTarget(
+            name: "objc-import-test",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "SwiftPMTests/ObjCImportTest"
+        ),
         // Targets for all the Services.
         .target(
             name: "GoogleAPIClientForREST_AbusiveExperienceReport",
