@@ -17,7 +17,7 @@
 #error "This file needs to be compiled with ARC enabled."
 #endif
 
-#include "GoogleAPIClientForREST/GTLRFramework.h"
+#import <GoogleAPIClientForREST/GTLRFramework.h>
 
 void GTLRFrameworkVersion(NSUInteger* major, NSUInteger* minor, NSUInteger* release) {
   // version 3.0.0
