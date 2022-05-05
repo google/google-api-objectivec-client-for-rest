@@ -40,7 +40,7 @@ Pod::Spec.new do |s|
 
   s.test_spec 'Tests' do |sp|
     sp.source_files = 'UnitTests/*.{h,m}'
-    sp.resource = 'UnitTests/Data/*.{json,txt}'
+    sp.resource = 'UnitTests/Data/*.txt'
 
     sp.platforms = {
       :ios => ios_deployment_target,
