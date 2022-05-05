@@ -7,6 +7,7 @@ on:
     - 'Sources/**'
     - 'UnitTests/**'
     - 'Package*.swift'
+    - 'SwiftPMTests/**'
     - '.github/workflows/swiftpm.yml'
   pull_request:
     branches: [ main ]
@@ -14,6 +15,7 @@ on:
     - 'Sources/**'
     - 'UnitTests/**'
     - 'Package*.swift'
+    - 'SwiftPMTests/**'
     - '.github/workflows/swiftpm.yml'
   schedule:
     # Run the first and fifteenth of every month at 6:12 UTC
