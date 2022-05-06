@@ -2897,9 +2897,7 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
   }
 
   NSMutableString *result = [NSMutableString string];
-  [result appendString:@"#if defined(SWIFT_PACKAGE) && SWIFT_PACKAGE\n"];
-  [result appendString:@"  @import GoogleAPIClientForRESTCore;\n"];
-  [result appendFormat:@"#elif __has_include(<GoogleAPIClientForREST/%@.h>)\n", headerName];
+  [result appendFormat:@"#if __has_include(<GoogleAPIClientForREST/%@.h>)\n", headerName];
   [result appendFormat:@"  #import <GoogleAPIClientForREST/%@.h>\n", headerName];
   [result appendString:@"#else\n"];
   [result appendFormat:@"  #import \"%@.h\"\n", headerName];
