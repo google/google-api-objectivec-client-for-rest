@@ -1149,26 +1149,12 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
   NSString *versionCheck = [self headerVersionCheck];
   [parts addObject:versionCheck];
 
-  // Forward declare the classes used in query methods.
-  NSMutableArray *neededSchema = [NSMutableArray array];
-  for (GTLRDiscovery_JsonSchema *methodParamSchema in self.api.sg_allMethodObjectParameterReferences) {
-    // Don't use isEqual: (containsObject:) because two schema could have
-    // identicial json, but be different names, so check the raw object pointers
-    // instead.
-    if ([neededSchema indexOfObjectIdenticalTo:methodParamSchema] == NSNotFound) {
-      [neededSchema addObject:methodParamSchema];
-    }
-  }
-  NSArray *classNames = [neededSchema valueForKey:@"sg_objcClassName"];
-  if (classNames.count > 0) {
-    // Sort to stablize the order.
-    classNames =
-      [classNames sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-    NSMutableString *classForwards = [NSMutableString string];
-    for (NSString *name in classNames) {
-      [classForwards appendFormat:@"@class %@;\n", name];
-    }
-    [parts addObject:classForwards];
+  // See if any types from the Objects file are needed for the Query signatures.
+  if (self.api.sg_allMethodObjectParameterReferences.count > 0) {
+    NSString *objectsImport =
+      [NSMutableString stringWithFormat:@"#import \"%@.h\"\n",
+       self.objcObjectsBaseFileName];
+    [parts addObject:objectsImport];
   }
 
   [parts addObject:kSuppressDocumentationWarningsBegin];
@@ -1209,33 +1195,19 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
                             self.objcQueryBaseClassName];
   [parts addObject:headerImport];
 
-  // Import the classes used in query methods (here we also need the return
-  // classes for the expectedObjectType).
-  NSMutableArray *neededSchema = [NSMutableArray array];
-  for (GTLRDiscovery_JsonSchema *methodParamSchema in self.api.sg_allMethodObjectParameterReferences) {
-    // Don't use isEqual: (containsObject:) because two schema could have
-    // identical JSON, but with different names. Check the raw object pointers
-    // instead.
-    if ([neededSchema indexOfObjectIdenticalTo:methodParamSchema] == NSNotFound) {
-      [neededSchema addObject:methodParamSchema];
-    }
-  }
-  for (GTLRDiscovery_RestMethod *method in self.api.sg_allMethods) {
-    GTLRDiscovery_JsonSchema *returnsSchema = method.response.sg_resolvedSchema;
-    if (returnsSchema) {
-      // Don't use isEqual: (containsObject:) because two schema could have
-      // identical JSON, but with different names. Check the raw object pointers
-      // instead.
-      if ([neededSchema indexOfObjectIdenticalTo:returnsSchema] == NSNotFound) {
-        [neededSchema addObject:returnsSchema];
+  // If the header didn't need to import the Objects header for some parameters,
+  // then it needs to be imported for the classes for expectedObjectType.
+  if (self.api.sg_allMethodObjectParameterReferences.count == 0) {
+    for (GTLRDiscovery_RestMethod *method in self.api.sg_allMethods) {
+      GTLRDiscovery_JsonSchema *returnsSchema = method.response.sg_resolvedSchema;
+      if (returnsSchema) {
+        NSString *objectsImport =
+          [NSMutableString stringWithFormat:@"#import \"%@.h\"\n",
+           self.objcObjectsBaseFileName];
+        [parts addObject:objectsImport];
+        break;
       }
     }
-  }
-  if (neededSchema.count > 0) {
-    NSString *objectsImport =
-      [NSMutableString stringWithFormat:@"#import \"%@.h\"\n",
-       self.objcObjectsBaseFileName];
-    [parts addObject:objectsImport];
   }
 
   NSArray *blocks = [self constantsBlocksForMode:kGenerateImplementation
