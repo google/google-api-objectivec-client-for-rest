@@ -23,7 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class GTLRServiceTicket;
 @class GTLRServiceExecutionParameters;
-@class GTLRQuery;
 
 /**
  * This protocol is just to support passing of either a batch or a single query

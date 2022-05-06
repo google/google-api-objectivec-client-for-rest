@@ -106,8 +106,6 @@ FOUNDATION_EXTERN NSString *const kGTLRServiceTicketParsingStoppedNotification;
  */
 FOUNDATION_EXTERN NSString *const kXIosBundleIdHeader;
 
-@class GTLRServiceTicket;
-
 /**
  *  Callback block for query execution.
  *

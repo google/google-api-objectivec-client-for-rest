@@ -24,7 +24,6 @@
 
 #import <GoogleAPIClientForREST/GTLRDateTime.h>
 #import <GoogleAPIClientForREST/GTLRDuration.h>
-#import <GoogleAPIClientForREST/GTLRObject.h>
 #import <GoogleAPIClientForREST/GTLRUtilities.h>
 
 #import "GTLRDefines.h"

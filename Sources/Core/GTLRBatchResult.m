@@ -19,7 +19,6 @@
 
 #import <GoogleAPIClientForREST/GTLRBatchResult.h>
 
-#import <GoogleAPIClientForREST/GTLRErrorObject.h>
 #import <GoogleAPIClientForREST/GTLRUtilities.h>
 
 static NSString *const kGTLRBatchResultSuccessesKeys = @"successesKeys";

@@ -23,8 +23,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class GTLRObject;
-
 /**
  *  Protocol that can be implemented to provide custom logic for what class
  *  should be created out of the given JSON.
