@@ -12,8 +12,6 @@
 
 #import "GTLRDocumentQuery.h"
 
-#import "GTLRDocumentObjects.h"
-
 @implementation GTLRDocumentQuery
 
 @dynamic fields;

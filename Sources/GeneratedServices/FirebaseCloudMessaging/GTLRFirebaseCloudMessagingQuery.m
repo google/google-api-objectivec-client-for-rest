@@ -11,8 +11,6 @@
 
 #import "GTLRFirebaseCloudMessagingQuery.h"
 
-#import "GTLRFirebaseCloudMessagingObjects.h"
-
 @implementation GTLRFirebaseCloudMessagingQuery
 
 @dynamic fields;

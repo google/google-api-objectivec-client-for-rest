@@ -11,8 +11,6 @@
 
 #import "GTLRDataCatalogQuery.h"
 
-#import "GTLRDataCatalogObjects.h"
-
 @implementation GTLRDataCatalogQuery
 
 @dynamic fields;

@@ -8,8 +8,6 @@
 
 #import "GTLRArea120TablesQuery.h"
 
-#import "GTLRArea120TablesObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

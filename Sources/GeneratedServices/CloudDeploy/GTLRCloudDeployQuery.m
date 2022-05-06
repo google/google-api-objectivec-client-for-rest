@@ -8,8 +8,6 @@
 
 #import "GTLRCloudDeployQuery.h"
 
-#import "GTLRCloudDeployObjects.h"
-
 @implementation GTLRCloudDeployQuery
 
 @dynamic fields;

@@ -10,8 +10,6 @@
 
 #import "GTLRDatabaseMigrationServiceQuery.h"
 
-#import "GTLRDatabaseMigrationServiceObjects.h"
-
 @implementation GTLRDatabaseMigrationServiceQuery
 
 @dynamic fields;

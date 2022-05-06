@@ -11,8 +11,6 @@
 
 #import "GTLRMyBusinessLodgingQuery.h"
 
-#import "GTLRMyBusinessLodgingObjects.h"
-
 @implementation GTLRMyBusinessLodgingQuery
 
 @dynamic fields;

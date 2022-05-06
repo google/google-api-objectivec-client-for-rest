@@ -11,8 +11,6 @@
 
 #import "GTLRSmartDeviceManagementQuery.h"
 
-#import "GTLRSmartDeviceManagementObjects.h"
-
 @implementation GTLRSmartDeviceManagementQuery
 
 @dynamic fields;

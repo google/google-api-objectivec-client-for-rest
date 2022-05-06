@@ -11,8 +11,6 @@
 
 #import "GTLRGmailQuery.h"
 
-#import "GTLRGmailObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

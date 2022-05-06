@@ -265,7 +265,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 @interface GTLRArtifactRegistry_BatchDeleteVersionsMetadata : GTLRObject
 
 /** The versions the operation failed to delete. */
-@property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_Version *> *failedVersions;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *failedVersions;
 
 @end
 

@@ -12,8 +12,6 @@
 
 #import "GTLRDataTransferQuery.h"
 
-#import "GTLRDataTransferObjects.h"
-
 @implementation GTLRDataTransferQuery
 
 @dynamic fields;

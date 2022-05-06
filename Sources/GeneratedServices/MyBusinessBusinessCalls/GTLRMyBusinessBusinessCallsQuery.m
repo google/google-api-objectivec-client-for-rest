@@ -11,8 +11,6 @@
 
 #import "GTLRMyBusinessBusinessCallsQuery.h"
 
-#import "GTLRMyBusinessBusinessCallsObjects.h"
-
 @implementation GTLRMyBusinessBusinessCallsQuery
 
 @dynamic fields;

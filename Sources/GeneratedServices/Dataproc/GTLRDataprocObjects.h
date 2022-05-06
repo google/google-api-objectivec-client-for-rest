@@ -15,6 +15,7 @@
 #endif
 
 @class GTLRDataproc_AcceleratorConfig;
+@class GTLRDataproc_AuthenticationConfig;
 @class GTLRDataproc_AutoscalingConfig;
 @class GTLRDataproc_AutoscalingPolicy;
 @class GTLRDataproc_AutoscalingPolicy_Labels;
@@ -61,6 +62,7 @@
 @class GTLRDataproc_HiveJob_ScriptVariables;
 @class GTLRDataproc_IdentityConfig;
 @class GTLRDataproc_IdentityConfig_UserServiceAccountMapping;
+@class GTLRDataproc_InjectableCredentialsConfig;
 @class GTLRDataproc_InstanceGroupAutoscalingPolicyConfig;
 @class GTLRDataproc_InstanceGroupConfig;
 @class GTLRDataproc_InstanceReference;
@@ -153,6 +155,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_AuthenticationConfig.authenticationType
+
+/**
+ *  If AuthenticationType is unspecified, SERVICE_ACCOUNT is used
+ *
+ *  Value: "AUTHENTICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_AuthenticationConfig_AuthenticationType_AuthenticationTypeUnspecified;
+/**
+ *  Injectable credentials authentication type
+ *
+ *  Value: "INJECTABLE_CREDENTIALS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_AuthenticationConfig_AuthenticationType_InjectableCredentials;
+/**
+ *  Defaults to using service account credentials
+ *
+ *  Value: "SERVICE_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_AuthenticationConfig_AuthenticationType_ServiceAccount;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_Batch.state
@@ -373,14 +397,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6Goo
 // GTLRDataproc_GkeNodePoolTarget.roles
 
 /**
- *  Run controllers and webhooks.
+ *  Run work associated with the Dataproc control plane (for example,
+ *  controllers and webhooks). Very low resource requirements.
  *
  *  Value: "CONTROLLER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_GkeNodePoolTarget_Roles_Controller;
 /**
- *  Any roles that are not directly assigned to a NodePool run on the default
- *  role's NodePool.
+ *  At least one node pool must have the DEFAULT role. Work assigned to a role
+ *  that is not associated with a node pool is assigned to the node pool with
+ *  the DEFAULT role. For example, work assigned to the CONTROLLER role will be
+ *  assigned to the node pool with the DEFAULT role if no node pool has the
+ *  CONTROLLER role.
  *
  *  Value: "DEFAULT"
  */
@@ -392,13 +420,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_GkeNodePoolTarget_Roles_Default
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_GkeNodePoolTarget_Roles_RoleUnspecified;
 /**
- *  Run spark driver.
+ *  Run work associated with a Spark driver of a job.
  *
  *  Value: "SPARK_DRIVER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_GkeNodePoolTarget_Roles_SparkDriver;
 /**
- *  Run spark executors.
+ *  Run work associated with a Spark executor of a job.
  *
  *  Value: "SPARK_EXECUTOR"
  */
@@ -590,44 +618,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_D
 // GTLRDataproc_Metric.metricSource
 
 /**
- *  Hdfs metric source
+ *  HDFS metric source.
  *
  *  Value: "HDFS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_Hdfs;
 /**
- *  hiveserver2 metric source
+ *  Hiveserver2 metric source.
  *
  *  Value: "HIVESERVER2"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_Hiveserver2;
 /**
- *  Required unspecified metric source
+ *  Required unspecified metric source.
  *
  *  Value: "METRIC_SOURCE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_MetricSourceUnspecified;
 /**
- *  all default monitoring agent metrics that are published with prefix
- *  "agent.googleapis.com" when we enable a monitoring agent in Compute Engine
+ *  Default monitoring agent metrics, which are published with an
+ *  agent.googleapis.com prefix when Dataproc enables the monitoring agent in
+ *  Compute Engine.
  *
  *  Value: "MONITORING_AGENT_DEFAULTS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_MonitoringAgentDefaults;
 /**
- *  Spark metric source
+ *  Spark metric source.
  *
  *  Value: "SPARK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_Spark;
 /**
- *  Spark history server metric source
+ *  Spark History Server metric source.
  *
  *  Value: "SPARK_HISTORY_SERVER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_SparkHistoryServer;
 /**
- *  Yarn metric source
+ *  YARN metric source.
  *
  *  Value: "YARN"
  */
@@ -969,6 +998,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  example, nvidia-tesla-k80.
  */
 @property(nonatomic, copy, nullable) NSString *acceleratorTypeUri;
+
+@end
+
+
+/**
+ *  Configuration for using injectable credentials or service account
+ */
+@interface GTLRDataproc_AuthenticationConfig : GTLRObject
+
+/**
+ *  Authentication type for session execution.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_AuthenticationConfig_AuthenticationType_AuthenticationTypeUnspecified
+ *        If AuthenticationType is unspecified, SERVICE_ACCOUNT is used (Value:
+ *        "AUTHENTICATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_AuthenticationConfig_AuthenticationType_InjectableCredentials
+ *        Injectable credentials authentication type (Value:
+ *        "INJECTABLE_CREDENTIALS")
+ *    @arg @c kGTLRDataproc_AuthenticationConfig_AuthenticationType_ServiceAccount
+ *        Defaults to using service account credentials (Value:
+ *        "SERVICE_ACCOUNT")
+ */
+@property(nonatomic, copy, nullable) NSString *authenticationType;
+
+/** Configuration for using end user authentication */
+@property(nonatomic, strong, nullable) GTLRDataproc_InjectableCredentialsConfig *injectableCredentialsConfig;
 
 @end
 
@@ -1342,7 +1398,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) GTLRDataproc_Expr *condition;
 
 /**
- *  Specifies the principals requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Google Cloud resource.
  *  members can have the following values: allUsers: A special identifier that
  *  represents anyone who is on the internet; with or without a Google account.
  *  allAuthenticatedUsers: A special identifier that represents anyone who is
@@ -1443,13 +1499,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_ClusterStatus *> *statusHistory;
 
 /**
- *  Optional. The virtual cluster config, used when creating a Dataproc cluster
- *  that does not directly control the underlying compute resources, for
+ *  Optional. The virtual cluster config is used when creating a Dataproc
+ *  cluster that does not directly control the underlying compute resources, for
  *  example, when creating a Dataproc-on-GKE cluster
- *  (https://cloud.google.com/dataproc/docs/concepts/jobs/dataproc-gke#create-a-dataproc-on-gke-cluster).
- *  Note that Dataproc may set default values, and values may change when
- *  clusters are updated. Exactly one of config or virtualClusterConfig must be
- *  specified.
+ *  (https://cloud.google.com/dataproc/docs/guides/dpgke/dataproc-gke). Dataproc
+ *  may set default values, and values may change when clusters are updated.
+ *  Exactly one of config or virtual_cluster_config must be specified.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_VirtualClusterConfig *virtualClusterConfig;
 
@@ -1497,7 +1552,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, copy, nullable) NSString *configBucket;
 
-/** Optional. The configuration(s) for a dataproc metric(s). */
+/** Optional. The config for Dataproc metrics. */
 @property(nonatomic, strong, nullable) GTLRDataproc_MetricConfig *dataprocMetricConfig;
 
 /** Optional. Encryption settings for the cluster. */
@@ -1513,11 +1568,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) GTLRDataproc_GceClusterConfig *gceClusterConfig;
 
 /**
- *  Optional. Deprecated. Use VirtualClusterConfig based clusters instead. BETA.
- *  The Kubernetes Engine config for Dataproc clusters deployed to Kubernetes.
- *  Setting this is considered mutually exclusive with Compute Engine-based
- *  options such as gce_cluster_config, master_config, worker_config,
- *  secondary_worker_config, and autoscaling_config.
+ *  Optional. BETA. The Kubernetes Engine config for Dataproc clusters deployed
+ *  to The Kubernetes Engine config for Dataproc clusters deployed to
+ *  Kubernetes. These config settings are mutually exclusive with Compute
+ *  Engine-based options, such as gce_cluster_config, master_config,
+ *  worker_config, secondary_worker_config, and autoscaling_config.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_GkeClusterConfig *gkeClusterConfig;
 
@@ -1591,7 +1646,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /** The HDFS metrics. */
 @property(nonatomic, strong, nullable) GTLRDataproc_ClusterMetrics_HdfsMetrics *hdfsMetrics;
 
-/** The YARN metrics. */
+/** YARN metrics. */
 @property(nonatomic, strong, nullable) GTLRDataproc_ClusterMetrics_YarnMetrics *yarnMetrics;
 
 @end
@@ -1610,7 +1665,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  The YARN metrics.
+ *  YARN metrics.
  *
  *  @note This class is documented as having more properties of NSNumber (Uses
  *        NSNumber of longLongValue.). Use @c -additionalJSONKeys and @c
@@ -2251,11 +2306,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) GTLRDataproc_NamespacedGkeDeploymentTarget *namespacedGkeDeploymentTarget;
 
 /**
- *  Optional. GKE NodePools where workloads will be scheduled. At least one node
- *  pool must be assigned the 'default' role. Each role can be given to only a
- *  single NodePoolTarget. All NodePools must have the same location settings.
- *  If a nodePoolTarget is not specified, Dataproc constructs a default
- *  nodePoolTarget.
+ *  Optional. GKE node pools where workloads will be scheduled. At least one
+ *  node pool must be assigned the DEFAULT GkeNodePoolTarget.Role. If a
+ *  GkeNodePoolTarget is not specified, Dataproc constructs a DEFAULT
+ *  GkeNodePoolTarget. Each role can be given to only one GkeNodePoolTarget. All
+ *  node pools must have the same location settings.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_GkeNodePoolTarget *> *nodePoolTarget;
 
@@ -2299,7 +2354,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. Whether the nodes are created as preemptible VM instances
- *  (https://cloud.google.com/compute/docs/instances/preemptible).
+ *  (https://cloud.google.com/compute/docs/instances/preemptible). Preemptible
+ *  nodes cannot be used in a node pool with the CONTROLLER role or in the
+ *  DEFAULT node pool if the CONTROLLER role is not assigned (the DEFAULT node
+ *  pool will assume the CONTROLLER role).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2318,7 +2376,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  A GkeNodeConfigAcceleratorConfig represents a Hardware Accelerator request
- *  for a NodePool.
+ *  for a node pool.
  */
 @interface GTLRDataproc_GkeNodePoolAcceleratorConfig : GTLRObject
 
@@ -2349,15 +2407,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_GkeNodePoolAutoscalingConfig : GTLRObject
 
 /**
- *  The maximum number of nodes in the NodePool. Must be >= min_node_count.
- *  Note: Quota must be sufficient to scale up the cluster.
+ *  The maximum number of nodes in the node pool. Must be >= min_node_count, and
+ *  must be > 0. Note: Quota must be sufficient to scale up the cluster.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxNodeCount;
 
 /**
- *  The minimum number of nodes in the NodePool. Must be >= 0 and <=
+ *  The minimum number of nodes in the node pool. Must be >= 0 and <=
  *  max_node_count.
  *
  *  Uses NSNumber of intValue.
@@ -2368,13 +2426,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  The configuration of a GKE NodePool used by a Dataproc-on-GKE cluster
+ *  The configuration of a GKE node pool used by a Dataproc-on-GKE cluster
  *  (https://cloud.google.com/dataproc/docs/concepts/jobs/dataproc-gke#create-a-dataproc-on-gke-cluster).
  */
 @interface GTLRDataproc_GkeNodePoolConfig : GTLRObject
 
 /**
- *  Optional. The autoscaler configuration for this NodePool. The autoscaler is
+ *  Optional. The autoscaler configuration for this node pool. The autoscaler is
  *  enabled only when a valid configuration is present.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_GkeNodePoolAutoscalingConfig *autoscaling;
@@ -2384,10 +2442,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. The list of Compute Engine zones
- *  (https://cloud.google.com/compute/docs/zones#available) where NodePool's
- *  nodes will be located.Note: Currently, only one zone may be specified.If a
- *  location is not specified during NodePool creation, Dataproc will choose a
- *  location.
+ *  (https://cloud.google.com/compute/docs/zones#available) where node pool
+ *  nodes associated with a Dataproc on GKE virtual cluster will be
+ *  located.Note: All node pools associated with a virtual cluster must be
+ *  located in the same region as the virtual cluster, and they must be located
+ *  in the same zone within that region.If a location is not specified during
+ *  node pool creation, Dataproc on GKE will choose the zone.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
 
@@ -2395,28 +2455,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  GKE NodePools that Dataproc workloads run on.
+ *  GKE node pools that Dataproc workloads run on.
  */
 @interface GTLRDataproc_GkeNodePoolTarget : GTLRObject
 
 /**
- *  Required. The target GKE NodePool. Format:
+ *  Required. The target GKE node pool. Format:
  *  'projects/{project}/locations/{location}/clusters/{cluster}/nodePools/{node_pool}'
  */
 @property(nonatomic, copy, nullable) NSString *nodePool;
 
 /**
- *  Input only. The configuration for the GKE NodePool.If specified, Dataproc
- *  attempts to create a NodePool with the specified shape. If one with the same
- *  name already exists, it is verified against all specified fields. If a field
- *  differs, the virtual cluster creation will fail.If omitted, any NodePool
- *  with the specified name is used. If a NodePool with the specified name does
- *  not exist, Dataproc create a NodePool with default values.This is an input
- *  only field. It will not be returned by the API.
+ *  Input only. The configuration for the GKE node pool.If specified, Dataproc
+ *  attempts to create a node pool with the specified shape. If one with the
+ *  same name already exists, it is verified against all specified fields. If a
+ *  field differs, the virtual cluster creation will fail.If omitted, any node
+ *  pool with the specified name is used. If a node pool with the specified name
+ *  does not exist, Dataproc create a node pool with default values.This is an
+ *  input only field. It will not be returned by the API.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_GkeNodePoolConfig *nodePoolConfig;
 
-/** Required. The types of role for a GKE NodePool */
+/** Required. The roles associated with the GKE node pool. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
 
 @end
@@ -2593,6 +2653,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        fetch them all at once.
  */
 @interface GTLRDataproc_IdentityConfig_UserServiceAccountMapping : GTLRObject
+@end
+
+
+/**
+ *  Specific injectable credentials authentication parameters
+ */
+@interface GTLRDataproc_InjectableCredentialsConfig : GTLRObject
 @end
 
 
@@ -3627,36 +3694,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  Metric source to enable along with any optional metrics for this source that
- *  override the dataproc defaults
+ *  The metric source to enable, with any optional metrics, to override Dataproc
+ *  default metrics.
  */
 @interface GTLRDataproc_Metric : GTLRObject
 
 /**
- *  Optional. Optional Metrics to override the dataproc default metrics
- *  configured for the metric source
+ *  Optional. Optional Metrics to override the Dataproc default metrics
+ *  configured for the metric source.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metricOverrides;
 
 /**
- *  Required. MetricSource that should be enabled
+ *  Required. MetricSource to enable.
  *
  *  Likely values:
- *    @arg @c kGTLRDataproc_Metric_MetricSource_Hdfs Hdfs metric source (Value:
+ *    @arg @c kGTLRDataproc_Metric_MetricSource_Hdfs HDFS metric source. (Value:
  *        "HDFS")
- *    @arg @c kGTLRDataproc_Metric_MetricSource_Hiveserver2 hiveserver2 metric
- *        source (Value: "HIVESERVER2")
+ *    @arg @c kGTLRDataproc_Metric_MetricSource_Hiveserver2 Hiveserver2 metric
+ *        source. (Value: "HIVESERVER2")
  *    @arg @c kGTLRDataproc_Metric_MetricSource_MetricSourceUnspecified Required
- *        unspecified metric source (Value: "METRIC_SOURCE_UNSPECIFIED")
- *    @arg @c kGTLRDataproc_Metric_MetricSource_MonitoringAgentDefaults all
- *        default monitoring agent metrics that are published with prefix
- *        "agent.googleapis.com" when we enable a monitoring agent in Compute
- *        Engine (Value: "MONITORING_AGENT_DEFAULTS")
- *    @arg @c kGTLRDataproc_Metric_MetricSource_Spark Spark metric source
+ *        unspecified metric source. (Value: "METRIC_SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_Metric_MetricSource_MonitoringAgentDefaults Default
+ *        monitoring agent metrics, which are published with an
+ *        agent.googleapis.com prefix when Dataproc enables the monitoring agent
+ *        in Compute Engine. (Value: "MONITORING_AGENT_DEFAULTS")
+ *    @arg @c kGTLRDataproc_Metric_MetricSource_Spark Spark metric source.
  *        (Value: "SPARK")
- *    @arg @c kGTLRDataproc_Metric_MetricSource_SparkHistoryServer Spark history
- *        server metric source (Value: "SPARK_HISTORY_SERVER")
- *    @arg @c kGTLRDataproc_Metric_MetricSource_Yarn Yarn metric source (Value:
+ *    @arg @c kGTLRDataproc_Metric_MetricSource_SparkHistoryServer Spark History
+ *        Server metric source. (Value: "SPARK_HISTORY_SERVER")
+ *    @arg @c kGTLRDataproc_Metric_MetricSource_Yarn YARN metric source. (Value:
  *        "YARN")
  */
 @property(nonatomic, copy, nullable) NSString *metricSource;
@@ -3665,11 +3732,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  Contains dataproc metric config.
+ *  Dataproc metric config.
  */
 @interface GTLRDataproc_MetricConfig : GTLRObject
 
-/** Required. Metrics to be enabled. */
+/** Required. Metrics to enable. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_Metric *> *metrics;
 
 @end
@@ -4368,6 +4435,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_RuntimeConfig_Properties *properties;
 
+/** Optional. Authentication configuration for the session execution. */
+@property(nonatomic, strong, nullable) GTLRDataproc_AuthenticationConfig *sessionAuthenticationConfig;
+
 /** Optional. Version of the batch runtime. */
 @property(nonatomic, copy, nullable) NSString *version;
 
@@ -4509,7 +4579,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  REQUIRED: The complete policy to be applied to the resource. The size of the
  *  policy is limited to a few 10s of KB. An empty policy is a valid policy but
- *  certain Cloud Platform services (such as Projects) might reject them.
+ *  certain Google Cloud services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_Policy *policy;
 
@@ -5201,7 +5271,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  The set of permissions to check for the resource. Permissions with wildcards
- *  (such as '*' or 'storage.*') are not allowed. For more information see IAM
+ *  (such as * or storage.*) are not allowed. For more information see IAM
  *  Overview (https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
@@ -5234,9 +5304,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  Dataproc cluster config for a cluster that does not directly control the
+ *  The Dataproc cluster config for a cluster that does not directly control the
  *  underlying compute resources, such as a Dataproc-on-GKE cluster
- *  (https://cloud.google.com/dataproc/docs/concepts/jobs/dataproc-gke#create-a-dataproc-on-gke-cluster).
+ *  (https://cloud.google.com/dataproc/docs/guides/dpgke/dataproc-gke).
  */
 @interface GTLRDataproc_VirtualClusterConfig : GTLRObject
 
@@ -5249,12 +5319,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) GTLRDataproc_KubernetesClusterConfig *kubernetesClusterConfig;
 
 /**
- *  Optional. A Storage bucket used to stage job dependencies, config files, and
- *  job driver console output. If you do not specify a staging bucket, Cloud
- *  Dataproc will determine a Cloud Storage location (US, ASIA, or EU) for your
- *  cluster's staging bucket according to the Compute Engine zone where your
- *  cluster is deployed, and then create and manage this project-level,
- *  per-location bucket (see Dataproc staging and temp buckets
+ *  Optional. A Cloud Storage bucket used to stage job dependencies, config
+ *  files, and job driver console output. If you do not specify a staging
+ *  bucket, Cloud Dataproc will determine a Cloud Storage location (US, ASIA, or
+ *  EU) for your cluster's staging bucket according to the Compute Engine zone
+ *  where your cluster is deployed, and then create and manage this
+ *  project-level, per-location bucket (see Dataproc staging and temp buckets
  *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/staging-bucket)).
  *  This field requires a Cloud Storage bucket name, not a gs://... URI to a
  *  Cloud Storage bucket.

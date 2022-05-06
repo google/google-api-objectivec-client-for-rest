@@ -8,8 +8,6 @@
 
 #import "GTLRRecaptchaEnterpriseQuery.h"
 
-#import "GTLRRecaptchaEnterpriseObjects.h"
-
 @implementation GTLRRecaptchaEnterpriseQuery
 
 @dynamic fields;

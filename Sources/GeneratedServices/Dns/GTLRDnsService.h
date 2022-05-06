@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud DNS API (dns/v2)
+//   Cloud DNS API (dns/v1)
 // Documentation:
 //   https://cloud.google.com/dns/docs
 

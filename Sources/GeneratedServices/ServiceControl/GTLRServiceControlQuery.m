@@ -11,8 +11,6 @@
 
 #import "GTLRServiceControlQuery.h"
 
-#import "GTLRServiceControlObjects.h"
-
 @implementation GTLRServiceControlQuery
 
 @dynamic fields;

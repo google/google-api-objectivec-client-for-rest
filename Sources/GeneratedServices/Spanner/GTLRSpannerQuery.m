@@ -11,8 +11,6 @@
 
 #import "GTLRSpannerQuery.h"
 
-#import "GTLRSpannerObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

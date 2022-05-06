@@ -1279,9 +1279,8 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1Task
-@dynamic createTime, descriptionProperty, displayName, executionSpec,
-         executionStatus, labels, name, spark, state, triggerSpec, uid,
-         updateTime;
+@dynamic createTime, descriptionProperty, displayName, executionSpec, labels,
+         name, spark, state, triggerSpec, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1310,7 +1309,7 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1TaskExecutionSpec
-@dynamic args, maxJobExecutionLifetime, project, serviceAccount;
+@dynamic args, maxJobExecutionLifetime, serviceAccount;
 @end
 
 
@@ -1325,16 +1324,6 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
   return [NSString class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudDataplex_GoogleCloudDataplexV1TaskExecutionStatus
-//
-
-@implementation GTLRCloudDataplex_GoogleCloudDataplexV1TaskExecutionStatus
-@dynamic latestJob, updateTime;
 @end
 
 

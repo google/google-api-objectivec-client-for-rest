@@ -8,8 +8,6 @@
 
 #import "GTLRAssuredworkloadsQuery.h"
 
-#import "GTLRAssuredworkloadsObjects.h"
-
 @implementation GTLRAssuredworkloadsQuery
 
 @dynamic fields;

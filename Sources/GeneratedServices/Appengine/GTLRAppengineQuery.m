@@ -10,8 +10,6 @@
 
 #import "GTLRAppengineQuery.h"
 
-#import "GTLRAppengineObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

@@ -11,8 +11,6 @@
 
 #import "GTLRCloudMemorystoreforMemcachedQuery.h"
 
-#import "GTLRCloudMemorystoreforMemcachedObjects.h"
-
 @implementation GTLRCloudMemorystoreforMemcachedQuery
 
 @dynamic fields;

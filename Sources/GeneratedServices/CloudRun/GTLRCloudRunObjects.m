@@ -16,32 +16,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRCloudRun_GoogleCloudRunV2Condition.domainMappingReason
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_CertificateAlreadyExists = @"CERTIFICATE_ALREADY_EXISTS";
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_CertificateFailed = @"CERTIFICATE_FAILED";
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_CertificatePending = @"CERTIFICATE_PENDING";
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_DomainMappingReasonUndefined = @"DOMAIN_MAPPING_REASON_UNDEFINED";
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_MappingAlreadyExists = @"MAPPING_ALREADY_EXISTS";
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_PermissionDenied = @"PERMISSION_DENIED";
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_RouteNotReady = @"ROUTE_NOT_READY";
-
 // GTLRCloudRun_GoogleCloudRunV2Condition.executionReason
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_ExecutionReasonUndefined = @"EXECUTION_REASON_UNDEFINED";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_JobStatusServicePollingError = @"JOB_STATUS_SERVICE_POLLING_ERROR";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_NonZeroExitCode = @"NON_ZERO_EXIT_CODE";
 
-// GTLRCloudRun_GoogleCloudRunV2Condition.internalReason
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_AssigningTraffic = @"ASSIGNING_TRAFFIC";
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_ConfigurationMissing = @"CONFIGURATION_MISSING";
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_ConflictingRevisionName = @"CONFLICTING_REVISION_NAME";
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_InternalReasonUndefined = @"INTERNAL_REASON_UNDEFINED";
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_RevisionMissing = @"REVISION_MISSING";
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_RevisionOrgPolicyViolation = @"REVISION_ORG_POLICY_VIOLATION";
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_UpdatingGcfv2UriData = @"UPDATING_GCFV2_URI_DATA";
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_UpdatingIngressTrafficAllowed = @"UPDATING_INGRESS_TRAFFIC_ALLOWED";
-
 // GTLRCloudRun_GoogleCloudRunV2Condition.reason
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_BuildStepFailed = @"BUILD_STEP_FAILED";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_CommonReasonUndefined = @"COMMON_REASON_UNDEFINED";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_ContainerImageAuthorizationCheckFailed = @"CONTAINER_IMAGE_AUTHORIZATION_CHECK_FAILED";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_ContainerImageUnauthorized = @"CONTAINER_IMAGE_UNAUTHORIZED";
@@ -50,10 +30,10 @@ NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_ContainerPermiss
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_EncryptionKeyCheckFailed = @"ENCRYPTION_KEY_CHECK_FAILED";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_EncryptionKeyPermissionDenied = @"ENCRYPTION_KEY_PERMISSION_DENIED";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_ImmediateRetry = @"IMMEDIATE_RETRY";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_Internal = @"INTERNAL";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_PostponedRetry = @"POSTPONED_RETRY";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_ProgressDeadlineExceeded = @"PROGRESS_DEADLINE_EXCEEDED";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_RevisionFailed = @"REVISION_FAILED";
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_RouteMissing = @"ROUTE_MISSING";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_SecretsAccessCheckFailed = @"SECRETS_ACCESS_CHECK_FAILED";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_Unknown = @"UNKNOWN";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_WaitingForOperation = @"WAITING_FOR_OPERATION";
@@ -216,9 +196,8 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2Condition
-@dynamic domainMappingReason, executionReason, internalReason,
-         lastTransitionTime, message, reason, revisionReason, severity, state,
-         type;
+@dynamic executionReason, lastTransitionTime, message, reason, revisionReason,
+         severity, state, type;
 @end
 
 
@@ -251,16 +230,6 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 @implementation GTLRCloudRun_GoogleCloudRunV2ContainerPort
 @dynamic containerPort, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_GoogleCloudRunV2ContainerStatus
-//
-
-@implementation GTLRCloudRun_GoogleCloudRunV2ContainerStatus
-@dynamic imageDigest, name;
 @end
 
 
@@ -401,10 +370,10 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 @implementation GTLRCloudRun_GoogleCloudRunV2Job
 @dynamic annotations, binaryAuthorization, client, clientVersion, conditions,
-         containerStatuses, createTime, creator, deleteTime, ETag,
-         executionCount, expireTime, generation, labels, lastModifier,
-         latestCreatedExecution, launchStage, name, observedGeneration,
-         reconciling, templateProperty, terminalCondition, uid, updateTime;
+         createTime, creator, deleteTime, ETag, executionCount, expireTime,
+         generation, labels, lastModifier, latestCreatedExecution, launchStage,
+         name, observedGeneration, reconciling, templateProperty,
+         terminalCondition, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -416,8 +385,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"conditions" : [GTLRCloudRun_GoogleCloudRunV2Condition class],
-    @"containerStatuses" : [GTLRCloudRun_GoogleCloudRunV2ContainerStatus class]
+    @"conditions" : [GTLRCloudRun_GoogleCloudRunV2Condition class]
   };
   return map;
 }
@@ -593,11 +561,11 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2Revision
-@dynamic annotations, conditions, confidential, containerConcurrency,
-         containers, createTime, deleteTime, encryptionKey, ETag,
-         executionEnvironment, expireTime, generation, labels, launchStage,
-         logUri, name, observedGeneration, reconciling, scaling, service,
-         serviceAccount, timeout, uid, updateTime, volumes, vpcAccess;
+@dynamic annotations, conditions, containers, createTime, deleteTime,
+         encryptionKey, ETag, executionEnvironment, expireTime, generation,
+         labels, launchStage, logUri, maxInstanceRequestConcurrency, name,
+         observedGeneration, reconciling, scaling, service, serviceAccount,
+         timeout, uid, updateTime, volumes, vpcAccess;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -659,9 +627,9 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2RevisionTemplate
-@dynamic annotations, confidential, containerConcurrency, containers,
-         encryptionKey, executionEnvironment, labels, revision, scaling,
-         serviceAccount, timeout, volumes, vpcAccess;
+@dynamic annotations, containers, encryptionKey, executionEnvironment, labels,
+         maxInstanceRequestConcurrency, revision, scaling, serviceAccount,
+         timeout, volumes, vpcAccess;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -8,8 +8,6 @@
 
 #import "GTLRNetworkServicesQuery.h"
 
-#import "GTLRNetworkServicesObjects.h"
-
 @implementation GTLRNetworkServicesQuery
 
 @dynamic fields;

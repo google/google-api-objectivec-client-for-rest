@@ -12,8 +12,6 @@
 
 #import "GTLRClouderrorreportingQuery.h"
 
-#import "GTLRClouderrorreportingObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

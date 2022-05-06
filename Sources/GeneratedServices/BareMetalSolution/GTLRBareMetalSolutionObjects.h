@@ -30,6 +30,7 @@
 @class GTLRBareMetalSolution_Network;
 @class GTLRBareMetalSolution_Network_Labels;
 @class GTLRBareMetalSolution_NetworkAddress;
+@class GTLRBareMetalSolution_NetworkAddressReservation;
 @class GTLRBareMetalSolution_NetworkConfig;
 @class GTLRBareMetalSolution_NetworkUsage;
 @class GTLRBareMetalSolution_NfsExport;
@@ -41,18 +42,14 @@
 @class GTLRBareMetalSolution_ProvisioningConfig;
 @class GTLRBareMetalSolution_ProvisioningQuota;
 @class GTLRBareMetalSolution_QosPolicy;
-@class GTLRBareMetalSolution_Schedule;
 @class GTLRBareMetalSolution_ServerNetworkTemplate;
 @class GTLRBareMetalSolution_SnapshotReservationDetail;
-@class GTLRBareMetalSolution_SnapshotSchedulePolicy;
-@class GTLRBareMetalSolution_SnapshotSchedulePolicy_Labels;
 @class GTLRBareMetalSolution_Status;
 @class GTLRBareMetalSolution_Status_Details_Item;
 @class GTLRBareMetalSolution_VlanAttachment;
 @class GTLRBareMetalSolution_Volume;
 @class GTLRBareMetalSolution_Volume_Labels;
 @class GTLRBareMetalSolution_VolumeConfig;
-@class GTLRBareMetalSolution_VolumeSnapshot;
 @class GTLRBareMetalSolution_VRF;
 
 // Generated comments include content from the discovery document; avoid them
@@ -459,22 +456,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_ProvisioningQuota_Asse
 FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_ProvisioningQuota_AssetType_AssetTypeUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRBareMetalSolution_SnapshotSchedulePolicy.state
-
-/**
- *  The policy is been provisioned.
- *
- *  Value: "PROVISIONED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_SnapshotSchedulePolicy_State_Provisioned;
-/**
- *  The policy is in an unknown state.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_SnapshotSchedulePolicy_State_StateUnspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRBareMetalSolution_Volume.snapshotAutoDeleteBehavior
 
 /**
@@ -675,12 +656,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 
 /**
- *  A generic empty message that you can re-use to avoid defining duplicated
- *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
+ *  Message for detach specific LUN from an Instance.
  */
-@interface GTLRBareMetalSolution_Empty : GTLRObject
+@interface GTLRBareMetalSolution_DetachLunRequest : GTLRObject
+
+/** Required. Name of the Lun to detach. */
+@property(nonatomic, copy, nullable) NSString *lun;
+
 @end
 
 
@@ -1056,60 +1038,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 
 /**
- *  Response message containing the list of snapshot schedule policies.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "snapshotSchedulePolicies" property. If returned as the result of
- *        a query, it should support automatic pagination (when @c
- *        shouldFetchNextPages is enabled).
- */
-@interface GTLRBareMetalSolution_ListSnapshotSchedulePoliciesResponse : GTLRCollectionObject
-
-/**
- *  Token to retrieve the next page of results, or empty if there are no more
- *  results in the list.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  The snapshot schedule policies registered in this project.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_SnapshotSchedulePolicy *> *snapshotSchedulePolicies;
-
-@end
-
-
-/**
- *  Response message containing the list of storage volume snapshots.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "volumeSnapshots" property. If returned as the result of a query,
- *        it should support automatic pagination (when @c shouldFetchNextPages
- *        is enabled).
- */
-@interface GTLRBareMetalSolution_ListVolumeSnapshotsResponse : GTLRCollectionObject
-
-/** A token identifying a page of results from the server. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/** Locations that could not be reached. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
-
-/**
- *  The list of storage volumes.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_VolumeSnapshot *> *volumeSnapshots;
-
-@end
-
-
-/**
  *  Response message containing the list of storage volumes.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1373,6 +1301,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  List of IP address reservations in this network. When updating this field,
+ *  an error will be generated if a reservation conflicts with an IP address
+ *  already allocated to a physical server.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_NetworkAddressReservation *> *reservations;
+
 /** IP range for reserved for services (e.g. NFS). */
 @property(nonatomic, copy, nullable) NSString *servicesCidr;
 
@@ -1437,6 +1372,30 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 /** Id of the network to use, within the same ProvisioningConfig request. */
 @property(nonatomic, copy, nullable) NSString *networkId;
+
+@end
+
+
+/**
+ *  A reservation of one or more addresses in a network.
+ */
+@interface GTLRBareMetalSolution_NetworkAddressReservation : GTLRObject
+
+/**
+ *  The last address of this reservation block, inclusive. I.e., for cases when
+ *  reservations are only single addresses, end_address and start_address will
+ *  be the same. Must be specified as a single IPv4 address, e.g. 10.1.2.2.
+ */
+@property(nonatomic, copy, nullable) NSString *endAddress;
+
+/** A note about this reservation, intended for human consumption. */
+@property(nonatomic, copy, nullable) NSString *note;
+
+/**
+ *  The first address of this reservation block. Must be specified as a single
+ *  IPv4 address, e.g. 10.1.2.2.
+ */
+@property(nonatomic, copy, nullable) NSString *startAddress;
 
 @end
 
@@ -1921,34 +1880,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 
 /**
- *  Message for restoring a volume snapshot.
- */
-@interface GTLRBareMetalSolution_RestoreVolumeSnapshotRequest : GTLRObject
-@end
-
-
-/**
- *  A snapshot schedule.
- */
-@interface GTLRBareMetalSolution_Schedule : GTLRObject
-
-/** A crontab-like specification that the schedule uses to take snapshots. */
-@property(nonatomic, copy, nullable) NSString *crontabSpec;
-
-/** A list of snapshot names created in this schedule. */
-@property(nonatomic, copy, nullable) NSString *prefix;
-
-/**
- *  The maximum number of snapshots to retain in this schedule.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *retentionCount;
-
-@end
-
-
-/**
  *  Network template.
  */
 @interface GTLRBareMetalSolution_ServerNetworkTemplate : GTLRObject
@@ -2004,63 +1935,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  */
 @property(nonatomic, strong, nullable) NSNumber *reservedSpaceUsedPercent;
 
-@end
-
-
-/**
- *  A snapshot schedule policy.
- */
-@interface GTLRBareMetalSolution_SnapshotSchedulePolicy : GTLRObject
-
-/**
- *  The description of the snapshot schedule policy.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  An identifier for the snapshot schedule policy, generated by the backend.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/** Labels as key value pairs. */
-@property(nonatomic, strong, nullable) GTLRBareMetalSolution_SnapshotSchedulePolicy_Labels *labels;
-
-/** Output only. The name of the snapshot schedule policy. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The snapshot schedules contained in this policy. You can specify a maximum
- *  of 5 schedules.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_Schedule *> *schedules;
-
-/**
- *  The state of the snapshot schedule policy.
- *
- *  Likely values:
- *    @arg @c kGTLRBareMetalSolution_SnapshotSchedulePolicy_State_Provisioned
- *        The policy is been provisioned. (Value: "PROVISIONED")
- *    @arg @c kGTLRBareMetalSolution_SnapshotSchedulePolicy_State_StateUnspecified
- *        The policy is in an unknown state. (Value: "STATE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-@end
-
-
-/**
- *  Labels as key value pairs.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRBareMetalSolution_SnapshotSchedulePolicy_Labels : GTLRObject
 @end
 
 
@@ -2390,44 +2264,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *  for the BMS Ops team (b/194021617).
  */
 @property(nonatomic, copy, nullable) NSString *userNote;
-
-@end
-
-
-/**
- *  Snapshot registered for a given storage volume.
- */
-@interface GTLRBareMetalSolution_VolumeSnapshot : GTLRObject
-
-/** Output only. The creation time of the storage volume snapshot. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  The description of the storage volume snapshot.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  An identifier for the snapshot, generated by the backend.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/** Output only. The name of the storage volume snapshot. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The size of the storage volume snapshot, in bytes.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *sizeBytes;
-
-/** The storage volume this snapshot belongs to. */
-@property(nonatomic, copy, nullable) NSString *storageVolume;
 
 @end
 

@@ -11,8 +11,6 @@
 
 #import "GTLRFirebaseRulesQuery.h"
 
-#import "GTLRFirebaseRulesObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

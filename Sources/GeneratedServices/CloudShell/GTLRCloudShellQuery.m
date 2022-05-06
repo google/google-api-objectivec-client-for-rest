@@ -11,8 +11,6 @@
 
 #import "GTLRCloudShellQuery.h"
 
-#import "GTLRCloudShellObjects.h"
-
 @implementation GTLRCloudShellQuery
 
 @dynamic fields;

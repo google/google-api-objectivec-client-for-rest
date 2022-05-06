@@ -13,6 +13,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDataproc_AuthenticationConfig.authenticationType
+NSString * const kGTLRDataproc_AuthenticationConfig_AuthenticationType_AuthenticationTypeUnspecified = @"AUTHENTICATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataproc_AuthenticationConfig_AuthenticationType_InjectableCredentials = @"INJECTABLE_CREDENTIALS";
+NSString * const kGTLRDataproc_AuthenticationConfig_AuthenticationType_ServiceAccount = @"SERVICE_ACCOUNT";
+
 // GTLRDataproc_Batch.state
 NSString * const kGTLRDataproc_Batch_State_Cancelled        = @"CANCELLED";
 NSString * const kGTLRDataproc_Batch_State_Cancelling       = @"CANCELLING";
@@ -173,6 +178,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_AcceleratorConfig
 @dynamic acceleratorCount, acceleratorTypeUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AuthenticationConfig
+//
+
+@implementation GTLRDataproc_AuthenticationConfig
+@dynamic authenticationType, injectableCredentialsConfig;
 @end
 
 
@@ -913,6 +928,15 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_InjectableCredentialsConfig
+//
+
+@implementation GTLRDataproc_InjectableCredentialsConfig
 @end
 
 
@@ -1753,7 +1777,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_RuntimeConfig
-@dynamic containerImage, properties, version;
+@dynamic containerImage, properties, sessionAuthenticationConfig, version;
 @end
 
 

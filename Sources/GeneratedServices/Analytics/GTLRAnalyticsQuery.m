@@ -10,8 +10,6 @@
 
 #import "GTLRAnalyticsQuery.h"
 
-#import "GTLRAnalyticsObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

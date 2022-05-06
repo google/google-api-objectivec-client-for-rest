@@ -11,8 +11,6 @@
 
 #import "GTLRServiceDirectoryQuery.h"
 
-#import "GTLRServiceDirectoryObjects.h"
-
 @implementation GTLRServiceDirectoryQuery
 
 @dynamic fields;

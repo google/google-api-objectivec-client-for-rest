@@ -11,8 +11,6 @@
 
 #import "GTLRDatapipelinesQuery.h"
 
-#import "GTLRDatapipelinesObjects.h"
-
 @implementation GTLRDatapipelinesQuery
 
 @dynamic fields;

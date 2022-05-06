@@ -11,8 +11,6 @@
 
 #import "GTLRTexttospeechQuery.h"
 
-#import "GTLRTexttospeechObjects.h"
-
 @implementation GTLRTexttospeechQuery
 
 @dynamic fields;

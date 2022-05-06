@@ -10,8 +10,6 @@
 
 #import "GTLRCloudHealthcareQuery.h"
 
-#import "GTLRCloudHealthcareObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

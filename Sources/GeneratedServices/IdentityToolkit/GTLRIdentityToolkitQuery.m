@@ -10,8 +10,6 @@
 
 #import "GTLRIdentityToolkitQuery.h"
 
-#import "GTLRIdentityToolkitObjects.h"
-
 @implementation GTLRIdentityToolkitQuery
 
 @dynamic fields;

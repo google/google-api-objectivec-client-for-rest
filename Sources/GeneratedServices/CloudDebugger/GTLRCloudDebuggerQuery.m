@@ -11,8 +11,6 @@
 
 #import "GTLRCloudDebuggerQuery.h"
 
-#import "GTLRCloudDebuggerObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

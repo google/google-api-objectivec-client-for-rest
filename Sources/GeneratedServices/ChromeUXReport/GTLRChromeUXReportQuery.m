@@ -11,8 +11,6 @@
 
 #import "GTLRChromeUXReportQuery.h"
 
-#import "GTLRChromeUXReportObjects.h"
-
 @implementation GTLRChromeUXReportQuery
 
 @dynamic fields;

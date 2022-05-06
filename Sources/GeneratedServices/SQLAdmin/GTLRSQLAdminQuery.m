@@ -10,8 +10,6 @@
 
 #import "GTLRSQLAdminQuery.h"
 
-#import "GTLRSQLAdminObjects.h"
-
 @implementation GTLRSQLAdminQuery
 
 @dynamic fields;

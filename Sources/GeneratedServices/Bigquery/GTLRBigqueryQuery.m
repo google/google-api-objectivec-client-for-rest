@@ -10,8 +10,6 @@
 
 #import "GTLRBigqueryQuery.h"
 
-#import "GTLRBigqueryObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

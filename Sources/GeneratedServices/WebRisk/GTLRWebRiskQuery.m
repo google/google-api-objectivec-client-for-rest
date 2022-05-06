@@ -8,8 +8,6 @@
 
 #import "GTLRWebRiskQuery.h"
 
-#import "GTLRWebRiskObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

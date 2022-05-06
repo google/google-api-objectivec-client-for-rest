@@ -10,8 +10,6 @@
 
 #import "GTLRFitnessQuery.h"
 
-#import "GTLRFitnessObjects.h"
-
 @implementation GTLRFitnessQuery
 
 @dynamic fields;

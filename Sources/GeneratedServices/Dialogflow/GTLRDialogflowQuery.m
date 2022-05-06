@@ -11,8 +11,6 @@
 
 #import "GTLRDialogflowQuery.h"
 
-#import "GTLRDialogflowObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

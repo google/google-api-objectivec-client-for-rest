@@ -11,8 +11,6 @@
 
 #import "GTLRCloudbillingQuery.h"
 
-#import "GTLRCloudbillingObjects.h"
-
 @implementation GTLRCloudbillingQuery
 
 @dynamic fields;

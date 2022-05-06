@@ -10,8 +10,6 @@
 
 #import "GTLRScriptQuery.h"
 
-#import "GTLRScriptObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

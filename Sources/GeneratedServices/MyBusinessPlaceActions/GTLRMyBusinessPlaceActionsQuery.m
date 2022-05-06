@@ -11,8 +11,6 @@
 
 #import "GTLRMyBusinessPlaceActionsQuery.h"
 
-#import "GTLRMyBusinessPlaceActionsObjects.h"
-
 @implementation GTLRMyBusinessPlaceActionsQuery
 
 @dynamic fields;

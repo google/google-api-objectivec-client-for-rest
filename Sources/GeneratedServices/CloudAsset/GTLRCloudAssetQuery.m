@@ -10,8 +10,6 @@
 
 #import "GTLRCloudAssetQuery.h"
 
-#import "GTLRCloudAssetObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

@@ -13,8 +13,6 @@
 
 #import "GTLRRealTimeBiddingQuery.h"
 
-#import "GTLRRealTimeBiddingObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

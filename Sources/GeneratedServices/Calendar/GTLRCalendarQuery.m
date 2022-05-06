@@ -10,8 +10,6 @@
 
 #import "GTLRCalendarQuery.h"
 
-#import "GTLRCalendarObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

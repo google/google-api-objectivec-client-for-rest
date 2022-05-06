@@ -10,8 +10,6 @@
 
 #import "GTLRCloudBuildQuery.h"
 
-#import "GTLRCloudBuildObjects.h"
-
 @implementation GTLRCloudBuildQuery
 
 @dynamic fields;

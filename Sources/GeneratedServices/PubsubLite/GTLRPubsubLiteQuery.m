@@ -8,8 +8,6 @@
 
 #import "GTLRPubsubLiteQuery.h"
 
-#import "GTLRPubsubLiteObjects.h"
-
 @implementation GTLRPubsubLiteQuery
 
 @dynamic fields;

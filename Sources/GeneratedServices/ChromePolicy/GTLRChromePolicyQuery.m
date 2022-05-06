@@ -12,8 +12,6 @@
 
 #import "GTLRChromePolicyQuery.h"
 
-#import "GTLRChromePolicyObjects.h"
-
 @implementation GTLRChromePolicyQuery
 
 @dynamic fields;

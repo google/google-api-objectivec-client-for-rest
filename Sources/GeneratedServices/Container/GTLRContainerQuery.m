@@ -11,8 +11,6 @@
 
 #import "GTLRContainerQuery.h"
 
-#import "GTLRContainerObjects.h"
-
 @implementation GTLRContainerQuery
 
 @dynamic fields;

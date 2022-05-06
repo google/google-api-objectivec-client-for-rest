@@ -13,8 +13,6 @@
 
 #import "GTLRCloudRunQuery.h"
 
-#import "GTLRCloudRunObjects.h"
-
 @implementation GTLRCloudRunQuery
 
 @dynamic fields;

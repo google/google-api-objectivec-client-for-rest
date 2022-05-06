@@ -11,8 +11,6 @@
 
 #import "GTLRAdMobQuery.h"
 
-#import "GTLRAdMobObjects.h"
-
 @implementation GTLRAdMobQuery
 
 @dynamic fields;

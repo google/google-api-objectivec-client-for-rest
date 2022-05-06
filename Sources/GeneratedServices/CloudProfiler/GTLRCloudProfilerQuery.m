@@ -10,8 +10,6 @@
 
 #import "GTLRCloudProfilerQuery.h"
 
-#import "GTLRCloudProfilerObjects.h"
-
 @implementation GTLRCloudProfilerQuery
 
 @dynamic fields;

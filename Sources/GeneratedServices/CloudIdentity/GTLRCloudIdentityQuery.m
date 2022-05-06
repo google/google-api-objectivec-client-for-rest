@@ -10,8 +10,6 @@
 
 #import "GTLRCloudIdentityQuery.h"
 
-#import "GTLRCloudIdentityObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

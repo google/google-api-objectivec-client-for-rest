@@ -8,8 +8,6 @@
 
 #import "GTLRDatastreamQuery.h"
 
-#import "GTLRDatastreamObjects.h"
-
 @implementation GTLRDatastreamQuery
 
 @dynamic fields;

@@ -11,8 +11,6 @@
 
 #import "GTLRCloudFilestoreQuery.h"
 
-#import "GTLRCloudFilestoreObjects.h"
-
 @implementation GTLRCloudFilestoreQuery
 
 @dynamic fields;

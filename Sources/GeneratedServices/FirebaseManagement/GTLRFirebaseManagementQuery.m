@@ -12,8 +12,6 @@
 
 #import "GTLRFirebaseManagementQuery.h"
 
-#import "GTLRFirebaseManagementObjects.h"
-
 @implementation GTLRFirebaseManagementQuery
 
 @dynamic fields;

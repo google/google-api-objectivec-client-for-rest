@@ -8,8 +8,6 @@
 
 #import "GTLRAPIGatewayQuery.h"
 
-#import "GTLRAPIGatewayObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

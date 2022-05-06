@@ -12,8 +12,6 @@
 
 #import "GTLRDisplayVideoQuery.h"
 
-#import "GTLRDisplayVideoObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

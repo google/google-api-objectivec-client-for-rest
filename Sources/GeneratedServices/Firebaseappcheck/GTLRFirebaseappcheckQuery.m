@@ -11,8 +11,6 @@
 
 #import "GTLRFirebaseappcheckQuery.h"
 
-#import "GTLRFirebaseappcheckObjects.h"
-
 @implementation GTLRFirebaseappcheckQuery
 
 @dynamic fields;

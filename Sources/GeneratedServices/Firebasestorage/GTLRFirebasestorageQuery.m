@@ -11,8 +11,6 @@
 
 #import "GTLRFirebasestorageQuery.h"
 
-#import "GTLRFirebasestorageObjects.h"
-
 @implementation GTLRFirebasestorageQuery
 
 @dynamic fields;

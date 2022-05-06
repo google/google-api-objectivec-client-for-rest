@@ -10,8 +10,6 @@
 
 #import "GTLRApiKeysServiceQuery.h"
 
-#import "GTLRApiKeysServiceObjects.h"
-
 @implementation GTLRApiKeysServiceQuery
 
 @dynamic fields;

@@ -10,8 +10,6 @@
 
 #import "GTLRCloudSchedulerQuery.h"
 
-#import "GTLRCloudSchedulerObjects.h"
-
 @implementation GTLRCloudSchedulerQuery
 
 @dynamic fields;

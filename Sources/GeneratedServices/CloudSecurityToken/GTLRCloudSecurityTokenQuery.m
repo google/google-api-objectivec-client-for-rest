@@ -11,8 +11,6 @@
 
 #import "GTLRCloudSecurityTokenQuery.h"
 
-#import "GTLRCloudSecurityTokenObjects.h"
-
 @implementation GTLRCloudSecurityTokenQuery
 
 @dynamic fields;

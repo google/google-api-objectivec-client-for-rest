@@ -10,8 +10,6 @@
 
 #import "GTLRTasksQuery.h"
 
-#import "GTLRTasksObjects.h"
-
 @implementation GTLRTasksQuery
 
 @dynamic fields;

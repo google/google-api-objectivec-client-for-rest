@@ -13,8 +13,6 @@
 
 #import "GTLRCertificateAuthorityServiceQuery.h"
 
-#import "GTLRCertificateAuthorityServiceObjects.h"
-
 @implementation GTLRCertificateAuthorityServiceQuery
 
 @dynamic fields;

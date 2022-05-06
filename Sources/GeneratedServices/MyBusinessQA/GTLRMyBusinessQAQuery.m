@@ -11,8 +11,6 @@
 
 #import "GTLRMyBusinessQAQuery.h"
 
-#import "GTLRMyBusinessQAObjects.h"
-
 @implementation GTLRMyBusinessQAQuery
 
 @dynamic fields;

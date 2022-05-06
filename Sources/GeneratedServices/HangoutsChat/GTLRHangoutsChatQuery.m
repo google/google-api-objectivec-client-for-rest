@@ -12,8 +12,6 @@
 
 #import "GTLRHangoutsChatQuery.h"
 
-#import "GTLRHangoutsChatObjects.h"
-
 @implementation GTLRHangoutsChatQuery
 
 @dynamic fields;

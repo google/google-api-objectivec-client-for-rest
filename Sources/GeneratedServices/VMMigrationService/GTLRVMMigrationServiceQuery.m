@@ -11,8 +11,6 @@
 
 #import "GTLRVMMigrationServiceQuery.h"
 
-#import "GTLRVMMigrationServiceObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

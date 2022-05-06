@@ -10,8 +10,6 @@
 
 #import "GTLRAlertCenterQuery.h"
 
-#import "GTLRAlertCenterObjects.h"
-
 @implementation GTLRAlertCenterQuery
 
 @dynamic fields;

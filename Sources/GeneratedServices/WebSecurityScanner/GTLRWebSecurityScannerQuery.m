@@ -10,8 +10,6 @@
 
 #import "GTLRWebSecurityScannerQuery.h"
 
-#import "GTLRWebSecurityScannerObjects.h"
-
 @implementation GTLRWebSecurityScannerQuery
 
 @dynamic fields;

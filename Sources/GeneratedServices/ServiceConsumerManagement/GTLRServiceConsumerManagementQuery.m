@@ -10,8 +10,6 @@
 
 #import "GTLRServiceConsumerManagementQuery.h"
 
-#import "GTLRServiceConsumerManagementObjects.h"
-
 @implementation GTLRServiceConsumerManagementQuery
 
 @dynamic fields;

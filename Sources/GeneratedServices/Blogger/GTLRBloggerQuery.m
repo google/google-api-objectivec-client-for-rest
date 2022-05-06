@@ -11,8 +11,6 @@
 
 #import "GTLRBloggerQuery.h"
 
-#import "GTLRBloggerObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

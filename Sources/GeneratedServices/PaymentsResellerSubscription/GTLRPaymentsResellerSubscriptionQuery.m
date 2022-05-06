@@ -8,8 +8,6 @@
 
 #import "GTLRPaymentsResellerSubscriptionQuery.h"
 
-#import "GTLRPaymentsResellerSubscriptionObjects.h"
-
 @implementation GTLRPaymentsResellerSubscriptionQuery
 
 @dynamic fields;

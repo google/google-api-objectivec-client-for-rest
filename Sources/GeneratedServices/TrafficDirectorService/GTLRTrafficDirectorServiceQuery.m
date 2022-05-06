@@ -8,8 +8,6 @@
 
 #import "GTLRTrafficDirectorServiceQuery.h"
 
-#import "GTLRTrafficDirectorServiceObjects.h"
-
 @implementation GTLRTrafficDirectorServiceQuery
 
 @dynamic fields;

@@ -10,8 +10,6 @@
 
 #import "GTLRManufacturerCenterQuery.h"
 
-#import "GTLRManufacturerCenterObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

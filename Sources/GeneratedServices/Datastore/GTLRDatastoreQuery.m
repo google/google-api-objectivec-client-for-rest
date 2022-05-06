@@ -11,8 +11,6 @@
 
 #import "GTLRDatastoreQuery.h"
 
-#import "GTLRDatastoreObjects.h"
-
 @implementation GTLRDatastoreQuery
 
 @dynamic fields;

@@ -11,8 +11,6 @@
 
 #import "GTLROrgPolicyAPIQuery.h"
 
-#import "GTLROrgPolicyAPIObjects.h"
-
 @implementation GTLROrgPolicyAPIQuery
 
 @dynamic fields;

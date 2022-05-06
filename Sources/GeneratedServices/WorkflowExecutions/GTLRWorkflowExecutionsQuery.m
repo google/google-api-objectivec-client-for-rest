@@ -10,8 +10,6 @@
 
 #import "GTLRWorkflowExecutionsQuery.h"
 
-#import "GTLRWorkflowExecutionsObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

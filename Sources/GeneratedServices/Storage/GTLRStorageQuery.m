@@ -10,8 +10,6 @@
 
 #import "GTLRStorageQuery.h"
 
-#import "GTLRStorageObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

@@ -12,8 +12,6 @@
 
 #import "GTLRCloudVideoIntelligenceQuery.h"
 
-#import "GTLRCloudVideoIntelligenceObjects.h"
-
 @implementation GTLRCloudVideoIntelligenceQuery
 
 @dynamic fields;

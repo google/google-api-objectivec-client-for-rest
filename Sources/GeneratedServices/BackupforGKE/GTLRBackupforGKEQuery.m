@@ -11,8 +11,6 @@
 
 #import "GTLRBackupforGKEQuery.h"
 
-#import "GTLRBackupforGKEObjects.h"
-
 @implementation GTLRBackupforGKEQuery
 
 @dynamic fields;

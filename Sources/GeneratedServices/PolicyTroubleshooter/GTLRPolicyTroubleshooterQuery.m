@@ -8,8 +8,6 @@
 
 #import "GTLRPolicyTroubleshooterQuery.h"
 
-#import "GTLRPolicyTroubleshooterObjects.h"
-
 @implementation GTLRPolicyTroubleshooterQuery
 
 @dynamic fields;

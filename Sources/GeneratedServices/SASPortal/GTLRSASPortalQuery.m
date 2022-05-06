@@ -8,8 +8,6 @@
 
 #import "GTLRSASPortalQuery.h"
 
-#import "GTLRSASPortalObjects.h"
-
 @implementation GTLRSASPortalQuery
 
 @dynamic fields;

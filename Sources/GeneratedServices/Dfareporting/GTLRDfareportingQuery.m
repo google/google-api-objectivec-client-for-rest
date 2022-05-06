@@ -11,8 +11,6 @@
 
 #import "GTLRDfareportingQuery.h"
 
-#import "GTLRDfareportingObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

@@ -8,8 +8,6 @@
 
 #import "GTLRApigeeRegistryQuery.h"
 
-#import "GTLRApigeeRegistryObjects.h"
-
 @implementation GTLRApigeeRegistryQuery
 
 @dynamic fields;

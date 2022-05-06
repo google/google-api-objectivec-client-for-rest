@@ -10,8 +10,6 @@
 
 #import "GTLRIdeahubQuery.h"
 
-#import "GTLRIdeahubObjects.h"
-
 @implementation GTLRIdeahubQuery
 
 @dynamic fields;

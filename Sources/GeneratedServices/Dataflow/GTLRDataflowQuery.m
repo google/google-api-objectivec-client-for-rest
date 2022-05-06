@@ -10,8 +10,6 @@
 
 #import "GTLRDataflowQuery.h"
 
-#import "GTLRDataflowObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

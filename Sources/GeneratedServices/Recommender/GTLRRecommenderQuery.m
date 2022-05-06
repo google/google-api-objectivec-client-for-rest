@@ -8,8 +8,6 @@
 
 #import "GTLRRecommenderQuery.h"
 
-#import "GTLRRecommenderObjects.h"
-
 @implementation GTLRRecommenderQuery
 
 @dynamic fields;

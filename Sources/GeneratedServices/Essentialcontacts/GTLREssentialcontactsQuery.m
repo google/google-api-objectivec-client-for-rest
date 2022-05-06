@@ -8,8 +8,6 @@
 
 #import "GTLREssentialcontactsQuery.h"
 
-#import "GTLREssentialcontactsObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

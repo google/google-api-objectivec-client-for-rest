@@ -2454,8 +2454,8 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1Organization
-@dynamic addonsConfig, analyticsRegion, attributes, authorizedNetwork,
-         billingType, caCertificate, createdAt, customerName,
+@dynamic addonsConfig, analyticsRegion, apigeeProjectId, attributes,
+         authorizedNetwork, billingType, caCertificate, createdAt, customerName,
          descriptionProperty, displayName, environments, expiresAt,
          lastModifiedAt, name, portalDisabled, projectId, properties,
          runtimeDatabaseEncryptionKeyName, runtimeType, state, subscriptionType,

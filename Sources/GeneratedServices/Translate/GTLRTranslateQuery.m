@@ -10,8 +10,6 @@
 
 #import "GTLRTranslateQuery.h"
 
-#import "GTLRTranslateObjects.h"
-
 @implementation GTLRTranslateQuery
 
 @dynamic fields;

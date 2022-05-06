@@ -11,8 +11,6 @@
 
 #import "GTLRAcceleratedmobilepageurlQuery.h"
 
-#import "GTLRAcceleratedmobilepageurlObjects.h"
-
 @implementation GTLRAcceleratedmobilepageurlQuery
 
 @dynamic fields;

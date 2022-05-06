@@ -11,8 +11,6 @@
 
 #import "GTLRSecurityCommandCenterQuery.h"
 
-#import "GTLRSecurityCommandCenterObjects.h"
-
 @implementation GTLRSecurityCommandCenterQuery
 
 @dynamic fields;

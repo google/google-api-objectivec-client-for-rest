@@ -12,8 +12,6 @@
 
 #import "GTLRStreetViewPublishQuery.h"
 
-#import "GTLRStreetViewPublishObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

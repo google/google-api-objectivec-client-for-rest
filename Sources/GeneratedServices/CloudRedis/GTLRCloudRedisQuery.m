@@ -10,8 +10,6 @@
 
 #import "GTLRCloudRedisQuery.h"
 
-#import "GTLRCloudRedisObjects.h"
-
 @implementation GTLRCloudRedisQuery
 
 @dynamic fields;

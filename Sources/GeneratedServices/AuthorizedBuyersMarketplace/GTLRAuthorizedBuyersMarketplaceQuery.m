@@ -11,8 +11,6 @@
 
 #import "GTLRAuthorizedBuyersMarketplaceQuery.h"
 
-#import "GTLRAuthorizedBuyersMarketplaceObjects.h"
-
 @implementation GTLRAuthorizedBuyersMarketplaceQuery
 
 @dynamic fields;

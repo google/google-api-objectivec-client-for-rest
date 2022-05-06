@@ -11,8 +11,6 @@
 
 #import "GTLRConnectorsQuery.h"
 
-#import "GTLRConnectorsObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

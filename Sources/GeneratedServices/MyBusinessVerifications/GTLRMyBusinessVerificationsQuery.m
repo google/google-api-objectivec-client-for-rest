@@ -11,8 +11,6 @@
 
 #import "GTLRMyBusinessVerificationsQuery.h"
 
-#import "GTLRMyBusinessVerificationsObjects.h"
-
 @implementation GTLRMyBusinessVerificationsQuery
 
 @dynamic fields;

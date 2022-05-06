@@ -12,8 +12,6 @@
 
 #import "GTLRResourceSettingsQuery.h"
 
-#import "GTLRResourceSettingsObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

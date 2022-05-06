@@ -69,7 +69,7 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"failedVersions" : [GTLRArtifactRegistry_Version class]
+    @"failedVersions" : [NSString class]
   };
   return map;
 }

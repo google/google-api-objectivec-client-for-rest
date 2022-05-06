@@ -10,8 +10,6 @@
 
 #import "GTLRLoggingQuery.h"
 
-#import "GTLRLoggingObjects.h"
-
 @implementation GTLRLoggingQuery
 
 @dynamic fields;

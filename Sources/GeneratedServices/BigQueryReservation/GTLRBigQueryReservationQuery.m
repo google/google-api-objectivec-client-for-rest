@@ -10,8 +10,6 @@
 
 #import "GTLRBigQueryReservationQuery.h"
 
-#import "GTLRBigQueryReservationObjects.h"
-
 @implementation GTLRBigQueryReservationQuery
 
 @dynamic fields;

@@ -11,8 +11,6 @@
 
 #import "GTLRYouTubeReportingQuery.h"
 
-#import "GTLRYouTubeReportingObjects.h"
-
 @implementation GTLRYouTubeReportingQuery
 
 @dynamic fields;

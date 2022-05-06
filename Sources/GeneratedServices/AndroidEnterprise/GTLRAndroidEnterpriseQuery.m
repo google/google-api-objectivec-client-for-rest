@@ -10,8 +10,6 @@
 
 #import "GTLRAndroidEnterpriseQuery.h"
 
-#import "GTLRAndroidEnterpriseObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

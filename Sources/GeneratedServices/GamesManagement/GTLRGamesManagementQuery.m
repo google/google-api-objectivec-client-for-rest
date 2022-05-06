@@ -11,8 +11,6 @@
 
 #import "GTLRGamesManagementQuery.h"
 
-#import "GTLRGamesManagementObjects.h"
-
 @implementation GTLRGamesManagementQuery
 
 @dynamic fields;

@@ -11,8 +11,6 @@
 
 #import "GTLRDriveQuery.h"
 
-#import "GTLRDriveObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

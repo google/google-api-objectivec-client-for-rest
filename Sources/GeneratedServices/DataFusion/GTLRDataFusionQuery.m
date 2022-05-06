@@ -16,8 +16,6 @@
 
 #import "GTLRDataFusionQuery.h"
 
-#import "GTLRDataFusionObjects.h"
-
 @implementation GTLRDataFusionQuery
 
 @dynamic fields;

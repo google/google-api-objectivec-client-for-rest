@@ -16,8 +16,6 @@
 
 #import "GTLRRecommendationsAIQuery.h"
 
-#import "GTLRRecommendationsAIObjects.h"
-
 @implementation GTLRRecommendationsAIQuery
 
 @dynamic fields;

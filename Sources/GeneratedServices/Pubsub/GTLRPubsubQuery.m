@@ -11,8 +11,6 @@
 
 #import "GTLRPubsubQuery.h"
 
-#import "GTLRPubsubObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

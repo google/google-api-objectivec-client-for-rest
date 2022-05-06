@@ -11,8 +11,6 @@
 
 #import "GTLRSearchConsoleQuery.h"
 
-#import "GTLRSearchConsoleObjects.h"
-
 @implementation GTLRSearchConsoleQuery
 
 @dynamic fields;

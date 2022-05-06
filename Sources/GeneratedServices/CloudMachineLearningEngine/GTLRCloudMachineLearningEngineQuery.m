@@ -10,8 +10,6 @@
 
 #import "GTLRCloudMachineLearningEngineQuery.h"
 
-#import "GTLRCloudMachineLearningEngineObjects.h"
-
 @implementation GTLRCloudMachineLearningEngineQuery
 
 @dynamic fields;

@@ -10,8 +10,6 @@
 
 #import "GTLRFirebaseDynamicLinksQuery.h"
 
-#import "GTLRFirebaseDynamicLinksObjects.h"
-
 @implementation GTLRFirebaseDynamicLinksQuery
 
 @dynamic fields;

@@ -11,8 +11,6 @@
 
 #import "GTLRVerifiedaccessQuery.h"
 
-#import "GTLRVerifiedaccessObjects.h"
-
 @implementation GTLRVerifiedaccessQuery
 
 @dynamic fields;

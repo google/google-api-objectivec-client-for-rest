@@ -14,8 +14,6 @@
 
 #import "GTLRSafebrowsingQuery.h"
 
-#import "GTLRSafebrowsingObjects.h"
-
 @implementation GTLRSafebrowsingQuery
 
 @dynamic fields;

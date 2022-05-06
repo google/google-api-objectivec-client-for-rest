@@ -10,8 +10,6 @@
 
 #import "GTLRCloudComposerQuery.h"
 
-#import "GTLRCloudComposerObjects.h"
-
 @implementation GTLRCloudComposerQuery
 
 @dynamic fields;

@@ -11,8 +11,6 @@
 
 #import "GTLRBigQueryDataTransferQuery.h"
 
-#import "GTLRBigQueryDataTransferObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

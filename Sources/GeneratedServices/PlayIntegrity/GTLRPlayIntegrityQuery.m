@@ -10,8 +10,6 @@
 
 #import "GTLRPlayIntegrityQuery.h"
 
-#import "GTLRPlayIntegrityObjects.h"
-
 @implementation GTLRPlayIntegrityQuery
 
 @dynamic fields;
