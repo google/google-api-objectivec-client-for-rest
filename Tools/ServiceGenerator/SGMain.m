@@ -1589,11 +1589,3 @@ void ServiceGeneratorMain(void) {
   int status = SGMainInternal(*_NSGetArgc(), *_NSGetArgv());
   exit(status);
 }
-
-#if !SWIFT_PACKAGE
-
-int main(int argc, char * const *argv) {
-  return SGMainInternal(argc, argv);
-}
-
-#endif
