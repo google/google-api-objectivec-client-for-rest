@@ -15,9 +15,9 @@
 
 #import "GTLRObject.h"
 
-NS_ASSUME_NONNULL_BEGIN
+#import "GTLRErrorObject.h"
 
-@class GTLRErrorObject;
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A batch result includes a dictionary of successes, a dictionary of failures, and a dictionary of
