@@ -10,8 +10,6 @@
 
 #import "GTLREventarcQuery.h"
 
-#import "GTLREventarcObjects.h"
-
 @implementation GTLREventarcQuery
 
 @dynamic fields;

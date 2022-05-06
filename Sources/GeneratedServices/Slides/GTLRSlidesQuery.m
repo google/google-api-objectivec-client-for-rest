@@ -10,8 +10,6 @@
 
 #import "GTLRSlidesQuery.h"
 
-#import "GTLRSlidesObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

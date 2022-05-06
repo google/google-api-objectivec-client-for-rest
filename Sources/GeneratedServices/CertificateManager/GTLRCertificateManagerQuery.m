@@ -8,8 +8,6 @@
 
 #import "GTLRCertificateManagerQuery.h"
 
-#import "GTLRCertificateManagerObjects.h"
-
 @implementation GTLRCertificateManagerQuery
 
 @dynamic fields;

@@ -8,8 +8,6 @@
 
 #import "GTLRContactcenterinsightsQuery.h"
 
-#import "GTLRContactcenterinsightsObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

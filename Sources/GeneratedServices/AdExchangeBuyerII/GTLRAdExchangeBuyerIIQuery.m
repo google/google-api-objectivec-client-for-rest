@@ -12,8 +12,6 @@
 
 #import "GTLRAdExchangeBuyerIIQuery.h"
 
-#import "GTLRAdExchangeBuyerIIObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

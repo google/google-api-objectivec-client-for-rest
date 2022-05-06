@@ -10,8 +10,6 @@
 
 #import "GTLRYouTubeAnalyticsQuery.h"
 
-#import "GTLRYouTubeAnalyticsObjects.h"
-
 @implementation GTLRYouTubeAnalyticsQuery
 
 @dynamic fields;

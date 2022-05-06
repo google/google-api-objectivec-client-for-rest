@@ -12,8 +12,6 @@
 
 #import "GTLRServiceManagementQuery.h"
 
-#import "GTLRServiceManagementObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

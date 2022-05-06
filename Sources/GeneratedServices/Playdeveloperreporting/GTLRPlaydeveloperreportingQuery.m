@@ -8,8 +8,6 @@
 
 #import "GTLRPlaydeveloperreportingQuery.h"
 
-#import "GTLRPlaydeveloperreportingObjects.h"
-
 @implementation GTLRPlaydeveloperreportingQuery
 
 @dynamic fields;

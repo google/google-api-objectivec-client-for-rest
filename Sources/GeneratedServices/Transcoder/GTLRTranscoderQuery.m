@@ -11,8 +11,6 @@
 
 #import "GTLRTranscoderQuery.h"
 
-#import "GTLRTranscoderObjects.h"
-
 @implementation GTLRTranscoderQuery
 
 @dynamic fields;

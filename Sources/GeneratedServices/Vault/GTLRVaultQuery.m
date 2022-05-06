@@ -16,8 +16,6 @@
 
 #import "GTLRVaultQuery.h"
 
-#import "GTLRVaultObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

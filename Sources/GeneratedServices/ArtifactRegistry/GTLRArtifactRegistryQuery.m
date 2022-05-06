@@ -11,8 +11,6 @@
 
 #import "GTLRArtifactRegistryQuery.h"
 
-#import "GTLRArtifactRegistryObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

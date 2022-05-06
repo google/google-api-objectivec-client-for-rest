@@ -10,8 +10,6 @@
 
 #import "GTLRClassroomQuery.h"
 
-#import "GTLRClassroomObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

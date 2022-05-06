@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud DNS API (dns/v2)
+//   Cloud DNS API (dns/v1)
 // Documentation:
 //   https://cloud.google.com/dns/docs
 
@@ -49,7 +49,6 @@ NSString * const kGTLRAuthScopeDnsNdevClouddnsReadwrite = @"https://www.googleap
     @"dns#managedZonePeeringConfig" : [GTLRDns_ManagedZonePeeringConfig class],
     @"dns#managedZonePeeringConfigTargetNetwork" : [GTLRDns_ManagedZonePeeringConfigTargetNetwork class],
     @"dns#managedZonePrivateVisibilityConfig" : [GTLRDns_ManagedZonePrivateVisibilityConfig class],
-    @"dns#managedZonePrivateVisibilityConfigGKECluster" : [GTLRDns_ManagedZonePrivateVisibilityConfigGKECluster class],
     @"dns#managedZonePrivateVisibilityConfigNetwork" : [GTLRDns_ManagedZonePrivateVisibilityConfigNetwork class],
     @"dns#managedZoneReverseLookupConfig" : [GTLRDns_ManagedZoneReverseLookupConfig class],
     @"dns#managedZoneServiceDirectoryConfig" : [GTLRDns_ManagedZoneServiceDirectoryConfig class],
@@ -66,7 +65,6 @@ NSString * const kGTLRAuthScopeDnsNdevClouddnsReadwrite = @"https://www.googleap
     @"dns#resourceRecordSet" : [GTLRDns_ResourceRecordSet class],
     @"dns#resourceRecordSetsListResponse" : [GTLRDns_ResourceRecordSetsListResponse class],
     @"dns#responsePolicy" : [GTLRDns_ResponsePolicy class],
-    @"dns#responsePolicyGKECluster" : [GTLRDns_ResponsePolicyGKECluster class],
     @"dns#responsePolicyNetwork" : [GTLRDns_ResponsePolicyNetwork class],
     @"dns#responsePolicyRule" : [GTLRDns_ResponsePolicyRule class],
     @"dns#rRSetRoutingPolicy" : [GTLRDns_RRSetRoutingPolicy class],

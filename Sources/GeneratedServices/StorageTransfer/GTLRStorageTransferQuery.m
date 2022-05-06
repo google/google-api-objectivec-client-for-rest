@@ -11,8 +11,6 @@
 
 #import "GTLRStorageTransferQuery.h"
 
-#import "GTLRStorageTransferObjects.h"
-
 @implementation GTLRStorageTransferQuery
 
 @dynamic fields;

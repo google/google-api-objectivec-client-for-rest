@@ -10,8 +10,6 @@
 
 #import "GTLRGameServicesQuery.h"
 
-#import "GTLRGameServicesObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

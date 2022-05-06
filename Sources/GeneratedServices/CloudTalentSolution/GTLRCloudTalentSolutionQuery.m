@@ -11,8 +11,6 @@
 
 #import "GTLRCloudTalentSolutionQuery.h"
 
-#import "GTLRCloudTalentSolutionObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

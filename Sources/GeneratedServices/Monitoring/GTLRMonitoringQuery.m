@@ -10,8 +10,6 @@
 
 #import "GTLRMonitoringQuery.h"
 
-#import "GTLRMonitoringObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

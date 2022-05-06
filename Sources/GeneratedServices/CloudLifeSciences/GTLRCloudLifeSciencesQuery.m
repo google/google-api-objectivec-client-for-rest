@@ -11,8 +11,6 @@
 
 #import "GTLRCloudLifeSciencesQuery.h"
 
-#import "GTLRCloudLifeSciencesObjects.h"
-
 @implementation GTLRCloudLifeSciencesQuery
 
 @dynamic fields;

@@ -10,8 +10,6 @@
 
 #import "GTLROnDemandScanningQuery.h"
 
-#import "GTLROnDemandScanningObjects.h"
-
 @implementation GTLROnDemandScanningQuery
 
 @dynamic fields;

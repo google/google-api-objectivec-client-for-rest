@@ -8,8 +8,6 @@
 
 #import "GTLRNetworkSecurityQuery.h"
 
-#import "GTLRNetworkSecurityObjects.h"
-
 @implementation GTLRNetworkSecurityQuery
 
 @dynamic fields;

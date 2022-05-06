@@ -11,8 +11,6 @@
 
 #import "GTLRResellerQuery.h"
 
-#import "GTLRResellerObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

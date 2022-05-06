@@ -10,8 +10,6 @@
 
 #import "GTLRBooksQuery.h"
 
-#import "GTLRBooksObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

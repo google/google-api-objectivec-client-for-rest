@@ -8,8 +8,6 @@
 
 #import "GTLRGKEHubQuery.h"
 
-#import "GTLRGKEHubObjects.h"
-
 @implementation GTLRGKEHubQuery
 
 @dynamic fields;

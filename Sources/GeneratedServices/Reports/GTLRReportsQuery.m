@@ -12,8 +12,6 @@
 
 #import "GTLRReportsQuery.h"
 
-#import "GTLRReportsObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

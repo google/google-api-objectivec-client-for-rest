@@ -99,10 +99,6 @@ NSString * const kGTLRBareMetalSolution_ProvisioningQuota_AssetType_AssetTypeSer
 NSString * const kGTLRBareMetalSolution_ProvisioningQuota_AssetType_AssetTypeStorage = @"ASSET_TYPE_STORAGE";
 NSString * const kGTLRBareMetalSolution_ProvisioningQuota_AssetType_AssetTypeUnspecified = @"ASSET_TYPE_UNSPECIFIED";
 
-// GTLRBareMetalSolution_SnapshotSchedulePolicy.state
-NSString * const kGTLRBareMetalSolution_SnapshotSchedulePolicy_State_Provisioned = @"PROVISIONED";
-NSString * const kGTLRBareMetalSolution_SnapshotSchedulePolicy_State_StateUnspecified = @"STATE_UNSPECIFIED";
-
 // GTLRBareMetalSolution_Volume.snapshotAutoDeleteBehavior
 NSString * const kGTLRBareMetalSolution_Volume_SnapshotAutoDeleteBehavior_Disabled = @"DISABLED";
 NSString * const kGTLRBareMetalSolution_Volume_SnapshotAutoDeleteBehavior_NewestFirst = @"NEWEST_FIRST";
@@ -148,10 +144,11 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBareMetalSolution_Empty
+//   GTLRBareMetalSolution_DetachLunRequest
 //
 
-@implementation GTLRBareMetalSolution_Empty
+@implementation GTLRBareMetalSolution_DetachLunRequest
+@dynamic lun;
 @end
 
 
@@ -409,51 +406,6 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBareMetalSolution_ListSnapshotSchedulePoliciesResponse
-//
-
-@implementation GTLRBareMetalSolution_ListSnapshotSchedulePoliciesResponse
-@dynamic nextPageToken, snapshotSchedulePolicies;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"snapshotSchedulePolicies" : [GTLRBareMetalSolution_SnapshotSchedulePolicy class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"snapshotSchedulePolicies";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBareMetalSolution_ListVolumeSnapshotsResponse
-//
-
-@implementation GTLRBareMetalSolution_ListVolumeSnapshotsResponse
-@dynamic nextPageToken, unreachable, volumeSnapshots;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"unreachable" : [NSString class],
-    @"volumeSnapshots" : [GTLRBareMetalSolution_VolumeSnapshot class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"volumeSnapshots";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBareMetalSolution_ListVolumesResponse
 //
 
@@ -555,8 +507,8 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_Network
-@dynamic cidr, identifier, ipAddress, labels, macAddress, name, servicesCidr,
-         state, type, vlanId, vrf;
+@dynamic cidr, identifier, ipAddress, labels, macAddress, name, reservations,
+         servicesCidr, state, type, vlanId, vrf;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -564,7 +516,8 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"macAddress" : [NSString class]
+    @"macAddress" : [NSString class],
+    @"reservations" : [GTLRBareMetalSolution_NetworkAddressReservation class]
   };
   return map;
 }
@@ -593,6 +546,16 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 @implementation GTLRBareMetalSolution_NetworkAddress
 @dynamic address, existingNetworkId, networkId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_NetworkAddressReservation
+//
+
+@implementation GTLRBareMetalSolution_NetworkAddressReservation
+@dynamic endAddress, note, startAddress;
 @end
 
 
@@ -795,25 +758,6 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBareMetalSolution_RestoreVolumeSnapshotRequest
-//
-
-@implementation GTLRBareMetalSolution_RestoreVolumeSnapshotRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBareMetalSolution_Schedule
-//
-
-@implementation GTLRBareMetalSolution_Schedule
-@dynamic crontabSpec, prefix, retentionCount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBareMetalSolution_ServerNetworkTemplate
 //
 
@@ -839,46 +783,6 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 @implementation GTLRBareMetalSolution_SnapshotReservationDetail
 @dynamic reservedSpaceGib, reservedSpacePercent, reservedSpaceRemainingGib,
          reservedSpaceUsedPercent;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBareMetalSolution_SnapshotSchedulePolicy
-//
-
-@implementation GTLRBareMetalSolution_SnapshotSchedulePolicy
-@dynamic descriptionProperty, identifier, labels, name, schedules, state;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"descriptionProperty" : @"description",
-    @"identifier" : @"id"
-  };
-  return map;
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"schedules" : [GTLRBareMetalSolution_Schedule class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBareMetalSolution_SnapshotSchedulePolicy_Labels
-//
-
-@implementation GTLRBareMetalSolution_SnapshotSchedulePolicy_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
 @end
 
 
@@ -1012,26 +916,6 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
     @"lunRanges" : [GTLRBareMetalSolution_LunRange class],
     @"machineIds" : [NSString class],
     @"nfsExports" : [GTLRBareMetalSolution_NfsExport class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBareMetalSolution_VolumeSnapshot
-//
-
-@implementation GTLRBareMetalSolution_VolumeSnapshot
-@dynamic createTime, descriptionProperty, identifier, name, sizeBytes,
-         storageVolume;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"descriptionProperty" : @"description",
-    @"identifier" : @"id"
   };
   return map;
 }

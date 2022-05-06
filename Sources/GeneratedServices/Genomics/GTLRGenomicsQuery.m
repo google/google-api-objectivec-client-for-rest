@@ -10,8 +10,6 @@
 
 #import "GTLRGenomicsQuery.h"
 
-#import "GTLRGenomicsObjects.h"
-
 @implementation GTLRGenomicsQuery
 
 @dynamic fields;

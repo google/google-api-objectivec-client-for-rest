@@ -12,8 +12,6 @@
 
 #import "GTLRDeploymentManagerQuery.h"
 
-#import "GTLRDeploymentManagerObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

@@ -10,8 +10,6 @@
 
 #import "GTLRBigQueryConnectionServiceQuery.h"
 
-#import "GTLRBigQueryConnectionServiceObjects.h"
-
 @implementation GTLRBigQueryConnectionServiceQuery
 
 @dynamic fields;

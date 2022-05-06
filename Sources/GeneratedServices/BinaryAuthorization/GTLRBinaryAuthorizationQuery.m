@@ -13,8 +13,6 @@
 
 #import "GTLRBinaryAuthorizationQuery.h"
 
-#import "GTLRBinaryAuthorizationObjects.h"
-
 @implementation GTLRBinaryAuthorizationQuery
 
 @dynamic fields;

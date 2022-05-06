@@ -11,8 +11,6 @@
 
 #import "GTLRAdSenseHostQuery.h"
 
-#import "GTLRAdSenseHostObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

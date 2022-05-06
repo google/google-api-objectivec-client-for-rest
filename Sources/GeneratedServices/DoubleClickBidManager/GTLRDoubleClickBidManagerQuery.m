@@ -11,8 +11,6 @@
 
 #import "GTLRDoubleClickBidManagerQuery.h"
 
-#import "GTLRDoubleClickBidManagerObjects.h"
-
 @implementation GTLRDoubleClickBidManagerQuery
 
 @dynamic fields;

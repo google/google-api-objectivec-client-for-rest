@@ -255,7 +255,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
  *  The metrics that should be included in the response. If none are specified
  *  then any metrics found will be returned. Allowed values:
  *  ["first_contentful_paint", "first_input_delay", "largest_contentful_paint",
- *  "cumulative_layout_shift"]
+ *  "cumulative_layout_shift", "experimental_time_to_first_byte",
+ *  "experimental_interaction_to_next_paint"]
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
 

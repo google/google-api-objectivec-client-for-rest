@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud DNS API (dns/v2)
+//   Cloud DNS API (dns/v1)
 // Documentation:
 //   https://cloud.google.com/dns/docs
 
@@ -12,64 +12,64 @@
 // Constants
 
 // GTLRDns_Change.status
-NSString * const kGTLRDns_Change_Status_Done    = @"DONE";
-NSString * const kGTLRDns_Change_Status_Pending = @"PENDING";
+NSString * const kGTLRDns_Change_Status_Done    = @"done";
+NSString * const kGTLRDns_Change_Status_Pending = @"pending";
 
 // GTLRDns_DnsKey.algorithm
-NSString * const kGTLRDns_DnsKey_Algorithm_Ecdsap256sha256 = @"ECDSAP256SHA256";
-NSString * const kGTLRDns_DnsKey_Algorithm_Ecdsap384sha384 = @"ECDSAP384SHA384";
-NSString * const kGTLRDns_DnsKey_Algorithm_Rsasha1         = @"RSASHA1";
-NSString * const kGTLRDns_DnsKey_Algorithm_Rsasha256       = @"RSASHA256";
-NSString * const kGTLRDns_DnsKey_Algorithm_Rsasha512       = @"RSASHA512";
+NSString * const kGTLRDns_DnsKey_Algorithm_Ecdsap256sha256 = @"ecdsap256sha256";
+NSString * const kGTLRDns_DnsKey_Algorithm_Ecdsap384sha384 = @"ecdsap384sha384";
+NSString * const kGTLRDns_DnsKey_Algorithm_Rsasha1         = @"rsasha1";
+NSString * const kGTLRDns_DnsKey_Algorithm_Rsasha256       = @"rsasha256";
+NSString * const kGTLRDns_DnsKey_Algorithm_Rsasha512       = @"rsasha512";
 
 // GTLRDns_DnsKey.type
-NSString * const kGTLRDns_DnsKey_Type_KeySigning  = @"KEY_SIGNING";
-NSString * const kGTLRDns_DnsKey_Type_ZoneSigning = @"ZONE_SIGNING";
+NSString * const kGTLRDns_DnsKey_Type_KeySigning  = @"keySigning";
+NSString * const kGTLRDns_DnsKey_Type_ZoneSigning = @"zoneSigning";
 
 // GTLRDns_DnsKeySpec.algorithm
-NSString * const kGTLRDns_DnsKeySpec_Algorithm_Ecdsap256sha256 = @"ECDSAP256SHA256";
-NSString * const kGTLRDns_DnsKeySpec_Algorithm_Ecdsap384sha384 = @"ECDSAP384SHA384";
-NSString * const kGTLRDns_DnsKeySpec_Algorithm_Rsasha1         = @"RSASHA1";
-NSString * const kGTLRDns_DnsKeySpec_Algorithm_Rsasha256       = @"RSASHA256";
-NSString * const kGTLRDns_DnsKeySpec_Algorithm_Rsasha512       = @"RSASHA512";
+NSString * const kGTLRDns_DnsKeySpec_Algorithm_Ecdsap256sha256 = @"ecdsap256sha256";
+NSString * const kGTLRDns_DnsKeySpec_Algorithm_Ecdsap384sha384 = @"ecdsap384sha384";
+NSString * const kGTLRDns_DnsKeySpec_Algorithm_Rsasha1         = @"rsasha1";
+NSString * const kGTLRDns_DnsKeySpec_Algorithm_Rsasha256       = @"rsasha256";
+NSString * const kGTLRDns_DnsKeySpec_Algorithm_Rsasha512       = @"rsasha512";
 
 // GTLRDns_DnsKeySpec.keyType
-NSString * const kGTLRDns_DnsKeySpec_KeyType_KeySigning  = @"KEY_SIGNING";
-NSString * const kGTLRDns_DnsKeySpec_KeyType_ZoneSigning = @"ZONE_SIGNING";
+NSString * const kGTLRDns_DnsKeySpec_KeyType_KeySigning  = @"keySigning";
+NSString * const kGTLRDns_DnsKeySpec_KeyType_ZoneSigning = @"zoneSigning";
 
 // GTLRDns_KeyDigest.type
-NSString * const kGTLRDns_KeyDigest_Type_Sha1   = @"SHA1";
-NSString * const kGTLRDns_KeyDigest_Type_Sha256 = @"SHA256";
-NSString * const kGTLRDns_KeyDigest_Type_Sha384 = @"SHA384";
+NSString * const kGTLRDns_KeyDigest_Type_Sha1   = @"sha1";
+NSString * const kGTLRDns_KeyDigest_Type_Sha256 = @"sha256";
+NSString * const kGTLRDns_KeyDigest_Type_Sha384 = @"sha384";
 
 // GTLRDns_ManagedZone.visibility
-NSString * const kGTLRDns_ManagedZone_Visibility_Private = @"PRIVATE";
-NSString * const kGTLRDns_ManagedZone_Visibility_Public  = @"PUBLIC";
+NSString * const kGTLRDns_ManagedZone_Visibility_Private = @"private";
+NSString * const kGTLRDns_ManagedZone_Visibility_Public  = @"public";
 
 // GTLRDns_ManagedZoneDnsSecConfig.nonExistence
-NSString * const kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec = @"NSEC";
-NSString * const kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec3 = @"NSEC3";
+NSString * const kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec = @"nsec";
+NSString * const kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec3 = @"nsec3";
 
 // GTLRDns_ManagedZoneDnsSecConfig.state
-NSString * const kGTLRDns_ManagedZoneDnsSecConfig_State_Off    = @"OFF";
-NSString * const kGTLRDns_ManagedZoneDnsSecConfig_State_On     = @"ON";
-NSString * const kGTLRDns_ManagedZoneDnsSecConfig_State_Transfer = @"TRANSFER";
+NSString * const kGTLRDns_ManagedZoneDnsSecConfig_State_Off    = @"off";
+NSString * const kGTLRDns_ManagedZoneDnsSecConfig_State_On     = @"on";
+NSString * const kGTLRDns_ManagedZoneDnsSecConfig_State_Transfer = @"transfer";
 
 // GTLRDns_ManagedZoneForwardingConfigNameServerTarget.forwardingPath
-NSString * const kGTLRDns_ManagedZoneForwardingConfigNameServerTarget_ForwardingPath_Default = @"DEFAULT";
-NSString * const kGTLRDns_ManagedZoneForwardingConfigNameServerTarget_ForwardingPath_Private = @"PRIVATE";
+NSString * const kGTLRDns_ManagedZoneForwardingConfigNameServerTarget_ForwardingPath_Default = @"default";
+NSString * const kGTLRDns_ManagedZoneForwardingConfigNameServerTarget_ForwardingPath_Private = @"private";
 
 // GTLRDns_Operation.status
-NSString * const kGTLRDns_Operation_Status_Done    = @"DONE";
-NSString * const kGTLRDns_Operation_Status_Pending = @"PENDING";
+NSString * const kGTLRDns_Operation_Status_Done    = @"done";
+NSString * const kGTLRDns_Operation_Status_Pending = @"pending";
 
 // GTLRDns_PolicyAlternativeNameServerConfigTargetNameServer.forwardingPath
-NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_ForwardingPath_Default = @"DEFAULT";
-NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_ForwardingPath_Private = @"PRIVATE";
+NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_ForwardingPath_Default = @"default";
+NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_ForwardingPath_Private = @"private";
 
 // GTLRDns_ResponsePolicyRule.behavior
-NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BehaviorUnspecified = @"BEHAVIOR_UNSPECIFIED";
-NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassResponsePolicy = @"BYPASS_RESPONSE_POLICY";
+NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BehaviorUnspecified = @"behaviorUnspecified";
+NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassResponsePolicy = @"bypassResponsePolicy";
 
 // ----------------------------------------------------------------------------
 //
@@ -332,26 +332,15 @@ NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassResponsePolicy = @"B
 //
 
 @implementation GTLRDns_ManagedZonePrivateVisibilityConfig
-@dynamic gkeClusters, kind, networks;
+@dynamic kind, networks;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"gkeClusters" : [GTLRDns_ManagedZonePrivateVisibilityConfigGKECluster class],
     @"networks" : [GTLRDns_ManagedZonePrivateVisibilityConfigNetwork class]
   };
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDns_ManagedZonePrivateVisibilityConfigGKECluster
-//
-
-@implementation GTLRDns_ManagedZonePrivateVisibilityConfigGKECluster
-@dynamic gkeClusterName, kind;
 @end
 
 
@@ -625,6 +614,15 @@ NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassResponsePolicy = @"B
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDns_ResourceRecordSetsDeleteResponse
+//
+
+@implementation GTLRDns_ResourceRecordSetsDeleteResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDns_ResourceRecordSetsListResponse
 //
 
@@ -703,8 +701,7 @@ NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassResponsePolicy = @"B
 //
 
 @implementation GTLRDns_ResponsePolicy
-@dynamic descriptionProperty, gkeClusters, identifier, kind, networks,
-         responsePolicyName;
+@dynamic descriptionProperty, identifier, kind, networks, responsePolicyName;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -716,22 +713,11 @@ NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassResponsePolicy = @"B
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"gkeClusters" : [GTLRDns_ResponsePolicyGKECluster class],
     @"networks" : [GTLRDns_ResponsePolicyNetwork class]
   };
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDns_ResponsePolicyGKECluster
-//
-
-@implementation GTLRDns_ResponsePolicyGKECluster
-@dynamic gkeClusterName, kind;
 @end
 
 

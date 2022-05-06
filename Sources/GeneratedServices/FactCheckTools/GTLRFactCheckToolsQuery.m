@@ -8,8 +8,6 @@
 
 #import "GTLRFactCheckToolsQuery.h"
 
-#import "GTLRFactCheckToolsObjects.h"
-
 @implementation GTLRFactCheckToolsQuery
 
 @dynamic fields;

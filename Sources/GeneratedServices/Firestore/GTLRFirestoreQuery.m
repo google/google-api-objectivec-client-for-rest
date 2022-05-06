@@ -11,8 +11,6 @@
 
 #import "GTLRFirestoreQuery.h"
 
-#import "GTLRFirestoreObjects.h"
-
 @implementation GTLRFirestoreQuery
 
 @dynamic fields;

@@ -11,8 +11,6 @@
 
 #import "GTLRFirebaseRealtimeDatabaseQuery.h"
 
-#import "GTLRFirebaseRealtimeDatabaseObjects.h"
-
 @implementation GTLRFirebaseRealtimeDatabaseQuery
 
 @dynamic fields;

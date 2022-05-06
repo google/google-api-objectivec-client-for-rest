@@ -10,8 +10,6 @@
 
 #import "GTLRSiteVerificationQuery.h"
 
-#import "GTLRSiteVerificationObjects.h"
-
 @implementation GTLRSiteVerificationQuery
 
 @dynamic fields;

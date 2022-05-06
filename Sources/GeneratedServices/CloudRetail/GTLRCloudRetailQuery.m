@@ -12,8 +12,6 @@
 
 #import "GTLRCloudRetailQuery.h"
 
-#import "GTLRCloudRetailObjects.h"
-
 @implementation GTLRCloudRetailQuery
 
 @dynamic fields;

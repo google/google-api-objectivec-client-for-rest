@@ -13,8 +13,6 @@
 
 #import "GTLRCloudRuntimeConfigQuery.h"
 
-#import "GTLRCloudRuntimeConfigObjects.h"
-
 @implementation GTLRCloudRuntimeConfigQuery
 
 @dynamic fields;

@@ -12,8 +12,6 @@
 
 #import "GTLRGamesQuery.h"
 
-#import "GTLRGamesObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

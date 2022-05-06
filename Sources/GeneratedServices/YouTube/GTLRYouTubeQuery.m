@@ -11,8 +11,6 @@
 
 #import "GTLRYouTubeQuery.h"
 
-#import "GTLRYouTubeObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

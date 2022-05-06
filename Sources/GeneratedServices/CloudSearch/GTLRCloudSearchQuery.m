@@ -12,8 +12,6 @@
 
 #import "GTLRCloudSearchQuery.h"
 
-#import "GTLRCloudSearchObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

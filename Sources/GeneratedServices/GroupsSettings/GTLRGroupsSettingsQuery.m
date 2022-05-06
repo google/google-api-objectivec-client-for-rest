@@ -10,8 +10,6 @@
 
 #import "GTLRGroupsSettingsQuery.h"
 
-#import "GTLRGroupsSettingsObjects.h"
-
 @implementation GTLRGroupsSettingsQuery
 
 @dynamic fields;

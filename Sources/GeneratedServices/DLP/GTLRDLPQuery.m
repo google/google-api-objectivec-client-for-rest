@@ -12,8 +12,6 @@
 
 #import "GTLRDLPQuery.h"
 
-#import "GTLRDLPObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

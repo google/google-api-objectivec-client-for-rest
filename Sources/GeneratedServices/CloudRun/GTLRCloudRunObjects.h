@@ -22,7 +22,6 @@
 @class GTLRCloudRun_GoogleCloudRunV2Condition;
 @class GTLRCloudRun_GoogleCloudRunV2Container;
 @class GTLRCloudRun_GoogleCloudRunV2ContainerPort;
-@class GTLRCloudRun_GoogleCloudRunV2ContainerStatus;
 @class GTLRCloudRun_GoogleCloudRunV2EnvVar;
 @class GTLRCloudRun_GoogleCloudRunV2EnvVarSource;
 @class GTLRCloudRun_GoogleCloudRunV2Execution;
@@ -82,52 +81,6 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
-// GTLRCloudRun_GoogleCloudRunV2Condition.domainMappingReason
-
-/**
- *  Certificate already exists.
- *
- *  Value: "CERTIFICATE_ALREADY_EXISTS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_CertificateAlreadyExists;
-/**
- *  Certificate issuance failed.
- *
- *  Value: "CERTIFICATE_FAILED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_CertificateFailed;
-/**
- *  Certificate issuance pending.
- *
- *  Value: "CERTIFICATE_PENDING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_CertificatePending;
-/**
- *  Default value.
- *
- *  Value: "DOMAIN_MAPPING_REASON_UNDEFINED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_DomainMappingReasonUndefined;
-/**
- *  Mapping already exists.
- *
- *  Value: "MAPPING_ALREADY_EXISTS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_MappingAlreadyExists;
-/**
- *  Insufficient permissions.
- *
- *  Value: "PERMISSION_DENIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_PermissionDenied;
-/**
- *  Internal route is not yet ready.
- *
- *  Value: "ROUTE_NOT_READY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_RouteNotReady;
-
-// ----------------------------------------------------------------------------
 // GTLRCloudRun_GoogleCloudRunV2Condition.executionReason
 
 /**
@@ -151,66 +104,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Execu
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_NonZeroExitCode;
 
 // ----------------------------------------------------------------------------
-// GTLRCloudRun_GoogleCloudRunV2Condition.internalReason
-
-/**
- *  Assigning traffic; this is a transient reason.
- *
- *  Value: "ASSIGNING_TRAFFIC"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_AssigningTraffic;
-/**
- *  Internal configuration is missing; this is usually a transient reason.
- *
- *  Value: "CONFIGURATION_MISSING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_ConfigurationMissing;
-/**
- *  The revision name provided conflicts with an existing one.
- *
- *  Value: "CONFLICTING_REVISION_NAME"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_ConflictingRevisionName;
-/**
- *  Default value.
- *
- *  Value: "INTERNAL_REASON_UNDEFINED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_InternalReasonUndefined;
-/**
- *  Revision is missing; this is usually a transient reason.
- *
- *  Value: "REVISION_MISSING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_RevisionMissing;
-/**
- *  The revision can't be created because it violates an org policy setting.
- *
- *  Value: "REVISION_ORG_POLICY_VIOLATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_RevisionOrgPolicyViolation;
-/**
- *  Updating GCFv2 URI data; this is a transient reason.
- *
- *  Value: "UPDATING_GCFV2_URI_DATA"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_UpdatingGcfv2UriData;
-/**
- *  Updating ingress traffic settings; this is a transient reason.
- *
- *  Value: "UPDATING_INGRESS_TRAFFIC_ALLOWED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_UpdatingIngressTrafficAllowed;
-
-// ----------------------------------------------------------------------------
 // GTLRCloudRun_GoogleCloudRunV2Condition.reason
 
-/**
- *  There was a build error.
- *
- *  Value: "BUILD_STEP_FAILED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_BuildStepFailed;
 /**
  *  Default value.
  *
@@ -260,6 +155,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reaso
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_ImmediateRetry;
 /**
+ *  An internal error occurred. Further information may be in the message.
+ *
+ *  Value: "INTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_Internal;
+/**
  *  System will retry later; current attempt failed.
  *
  *  Value: "POSTPONED_RETRY"
@@ -277,12 +178,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reaso
  *  Value: "REVISION_FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_RevisionFailed;
-/**
- *  The internal route is missing.
- *
- *  Value: "ROUTE_MISSING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_RouteMissing;
 /**
  *  At least one Access check on secrets failed.
  *
@@ -1062,27 +957,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2Condition : GTLRObject
 
 /**
- *  A reason for the domain mapping condition.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_CertificateAlreadyExists
- *        Certificate already exists. (Value: "CERTIFICATE_ALREADY_EXISTS")
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_CertificateFailed
- *        Certificate issuance failed. (Value: "CERTIFICATE_FAILED")
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_CertificatePending
- *        Certificate issuance pending. (Value: "CERTIFICATE_PENDING")
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_DomainMappingReasonUndefined
- *        Default value. (Value: "DOMAIN_MAPPING_REASON_UNDEFINED")
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_MappingAlreadyExists
- *        Mapping already exists. (Value: "MAPPING_ALREADY_EXISTS")
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_PermissionDenied
- *        Insufficient permissions. (Value: "PERMISSION_DENIED")
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_DomainMappingReason_RouteNotReady
- *        Internal route is not yet ready. (Value: "ROUTE_NOT_READY")
- */
-@property(nonatomic, copy, nullable) NSString *domainMappingReason;
-
-/**
  *  A reason for the execution condition.
  *
  *  Likely values:
@@ -1098,36 +972,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, copy, nullable) NSString *executionReason;
 
-/**
- *  A reason for the internal condition.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_AssigningTraffic
- *        Assigning traffic; this is a transient reason. (Value:
- *        "ASSIGNING_TRAFFIC")
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_ConfigurationMissing
- *        Internal configuration is missing; this is usually a transient reason.
- *        (Value: "CONFIGURATION_MISSING")
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_ConflictingRevisionName
- *        The revision name provided conflicts with an existing one. (Value:
- *        "CONFLICTING_REVISION_NAME")
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_InternalReasonUndefined
- *        Default value. (Value: "INTERNAL_REASON_UNDEFINED")
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_RevisionMissing
- *        Revision is missing; this is usually a transient reason. (Value:
- *        "REVISION_MISSING")
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_RevisionOrgPolicyViolation
- *        The revision can't be created because it violates an org policy
- *        setting. (Value: "REVISION_ORG_POLICY_VIOLATION")
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_UpdatingGcfv2UriData
- *        Updating GCFv2 URI data; this is a transient reason. (Value:
- *        "UPDATING_GCFV2_URI_DATA")
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_InternalReason_UpdatingIngressTrafficAllowed
- *        Updating ingress traffic settings; this is a transient reason. (Value:
- *        "UPDATING_INGRESS_TRAFFIC_ALLOWED")
- */
-@property(nonatomic, copy, nullable) NSString *internalReason;
-
 /** Last time the condition transitioned from one status to another. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastTransitionTime;
 
@@ -1138,8 +982,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  A common (service-level) reason for this condition.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_BuildStepFailed
- *        There was a build error. (Value: "BUILD_STEP_FAILED")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_CommonReasonUndefined
  *        Default value. (Value: "COMMON_REASON_UNDEFINED")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_ContainerImageAuthorizationCheckFailed
@@ -1161,6 +1003,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *        "ENCRYPTION_KEY_PERMISSION_DENIED")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_ImmediateRetry
  *        System will retry immediately. (Value: "IMMEDIATE_RETRY")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_Internal An
+ *        internal error occurred. Further information may be in the message.
+ *        (Value: "INTERNAL")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_PostponedRetry
  *        System will retry later; current attempt failed. (Value:
  *        "POSTPONED_RETRY")
@@ -1169,8 +1014,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *        "PROGRESS_DEADLINE_EXCEEDED")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_RevisionFailed
  *        Revision creation process failed. (Value: "REVISION_FAILED")
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_RouteMissing The
- *        internal route is missing. (Value: "ROUTE_MISSING")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_SecretsAccessCheckFailed
  *        At least one Access check on secrets failed. (Value:
  *        "SECRETS_ACCESS_CHECK_FAILED")
@@ -1307,8 +1150,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2EnvVar *> *env;
 
 /**
- *  Required. URL of the Container image in Google Container Registry or Docker
- *  More info: https://kubernetes.io/docs/concepts/containers/images
+ *  Required. URL of the Container image in Google Container Registry or Google
+ *  Artifact Registry. More info:
+ *  https://kubernetes.io/docs/concepts/containers/images
  */
 @property(nonatomic, copy, nullable) NSString *image;
 
@@ -1353,24 +1197,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  If specified, used to specify which protocol to use. Allowed values are
  *  "http1" and "h2c".
  */
-@property(nonatomic, copy, nullable) NSString *name;
-
-@end
-
-
-/**
- *  ContainerStatus holds the information of container name and image digest
- *  value.
- */
-@interface GTLRCloudRun_GoogleCloudRunV2ContainerStatus : GTLRObject
-
-/**
- *  ImageDigest holds the resolved digest for the image specified, regardless of
- *  whether a tag or digest was originally specified in the Container object.
- */
-@property(nonatomic, copy, nullable) NSString *imageDigest;
-
-/** The name of the container, if specified. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -1775,9 +1601,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Condition *> *conditions;
 
-/** Output only. Status information for each of the containers specified. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2ContainerStatus *> *containerStatuses;
-
 /** Output only. The creation time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -2171,20 +1994,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Condition *> *conditions;
 
 /**
- *  Indicates whether Confidential Cloud Run is enabled in this Revision.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *confidential;
-
-/**
- *  Sets the maximum number of requests that each serving instance can receive.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *containerConcurrency;
-
-/**
  *  Holds the single container that defines the unit of execution for this
  *  Revision.
  */
@@ -2305,6 +2114,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** Output only. The Google Console URI to obtain logs for the Revision. */
 @property(nonatomic, copy, nullable) NSString *logUri;
+
+/**
+ *  Sets the maximum number of requests that each serving instance can receive.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxInstanceRequestConcurrency;
 
 /** Output only. The unique name of this Revision. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2428,20 +2244,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2RevisionTemplate_Annotations *annotations;
 
 /**
- *  Enables Confidential Cloud Run in Revisions created using this template.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *confidential;
-
-/**
- *  Sets the maximum number of requests that each serving instance can receive.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *containerConcurrency;
-
-/**
  *  Holds the single container that defines the unit of execution for this
  *  Revision.
  */
@@ -2471,6 +2273,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** KRM-style labels for the resource. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2RevisionTemplate_Labels *labels;
+
+/**
+ *  Sets the maximum number of requests that each serving instance can receive.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxInstanceRequestConcurrency;
 
 /**
  *  The unique name for the revision. If this field is omitted, it will be
@@ -2690,7 +2499,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  Output only. A number that monotonically increases every time the user
- *  modifies the desired state.
+ *  modifies the desired state. Please note that unlike v1, this is an int64
+ *  value. As with most Google APIs, its JSON representation will be a `string`
+ *  instead of an `integer`.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2804,7 +2615,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /**
  *  Output only. The generation of this Service currently serving traffic. See
  *  comments in `reconciling` for additional information on reconciliation
- *  process in Cloud Run.
+ *  process in Cloud Run. Please note that unlike v1, this is an int64 value. As
+ *  with most Google APIs, its JSON representation will be a `string` instead of
+ *  an `integer`.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3485,8 +3298,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  "audit_log_configs": [ { "log_type": "DATA_READ" }, { "log_type":
  *  "DATA_WRITE", "exempted_members": [ "user:aliya\@example.com" ] } ] } ] }
  *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
- *  logging. It also exempts jose\@example.com from DATA_READ logging, and
- *  aliya\@example.com from DATA_WRITE logging.
+ *  logging. It also exempts `jose\@example.com` from DATA_READ logging, and
+ *  `aliya\@example.com` from DATA_WRITE logging.
  */
 @interface GTLRCloudRun_GoogleIamV1AuditConfig : GTLRObject
 

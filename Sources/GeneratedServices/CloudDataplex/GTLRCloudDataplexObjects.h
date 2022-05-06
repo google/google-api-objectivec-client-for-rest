@@ -73,7 +73,6 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Task_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1TaskExecutionSpec;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1TaskExecutionSpec_Args;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1TaskExecutionStatus;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1TaskInfrastructureSpec;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1TaskInfrastructureSpecBatchComputeResources;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1TaskInfrastructureSpecContainerImageRuntime;
@@ -3748,9 +3747,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 /** Required. Spec related to how a task is executed. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1TaskExecutionSpec *executionSpec;
 
-/** Output only. Status of the latest task executions. */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1TaskExecutionStatus *executionStatus;
-
 /** Optional. User-defined labels for the task. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Task_Labels *labels;
 
@@ -3835,13 +3831,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @property(nonatomic, strong, nullable) GTLRDuration *maxJobExecutionLifetime;
 
 /**
- *  Optional. The project in which jobs are run. By default, the project
- *  containing the Lake is used. If a project is provided, the
- *  executionspec.service_account must belong to this same project.
- */
-@property(nonatomic, copy, nullable) NSString *project;
-
-/**
  *  Required. Service account to use to execute a task. If not provided, the
  *  default Compute service account for the project is used.
  */
@@ -3867,20 +3856,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *        fetch them all at once.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1TaskExecutionSpec_Args : GTLRObject
-@end
-
-
-/**
- *  Status of the task execution (e.g. Jobs).
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1TaskExecutionStatus : GTLRObject
-
-/** Output only. latest job execution */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Job *latestJob;
-
-/** Output only. Last update time of the status. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
 @end
 
 
@@ -4505,7 +4480,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleTypeExpr *condition;
 
 /**
- *  Specifies the principals requesting access for a Google Cloud resource.
+ *  Specifies the principals requesting access for a Cloud Platform resource.
  *  members can have the following values: allUsers: A special identifier that
  *  represents anyone who is on the internet; with or without a Google account.
  *  allAuthenticatedUsers: A special identifier that represents anyone who is
@@ -4642,7 +4617,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 /**
  *  REQUIRED: The complete policy to be applied to the resource. The size of the
  *  policy is limited to a few 10s of KB. An empty policy is a valid policy but
- *  certain Google Cloud services (such as Projects) might reject them.
+ *  certain Cloud Platform services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleIamV1Policy *policy;
 
@@ -4665,7 +4640,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 /**
  *  The set of permissions to check for the resource. Permissions with wildcards
- *  (such as * or storage.*) are not allowed. For more information see IAM
+ *  (such as '*' or 'storage.*') are not allowed. For more information see IAM
  *  Overview (https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;

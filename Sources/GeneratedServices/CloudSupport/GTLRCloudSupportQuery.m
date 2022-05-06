@@ -11,8 +11,6 @@
 
 #import "GTLRCloudSupportQuery.h"
 
-#import "GTLRCloudSupportObjects.h"
-
 @implementation GTLRCloudSupportQuery
 
 @dynamic fields;

@@ -12,8 +12,6 @@
 
 #import "GTLRServiceUsageQuery.h"
 
-#import "GTLRServiceUsageObjects.h"
-
 @implementation GTLRServiceUsageQuery
 
 @dynamic fields;

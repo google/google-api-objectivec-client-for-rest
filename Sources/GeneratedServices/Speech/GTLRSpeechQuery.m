@@ -10,8 +10,6 @@
 
 #import "GTLRSpeechQuery.h"
 
-#import "GTLRSpeechObjects.h"
-
 @implementation GTLRSpeechQuery
 
 @dynamic fields;

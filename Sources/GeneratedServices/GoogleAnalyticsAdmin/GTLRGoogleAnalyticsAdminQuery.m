@@ -8,8 +8,6 @@
 
 #import "GTLRGoogleAnalyticsAdminQuery.h"
 
-#import "GTLRGoogleAnalyticsAdminObjects.h"
-
 @implementation GTLRGoogleAnalyticsAdminQuery
 
 @dynamic fields;

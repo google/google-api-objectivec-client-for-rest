@@ -10,8 +10,6 @@
 
 #import "GTLRCloudDataplexQuery.h"
 
-#import "GTLRCloudDataplexObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

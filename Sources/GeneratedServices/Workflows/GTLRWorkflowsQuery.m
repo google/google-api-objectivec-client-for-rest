@@ -11,8 +11,6 @@
 
 #import "GTLRWorkflowsQuery.h"
 
-#import "GTLRWorkflowsObjects.h"
-
 @implementation GTLRWorkflowsQuery
 
 @dynamic fields;

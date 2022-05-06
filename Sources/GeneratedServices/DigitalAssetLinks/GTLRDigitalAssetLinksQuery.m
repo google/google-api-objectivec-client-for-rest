@@ -11,8 +11,6 @@
 
 #import "GTLRDigitalAssetLinksQuery.h"
 
-#import "GTLRDigitalAssetLinksObjects.h"
-
 @implementation GTLRDigitalAssetLinksQuery
 
 @dynamic fields;

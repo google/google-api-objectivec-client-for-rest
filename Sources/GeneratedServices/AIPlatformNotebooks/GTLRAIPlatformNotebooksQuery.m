@@ -10,8 +10,6 @@
 
 #import "GTLRAIPlatformNotebooksQuery.h"
 
-#import "GTLRAIPlatformNotebooksObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

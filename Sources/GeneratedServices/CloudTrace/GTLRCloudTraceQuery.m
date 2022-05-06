@@ -15,8 +15,6 @@
 
 #import "GTLRCloudTraceQuery.h"
 
-#import "GTLRCloudTraceObjects.h"
-
 @implementation GTLRCloudTraceQuery
 
 @dynamic fields;

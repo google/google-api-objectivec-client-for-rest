@@ -11,8 +11,6 @@
 
 #import "GTLRAccessContextManagerQuery.h"
 
-#import "GTLRAccessContextManagerObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

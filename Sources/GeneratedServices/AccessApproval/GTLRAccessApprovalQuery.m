@@ -10,8 +10,6 @@
 
 #import "GTLRAccessApprovalQuery.h"
 
-#import "GTLRAccessApprovalObjects.h"
-
 @implementation GTLRAccessApprovalQuery
 
 @dynamic fields;

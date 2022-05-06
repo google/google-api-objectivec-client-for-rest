@@ -10,8 +10,6 @@
 
 #import "GTLRTPUQuery.h"
 
-#import "GTLRTPUObjects.h"
-
 @implementation GTLRTPUQuery
 
 @dynamic fields;

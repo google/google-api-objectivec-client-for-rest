@@ -10,8 +10,6 @@
 
 #import "GTLRSheetsQuery.h"
 
-#import "GTLRSheetsObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

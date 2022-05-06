@@ -11,8 +11,6 @@
 
 #import "GTLRMyBusinessBusinessInformationQuery.h"
 
-#import "GTLRMyBusinessBusinessInformationObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

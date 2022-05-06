@@ -10,8 +10,6 @@
 
 #import "GTLRFirebaseMLQuery.h"
 
-#import "GTLRFirebaseMLObjects.h"
-
 @implementation GTLRFirebaseMLQuery
 
 @dynamic fields;

@@ -12,8 +12,6 @@
 
 #import "GTLRCloudNaturalLanguageQuery.h"
 
-#import "GTLRCloudNaturalLanguageObjects.h"
-
 @implementation GTLRCloudNaturalLanguageQuery
 
 @dynamic fields;

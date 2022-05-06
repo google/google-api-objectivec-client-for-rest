@@ -11,8 +11,6 @@
 
 #import "GTLRDoubleclicksearchQuery.h"
 
-#import "GTLRDoubleclicksearchObjects.h"
-
 @implementation GTLRDoubleclicksearchQuery
 
 @dynamic fields;

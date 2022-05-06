@@ -11,8 +11,6 @@
 
 #import "GTLRMyBusinessNotificationSettingsQuery.h"
 
-#import "GTLRMyBusinessNotificationSettingsObjects.h"
-
 @implementation GTLRMyBusinessNotificationSettingsQuery
 
 @dynamic fields;

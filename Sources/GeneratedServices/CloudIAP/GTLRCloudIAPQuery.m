@@ -10,8 +10,6 @@
 
 #import "GTLRCloudIAPQuery.h"
 
-#import "GTLRCloudIAPObjects.h"
-
 @implementation GTLRCloudIAPQuery
 
 @dynamic fields;

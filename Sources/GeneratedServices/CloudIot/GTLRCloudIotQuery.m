@@ -11,8 +11,6 @@
 
 #import "GTLRCloudIotQuery.h"
 
-#import "GTLRCloudIotObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

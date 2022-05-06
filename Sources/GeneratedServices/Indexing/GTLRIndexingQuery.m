@@ -10,8 +10,6 @@
 
 #import "GTLRIndexingQuery.h"
 
-#import "GTLRIndexingObjects.h"
-
 @implementation GTLRIndexingQuery
 
 @dynamic fields;

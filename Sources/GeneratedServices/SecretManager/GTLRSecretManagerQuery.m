@@ -11,8 +11,6 @@
 
 #import "GTLRSecretManagerQuery.h"
 
-#import "GTLRSecretManagerObjects.h"
-
 @implementation GTLRSecretManagerQuery
 
 @dynamic fields;

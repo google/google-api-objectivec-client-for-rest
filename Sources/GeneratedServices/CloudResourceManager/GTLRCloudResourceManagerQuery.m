@@ -11,8 +11,6 @@
 
 #import "GTLRCloudResourceManagerQuery.h"
 
-#import "GTLRCloudResourceManagerObjects.h"
-
 @implementation GTLRCloudResourceManagerQuery
 
 @dynamic fields;

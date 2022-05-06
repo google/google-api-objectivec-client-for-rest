@@ -10,8 +10,6 @@
 
 #import "GTLRCloudSourceRepositoriesQuery.h"
 
-#import "GTLRCloudSourceRepositoriesObjects.h"
-
 @implementation GTLRCloudSourceRepositoriesQuery
 
 @dynamic fields;

@@ -10,8 +10,6 @@
 
 #import "GTLRPeopleServiceQuery.h"
 
-#import "GTLRPeopleServiceObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

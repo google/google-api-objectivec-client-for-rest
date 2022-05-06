@@ -11,8 +11,6 @@
 
 #import "GTLRAndroidProvisioningPartnerQuery.h"
 
-#import "GTLRAndroidProvisioningPartnerObjects.h"
-
 @implementation GTLRAndroidProvisioningPartnerQuery
 
 @dynamic fields;

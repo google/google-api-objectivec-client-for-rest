@@ -11,8 +11,6 @@
 
 #import "GTLRKeepQuery.h"
 
-#import "GTLRKeepObjects.h"
-
 @implementation GTLRKeepQuery
 
 @dynamic fields;

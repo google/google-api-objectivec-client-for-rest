@@ -10,8 +10,6 @@
 
 #import "GTLRCloudTasksQuery.h"
 
-#import "GTLRCloudTasksObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

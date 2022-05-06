@@ -11,8 +11,6 @@
 
 #import "GTLRLicensingQuery.h"
 
-#import "GTLRLicensingObjects.h"
-
 @implementation GTLRLicensingQuery
 
 @dynamic fields;

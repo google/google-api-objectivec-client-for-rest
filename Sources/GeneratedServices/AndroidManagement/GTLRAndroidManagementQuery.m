@@ -11,8 +11,6 @@
 
 #import "GTLRAndroidManagementQuery.h"
 
-#import "GTLRAndroidManagementObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

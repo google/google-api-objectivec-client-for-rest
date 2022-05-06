@@ -10,8 +10,6 @@
 
 #import "GTLRBigtableAdminQuery.h"
 
-#import "GTLRBigtableAdminObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

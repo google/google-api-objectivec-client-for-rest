@@ -12,8 +12,6 @@
 
 #import "GTLRCloudchannelQuery.h"
 
-#import "GTLRCloudchannelObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

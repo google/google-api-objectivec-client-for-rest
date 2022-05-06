@@ -11,8 +11,6 @@
 
 #import "GTLRCloudKMSQuery.h"
 
-#import "GTLRCloudKMSObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

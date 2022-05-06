@@ -10,8 +10,6 @@
 
 #import "GTLRCloudOSLoginQuery.h"
 
-#import "GTLRCloudOSLoginObjects.h"
-
 @implementation GTLRCloudOSLoginQuery
 
 @dynamic fields;

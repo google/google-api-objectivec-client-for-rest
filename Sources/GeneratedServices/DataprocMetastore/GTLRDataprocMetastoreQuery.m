@@ -11,8 +11,6 @@
 
 #import "GTLRDataprocMetastoreQuery.h"
 
-#import "GTLRDataprocMetastoreObjects.h"
-
 @implementation GTLRDataprocMetastoreQuery
 
 @dynamic fields;

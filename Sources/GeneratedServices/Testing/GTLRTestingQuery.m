@@ -11,8 +11,6 @@
 
 #import "GTLRTestingQuery.h"
 
-#import "GTLRTestingObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

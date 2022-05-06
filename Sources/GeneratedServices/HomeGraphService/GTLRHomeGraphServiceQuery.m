@@ -8,8 +8,6 @@
 
 #import "GTLRHomeGraphServiceQuery.h"
 
-#import "GTLRHomeGraphServiceObjects.h"
-
 @implementation GTLRHomeGraphServiceQuery
 
 @dynamic fields;

@@ -12,8 +12,6 @@
 
 #import "GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery.h"
 
-#import "GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIObjects.h"
-
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
 
 @dynamic fields;

@@ -10,8 +10,6 @@
 
 #import "GTLRFormsQuery.h"
 
-#import "GTLRFormsObjects.h"
-
 @implementation GTLRFormsQuery
 
 @dynamic fields;

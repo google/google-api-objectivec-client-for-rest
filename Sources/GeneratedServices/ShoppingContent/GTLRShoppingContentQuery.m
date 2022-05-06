@@ -10,8 +10,6 @@
 
 #import "GTLRShoppingContentQuery.h"
 
-#import "GTLRShoppingContentObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

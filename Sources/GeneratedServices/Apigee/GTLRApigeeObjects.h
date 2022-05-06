@@ -5526,6 +5526,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, copy, nullable) NSString *analyticsRegion;
 
+/**
+ *  Output only. Apigee Project ID associated with the organization. Use this
+ *  project to allowlist Apigee in the Service Attachment when using private
+ *  service connect with Apigee.
+ */
+@property(nonatomic, copy, nullable) NSString *apigeeProjectId;
+
 /** Not used by Apigee. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *attributes;
 
@@ -7604,8 +7611,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  "audit_log_configs": [ { "log_type": "DATA_READ" }, { "log_type":
  *  "DATA_WRITE", "exempted_members": [ "user:aliya\@example.com" ] } ] } ] }
  *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
- *  logging. It also exempts jose\@example.com from DATA_READ logging, and
- *  aliya\@example.com from DATA_WRITE logging.
+ *  logging. It also exempts `jose\@example.com` from DATA_READ logging, and
+ *  `aliya\@example.com` from DATA_WRITE logging.
  */
 @interface GTLRApigee_GoogleIamV1AuditConfig : GTLRObject
 

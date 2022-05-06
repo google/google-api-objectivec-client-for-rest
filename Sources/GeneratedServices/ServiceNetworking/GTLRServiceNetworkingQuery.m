@@ -11,8 +11,6 @@
 
 #import "GTLRServiceNetworkingQuery.h"
 
-#import "GTLRServiceNetworkingObjects.h"
-
 @implementation GTLRServiceNetworkingQuery
 
 @dynamic fields;

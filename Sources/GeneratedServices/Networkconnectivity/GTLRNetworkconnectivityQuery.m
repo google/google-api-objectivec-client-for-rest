@@ -11,8 +11,6 @@
 
 #import "GTLRNetworkconnectivityQuery.h"
 
-#import "GTLRNetworkconnectivityObjects.h"
-
 @implementation GTLRNetworkconnectivityQuery
 
 @dynamic fields;

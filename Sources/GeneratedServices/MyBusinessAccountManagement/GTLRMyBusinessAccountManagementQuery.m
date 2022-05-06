@@ -11,8 +11,6 @@
 
 #import "GTLRMyBusinessAccountManagementQuery.h"
 
-#import "GTLRMyBusinessAccountManagementObjects.h"
-
 @implementation GTLRMyBusinessAccountManagementQuery
 
 @dynamic fields;

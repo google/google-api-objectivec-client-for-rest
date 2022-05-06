@@ -11,8 +11,6 @@
 
 #import "GTLROSConfigQuery.h"
 
-#import "GTLROSConfigObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

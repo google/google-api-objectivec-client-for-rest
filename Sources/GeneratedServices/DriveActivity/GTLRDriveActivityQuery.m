@@ -10,8 +10,6 @@
 
 #import "GTLRDriveActivityQuery.h"
 
-#import "GTLRDriveActivityObjects.h"
-
 @implementation GTLRDriveActivityQuery
 
 @dynamic fields;

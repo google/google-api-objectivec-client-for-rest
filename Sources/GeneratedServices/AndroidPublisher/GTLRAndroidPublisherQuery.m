@@ -10,8 +10,6 @@
 
 #import "GTLRAndroidPublisherQuery.h"
 
-#import "GTLRAndroidPublisherObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

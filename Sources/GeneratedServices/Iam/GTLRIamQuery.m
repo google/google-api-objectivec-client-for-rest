@@ -12,8 +12,6 @@
 
 #import "GTLRIamQuery.h"
 
-#import "GTLRIamObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

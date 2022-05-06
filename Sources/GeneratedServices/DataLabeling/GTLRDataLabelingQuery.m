@@ -10,8 +10,6 @@
 
 #import "GTLRDataLabelingQuery.h"
 
-#import "GTLRDataLabelingObjects.h"
-
 @implementation GTLRDataLabelingQuery
 
 @dynamic fields;

@@ -11,8 +11,6 @@
 
 #import "GTLRIAMCredentialsQuery.h"
 
-#import "GTLRIAMCredentialsObjects.h"
-
 @implementation GTLRIAMCredentialsQuery
 
 @dynamic fields;

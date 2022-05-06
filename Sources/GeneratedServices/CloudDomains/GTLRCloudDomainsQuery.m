@@ -10,8 +10,6 @@
 
 #import "GTLRCloudDomainsQuery.h"
 
-#import "GTLRCloudDomainsObjects.h"
-
 @implementation GTLRCloudDomainsQuery
 
 @dynamic fields;

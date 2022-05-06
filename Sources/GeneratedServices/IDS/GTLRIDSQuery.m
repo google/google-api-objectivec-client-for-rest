@@ -14,8 +14,6 @@
 
 #import "GTLRIDSQuery.h"
 
-#import "GTLRIDSObjects.h"
-
 @implementation GTLRIDSQuery
 
 @dynamic fields;

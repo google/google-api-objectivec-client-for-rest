@@ -12,8 +12,6 @@
 
 #import "GTLRDirectoryQuery.h"
 
-#import "GTLRDirectoryObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

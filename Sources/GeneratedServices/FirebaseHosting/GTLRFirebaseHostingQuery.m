@@ -13,8 +13,6 @@
 
 #import "GTLRFirebaseHostingQuery.h"
 
-#import "GTLRFirebaseHostingObjects.h"
-
 @implementation GTLRFirebaseHostingQuery
 
 @dynamic fields;

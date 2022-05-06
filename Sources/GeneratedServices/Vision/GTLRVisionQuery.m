@@ -12,8 +12,6 @@
 
 #import "GTLRVisionQuery.h"
 
-#import "GTLRVisionObjects.h"
-
 @implementation GTLRVisionQuery
 
 @dynamic fields;

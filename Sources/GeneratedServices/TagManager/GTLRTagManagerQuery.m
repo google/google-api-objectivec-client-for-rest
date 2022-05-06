@@ -11,8 +11,6 @@
 
 #import "GTLRTagManagerQuery.h"
 
-#import "GTLRTagManagerObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

@@ -10,8 +10,6 @@
 
 #import "GTLRComputeQuery.h"
 
-#import "GTLRComputeObjects.h"
-
 // ----------------------------------------------------------------------------
 // Constants
 

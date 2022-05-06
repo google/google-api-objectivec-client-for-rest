@@ -16,8 +16,6 @@
 
 #import "GTLRPolicySimulatorQuery.h"
 
-#import "GTLRPolicySimulatorObjects.h"
-
 @implementation GTLRPolicySimulatorQuery
 
 @dynamic fields;

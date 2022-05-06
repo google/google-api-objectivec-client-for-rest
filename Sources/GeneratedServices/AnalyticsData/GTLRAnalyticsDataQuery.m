@@ -10,8 +10,6 @@
 
 #import "GTLRAnalyticsDataQuery.h"
 
-#import "GTLRAnalyticsDataObjects.h"
-
 @implementation GTLRAnalyticsDataQuery
 
 @dynamic fields;
