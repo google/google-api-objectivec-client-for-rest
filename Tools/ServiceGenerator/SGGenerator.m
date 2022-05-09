@@ -2870,9 +2870,14 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
     return [NSString stringWithFormat:@"#import \"%@/%@.h\"\n", self.importPrefix, headerName];
   }
 
+  // Default to the 2.0 import with fallback to a SwiftPM check, and then
+  // finally the old bare import. Keeping the old CPP gates to also allow
+  // forcing of things.
   NSMutableString *result = [NSMutableString string];
-  [result appendFormat:@"#if __has_include(<GoogleAPIClientForREST/%@.h>)\n", headerName];
+  [result appendFormat:@"#if __has_include(<GoogleAPIClientForREST/%@.h>) || GTLR_BUILT_AS_FRAMEWORK\n", headerName];
   [result appendFormat:@"  #import <GoogleAPIClientForREST/%@.h>\n", headerName];
+  [result appendString:@"#elif SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT\n"];
+  [result appendString:@"  @import GoogleAPIClientForRESTCore;\n"];
   [result appendString:@"#else\n"];
   [result appendFormat:@"  #import \"%@.h\"\n", headerName];
   [result appendString:@"#endif\n"];
