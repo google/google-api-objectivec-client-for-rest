@@ -13,10 +13,6 @@
  * limitations under the License.
  */
 
-#if !__has_feature(objc_arc)
-#error "This file needs to be compiled with ARC enabled."
-#endif
-
 #import <GoogleAPIClientForREST/GTLRFramework.h>
 
 void GTLRFrameworkVersion(NSUInteger* major, NSUInteger* minor, NSUInteger* release) {

@@ -13,10 +13,6 @@
  * limitations under the License.
  */
 
-#if !__has_feature(objc_arc)
-#error "This file needs to be compiled with ARC enabled."
-#endif
-
 #import <GoogleAPIClientForREST/GTLRBase64.h>
 
 // Based on Cyrus Najmabadi's elegent little encoder and decoder from
