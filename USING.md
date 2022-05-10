@@ -83,6 +83,17 @@ If you are generating code for your own APIs, then add
 `GoogleAPIClientForRESTCore` to get the supporting runtime and then manually add
 the generated sources to your Xcode project.
 
+### `#import`s and `@import`s
+
+Since CocoaPods and SwiftPM use different models for how things are built, the
+module names for `@import` directives will be specific to each packaging system.
+
+However, if consuming this library via Objective-C, all the packages export
+their headers as _GoogleAPIClientForREST/HEADER.h_, so you can always `#import`
+them as a framework import and that will work with either packaging system,
+i.e. - `#import <GoogleAPIClientForREST/GTLRService.h` and
+`#import <GoogleAPIClientForREST/GTLRYouTube.h`.
+
 ### Dependencies
 
 The Google APIs Library for Objective-C for REST uses the prefix `GTLR`.

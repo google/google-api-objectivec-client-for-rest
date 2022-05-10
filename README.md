@@ -13,9 +13,9 @@ framework for accessing JSON APIs.
 This is the recommended library for accessing JSON-based Google APIs for iOS,
 macOS, tvOS, and watchOS applications.
 
-**To get started** with Google APIs and the Objective-C client library, Read the
-[USING.md](https://github.com/google/google-api-objectivec-client-for-rest/blob/main/USING.md).
-The
+**To get started** with Google APIs and the Objective-C client library, please read
+[USING.md](https://github.com/google/google-api-objectivec-client-for-rest/blob/main/USING.md)
+for detailed information. The
 [example applications](https://github.com/google/google-api-objectivec-client-for-rest/tree/main/Examples)
 can also help answer some questions, but there isn't an example for every
 service as there are just to many services.
