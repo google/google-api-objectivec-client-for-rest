@@ -20,12 +20,12 @@
 #import <GoogleAPIClientForREST/GTLRUtilities.h>
 
 // TODO: Simplify when the 2.0 SessionFetcher is the min dependency.
-#if SWIFT_PACKAGE
-@import GTMSessionFetcherCore;
-@import GTMSessionFetcherFull;
-#else
-#import "GTMSessionFetcherService.h"
-#import "GTMMIMEDocument.h"
+#if __has_include(<GTMSessionFetcher/GTMSessionFetcherService.h>)  // 2.x & CocoaPods
+  #import <GTMSessionFetcher/GTMSessionFetcherService.h>
+  #import <GTMSessionFetcher/GTMMIMEDocument.h>
+#else  // SwiftPM 1.x
+  #import "../GTMSessionFetcherService.h"
+  #import "../GTMMIMEDocument.h"
 #endif
 
 #import "GTLRTestingSvc.h"

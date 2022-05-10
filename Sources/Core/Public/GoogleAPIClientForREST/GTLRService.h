@@ -26,9 +26,14 @@
 #import "GTLRObject.h"
 #import "GTLRQuery.h"
 
-@class GTMSessionFetcher;
-@class GTMSessionFetcherService;
-@protocol GTMFetcherAuthorizationProtocol;
+// TODO: Simplify when the 2.0 SessionFetcher is the min dependency.
+#if __has_include(<GTMSessionFetcher/GTMSessionFetcher.h>)  // 2.x & CocoaPods
+  #import <GTMSessionFetcher/GTMSessionFetcher.h>
+  #import <GTMSessionFetcher/GTMSessionFetcherService.h>
+#else  // SwiftPM 1.x
+  #import "../GTMSessionFetcher.h"
+  #import "../GTMSessionFetcherService.h"
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 
