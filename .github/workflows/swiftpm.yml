@@ -24,7 +24,10 @@ on:
 jobs:
   swift:
     # The swift command line only support build/testing for macOS on.
-    runs-on: macos-latest
+    # TODO: back to `macos-latest` once that is updated to point to the newer
+    # images for more current Xcode versions.
+    #  https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#choosing-github-hosted-runners
+    runs-on: macos-12
     strategy:
       fail-fast: false
       matrix:
@@ -40,7 +43,10 @@ jobs:
   xcodebuild:
     # Job(s) to build for all the platforms to ensure that is working and the
     # tests are passing.
-    runs-on: macos-latest
+    # TODO: back to `macos-latest` once that is updated to point to the newer
+    # images for more current Xcode versions.
+    #  https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#choosing-github-hosted-runners
+    runs-on: macos-12
     strategy:
       fail-fast: false
       matrix:

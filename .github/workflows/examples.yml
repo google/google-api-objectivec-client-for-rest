@@ -31,7 +31,10 @@ on:
 
 jobs:
   examples:
-    runs-on: macos-latest
+    # TODO: back to `macos-latest` once that is updated to point to the newer
+    # images for more current Xcode versions.
+    #  https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#choosing-github-hosted-runners
+    runs-on: macos-12
     strategy:
       fail-fast: false
       matrix:
