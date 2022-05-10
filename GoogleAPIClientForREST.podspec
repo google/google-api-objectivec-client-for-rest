@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
 
   # Require at least 1.6.1 of the SessionFetcher since it has the same
   # deployment targets.
-  s.dependency 'GTMSessionFetcher/Full', '>= 1.6.1', '< 2.0'
+  s.dependency 'GTMSessionFetcher/Full', '>= 1.6.1', '< 3.0'
 
   s.prefix_header_file = false
 

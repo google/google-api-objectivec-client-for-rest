@@ -14,15 +14,12 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/google/gtm-session-fetcher.git", "1.6.1" ..< "2.0.0"),
         .package(path: "..")
     ],
     targets: [
         .target(
             name: "ServiceGenerator",
-            dependencies: [
-                "ServiceGeneratorLib"
-            ],
+            dependencies: ["ServiceGeneratorLib"],
             path: "SwiftPMShim"
         ),
         .target(
@@ -30,7 +27,6 @@ let package = Package(
             dependencies: [
                 "GoogleAPIClientForRESTCore",
                 "GoogleAPIClientForREST_Discovery",
-                "GTMSessionFetcherCore",
             ],
             path: "ServiceGenerator",
             publicHeadersPath: "Public"
