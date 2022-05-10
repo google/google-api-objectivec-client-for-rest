@@ -27,11 +27,13 @@
 
 #import <GoogleAPIClientForREST/GTLRDiscovery.h>
 
-#if SWIFT_PACKAGE
-  @import GTMSessionFetcherCore;
-#else
-  #import "GTMSessionFetcherService.h"
-  #import "GTMSessionFetcherLogging.h"
+// TODO: Simplify when the 2.0 SessionFetcher is the min dependency.
+#if __has_include(<GTMSessionFetcher/GTMSessionFetcherService.h>)  // 2.x
+  #import <GTMSessionFetcher/GTMSessionFetcherService.h>
+  #import <GTMSessionFetcher/GTMSessionFetcherLogging.h>
+#else  // 1.x
+  #import "../GTMSessionFetcherService.h"
+  #import "../GTMSessionFetcherLogging.h"
 #endif
 
 #import "SGGenerator.h"

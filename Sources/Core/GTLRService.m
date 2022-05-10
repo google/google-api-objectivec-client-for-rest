@@ -28,34 +28,13 @@
 #import "GTLRDefines.h"
 
 // TODO: Simplify when the 2.0 SessionFetcher is the min dependency.
-#if !defined(GTLR_USE_MODULE_IMPORTS)
-  #if defined(SWIFT_PACKAGE) && SWIFT_PACKAGE
-    #define GTLR_USE_MODULE_IMPORTS 1
-  #else
-    #define GTLR_USE_MODULE_IMPORTS 0
-  #endif
-#endif
-#if !defined(GTLR_USE_FRAMEWORK_IMPORTS)
-  #if defined(COCOAPODS) && COCOAPODS
-    #define GTLR_USE_FRAMEWORK_IMPORTS 1
-  #else
-    #define GTLR_USE_FRAMEWORK_IMPORTS 0
-  #endif
-#endif
-#if GTLR_USE_MODULE_IMPORTS
-  @import GTMSessionFetcherCore;
-  @import GTMSessionFetcherFull;
-#elif GTLR_USE_FRAMEWORK_IMPORTS
-  #import <GTMSessionFetcher/GTMSessionFetcher.h>
-  #import <GTMSessionFetcher/GTMSessionFetcherService.h>
+#if __has_include(<GTMSessionFetcher/GTMSessionUploadFetcher.h>)  // 2.x & CocoaPods
   #import <GTMSessionFetcher/GTMSessionUploadFetcher.h>
   #import <GTMSessionFetcher/GTMMIMEDocument.h>
-#else
-  #import "GTMSessionFetcher.h"
-  #import "GTMSessionFetcherService.h"
-  #import "GTMSessionUploadFetcher.h"
-  #import "GTMMIMEDocument.h"
-#endif  // GTLR_USE_FRAMEWORK_IMPORTS
+#else  // SwiftPM 1.x
+  #import "../GTMSessionUploadFetcher.h"
+  #import "../GTMMIMEDocument.h"
+#endif
 
 #ifndef STRIP_GTM_FETCH_LOGGING
   #error GTMSessionFetcher headers should have defaulted this if it wasn't already defined.
