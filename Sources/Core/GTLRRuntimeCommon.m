@@ -13,10 +13,6 @@
  * limitations under the License.
  */
 
-#if !__has_feature(objc_arc)
-#error "This file needs to be compiled with ARC enabled."
-#endif
-
 #include <objc/runtime.h>
 #include <TargetConditionals.h>
 
