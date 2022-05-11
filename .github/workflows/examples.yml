@@ -41,6 +41,8 @@ jobs:
         SAMPLE: ["Calendar", "Drive", "YouTube", "Storage"]
     steps:
     - uses: actions/checkout@v2
+    - name: Update CocoaPods Repos
+      run:  pod repo update
     - name: Build Debug
       run:  |
         set -eu
