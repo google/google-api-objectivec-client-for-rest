@@ -965,6 +965,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExternalProxy;
 /**
+ *  T1562
+ *
+ *  Value: "IMPAIR_DEFENSES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ImpairDefenses;
+/**
  *  T1105
  *
  *  Value: "INGRESS_TOOL_TRANSFER"
@@ -1248,6 +1254,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "EXTERNAL_PROXY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExternalProxy;
+/**
+ *  T1562
+ *
+ *  Value: "IMPAIR_DEFENSES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ImpairDefenses;
 /**
  *  T1105
  *

@@ -286,7 +286,7 @@
          canChangeDriveMembersOnlyRestriction, canComment, canCopy,
          canDeleteChildren, canDeleteDrive, canDownload, canEdit,
          canListChildren, canManageMembers, canReadRevisions, canRename,
-         canRenameDrive, canShare, canTrashChildren;
+         canRenameDrive, canResetDriveRestrictions, canShare, canTrashChildren;
 @end
 
 
@@ -753,7 +753,8 @@
          canChangeTeamMembersOnlyRestriction, canComment, canCopy,
          canDeleteChildren, canDeleteTeamDrive, canDownload, canEdit,
          canListChildren, canManageMembers, canReadRevisions, canRemoveChildren,
-         canRename, canRenameTeamDrive, canShare, canTrashChildren;
+         canRename, canRenameTeamDrive, canResetTeamDriveRestrictions, canShare,
+         canTrashChildren;
 @end
 
 

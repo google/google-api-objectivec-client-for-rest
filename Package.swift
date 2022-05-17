@@ -70,6 +70,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_AnalyticsData"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_AnalyticsHub",
+            targets: ["GoogleAPIClientForREST_AnalyticsHub"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_AnalyticsReporting",
             targets: ["GoogleAPIClientForREST_AnalyticsReporting"]
         ),
@@ -132,6 +136,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_BareMetalSolution",
             targets: ["GoogleAPIClientForREST_BareMetalSolution"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_BeyondCorp",
+            targets: ["GoogleAPIClientForREST_BeyondCorp"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Bigquery",
@@ -1089,6 +1097,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_AnalyticsHub",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/AnalyticsHub",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_AnalyticsReporting",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/AnalyticsReporting",
@@ -1182,6 +1196,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_BareMetalSolution",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/BareMetalSolution",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_BeyondCorp",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/BeyondCorp",
             publicHeadersPath: "Public"
         ),
         .target(

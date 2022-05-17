@@ -374,8 +374,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesGetIamPolicy : GTLRDataCatalogQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -395,8 +396,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDataCatalog_GetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesGetIamPolicy
  */
@@ -806,7 +808,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -823,8 +826,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDataCatalog_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTestIamPermissions
  */
@@ -917,8 +921,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsGetIamPolicy : GTLRDataCatalogQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -938,8 +943,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDataCatalog_GetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsGetIamPolicy
  */
@@ -1065,8 +1071,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsSetIamPolicy : GTLRDataCatalogQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1085,8 +1092,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDataCatalog_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsSetIamPolicy
  */
@@ -1281,7 +1289,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1298,8 +1307,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDataCatalog_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTestIamPermissions
  */
@@ -1646,8 +1656,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesGetIamPolicy : GTLRDataCatalogQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1667,8 +1678,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDataCatalog_GetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesGetIamPolicy
  */
@@ -1752,8 +1764,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesSetIamPolicy : GTLRDataCatalogQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1772,8 +1785,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDataCatalog_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesSetIamPolicy
  */
@@ -1799,7 +1813,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1816,8 +1831,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDataCatalog_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesTestIamPermissions
  */
@@ -1975,8 +1991,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesGetIamPolicy : GTLRDataCatalogQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1988,8 +2005,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDataCatalog_GetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesGetIamPolicy
  */
@@ -2235,8 +2253,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsGetIamPolicy : GTLRDataCatalogQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2248,8 +2267,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDataCatalog_GetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsGetIamPolicy
  */
@@ -2357,8 +2377,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsSetIamPolicy : GTLRDataCatalogQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2370,8 +2391,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDataCatalog_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsSetIamPolicy
  */
@@ -2392,7 +2414,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2404,8 +2427,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDataCatalog_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsTestIamPermissions
  */
@@ -2467,8 +2491,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesSetIamPolicy : GTLRDataCatalogQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2480,8 +2505,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDataCatalog_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesSetIamPolicy
  */
@@ -2502,7 +2528,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2514,8 +2541,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDataCatalog_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesTestIamPermissions
  */

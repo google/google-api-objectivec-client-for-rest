@@ -98,6 +98,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Roles_SchoolBoard;
 FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Roles_SpecialPurposeOfficer;
 
 // ----------------------------------------------------------------------------
+// GTLRCivicInfo_Election.shapeLookupBehavior
+
+/** Value: "shapeLookupDefault" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Election_ShapeLookupBehavior_ShapeLookupDefault;
+/** Value: "shapeLookupDisabled" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Election_ShapeLookupBehavior_ShapeLookupDisabled;
+/** Value: "shapeLookupEnabled" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Election_ShapeLookupBehavior_ShapeLookupEnabled;
+
+// ----------------------------------------------------------------------------
 // GTLRCivicInfo_ElectoralDistrict.scope
 
 /** Value: "cityCouncil" */
@@ -496,7 +506,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_T
 /** Value: "typeConstituency" */
 FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeConstituency;
 /**
- *  RESERVED
+ *  DEPRECATED
  *
  *  Value: "typeConstituencyFuture"
  */
@@ -693,19 +703,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_T
  */
 FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeEstablishmentGrounds;
 /**
- *  Establishment POIs can be referenced by TYPE_COMPOUND features using the
- *  RELATION_PRIMARILY_OCCUPIED_BY. This is the reciprocal relation of the
- *  RELATION_OCCUPIES.
+ *  An establishment which has a address (a.k.a. location or storefront). Note
+ *  that it *may* also have a service area (e.g. a restaurant that offers both
+ *  dine-in and delivery). This type of business is also known as a "hybrid"
+ *  Service Area Business. Establishment POIs can be referenced by TYPE_COMPOUND
+ *  features using the RELATION_PRIMARILY_OCCUPIED_BY. This is the reciprocal
+ *  relation of the RELATION_OCCUPIES.
  *
  *  Value: "typeEstablishmentPoi"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeEstablishmentPoi;
 /**
- *  Represents service-only establishments (those without a storefront
- *  location). NOTE(tcain): Using value 0xD441, since we could find ourselves
- *  with a need to differentiate service areas from online-only at this level in
- *  the future, but still benefit from being able to group those under a common
- *  parent, disjoint from TYPE_ESTABLISHMENT_POI.
+ *  A business without a storefront, e.g. a plumber. It would normally not have
+ *  a place that a customer could visit to receive service, but it would have an
+ *  area served by the business. Also known as a "pure" Service Area Business.
+ *  NOTE(tcain): Using value 0xD441, since we could find ourselves with a need
+ *  to differentiate service areas from online-only at this level in the future,
+ *  but still benefit from being able to group those under a common parent,
+ *  disjoint from TYPE_ESTABLISHMENT_POI.
  *
  *  Value: "typeEstablishmentService"
  */
@@ -2596,6 +2611,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOff
  */
 @property(nonatomic, copy, nullable) NSString *ocdDivisionId;
 
+/**
+ *  shapeLookupBehavior
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCivicInfo_Election_ShapeLookupBehavior_ShapeLookupDefault
+ *        Value "shapeLookupDefault"
+ *    @arg @c kGTLRCivicInfo_Election_ShapeLookupBehavior_ShapeLookupDisabled
+ *        Value "shapeLookupDisabled"
+ *    @arg @c kGTLRCivicInfo_Election_ShapeLookupBehavior_ShapeLookupEnabled
+ *        Value "shapeLookupEnabled"
+ */
+@property(nonatomic, copy, nullable) NSString *shapeLookupBehavior;
+
 @end
 
 
@@ -2938,7 +2966,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOff
  *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeConstituency Value
  *        "typeConstituency"
  *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeConstituencyFuture
- *        RESERVED (Value: "typeConstituencyFuture")
+ *        DEPRECATED (Value: "typeConstituencyFuture")
  *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeContinent Value
  *        "typeContinent"
  *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeContourLine All
@@ -3031,15 +3059,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOff
  *        further details, see go/oyster-compounds (Value:
  *        "typeEstablishmentGrounds")
  *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeEstablishmentPoi
- *        Establishment POIs can be referenced by TYPE_COMPOUND features using
- *        the RELATION_PRIMARILY_OCCUPIED_BY. This is the reciprocal relation of
- *        the RELATION_OCCUPIES. (Value: "typeEstablishmentPoi")
+ *        An establishment which has a address (a.k.a. location or storefront).
+ *        Note that it *may* also have a service area (e.g. a restaurant that
+ *        offers both dine-in and delivery). This type of business is also known
+ *        as a "hybrid" Service Area Business. Establishment POIs can be
+ *        referenced by TYPE_COMPOUND features using the
+ *        RELATION_PRIMARILY_OCCUPIED_BY. This is the reciprocal relation of the
+ *        RELATION_OCCUPIES. (Value: "typeEstablishmentPoi")
  *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeEstablishmentService
- *        Represents service-only establishments (those without a storefront
- *        location). NOTE(tcain): Using value 0xD441, since we could find
- *        ourselves with a need to differentiate service areas from online-only
- *        at this level in the future, but still benefit from being able to
- *        group those under a common parent, disjoint from
+ *        A business without a storefront, e.g. a plumber. It would normally not
+ *        have a place that a customer could visit to receive service, but it
+ *        would have an area served by the business. Also known as a "pure"
+ *        Service Area Business. NOTE(tcain): Using value 0xD441, since we could
+ *        find ourselves with a need to differentiate service areas from
+ *        online-only at this level in the future, but still benefit from being
+ *        able to group those under a common parent, disjoint from
  *        TYPE_ESTABLISHMENT_POI. (Value: "typeEstablishmentService")
  *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeEstuary A place at
  *        the end of a river where fresh and salt water mix. Includes tidal

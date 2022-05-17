@@ -129,6 +129,7 @@ NSString * const kGTLRCompute_Address_Purpose_GceEndpoint      = @"GCE_ENDPOINT"
 NSString * const kGTLRCompute_Address_Purpose_IpsecInterconnect = @"IPSEC_INTERCONNECT";
 NSString * const kGTLRCompute_Address_Purpose_NatAuto          = @"NAT_AUTO";
 NSString * const kGTLRCompute_Address_Purpose_PrivateServiceConnect = @"PRIVATE_SERVICE_CONNECT";
+NSString * const kGTLRCompute_Address_Purpose_Serverless       = @"SERVERLESS";
 NSString * const kGTLRCompute_Address_Purpose_SharedLoadbalancerVip = @"SHARED_LOADBALANCER_VIP";
 NSString * const kGTLRCompute_Address_Purpose_VpcPeering       = @"VPC_PEERING";
 
@@ -19029,6 +19030,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_TargetHttpsProxiesSetCertificateMapRequest
+//
+
+@implementation GTLRCompute_TargetHttpsProxiesSetCertificateMapRequest
+@dynamic certificateMap;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_TargetHttpsProxiesSetQuicOverrideRequest
 //
 
@@ -19061,9 +19072,10 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_TargetHttpsProxy
-@dynamic authorizationPolicy, creationTimestamp, descriptionProperty,
-         fingerprint, identifier, kind, name, proxyBind, quicOverride, region,
-         selfLink, serverTlsPolicy, sslCertificates, sslPolicy, urlMap;
+@dynamic authorizationPolicy, certificateMap, creationTimestamp,
+         descriptionProperty, fingerprint, identifier, kind, name, proxyBind,
+         quicOverride, region, selfLink, serverTlsPolicy, sslCertificates,
+         sslPolicy, urlMap;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -19682,6 +19694,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_TargetSslProxiesSetCertificateMapRequest
+//
+
+@implementation GTLRCompute_TargetSslProxiesSetCertificateMapRequest
+@dynamic certificateMap;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_TargetSslProxiesSetProxyHeaderRequest
 //
 
@@ -19714,8 +19736,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_TargetSslProxy
-@dynamic creationTimestamp, descriptionProperty, identifier, kind, name,
-         proxyHeader, selfLink, service, sslCertificates, sslPolicy;
+@dynamic certificateMap, creationTimestamp, descriptionProperty, identifier,
+         kind, name, proxyHeader, selfLink, service, sslCertificates, sslPolicy;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

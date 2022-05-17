@@ -362,8 +362,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 @interface GTLRServiceManagementQuery_ServicesConsumersGetIamPolicy : GTLRServiceManagementQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -376,8 +377,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  @param object The @c GTLRServiceManagement_GetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRServiceManagementQuery_ServicesConsumersGetIamPolicy
  */
@@ -400,8 +402,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 @interface GTLRServiceManagementQuery_ServicesConsumersSetIamPolicy : GTLRServiceManagementQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -415,8 +418,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  @param object The @c GTLRServiceManagement_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRServiceManagementQuery_ServicesConsumersSetIamPolicy
  */
@@ -444,7 +448,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -460,8 +465,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  @param object The @c GTLRServiceManagement_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRServiceManagementQuery_ServicesConsumersTestIamPermissions
  */
@@ -690,8 +696,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 @interface GTLRServiceManagementQuery_ServicesGetIamPolicy : GTLRServiceManagementQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -704,8 +711,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  @param object The @c GTLRServiceManagement_GetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRServiceManagementQuery_ServicesGetIamPolicy
  */
@@ -929,8 +937,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 @interface GTLRServiceManagementQuery_ServicesSetIamPolicy : GTLRServiceManagementQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -944,8 +953,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  @param object The @c GTLRServiceManagement_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRServiceManagementQuery_ServicesSetIamPolicy
  */
@@ -973,7 +983,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -989,8 +1000,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  @param object The @c GTLRServiceManagement_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRServiceManagementQuery_ServicesTestIamPermissions
  */

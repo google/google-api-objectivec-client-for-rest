@@ -13,6 +13,30 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRAndroidPublisher_AutoRenewingBasePlanType.prorationMode
+NSString * const kGTLRAndroidPublisher_AutoRenewingBasePlanType_ProrationMode_SubscriptionProrationModeChargeFullPriceImmediately = @"SUBSCRIPTION_PRORATION_MODE_CHARGE_FULL_PRICE_IMMEDIATELY";
+NSString * const kGTLRAndroidPublisher_AutoRenewingBasePlanType_ProrationMode_SubscriptionProrationModeChargeOnNextBillingDate = @"SUBSCRIPTION_PRORATION_MODE_CHARGE_ON_NEXT_BILLING_DATE";
+NSString * const kGTLRAndroidPublisher_AutoRenewingBasePlanType_ProrationMode_SubscriptionProrationModeUnspecified = @"SUBSCRIPTION_PRORATION_MODE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_AutoRenewingBasePlanType.resubscribeState
+NSString * const kGTLRAndroidPublisher_AutoRenewingBasePlanType_ResubscribeState_ResubscribeStateActive = @"RESUBSCRIBE_STATE_ACTIVE";
+NSString * const kGTLRAndroidPublisher_AutoRenewingBasePlanType_ResubscribeState_ResubscribeStateInactive = @"RESUBSCRIBE_STATE_INACTIVE";
+NSString * const kGTLRAndroidPublisher_AutoRenewingBasePlanType_ResubscribeState_ResubscribeStateUnspecified = @"RESUBSCRIBE_STATE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_BasePlan.state
+NSString * const kGTLRAndroidPublisher_BasePlan_State_Active   = @"ACTIVE";
+NSString * const kGTLRAndroidPublisher_BasePlan_State_Draft    = @"DRAFT";
+NSString * const kGTLRAndroidPublisher_BasePlan_State_Inactive = @"INACTIVE";
+NSString * const kGTLRAndroidPublisher_BasePlan_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_CancelSurveyResult.reason
+NSString * const kGTLRAndroidPublisher_CancelSurveyResult_Reason_CancelSurveyReasonCostRelated = @"CANCEL_SURVEY_REASON_COST_RELATED";
+NSString * const kGTLRAndroidPublisher_CancelSurveyResult_Reason_CancelSurveyReasonFoundBetterApp = @"CANCEL_SURVEY_REASON_FOUND_BETTER_APP";
+NSString * const kGTLRAndroidPublisher_CancelSurveyResult_Reason_CancelSurveyReasonNotEnoughUsage = @"CANCEL_SURVEY_REASON_NOT_ENOUGH_USAGE";
+NSString * const kGTLRAndroidPublisher_CancelSurveyResult_Reason_CancelSurveyReasonOthers = @"CANCEL_SURVEY_REASON_OTHERS";
+NSString * const kGTLRAndroidPublisher_CancelSurveyResult_Reason_CancelSurveyReasonTechnicalIssues = @"CANCEL_SURVEY_REASON_TECHNICAL_ISSUES";
+NSString * const kGTLRAndroidPublisher_CancelSurveyResult_Reason_CancelSurveyReasonUnspecified = @"CANCEL_SURVEY_REASON_UNSPECIFIED";
+
 // GTLRAndroidPublisher_DeobfuscationFile.symbolType
 NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_DeobfuscationFileTypeUnspecified = @"deobfuscationFileTypeUnspecified";
 NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_NativeCode = @"nativeCode";
@@ -46,6 +70,11 @@ NSString * const kGTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_Ee
 NSString * const kGTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightService = @"WITHDRAWAL_RIGHT_SERVICE";
 NSString * const kGTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightTypeUnspecified = @"WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED";
 
+// GTLRAndroidPublisher_PrepaidBasePlanType.timeExtension
+NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionActive = @"TIME_EXTENSION_ACTIVE";
+NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionInactive = @"TIME_EXTENSION_INACTIVE";
+NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionUnspecified = @"TIME_EXTENSION_UNSPECIFIED";
+
 // GTLRAndroidPublisher_RegionalTaxRateInfo.taxTier
 NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierBooks1 = @"TAX_TIER_BOOKS_1";
 NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierLiveOrBroadcast1 = @"TAX_TIER_LIVE_OR_BROADCAST_1";
@@ -53,6 +82,27 @@ NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierMusicO
 NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierNews1 = @"TAX_TIER_NEWS_1";
 NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierNews2 = @"TAX_TIER_NEWS_2";
 NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierUnspecified = @"TAX_TIER_UNSPECIFIED";
+
+// GTLRAndroidPublisher_SubscriptionOffer.state
+NSString * const kGTLRAndroidPublisher_SubscriptionOffer_State_Active = @"ACTIVE";
+NSString * const kGTLRAndroidPublisher_SubscriptionOffer_State_Draft = @"DRAFT";
+NSString * const kGTLRAndroidPublisher_SubscriptionOffer_State_Inactive = @"INACTIVE";
+NSString * const kGTLRAndroidPublisher_SubscriptionOffer_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_SubscriptionPurchaseV2.acknowledgementState
+NSString * const kGTLRAndroidPublisher_SubscriptionPurchaseV2_AcknowledgementState_AcknowledgementStateAcknowledged = @"ACKNOWLEDGEMENT_STATE_ACKNOWLEDGED";
+NSString * const kGTLRAndroidPublisher_SubscriptionPurchaseV2_AcknowledgementState_AcknowledgementStatePending = @"ACKNOWLEDGEMENT_STATE_PENDING";
+NSString * const kGTLRAndroidPublisher_SubscriptionPurchaseV2_AcknowledgementState_AcknowledgementStateUnspecified = @"ACKNOWLEDGEMENT_STATE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_SubscriptionPurchaseV2.subscriptionState
+NSString * const kGTLRAndroidPublisher_SubscriptionPurchaseV2_SubscriptionState_SubscriptionStateActive = @"SUBSCRIPTION_STATE_ACTIVE";
+NSString * const kGTLRAndroidPublisher_SubscriptionPurchaseV2_SubscriptionState_SubscriptionStateCanceled = @"SUBSCRIPTION_STATE_CANCELED";
+NSString * const kGTLRAndroidPublisher_SubscriptionPurchaseV2_SubscriptionState_SubscriptionStateExpired = @"SUBSCRIPTION_STATE_EXPIRED";
+NSString * const kGTLRAndroidPublisher_SubscriptionPurchaseV2_SubscriptionState_SubscriptionStateInGracePeriod = @"SUBSCRIPTION_STATE_IN_GRACE_PERIOD";
+NSString * const kGTLRAndroidPublisher_SubscriptionPurchaseV2_SubscriptionState_SubscriptionStateOnHold = @"SUBSCRIPTION_STATE_ON_HOLD";
+NSString * const kGTLRAndroidPublisher_SubscriptionPurchaseV2_SubscriptionState_SubscriptionStatePaused = @"SUBSCRIPTION_STATE_PAUSED";
+NSString * const kGTLRAndroidPublisher_SubscriptionPurchaseV2_SubscriptionState_SubscriptionStatePending = @"SUBSCRIPTION_STATE_PENDING";
+NSString * const kGTLRAndroidPublisher_SubscriptionPurchaseV2_SubscriptionState_SubscriptionStateUnspecified = @"SUBSCRIPTION_STATE_UNSPECIFIED";
 
 // GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings.eeaWithdrawalRightType
 NSString * const kGTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightDigitalContent = @"WITHDRAWAL_RIGHT_DIGITAL_CONTENT";
@@ -89,6 +139,34 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanReply
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanSeeAllApps = @"CAN_SEE_ALL_APPS";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanViewFinancialDataGlobal = @"CAN_VIEW_FINANCIAL_DATA_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_DeveloperLevelPermissionUnspecified = @"DEVELOPER_LEVEL_PERMISSION_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_AcquisitionTargetingRule
+//
+
+@implementation GTLRAndroidPublisher_AcquisitionTargetingRule
+@dynamic scope;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ActivateBasePlanRequest
+//
+
+@implementation GTLRAndroidPublisher_ActivateBasePlanRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ActivateSubscriptionOfferRequest
+//
+
+@implementation GTLRAndroidPublisher_ActivateSubscriptionOfferRequest
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -181,6 +259,56 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_ArchiveSubscriptionRequest
+//
+
+@implementation GTLRAndroidPublisher_ArchiveSubscriptionRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_AutoRenewingBasePlanType
+//
+
+@implementation GTLRAndroidPublisher_AutoRenewingBasePlanType
+@dynamic billingPeriodDuration, gracePeriodDuration, legacyCompatible,
+         prorationMode, resubscribeState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_AutoRenewingPlan
+//
+
+@implementation GTLRAndroidPublisher_AutoRenewingPlan
+@dynamic autoRenewEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_BasePlan
+//
+
+@implementation GTLRAndroidPublisher_BasePlan
+@dynamic autoRenewingBasePlanType, basePlanId, offerTags, otherRegionsConfig,
+         prepaidBasePlanType, regionalConfigs, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"offerTags" : [GTLRAndroidPublisher_OfferTag class],
+    @"regionalConfigs" : [GTLRAndroidPublisher_RegionalBasePlanConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_Bundle
 //
 
@@ -210,6 +338,27 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_CanceledStateContext
+//
+
+@implementation GTLRAndroidPublisher_CanceledStateContext
+@dynamic developerInitiatedCancellation, replacementCancellation,
+         systemInitiatedCancellation, userInitiatedCancellation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_CancelSurveyResult
+//
+
+@implementation GTLRAndroidPublisher_CancelSurveyResult
+@dynamic reason, reasonUserInput;
 @end
 
 
@@ -297,6 +446,24 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_DeactivateBasePlanRequest
+//
+
+@implementation GTLRAndroidPublisher_DeactivateBasePlanRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_DeactivateSubscriptionOfferRequest
+//
+
+@implementation GTLRAndroidPublisher_DeactivateSubscriptionOfferRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_DeobfuscationFile
 //
 
@@ -322,6 +489,15 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_DeveloperComment
 @dynamic lastModified, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_DeveloperInitiatedCancellation
+//
+
+@implementation GTLRAndroidPublisher_DeveloperInitiatedCancellation
 @end
 
 
@@ -487,6 +663,17 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_ExpansionFilesUploadResponse
 @dynamic expansionFile;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ExternalAccountIdentifiers
+//
+
+@implementation GTLRAndroidPublisher_ExternalAccountIdentifiers
+@dynamic externalAccountId, obfuscatedExternalAccountId,
+         obfuscatedExternalProfileId;
 @end
 
 
@@ -838,6 +1025,50 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_ListSubscriptionOffersResponse
+//
+
+@implementation GTLRAndroidPublisher_ListSubscriptionOffersResponse
+@dynamic nextPageToken, subscriptionOffers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"subscriptionOffers" : [GTLRAndroidPublisher_SubscriptionOffer class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"subscriptionOffers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ListSubscriptionsResponse
+//
+
+@implementation GTLRAndroidPublisher_ListSubscriptionsResponse
+@dynamic nextPageToken, subscriptions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"subscriptions" : [GTLRAndroidPublisher_Subscription class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"subscriptions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_ListUsersResponse
 //
 
@@ -894,6 +1125,33 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_MigrateBasePlanPricesRequest
+//
+
+@implementation GTLRAndroidPublisher_MigrateBasePlanPricesRequest
+@dynamic regionalPriceMigrations, regionsVersion;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regionalPriceMigrations" : [GTLRAndroidPublisher_RegionalPriceMigrationConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_MigrateBasePlanPricesResponse
+//
+
+@implementation GTLRAndroidPublisher_MigrateBasePlanPricesResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_Money
 //
 
@@ -904,11 +1162,91 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_OfferTag
+//
+
+@implementation GTLRAndroidPublisher_OfferTag
+@dynamic tag;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OtherRegionsBasePlanConfig
+//
+
+@implementation GTLRAndroidPublisher_OtherRegionsBasePlanConfig
+@dynamic eurPrice, newSubscriberAvailability, usdPrice;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OtherRegionsSubscriptionOfferConfig
+//
+
+@implementation GTLRAndroidPublisher_OtherRegionsSubscriptionOfferConfig
+@dynamic otherRegionsNewSubscriberAvailability;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhaseConfig
+//
+
+@implementation GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhaseConfig
+@dynamic absoluteDiscounts, otherRegionsPrices, relativeDiscount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhasePrices
+//
+
+@implementation GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhasePrices
+@dynamic eurPrice, usdPrice;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_PageInfo
 //
 
 @implementation GTLRAndroidPublisher_PageInfo
 @dynamic resultPerPage, startIndex, totalResults;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_PausedStateContext
+//
+
+@implementation GTLRAndroidPublisher_PausedStateContext
+@dynamic autoResumeTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_PrepaidBasePlanType
+//
+
+@implementation GTLRAndroidPublisher_PrepaidBasePlanType
+@dynamic billingPeriodDuration, timeExtension;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_PrepaidPlan
+//
+
+@implementation GTLRAndroidPublisher_PrepaidPlan
+@dynamic allowExtendAfterTime;
 @end
 
 
@@ -954,11 +1292,70 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_RegionalBasePlanConfig
+//
+
+@implementation GTLRAndroidPublisher_RegionalBasePlanConfig
+@dynamic newSubscriberAvailability, price, regionCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RegionalPriceMigrationConfig
+//
+
+@implementation GTLRAndroidPublisher_RegionalPriceMigrationConfig
+@dynamic oldestAllowedPriceVersionTime, regionCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RegionalSubscriptionOfferConfig
+//
+
+@implementation GTLRAndroidPublisher_RegionalSubscriptionOfferConfig
+@dynamic newSubscriberAvailability, regionCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RegionalSubscriptionOfferPhaseConfig
+//
+
+@implementation GTLRAndroidPublisher_RegionalSubscriptionOfferPhaseConfig
+@dynamic absoluteDiscount, price, regionCode, relativeDiscount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_RegionalTaxRateInfo
 //
 
 @implementation GTLRAndroidPublisher_RegionalTaxRateInfo
 @dynamic eligibleForStreamingServiceTaxRate, taxTier;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RegionsVersion
+//
+
+@implementation GTLRAndroidPublisher_RegionsVersion
+@dynamic version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ReplacementCancellation
+//
+
+@implementation GTLRAndroidPublisher_ReplacementCancellation
 @end
 
 
@@ -1030,6 +1427,36 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_SubscribeWithGoogleInfo
+//
+
+@implementation GTLRAndroidPublisher_SubscribeWithGoogleInfo
+@dynamic emailAddress, familyName, givenName, profileId, profileName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_Subscription
+//
+
+@implementation GTLRAndroidPublisher_Subscription
+@dynamic archived, basePlans, listings, packageName, productId,
+         taxAndComplianceSettings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"basePlans" : [GTLRAndroidPublisher_BasePlan class],
+    @"listings" : [GTLRAndroidPublisher_SubscriptionListing class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_SubscriptionCancelSurveyResult
 //
 
@@ -1045,6 +1472,77 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_SubscriptionDeferralInfo
 @dynamic desiredExpiryTimeMillis, expectedExpiryTimeMillis;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_SubscriptionListing
+//
+
+@implementation GTLRAndroidPublisher_SubscriptionListing
+@dynamic benefits, descriptionProperty, languageCode, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"benefits" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_SubscriptionOffer
+//
+
+@implementation GTLRAndroidPublisher_SubscriptionOffer
+@dynamic basePlanId, offerId, offerTags, otherRegionsConfig, packageName,
+         phases, productId, regionalConfigs, state, targeting;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"offerTags" : [GTLRAndroidPublisher_OfferTag class],
+    @"phases" : [GTLRAndroidPublisher_SubscriptionOfferPhase class],
+    @"regionalConfigs" : [GTLRAndroidPublisher_RegionalSubscriptionOfferConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_SubscriptionOfferPhase
+//
+
+@implementation GTLRAndroidPublisher_SubscriptionOfferPhase
+@dynamic duration, otherRegionsConfig, recurrenceCount, regionalConfigs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regionalConfigs" : [GTLRAndroidPublisher_RegionalSubscriptionOfferPhaseConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_SubscriptionOfferTargeting
+//
+
+@implementation GTLRAndroidPublisher_SubscriptionOfferTargeting
+@dynamic acquisitionRule, upgradeRule;
 @end
 
 
@@ -1084,6 +1582,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_SubscriptionPurchaseLineItem
+//
+
+@implementation GTLRAndroidPublisher_SubscriptionPurchaseLineItem
+@dynamic autoRenewingPlan, expiryTime, prepaidPlan, productId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_SubscriptionPurchasesAcknowledgeRequest
 //
 
@@ -1109,6 +1617,33 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_SubscriptionPurchasesDeferResponse
 @dynamic newExpiryTimeMillis;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_SubscriptionPurchaseV2
+//
+
+@implementation GTLRAndroidPublisher_SubscriptionPurchaseV2
+@dynamic acknowledgementState, canceledStateContext, externalAccountIdentifiers,
+         kind, latestOrderId, lineItems, linkedPurchaseToken,
+         pausedStateContext, regionCode, startTime, subscribeWithGoogleInfo,
+         subscriptionState, testPurchase;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"lineItems" : [GTLRAndroidPublisher_SubscriptionPurchaseLineItem class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -1166,6 +1701,25 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_SystemInitiatedCancellation
+//
+
+@implementation GTLRAndroidPublisher_SystemInitiatedCancellation
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_TargetingRuleScope
+//
+
+@implementation GTLRAndroidPublisher_TargetingRuleScope
+@dynamic specificSubscriptionInApp;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_Testers
 //
 
@@ -1179,6 +1733,15 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_TestPurchase
+//
+
+@implementation GTLRAndroidPublisher_TestPurchase
 @end
 
 
@@ -1294,6 +1857,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_UpgradeTargetingRule
+//
+
+@implementation GTLRAndroidPublisher_UpgradeTargetingRule
+@dynamic billingPeriodDuration, oncePerUser, scope;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_User
 //
 
@@ -1321,6 +1894,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 @dynamic androidOsVersion, appVersionCode, appVersionName, device,
          deviceMetadata, lastModified, originalText, reviewerLanguage,
          starRating, text, thumbsDownCount, thumbsUpCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_UserInitiatedCancellation
+//
+
+@implementation GTLRAndroidPublisher_UserInitiatedCancellation
+@dynamic cancelSurveyResult, cancelTime;
 @end
 
 

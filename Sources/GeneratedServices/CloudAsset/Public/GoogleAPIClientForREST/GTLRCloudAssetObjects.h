@@ -91,11 +91,8 @@
 @class GTLRCloudAsset_PolicyInfo;
 @class GTLRCloudAsset_PubsubDestination;
 @class GTLRCloudAsset_QueryContent;
-@class GTLRCloudAsset_RelatedAsset;
-@class GTLRCloudAsset_RelatedAssets;
 @class GTLRCloudAsset_RelatedResource;
 @class GTLRCloudAsset_RelatedResources;
-@class GTLRCloudAsset_RelationshipAttributes;
 @class GTLRCloudAsset_Resource;
 @class GTLRCloudAsset_Resource_Data;
 @class GTLRCloudAsset_ResourceSearchResult;
@@ -968,12 +965,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  for more information.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Inventory *osInventory;
-
-/**
- *  The related assets of the asset of one relationship type. One asset only
- *  represents one type of relationship.
- */
-@property(nonatomic, strong, nullable) GTLRCloudAsset_RelatedAssets *relatedAssets;
 
 /** A representation of the resource. */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Resource *resource;
@@ -4078,61 +4069,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
- *  An asset identifier in Google Cloud which contains its name, type and
- *  ancestors. An asset can be any resource in the Google Cloud [resource
- *  hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy),
- *  a resource outside the Google Cloud resource hierarchy (such as Google
- *  Kubernetes Engine clusters and objects), or a policy (e.g. Cloud IAM
- *  policy). See [Supported asset
- *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
- *  for more information.
- */
-@interface GTLRCloudAsset_RelatedAsset : GTLRObject
-
-/**
- *  The ancestors of an asset in Google Cloud [resource
- *  hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy),
- *  represented as a list of relative resource names. An ancestry path starts
- *  with the closest ancestor in the hierarchy and ends at root. Example:
- *  `["projects/123456789", "folders/5432", "organizations/1234"]`
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *ancestors;
-
-/**
- *  The full name of the asset. Example:
- *  `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`
- *  See [Resource
- *  names](https://cloud.google.com/apis/design/resource_names#full_resource_name)
- *  for more information.
- */
-@property(nonatomic, copy, nullable) NSString *asset;
-
-/**
- *  The type of the asset. Example: `compute.googleapis.com/Disk` See [Supported
- *  asset
- *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
- *  for more information.
- */
-@property(nonatomic, copy, nullable) NSString *assetType;
-
-@end
-
-
-/**
- *  The detailed related assets with the `relationship_type`.
- */
-@interface GTLRCloudAsset_RelatedAssets : GTLRObject
-
-/** The peer resources of the relationship. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_RelatedAsset *> *assets;
-
-/** The detailed relationship attributes. */
-@property(nonatomic, strong, nullable) GTLRCloudAsset_RelationshipAttributes *relationshipAttributes;
-
-@end
-
-
-/**
  *  The detailed related resource.
  */
 @interface GTLRCloudAsset_RelatedResource : GTLRObject
@@ -4156,30 +4092,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /** The detailed related resources of the primary resource. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_RelatedResource *> *relatedResources;
-
-@end
-
-
-/**
- *  The relationship attributes which include `type`, `source_resource_type`,
- *  `target_resource_type` and `action`.
- */
-@interface GTLRCloudAsset_RelationshipAttributes : GTLRObject
-
-/** The detail of the relationship, e.g. `contains`, `attaches` */
-@property(nonatomic, copy, nullable) NSString *action;
-
-/** The source asset type. Example: `compute.googleapis.com/Instance` */
-@property(nonatomic, copy, nullable) NSString *sourceResourceType;
-
-/** The target asset type. Example: `compute.googleapis.com/Disk` */
-@property(nonatomic, copy, nullable) NSString *targetResourceType;
-
-/**
- *  The unique identifier of the relationship type. Example:
- *  `INSTANCE_TO_INSTANCEGROUP`
- */
-@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

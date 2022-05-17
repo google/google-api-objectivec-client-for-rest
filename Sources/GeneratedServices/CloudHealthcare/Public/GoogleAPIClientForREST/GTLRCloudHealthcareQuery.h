@@ -4080,7 +4080,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/** A profile that this resource should be validated against. */
+/**
+ *  The canonical URL of a profile that this resource should be validated
+ *  against. For example, to validate a Patient resource against the US Core
+ *  Patient profile this parameter would be
+ *  `http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient`. A
+ *  StructureDefinition with this canonical URL must exist in the FHIR store.
+ */
 @property(nonatomic, copy, nullable) NSString *profile;
 
 /**

@@ -39,6 +39,7 @@
 @class GTLRContainerAnalysis_DeploymentNote;
 @class GTLRContainerAnalysis_DeploymentOccurrence;
 @class GTLRContainerAnalysis_Detail;
+@class GTLRContainerAnalysis_Digest;
 @class GTLRContainerAnalysis_DiscoveryNote;
 @class GTLRContainerAnalysis_DiscoveryOccurrence;
 @class GTLRContainerAnalysis_Distribution;
@@ -96,6 +97,7 @@
 @class GTLRContainerAnalysis_Jwt;
 @class GTLRContainerAnalysis_KnowledgeBase;
 @class GTLRContainerAnalysis_Layer;
+@class GTLRContainerAnalysis_License;
 @class GTLRContainerAnalysis_Location;
 @class GTLRContainerAnalysis_Material;
 @class GTLRContainerAnalysis_Material_Digest;
@@ -1250,6 +1252,50 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_PackageIssue_Effective
  *  Value: "SEVERITY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_PackageIssue_EffectiveSeverity_SeverityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_PackageNote.architecture
+
+/**
+ *  Unknown architecture.
+ *
+ *  Value: "ARCHITECTURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_PackageNote_Architecture_ArchitectureUnspecified;
+/**
+ *  X64 architecture.
+ *
+ *  Value: "X64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_PackageNote_Architecture_X64;
+/**
+ *  X86 architecture.
+ *
+ *  Value: "X86"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_PackageNote_Architecture_X86;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_PackageOccurrence.architecture
+
+/**
+ *  Unknown architecture.
+ *
+ *  Value: "ARCHITECTURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_PackageOccurrence_Architecture_ArchitectureUnspecified;
+/**
+ *  X64 architecture.
+ *
+ *  Value: "X64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_PackageOccurrence_Architecture_X64;
+/**
+ *  X86 architecture.
+ *
+ *  Value: "X86"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_PackageOccurrence_Architecture_X86;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Version.kind
@@ -2442,6 +2488,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /** The name of the vendor of the product. */
 @property(nonatomic, copy, nullable) NSString *vendor;
+
+@end
+
+
+/**
+ *  Digest information.
+ */
+@interface GTLRContainerAnalysis_Digest : GTLRObject
+
+/** `SHA1`, `SHA512` etc. */
+@property(nonatomic, copy, nullable) NSString *algo;
+
+/**
+ *  Value of the digest encoded. For example: SHA512 - base64 encoding, SHA1 -
+ *  hex encoding.
+ */
+@property(nonatomic, copy, nullable) NSString *digestValue;
 
 @end
 
@@ -4354,6 +4417,25 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
+ *  License information.
+ */
+@interface GTLRContainerAnalysis_License : GTLRObject
+
+/** Comments */
+@property(nonatomic, copy, nullable) NSString *comments;
+
+/**
+ *  Often a single license can be used to represent the licensing terms.
+ *  Sometimes it is necessary to include a choice of one or more licenses or
+ *  some combination of license identifiers. Examples: "LGPL-2.1-only OR MIT",
+ *  "LGPL-2.1-only AND MIT", "GPL-2.0-or-later WITH Bison-exception-2.2".
+ */
+@property(nonatomic, copy, nullable) NSString *expression;
+
+@end
+
+
+/**
  *  Response for listing occurrences for a note.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4440,15 +4522,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @interface GTLRContainerAnalysis_Location : GTLRObject
 
 /**
- *  Required. The CPE URI in [CPE format](https://cpe.mitre.org/specification/)
- *  denoting the package manager version distributing a package.
+ *  Deprecated. The CPE URI in [CPE
+ *  format](https://cpe.mitre.org/specification/)
  */
 @property(nonatomic, copy, nullable) NSString *cpeUri;
 
 /** The path from which we gathered that this package/version is installed. */
 @property(nonatomic, copy, nullable) NSString *path;
 
-/** The version installed at this location. */
+/** Deprecated. The version installed at this location. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_Version *version;
 
 @end
@@ -4813,17 +4895,67 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
- *  This represents a particular package that is distributed over various
- *  channels. E.g., glibc (aka libc6) is distributed by many, at various
- *  versions.
+ *  PackageNote represents a particular package version.
  */
 @interface GTLRContainerAnalysis_PackageNote : GTLRObject
 
-/** The various channels by which a package is distributed. */
+/**
+ *  The CPU architecture for which packages in this distribution channel were
+ *  built. Architecture will be blank for language packages.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_PackageNote_Architecture_ArchitectureUnspecified
+ *        Unknown architecture. (Value: "ARCHITECTURE_UNSPECIFIED")
+ *    @arg @c kGTLRContainerAnalysis_PackageNote_Architecture_X64 X64
+ *        architecture. (Value: "X64")
+ *    @arg @c kGTLRContainerAnalysis_PackageNote_Architecture_X86 X86
+ *        architecture. (Value: "X86")
+ */
+@property(nonatomic, copy, nullable) NSString *architecture;
+
+/**
+ *  The cpe_uri in [CPE format](https://cpe.mitre.org/specification/) denoting
+ *  the package manager version distributing a package. The cpe_uri will be
+ *  blank for language packages.
+ */
+@property(nonatomic, copy, nullable) NSString *cpeUri;
+
+/**
+ *  The description of this package.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Hash value, typically a file digest, that allows unique identification a
+ *  specific package.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Digest *> *digest;
+
+/** Deprecated. The various channels by which a package is distributed. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Distribution *> *distribution;
+
+/** Licenses that have been declared by the authors of the package. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_License *license;
+
+/** A freeform text denoting the maintainer of this package. */
+@property(nonatomic, copy, nullable) NSString *maintainer;
 
 /** Required. Immutable. The name of the package. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The type of package; whether native or non native (e.g., ruby gems, node.js
+ *  packages, etc.).
+ */
+@property(nonatomic, copy, nullable) NSString *packageType;
+
+/** The homepage for this package. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+/** The version of the package. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Version *version;
 
 @end
 
@@ -4834,13 +4966,47 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @interface GTLRContainerAnalysis_PackageOccurrence : GTLRObject
 
 /**
- *  Required. All of the places within the filesystem versions of this package
- *  have been found.
+ *  Output only. The CPU architecture for which packages in this distribution
+ *  channel were built. Architecture will be blank for language packages.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_PackageOccurrence_Architecture_ArchitectureUnspecified
+ *        Unknown architecture. (Value: "ARCHITECTURE_UNSPECIFIED")
+ *    @arg @c kGTLRContainerAnalysis_PackageOccurrence_Architecture_X64 X64
+ *        architecture. (Value: "X64")
+ *    @arg @c kGTLRContainerAnalysis_PackageOccurrence_Architecture_X86 X86
+ *        architecture. (Value: "X86")
+ */
+@property(nonatomic, copy, nullable) NSString *architecture;
+
+/**
+ *  Output only. The cpe_uri in [CPE
+ *  format](https://cpe.mitre.org/specification/) denoting the package manager
+ *  version distributing a package. The cpe_uri will be blank for language
+ *  packages.
+ */
+@property(nonatomic, copy, nullable) NSString *cpeUri;
+
+/** Licenses that have been declared by the authors of the package. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_License *license;
+
+/**
+ *  All of the places within the filesystem versions of this package have been
+ *  found.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Location *> *location;
 
-/** Output only. The name of the installed package. */
+/** Required. Output only. The name of the installed package. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The type of package; whether native or non native (e.g., ruby
+ *  gems, node.js packages, etc.).
+ */
+@property(nonatomic, copy, nullable) NSString *packageType;
+
+/** Output only. The version of the package. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Version *version;
 
 @end
 

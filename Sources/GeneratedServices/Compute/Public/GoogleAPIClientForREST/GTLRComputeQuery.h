@@ -34555,6 +34555,59 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Changes the Certificate Map for TargetHttpsProxy.
+ *
+ *  Method: compute.targetHttpsProxies.setCertificateMap
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_TargetHttpsProxiesSetCertificateMap : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Name of the TargetHttpsProxy resource whose CertificateMap is to be set. The
+ *  name must be 1-63 characters long, and comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *targetHttpsProxy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Changes the Certificate Map for TargetHttpsProxy.
+ *
+ *  @param object The @c GTLRCompute_TargetHttpsProxiesSetCertificateMapRequest
+ *    to include in the query.
+ *  @param project Project ID for this request.
+ *  @param targetHttpsProxy Name of the TargetHttpsProxy resource whose
+ *    CertificateMap is to be set. The name must be 1-63 characters long, and
+ *    comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_TargetHttpsProxiesSetCertificateMap
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TargetHttpsProxiesSetCertificateMapRequest *)object
+                        project:(NSString *)project
+               targetHttpsProxy:(NSString *)targetHttpsProxy;
+
+@end
+
+/**
  *  Sets the QUIC override policy for TargetHttpsProxy.
  *
  *  Method: compute.targetHttpsProxies.setQuicOverride
@@ -36019,6 +36072,59 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @return GTLRComputeQuery_TargetSslProxiesSetBackendService
  */
 + (instancetype)queryWithObject:(GTLRCompute_TargetSslProxiesSetBackendServiceRequest *)object
+                        project:(NSString *)project
+                 targetSslProxy:(NSString *)targetSslProxy;
+
+@end
+
+/**
+ *  Changes the Certificate Map for TargetSslProxy.
+ *
+ *  Method: compute.targetSslProxies.setCertificateMap
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_TargetSslProxiesSetCertificateMap : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Name of the TargetSslProxy resource whose CertificateMap is to be set. The
+ *  name must be 1-63 characters long, and comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *targetSslProxy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Changes the Certificate Map for TargetSslProxy.
+ *
+ *  @param object The @c GTLRCompute_TargetSslProxiesSetCertificateMapRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param targetSslProxy Name of the TargetSslProxy resource whose
+ *    CertificateMap is to be set. The name must be 1-63 characters long, and
+ *    comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_TargetSslProxiesSetCertificateMap
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TargetSslProxiesSetCertificateMapRequest *)object
                         project:(NSString *)project
                  targetSslProxy:(NSString *)targetSslProxy;
 

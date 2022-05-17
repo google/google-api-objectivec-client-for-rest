@@ -17,6 +17,10 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// retention
+NSString * const kGTLRApigeeRetentionDeletionRetentionUnspecified = @"DELETION_RETENTION_UNSPECIFIED";
+NSString * const kGTLRApigeeRetentionMinimum                   = @"MINIMUM";
+
 // state
 NSString * const kGTLRApigeeStateDraft            = @"DRAFT";
 NSString * const kGTLRApigeeStatePublished        = @"PUBLISHED";
@@ -963,7 +967,7 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @implementation GTLRApigeeQuery_OrganizationsDelete
 
-@dynamic name;
+@dynamic name, retention;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -5166,33 +5170,6 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
   query.name = name;
   query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ApiCategory class];
   query.loggingName = @"apigee.organizations.sites.apicategories.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRApigeeQuery_OrganizationsTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRApigee_GoogleIamV1TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
-  GTLRApigeeQuery_OrganizationsTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRApigee_GoogleIamV1TestIamPermissionsResponse class];
-  query.loggingName = @"apigee.organizations.testIamPermissions";
   return query;
 }
 

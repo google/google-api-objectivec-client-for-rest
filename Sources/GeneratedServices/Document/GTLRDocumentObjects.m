@@ -1037,7 +1037,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageMatrix
-@dynamic cols, data, rows, type;
+@dynamic applied, cols, data, rows, type;
 @end
 
 
@@ -1683,7 +1683,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageMatrix
-@dynamic cols, data, rows, type;
+@dynamic applied, cols, data, rows, type;
 @end
 
 
@@ -2600,7 +2600,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentPageMatrix
-@dynamic cols, data, rows, type;
+@dynamic applied, cols, data, rows, type;
 @end
 
 
@@ -3104,7 +3104,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1ProcessRequest
-@dynamic inlineDocument, rawDocument, skipHumanReview;
+@dynamic fieldMask, inlineDocument, rawDocument, skipHumanReview;
 @end
 
 

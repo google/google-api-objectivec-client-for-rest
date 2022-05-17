@@ -1471,7 +1471,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_ChatAppLogEntry : GTLRObject
 
 /**
- *  The deployment that caused the error. For Chat bots built in Apps Script,
+ *  The deployment that caused the error. For Chat apps built in Apps Script,
  *  this is the deployment ID defined by Apps Script.
  */
 @property(nonatomic, copy, nullable) NSString *deployment;
@@ -3189,9 +3189,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  A matched url in a Chat message. Chat apps can unfurl matched URLs. For more
- *  information, refer to [Unfurl
- *  links](https://developers.google.com/chat/how-tos/link-unfurling).
+ *  A matched url in a Chat message. Chat apps can preview matched URLs. For
+ *  more information, refer to [Preview
+ *  links](https://developers.google.com/chat/how-tos/preview-links).
  */
 @interface GTLRHangoutsChat_MatchedUrl : GTLRObject
 
@@ -3213,29 +3213,31 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Represents a membership relation in Google Chat.
+ *  Represents a membership relation in Google Chat, such as whether a user or
+ *  Chat app is invited to, part of, or absent from a space.
  */
 @interface GTLRHangoutsChat_Membership : GTLRObject
 
 /**
- *  Output only. The creation time of the membership a.k.a. the time at which
- *  the member joined the space, if applicable.
+ *  Output only. The creation time of the membership, such as when a member
+ *  joined or was invited to join a space.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  A Google Chat user or app. Format: `users/{person}` or `users/app` When
- *  `users/{person}`, represents a
+ *  A Google Chat user or app. Format: `users/{user}` or `users/app` When
+ *  `users/{user}`, represents a
  *  [person](https://developers.google.com/people/api/rest/v1/people) in the
  *  People API or a
  *  [user](https://developers.google.com/admin-sdk/directory/reference/rest/v1/users)
- *  in the Admin SDK Directory API. Format: `users/{user}` When `users/app`,
- *  represents a Chat app creating membership for itself. Creating membership is
- *  available as a [developer
- *  preview](https://developers.google.com/workspace/preview).
+ *  in the Admin SDK Directory API. When `users/app`, represents a Chat app
+ *  creating membership for itself.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_User *member;
 
+/**
+ *  Resource name of the membership. Format: spaces/{space}/members/{member}
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -3305,9 +3307,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRDateTime *lastUpdateTime;
 
 /**
- *  Output only. A URL in `spaces.messages.text` that matches a link unfurling
- *  pattern. For more information, refer to [Unfurl
- *  links](https://developers.google.com/chat/how-tos/link-unfurling).
+ *  Output only. A URL in `spaces.messages.text` that matches a link preview
+ *  pattern. For more information, refer to [Preview
+ *  links](https://developers.google.com/chat/how-tos/preview-links).
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_MatchedUrl *matchedUrl;
 
@@ -3449,10 +3451,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/**
- *  Resource name of the space, in the form "spaces/ *". Example:
- *  spaces/AAAAAAAAAAAA
- */
+/** Resource name of the space. Format: spaces/{space} */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -3464,15 +3463,15 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) NSNumber *singleUserBotDm;
 
 /**
- *  Output only. Output only. Whether the messages are threaded in this space.
+ *  Output only. Whether messages are threaded in this space.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *threaded;
 
 /**
- *  Output only. Deprecated: Use `single_user_bot_dm` instead. Output only. The
- *  type of a space.
+ *  Output only. Deprecated: Use `single_user_bot_dm` or `space_type` (developer
+ *  preview) instead. The type of a space.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_Space_Type_Dm 1:1 Direct Message between a human

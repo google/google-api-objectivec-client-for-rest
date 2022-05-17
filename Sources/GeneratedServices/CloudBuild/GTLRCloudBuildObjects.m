@@ -89,6 +89,10 @@ NSString * const kGTLRCloudBuild_BuildTrigger_EventType_Pubsub = @"PUBSUB";
 NSString * const kGTLRCloudBuild_BuildTrigger_EventType_Repo   = @"REPO";
 NSString * const kGTLRCloudBuild_BuildTrigger_EventType_Webhook = @"WEBHOOK";
 
+// GTLRCloudBuild_BuildTrigger.includeBuildLogs
+NSString * const kGTLRCloudBuild_BuildTrigger_IncludeBuildLogs_IncludeBuildLogsUnspecified = @"INCLUDE_BUILD_LOGS_UNSPECIFIED";
+NSString * const kGTLRCloudBuild_BuildTrigger_IncludeBuildLogs_IncludeBuildLogsWithStatus = @"INCLUDE_BUILD_LOGS_WITH_STATUS";
+
 // GTLRCloudBuild_FailureInfo.type
 NSString * const kGTLRCloudBuild_FailureInfo_Type_FailureTypeUnspecified = @"FAILURE_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudBuild_FailureInfo_Type_FetchSourceFailed = @"FETCH_SOURCE_FAILED";
@@ -493,9 +497,9 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 @implementation GTLRCloudBuild_BuildTrigger
 @dynamic approvalConfig, autodetect, bitbucketServerTriggerConfig, build,
          createTime, descriptionProperty, disabled, eventType, filename, filter,
-         gitFileSource, github, identifier, ignoredFiles, includedFiles, name,
-         pubsubConfig, resourceName, serviceAccount, sourceToBuild,
-         substitutions, tags, triggerTemplate, webhookConfig;
+         gitFileSource, github, identifier, ignoredFiles, includeBuildLogs,
+         includedFiles, name, pubsubConfig, resourceName, serviceAccount,
+         sourceToBuild, substitutions, tags, triggerTemplate, webhookConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

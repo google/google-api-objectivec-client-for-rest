@@ -3907,7 +3907,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1TaskInfrastructureSpecBatchComputeResources : GTLRObject
 
 /**
- *  Optional. Total number of job executors.
+ *  Optional. Total number of job executors. Executor Count should be between 2
+ *  and 100. Default=2
  *
  *  Uses NSNumber of intValue.
  */
@@ -3915,7 +3916,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 /**
  *  Optional. Max configurable executors. If max_executors_count >
- *  executors_count, then auto-scaling is enabled.
+ *  executors_count, then auto-scaling is enabled. Max Executor Count should be
+ *  between 2 and 1000. Default=1000
  *
  *  Uses NSNumber of intValue.
  */

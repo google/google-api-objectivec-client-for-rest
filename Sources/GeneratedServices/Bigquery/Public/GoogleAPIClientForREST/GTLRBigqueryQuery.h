@@ -1140,8 +1140,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 @interface GTLRBigqueryQuery_RowAccessPoliciesGetIamPolicy : GTLRBigqueryQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1154,8 +1155,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  @param object The @c GTLRBigquery_GetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRBigqueryQuery_RowAccessPoliciesGetIamPolicy
  */
@@ -1232,8 +1234,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 @interface GTLRBigqueryQuery_RowAccessPoliciesSetIamPolicy : GTLRBigqueryQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1247,8 +1250,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  @param object The @c GTLRBigquery_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRBigqueryQuery_RowAccessPoliciesSetIamPolicy
  */
@@ -1275,7 +1279,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1291,8 +1296,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  @param object The @c GTLRBigquery_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRBigqueryQuery_RowAccessPoliciesTestIamPermissions
  */
@@ -1501,8 +1507,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 @interface GTLRBigqueryQuery_TablesGetIamPolicy : GTLRBigqueryQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1515,8 +1522,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  @param object The @c GTLRBigquery_GetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRBigqueryQuery_TablesGetIamPolicy
  */
@@ -1666,8 +1674,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 @interface GTLRBigqueryQuery_TablesSetIamPolicy : GTLRBigqueryQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1681,8 +1690,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  @param object The @c GTLRBigquery_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRBigqueryQuery_TablesSetIamPolicy
  */
@@ -1709,7 +1719,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1725,8 +1736,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  @param object The @c GTLRBigquery_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRBigqueryQuery_TablesTestIamPermissions
  */

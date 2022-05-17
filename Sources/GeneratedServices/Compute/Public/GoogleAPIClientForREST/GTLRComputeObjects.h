@@ -1424,6 +1424,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_Purpose_NatAuto;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_Purpose_PrivateServiceConnect;
 /**
+ *  A regional internal IP address range reserved for Serverless.
+ *
+ *  Value: "SERVERLESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_Purpose_Serverless;
+/**
  *  A private network IP address that can be shared by multiple Internal Load
  *  Balancer forwarding rules.
  *
@@ -32965,6 +32971,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        network IP address that can be used to configure Private Service
  *        Connect. This purpose can be specified only for GLOBAL addresses of
  *        Type INTERNAL (Value: "PRIVATE_SERVICE_CONNECT")
+ *    @arg @c kGTLRCompute_Address_Purpose_Serverless A regional internal IP
+ *        address range reserved for Serverless. (Value: "SERVERLESS")
  *    @arg @c kGTLRCompute_Address_Purpose_SharedLoadbalancerVip A private
  *        network IP address that can be shared by multiple Internal Load
  *        Balancer forwarding rules. (Value: "SHARED_LOADBALANCER_VIP")
@@ -42182,23 +42190,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
- *  IP address that this forwarding rule serves. When a client sends traffic to
- *  this IP address, the forwarding rule directs the traffic to the target that
- *  you specify in the forwarding rule. If you don't specify a reserved IP
- *  address, an ephemeral IP address is assigned. Methods for specifying an IP
- *  address: * IPv4 dotted decimal, as in `100.1.2.3` * Full URL, as in
+ *  IP address for which this forwarding rule accepts traffic. When a client
+ *  sends traffic to this IP address, the forwarding rule directs the traffic to
+ *  the referenced target or backendService. While creating a forwarding rule,
+ *  specifying an IPAddress is required under the following circumstances: -
+ *  When the target is set to targetGrpcProxy and validateForProxyless is set to
+ *  true, the IPAddress should be set to 0.0.0.0. - When the target is a Private
+ *  Service Connect Google APIs bundle, you must specify an IPAddress.
+ *  Otherwise, you can optionally specify an IP address that references an
+ *  existing static (reserved) IP address resource. When omitted, Google Cloud
+ *  assigns an ephemeral IP address. Use one of the following formats to specify
+ *  an IP address while creating a forwarding rule: * IP address number, as in
+ *  `100.1.2.3` * Full resource URL, as in
  *  https://www.googleapis.com/compute/v1/projects/project_id/regions/region
  *  /addresses/address-name * Partial URL or by name, as in: -
  *  projects/project_id/regions/region/addresses/address-name -
  *  regions/region/addresses/address-name - global/addresses/address-name -
- *  address-name The loadBalancingScheme and the forwarding rule's target
- *  determine the type of IP address that you can use. For detailed information,
- *  see [IP address
+ *  address-name The forwarding rule's target or backendService, and in most
+ *  cases, also the loadBalancingScheme, determine the type of IP address that
+ *  you can use. For detailed information, see [IP address
  *  specifications](https://cloud.google.com/load-balancing/docs/forwarding-rule-concepts#ip_address_specifications).
- *  Must be set to `0.0.0.0` when the target is targetGrpcProxy that has
- *  validateForProxyless field set to true. For Private Service Connect
- *  forwarding rules that forward traffic to Google APIs, IP address must be
- *  provided.
+ *  When reading an IPAddress, the API always returns the IP address number.
  */
 @property(nonatomic, copy, nullable) NSString *IPAddress;
 
@@ -44423,10 +44435,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  The list of host patterns to match. They must be valid hostnames with
  *  optional port numbers in the format host:port. * matches any string of
- *  ([a-z0-9-.]*). In that case, * must be the first character and must be
- *  followed in the pattern by either - or .. * based matching is not supported
- *  when the URL map is bound to a target gRPC proxy that has the
- *  validateForProxyless field set to true.
+ *  ([a-z0-9-.]*). In that case, * must be the first character, and if followed
+ *  by anything, the immediate following character must be either - or .. *
+ *  based matching is not supported when the URL map is bound to a target gRPC
+ *  proxy that has the validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *hosts;
 
@@ -45278,7 +45290,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  be aborted by the load balancer for a percentage of requests. timeout and
  *  retry_policy is ignored by clients that are configured with a
  *  fault_injection_policy if: 1. The traffic is generated by fault injection
- *  AND 2. The fault injection is not a delay fault injection.
+ *  AND 2. The fault injection is not a delay fault injection. Fault injection
+ *  is not supported with the global external HTTP(S) load balancer (classic).
+ *  To see which load balancers support fault injection, see Load balancing:
+ *  Routing and traffic management features.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpFaultInjection *faultInjectionPolicy;
 
@@ -48721,12 +48736,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) GTLRCompute_FixedOrPercent *maxUnavailable;
 
 /**
- *  Minimal action to be taken on an instance. You can specify either RESTART to
- *  restart existing instances or REPLACE to delete and create new instances
- *  from the target template. If you specify a RESTART, the Updater will attempt
- *  to perform that action only. However, if the Updater determines that the
- *  minimal action you specify is not enough to perform the update, it might
- *  perform a more disruptive action.
+ *  Minimal action to be taken on an instance. Use this option to minimize
+ *  disruption as much as possible or to apply a more disruptive action than is
+ *  necessary. - To limit disruption as much as possible, set the minimal action
+ *  to REFRESH. If your update requires a more disruptive action, Compute Engine
+ *  performs the necessary action to execute the update. - To apply a more
+ *  disruptive action than is strictly necessary, set the minimal action to
+ *  RESTART or REPLACE. For example, Compute Engine does not need to restart a
+ *  VM to change its metadata. But if your application reads instance metadata
+ *  only when a VM is restarted, you can set the minimal action to RESTART in
+ *  order to pick up metadata changes.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_InstanceGroupManagerUpdatePolicy_MinimalAction_None
@@ -65788,9 +65807,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_ResourcePolicyGroupPlacementPolicy : GTLRObject
 
 /**
- *  The number of availability domains instances will be spread across. If two
- *  instances are in different availability domain, they will not be put in the
- *  same low latency network
+ *  The number of availability domains to spread instances across. If two
+ *  instances are in different availability domain, they are not in the same low
+ *  latency network.
  *
  *  Uses NSNumber of intValue.
  */
@@ -65808,7 +65827,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *collocation;
 
 /**
- *  Number of vms in this placement group
+ *  Number of VMs in this placement group. Google does not recommend that you
+ *  use this field unless you use a compact policy and you want your policy to
+ *  work only if it contains this exact number of VMs.
  *
  *  Uses NSNumber of intValue.
  */
@@ -74256,6 +74277,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  GTLRCompute_TargetHttpsProxiesSetCertificateMapRequest
+ */
+@interface GTLRCompute_TargetHttpsProxiesSetCertificateMapRequest : GTLRObject
+
+/** URL of the Certificate Map to associate with this TargetHttpsProxy. */
+@property(nonatomic, copy, nullable) NSString *certificateMap;
+
+@end
+
+
+/**
  *  GTLRCompute_TargetHttpsProxiesSetQuicOverrideRequest
  */
 @interface GTLRCompute_TargetHttpsProxiesSetQuicOverrideRequest : GTLRObject
@@ -74318,6 +74350,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  currently has no impact.
  */
 @property(nonatomic, copy, nullable) NSString *authorizationPolicy;
+
+/**
+ *  URL of a certificate map that identifies a certificate map associated with
+ *  the given target proxy. This field can only be set for global target
+ *  proxies. If set, sslCertificates will be ignored.
+ */
+@property(nonatomic, copy, nullable) NSString *certificateMap;
 
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
@@ -76145,6 +76184,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  GTLRCompute_TargetSslProxiesSetCertificateMapRequest
+ */
+@interface GTLRCompute_TargetSslProxiesSetCertificateMapRequest : GTLRObject
+
+/** URL of the Certificate Map to associate with this TargetSslProxy. */
+@property(nonatomic, copy, nullable) NSString *certificateMap;
+
+@end
+
+
+/**
  *  GTLRCompute_TargetSslProxiesSetProxyHeaderRequest
  */
 @interface GTLRCompute_TargetSslProxiesSetProxyHeaderRequest : GTLRObject
@@ -76186,6 +76236,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  more information, read Using Target Proxies.
  */
 @interface GTLRCompute_TargetSslProxy : GTLRObject
+
+/**
+ *  URL of a certificate map that identifies a certificate map associated with
+ *  the given target proxy. This field can only be set for global target
+ *  proxies. If set, sslCertificates will be ignored.
+ */
+@property(nonatomic, copy, nullable) NSString *certificateMap;
 
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;

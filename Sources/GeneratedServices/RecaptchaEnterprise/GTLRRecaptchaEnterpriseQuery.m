@@ -225,6 +225,25 @@
 
 @end
 
+@implementation GTLRRecaptchaEnterpriseQuery_ProjectsKeysRetrieveLegacySecretKey
+
+@dynamic key;
+
++ (instancetype)queryWithKey:(NSString *)key {
+  NSArray *pathParams = @[ @"key" ];
+  NSString *pathURITemplate = @"v1/{+key}:retrieveLegacySecretKey";
+  GTLRRecaptchaEnterpriseQuery_ProjectsKeysRetrieveLegacySecretKey *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.key = key;
+  query.expectedObjectClass = [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse class];
+  query.loggingName = @"recaptchaenterprise.projects.keys.retrieveLegacySecretKey";
+  return query;
+}
+
+@end
+
 @implementation GTLRRecaptchaEnterpriseQuery_ProjectsRelatedaccountgroupmembershipsSearch
 
 @dynamic project;

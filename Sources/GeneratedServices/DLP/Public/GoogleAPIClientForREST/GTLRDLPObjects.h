@@ -4116,6 +4116,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @interface GTLRDLP_GooglePrivacyDlpV2InfoTypeSummary : GTLRObject
 
+/**
+ *  Approximate percentage of non-null rows that contained data detected by this
+ *  infotype.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *estimatedPrevalence;
+
 /** The infoType. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infoType;
 
@@ -5218,6 +5226,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Infotype details for other infoTypes found within a column.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2OtherInfoTypeSummary : GTLRObject
+
+/**
+ *  Approximate percentage of non-null rows that contained data detected by this
+ *  infotype.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *estimatedPrevalence;
 
 /** The other infoType. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infoType;

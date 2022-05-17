@@ -475,7 +475,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 
 /**
  *  Maximum number of results to return. Default value is 100. Maximum value is
- *  200.
+ *  1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

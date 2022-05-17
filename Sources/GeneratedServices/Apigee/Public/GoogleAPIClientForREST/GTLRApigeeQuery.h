@@ -31,6 +31,22 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// retention
+
+/**
+ *  Default data retention settings will be applied.
+ *
+ *  Value: "DELETION_RETENTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigeeRetentionDeletionRetentionUnspecified;
+/**
+ *  Organization data will be retained for the minimum period of 24 hours.
+ *
+ *  Value: "MINIMUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigeeRetentionMinimum;
+
+// ----------------------------------------------------------------------------
 // state
 
 /**
@@ -1791,7 +1807,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Delete an Apigee organization. Only supported for SubscriptionType TRIAL.
+ *  Delete an Apigee organization. For organizations with BillingType
+ *  EVALUATION, an immediate deletion is performed. For paid organizations, a
+ *  soft-deletion is performed. The organization can be restored within the
+ *  soft-deletion period - which can be controlled using the retention field in
+ *  the request.
  *
  *  Method: apigee.organizations.delete
  *
@@ -1807,9 +1827,30 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. This setting is only applicable for organizations that are
+ *  soft-deleted (i.e. BillingType is not EVALUATION). It controls how long
+ *  Organization data will be retained after the initial delete operation
+ *  completes. During this period, the Organization may be restored to its last
+ *  known state. After this period, the Organization will no longer be able to
+ *  be restored.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigeeRetentionDeletionRetentionUnspecified Default data
+ *        retention settings will be applied. (Value:
+ *        "DELETION_RETENTION_UNSPECIFIED")
+ *    @arg @c kGTLRApigeeRetentionMinimum Organization data will be retained for
+ *        the minimum period of 24 hours. (Value: "MINIMUM")
+ */
+@property(nonatomic, copy, nullable) NSString *retention;
+
+/**
  *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
  *
- *  Delete an Apigee organization. Only supported for SubscriptionType TRIAL.
+ *  Delete an Apigee organization. For organizations with BillingType
+ *  EVALUATION, an immediate deletion is performed. For paid organizations, a
+ *  soft-deletion is performed. The organization can be restored within the
+ *  soft-deletion period - which can be controlled using the retention field in
+ *  the request.
  *
  *  @param name Required. Name of the organization. Use the following structure
  *    in your request: `organizations/{org}`
@@ -5273,8 +5314,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -5288,8 +5330,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  API.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsGetIamPolicy
  */
@@ -6500,8 +6543,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsSetIamPolicy : GTLRApigeeQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -6518,8 +6562,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @param object The @c GTLRApigee_GoogleIamV1SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSetIamPolicy
  */
@@ -7014,7 +7059,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -7029,8 +7075,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @param object The @c GTLRApigee_GoogleIamV1TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsTestIamPermissions
  */
@@ -9591,46 +9638,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ApiCategoryData *)object
                            name:(NSString *)name;
-
-@end
-
-/**
- *  Tests the permissions of a user on an organization, and returns a subset of
- *  permissions that the user has on the organization. If the organization does
- *  not exist, an empty permission set is returned (a NOT_FOUND error is not
- *  returned).
- *
- *  Method: apigee.organizations.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeApigeeCloudPlatform
- */
-@interface GTLRApigeeQuery_OrganizationsTestIamPermissions : GTLRApigeeQuery
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRApigee_GoogleIamV1TestIamPermissionsResponse.
- *
- *  Tests the permissions of a user on an organization, and returns a subset of
- *  permissions that the user has on the organization. If the organization does
- *  not exist, an empty permission set is returned (a NOT_FOUND error is not
- *  returned).
- *
- *  @param object The @c GTLRApigee_GoogleIamV1TestIamPermissionsRequest to
- *    include in the query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
- *
- *  @return GTLRApigeeQuery_OrganizationsTestIamPermissions
- */
-+ (instancetype)queryWithObject:(GTLRApigee_GoogleIamV1TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
 
 @end
 

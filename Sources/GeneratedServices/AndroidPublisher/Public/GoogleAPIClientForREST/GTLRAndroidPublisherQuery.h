@@ -2451,6 +2451,872 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
+ *  Archives a subscription. Can only be done if at least one base plan was
+ *  active in the past, and no base plan is available for new or existing
+ *  subscribers currently. This action is irreversible, and the subscription ID
+ *  will remain reserved.
+ *
+ *  Method: androidpublisher.monetization.subscriptions.archive
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsArchive : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The parent app (package name) of the app of the subscription to
+ *  delete.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The unique product ID of the subscription to delete. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_Subscription.
+ *
+ *  Archives a subscription. Can only be done if at least one base plan was
+ *  active in the past, and no base plan is available for new or existing
+ *  subscribers currently. This action is irreversible, and the subscription ID
+ *  will remain reserved.
+ *
+ *  @param object The @c GTLRAndroidPublisher_ArchiveSubscriptionRequest to
+ *    include in the query.
+ *  @param packageName Required. The parent app (package name) of the app of the
+ *    subscription to delete.
+ *  @param productId Required. The unique product ID of the subscription to
+ *    delete.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationSubscriptionsArchive
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_ArchiveSubscriptionRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId;
+
+@end
+
+/**
+ *  Activates a base plan. Once activated, base plans will be available to new
+ *  subscribers.
+ *
+ *  Method: androidpublisher.monetization.subscriptions.basePlans.activate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansActivate : GTLRAndroidPublisherQuery
+
+/** Required. The unique base plan ID of the base plan to activate. */
+@property(nonatomic, copy, nullable) NSString *basePlanId;
+
+/** Required. The parent app (package name) of the base plan to activate. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The parent subscription (ID) of the base plan to activate. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_Subscription.
+ *
+ *  Activates a base plan. Once activated, base plans will be available to new
+ *  subscribers.
+ *
+ *  @param object The @c GTLRAndroidPublisher_ActivateBasePlanRequest to include
+ *    in the query.
+ *  @param packageName Required. The parent app (package name) of the base plan
+ *    to activate.
+ *  @param productId Required. The parent subscription (ID) of the base plan to
+ *    activate.
+ *  @param basePlanId Required. The unique base plan ID of the base plan to
+ *    activate.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansActivate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_ActivateBasePlanRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+                     basePlanId:(NSString *)basePlanId;
+
+@end
+
+/**
+ *  Deactivates a base plan. Once deactivated, the base plan will become
+ *  unavailable to new subscribers, but existing subscribers will maintain their
+ *  subscription
+ *
+ *  Method: androidpublisher.monetization.subscriptions.basePlans.deactivate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansDeactivate : GTLRAndroidPublisherQuery
+
+/** Required. The unique base plan ID of the base plan to deactivate. */
+@property(nonatomic, copy, nullable) NSString *basePlanId;
+
+/** Required. The parent app (package name) of the base plan to deactivate. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The parent subscription (ID) of the base plan to deactivate. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_Subscription.
+ *
+ *  Deactivates a base plan. Once deactivated, the base plan will become
+ *  unavailable to new subscribers, but existing subscribers will maintain their
+ *  subscription
+ *
+ *  @param object The @c GTLRAndroidPublisher_DeactivateBasePlanRequest to
+ *    include in the query.
+ *  @param packageName Required. The parent app (package name) of the base plan
+ *    to deactivate.
+ *  @param productId Required. The parent subscription (ID) of the base plan to
+ *    deactivate.
+ *  @param basePlanId Required. The unique base plan ID of the base plan to
+ *    deactivate.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansDeactivate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_DeactivateBasePlanRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+                     basePlanId:(NSString *)basePlanId;
+
+@end
+
+/**
+ *  Deletes a base plan. Can only be done for draft base plans. This action is
+ *  irreversible.
+ *
+ *  Method: androidpublisher.monetization.subscriptions.basePlans.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansDelete : GTLRAndroidPublisherQuery
+
+/** Required. The unique offer ID of the base plan to delete. */
+@property(nonatomic, copy, nullable) NSString *basePlanId;
+
+/** Required. The parent app (package name) of the base plan to delete. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The parent subscription (ID) of the base plan to delete. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a base plan. Can only be done for draft base plans. This action is
+ *  irreversible.
+ *
+ *  @param packageName Required. The parent app (package name) of the base plan
+ *    to delete.
+ *  @param productId Required. The parent subscription (ID) of the base plan to
+ *    delete.
+ *  @param basePlanId Required. The unique offer ID of the base plan to delete.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansDelete
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                           productId:(NSString *)productId
+                          basePlanId:(NSString *)basePlanId;
+
+@end
+
+/**
+ *  Migrates subscribers who are receiving an historical subscription price to
+ *  the currently-offered price for the specified region. Requests will cause
+ *  price change notifications to be sent to users who are currently receiving
+ *  an historical price older than the supplied timestamp. Subscribers who do
+ *  not agree to the new price will have their subscription ended at the next
+ *  renewal.
+ *
+ *  Method: androidpublisher.monetization.subscriptions.basePlans.migratePrices
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansMigratePrices : GTLRAndroidPublisherQuery
+
+/** Required. The unique base plan ID of the base plan to update prices on. */
+@property(nonatomic, copy, nullable) NSString *basePlanId;
+
+/**
+ *  Required. Package name of the parent app. Must be equal to the package_name
+ *  field on the Subscription resource.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. The ID of the subscription to update. Must be equal to the
+ *  product_id field on the Subscription resource.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_MigrateBasePlanPricesResponse.
+ *
+ *  Migrates subscribers who are receiving an historical subscription price to
+ *  the currently-offered price for the specified region. Requests will cause
+ *  price change notifications to be sent to users who are currently receiving
+ *  an historical price older than the supplied timestamp. Subscribers who do
+ *  not agree to the new price will have their subscription ended at the next
+ *  renewal.
+ *
+ *  @param object The @c GTLRAndroidPublisher_MigrateBasePlanPricesRequest to
+ *    include in the query.
+ *  @param packageName Required. Package name of the parent app. Must be equal
+ *    to the package_name field on the Subscription resource.
+ *  @param productId Required. The ID of the subscription to update. Must be
+ *    equal to the product_id field on the Subscription resource.
+ *  @param basePlanId Required. The unique base plan ID of the base plan to
+ *    update prices on.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansMigratePrices
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_MigrateBasePlanPricesRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+                     basePlanId:(NSString *)basePlanId;
+
+@end
+
+/**
+ *  Activates a subscription offer. Once activated, subscription offers will be
+ *  available to new subscribers.
+ *
+ *  Method: androidpublisher.monetization.subscriptions.basePlans.offers.activate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersActivate : GTLRAndroidPublisherQuery
+
+/** Required. The parent base plan (ID) of the offer to activate. */
+@property(nonatomic, copy, nullable) NSString *basePlanId;
+
+/** Required. The unique offer ID of the offer to activate. */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/** Required. The parent app (package name) of the offer to activate. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The parent subscription (ID) of the offer to activate. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_SubscriptionOffer.
+ *
+ *  Activates a subscription offer. Once activated, subscription offers will be
+ *  available to new subscribers.
+ *
+ *  @param object The @c GTLRAndroidPublisher_ActivateSubscriptionOfferRequest
+ *    to include in the query.
+ *  @param packageName Required. The parent app (package name) of the offer to
+ *    activate.
+ *  @param productId Required. The parent subscription (ID) of the offer to
+ *    activate.
+ *  @param basePlanId Required. The parent base plan (ID) of the offer to
+ *    activate.
+ *  @param offerId Required. The unique offer ID of the offer to activate.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersActivate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_ActivateSubscriptionOfferRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+                     basePlanId:(NSString *)basePlanId
+                        offerId:(NSString *)offerId;
+
+@end
+
+/**
+ *  Creates a new subscription offer. Only auto-renewing base plans can have
+ *  subscription offers. The offer state will be DRAFT until it is activated.
+ *
+ *  Method: androidpublisher.monetization.subscriptions.basePlans.offers.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersCreate : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The parent base plan (ID) for which the offer should be created.
+ *  Must be equal to the base_plan_id field on the SubscriptionOffer resource.
+ */
+@property(nonatomic, copy, nullable) NSString *basePlanId;
+
+/**
+ *  Required. The ID to use for the offer. For the requirements on this format,
+ *  see the documentation of the offer_id field on the SubscriptionOffer
+ *  resource.
+ */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/**
+ *  Required. The parent app (package name) for which the offer should be
+ *  created. Must be equal to the package_name field on the Subscription
+ *  resource.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. The parent subscription (ID) for which the offer should be
+ *  created. Must be equal to the product_id field on the SubscriptionOffer
+ *  resource.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Required. A string representing version of the available regions being used
+ *  for the specified resource.
+ */
+@property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_SubscriptionOffer.
+ *
+ *  Creates a new subscription offer. Only auto-renewing base plans can have
+ *  subscription offers. The offer state will be DRAFT until it is activated.
+ *
+ *  @param object The @c GTLRAndroidPublisher_SubscriptionOffer to include in
+ *    the query.
+ *  @param packageName Required. The parent app (package name) for which the
+ *    offer should be created. Must be equal to the package_name field on the
+ *    Subscription resource.
+ *  @param productId Required. The parent subscription (ID) for which the offer
+ *    should be created. Must be equal to the product_id field on the
+ *    SubscriptionOffer resource.
+ *  @param basePlanId Required. The parent base plan (ID) for which the offer
+ *    should be created. Must be equal to the base_plan_id field on the
+ *    SubscriptionOffer resource.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersCreate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_SubscriptionOffer *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+                     basePlanId:(NSString *)basePlanId;
+
+@end
+
+/**
+ *  Deactivates a subscription offer. Once deactivated, existing subscribers
+ *  will maintain their subscription, but the offer will become unavailable to
+ *  new subscribers.
+ *
+ *  Method: androidpublisher.monetization.subscriptions.basePlans.offers.deactivate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersDeactivate : GTLRAndroidPublisherQuery
+
+/** Required. The parent base plan (ID) of the offer to deactivate. */
+@property(nonatomic, copy, nullable) NSString *basePlanId;
+
+/** Required. The unique offer ID of the offer to deactivate. */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/** Required. The parent app (package name) of the offer to deactivate. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The parent subscription (ID) of the offer to deactivate. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_SubscriptionOffer.
+ *
+ *  Deactivates a subscription offer. Once deactivated, existing subscribers
+ *  will maintain their subscription, but the offer will become unavailable to
+ *  new subscribers.
+ *
+ *  @param object The @c GTLRAndroidPublisher_DeactivateSubscriptionOfferRequest
+ *    to include in the query.
+ *  @param packageName Required. The parent app (package name) of the offer to
+ *    deactivate.
+ *  @param productId Required. The parent subscription (ID) of the offer to
+ *    deactivate.
+ *  @param basePlanId Required. The parent base plan (ID) of the offer to
+ *    deactivate.
+ *  @param offerId Required. The unique offer ID of the offer to deactivate.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersDeactivate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_DeactivateSubscriptionOfferRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+                     basePlanId:(NSString *)basePlanId
+                        offerId:(NSString *)offerId;
+
+@end
+
+/**
+ *  Deletes a subscription offer. Can only be done for draft offers. This action
+ *  is irreversible.
+ *
+ *  Method: androidpublisher.monetization.subscriptions.basePlans.offers.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersDelete : GTLRAndroidPublisherQuery
+
+/** Required. The parent base plan (ID) of the offer to delete. */
+@property(nonatomic, copy, nullable) NSString *basePlanId;
+
+/** Required. The unique offer ID of the offer to delete. */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/** Required. The parent app (package name) of the offer to delete. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The parent subscription (ID) of the offer to delete. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a subscription offer. Can only be done for draft offers. This action
+ *  is irreversible.
+ *
+ *  @param packageName Required. The parent app (package name) of the offer to
+ *    delete.
+ *  @param productId Required. The parent subscription (ID) of the offer to
+ *    delete.
+ *  @param basePlanId Required. The parent base plan (ID) of the offer to
+ *    delete.
+ *  @param offerId Required. The unique offer ID of the offer to delete.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersDelete
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                           productId:(NSString *)productId
+                          basePlanId:(NSString *)basePlanId
+                             offerId:(NSString *)offerId;
+
+@end
+
+/**
+ *  Reads a single offer
+ *
+ *  Method: androidpublisher.monetization.subscriptions.basePlans.offers.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersGet : GTLRAndroidPublisherQuery
+
+/** Required. The parent base plan (ID) of the offer to get. */
+@property(nonatomic, copy, nullable) NSString *basePlanId;
+
+/** Required. The unique offer ID of the offer to get. */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/** Required. The parent app (package name) of the offer to get. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The parent subscription (ID) of the offer to get. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_SubscriptionOffer.
+ *
+ *  Reads a single offer
+ *
+ *  @param packageName Required. The parent app (package name) of the offer to
+ *    get.
+ *  @param productId Required. The parent subscription (ID) of the offer to get.
+ *  @param basePlanId Required. The parent base plan (ID) of the offer to get.
+ *  @param offerId Required. The unique offer ID of the offer to get.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersGet
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                           productId:(NSString *)productId
+                          basePlanId:(NSString *)basePlanId
+                             offerId:(NSString *)offerId;
+
+@end
+
+/**
+ *  Lists all offers under a given subscription.
+ *
+ *  Method: androidpublisher.monetization.subscriptions.basePlans.offers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersList : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The parent base plan (ID) for which the offers should be read. May
+ *  be specified as '-' to read all offers under a subscription.
+ */
+@property(nonatomic, copy, nullable) NSString *basePlanId;
+
+/**
+ *  Required. The parent app (package name) for which the subscriptions should
+ *  be read.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  The maximum number of subscriptions to return. The service may return fewer
+ *  than this value. If unspecified, at most 50 subscriptions will be returned.
+ *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListSubscriptionsOffers` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListSubscriptionOffers` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent subscription (ID) for which the offers should be read.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_ListSubscriptionOffersResponse.
+ *
+ *  Lists all offers under a given subscription.
+ *
+ *  @param packageName Required. The parent app (package name) for which the
+ *    subscriptions should be read.
+ *  @param productId Required. The parent subscription (ID) for which the offers
+ *    should be read.
+ *  @param basePlanId Required. The parent base plan (ID) for which the offers
+ *    should be read. May be specified as '-' to read all offers under a
+ *    subscription.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                           productId:(NSString *)productId
+                          basePlanId:(NSString *)basePlanId;
+
+@end
+
+/**
+ *  Updates an existing subscription offer.
+ *
+ *  Method: androidpublisher.monetization.subscriptions.basePlans.offers.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersPatch : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. Immutable. The ID of the base plan to which this offer is an
+ *  extension.
+ */
+@property(nonatomic, copy, nullable) NSString *basePlanId;
+
+/**
+ *  Required. Immutable. Unique ID of this subscription offer. Must be unique
+ *  within the base plan.
+ */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/**
+ *  Required. Immutable. The package name of the app the parent subscription
+ *  belongs to.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. Immutable. The ID of the parent subscription this offer belongs
+ *  to.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Required. A string representing version of the available regions being used
+ *  for the specified resource.
+ */
+@property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
+
+/**
+ *  Required. The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_SubscriptionOffer.
+ *
+ *  Updates an existing subscription offer.
+ *
+ *  @param object The @c GTLRAndroidPublisher_SubscriptionOffer to include in
+ *    the query.
+ *  @param packageName Required. Immutable. The package name of the app the
+ *    parent subscription belongs to.
+ *  @param productId Required. Immutable. The ID of the parent subscription this
+ *    offer belongs to.
+ *  @param basePlanId Required. Immutable. The ID of the base plan to which this
+ *    offer is an extension.
+ *  @param offerId Required. Immutable. Unique ID of this subscription offer.
+ *    Must be unique within the base plan.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationSubscriptionsBasePlansOffersPatch
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_SubscriptionOffer *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+                     basePlanId:(NSString *)basePlanId
+                        offerId:(NSString *)offerId;
+
+@end
+
+/**
+ *  Creates a new subscription. Newly added base plans will remain in draft
+ *  state until activated.
+ *
+ *  Method: androidpublisher.monetization.subscriptions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsCreate : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The parent app (package name) for which the subscription should be
+ *  created. Must be equal to the package_name field on the Subscription
+ *  resource.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. The ID to use for the subscription. For the requirements on this
+ *  format, see the documentation of the product_id field on the Subscription
+ *  resource.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Required. A string representing version of the available regions being used
+ *  for the specified resource.
+ */
+@property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_Subscription.
+ *
+ *  Creates a new subscription. Newly added base plans will remain in draft
+ *  state until activated.
+ *
+ *  @param object The @c GTLRAndroidPublisher_Subscription to include in the
+ *    query.
+ *  @param packageName Required. The parent app (package name) for which the
+ *    subscription should be created. Must be equal to the package_name field on
+ *    the Subscription resource.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationSubscriptionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_Subscription *)object
+                    packageName:(NSString *)packageName;
+
+@end
+
+/**
+ *  Deletes a subscription. A subscription can only be deleted if it has never
+ *  had a base plan published.
+ *
+ *  Method: androidpublisher.monetization.subscriptions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsDelete : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The parent app (package name) of the app of the subscription to
+ *  delete.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The unique product ID of the subscription to delete. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a subscription. A subscription can only be deleted if it has never
+ *  had a base plan published.
+ *
+ *  @param packageName Required. The parent app (package name) of the app of the
+ *    subscription to delete.
+ *  @param productId Required. The unique product ID of the subscription to
+ *    delete.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationSubscriptionsDelete
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                           productId:(NSString *)productId;
+
+@end
+
+/**
+ *  Reads a single subscription.
+ *
+ *  Method: androidpublisher.monetization.subscriptions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsGet : GTLRAndroidPublisherQuery
+
+/** Required. The parent app (package name) of the subscription to get. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. The unique product ID of the subscription to get. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_Subscription.
+ *
+ *  Reads a single subscription.
+ *
+ *  @param packageName Required. The parent app (package name) of the
+ *    subscription to get.
+ *  @param productId Required. The unique product ID of the subscription to get.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationSubscriptionsGet
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                           productId:(NSString *)productId;
+
+@end
+
+/**
+ *  Lists all subscriptions under a given app.
+ *
+ *  Method: androidpublisher.monetization.subscriptions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsList : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The parent app (package name) for which the subscriptions should
+ *  be read.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  The maximum number of subscriptions to return. The service may return fewer
+ *  than this value. If unspecified, at most 50 subscriptions will be returned.
+ *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListSubscriptions` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListSubscriptions` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Whether archived subscriptions should be included in the response. Defaults
+ *  to false.
+ */
+@property(nonatomic, assign) BOOL showArchived;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_ListSubscriptionsResponse.
+ *
+ *  Lists all subscriptions under a given app.
+ *
+ *  @param packageName Required. The parent app (package name) for which the
+ *    subscriptions should be read.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationSubscriptionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName;
+
+@end
+
+/**
+ *  Updates an existing subscription.
+ *
+ *  Method: androidpublisher.monetization.subscriptions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationSubscriptionsPatch : GTLRAndroidPublisherQuery
+
+/** Immutable. Package name of the parent app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Immutable. Unique product ID of the product. Unique within the parent app.
+ *  Product IDs must be composed of lower-case letters (a-z), numbers (0-9),
+ *  underscores (_) and dots (.). It must start with a lower-case letter or
+ *  number, and be between 1 and 40 (inclusive) characters in length.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Required. A string representing version of the available regions being used
+ *  for the specified resource.
+ */
+@property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
+
+/**
+ *  Required. The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_Subscription.
+ *
+ *  Updates an existing subscription.
+ *
+ *  @param object The @c GTLRAndroidPublisher_Subscription to include in the
+ *    query.
+ *  @param packageName Immutable. Package name of the parent app.
+ *  @param productId Immutable. Unique product ID of the product. Unique within
+ *    the parent app. Product IDs must be composed of lower-case letters (a-z),
+ *    numbers (0-9), underscores (_) and dots (.). It must start with a
+ *    lower-case letter or number, and be between 1 and 40 (inclusive)
+ *    characters in length.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationSubscriptionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_Subscription *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId;
+
+@end
+
+/**
  *  Refunds a user's subscription or in-app purchase order. Orders older than 1
  *  year cannot be refunded.
  *
@@ -2875,6 +3741,45 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                       subscriptionId:(NSString *)subscriptionId
+                               token:(NSString *)token;
+
+@end
+
+/**
+ *  Get metadata about a subscription
+ *
+ *  Method: androidpublisher.purchases.subscriptionsv2.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_PurchasesSubscriptionsv2Get : GTLRAndroidPublisherQuery
+
+/**
+ *  The package of the application for which this subscription was purchased
+ *  (for example, 'com.some.thing').
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. The token provided to the user's device when the subscription was
+ *  purchased.
+ */
+@property(nonatomic, copy, nullable) NSString *token;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_SubscriptionPurchaseV2.
+ *
+ *  Get metadata about a subscription
+ *
+ *  @param packageName The package of the application for which this
+ *    subscription was purchased (for example, 'com.some.thing').
+ *  @param token Required. The token provided to the user's device when the
+ *    subscription was purchased.
+ *
+ *  @return GTLRAndroidPublisherQuery_PurchasesSubscriptionsv2Get
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName
                                token:(NSString *)token;
 
 @end

@@ -401,8 +401,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -413,8 +414,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsGetIamPolicy
  */
@@ -630,8 +632,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsSetIamPolicy : GTLRGameServicesQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -645,8 +648,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *  @param object The @c GTLRGameServices_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsSetIamPolicy
  */
@@ -671,7 +675,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -687,8 +692,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUns
  *  @param object The @c GTLRGameServices_TestIamPermissionsRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsTestIamPermissions
  */

@@ -294,6 +294,16 @@ NSString * const kGTLRContainerAnalysis_PackageIssue_EffectiveSeverity_Medium = 
 NSString * const kGTLRContainerAnalysis_PackageIssue_EffectiveSeverity_Minimal = @"MINIMAL";
 NSString * const kGTLRContainerAnalysis_PackageIssue_EffectiveSeverity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
 
+// GTLRContainerAnalysis_PackageNote.architecture
+NSString * const kGTLRContainerAnalysis_PackageNote_Architecture_ArchitectureUnspecified = @"ARCHITECTURE_UNSPECIFIED";
+NSString * const kGTLRContainerAnalysis_PackageNote_Architecture_X64 = @"X64";
+NSString * const kGTLRContainerAnalysis_PackageNote_Architecture_X86 = @"X86";
+
+// GTLRContainerAnalysis_PackageOccurrence.architecture
+NSString * const kGTLRContainerAnalysis_PackageOccurrence_Architecture_ArchitectureUnspecified = @"ARCHITECTURE_UNSPECIFIED";
+NSString * const kGTLRContainerAnalysis_PackageOccurrence_Architecture_X64 = @"X64";
+NSString * const kGTLRContainerAnalysis_PackageOccurrence_Architecture_X86 = @"X86";
+
 // GTLRContainerAnalysis_Version.kind
 NSString * const kGTLRContainerAnalysis_Version_Kind_Maximum   = @"MAXIMUM";
 NSString * const kGTLRContainerAnalysis_Version_Kind_Minimum   = @"MINIMUM";
@@ -753,6 +763,16 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_Digest
+//
+
+@implementation GTLRContainerAnalysis_Digest
+@dynamic algo, digestValue;
 @end
 
 
@@ -1555,6 +1575,16 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainerAnalysis_License
+//
+
+@implementation GTLRContainerAnalysis_License
+@dynamic comments, expression;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainerAnalysis_ListNoteOccurrencesResponse
 //
 
@@ -1747,10 +1777,16 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_PackageNote
-@dynamic distribution, name;
+@dynamic architecture, cpeUri, descriptionProperty, digest, distribution,
+         license, maintainer, name, packageType, url, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"digest" : [GTLRContainerAnalysis_Digest class],
     @"distribution" : [GTLRContainerAnalysis_Distribution class]
   };
   return map;
@@ -1765,7 +1801,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_PackageOccurrence
-@dynamic location, name;
+@dynamic architecture, cpeUri, license, location, name, packageType, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

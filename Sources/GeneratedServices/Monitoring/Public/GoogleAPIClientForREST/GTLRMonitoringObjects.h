@@ -24,6 +24,7 @@
 @class GTLRMonitoring_BasicSli;
 @class GTLRMonitoring_BucketOptions;
 @class GTLRMonitoring_CloudEndpoints;
+@class GTLRMonitoring_CloudRun;
 @class GTLRMonitoring_ClusterIstio;
 @class GTLRMonitoring_CollectdPayload;
 @class GTLRMonitoring_CollectdPayload_Metadata;
@@ -44,6 +45,9 @@
 @class GTLRMonitoring_Explicit;
 @class GTLRMonitoring_Exponential;
 @class GTLRMonitoring_Field;
+@class GTLRMonitoring_GkeNamespace;
+@class GTLRMonitoring_GkeService;
+@class GTLRMonitoring_GkeWorkload;
 @class GTLRMonitoring_GoogleMonitoringV3Range;
 @class GTLRMonitoring_Group;
 @class GTLRMonitoring_HttpCheck;
@@ -1255,7 +1259,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor
 // GTLRMonitoring_NotificationChannelDescriptor.supportedTiers
 
 /**
- *  The Stackdriver Basic tier, a free tier of service that provides basic
+ *  The Cloud Monitoring Basic tier, a free tier of service that provides basic
  *  features, a moderate allotment of logs, and access to built-in metrics. A
  *  number of features are not available in this tier. For more details, see the
  *  service tiers documentation
@@ -1265,10 +1269,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor
  */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_SupportedTiers_ServiceTierBasic;
 /**
- *  The Stackdriver Premium tier, a higher, more expensive tier of service that
- *  provides access to all Stackdriver features, lets you use Stackdriver with
- *  AWS accounts, and has a larger allotments for logs and metrics. For more
- *  details, see the service tiers documentation
+ *  The Cloud Monitoring Premium tier, a higher, more expensive tier of service
+ *  that provides access to all Cloud Monitoring features, lets you use Cloud
+ *  Monitoring with AWS accounts, and has a larger allotments for logs and
+ *  metrics. For more details, see the service tiers documentation
  *  (https://cloud.google.com/monitoring/workspaces/tiers).
  *
  *  Value: "SERVICE_TIER_PREMIUM"
@@ -2073,7 +2077,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 /**
  *  Required if the policy exists. The resource name for this policy. The format
  *  is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
- *  [ALERT_POLICY_ID] is assigned by Stackdriver Monitoring when the policy is
+ *  [ALERT_POLICY_ID] is assigned by Cloud Monitoring when the policy is
  *  created. When calling the alertPolicies.create method, do not include the
  *  name field in the alerting policy passed as part of the request.
  */
@@ -2274,6 +2278,28 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  https://cloud.google.com/monitoring/api/resources#tag_api
  */
 @property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  Cloud Run service. Learn more at https://cloud.google.com/run.
+ */
+@interface GTLRMonitoring_CloudRun : GTLRObject
+
+/**
+ *  The location the service is run. Corresponds to the location resource label
+ *  in the cloud_run_revision monitored resource:
+ *  https://cloud.google.com/monitoring/api/resources#tag_cloud_run_revision
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  The name of the Cloud Run service. Corresponds to the service_name resource
+ *  label in the cloud_run_revision monitored resource:
+ *  https://cloud.google.com/monitoring/api/resources#tag_cloud_run_revision
+ */
+@property(nonatomic, copy, nullable) NSString *serviceName;
 
 @end
 
@@ -2483,11 +2509,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  Required if the condition exists. The unique resource name for this
  *  condition. Its format is:
  *  projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[POLICY_ID]/conditions/[CONDITION_ID]
- *  [CONDITION_ID] is assigned by Stackdriver Monitoring when the condition is
- *  created as part of a new or updated alerting policy.When calling the
+ *  [CONDITION_ID] is assigned by Cloud Monitoring when the condition is created
+ *  as part of a new or updated alerting policy.When calling the
  *  alertPolicies.create method, do not include the name field in the conditions
- *  of the requested alerting policy. Stackdriver Monitoring creates the
- *  condition identifiers and includes them in the new policy.When calling the
+ *  of the requested alerting policy. Cloud Monitoring creates the condition
+ *  identifiers and includes them in the new policy.When calling the
  *  alertPolicies.update method to update a policy, including a condition name
  *  causes the existing condition to be updated. Conditions without names are
  *  added to the updated policy. Existing conditions are deleted if they are not
@@ -3089,6 +3115,94 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 
 /**
+ *  GKE Namespace. The field names correspond to the resource metadata labels on
+ *  monitored resources that fall under a namespace (e.g. k8s_container,
+ *  k8s_pod).
+ */
+@interface GTLRMonitoring_GkeNamespace : GTLRObject
+
+/** The name of the parent cluster. */
+@property(nonatomic, copy, nullable) NSString *clusterName;
+
+/** The location of the parent cluster. This may be a zone or region. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The name of this namespace. */
+@property(nonatomic, copy, nullable) NSString *namespaceName;
+
+/**
+ *  Output only. The project this resource lives in. For legacy services
+ *  migrated from the Custom type, this may be a distinct project from the one
+ *  parenting the service itself.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+@end
+
+
+/**
+ *  GKE Service. The "service" here represents a Kubernetes service object
+ *  (https://kubernetes.io/docs/concepts/services-networking/service). The field
+ *  names correspond to the resource labels on k8s_service monitored resources:
+ *  https://cloud.google.com/monitoring/api/resources#tag_k8s_service
+ */
+@interface GTLRMonitoring_GkeService : GTLRObject
+
+/** The name of the parent cluster. */
+@property(nonatomic, copy, nullable) NSString *clusterName;
+
+/** The location of the parent cluster. This may be a zone or region. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The name of the parent namespace. */
+@property(nonatomic, copy, nullable) NSString *namespaceName;
+
+/**
+ *  Output only. The project this resource lives in. For legacy services
+ *  migrated from the Custom type, this may be a distinct project from the one
+ *  parenting the service itself.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** The name of this service. */
+@property(nonatomic, copy, nullable) NSString *serviceName;
+
+@end
+
+
+/**
+ *  A GKE Workload (Deployment, StatefulSet, etc). The field names correspond to
+ *  the metadata labels on monitored resources that fall under a workload (e.g.
+ *  k8s_container, k8s_pod).
+ */
+@interface GTLRMonitoring_GkeWorkload : GTLRObject
+
+/** The name of the parent cluster. */
+@property(nonatomic, copy, nullable) NSString *clusterName;
+
+/** The location of the parent cluster. This may be a zone or region. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The name of the parent namespace. */
+@property(nonatomic, copy, nullable) NSString *namespaceName;
+
+/**
+ *  Output only. The project this resource lives in. For legacy services
+ *  migrated from the Custom type, this may be a distinct project from the one
+ *  parenting the service itself.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** The name of this workload. */
+@property(nonatomic, copy, nullable) NSString *topLevelControllerName;
+
+/** The type of this workload (e.g. "Deployment" or "DaemonSet") */
+@property(nonatomic, copy, nullable) NSString *topLevelControllerType;
+
+@end
+
+
+/**
  *  Range of numerical values within min and max.
  */
 @interface GTLRMonitoring_GoogleMonitoringV3Range : GTLRObject
@@ -3313,8 +3427,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  The checker's human-readable name. The display name should be unique within
- *  a Stackdriver Workspace in order to make it easier to identify; however,
- *  uniqueness is not enforced.
+ *  a Cloud Monitoring Metrics Scope in order to make it easier to identify;
+ *  however, uniqueness is not enforced.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -3327,8 +3441,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 /**
  *  A unique resource name for this InternalChecker. The format is:
  *  projects/[PROJECT_ID_OR_NUMBER]/internalCheckers/[INTERNAL_CHECKER_ID]
- *  [PROJECT_ID_OR_NUMBER] is the Stackdriver Workspace project for the Uptime
- *  check config associated with the internal checker.
+ *  [PROJECT_ID_OR_NUMBER] is the Cloud Monitoring Metrics Scope project for the
+ *  Uptime check config associated with the internal checker.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3340,7 +3454,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  The GCP project ID where the internal checker lives. Not necessary the same
- *  as the Workspace project.
+ *  as the Metrics Scope project.
  */
 @property(nonatomic, copy, nullable) NSString *peerProjectId;
 
@@ -5302,6 +5416,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 /** Type used for Cloud Endpoints services. */
 @property(nonatomic, strong, nullable) GTLRMonitoring_CloudEndpoints *cloudEndpoints;
 
+/** Type used for Cloud Run services. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_CloudRun *cloudRun;
+
 /** Type used for Istio services that live in a Kubernetes cluster. */
 @property(nonatomic, strong, nullable) GTLRMonitoring_ClusterIstio *clusterIstio;
 
@@ -5310,6 +5427,15 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /** Name used for UI elements listing this Service. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Type used for GKE Namespaces. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_GkeNamespace *gkeNamespace;
+
+/** Type used for GKE Services (the Kubernetes concept of a service). */
+@property(nonatomic, strong, nullable) GTLRMonitoring_GkeService *gkeService;
+
+/** Type used for GKE Workloads. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_GkeWorkload *gkeWorkload;
 
 /**
  *  Type used for canonical services scoped to an Istio mesh. Metrics for Istio
@@ -5950,8 +6076,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  A human-friendly name for the Uptime check configuration. The display name
- *  should be unique within a Stackdriver Workspace in order to make it easier
- *  to identify; however, uniqueness is not enforced. Required.
+ *  should be unique within a Cloud Monitoring Workspace in order to make it
+ *  easier to identify; however, uniqueness is not enforced. Required.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 

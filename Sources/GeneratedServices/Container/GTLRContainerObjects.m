@@ -14,6 +14,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRContainer_BinaryAuthorization.evaluationMode
+NSString * const kGTLRContainer_BinaryAuthorization_EvaluationMode_Disabled = @"DISABLED";
+NSString * const kGTLRContainer_BinaryAuthorization_EvaluationMode_EvaluationModeUnspecified = @"EVALUATION_MODE_UNSPECIFIED";
+NSString * const kGTLRContainer_BinaryAuthorization_EvaluationMode_ProjectSingletonPolicyEnforce = @"PROJECT_SINGLETON_POLICY_ENFORCE";
+
 // GTLRContainer_CloudRunConfig.loadBalancerType
 NSString * const kGTLRContainer_CloudRunConfig_LoadBalancerType_LoadBalancerTypeExternal = @"LOAD_BALANCER_TYPE_EXTERNAL";
 NSString * const kGTLRContainer_CloudRunConfig_LoadBalancerType_LoadBalancerTypeInternal = @"LOAD_BALANCER_TYPE_INTERNAL";
@@ -327,7 +332,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_BinaryAuthorization
-@dynamic enabled;
+@dynamic enabled, evaluationMode;
 @end
 
 

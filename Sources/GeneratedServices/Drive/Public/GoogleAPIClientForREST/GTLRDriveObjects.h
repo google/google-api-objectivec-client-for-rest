@@ -847,6 +847,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *canRenameDrive;
 
 /**
+ *  Whether the current user can reset the shared drive restrictions to
+ *  defaults.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canResetDriveRestrictions;
+
+/**
  *  Whether the current user can share files or folders in this shared drive.
  *
  *  Uses NSNumber of boolValue.
@@ -2715,6 +2723,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canRenameTeamDrive;
+
+/**
+ *  Whether the current user can reset the Team Drive restrictions to defaults.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canResetTeamDriveRestrictions;
 
 /**
  *  Whether the current user can share files or folders in this Team Drive.

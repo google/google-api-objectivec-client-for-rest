@@ -117,6 +117,13 @@ NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_LaunchSt
 NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
+// GTLRServiceUsage_MetricRule_DynamicMetricCosts.dynamicMetricCost
+NSString * const kGTLRServiceUsage_MetricRule_DynamicMetricCosts_DynamicMetricCost_DynamicCostTypeUnspecified = @"DYNAMIC_COST_TYPE_UNSPECIFIED";
+NSString * const kGTLRServiceUsage_MetricRule_DynamicMetricCosts_DynamicMetricCost_RequestBodyAndHeaderBytes = @"REQUEST_BODY_AND_HEADER_BYTES";
+NSString * const kGTLRServiceUsage_MetricRule_DynamicMetricCosts_DynamicMetricCost_RequestBodyBytes = @"REQUEST_BODY_BYTES";
+NSString * const kGTLRServiceUsage_MetricRule_DynamicMetricCosts_DynamicMetricCost_ResponseBodyAndHeaderBytes = @"RESPONSE_BODY_AND_HEADER_BYTES";
+NSString * const kGTLRServiceUsage_MetricRule_DynamicMetricCosts_DynamicMetricCost_ResponseBodyBytes = @"RESPONSE_BODY_BYTES";
+
 // GTLRServiceUsage_MonitoredResourceDescriptor.launchStage
 NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Alpha = @"ALPHA";
 NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Beta = @"BETA";
@@ -1117,7 +1124,21 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_MetricRule
-@dynamic metricCosts, selector;
+@dynamic dynamicMetricCosts, metricCosts, selector;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_MetricRule_DynamicMetricCosts
+//
+
+@implementation GTLRServiceUsage_MetricRule_DynamicMetricCosts
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

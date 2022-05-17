@@ -11,6 +11,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRGKEHub_AnthosVMSubFeatureState.installationState
+NSString * const kGTLRGKEHub_AnthosVMSubFeatureState_InstallationState_InstallationStateFailed = @"INSTALLATION_STATE_FAILED";
+NSString * const kGTLRGKEHub_AnthosVMSubFeatureState_InstallationState_InstallationStateInstalled = @"INSTALLATION_STATE_INSTALLED";
+NSString * const kGTLRGKEHub_AnthosVMSubFeatureState_InstallationState_InstallationStateNotInstalled = @"INSTALLATION_STATE_NOT_INSTALLED";
+NSString * const kGTLRGKEHub_AnthosVMSubFeatureState_InstallationState_InstallationStateUnspecified = @"INSTALLATION_STATE_UNSPECIFIED";
+
 // GTLRGKEHub_AuditLogConfig.logType
 NSString * const kGTLRGKEHub_AuditLogConfig_LogType_AdminRead  = @"ADMIN_READ";
 NSString * const kGTLRGKEHub_AuditLogConfig_LogType_DataRead   = @"DATA_READ";
@@ -118,6 +124,12 @@ NSString * const kGTLRGKEHub_IdentityServiceMembershipState_State_DeploymentStat
 NSString * const kGTLRGKEHub_IdentityServiceMembershipState_State_Error = @"ERROR";
 NSString * const kGTLRGKEHub_IdentityServiceMembershipState_State_Ok = @"OK";
 
+// GTLRGKEHub_LocalControllerState.installationState
+NSString * const kGTLRGKEHub_LocalControllerState_InstallationState_InstallationStateFailed = @"INSTALLATION_STATE_FAILED";
+NSString * const kGTLRGKEHub_LocalControllerState_InstallationState_InstallationStateInstalled = @"INSTALLATION_STATE_INSTALLED";
+NSString * const kGTLRGKEHub_LocalControllerState_InstallationState_InstallationStateNotInstalled = @"INSTALLATION_STATE_NOT_INSTALLED";
+NSString * const kGTLRGKEHub_LocalControllerState_InstallationState_InstallationStateUnspecified = @"INSTALLATION_STATE_UNSPECIFIED";
+
 // GTLRGKEHub_MembershipState.code
 NSString * const kGTLRGKEHub_MembershipState_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
 NSString * const kGTLRGKEHub_MembershipState_Code_Creating     = @"CREATING";
@@ -146,6 +158,67 @@ NSString * const kGTLRGKEHub_Status_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
 NSString * const kGTLRGKEHub_Status_Code_Failed          = @"FAILED";
 NSString * const kGTLRGKEHub_Status_Code_Ok              = @"OK";
 NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_AnthosVMMembershipSpec
+//
+
+@implementation GTLRGKEHub_AnthosVMMembershipSpec
+@dynamic subfeaturesSpec;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"subfeaturesSpec" : [GTLRGKEHub_AnthosVMSubFeatureSpec class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_AnthosVMMembershipState
+//
+
+@implementation GTLRGKEHub_AnthosVMMembershipState
+@dynamic localControllerState, subfeatureState;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"subfeatureState" : [GTLRGKEHub_AnthosVMSubFeatureState class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_AnthosVMSubFeatureSpec
+//
+
+@implementation GTLRGKEHub_AnthosVMSubFeatureSpec
+@dynamic enabled, migrateSpec, serviceMeshSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_AnthosVMSubFeatureState
+//
+
+@implementation GTLRGKEHub_AnthosVMSubFeatureState
+@dynamic descriptionProperty, installationState, migrateState, serviceMeshState;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -869,6 +942,21 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEHub_LocalControllerState
+//
+
+@implementation GTLRGKEHub_LocalControllerState
+@dynamic descriptionProperty, installationState;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEHub_Location
 //
 
@@ -953,7 +1041,7 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_MembershipFeatureSpec
-@dynamic configmanagement, identityservice, mesh;
+@dynamic anthosvm, configmanagement, identityservice, mesh;
 @end
 
 
@@ -963,8 +1051,8 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_MembershipFeatureState
-@dynamic appdevexperience, configmanagement, identityservice, servicemesh,
-         state;
+@dynamic anthosvm, appdevexperience, configmanagement, identityservice,
+         servicemesh, state;
 @end
 
 
@@ -975,6 +1063,24 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 @implementation GTLRGKEHub_MembershipState
 @dynamic code;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_MigrateSpec
+//
+
+@implementation GTLRGKEHub_MigrateSpec
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_MigrateState
+//
+
+@implementation GTLRGKEHub_MigrateState
 @end
 
 
@@ -1135,6 +1241,24 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 @implementation GTLRGKEHub_ServiceMeshMembershipState
 @dynamic controlPlaneManagement;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ServiceMeshSpec
+//
+
+@implementation GTLRGKEHub_ServiceMeshSpec
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ServiceMeshState
+//
+
+@implementation GTLRGKEHub_ServiceMeshState
 @end
 
 

@@ -116,6 +116,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/AnalyticsData/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/AnalyticsData/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'AnalyticsHub' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/AnalyticsHub/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/AnalyticsHub/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'AnalyticsReporting' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/AnalyticsReporting/**/*.{h,m}'
@@ -195,6 +200,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/BareMetalSolution/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/BareMetalSolution/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'BeyondCorp' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/BeyondCorp/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/BeyondCorp/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'Bigquery' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

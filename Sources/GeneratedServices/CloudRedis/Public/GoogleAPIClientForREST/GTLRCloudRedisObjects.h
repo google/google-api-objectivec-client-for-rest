@@ -626,6 +626,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
 @property(nonatomic, strong, nullable) GTLRCloudRedis_MaintenanceSchedule *maintenanceSchedule;
 
 /**
+ *  Optional. The self service update maintenance version. The version is date
+ *  based such as "20210712_00_00".
+ */
+@property(nonatomic, copy, nullable) NSString *maintenanceVersion;
+
+/**
  *  Required. Redis memory size in GiB.
  *
  *  Uses NSNumber of intValue.

@@ -835,7 +835,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  messages published with the same non-empty `ordering_key` value will be
  *  delivered to subscribers in the order in which they are received by the
  *  Pub/Sub system. All `PubsubMessage`s published in a given `PublishRequest`
- *  must specify the same `ordering_key` value.
+ *  must specify the same `ordering_key` value. For more information, see
+ *  [ordering messages](https://cloud.google.com/pubsub/docs/ordering).
  */
 @property(nonatomic, copy, nullable) NSString *orderingKey;
 

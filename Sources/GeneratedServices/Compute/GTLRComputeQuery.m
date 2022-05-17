@@ -16315,6 +16315,37 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_TargetHttpsProxiesSetCertificateMap
+
+@dynamic project, requestId, targetHttpsProxy;
+
++ (instancetype)queryWithObject:(GTLRCompute_TargetHttpsProxiesSetCertificateMapRequest *)object
+                        project:(NSString *)project
+               targetHttpsProxy:(NSString *)targetHttpsProxy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"targetHttpsProxy"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/targetHttpsProxies/{targetHttpsProxy}/setCertificateMap";
+  GTLRComputeQuery_TargetHttpsProxiesSetCertificateMap *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.targetHttpsProxy = targetHttpsProxy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.targetHttpsProxies.setCertificateMap";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_TargetHttpsProxiesSetQuicOverride
 
 @dynamic project, requestId, targetHttpsProxy;
@@ -17021,6 +17052,37 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.targetSslProxy = targetSslProxy;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.targetSslProxies.setBackendService";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_TargetSslProxiesSetCertificateMap
+
+@dynamic project, requestId, targetSslProxy;
+
++ (instancetype)queryWithObject:(GTLRCompute_TargetSslProxiesSetCertificateMapRequest *)object
+                        project:(NSString *)project
+                 targetSslProxy:(NSString *)targetSslProxy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"targetSslProxy"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/targetSslProxies/{targetSslProxy}/setCertificateMap";
+  GTLRComputeQuery_TargetSslProxiesSetCertificateMap *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.targetSslProxy = targetSslProxy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.targetSslProxies.setCertificateMap";
   return query;
 }
 

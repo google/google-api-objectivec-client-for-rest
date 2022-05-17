@@ -147,8 +147,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsGetIamPolicy : GTLRBigQueryConnectionServiceQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -161,8 +162,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRBigQueryConnectionService_GetIamPolicyRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsGetIamPolicy
  */
@@ -269,8 +271,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsSetIamPolicy : GTLRBigQueryConnectionServiceQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -284,8 +287,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRBigQueryConnectionService_SetIamPolicyRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsSetIamPolicy
  */
@@ -311,7 +315,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -327,8 +332,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRBigQueryConnectionService_TestIamPermissionsRequest
  *    to include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsTestIamPermissions
  */

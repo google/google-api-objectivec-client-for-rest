@@ -16,6 +16,7 @@
 
 @class GTLRCloudComposer_AllowedIpRange;
 @class GTLRCloudComposer_CheckUpgradeResponse_PypiDependencies;
+@class GTLRCloudComposer_CidrBlock;
 @class GTLRCloudComposer_DatabaseConfig;
 @class GTLRCloudComposer_Date;
 @class GTLRCloudComposer_EncryptionConfig;
@@ -25,6 +26,7 @@
 @class GTLRCloudComposer_ImageVersion;
 @class GTLRCloudComposer_IPAllocationPolicy;
 @class GTLRCloudComposer_MaintenanceWindow;
+@class GTLRCloudComposer_MasterAuthorizedNetworksConfig;
 @class GTLRCloudComposer_NodeConfig;
 @class GTLRCloudComposer_Operation;
 @class GTLRCloudComposer_Operation_Metadata;
@@ -307,6 +309,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 
 
 /**
+ *  CIDR block with an optional name.
+ */
+@interface GTLRCloudComposer_CidrBlock : GTLRObject
+
+/** CIDR block that must be specified in CIDR notation. */
+@property(nonatomic, copy, nullable) NSString *cidrBlock;
+
+/** User-defined name that identifies the CIDR block. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+@end
+
+
+/**
  *  The configuration of Cloud SQL instance that is used by the Apache Airflow
  *  software.
  */
@@ -537,6 +553,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  default value is Saturday and Sunday 00-06 GMT.
  */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_MaintenanceWindow *maintenanceWindow;
+
+/**
+ *  Optional. The configuration options for GKE cluster master authorized
+ *  networks. By default master authorized networks feature is: - in case of
+ *  private environment: enabled with no external networks allowlisted. - in
+ *  case of public environment: disabled.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_MasterAuthorizedNetworksConfig *masterAuthorizedNetworksConfig;
 
 /** The configuration used for the Kubernetes Engine cluster. */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_NodeConfig *nodeConfig;
@@ -785,6 +809,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 
 /** Required. Start time of the first recurrence of the maintenance window. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Configuration options for the master authorized networks feature. Enabled
+ *  master authorized networks will disallow all external traffic to access
+ *  Kubernetes master through HTTPS except traffic from the given CIDR blocks,
+ *  Google Compute Engine Public IPs and Google Prod IPs.
+ */
+@interface GTLRCloudComposer_MasterAuthorizedNetworksConfig : GTLRObject
+
+/**
+ *  Up to 50 external networks that could access Kubernetes master through
+ *  HTTPS.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudComposer_CidrBlock *> *cidrBlocks;
+
+/**
+ *  Whether or not master authorized networks feature is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -1123,6 +1171,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enablePrivateEnvironment;
+
+/**
+ *  Optional. When enabled, IPs from public (non-RFC1918) ranges can be used for
+ *  `IPAllocationPolicy.cluster_ipv4_cidr_block` and
+ *  `IPAllocationPolicy.service_ipv4_cidr_block`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enablePrivatelyUsedPublicIps;
 
 /**
  *  Optional. Configuration for the private GKE cluster for a Private IP Cloud

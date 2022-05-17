@@ -367,8 +367,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRHangoutsChatQuery_SpacesGet : GTLRHangoutsChatQuery
 
 /**
- *  Required. Resource name of the space, in the form "spaces/ *". Example:
- *  spaces/AAAAAAAAAAAA
+ *  Required. Resource name of the space, in the form "spaces/ *". Format:
+ *  spaces/{space}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -379,7 +379,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  @param name Required. Resource name of the space, in the form "spaces/ *".
- *    Example: spaces/AAAAAAAAAAAA
+ *    Format: spaces/{space}
  *
  *  @return GTLRHangoutsChatQuery_SpacesGet
  */
@@ -429,9 +429,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRHangoutsChatQuery_SpacesMembersGet : GTLRHangoutsChatQuery
 
 /**
- *  Required. Resource name of the membership to be retrieved, in the form
- *  "spaces/ * /members/ *". Example:
- *  spaces/AAAAAAAAAAAA/members/111111111111111111111
+ *  Required. Resource name of the membership to retrieve. Format:
+ *  spaces/{space}/members/{member}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -441,9 +440,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns a membership. Requires [service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
- *  @param name Required. Resource name of the membership to be retrieved, in
- *    the form "spaces/ * /members/ *". Example:
- *    spaces/AAAAAAAAAAAA/members/111111111111111111111
+ *  @param name Required. Resource name of the membership to retrieve. Format:
+ *    spaces/{space}/members/{member}
  *
  *  @return GTLRHangoutsChatQuery_SpacesMembersGet
  */
@@ -469,8 +467,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the space for which membership list is to be
- *  fetched, in the form "spaces/ *". Example: spaces/AAAAAAAAAAAA
+ *  Required. The resource name of the space for which to fetch a membership
+ *  list. Format: spaces/{space}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -480,9 +478,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists human memberships in a space. Requires [service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
- *  @param parent Required. The resource name of the space for which membership
- *    list is to be fetched, in the form "spaces/ *". Example:
- *    spaces/AAAAAAAAAAAA
+ *  @param parent Required. The resource name of the space for which to fetch a
+ *    membership list. Format: spaces/{space}
  *
  *  @return GTLRHangoutsChatQuery_SpacesMembersList
  *

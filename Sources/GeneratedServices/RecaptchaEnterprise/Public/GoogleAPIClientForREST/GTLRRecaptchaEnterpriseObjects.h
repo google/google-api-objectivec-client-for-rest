@@ -846,6 +846,23 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 
 /**
+ *  Secret key used in legacy reCAPTCHA only. Should be used when integrating
+ *  with a 3rd party which is still using legacy reCAPTCHA.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse : GTLRObject
+
+/**
+ *  The secret key (also known as shared secret) authorizes communication
+ *  between your application backend and the reCAPTCHA Enterprise server to
+ *  create an assessment. The secret key needs to be kept safe for security
+ *  purposes.
+ */
+@property(nonatomic, copy, nullable) NSString *legacySecretKey;
+
+@end
+
+
+/**
  *  Risk analysis result for an event.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis : GTLRObject

@@ -97,6 +97,13 @@ NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchS
 NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
+// GTLRServiceConsumerManagement_MetricRule_DynamicMetricCosts.dynamicMetricCost
+NSString * const kGTLRServiceConsumerManagement_MetricRule_DynamicMetricCosts_DynamicMetricCost_DynamicCostTypeUnspecified = @"DYNAMIC_COST_TYPE_UNSPECIFIED";
+NSString * const kGTLRServiceConsumerManagement_MetricRule_DynamicMetricCosts_DynamicMetricCost_RequestBodyAndHeaderBytes = @"REQUEST_BODY_AND_HEADER_BYTES";
+NSString * const kGTLRServiceConsumerManagement_MetricRule_DynamicMetricCosts_DynamicMetricCost_RequestBodyBytes = @"REQUEST_BODY_BYTES";
+NSString * const kGTLRServiceConsumerManagement_MetricRule_DynamicMetricCosts_DynamicMetricCost_ResponseBodyAndHeaderBytes = @"RESPONSE_BODY_AND_HEADER_BYTES";
+NSString * const kGTLRServiceConsumerManagement_MetricRule_DynamicMetricCosts_DynamicMetricCost_ResponseBodyBytes = @"RESPONSE_BODY_BYTES";
+
 // GTLRServiceConsumerManagement_MonitoredResourceDescriptor.launchStage
 NSString * const kGTLRServiceConsumerManagement_MonitoredResourceDescriptor_LaunchStage_Alpha = @"ALPHA";
 NSString * const kGTLRServiceConsumerManagement_MonitoredResourceDescriptor_LaunchStage_Beta = @"BETA";
@@ -788,7 +795,21 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_MetricRule
-@dynamic metricCosts, selector;
+@dynamic dynamicMetricCosts, metricCosts, selector;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_MetricRule_DynamicMetricCosts
+//
+
+@implementation GTLRServiceConsumerManagement_MetricRule_DynamicMetricCosts
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
