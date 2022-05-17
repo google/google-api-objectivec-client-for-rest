@@ -118,6 +118,11 @@ NSString * const kGTLROnDemandScanning_PackageIssue_EffectiveSeverity_Medium = @
 NSString * const kGTLROnDemandScanning_PackageIssue_EffectiveSeverity_Minimal = @"MINIMAL";
 NSString * const kGTLROnDemandScanning_PackageIssue_EffectiveSeverity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
 
+// GTLROnDemandScanning_PackageOccurrence.architecture
+NSString * const kGTLROnDemandScanning_PackageOccurrence_Architecture_ArchitectureUnspecified = @"ARCHITECTURE_UNSPECIFIED";
+NSString * const kGTLROnDemandScanning_PackageOccurrence_Architecture_X64 = @"X64";
+NSString * const kGTLROnDemandScanning_PackageOccurrence_Architecture_X86 = @"X86";
+
 // GTLROnDemandScanning_Version.kind
 NSString * const kGTLROnDemandScanning_Version_Kind_Maximum    = @"MAXIMUM";
 NSString * const kGTLROnDemandScanning_Version_Kind_Minimum    = @"MINIMUM";
@@ -657,6 +662,16 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROnDemandScanning_License
+//
+
+@implementation GTLROnDemandScanning_License
+@dynamic comments, expression;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROnDemandScanning_ListOperationsResponse
 //
 
@@ -856,7 +871,7 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_PackageOccurrence
-@dynamic location, name;
+@dynamic architecture, cpeUri, license, location, name, packageType, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -192,8 +192,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -204,8 +205,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisArtifactsGetIamPolicy
  */
@@ -308,8 +310,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisArtifactsSetIamPolicy : GTLRApigeeRegistryQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -323,8 +326,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigeeRegistry_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisArtifactsSetIamPolicy
  */
@@ -349,7 +353,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -365,8 +370,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigeeRegistry_TestIamPermissionsRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisArtifactsTestIamPermissions
  */
@@ -829,8 +835,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -841,8 +848,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisDeploymentsGetIamPolicy
  */
@@ -1035,8 +1043,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisDeploymentsSetIamPolicy : GTLRApigeeRegistryQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1050,8 +1059,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigeeRegistry_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisDeploymentsSetIamPolicy
  */
@@ -1109,7 +1119,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1125,8 +1136,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigeeRegistry_TestIamPermissionsRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisDeploymentsTestIamPermissions
  */
@@ -1191,8 +1203,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1203,8 +1216,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisGetIamPolicy
  */
@@ -1323,8 +1337,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisSetIamPolicy : GTLRApigeeRegistryQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1338,8 +1353,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigeeRegistry_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisSetIamPolicy
  */
@@ -1364,7 +1380,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1380,8 +1397,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigeeRegistry_TestIamPermissionsRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisTestIamPermissions
  */
@@ -1551,8 +1569,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1563,8 +1582,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsArtifactsGetIamPolicy
  */
@@ -1667,8 +1687,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsArtifactsSetIamPolicy : GTLRApigeeRegistryQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1682,8 +1703,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigeeRegistry_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsArtifactsSetIamPolicy
  */
@@ -1708,7 +1730,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1724,8 +1747,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigeeRegistry_TestIamPermissionsRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsArtifactsTestIamPermissions
  */
@@ -1862,8 +1886,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1874,8 +1899,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsGetIamPolicy
  */
@@ -1995,8 +2021,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSetIamPolicy : GTLRApigeeRegistryQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2010,8 +2037,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigeeRegistry_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSetIamPolicy
  */
@@ -2181,8 +2209,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2193,8 +2222,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsArtifactsGetIamPolicy
  */
@@ -2297,8 +2327,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsArtifactsSetIamPolicy : GTLRApigeeRegistryQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2312,8 +2343,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigeeRegistry_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsArtifactsSetIamPolicy
  */
@@ -2338,7 +2370,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2354,8 +2387,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigeeRegistry_TestIamPermissionsRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsArtifactsTestIamPermissions
  */
@@ -2567,8 +2601,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2579,8 +2614,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsGetIamPolicy
  */
@@ -2771,8 +2807,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsSetIamPolicy : GTLRApigeeRegistryQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2786,8 +2823,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigeeRegistry_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsSetIamPolicy
  */
@@ -2842,7 +2880,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2858,8 +2897,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigeeRegistry_TestIamPermissionsRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsTestIamPermissions
  */
@@ -2884,7 +2924,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2900,8 +2941,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigeeRegistry_TestIamPermissionsRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsTestIamPermissions
  */
@@ -3071,8 +3113,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -3083,8 +3126,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsArtifactsGetIamPolicy
  */
@@ -3187,8 +3231,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsArtifactsSetIamPolicy : GTLRApigeeRegistryQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -3202,8 +3247,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigeeRegistry_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsArtifactsSetIamPolicy
  */
@@ -3228,7 +3274,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -3244,8 +3291,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigeeRegistry_TestIamPermissionsRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsArtifactsTestIamPermissions
  */
@@ -3404,8 +3452,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -3416,8 +3465,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsInstancesGetIamPolicy
  */
@@ -3438,8 +3488,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsInstancesSetIamPolicy : GTLRApigeeRegistryQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -3453,8 +3504,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigeeRegistry_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsInstancesSetIamPolicy
  */
@@ -3479,7 +3531,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -3495,8 +3548,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigeeRegistry_TestIamPermissionsRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsInstancesTestIamPermissions
  */
@@ -3742,8 +3796,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -3754,8 +3809,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsRuntimeGetIamPolicy
  */
@@ -3776,8 +3832,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsRuntimeSetIamPolicy : GTLRApigeeRegistryQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -3791,8 +3848,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigeeRegistry_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsRuntimeSetIamPolicy
  */
@@ -3817,7 +3875,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -3833,8 +3892,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigeeRegistry_TestIamPermissionsRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsRuntimeTestIamPermissions
  */

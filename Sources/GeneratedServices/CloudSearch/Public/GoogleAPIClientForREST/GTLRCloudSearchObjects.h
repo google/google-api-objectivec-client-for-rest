@@ -1442,7 +1442,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 /**
  *  Proto representation of a custom emoji. May be used in both APIs and in
  *  Spanner, but certain fields should be restricted to one or the other. See
- *  the per-field documentation for details. NEXT_TAG: 11
+ *  the per-field documentation for details. NEXT_TAG: 13
  */
 @interface GTLRCloudSearch_CustomEmoji : GTLRObject
 
@@ -1454,6 +1454,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @property(nonatomic, copy, nullable) NSString *blobId;
 
 /**
+ *  Content type of the file used to upload the emoji. Used for takeout. Written
+ *  to Spanner when the emoji is created.
+ */
+@property(nonatomic, copy, nullable) NSString *contentType;
+
+/**
  *  Time when the Emoji was created, in microseconds. This field may be present
  *  in Spanner, within the server, or in public APIs.
  *
@@ -1463,6 +1469,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 
 /** This field should *never* be persisted to Spanner. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_UserId *creatorUserId;
+
+/**
+ *  Output only. A short-lived URL clients can use for directly accessing a
+ *  custom emoji image. This field is intended for API consumption, and should
+ *  *never* be persisted to Spanner.
+ */
+@property(nonatomic, copy, nullable) NSString *ephemeralUrl;
 
 /** This field should *never* be persisted to Spanner. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_CustomerId *ownerCustomerId;
@@ -2134,11 +2147,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @property(nonatomic, strong, nullable) NSNumber *joinedSpacesAffinityScore;
 
 /**
- *  lastMessagePostedTimestampMicros
+ *  lastMessagePostedTimestampSecs
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *lastMessagePostedTimestampMicros;
+@property(nonatomic, strong, nullable) NSNumber *lastMessagePostedTimestampSecs;
+
+/**
+ *  lastReadTimestampSecs
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastReadTimestampSecs;
 
 /**
  *  memberMetadataCount
@@ -2183,11 +2203,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @property(nonatomic, strong, nullable) NSNumber *spaceAgeInDays;
 
 /**
- *  spaceCreationTimestampMicros
+ *  spaceCreationTimestampSecs
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *spaceCreationTimestampMicros;
+@property(nonatomic, strong, nullable) NSNumber *spaceCreationTimestampSecs;
 
 /**
  *  topicalityScore

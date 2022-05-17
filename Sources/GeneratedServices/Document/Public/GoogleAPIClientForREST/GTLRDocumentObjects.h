@@ -2503,8 +2503,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageToken *> *tokens;
 
 /**
- *  Transformation matrices that were applied to the original document image to
- *  produce Page.image.
+ *  Transformation matrices (both already applied and not) to the original
+ *  document image to produce Page.image.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageMatrix *> *transforms;
 
@@ -2797,6 +2797,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  with OpenCV format for image manipulation.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageMatrix : GTLRObject
+
+/**
+ *  Has the transformation already been applied to the current Document? Needed
+ *  to disambiguate pre-processing transformations already applied vs
+ *  transformations added at annotation time by HITL operators.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *applied;
 
 /**
  *  Number of columns in the matrix.
@@ -3824,8 +3833,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageToken *> *tokens;
 
 /**
- *  Transformation matrices that were applied to the original document image to
- *  produce Page.image.
+ *  Transformation matrices (both already applied and not) to the original
+ *  document image to produce Page.image.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageMatrix *> *transforms;
 
@@ -4118,6 +4127,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  with OpenCV format for image manipulation.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageMatrix : GTLRObject
+
+/**
+ *  Has the transformation already been applied to the current Document? Needed
+ *  to disambiguate pre-processing transformations already applied vs
+ *  transformations added at annotation time by HITL operators.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *applied;
 
 /**
  *  Number of columns in the matrix.
@@ -5586,8 +5604,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageToken *> *tokens;
 
 /**
- *  Transformation matrices that were applied to the original document image to
- *  produce Page.image.
+ *  Transformation matrices (both already applied and not) to the original
+ *  document image to produce Page.image.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageMatrix *> *transforms;
 
@@ -5880,6 +5898,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  with OpenCV format for image manipulation.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageMatrix : GTLRObject
+
+/**
+ *  Has the transformation already been applied to the current Document? Needed
+ *  to disambiguate pre-processing transformations already applied vs
+ *  transformations added at annotation time by HITL operators.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *applied;
 
 /**
  *  Number of columns in the matrix.
@@ -6808,6 +6835,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  Request message for the process document method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1ProcessRequest : GTLRObject
+
+/**
+ *  Specifies which fields to include in ProcessResponse's document.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *fieldMask;
 
 /** An inline document proto. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1Document *inlineDocument;

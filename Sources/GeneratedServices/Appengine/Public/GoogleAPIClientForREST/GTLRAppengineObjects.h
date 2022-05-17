@@ -3351,8 +3351,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @property(nonatomic, strong, nullable) GTLRAppengine_ApiConfigHandler *apiConfig;
 
 /**
- *  app_engine_apis allows second generation runtimes to access the App Engine
- *  APIs.
+ *  Allows App Engine second generation runtimes to access the legacy bundled
+ *  services.
  *
  *  Uses NSNumber of boolValue.
  */

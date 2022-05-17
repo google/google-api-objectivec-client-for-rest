@@ -98,6 +98,13 @@ NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Lau
 NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
+// GTLRServiceNetworking_MetricRule_DynamicMetricCosts.dynamicMetricCost
+NSString * const kGTLRServiceNetworking_MetricRule_DynamicMetricCosts_DynamicMetricCost_DynamicCostTypeUnspecified = @"DYNAMIC_COST_TYPE_UNSPECIFIED";
+NSString * const kGTLRServiceNetworking_MetricRule_DynamicMetricCosts_DynamicMetricCost_RequestBodyAndHeaderBytes = @"REQUEST_BODY_AND_HEADER_BYTES";
+NSString * const kGTLRServiceNetworking_MetricRule_DynamicMetricCosts_DynamicMetricCost_RequestBodyBytes = @"REQUEST_BODY_BYTES";
+NSString * const kGTLRServiceNetworking_MetricRule_DynamicMetricCosts_DynamicMetricCost_ResponseBodyAndHeaderBytes = @"RESPONSE_BODY_AND_HEADER_BYTES";
+NSString * const kGTLRServiceNetworking_MetricRule_DynamicMetricCosts_DynamicMetricCost_ResponseBodyBytes = @"RESPONSE_BODY_BYTES";
+
 // GTLRServiceNetworking_MonitoredResourceDescriptor.launchStage
 NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Alpha = @"ALPHA";
 NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Beta = @"BETA";
@@ -1045,7 +1052,21 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_MetricRule
-@dynamic metricCosts, selector;
+@dynamic dynamicMetricCosts, metricCosts, selector;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_MetricRule_DynamicMetricCosts
+//
+
+@implementation GTLRServiceNetworking_MetricRule_DynamicMetricCosts
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

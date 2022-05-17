@@ -208,8 +208,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -220,8 +221,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRPubsubQuery_ProjectsSchemasGetIamPolicy
  */
@@ -304,8 +306,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @interface GTLRPubsubQuery_ProjectsSchemasSetIamPolicy : GTLRPubsubQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -318,8 +321,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *
  *  @param object The @c GTLRPubsub_SetIamPolicyRequest to include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRPubsubQuery_ProjectsSchemasSetIamPolicy
  */
@@ -345,7 +349,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -361,8 +366,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  @param object The @c GTLRPubsub_TestIamPermissionsRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRPubsubQuery_ProjectsSchemasTestIamPermissions
  */
@@ -620,8 +626,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -632,8 +639,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRPubsubQuery_ProjectsSnapshotsGetIamPolicy
  */
@@ -746,8 +754,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @interface GTLRPubsubQuery_ProjectsSnapshotsSetIamPolicy : GTLRPubsubQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -760,8 +769,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *
  *  @param object The @c GTLRPubsub_SetIamPolicyRequest to include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRPubsubQuery_ProjectsSnapshotsSetIamPolicy
  */
@@ -787,7 +797,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -803,8 +814,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  @param object The @c GTLRPubsub_TestIamPermissionsRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRPubsubQuery_ProjectsSnapshotsTestIamPermissions
  */
@@ -1045,8 +1057,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1057,8 +1070,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsGetIamPolicy
  */
@@ -1329,8 +1343,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @interface GTLRPubsubQuery_ProjectsSubscriptionsSetIamPolicy : GTLRPubsubQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1343,8 +1358,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *
  *  @param object The @c GTLRPubsub_SetIamPolicyRequest to include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsSetIamPolicy
  */
@@ -1370,7 +1386,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1386,8 +1403,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  @param object The @c GTLRPubsub_TestIamPermissionsRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsTestIamPermissions
  */
@@ -1536,8 +1554,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1548,8 +1567,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsGetIamPolicy
  */
@@ -1694,8 +1714,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @interface GTLRPubsubQuery_ProjectsTopicsSetIamPolicy : GTLRPubsubQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1708,8 +1729,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *
  *  @param object The @c GTLRPubsub_SetIamPolicyRequest to include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsSetIamPolicy
  */
@@ -1825,7 +1847,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1841,8 +1864,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  @param object The @c GTLRPubsub_TestIamPermissionsRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsTestIamPermissions
  */

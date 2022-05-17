@@ -594,7 +594,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The unique ID for a classification. Must be specified for case creation.
+ *  The unique ID for a classification. Must be specified for case creation. To
+ *  retrieve valid classification IDs for case creation, use
+ *  `caseClassifications.search`.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */

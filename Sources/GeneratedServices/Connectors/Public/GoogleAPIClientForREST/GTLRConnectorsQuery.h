@@ -251,8 +251,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewFull;
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -263,8 +264,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewFull;
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsGetIamPolicy
  */
@@ -482,8 +484,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewFull;
 @interface GTLRConnectorsQuery_ProjectsLocationsConnectionsSetIamPolicy : GTLRConnectorsQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -497,8 +500,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewFull;
  *  @param object The @c GTLRConnectors_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsSetIamPolicy
  */
@@ -523,7 +527,8 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewFull;
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -539,8 +544,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewFull;
  *  @param object The @c GTLRConnectors_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsTestIamPermissions
  */
@@ -1084,8 +1090,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewFull;
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1096,8 +1103,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewFull;
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRConnectorsQuery_ProjectsLocationsProvidersGetIamPolicy
  */
@@ -1118,8 +1126,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewFull;
 @interface GTLRConnectorsQuery_ProjectsLocationsProvidersSetIamPolicy : GTLRConnectorsQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1133,8 +1142,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewFull;
  *  @param object The @c GTLRConnectors_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRConnectorsQuery_ProjectsLocationsProvidersSetIamPolicy
  */
@@ -1159,7 +1169,8 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewFull;
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1175,8 +1186,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewFull;
  *  @param object The @c GTLRConnectors_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRConnectorsQuery_ProjectsLocationsProvidersTestIamPermissions
  */

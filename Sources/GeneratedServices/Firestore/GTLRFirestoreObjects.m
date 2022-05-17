@@ -140,40 +140,6 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirestore_Aggregation
-//
-
-@implementation GTLRFirestore_Aggregation
-@dynamic alias, count;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_AggregationResult
-//
-
-@implementation GTLRFirestore_AggregationResult
-@dynamic aggregateFields;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_AggregationResult_AggregateFields
-//
-
-@implementation GTLRFirestore_AggregationResult_AggregateFields
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRFirestore_Value class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRFirestore_ArrayValue
 //
 
@@ -350,16 +316,6 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_Count
-//
-
-@implementation GTLRFirestore_Count
-@dynamic upTo;
 @end
 
 
@@ -1218,26 +1174,6 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirestore_RunAggregationQueryRequest
-//
-
-@implementation GTLRFirestore_RunAggregationQueryRequest
-@dynamic newTransaction, readTime, structuredAggregationQuery, transaction;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_RunAggregationQueryResponse
-//
-
-@implementation GTLRFirestore_RunAggregationQueryResponse
-@dynamic readTime, result, transaction;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRFirestore_RunQueryRequest
 //
 
@@ -1252,7 +1188,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_RunQueryResponse
-@dynamic document, readTime, skippedResults, transaction;
+@dynamic document, done, readTime, skippedResults, transaction;
 @end
 
 
@@ -1283,24 +1219,6 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirestore_StructuredAggregationQuery
-//
-
-@implementation GTLRFirestore_StructuredAggregationQuery
-@dynamic aggregations, structuredQuery;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"aggregations" : [GTLRFirestore_Aggregation class]
-  };
-  return map;
 }
 
 @end

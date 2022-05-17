@@ -277,8 +277,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -289,8 +290,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  secret exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRSecretManagerQuery_ProjectsSecretsGetIamPolicy
  */
@@ -405,8 +407,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSecretManagerQuery_ProjectsSecretsSetIamPolicy : GTLRSecretManagerQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -420,8 +423,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSecretManager_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRSecretManagerQuery_ProjectsSecretsSetIamPolicy
  */
@@ -446,7 +450,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -462,8 +467,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSecretManager_TestIamPermissionsRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRSecretManagerQuery_ProjectsSecretsTestIamPermissions
  */

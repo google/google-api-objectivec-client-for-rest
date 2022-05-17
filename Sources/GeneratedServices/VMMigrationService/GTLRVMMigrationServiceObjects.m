@@ -249,9 +249,9 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 @implementation GTLRVMMigrationService_ComputeEngineTargetDefaults
 @dynamic additionalLicenses, appliedLicense, bootOption, computeScheduling,
-         diskType, labels, licenseType, machineType, machineTypeSeries,
-         metadata, networkInterfaces, networkTags, secureBoot, serviceAccount,
-         targetProject, vmName, zoneProperty;
+         diskType, hostname, labels, licenseType, machineType,
+         machineTypeSeries, metadata, networkInterfaces, networkTags,
+         secureBoot, serviceAccount, targetProject, vmName, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -304,9 +304,9 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 @implementation GTLRVMMigrationService_ComputeEngineTargetDetails
 @dynamic additionalLicenses, appliedLicense, bootOption, computeScheduling,
-         diskType, labels, licenseType, machineType, machineTypeSeries,
-         metadata, networkInterfaces, networkTags, project, secureBoot,
-         serviceAccount, vmName, zoneProperty;
+         diskType, hostname, labels, licenseType, machineType,
+         machineTypeSeries, metadata, networkInterfaces, networkTags, project,
+         secureBoot, serviceAccount, vmName, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };

@@ -385,8 +385,8 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 //
 
 @implementation GTLRCloudSearch_CustomEmoji
-@dynamic blobId, createTimeMicros, creatorUserId, ownerCustomerId, readToken,
-         shortcode, state, updateTimeMicros, uuid;
+@dynamic blobId, contentType, createTimeMicros, creatorUserId, ephemeralUrl,
+         ownerCustomerId, readToken, shortcode, state, updateTimeMicros, uuid;
 @end
 
 
@@ -709,10 +709,11 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 @implementation GTLRCloudSearch_DynamiteSpacesScoringInfo
 @dynamic affinityScore, commonContactCountAffinityScore,
          contactsIntersectionCount, finalScore, freshnessScore,
-         joinedSpacesAffinityScore, lastMessagePostedTimestampMicros,
-         memberMetadataCount, messageScore, numAucContacts,
-         smallContactListAffinityScore, smallUnjoinedSpacesAffinityScore,
-         spaceAgeInDays, spaceCreationTimestampMicros, topicalityScore;
+         joinedSpacesAffinityScore, lastMessagePostedTimestampSecs,
+         lastReadTimestampSecs, memberMetadataCount, messageScore,
+         numAucContacts, smallContactListAffinityScore,
+         smallUnjoinedSpacesAffinityScore, spaceAgeInDays,
+         spaceCreationTimestampSecs, topicalityScore;
 @end
 
 

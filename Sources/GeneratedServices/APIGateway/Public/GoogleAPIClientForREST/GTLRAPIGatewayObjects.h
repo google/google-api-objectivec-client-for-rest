@@ -450,8 +450,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_State_Updating;
  *  "audit_log_configs": [ { "log_type": "DATA_READ" }, { "log_type":
  *  "DATA_WRITE", "exempted_members": [ "user:aliya\@example.com" ] } ] } ] }
  *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
- *  logging. It also exempts jose\@example.com from DATA_READ logging, and
- *  aliya\@example.com from DATA_WRITE logging.
+ *  logging. It also exempts `jose\@example.com` from DATA_READ logging, and
+ *  `aliya\@example.com` from DATA_WRITE logging.
  */
 @interface GTLRAPIGateway_AuditConfig : GTLRObject
 

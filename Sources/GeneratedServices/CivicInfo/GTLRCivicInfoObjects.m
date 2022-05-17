@@ -39,6 +39,11 @@ NSString * const kGTLRCivicInfo_Contest_Roles_OtherRole        = @"otherRole";
 NSString * const kGTLRCivicInfo_Contest_Roles_SchoolBoard      = @"schoolBoard";
 NSString * const kGTLRCivicInfo_Contest_Roles_SpecialPurposeOfficer = @"specialPurposeOfficer";
 
+// GTLRCivicInfo_Election.shapeLookupBehavior
+NSString * const kGTLRCivicInfo_Election_ShapeLookupBehavior_ShapeLookupDefault = @"shapeLookupDefault";
+NSString * const kGTLRCivicInfo_Election_ShapeLookupBehavior_ShapeLookupDisabled = @"shapeLookupDisabled";
+NSString * const kGTLRCivicInfo_Election_ShapeLookupBehavior_ShapeLookupEnabled = @"shapeLookupEnabled";
+
 // GTLRCivicInfo_ElectoralDistrict.scope
 NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_CityCouncil = @"cityCouncil";
 NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_Citywide = @"citywide";
@@ -605,7 +610,7 @@ NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOfficer = @"specialPu
 //
 
 @implementation GTLRCivicInfo_Election
-@dynamic electionDay, identifier, name, ocdDivisionId;
+@dynamic electionDay, identifier, name, ocdDivisionId, shapeLookupBehavior;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

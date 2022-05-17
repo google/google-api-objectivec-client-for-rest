@@ -1552,7 +1552,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, copy, nullable) NSString *region;
 
-/** Street-level part of the address. */
+/** Street-level part of the address. Use `\\n` to add a second line. */
 @property(nonatomic, copy, nullable) NSString *streetAddress;
 
 @end
@@ -1639,7 +1639,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @interface GTLRShoppingContent_AccountBusinessInformation : GTLRObject
 
-/** The address of the business. */
+/** The address of the business. Use `\\n` to add a second address line. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_AccountAddress *address;
 
 /** The customer service information of the business. */
@@ -2895,6 +2895,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) NSNumber *paymentsManager;
 
+/**
+ *  Whether user is a reporting manager.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reportingManager;
+
 @end
 
 
@@ -2957,7 +2964,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /** Required. Postal code or ZIP (for example, "94043"). */
 @property(nonatomic, copy, nullable) NSString *postalCode;
 
-/** Street-level part of the address. */
+/** Street-level part of the address. Use `\\n` to add a second line. */
 @property(nonatomic, copy, nullable) NSString *streetAddress;
 
 @end
@@ -6278,7 +6285,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, copy, nullable) NSString *region;
 
-/** Street-level part of the address. */
+/** Street-level part of the address. Use `\\n` to add a second line. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *streetAddress;
 
 @end
@@ -10810,9 +10817,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
- *  The Promotions feature is publicly available for the US and CA locale (en
- *  language only) in Content API for Shopping. Represents a promotion. See the
- *  following articles for more details. * [Promotions feed
+ *  The Promotions feature is publicly available for the US, CA, IN, UK, AU
+ *  target countries (en language only) in Content API for Shopping. Represents
+ *  a promotion. See the following articles for more details. * [Promotions feed
  *  specification](https://support.google.com/merchants/answer/2906014) * [Local
  *  promotions feed
  *  specification](https://support.google.com/merchants/answer/10146130) *
@@ -13822,7 +13829,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, copy, nullable) NSString *region;
 
-/** Street-level part of the address. */
+/** Street-level part of the address. Use `\\n` to add a second line. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *streetAddress;
 
 @end

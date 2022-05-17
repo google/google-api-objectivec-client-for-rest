@@ -168,8 +168,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -180,8 +181,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsGetIamPolicy
  */
@@ -307,8 +309,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @interface GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsSetIamPolicy : GTLRCloudKMSQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -322,8 +325,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  @param object The @c GTLRCloudKMS_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsSetIamPolicy
  */
@@ -349,7 +353,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -365,8 +370,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  @param object The @c GTLRCloudKMS_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsTestIamPermissions
  */
@@ -1120,8 +1126,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1132,8 +1139,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysGetIamPolicy
  */
@@ -1271,8 +1279,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysSetIamPolicy : GTLRCloudKMSQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1286,8 +1295,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  @param object The @c GTLRCloudKMS_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysSetIamPolicy
  */
@@ -1313,7 +1323,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1329,8 +1340,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  @param object The @c GTLRCloudKMS_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysTestIamPermissions
  */
@@ -1425,8 +1437,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1437,8 +1450,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsGetIamPolicy
  */
@@ -1538,8 +1552,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1550,8 +1565,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsGetIamPolicy
  */
@@ -1637,8 +1653,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsSetIamPolicy : GTLRCloudKMSQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1652,8 +1669,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  @param object The @c GTLRCloudKMS_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsSetIamPolicy
  */
@@ -1679,7 +1697,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1695,8 +1714,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  @param object The @c GTLRCloudKMS_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsTestIamPermissions
  */
@@ -1783,8 +1803,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsSetIamPolicy : GTLRCloudKMSQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1798,8 +1819,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  @param object The @c GTLRCloudKMS_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsSetIamPolicy
  */
@@ -1825,7 +1847,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1841,8 +1864,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  @param object The @c GTLRCloudKMS_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsTestIamPermissions
  */

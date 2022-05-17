@@ -2665,7 +2665,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @interface GTLRDatastore_RunQueryRequest : GTLRObject
 
-/** The GQL query to run. */
+/** The GQL query to run. This query must be a non-aggregation query. */
 @property(nonatomic, strong, nullable) GTLRDatastore_GqlQuery *gqlQuery;
 
 /**

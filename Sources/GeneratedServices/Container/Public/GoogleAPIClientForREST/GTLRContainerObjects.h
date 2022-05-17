@@ -129,6 +129,29 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_BinaryAuthorization.evaluationMode
+
+/**
+ *  Disable BinaryAuthorization
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_BinaryAuthorization_EvaluationMode_Disabled;
+/**
+ *  Default value, equivalent to DISABLED.
+ *
+ *  Value: "EVALUATION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_BinaryAuthorization_EvaluationMode_EvaluationModeUnspecified;
+/**
+ *  If enabled, enforce Kubernetes admission requests with BinAuthz using the
+ *  project's singleton policy. Equivalent to bool enabled=true.
+ *
+ *  Value: "PROJECT_SINGLETON_POLICY_ENFORCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_BinaryAuthorization_EvaluationMode_ProjectSingletonPolicyEnforce;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_CloudRunConfig.loadBalancerType
 
 /**
@@ -1484,6 +1507,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Mode of operation for binauthz policy evaluation. Currently the only options
+ *  are equivalent to enable/disable. If unspecified, defaults to DISABLED.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_BinaryAuthorization_EvaluationMode_Disabled Disable
+ *        BinaryAuthorization (Value: "DISABLED")
+ *    @arg @c kGTLRContainer_BinaryAuthorization_EvaluationMode_EvaluationModeUnspecified
+ *        Default value, equivalent to DISABLED. (Value:
+ *        "EVALUATION_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_BinaryAuthorization_EvaluationMode_ProjectSingletonPolicyEnforce
+ *        If enabled, enforce Kubernetes admission requests with BinAuthz using
+ *        the project's singleton policy. Equivalent to bool enabled=true.
+ *        (Value: "PROJECT_SINGLETON_POLICY_ENFORCE")
+ */
+@property(nonatomic, copy, nullable) NSString *evaluationMode;
 
 @end
 

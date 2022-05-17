@@ -621,11 +621,23 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *matchesPattern;
 
 /**
+ *  List of object name prefixes. This condition will be satisfied when at least
+ *  one of the prefixes exactly matches the beginning of the object name.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *matchesPrefix;
+
+/**
  *  Objects having any of the storage classes specified by this condition will
  *  be matched. Values include MULTI_REGIONAL, REGIONAL, NEARLINE, COLDLINE,
  *  ARCHIVE, STANDARD, and DURABLE_REDUCED_AVAILABILITY.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *matchesStorageClass;
+
+/**
+ *  List of object name suffixes. This condition will be satisfied when at least
+ *  one of the suffixes exactly matches the end of the object name.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *matchesSuffix;
 
 /**
  *  A date in RFC 3339 format with only the date part (for instance,

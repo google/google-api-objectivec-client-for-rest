@@ -194,8 +194,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -206,8 +207,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRAPIGatewayQuery_ProjectsLocationsApisConfigsGetIamPolicy
  */
@@ -317,8 +319,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
 @interface GTLRAPIGatewayQuery_ProjectsLocationsApisConfigsSetIamPolicy : GTLRAPIGatewayQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -332,8 +335,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *  @param object The @c GTLRAPIGateway_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRAPIGatewayQuery_ProjectsLocationsApisConfigsSetIamPolicy
  */
@@ -358,7 +362,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -374,8 +379,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *  @param object The @c GTLRAPIGateway_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRAPIGatewayQuery_ProjectsLocationsApisConfigsTestIamPermissions
  */
@@ -506,8 +512,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -518,8 +525,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRAPIGatewayQuery_ProjectsLocationsApisGetIamPolicy
  */
@@ -629,8 +637,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
 @interface GTLRAPIGatewayQuery_ProjectsLocationsApisSetIamPolicy : GTLRAPIGatewayQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -644,8 +653,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *  @param object The @c GTLRAPIGateway_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRAPIGatewayQuery_ProjectsLocationsApisSetIamPolicy
  */
@@ -670,7 +680,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -686,8 +697,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *  @param object The @c GTLRAPIGateway_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRAPIGatewayQuery_ProjectsLocationsApisTestIamPermissions
  */
@@ -820,8 +832,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -832,8 +845,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRAPIGatewayQuery_ProjectsLocationsGatewaysGetIamPolicy
  */
@@ -943,8 +957,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
 @interface GTLRAPIGatewayQuery_ProjectsLocationsGatewaysSetIamPolicy : GTLRAPIGatewayQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -958,8 +973,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *  @param object The @c GTLRAPIGateway_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRAPIGatewayQuery_ProjectsLocationsGatewaysSetIamPolicy
  */
@@ -984,7 +1000,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1000,8 +1017,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *  @param object The @c GTLRAPIGateway_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRAPIGatewayQuery_ProjectsLocationsGatewaysTestIamPermissions
  */

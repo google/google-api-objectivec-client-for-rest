@@ -57,8 +57,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -69,8 +70,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsEdgeCacheKeysetsGetIamPolicy
  */
@@ -91,8 +93,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkServicesQuery_ProjectsLocationsEdgeCacheKeysetsSetIamPolicy : GTLRNetworkServicesQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -106,8 +109,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRNetworkServices_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsEdgeCacheKeysetsSetIamPolicy
  */
@@ -132,7 +136,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -148,8 +153,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRNetworkServices_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsEdgeCacheKeysetsTestIamPermissions
  */
@@ -184,8 +190,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -196,8 +203,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsEdgeCacheOriginsGetIamPolicy
  */
@@ -218,8 +226,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkServicesQuery_ProjectsLocationsEdgeCacheOriginsSetIamPolicy : GTLRNetworkServicesQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -233,8 +242,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRNetworkServices_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsEdgeCacheOriginsSetIamPolicy
  */
@@ -259,7 +269,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -275,8 +286,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRNetworkServices_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsEdgeCacheOriginsTestIamPermissions
  */
@@ -311,8 +323,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -323,8 +336,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsEdgeCacheServicesGetIamPolicy
  */
@@ -345,8 +359,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkServicesQuery_ProjectsLocationsEdgeCacheServicesSetIamPolicy : GTLRNetworkServicesQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -360,8 +375,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRNetworkServices_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsEdgeCacheServicesSetIamPolicy
  */
@@ -386,7 +402,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -402,8 +419,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRNetworkServices_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsEdgeCacheServicesTestIamPermissions
  */
@@ -537,8 +555,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -549,8 +568,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesGetIamPolicy
  */
@@ -661,8 +681,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesSetIamPolicy : GTLRNetworkServicesQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -676,8 +697,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRNetworkServices_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesSetIamPolicy
  */
@@ -702,7 +724,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -718,8 +741,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRNetworkServices_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesTestIamPermissions
  */
@@ -1087,8 +1111,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1099,8 +1124,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsGetIamPolicy
  */
@@ -1166,8 +1192,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsSetIamPolicy : GTLRNetworkServicesQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1181,8 +1208,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRNetworkServices_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsSetIamPolicy
  */
@@ -1207,7 +1235,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1223,8 +1252,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRNetworkServices_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsTestIamPermissions
  */

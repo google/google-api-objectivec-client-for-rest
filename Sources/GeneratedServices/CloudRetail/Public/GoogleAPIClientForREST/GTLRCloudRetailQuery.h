@@ -298,9 +298,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Bulk import of multiple Products. Request processing may be synchronous. No
- *  partial updating is supported. Non-existing items are created. Note that it
- *  is possible for a subset of the Products to be successfully updated.
+ *  Bulk import of multiple Products. Request processing may be synchronous.
+ *  Non-existing items are created. Note that it is possible for a subset of the
+ *  Products to be successfully updated.
  *
  *  Method: retail.projects.locations.catalogs.branches.products.import
  *
@@ -320,9 +320,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRetail_GoogleLongrunningOperation.
  *
- *  Bulk import of multiple Products. Request processing may be synchronous. No
- *  partial updating is supported. Non-existing items are created. Note that it
- *  is possible for a subset of the Products to be successfully updated.
+ *  Bulk import of multiple Products. Request processing may be synchronous.
+ *  Non-existing items are created. Note that it is possible for a subset of the
+ *  Products to be successfully updated.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest to include in the

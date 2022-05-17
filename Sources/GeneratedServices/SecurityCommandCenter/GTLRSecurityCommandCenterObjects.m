@@ -184,6 +184,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_Exf
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExfiltrationToCloudStorage = @"EXFILTRATION_TO_CLOUD_STORAGE";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExploitPublicFacingApplication = @"EXPLOIT_PUBLIC_FACING_APPLICATION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExternalProxy = @"EXTERNAL_PROXY";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ImpairDefenses = @"IMPAIR_DEFENSES";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_IngressToolTransfer = @"INGRESS_TOOL_TRANSFER";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_LocalAccounts = @"LOCAL_ACCOUNTS";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ModifyAuthenticationProcess = @"MODIFY_AUTHENTICATION_PROCESS";
@@ -234,6 +235,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_Exfilt
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExfiltrationToCloudStorage = @"EXFILTRATION_TO_CLOUD_STORAGE";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExploitPublicFacingApplication = @"EXPLOIT_PUBLIC_FACING_APPLICATION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExternalProxy = @"EXTERNAL_PROXY";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ImpairDefenses = @"IMPAIR_DEFENSES";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_IngressToolTransfer = @"INGRESS_TOOL_TRANSFER";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_LocalAccounts = @"LOCAL_ACCOUNTS";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ModifyAuthenticationProcess = @"MODIFY_AUTHENTICATION_PROCESS";

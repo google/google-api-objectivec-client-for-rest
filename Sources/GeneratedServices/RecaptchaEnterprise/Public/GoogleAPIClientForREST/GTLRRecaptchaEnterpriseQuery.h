@@ -361,6 +361,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns the secret key related to the specified public key. You should use
+ *  the legacy secret key only if you are integrating with a 3rd party using the
+ *  legacy reCAPTCHA instead of reCAPTCHA Enterprise.
+ *
+ *  Method: recaptchaenterprise.projects.keys.retrieveLegacySecretKey
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecaptchaEnterpriseCloudPlatform
+ */
+@interface GTLRRecaptchaEnterpriseQuery_ProjectsKeysRetrieveLegacySecretKey : GTLRRecaptchaEnterpriseQuery
+
+/**
+ *  Required. The public key name linked to the requested secret key , in the
+ *  format "projects/{project}/keys/{key}".
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  Fetches a @c
+ *  GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse.
+ *
+ *  Returns the secret key related to the specified public key. You should use
+ *  the legacy secret key only if you are integrating with a 3rd party using the
+ *  legacy reCAPTCHA instead of reCAPTCHA Enterprise.
+ *
+ *  @param key Required. The public key name linked to the requested secret key
+ *    , in the format "projects/{project}/keys/{key}".
+ *
+ *  @return GTLRRecaptchaEnterpriseQuery_ProjectsKeysRetrieveLegacySecretKey
+ */
++ (instancetype)queryWithKey:(NSString *)key;
+
+@end
+
+/**
  *  Search group memberships related to a given account.
  *
  *  Method: recaptchaenterprise.projects.relatedaccountgroupmemberships.search

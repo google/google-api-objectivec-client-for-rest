@@ -987,6 +987,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  */
 @property(nonatomic, copy, nullable) NSString *diskType;
 
+/** The hostname to assign to the VM. */
+@property(nonatomic, copy, nullable) NSString *hostname;
+
 /** A map of labels to associate with the VM. */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_ComputeEngineTargetDefaults_Labels *labels;
 
@@ -1120,6 +1123,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *        "COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *diskType;
+
+/** The hostname to assign to the VM. */
+@property(nonatomic, copy, nullable) NSString *hostname;
 
 /** A map of labels to associate with the VM. */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_ComputeEngineTargetDetails_Labels *labels;

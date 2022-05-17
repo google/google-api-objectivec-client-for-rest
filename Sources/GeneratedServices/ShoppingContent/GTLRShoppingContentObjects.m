@@ -1022,7 +1022,8 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_AccountUser
-@dynamic admin, emailAddress, orderManager, paymentsAnalyst, paymentsManager;
+@dynamic admin, emailAddress, orderManager, paymentsAnalyst, paymentsManager,
+         reportingManager;
 @end
 
 

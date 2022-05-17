@@ -440,7 +440,7 @@ NSString * const kGTLRCloudDataplexViewTables                 = @"TABLES";
 
 @implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsSessionsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

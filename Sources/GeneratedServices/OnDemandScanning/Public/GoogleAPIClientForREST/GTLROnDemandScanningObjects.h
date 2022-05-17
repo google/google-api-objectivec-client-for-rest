@@ -45,6 +45,7 @@
 @class GTLROnDemandScanning_InTotoStatement;
 @class GTLROnDemandScanning_Jwt;
 @class GTLROnDemandScanning_Layer;
+@class GTLROnDemandScanning_License;
 @class GTLROnDemandScanning_Location;
 @class GTLROnDemandScanning_Material;
 @class GTLROnDemandScanning_Material_Digest;
@@ -457,6 +458,28 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageIssue_EffectiveS
  *  Value: "SEVERITY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageIssue_EffectiveSeverity_SeverityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_PackageOccurrence.architecture
+
+/**
+ *  Unknown architecture.
+ *
+ *  Value: "ARCHITECTURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageOccurrence_Architecture_ArchitectureUnspecified;
+/**
+ *  X64 architecture.
+ *
+ *  Value: "X64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageOccurrence_Architecture_X64;
+/**
+ *  X86 architecture.
+ *
+ *  Value: "X86"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageOccurrence_Architecture_X86;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_Version.kind
@@ -1576,6 +1599,25 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  License information.
+ */
+@interface GTLROnDemandScanning_License : GTLRObject
+
+/** Comments */
+@property(nonatomic, copy, nullable) NSString *comments;
+
+/**
+ *  Often a single license can be used to represent the licensing terms.
+ *  Sometimes it is necessary to include a choice of one or more licenses or
+ *  some combination of license identifiers. Examples: "LGPL-2.1-only OR MIT",
+ *  "LGPL-2.1-only AND MIT", "GPL-2.0-or-later WITH Bison-exception-2.2".
+ */
+@property(nonatomic, copy, nullable) NSString *expression;
+
+@end
+
+
+/**
  *  The response message for Operations.ListOperations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1634,15 +1676,15 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 @interface GTLROnDemandScanning_Location : GTLRObject
 
 /**
- *  Required. The CPE URI in [CPE format](https://cpe.mitre.org/specification/)
- *  denoting the package manager version distributing a package.
+ *  Deprecated. The CPE URI in [CPE
+ *  format](https://cpe.mitre.org/specification/)
  */
 @property(nonatomic, copy, nullable) NSString *cpeUri;
 
 /** The path from which we gathered that this package/version is installed. */
 @property(nonatomic, copy, nullable) NSString *path;
 
-/** The version installed at this location. */
+/** Deprecated. The version installed at this location. */
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_Version *version;
 
 @end
@@ -2052,13 +2094,47 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 @interface GTLROnDemandScanning_PackageOccurrence : GTLRObject
 
 /**
- *  Required. All of the places within the filesystem versions of this package
- *  have been found.
+ *  Output only. The CPU architecture for which packages in this distribution
+ *  channel were built. Architecture will be blank for language packages.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_PackageOccurrence_Architecture_ArchitectureUnspecified
+ *        Unknown architecture. (Value: "ARCHITECTURE_UNSPECIFIED")
+ *    @arg @c kGTLROnDemandScanning_PackageOccurrence_Architecture_X64 X64
+ *        architecture. (Value: "X64")
+ *    @arg @c kGTLROnDemandScanning_PackageOccurrence_Architecture_X86 X86
+ *        architecture. (Value: "X86")
+ */
+@property(nonatomic, copy, nullable) NSString *architecture;
+
+/**
+ *  Output only. The cpe_uri in [CPE
+ *  format](https://cpe.mitre.org/specification/) denoting the package manager
+ *  version distributing a package. The cpe_uri will be blank for language
+ *  packages.
+ */
+@property(nonatomic, copy, nullable) NSString *cpeUri;
+
+/** Licenses that have been declared by the authors of the package. */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_License *license;
+
+/**
+ *  All of the places within the filesystem versions of this package have been
+ *  found.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_Location *> *location;
 
-/** Output only. The name of the installed package. */
+/** Required. Output only. The name of the installed package. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The type of package; whether native or non native (e.g., ruby
+ *  gems, node.js packages, etc.).
+ */
+@property(nonatomic, copy, nullable) NSString *packageType;
+
+/** Output only. The version of the package. */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_Version *version;
 
 @end
 

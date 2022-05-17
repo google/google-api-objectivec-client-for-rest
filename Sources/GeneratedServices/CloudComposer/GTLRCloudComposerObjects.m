@@ -91,6 +91,16 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudComposer_CidrBlock
+//
+
+@implementation GTLRCloudComposer_CidrBlock
+@dynamic cidrBlock, displayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudComposer_DatabaseConfig
 //
 
@@ -159,7 +169,8 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 @implementation GTLRCloudComposer_EnvironmentConfig
 @dynamic airflowUri, dagGcsPrefix, databaseConfig, encryptionConfig,
-         environmentSize, gkeCluster, maintenanceWindow, nodeConfig, nodeCount,
+         environmentSize, gkeCluster, maintenanceWindow,
+         masterAuthorizedNetworksConfig, nodeConfig, nodeCount,
          privateEnvironmentConfig, softwareConfig, webServerConfig,
          webServerNetworkAccessControl, workloadsConfig;
 @end
@@ -273,6 +284,24 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudComposer_MasterAuthorizedNetworksConfig
+//
+
+@implementation GTLRCloudComposer_MasterAuthorizedNetworksConfig
+@dynamic cidrBlocks, enabled;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cidrBlocks" : [GTLRCloudComposer_CidrBlock class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudComposer_NodeConfig
 //
 
@@ -357,7 +386,8 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 @implementation GTLRCloudComposer_PrivateEnvironmentConfig
 @dynamic cloudComposerConnectionSubnetwork, cloudComposerNetworkIpv4CidrBlock,
          cloudComposerNetworkIpv4ReservedRange, cloudSqlIpv4CidrBlock,
-         enablePrivateEnvironment, privateClusterConfig, webServerIpv4CidrBlock,
+         enablePrivateEnvironment, enablePrivatelyUsedPublicIps,
+         privateClusterConfig, webServerIpv4CidrBlock,
          webServerIpv4ReservedRange;
 @end
 

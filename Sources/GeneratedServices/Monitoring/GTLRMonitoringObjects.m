@@ -411,6 +411,16 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_CloudRun
+//
+
+@implementation GTLRMonitoring_CloudRun
+@dynamic location, serviceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_ClusterIstio
 //
 
@@ -777,6 +787,37 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 @implementation GTLRMonitoring_GetNotificationChannelVerificationCodeResponse
 @dynamic code, expireTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_GkeNamespace
+//
+
+@implementation GTLRMonitoring_GkeNamespace
+@dynamic clusterName, location, namespaceName, projectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_GkeService
+//
+
+@implementation GTLRMonitoring_GkeService
+@dynamic clusterName, location, namespaceName, projectId, serviceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_GkeWorkload
+//
+
+@implementation GTLRMonitoring_GkeWorkload
+@dynamic clusterName, location, namespaceName, projectId,
+         topLevelControllerName, topLevelControllerType;
 @end
 
 
@@ -1626,8 +1667,9 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_Service
-@dynamic appEngine, cloudEndpoints, clusterIstio, custom, displayName,
-         istioCanonicalService, meshIstio, name, telemetry, userLabels;
+@dynamic appEngine, cloudEndpoints, cloudRun, clusterIstio, custom, displayName,
+         gkeNamespace, gkeService, gkeWorkload, istioCanonicalService,
+         meshIstio, name, telemetry, userLabels;
 @end
 
 

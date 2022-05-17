@@ -174,8 +174,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -186,8 +187,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesGetIamPolicy
  */
@@ -323,8 +325,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesSetIamPolicy : GTLRDatabaseMigrationServiceQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -338,8 +341,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDatabaseMigrationService_SetIamPolicyRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesSetIamPolicy
  */
@@ -364,7 +368,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -380,8 +385,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDatabaseMigrationService_TestIamPermissionsRequest
  *    to include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesTestIamPermissions
  */
@@ -633,8 +639,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -645,8 +652,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsGetIamPolicy
  */
@@ -878,8 +886,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsSetIamPolicy : GTLRDatabaseMigrationServiceQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -893,8 +902,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDatabaseMigrationService_SetIamPolicyRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsSetIamPolicy
  */
@@ -977,7 +987,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -993,8 +1004,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDatabaseMigrationService_TestIamPermissionsRequest
  *    to include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsTestIamPermissions
  */
