@@ -14,7 +14,7 @@
  */
 
 // Service object documentation:
-// https://github.com/google/google-api-objectivec-client-for-rest/wiki#services-and-tickets
+// https://github.com/google/google-api-objectivec-client-for-rest/blob/main/USING.md#services-and-tickets
 
 #import <Foundation/Foundation.h>
 

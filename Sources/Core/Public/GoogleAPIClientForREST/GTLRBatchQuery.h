@@ -14,7 +14,7 @@
  */
 
 //  Batch query documentation:
-//  https://github.com/google/google-api-objectivec-client-for-rest/wiki#batch-operations
+//  https://github.com/google/google-api-objectivec-client-for-rest/blob/main/USING.md#batch-operations
 
 #import "GTLRQuery.h"
 
