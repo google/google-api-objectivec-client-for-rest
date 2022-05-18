@@ -14,7 +14,7 @@
  */
 
 // Uploading documentation:
-// https://github.com/google/google-api-objectivec-client-for-rest/wiki#uploading-files
+// https://github.com/google/google-api-objectivec-client-for-rest/blob/main/USING.md#uploading-files
 
 #import <Foundation/Foundation.h>
 

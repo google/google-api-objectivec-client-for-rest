@@ -14,7 +14,7 @@
  */
 
 // GTLRObject documentation:
-// https://github.com/google/google-api-objectivec-client-for-rest/wiki#objects-and-queries
+// https://github.com/google/google-api-objectivec-client-for-rest/blob/main/USING.md#objects-and-queries
 
 #import <Foundation/Foundation.h>
 

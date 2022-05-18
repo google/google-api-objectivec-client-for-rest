@@ -5,7 +5,7 @@ target 'StorageSample' do
   # In production, you would use:
   # pod 'GoogleAPIClientForREST/Storage'
 
-  # Also use GTMAppAuth & AppAuth. See the project wiki, you can use this or
+  # Also use GTMAppAuth & AppAuth. See the project USING.md, you can use this or
   # Google SignIn.
   pod 'GTMAppAuth'
   pod 'AppAuth'

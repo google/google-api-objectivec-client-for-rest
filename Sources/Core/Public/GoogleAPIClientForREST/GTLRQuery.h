@@ -14,7 +14,7 @@
  */
 
 // Query documentation:
-// https://github.com/google/google-api-objectivec-client-for-rest/wiki#query-operations
+// https://github.com/google/google-api-objectivec-client-for-rest/blob/main/USING.md#query-operations
 
 #import "GTLRObject.h"
 #import "GTLRUploadParameters.h"

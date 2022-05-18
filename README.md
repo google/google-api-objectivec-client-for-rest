@@ -13,9 +13,8 @@ framework for accessing JSON APIs.
 This is the recommended library for accessing JSON-based Google APIs for iOS,
 macOS, tvOS, and watchOS applications.
 
-**To get started** with Google APIs and the Objective-C client library, please read
-[USING.md](https://github.com/google/google-api-objectivec-client-for-rest/blob/main/USING.md)
-for detailed information. The
+**To get started** with Google APIs and the Objective-C client library, please
+read [USING.md](USING.md) for detailed information. The
 [example applications](https://github.com/google/google-api-objectivec-client-for-rest/tree/main/Examples)
 can also help answer some questions, but there isn't an example for every
 service as there are just to many services.
@@ -32,15 +31,14 @@ by using the
 **If you have a problem** or want a new feature to be included in the library,
 please join the
 [discussion group](http://groups.google.com/group/google-api-objectivec-client).
-Be sure to include
-[http logs](https://github.com/google/google-api-objectivec-client-for-rest/wiki#logging-http-server-traffic)
-for requests and responses when posting questions. Bugs may also be submitted
-on the [issues list](https://github.com/google/google-api-objectivec-client-for-rest/issues).
+Be sure to include [http logs](USING.md#logging-http-server-traffic) for
+requests and responses when posting questions. Bugs may also be submitted on the
+[issues list](https://github.com/google/google-api-objectivec-client-for-rest/issues).
 
 **Externally-included projects**: The library is built on top of code from the separate
 project [GTM Session Fetcher](https://github.com/google/gtm-session-fetcher). To work
 with some remote services, it also needs
-[Authentication/Authorization](https://github.com/google/google-api-objectivec-client-for-rest/wiki#authentication-and-authorization).
+[Authentication/Authorization](USING.md#authentication-and-authorization).
 
 **Google Data APIs**: The much older library for XML-based APIs is
 [still available](https://github.com/google/gdata-objectivec-client).
