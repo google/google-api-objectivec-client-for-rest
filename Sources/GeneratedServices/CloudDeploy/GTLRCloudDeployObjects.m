@@ -50,6 +50,7 @@ NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_CloudBuildUnavailab
 NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_DeadlineExceeded = @"DEADLINE_EXCEEDED";
 NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_ExecutionFailed = @"EXECUTION_FAILED";
 NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_FailureCauseUnspecified = @"FAILURE_CAUSE_UNSPECIFIED";
+NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_ReleaseAbandoned = @"RELEASE_ABANDONED";
 NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_ReleaseFailed = @"RELEASE_FAILED";
 
 // GTLRCloudDeploy_Rollout.state
@@ -82,6 +83,24 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_Failed = @"FAILED"
 NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_InProgress = @"IN_PROGRESS";
 NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_Succeeded = @"SUCCEEDED";
 NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateUnspecified = @"TARGET_RENDER_STATE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_AbandonReleaseRequest
+//
+
+@implementation GTLRCloudDeploy_AbandonReleaseRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_AbandonReleaseResponse
+//
+
+@implementation GTLRCloudDeploy_AbandonReleaseResponse
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -230,7 +249,7 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
 
 @implementation GTLRCloudDeploy_DeliveryPipeline
 @dynamic annotations, condition, createTime, descriptionProperty, ETag, labels,
-         name, serialPipeline, uid, updateTime;
+         name, serialPipeline, suspended, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -616,10 +635,11 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
 //
 
 @implementation GTLRCloudDeploy_Release
-@dynamic annotations, buildArtifacts, createTime, deliveryPipelineSnapshot,
-         descriptionProperty, ETag, labels, name, renderEndTime,
-         renderStartTime, renderState, skaffoldConfigPath, skaffoldConfigUri,
-         skaffoldVersion, targetArtifacts, targetRenders, targetSnapshots, uid;
+@dynamic abandoned, annotations, buildArtifacts, createTime,
+         deliveryPipelineSnapshot, descriptionProperty, ETag, labels, name,
+         renderEndTime, renderStartTime, renderState, skaffoldConfigPath,
+         skaffoldConfigUri, skaffoldVersion, targetArtifacts, targetRenders,
+         targetSnapshots, uid;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

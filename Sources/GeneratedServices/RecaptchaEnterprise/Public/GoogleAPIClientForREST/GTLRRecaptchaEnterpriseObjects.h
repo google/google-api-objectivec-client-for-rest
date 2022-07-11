@@ -19,6 +19,7 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IOSKeySettings;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key_Labels;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RelatedAccountGroup;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RelatedAccountGroupMembership;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis;
@@ -521,6 +522,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  The private password leak verification field contains the parameters used to
+ *  check for leaks privately without sharing user credentials.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification *privatePasswordLeakVerification;
+
 /** Output only. The risk analysis result for the event being assessed. */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis *riskAnalysis;
 
@@ -804,6 +811,54 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  The migrate key request message.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest : GTLRObject
+@end
+
+
+/**
+ *  Private password leak verification info.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification : GTLRObject
+
+/**
+ *  Output only. List of prefixes of the encrypted potential password leaks that
+ *  matched the given parameters. They should be compared with the client-side
+ *  decryption prefix of `reencrypted_user_credentials_hash`
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *encryptedLeakMatchPrefixes;
+
+/**
+ *  Optional. Encrypted Scrypt hash of the canonicalized username+password. It
+ *  is re-encrypted by the server and returned through
+ *  `reencrypted_user_credentials_hash`.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *encryptedUserCredentialsHash;
+
+/**
+ *  Optional. Exactly 26-bit prefix of the SHA-256 hash of the canonicalized
+ *  username. It is used to look up password leaks associated with that hash
+ *  prefix.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *lookupHashPrefix;
+
+/**
+ *  Output only. Corresponds to the re-encryption of the
+ *  `encrypted_user_credentials_hash` field. Used to match potential password
+ *  leaks within `encrypted_leak_match_prefixes`.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *reencryptedUserCredentialsHash;
+
 @end
 
 

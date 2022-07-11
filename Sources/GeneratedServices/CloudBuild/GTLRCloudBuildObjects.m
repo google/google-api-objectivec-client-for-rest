@@ -601,16 +601,6 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_CreateGitLabConfigOperationMetadata
-//
-
-@implementation GTLRCloudBuild_CreateGitLabConfigOperationMetadata
-@dynamic completeTime, createTime, gitlabConfig;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudBuild_CreateWorkerPoolOperationMetadata
 //
 
@@ -636,16 +626,6 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 @implementation GTLRCloudBuild_DeleteGitHubEnterpriseConfigOperationMetadata
 @dynamic completeTime, createTime, githubEnterpriseConfig;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_DeleteGitLabConfigOperationMetadata
-//
-
-@implementation GTLRCloudBuild_DeleteGitLabConfigOperationMetadata
-@dynamic completeTime, createTime, gitlabConfig;
 @end
 
 
@@ -1474,16 +1454,6 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 @implementation GTLRCloudBuild_UpdateGitHubEnterpriseConfigOperationMetadata
 @dynamic completeTime, createTime, githubEnterpriseConfig;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_UpdateGitLabConfigOperationMetadata
-//
-
-@implementation GTLRCloudBuild_UpdateGitLabConfigOperationMetadata
-@dynamic completeTime, createTime, gitlabConfig;
 @end
 
 

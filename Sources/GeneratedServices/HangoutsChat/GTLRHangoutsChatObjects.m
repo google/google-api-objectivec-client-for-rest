@@ -5,8 +5,7 @@
 //   Google Chat API (chat/v1)
 // Description:
 //   Enables apps to fetch information and perform actions in Google Chat.
-//   Authentication using a service account is a prerequisite for using the
-//   Google Chat REST API.
+//   Authentication is a prerequisite for using the Google Chat REST API.
 // Documentation:
 //   https://developers.google.com/hangouts/chat
 
@@ -541,6 +540,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_GoogleAppsCardV1AppUri
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1AppUri
+@dynamic androidIntent, companionUri, iosUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_GoogleAppsCardV1BorderStyle
 //
 
@@ -659,6 +668,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_GoogleAppsCardV1ExtraData
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1ExtraData
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_GoogleAppsCardV1Grid
 //
 
@@ -732,6 +751,24 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_GoogleAppsCardV1Intent
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1Intent
+@dynamic extraData, intentAction;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraData" : [GTLRHangoutsChat_GoogleAppsCardV1ExtraData class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_GoogleAppsCardV1OnClick
 //
 
@@ -746,7 +783,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_GoogleAppsCardV1OpenLink
-@dynamic onClose, openAs, url;
+@dynamic appUri, onClose, openAs, url;
 @end
 
 

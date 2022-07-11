@@ -900,6 +900,23 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewUtilizationReportV
  */
 @property(nonatomic, assign) BOOL forceRefresh;
 
+/**
+ *  The maximum number of VMs to return. The service may return fewer than this
+ *  value. For AWS source: If unspecified, at most 500 VMs will be returned. The
+ *  maximum value is 1000; values above 1000 will be coerced to 1000. For VMWare
+ *  source: If unspecified, all VMs will be returned. There is no limit for
+ *  maximum value.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `FetchInventory` call. Provide this
+ *  to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `FetchInventory` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
 /** Required. The name of the Source. */
 @property(nonatomic, copy, nullable) NSString *source;
 
@@ -1602,6 +1619,85 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewUtilizationReportV
  */
 + (instancetype)queryWithObject:(GTLRVMMigrationService_PauseMigrationRequest *)object
                     migratingVm:(NSString *)migratingVm;
+
+@end
+
+/**
+ *  Gets details of a single ReplicationCycle.
+ *
+ *  Method: vmmigration.projects.locations.sources.migratingVms.replicationCycles.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMMigrationServiceCloudPlatform
+ */
+@interface GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsReplicationCyclesGet : GTLRVMMigrationServiceQuery
+
+/** Required. The name of the ReplicationCycle. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMMigrationService_ReplicationCycle.
+ *
+ *  Gets details of a single ReplicationCycle.
+ *
+ *  @param name Required. The name of the ReplicationCycle.
+ *
+ *  @return GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsReplicationCyclesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists ReplicationCycles in a given MigratingVM.
+ *
+ *  Method: vmmigration.projects.locations.sources.migratingVms.replicationCycles.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMMigrationServiceCloudPlatform
+ */
+@interface GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsReplicationCyclesList : GTLRVMMigrationServiceQuery
+
+/** Optional. The filter request. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. the order by fields for the result. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of replication cycles to return. The service
+ *  may return fewer than this value. If unspecified, at most 100 migrating VMs
+ *  will be returned. The maximum value is 100; values above 100 will be coerced
+ *  to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Required. A page token, received from a previous `ListReplicationCycles`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListReplicationCycles` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent, which owns this collection of ReplicationCycles. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRVMMigrationService_ListReplicationCyclesResponse.
+ *
+ *  Lists ReplicationCycles in a given MigratingVM.
+ *
+ *  @param parent Required. The parent, which owns this collection of
+ *    ReplicationCycles.
+ *
+ *  @return GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsReplicationCyclesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

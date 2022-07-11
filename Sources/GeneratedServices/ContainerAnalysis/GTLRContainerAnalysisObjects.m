@@ -772,7 +772,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_Digest
-@dynamic algo, digestValue;
+@dynamic algo, digestBytes;
 @end
 
 
@@ -1447,6 +1447,128 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaBuilder
+//
+
+@implementation GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaBuilder
+@dynamic identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaCompleteness
+//
+
+@implementation GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaCompleteness
+@dynamic environment, materials, parameters;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource
+//
+
+@implementation GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource
+@dynamic digest, entryPoint, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource_Digest
+//
+
+@implementation GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource_Digest
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation
+//
+
+@implementation GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation
+@dynamic configSource, environment, parameters;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation_Environment
+//
+
+@implementation GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation_Environment
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation_Parameters
+//
+
+@implementation GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial
+//
+
+@implementation GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial
+@dynamic digest, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial_Digest
+//
+
+@implementation GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial_Digest
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaMetadata
+//
+
+@implementation GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaMetadata
+@dynamic buildFinishedOn, buildInvocationId, buildStartedOn, completeness,
+         reproducible;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainerAnalysis_Hash
 //
 
@@ -1527,7 +1649,8 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_InTotoStatement
-@dynamic xType, predicateType, provenance, slsaProvenance, subject;
+@dynamic xType, predicateType, provenance, slsaProvenance,
+         slsaProvenanceZeroTwo, subject;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"xType" : @"_type" };
@@ -1981,6 +2104,38 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
     @"materials" : [GTLRContainerAnalysis_Material class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_SlsaProvenanceZeroTwo
+//
+
+@implementation GTLRContainerAnalysis_SlsaProvenanceZeroTwo
+@dynamic buildConfig, builder, buildType, invocation, materials, metadata;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"materials" : [GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_SlsaProvenanceZeroTwo_BuildConfig
+//
+
+@implementation GTLRContainerAnalysis_SlsaProvenanceZeroTwo_BuildConfig
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

@@ -18,6 +18,7 @@
 @class GTLRGKEHub_AnthosVMSubFeatureState;
 @class GTLRGKEHub_AppDevExperienceFeatureSpec;
 @class GTLRGKEHub_AppDevExperienceFeatureState;
+@class GTLRGKEHub_ApplianceCluster;
 @class GTLRGKEHub_AuditConfig;
 @class GTLRGKEHub_AuditLogConfig;
 @class GTLRGKEHub_Authority;
@@ -39,8 +40,10 @@
 @class GTLRGKEHub_ConfigManagementInstallError;
 @class GTLRGKEHub_ConfigManagementMembershipSpec;
 @class GTLRGKEHub_ConfigManagementMembershipState;
+@class GTLRGKEHub_ConfigManagementOciConfig;
 @class GTLRGKEHub_ConfigManagementOperatorState;
 @class GTLRGKEHub_ConfigManagementPolicyController;
+@class GTLRGKEHub_ConfigManagementPolicyControllerMonitoring;
 @class GTLRGKEHub_ConfigManagementPolicyControllerState;
 @class GTLRGKEHub_ConfigManagementPolicyControllerVersion;
 @class GTLRGKEHub_ConfigManagementSyncError;
@@ -496,6 +499,28 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementOperatorState_Dep
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_NotInstalled;
 
 // ----------------------------------------------------------------------------
+// GTLRGKEHub_ConfigManagementPolicyControllerMonitoring.backends
+
+/**
+ *  Stackdriver/Cloud Monitoring backend for monitoring
+ *
+ *  Value: "CLOUD_MONITORING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementPolicyControllerMonitoring_Backends_CloudMonitoring;
+/**
+ *  Backend cannot be determined
+ *
+ *  Value: "MONITORING_BACKEND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementPolicyControllerMonitoring_Backends_MonitoringBackendUnspecified;
+/**
+ *  Prometheus backend for monitoring
+ *
+ *  Value: "PROMETHEUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementPolicyControllerMonitoring_Backends_Prometheus;
+
+// ----------------------------------------------------------------------------
 // GTLRGKEHub_ConfigManagementSyncState.code
 
 /**
@@ -712,6 +737,40 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_ServiceUpdat
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_OnPremCluster.clusterType
+
+/**
+ *  The ClusterType is bootstrap cluster.
+ *
+ *  Value: "BOOTSTRAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_Bootstrap;
+/**
+ *  The ClusterType is not set.
+ *
+ *  Value: "CLUSTERTYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_ClustertypeUnspecified;
+/**
+ *  The ClusterType is baremetal hybrid cluster.
+ *
+ *  Value: "HYBRID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_Hybrid;
+/**
+ *  The ClusterType is baremetal standalone cluster.
+ *
+ *  Value: "STANDALONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_Standalone;
+/**
+ *  The ClusterType is user cluster.
+ *
+ *  Value: "USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_User;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ServiceMeshControlPlaneManagement.state
@@ -942,6 +1001,22 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
+ *  ApplianceCluster contains information specific to GDC Edge Appliance
+ *  Clusters.
+ */
+@interface GTLRGKEHub_ApplianceCluster : GTLRObject
+
+/**
+ *  Immutable. Self-link of the GCP resource for the Appliance Cluster. For
+ *  example:
+ *  //transferappliance.googleapis.com/projects/my-project/locations/us-west1-a/appliances/my-appliance
+ */
+@property(nonatomic, copy, nullable) NSString *resourceLink;
+
+@end
+
+
+/**
  *  Specifies the audit configuration for a service. The configuration
  *  determines which permission types are logged, and what identities, if any,
  *  are exempted from logging. An AuditConfig must have one or more
@@ -1164,6 +1239,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /** Git repo configuration for the cluster. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementGitConfig *git;
+
+/** OCI repo configuration for the cluster */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementOciConfig *oci;
 
 /**
  *  Set to true to enable the Config Sync admission webhook to prevent drifts.
@@ -1653,6 +1731,42 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
+ *  OCI repo configuration for a single cluster
+ */
+@interface GTLRGKEHub_ConfigManagementOciConfig : GTLRObject
+
+/**
+ *  The GCP Service Account Email used for auth when secret_type is
+ *  gcpServiceAccount.
+ */
+@property(nonatomic, copy, nullable) NSString *gcpServiceAccountEmail;
+
+/**
+ *  The absolute path of the directory that contains the local resources.
+ *  Default: the root directory of the image.
+ */
+@property(nonatomic, copy, nullable) NSString *policyDir;
+
+/** Type of secret configured for access to the Git repo. */
+@property(nonatomic, copy, nullable) NSString *secretType;
+
+/**
+ *  The OCI image repository URL for the package to sync from. e.g.
+ *  `LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY_NAME/PACKAGE_NAME`.
+ */
+@property(nonatomic, copy, nullable) NSString *syncRepo;
+
+/**
+ *  Period in seconds between consecutive syncs. Default: 15.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *syncWaitSecs;
+
+@end
+
+
+/**
  *  State information for an ACM's Operator
  */
 @interface GTLRGKEHub_ConfigManagementOperatorState : GTLRObject
@@ -1717,6 +1831,17 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  */
 @property(nonatomic, strong, nullable) NSNumber *logDeniesEnabled;
 
+/** Monitoring specifies the configuration of monitoring. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementPolicyControllerMonitoring *monitoring;
+
+/**
+ *  Enable or disable mutation in policy controller. If true, mutation CRDs,
+ *  webhook and controller deployment will be deployed to the cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mutationEnabled;
+
 /**
  *  Enables the ability to use Constraint Templates that reference to objects
  *  other than the object currently being evaluated.
@@ -1731,6 +1856,23 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *templateLibraryInstalled;
+
+@end
+
+
+/**
+ *  PolicyControllerMonitoring specifies the backends Policy Controller should
+ *  export metrics to. For example, to specify metrics should be exported to
+ *  Cloud Monitoring and Prometheus, specify backends: ["cloudmonitoring",
+ *  "prometheus"]
+ */
+@interface GTLRGKEHub_ConfigManagementPolicyControllerMonitoring : GTLRObject
+
+/**
+ *  Specifies the list of backends Policy Controller will export to. An empty
+ *  list would effectively disable metrics export.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *backends;
 
 @end
 
@@ -2720,6 +2862,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  */
 @interface GTLRGKEHub_MembershipEndpoint : GTLRObject
 
+/** Optional. Specific information for a GDC Edge Appliance cluster. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ApplianceCluster *applianceCluster;
+
 /** Optional. Specific information for a Google Edge cluster. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_EdgeCluster *edgeCluster;
 
@@ -2901,6 +3046,23 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *clusterMissing;
+
+/**
+ *  Immutable. The on prem cluster's type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_OnPremCluster_ClusterType_Bootstrap The ClusterType is
+ *        bootstrap cluster. (Value: "BOOTSTRAP")
+ *    @arg @c kGTLRGKEHub_OnPremCluster_ClusterType_ClustertypeUnspecified The
+ *        ClusterType is not set. (Value: "CLUSTERTYPE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_OnPremCluster_ClusterType_Hybrid The ClusterType is
+ *        baremetal hybrid cluster. (Value: "HYBRID")
+ *    @arg @c kGTLRGKEHub_OnPremCluster_ClusterType_Standalone The ClusterType
+ *        is baremetal standalone cluster. (Value: "STANDALONE")
+ *    @arg @c kGTLRGKEHub_OnPremCluster_ClusterType_User The ClusterType is user
+ *        cluster. (Value: "USER")
+ */
+@property(nonatomic, copy, nullable) NSString *clusterType;
 
 /**
  *  Immutable. Self-link of the GCP resource for the GKE On-Prem cluster. For

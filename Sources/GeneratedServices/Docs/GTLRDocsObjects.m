@@ -1633,6 +1633,16 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocs_PinTableHeaderRowsRequest
+//
+
+@implementation GTLRDocs_PinTableHeaderRowsRequest
+@dynamic pinnedHeaderRowsCount, tableStartLocation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocs_PositionedObject
 //
 
@@ -1765,10 +1775,11 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
          deleteNamedRange, deleteParagraphBullets, deletePositionedObject,
          deleteTableColumn, deleteTableRow, insertInlineImage, insertPageBreak,
          insertSectionBreak, insertTable, insertTableColumn, insertTableRow,
-         insertText, mergeTableCells, replaceAllText, replaceImage,
-         replaceNamedRangeContent, unmergeTableCells, updateDocumentStyle,
-         updateParagraphStyle, updateSectionStyle, updateTableCellStyle,
-         updateTableColumnProperties, updateTableRowStyle, updateTextStyle;
+         insertText, mergeTableCells, pinTableHeaderRows, replaceAllText,
+         replaceImage, replaceNamedRangeContent, unmergeTableCells,
+         updateDocumentStyle, updateParagraphStyle, updateSectionStyle,
+         updateTableCellStyle, updateTableColumnProperties, updateTableRowStyle,
+         updateTextStyle;
 @end
 
 
@@ -2251,7 +2262,7 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_TableRowStyle
-@dynamic minRowHeight;
+@dynamic minRowHeight, preventOverflow, tableHeader;
 @end
 
 

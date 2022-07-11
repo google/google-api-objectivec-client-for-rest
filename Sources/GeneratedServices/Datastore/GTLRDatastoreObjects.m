@@ -160,7 +160,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_AllocateIdsRequest
-@dynamic keys;
+@dynamic databaseId, keys;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -214,7 +214,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_BeginTransactionRequest
-@dynamic transactionOptions;
+@dynamic databaseId, transactionOptions;
 @end
 
 
@@ -234,7 +234,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_CommitRequest
-@dynamic mode, mutations, transaction;
+@dynamic databaseId, mode, mutations, transaction;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -811,7 +811,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_LookupRequest
-@dynamic keys, readOptions;
+@dynamic databaseId, keys, readOptions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -874,7 +874,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_PartitionId
-@dynamic namespaceId, projectId;
+@dynamic databaseId, namespaceId, projectId;
 @end
 
 
@@ -1043,7 +1043,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_RollbackRequest
-@dynamic transaction;
+@dynamic databaseId, transaction;
 @end
 
 
@@ -1062,7 +1062,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_RunQueryRequest
-@dynamic gqlQuery, partitionId, query, readOptions;
+@dynamic databaseId, gqlQuery, partitionId, query, readOptions;
 @end
 
 

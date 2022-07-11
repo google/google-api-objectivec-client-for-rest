@@ -840,6 +840,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 @interface GTLRVMMigrationService_AwsSourceVmDetails : GTLRObject
 
 /**
+ *  The total size of the disks being migrated in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *committedStorageBytes;
+
+/**
  *  The firmware type of the source VM.
  *
  *  Likely values:
@@ -1461,6 +1468,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 @interface GTLRVMMigrationService_FetchInventoryResponse : GTLRObject
 
 /**
+ *  Output only. A token, which can be sent as `page_token` to retrieve the next
+ *  page. If this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
  *  Output only. The timestamp when the source was last queried (if the result
  *  is from the cache).
  */
@@ -1721,6 +1734,36 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_Operation *> *operations;
+
+@end
+
+
+/**
+ *  Response message for 'ListReplicationCycles' request.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "replicationCycles" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRVMMigrationService_ListReplicationCyclesResponse : GTLRCollectionObject
+
+/**
+ *  Output only. A token, which can be sent as `page_token` to retrieve the next
+ *  page. If this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Output only. The list of replication cycles response.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_ReplicationCycle *> *replicationCycles;
+
+/** Output only. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

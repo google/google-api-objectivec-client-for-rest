@@ -425,6 +425,21 @@ NSString * const kGTLRGamesTimeSpanWeekly                   = @"WEEKLY";
 
 @end
 
+@implementation GTLRGamesQuery_PlayersGetScopedPlayerIds
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"games/v1/players/me/scopedIds";
+  GTLRGamesQuery_PlayersGetScopedPlayerIds *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRGames_ScopedPlayerIds class];
+  query.loggingName = @"games.players.getScopedPlayerIds";
+  return query;
+}
+
+@end
+
 @implementation GTLRGamesQuery_PlayersList
 
 @dynamic collection, language, maxResults, pageToken;

@@ -178,6 +178,33 @@
 
 @end
 
+@implementation GTLRContainerQuery_ProjectsLocationsClustersNodePoolsCompleteUpgrade
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRContainer_CompleteNodePoolUpgradeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:completeUpgrade";
+  GTLRContainerQuery_ProjectsLocationsClustersNodePoolsCompleteUpgrade *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRContainer_Empty class];
+  query.loggingName = @"container.projects.locations.clusters.nodePools.completeUpgrade";
+  return query;
+}
+
+@end
+
 @implementation GTLRContainerQuery_ProjectsLocationsClustersNodePoolsCreate
 
 @dynamic parent;

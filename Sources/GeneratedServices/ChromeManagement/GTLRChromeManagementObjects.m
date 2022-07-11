@@ -48,6 +48,13 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Sy
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1CpuInfo_Architecture_ArchitectureUnspecified = @"ARCHITECTURE_UNSPECIFIED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1CpuInfo_Architecture_X64 = @"X64";
 
+// GTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData.problem
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData_Problem_FailedDnsResolutions = @"FAILED_DNS_RESOLUTIONS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData_Problem_FailedHttpsRequests = @"FAILED_HTTPS_REQUESTS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData_Problem_HighLatency = @"HIGH_LATENCY";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData_Problem_HttpsLatencyProblemUnspecified = @"HTTPS_LATENCY_PROBLEM_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData_Problem_VeryHighLatency = @"VERY_HIGH_LATENCY";
+
 // GTLRChromeManagement_GoogleChromeManagementV1InstalledApp.appInstallType
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1InstalledApp_AppInstallType_Admin = @"ADMIN";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1InstalledApp_AppInstallType_AppInstallTypeUnspecified = @"APP_INSTALL_TYPE_UNSPECIFIED";
@@ -70,11 +77,55 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1InstalledApp_AppT
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1InstalledApp_AppType_HostedApp = @"HOSTED_APP";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1InstalledApp_AppType_Theme = @"THEME";
 
+// GTLRChromeManagement_GoogleChromeManagementV1NetworkDevice.type
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkDevice_Type_CellularDevice = @"CELLULAR_DEVICE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkDevice_Type_EthernetDevice = @"ETHERNET_DEVICE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkDevice_Type_NetworkDeviceTypeUnspecified = @"NETWORK_DEVICE_TYPE_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkDevice_Type_WifiDevice = @"WIFI_DEVICE";
+
+// GTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport.connectionState
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionState_Connected = @"CONNECTED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionState_Connecting = @"CONNECTING";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionState_NetworkConnectionStateUnspecified = @"NETWORK_CONNECTION_STATE_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionState_NotConnected = @"NOT_CONNECTED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionState_Online = @"ONLINE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionState_Portal = @"PORTAL";
+
+// GTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport.connectionType
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionType_Cellular = @"CELLULAR";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionType_Ethernet = @"ETHERNET";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionType_NetworkTypeUnspecified = @"NETWORK_TYPE_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionType_Tether = @"TETHER";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionType_Vpn = @"VPN";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionType_Wifi = @"WIFI";
+
 // GTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus.updateState
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_UpdateState_OsImageDownloadInProgress = @"OS_IMAGE_DOWNLOAD_IN_PROGRESS";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_UpdateState_OsImageDownloadNotStarted = @"OS_IMAGE_DOWNLOAD_NOT_STARTED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_UpdateState_OsUpdateNeedReboot = @"OS_UPDATE_NEED_REBOOT";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_UpdateState_UpdateStateUnspecified = @"UPDATE_STATE_UNSPECIFIED";
+
+// GTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo.securityLevel
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecurityDpOnlyLevel = @"THUNDERBOLT_SECURITY_DP_ONLY_LEVEL";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecurityLevelUnspecified = @"THUNDERBOLT_SECURITY_LEVEL_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecurityNoneLevel = @"THUNDERBOLT_SECURITY_NONE_LEVEL";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecurityNoPcieLevel = @"THUNDERBOLT_SECURITY_NO_PCIE_LEVEL";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecuritySecureLevel = @"THUNDERBOLT_SECURITY_SECURE_LEVEL";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecurityUsbOnlyLevel = @"THUNDERBOLT_SECURITY_USB_ONLY_LEVEL";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecurityUserLevel = @"THUNDERBOLT_SECURITY_USER_LEVEL";
+
+// GTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo.encryptionAlgorithm
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionAlgorithm_MemoryEncryptionAlgorithmAesXts128 = @"MEMORY_ENCRYPTION_ALGORITHM_AES_XTS_128";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionAlgorithm_MemoryEncryptionAlgorithmAesXts256 = @"MEMORY_ENCRYPTION_ALGORITHM_AES_XTS_256";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionAlgorithm_MemoryEncryptionAlgorithmUnknown = @"MEMORY_ENCRYPTION_ALGORITHM_UNKNOWN";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionAlgorithm_MemoryEncryptionAlgorithmUnspecified = @"MEMORY_ENCRYPTION_ALGORITHM_UNSPECIFIED";
+
+// GTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo.encryptionState
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionState_MemoryEncryptionStateDisabled = @"MEMORY_ENCRYPTION_STATE_DISABLED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionState_MemoryEncryptionStateMktme = @"MEMORY_ENCRYPTION_STATE_MKTME";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionState_MemoryEncryptionStateTme = @"MEMORY_ENCRYPTION_STATE_TME";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionState_MemoryEncryptionStateUnknown = @"MEMORY_ENCRYPTION_STATE_UNKNOWN";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionState_MemoryEncryptionStateUnspecified = @"MEMORY_ENCRYPTION_STATE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -307,7 +358,8 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_Up
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1CpuInfo
-@dynamic architecture, maxClockSpeed, model;
+@dynamic architecture, keylockerConfigured, keylockerSupported, maxClockSpeed,
+         model;
 @end
 
 
@@ -441,6 +493,16 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_Up
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData
+@dynamic latency, problem;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1InstalledApp
 //
 
@@ -491,7 +553,7 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_Up
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1MemoryInfo
-@dynamic availableRamBytes, totalRamBytes;
+@dynamic availableRamBytes, totalMemoryEncryption, totalRamBytes;
 @end
 
 
@@ -507,12 +569,52 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_Up
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1NetworkDevice
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1NetworkDevice
+@dynamic iccid, imei, macAddress, mdn, meid, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1NetworkDiagnosticsReport
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1NetworkDiagnosticsReport
+@dynamic httpsLatencyData, reportTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1NetworkInfo
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1NetworkInfo
+@dynamic networkDevices;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"networkDevices" : [GTLRChromeManagement_GoogleChromeManagementV1NetworkDevice class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport
-@dynamic gatewayIpAddress, lanIpAddress, reportTime, sampleFrequency,
-         signalStrengthDbm;
+@dynamic connectionState, connectionType, encryptionOn, gatewayIpAddress, guid,
+         lanIpAddress, receivingBitRateMbps, reportTime, sampleFrequency,
+         signalStrengthDbm, transmissionBitRateMbps, transmissionPowerDbm,
+         wifiLinkQuality, wifiPowerManagementEnabled;
 @end
 
 
@@ -582,8 +684,9 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_Up
 @dynamic audioStatusReport, batteryInfo, batteryStatusReport, cpuInfo,
          cpuStatusReport, customer, deviceId, graphicsInfo,
          graphicsStatusReport, memoryInfo, memoryStatusReport, name,
-         networkStatusReport, orgUnitId, osUpdateStatus, serialNumber,
-         storageInfo, storageStatusReport;
+         networkDiagnosticsReport, networkInfo, networkStatusReport, orgUnitId,
+         osUpdateStatus, serialNumber, storageInfo, storageStatusReport,
+         thunderboltInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -594,13 +697,35 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_Up
     @"cpuStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1CpuStatusReport class],
     @"graphicsStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1GraphicsStatusReport class],
     @"memoryStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1MemoryStatusReport class],
+    @"networkDiagnosticsReport" : [GTLRChromeManagement_GoogleChromeManagementV1NetworkDiagnosticsReport class],
     @"networkStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport class],
     @"osUpdateStatus" : [GTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus class],
-    @"storageStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1StorageStatusReport class]
+    @"storageStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1StorageStatusReport class],
+    @"thunderboltInfo" : [GTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo
+@dynamic securityLevel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo
+@dynamic encryptionAlgorithm, encryptionState, keyLength, maxKeys;
 @end
 
 

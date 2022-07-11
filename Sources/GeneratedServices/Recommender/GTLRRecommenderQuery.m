@@ -382,6 +382,25 @@
 
 @end
 
+@implementation GTLRRecommenderQuery_OrganizationsLocationsInsightTypesGetConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRecommenderQuery_OrganizationsLocationsInsightTypesGetConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1InsightTypeConfig class];
+  query.loggingName = @"recommender.organizations.locations.insightTypes.getConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRRecommenderQuery_OrganizationsLocationsInsightTypesInsightsGet
 
 @dynamic name;
@@ -442,6 +461,52 @@
   query.name = name;
   query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1Insight class];
   query.loggingName = @"recommender.organizations.locations.insightTypes.insights.markAccepted";
+  return query;
+}
+
+@end
+
+@implementation GTLRRecommenderQuery_OrganizationsLocationsInsightTypesUpdateConfig
+
+@dynamic name, updateMask, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1InsightTypeConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRecommenderQuery_OrganizationsLocationsInsightTypesUpdateConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1InsightTypeConfig class];
+  query.loggingName = @"recommender.organizations.locations.insightTypes.updateConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRRecommenderQuery_OrganizationsLocationsRecommendersGetConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRecommenderQuery_OrganizationsLocationsRecommendersGetConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig class];
+  query.loggingName = @"recommender.organizations.locations.recommenders.getConfig";
   return query;
 }
 
@@ -566,6 +631,52 @@
 
 @end
 
+@implementation GTLRRecommenderQuery_OrganizationsLocationsRecommendersUpdateConfig
+
+@dynamic name, updateMask, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRecommenderQuery_OrganizationsLocationsRecommendersUpdateConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig class];
+  query.loggingName = @"recommender.organizations.locations.recommenders.updateConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRRecommenderQuery_ProjectsLocationsInsightTypesGetConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRecommenderQuery_ProjectsLocationsInsightTypesGetConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1InsightTypeConfig class];
+  query.loggingName = @"recommender.projects.locations.insightTypes.getConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRRecommenderQuery_ProjectsLocationsInsightTypesInsightsGet
 
 @dynamic name;
@@ -626,6 +737,52 @@
   query.name = name;
   query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1Insight class];
   query.loggingName = @"recommender.projects.locations.insightTypes.insights.markAccepted";
+  return query;
+}
+
+@end
+
+@implementation GTLRRecommenderQuery_ProjectsLocationsInsightTypesUpdateConfig
+
+@dynamic name, updateMask, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1InsightTypeConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRecommenderQuery_ProjectsLocationsInsightTypesUpdateConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1InsightTypeConfig class];
+  query.loggingName = @"recommender.projects.locations.insightTypes.updateConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRRecommenderQuery_ProjectsLocationsRecommendersGetConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRecommenderQuery_ProjectsLocationsRecommendersGetConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig class];
+  query.loggingName = @"recommender.projects.locations.recommenders.getConfig";
   return query;
 }
 
@@ -745,6 +902,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1Recommendation class];
   query.loggingName = @"recommender.projects.locations.recommenders.recommendations.markSucceeded";
+  return query;
+}
+
+@end
+
+@implementation GTLRRecommenderQuery_ProjectsLocationsRecommendersUpdateConfig
+
+@dynamic name, updateMask, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRecommenderQuery_ProjectsLocationsRecommendersUpdateConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig class];
+  query.loggingName = @"recommender.projects.locations.recommenders.updateConfig";
   return query;
 }
 

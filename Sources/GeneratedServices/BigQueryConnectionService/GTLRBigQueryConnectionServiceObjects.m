@@ -94,7 +94,7 @@ NSString * const kGTLRBigQueryConnectionService_CloudSqlProperties_Type_Postgres
 //
 
 @implementation GTLRBigQueryConnectionService_CloudSqlProperties
-@dynamic credential, database, instanceId, type;
+@dynamic credential, database, instanceId, serviceAccountId, type;
 @end
 
 

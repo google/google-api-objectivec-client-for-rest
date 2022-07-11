@@ -853,6 +853,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 @property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
 
 /**
+ *  Optional. Deploys 'ip-masq-agent' daemon set in the GKE cluster and defines
+ *  nonMasqueradeCIDRs equals to pod IP range so IP masquerading is used for all
+ *  destination addresses, except between pods traffic. See:
+ *  https://cloud.google.com/kubernetes-engine/docs/how-to/ip-masquerade-agent
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableIpMasqAgent;
+
+/**
  *  Optional. The configuration for controlling how IPs are allocated in the GKE
  *  cluster.
  */

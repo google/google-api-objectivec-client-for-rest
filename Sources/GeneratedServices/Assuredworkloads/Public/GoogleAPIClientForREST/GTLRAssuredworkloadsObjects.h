@@ -29,6 +29,7 @@
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_Labels;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadCJISSettings;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadComplianceStatus;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadFedrampHighSettings;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadFedrampModerateSettings;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadIL4Settings;
@@ -110,6 +111,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_Il4;
 /**
+ *  International Traffic in Arms Regulations
+ *
+ *  Value: "ITAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_Itar;
+/**
  *  Assured Workloads For US Regions data protection controls
  *
  *  Value: "US_REGIONAL_ACCESS"
@@ -173,6 +180,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "IL4"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_Il4;
+/**
+ *  International Traffic in Arms Regulations
+ *
+ *  Value: "ITAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_Itar;
 /**
  *  Assured Workloads For US Regions data protection controls
  *
@@ -388,11 +401,43 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il4;
 /**
+ *  International Traffic in Arms Regulations
+ *
+ *  Value: "ITAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Itar;
+/**
  *  Assured Workloads For US Regions data protection controls
  *
  *  Value: "US_REGIONAL_ACCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsRegionalAccess;
+
+// ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest.restrictionType
+
+/**
+ *  Allow the use all of all gcp products, irrespective of the compliance
+ *  posture. This effectively removes gcp.restrictServiceUsage OrgPolicy on the
+ *  AssuredWorkloads Folder.
+ *
+ *  Value: "ALLOW_ALL_GCP_RESOURCES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest_RestrictionType_AllowAllGcpResources;
+/**
+ *  Based on Workload's compliance regime, allowed list changes. See -
+ *  https://cloud.google.com/assured-workloads/docs/supported-products for the
+ *  list of supported resources.
+ *
+ *  Value: "ALLOW_COMPLIANT_RESOURCES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest_RestrictionType_AllowCompliantResources;
+/**
+ *  Unknown restriction type.
+ *
+ *  Value: "RESTRICTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest_RestrictionType_RestrictionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload.complianceRegime
@@ -451,6 +496,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "IL4"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il4;
+/**
+ *  International Traffic in Arms Regulations
+ *
+ *  Value: "ITAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Itar;
 /**
  *  Assured Workloads For US Regions data protection controls
  *
@@ -670,6 +721,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainCreateWorkloadOperationMetadata_ComplianceRegime_Il4;
 /**
+ *  International Traffic in Arms Regulations
+ *
+ *  Value: "ITAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainCreateWorkloadOperationMetadata_ComplianceRegime_Itar;
+/**
  *  Assured Workloads For US Regions data protection controls
  *
  *  Value: "US_REGIONAL_ACCESS"
@@ -733,6 +790,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "IL4"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_ComplianceRegime_Il4;
+/**
+ *  International Traffic in Arms Regulations
+ *
+ *  Value: "ITAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_ComplianceRegime_Itar;
 /**
  *  Assured Workloads For US Regions data protection controls
  *
@@ -922,6 +985,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Health Information Trust Alliance controls (Value: "HITRUST")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_Il4
  *        Information protection as per DoD IL4 requirements. (Value: "IL4")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_Itar
+ *        International Traffic in Arms Regulations (Value: "ITAR")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_UsRegionalAccess
  *        Assured Workloads For US Regions data protection controls (Value:
  *        "US_REGIONAL_ACCESS")
@@ -991,6 +1056,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Health Information Trust Alliance controls (Value: "HITRUST")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_Il4
  *        Information protection as per DoD IL4 requirements. (Value: "IL4")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_Itar
+ *        International Traffic in Arms Regulations (Value: "ITAR")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_UsRegionalAccess
  *        Assured Workloads For US Regions data protection controls (Value:
  *        "US_REGIONAL_ACCESS")
@@ -1315,6 +1382,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Health Information Trust Alliance controls (Value: "HITRUST")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il4
  *        Information protection as per DoD IL4 requirements. (Value: "IL4")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Itar
+ *        International Traffic in Arms Regulations (Value: "ITAR")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsRegionalAccess
  *        Assured Workloads For US Regions data protection controls (Value:
  *        "US_REGIONAL_ACCESS")
@@ -1354,6 +1423,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload *> *workloads;
 
+@end
+
+
+/**
+ *  Request for restricting list of available resources in Workload environment.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest : GTLRObject
+
+/**
+ *  Required. The type of restriction for using gcp products in the Workload
+ *  environment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest_RestrictionType_AllowAllGcpResources
+ *        Allow the use all of all gcp products, irrespective of the compliance
+ *        posture. This effectively removes gcp.restrictServiceUsage OrgPolicy
+ *        on the AssuredWorkloads Folder. (Value: "ALLOW_ALL_GCP_RESOURCES")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest_RestrictionType_AllowCompliantResources
+ *        Based on Workload's compliance regime, allowed list changes. See -
+ *        https://cloud.google.com/assured-workloads/docs/supported-products for
+ *        the list of supported resources. (Value: "ALLOW_COMPLIANT_RESOURCES")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest_RestrictionType_RestrictionTypeUnspecified
+ *        Unknown restriction type. (Value: "RESTRICTION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *restrictionType;
+
+@end
+
+
+/**
+ *  Response for restricting the list of allowed resources.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesResponse : GTLRObject
 @end
 
 
@@ -1399,6 +1501,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Health Information Trust Alliance controls (Value: "HITRUST")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il4
  *        Information protection as per DoD IL4 requirements. (Value: "IL4")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Itar
+ *        International Traffic in Arms Regulations (Value: "ITAR")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsRegionalAccess
  *        Assured Workloads For US Regions data protection controls (Value:
  *        "US_REGIONAL_ACCESS")
@@ -1666,6 +1770,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Health Information Trust Alliance controls (Value: "HITRUST")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainCreateWorkloadOperationMetadata_ComplianceRegime_Il4
  *        Information protection as per DoD IL4 requirements. (Value: "IL4")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainCreateWorkloadOperationMetadata_ComplianceRegime_Itar
+ *        International Traffic in Arms Regulations (Value: "ITAR")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainCreateWorkloadOperationMetadata_ComplianceRegime_UsRegionalAccess
  *        Assured Workloads For US Regions data protection controls (Value:
  *        "US_REGIONAL_ACCESS")
@@ -1738,11 +1844,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Health Information Trust Alliance controls (Value: "HITRUST")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_ComplianceRegime_Il4
  *        Information protection as per DoD IL4 requirements. (Value: "IL4")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_ComplianceRegime_Itar
+ *        International Traffic in Arms Regulations (Value: "ITAR")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_ComplianceRegime_UsRegionalAccess
  *        Assured Workloads For US Regions data protection controls (Value:
  *        "US_REGIONAL_ACCESS")
  */
 @property(nonatomic, copy, nullable) NSString *complianceRegime;
+
+/** Output only. Count of active Violations in the Workload. */
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadComplianceStatus *complianceStatus;
 
 /** Output only. Immutable. The Workload creation timestamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -1871,6 +1982,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 /** Input only. Immutable. Settings used to create a CMEK crypto key. */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadKMSSettings *kmsSettings;
+
+@end
+
+
+/**
+ *  Represents the Compliance Status of this workload
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadComplianceStatus : GTLRObject
+
+/**
+ *  Optional. Count of active Violations in the Workload.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *activeViolationCount;
 
 @end
 

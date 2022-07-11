@@ -1295,6 +1295,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_RestrictionEvaluation_Stat
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** Unique identifier for the device. */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
 /**
  *  Output only. Type of device.
  *

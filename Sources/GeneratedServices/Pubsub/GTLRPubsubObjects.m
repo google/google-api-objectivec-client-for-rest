@@ -14,6 +14,13 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRPubsub_BigQueryConfig.state
+NSString * const kGTLRPubsub_BigQueryConfig_State_Active       = @"ACTIVE";
+NSString * const kGTLRPubsub_BigQueryConfig_State_NotFound     = @"NOT_FOUND";
+NSString * const kGTLRPubsub_BigQueryConfig_State_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRPubsub_BigQueryConfig_State_SchemaMismatch = @"SCHEMA_MISMATCH";
+NSString * const kGTLRPubsub_BigQueryConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRPubsub_Schema.type
 NSString * const kGTLRPubsub_Schema_Type_Avro            = @"AVRO";
 NSString * const kGTLRPubsub_Schema_Type_ProtocolBuffer  = @"PROTOCOL_BUFFER";
@@ -49,6 +56,16 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_BigQueryConfig
+//
+
+@implementation GTLRPubsub_BigQueryConfig
+@dynamic dropUnknownFields, state, table, useTopicSchema, writeMetadata;
 @end
 
 
@@ -497,7 +514,7 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 //
 
 @implementation GTLRPubsub_SchemaSettings
-@dynamic encoding, schema;
+@dynamic encoding, firstRevisionId, lastRevisionId, schema;
 @end
 
 
@@ -560,7 +577,7 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 //
 
 @implementation GTLRPubsub_Subscription
-@dynamic ackDeadlineSeconds, deadLetterPolicy, detached,
+@dynamic ackDeadlineSeconds, bigqueryConfig, deadLetterPolicy, detached,
          enableExactlyOnceDelivery, enableMessageOrdering, expirationPolicy,
          filter, labels, messageRetentionDuration, name, pushConfig,
          retainAckedMessages, retryPolicy, state, topic,

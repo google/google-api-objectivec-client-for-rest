@@ -91,6 +91,13 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRSQLAdmin_ApiWarning.code
 
 /**
+ *  Warning when user provided maxResults parameter exceeds the limit. The
+ *  returned result set may be incomplete.
+ *
+ *  Value: "MAX_RESULTS_EXCEEDS_LIMIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ApiWarning_Code_MaxResultsExceedsLimit;
+/**
  *  Warning when one or more regions are not reachable. The returned result set
  *  may be incomplete.
  *
@@ -316,6 +323,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8028;
 /**
+ *  The database major version is MySQL 8.0 and the minor version is 29.
+ *
+ *  Value: "MYSQL_8_0_29"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8029;
+/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -491,6 +504,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  *  Value: "MYSQL_8_0_28"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8028;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 29.
+ *
+ *  Value: "MYSQL_8_0_29"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8029;
 /**
  *  The database version is PostgreSQL 10.
  *
@@ -784,6 +803,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8027;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8028;
 /**
+ *  The database major version is MySQL 8.0 and the minor version is 29.
+ *
+ *  Value: "MYSQL_8_0_29"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8029;
+/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -1019,6 +1044,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_S
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Operation.operationType
 
+/**
+ *  Performs auto-restart of an HA-enabled Cloud SQL database for auto recovery.
+ *
+ *  Value: "AUTO_RESTART"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_AutoRestart;
 /** Value: "BACKUP" */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Backup;
 /**
@@ -1132,6 +1163,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Import;
  *  Value: "INJECT_USER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_InjectUser;
+/**
+ *  Recovers logs from an instance's old data disk.
+ *
+ *  Value: "LOG_CLEANUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_LogCleanup;
 /**
  *  Indicates that the instance is currently in maintenance. Maintenance
  *  typically causes the instance to be unavailable for 1-3 minutes.
@@ -1480,6 +1517,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidWalLevel;
 /**
+ *  Source has tables with limited support eg: PostgreSQL tables without primary
+ *  keys
+ *
+ *  Value: "LIMITED_SUPPORT_TABLES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_LimitedSupportTables;
+/**
  *  No pglogical extension installed on databases, applicable for postgres.
  *
  *  Value: "NO_PGLOGICAL_INSTALLED"
@@ -1628,6 +1672,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlOutOfDiskReport_SqlOutOfDisk
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlOutOfDiskReport_SqlOutOfDiskState_SqlOutOfDiskStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_User.dualPasswordType
+
+/**
+ *  Dual password usable for connecting using this user.
+ *
+ *  Value: "DUAL_PASSWORD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_DualPasswordType_DualPassword;
+/**
+ *  The default value.
+ *
+ *  Value: "DUAL_PASSWORD_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_DualPasswordType_DualPasswordTypeUnspecified;
+/**
+ *  No dual password usable for connecting using this user.
+ *
+ *  Value: "NO_DUAL_PASSWORD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_DualPasswordType_NoDualPassword;
+/**
+ *  Do not update the user's dual password status.
+ *
+ *  Value: "NO_MODIFY_DUAL_PASSWORD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_DualPasswordType_NoModifyDualPassword;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_User.type
 
 /**
@@ -1682,6 +1754,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Code to uniquely identify the warning type.
  *
  *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_ApiWarning_Code_MaxResultsExceedsLimit Warning when
+ *        user provided maxResults parameter exceeds the limit. The returned
+ *        result set may be incomplete. (Value: "MAX_RESULTS_EXCEEDS_LIMIT")
  *    @arg @c kGTLRSQLAdmin_ApiWarning_Code_RegionUnreachable Warning when one
  *        or more regions are not reachable. The returned result set may be
  *        incomplete. (Value: "REGION_UNREACHABLE")
@@ -2095,6 +2170,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8028 The
  *        database major version is MySQL 8.0 and the minor version is 28.
  *        (Value: "MYSQL_8_0_28")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8029 The
+ *        database major version is MySQL 8.0 and the minor version is 29.
+ *        (Value: "MYSQL_8_0_29")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 The
  *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11 The
@@ -2302,6 +2380,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8028 The
  *        database major version is MySQL 8.0 and the minor version is 28.
  *        (Value: "MYSQL_8_0_28")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8029 The
+ *        database major version is MySQL 8.0 and the minor version is 29.
+ *        (Value: "MYSQL_8_0_29")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 The
  *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 The
@@ -3689,6 +3770,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  `DELETE_DATABASE`
  *
  *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_AutoRestart Performs
+ *        auto-restart of an HA-enabled Cloud SQL database for auto recovery.
+ *        (Value: "AUTO_RESTART")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_Backup Value "BACKUP"
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_BackupVolume Performs
  *        instance backup. (Value: "BACKUP_VOLUME")
@@ -3730,6 +3814,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        Cloud SQL instance. (Value: "IMPORT")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_InjectUser Injects a
  *        privileged user in mysql for MOB instances. (Value: "INJECT_USER")
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_LogCleanup Recovers logs
+ *        from an instance's old data disk. (Value: "LOG_CLEANUP")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_Maintenance Indicates that
  *        the instance is currently in maintenance. Maintenance typically causes
  *        the instance to be unavailable for 1-3 minutes. (Value: "MAINTENANCE")
@@ -4342,6 +4428,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidWalLevel The
  *        value of parameter wal_level is not set to logical. (Value:
  *        "INVALID_WAL_LEVEL")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_LimitedSupportTables
+ *        Source has tables with limited support eg: PostgreSQL tables without
+ *        primary keys (Value: "LIMITED_SUPPORT_TABLES")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_NoPglogicalInstalled
  *        No pglogical extension installed on databases, applicable for
  *        postgres. (Value: "NO_PGLOGICAL_INSTALLED")
@@ -4525,7 +4614,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
- *  Any scheduled maintenancce for this instance.
+ *  Any scheduled maintenance for this instance.
  */
 @interface GTLRSQLAdmin_SqlScheduledMaintenance : GTLRObject
 
@@ -4839,6 +4928,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @interface GTLRSQLAdmin_User : GTLRObject
 
 /**
+ *  Dual password status for the user.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_User_DualPasswordType_DualPassword Dual password
+ *        usable for connecting using this user. (Value: "DUAL_PASSWORD")
+ *    @arg @c kGTLRSQLAdmin_User_DualPasswordType_DualPasswordTypeUnspecified
+ *        The default value. (Value: "DUAL_PASSWORD_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_User_DualPasswordType_NoDualPassword No dual
+ *        password usable for connecting using this user. (Value:
+ *        "NO_DUAL_PASSWORD")
+ *    @arg @c kGTLRSQLAdmin_User_DualPasswordType_NoModifyDualPassword Do not
+ *        update the user's dual password status. (Value:
+ *        "NO_MODIFY_DUAL_PASSWORD")
+ */
+@property(nonatomic, copy, nullable) NSString *dualPasswordType;
+
+/**
  *  This field is deprecated and will be removed from a future version of the
  *  API.
  */
@@ -4918,6 +5024,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableFailedAttemptsCheck;
+
+/**
+ *  If true, the user must specify the current password before changing the
+ *  password. This flag is supported only for MySQL.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enablePasswordVerification;
 
 /** Expiration duration after password is updated. */
 @property(nonatomic, strong, nullable) GTLRDuration *passwordExpirationDuration;

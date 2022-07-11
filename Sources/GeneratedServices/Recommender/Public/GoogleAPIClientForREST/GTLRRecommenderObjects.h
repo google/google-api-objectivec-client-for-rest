@@ -19,6 +19,9 @@
 @class GTLRRecommender_GoogleCloudRecommenderV1InsightRecommendationReference;
 @class GTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo;
 @class GTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo_StateMetadata;
+@class GTLRRecommender_GoogleCloudRecommenderV1InsightTypeConfig_Annotations;
+@class GTLRRecommender_GoogleCloudRecommenderV1InsightTypeGenerationConfig;
+@class GTLRRecommender_GoogleCloudRecommenderV1InsightTypeGenerationConfig_Params;
 @class GTLRRecommender_GoogleCloudRecommenderV1MarkInsightAcceptedRequest_StateMetadata;
 @class GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationClaimedRequest_StateMetadata;
 @class GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationFailedRequest_StateMetadata;
@@ -33,6 +36,9 @@
 @class GTLRRecommender_GoogleCloudRecommenderV1RecommendationInsightReference;
 @class GTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo;
 @class GTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo_StateMetadata;
+@class GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig_Annotations;
+@class GTLRRecommender_GoogleCloudRecommenderV1RecommenderGenerationConfig;
+@class GTLRRecommender_GoogleCloudRecommenderV1RecommenderGenerationConfig_Params;
 @class GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection;
 @class GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection_Details;
 @class GTLRRecommender_GoogleCloudRecommenderV1ValueMatcher;
@@ -485,6 +491,103 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
  *        fetch them all at once.
  */
 @interface GTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo_StateMetadata : GTLRObject
+@end
+
+
+/**
+ *  Configuration for an InsightType.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1InsightTypeConfig : GTLRObject
+
+/**
+ *  Allows clients to store small amounts of arbitrary data. Annotations must
+ *  follow the Kubernetes syntax. The total size of all keys and values combined
+ *  is limited to 256k. Key can have 2 segments: prefix (optional) and name
+ *  (required), separated by a slash (/). Prefix must be a DNS subdomain. Name
+ *  must be 63 characters or less, begin and end with alphanumerics, with dashes
+ *  (-), underscores (_), dots (.), and alphanumerics between.
+ */
+@property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1InsightTypeConfig_Annotations *annotations;
+
+/**
+ *  A user-settable field to provide a human-readable name to be used in user
+ *  interfaces.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Fingerprint of the InsightTypeConfig. Provides optimistic locking when
+ *  updating.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  InsightTypeGenerationConfig which configures the generation of insights for
+ *  this insight type.
+ */
+@property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1InsightTypeGenerationConfig *insightTypeGenerationConfig;
+
+/**
+ *  Name of insight type config. Eg,
+ *  projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Immutable. The revision ID of the config. A new revision is
+ *  committed whenever the config is changed in any way. The format is an
+ *  8-character hexadecimal string.
+ */
+@property(nonatomic, copy, nullable) NSString *revisionId;
+
+/** Last time when the config was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Allows clients to store small amounts of arbitrary data. Annotations must
+ *  follow the Kubernetes syntax. The total size of all keys and values combined
+ *  is limited to 256k. Key can have 2 segments: prefix (optional) and name
+ *  (required), separated by a slash (/). Prefix must be a DNS subdomain. Name
+ *  must be 63 characters or less, begin and end with alphanumerics, with dashes
+ *  (-), underscores (_), dots (.), and alphanumerics between.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1InsightTypeConfig_Annotations : GTLRObject
+@end
+
+
+/**
+ *  A configuration to customize the generation of insights. Eg, customizing the
+ *  lookback period considered when generating a insight.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1InsightTypeGenerationConfig : GTLRObject
+
+/**
+ *  Parameters for this InsightTypeGenerationConfig. These configs can be used
+ *  by or are applied to all subtypes.
+ */
+@property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1InsightTypeGenerationConfig_Params *params;
+
+@end
+
+
+/**
+ *  Parameters for this InsightTypeGenerationConfig. These configs can be used
+ *  by or are applied to all subtypes.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1InsightTypeGenerationConfig_Params : GTLRObject
 @end
 
 
@@ -1006,6 +1109,103 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
  *        fetch them all at once.
  */
 @interface GTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo_StateMetadata : GTLRObject
+@end
+
+
+/**
+ *  Configuration for a Recommender.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig : GTLRObject
+
+/**
+ *  Allows clients to store small amounts of arbitrary data. Annotations must
+ *  follow the Kubernetes syntax. The total size of all keys and values combined
+ *  is limited to 256k. Key can have 2 segments: prefix (optional) and name
+ *  (required), separated by a slash (/). Prefix must be a DNS subdomain. Name
+ *  must be 63 characters or less, begin and end with alphanumerics, with dashes
+ *  (-), underscores (_), dots (.), and alphanumerics between.
+ */
+@property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig_Annotations *annotations;
+
+/**
+ *  A user-settable field to provide a human-readable name to be used in user
+ *  interfaces.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Fingerprint of the RecommenderConfig. Provides optimistic locking when
+ *  updating.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Name of recommender config. Eg,
+ *  projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  RecommenderGenerationConfig which configures the Generation of
+ *  recommendations for this recommender.
+ */
+@property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1RecommenderGenerationConfig *recommenderGenerationConfig;
+
+/**
+ *  Output only. Immutable. The revision ID of the config. A new revision is
+ *  committed whenever the config is changed in any way. The format is an
+ *  8-character hexadecimal string.
+ */
+@property(nonatomic, copy, nullable) NSString *revisionId;
+
+/** Last time when the config was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Allows clients to store small amounts of arbitrary data. Annotations must
+ *  follow the Kubernetes syntax. The total size of all keys and values combined
+ *  is limited to 256k. Key can have 2 segments: prefix (optional) and name
+ *  (required), separated by a slash (/). Prefix must be a DNS subdomain. Name
+ *  must be 63 characters or less, begin and end with alphanumerics, with dashes
+ *  (-), underscores (_), dots (.), and alphanumerics between.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig_Annotations : GTLRObject
+@end
+
+
+/**
+ *  A Configuration to customize the generation of recommendations. Eg,
+ *  customizing the lookback period considered when generating a recommendation.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1RecommenderGenerationConfig : GTLRObject
+
+/**
+ *  Parameters for this RecommenderGenerationConfig. These configs can be used
+ *  by or are applied to all subtypes.
+ */
+@property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1RecommenderGenerationConfig_Params *params;
+
+@end
+
+
+/**
+ *  Parameters for this RecommenderGenerationConfig. These configs can be used
+ *  by or are applied to all subtypes.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1RecommenderGenerationConfig_Params : GTLRObject
 @end
 
 

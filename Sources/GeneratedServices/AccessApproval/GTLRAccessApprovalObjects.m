@@ -73,7 +73,7 @@ NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_EnrollmentL
 //
 
 @implementation GTLRAccessApproval_ApproveDecision
-@dynamic approveTime, autoApproved, expireTime, signatureInfo;
+@dynamic approveTime, autoApproved, expireTime, invalidateTime, signatureInfo;
 @end
 
 
@@ -112,6 +112,15 @@ NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_EnrollmentL
 
 @implementation GTLRAccessApproval_EnrolledService
 @dynamic cloudProduct, enrollmentLevel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessApproval_InvalidateApprovalRequestMessage
+//
+
+@implementation GTLRAccessApproval_InvalidateApprovalRequestMessage
 @end
 
 

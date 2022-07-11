@@ -21,9 +21,45 @@
 @class GTLRNetworkServices_EndpointPolicy;
 @class GTLRNetworkServices_EndpointPolicy_Labels;
 @class GTLRNetworkServices_Expr;
+@class GTLRNetworkServices_Gateway;
+@class GTLRNetworkServices_Gateway_Labels;
+@class GTLRNetworkServices_GrpcRoute;
+@class GTLRNetworkServices_GrpcRoute_Labels;
+@class GTLRNetworkServices_GrpcRouteDestination;
+@class GTLRNetworkServices_GrpcRouteFaultInjectionPolicy;
+@class GTLRNetworkServices_GrpcRouteFaultInjectionPolicyAbort;
+@class GTLRNetworkServices_GrpcRouteFaultInjectionPolicyDelay;
+@class GTLRNetworkServices_GrpcRouteHeaderMatch;
+@class GTLRNetworkServices_GrpcRouteMethodMatch;
+@class GTLRNetworkServices_GrpcRouteRetryPolicy;
+@class GTLRNetworkServices_GrpcRouteRouteAction;
+@class GTLRNetworkServices_GrpcRouteRouteMatch;
+@class GTLRNetworkServices_GrpcRouteRouteRule;
+@class GTLRNetworkServices_HttpRoute;
+@class GTLRNetworkServices_HttpRoute_Labels;
+@class GTLRNetworkServices_HttpRouteCorsPolicy;
+@class GTLRNetworkServices_HttpRouteDestination;
+@class GTLRNetworkServices_HttpRouteFaultInjectionPolicy;
+@class GTLRNetworkServices_HttpRouteFaultInjectionPolicyAbort;
+@class GTLRNetworkServices_HttpRouteFaultInjectionPolicyDelay;
+@class GTLRNetworkServices_HttpRouteHeaderMatch;
+@class GTLRNetworkServices_HttpRouteHeaderMatchIntegerRange;
+@class GTLRNetworkServices_HttpRouteHeaderModifier;
+@class GTLRNetworkServices_HttpRouteHeaderModifier_Add;
+@class GTLRNetworkServices_HttpRouteHeaderModifier_Set;
+@class GTLRNetworkServices_HttpRouteQueryParameterMatch;
+@class GTLRNetworkServices_HttpRouteRedirect;
+@class GTLRNetworkServices_HttpRouteRequestMirrorPolicy;
+@class GTLRNetworkServices_HttpRouteRetryPolicy;
+@class GTLRNetworkServices_HttpRouteRouteAction;
+@class GTLRNetworkServices_HttpRouteRouteMatch;
+@class GTLRNetworkServices_HttpRouteRouteRule;
+@class GTLRNetworkServices_HttpRouteURLRewrite;
 @class GTLRNetworkServices_Location;
 @class GTLRNetworkServices_Location_Labels;
 @class GTLRNetworkServices_Location_Metadata;
+@class GTLRNetworkServices_Mesh;
+@class GTLRNetworkServices_Mesh_Labels;
 @class GTLRNetworkServices_Operation;
 @class GTLRNetworkServices_Operation_Metadata;
 @class GTLRNetworkServices_Operation_Response;
@@ -32,6 +68,17 @@
 @class GTLRNetworkServices_ServiceBinding_Labels;
 @class GTLRNetworkServices_Status;
 @class GTLRNetworkServices_Status_Details_Item;
+@class GTLRNetworkServices_TcpRoute;
+@class GTLRNetworkServices_TcpRoute_Labels;
+@class GTLRNetworkServices_TcpRouteRouteAction;
+@class GTLRNetworkServices_TcpRouteRouteDestination;
+@class GTLRNetworkServices_TcpRouteRouteMatch;
+@class GTLRNetworkServices_TcpRouteRouteRule;
+@class GTLRNetworkServices_TlsRoute;
+@class GTLRNetworkServices_TlsRouteRouteAction;
+@class GTLRNetworkServices_TlsRouteRouteDestination;
+@class GTLRNetworkServices_TlsRouteRouteMatch;
+@class GTLRNetworkServices_TlsRouteRouteRule;
 @class GTLRNetworkServices_TrafficPortSelector;
 
 // Generated comments include content from the discovery document; avoid them
@@ -117,6 +164,114 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_Grpc
  *  Value: "SIDECAR_PROXY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_SidecarProxy;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_Gateway.type
+
+/**
+ *  The type of the customer managed gateway is TrafficDirector Open Mesh.
+ *
+ *  Value: "OPEN_MESH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Gateway_Type_OpenMesh;
+/**
+ *  The type of the customer managed gateway is SecureWebGateway (SWG).
+ *
+ *  Value: "SECURE_WEB_GATEWAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Gateway_Type_SecureWebGateway;
+/**
+ *  The type of the customer managed gateway is unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Gateway_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_GrpcRouteHeaderMatch.type
+
+/**
+ *  Will only match the exact value provided.
+ *
+ *  Value: "EXACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_GrpcRouteHeaderMatch_Type_Exact;
+/**
+ *  Will match paths conforming to the prefix specified by value. RE2 syntax is
+ *  supported.
+ *
+ *  Value: "REGULAR_EXPRESSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_GrpcRouteHeaderMatch_Type_RegularExpression;
+/**
+ *  Unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_GrpcRouteHeaderMatch_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_GrpcRouteMethodMatch.type
+
+/**
+ *  Will only match the exact name provided.
+ *
+ *  Value: "EXACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_GrpcRouteMethodMatch_Type_Exact;
+/**
+ *  Will interpret grpc_method and grpc_service as regexes. RE2 syntax is
+ *  supported.
+ *
+ *  Value: "REGULAR_EXPRESSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_GrpcRouteMethodMatch_Type_RegularExpression;
+/**
+ *  Unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_GrpcRouteMethodMatch_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_HttpRouteRedirect.responseCode
+
+/**
+ *  Corresponds to 302.
+ *
+ *  Value: "FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_Found;
+/**
+ *  Corresponds to 301.
+ *
+ *  Value: "MOVED_PERMANENTLY_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_MovedPermanentlyDefault;
+/**
+ *  Corresponds to 308. In this case, the request method will be retained.
+ *
+ *  Value: "PERMANENT_REDIRECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_PermanentRedirect;
+/**
+ *  Default value
+ *
+ *  Value: "RESPONSE_CODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_ResponseCodeUnspecified;
+/**
+ *  Corresponds to 303.
+ *
+ *  Value: "SEE_OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_SeeOther;
+/**
+ *  Corresponds to 307. In this case, the request method will be retained.
+ *
+ *  Value: "TEMPORARY_REDIRECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRedirect;
 
 /**
  *  Specifies the audit configuration for a service. The configuration
@@ -483,6 +638,1139 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_Side
 
 
 /**
+ *  Gateway represents the configuration for a proxy, typically a load balancer.
+ *  It captures the ip:port over which the services are exposed by the proxy,
+ *  along with any policy configurations. Routes have reference to to Gateways
+ *  to dictate how requests should be routed by this Gateway.
+ */
+@interface GTLRNetworkServices_Gateway : GTLRObject
+
+/** Output only. The timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. A free-text description of the resource. Max length 1024
+ *  characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. Set of label tags associated with the Gateway resource. */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_Gateway_Labels *labels;
+
+/**
+ *  Required. Name of the Gateway resource. It matches pattern `projects/ *
+ *  /locations/ * /gateways/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. One or more ports that the Gateway must receive traffic on. The
+ *  proxy binds to the ports specified. Gateway listen on 0.0.0.0 on the ports
+ *  specified below.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *ports;
+
+/**
+ *  Required. Immutable. Scope determines how configuration across multiple
+ *  Gateway instances are merged. The configuration for multiple Gateway
+ *  instances with the same scope will be merged as presented as a single
+ *  coniguration to the proxy/load balancer. Max length 64 characters. Scope
+ *  should start with a letter and can only have letters, numbers, hyphens.
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/** Output only. Server-defined URL of this resource */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/**
+ *  Optional. A fully-qualified ServerTLSPolicy URL reference. Specifies how TLS
+ *  traffic is terminated. If empty, TLS termination is disabled.
+ */
+@property(nonatomic, copy, nullable) NSString *serverTlsPolicy;
+
+/**
+ *  Immutable. The type of the customer managed gateway.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_Gateway_Type_OpenMesh The type of the
+ *        customer managed gateway is TrafficDirector Open Mesh. (Value:
+ *        "OPEN_MESH")
+ *    @arg @c kGTLRNetworkServices_Gateway_Type_SecureWebGateway The type of the
+ *        customer managed gateway is SecureWebGateway (SWG). (Value:
+ *        "SECURE_WEB_GATEWAY")
+ *    @arg @c kGTLRNetworkServices_Gateway_Type_TypeUnspecified The type of the
+ *        customer managed gateway is unspecified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Output only. The timestamp when the resource was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Set of label tags associated with the Gateway resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkServices_Gateway_Labels : GTLRObject
+@end
+
+
+/**
+ *  GrpcRoute is the resource defining how gRPC traffic routed by a Mesh or
+ *  Gateway resource is routed.
+ */
+@interface GTLRNetworkServices_GrpcRoute : GTLRObject
+
+/** Output only. The timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. A free-text description of the resource. Max length 1024
+ *  characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Gateways defines a list of gateways this GrpcRoute is attached to,
+ *  as one of the routing rules to route the requests served by the gateway.
+ *  Each gateway reference should match the pattern: `projects/ *
+ *  /locations/global/gateways/`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *gateways;
+
+/**
+ *  Required. Service hostnames with an optional port for which this route
+ *  describes traffic. Format: [:] Hostname is the fully qualified domain name
+ *  of a network host. This matches the RFC 1123 definition of a hostname with 2
+ *  notable exceptions: - IPs are not allowed. - A hostname may be prefixed with
+ *  a wildcard label (*.). The wildcard label must appear by itself as the first
+ *  label. Hostname can be "precise" which is a domain name without the
+ *  terminating dot of a network host (e.g. "foo.example.com") or "wildcard",
+ *  which is a domain name prefixed with a single wildcard label (e.g.
+ *  *.example.com). Note that as per RFC1035 and RFC1123, a label must consist
+ *  of lower case alphanumeric characters or '-', and must start and end with an
+ *  alphanumeric character. No other punctuation is allowed. The routes
+ *  associated with a Mesh or Gateway must have unique hostnames. If you attempt
+ *  to attach multiple routes with conflicting hostnames, the configuration will
+ *  be rejected. For example, while it is acceptable for routes for the
+ *  hostnames "*.foo.bar.com" and "*.bar.com" to be associated with the same
+ *  route, it is not possible to associate two routes both with "*.bar.com" or
+ *  both with "bar.com". If a port is specified, then gRPC clients must use the
+ *  channel URI with the port to match this rule (i.e. "xds:///service:123"),
+ *  otherwise they must supply the URI without a port (i.e. "xds:///service").
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *hostnames;
+
+/** Optional. Set of label tags associated with the GrpcRoute resource. */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_GrpcRoute_Labels *labels;
+
+/**
+ *  Optional. Meshes defines a list of meshes this GrpcRoute is attached to, as
+ *  one of the routing rules to route the requests served by the mesh. Each mesh
+ *  reference should match the pattern: `projects/ * /locations/global/meshes/`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *meshes;
+
+/**
+ *  Required. Name of the GrpcRoute resource. It matches pattern `projects/ *
+ *  /locations/global/grpcRoutes/`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. A list of detailed rules defining how to route traffic. Within a
+ *  single GrpcRoute, the GrpcRoute.RouteAction associated with the first
+ *  matching GrpcRoute.RouteRule will be executed. At least one rule must be
+ *  supplied.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_GrpcRouteRouteRule *> *rules;
+
+/** Output only. Server-defined URL of this resource */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** Output only. The timestamp when the resource was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Set of label tags associated with the GrpcRoute resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkServices_GrpcRoute_Labels : GTLRObject
+@end
+
+
+/**
+ *  The destination to which traffic will be routed.
+ */
+@interface GTLRNetworkServices_GrpcRouteDestination : GTLRObject
+
+/**
+ *  Required. The URL of a destination service to which to route traffic. Must
+ *  refer to either a BackendService or ServiceDirectoryService.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceName;
+
+/**
+ *  Optional. Specifies the proportion of requests forwarded to the backend
+ *  referenced by the serviceName field. This is computed as: weight/Sum(weights
+ *  in this destination list). For non-zero values, there may be some epsilon
+ *  from the exact proportion defined here depending on the precision an
+ *  implementation supports. If only one serviceName is specified and it has a
+ *  weight greater than 0, 100% of the traffic is forwarded to that backend. If
+ *  weights are specified for any one service name, they need to be specified
+ *  for all of them. If weights are unspecified for all services, then, traffic
+ *  is distributed in equal proportions to all of them.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *weight;
+
+@end
+
+
+/**
+ *  The specification for fault injection introduced into traffic to test the
+ *  resiliency of clients to destination service failure. As part of fault
+ *  injection, when clients send requests to a destination, delays can be
+ *  introduced on a percentage of requests before sending those requests to the
+ *  destination service. Similarly requests from clients can be aborted by for a
+ *  percentage of requests.
+ */
+@interface GTLRNetworkServices_GrpcRouteFaultInjectionPolicy : GTLRObject
+
+/** The specification for aborting to client requests. */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_GrpcRouteFaultInjectionPolicyAbort *abort;
+
+/** The specification for injecting delay to client requests. */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_GrpcRouteFaultInjectionPolicyDelay *delay;
+
+@end
+
+
+/**
+ *  Specification of how client requests are aborted as part of fault injection
+ *  before being sent to a destination.
+ */
+@interface GTLRNetworkServices_GrpcRouteFaultInjectionPolicyAbort : GTLRObject
+
+/**
+ *  The HTTP status code used to abort the request. The value must be between
+ *  200 and 599 inclusive.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *httpStatus;
+
+/**
+ *  The percentage of traffic which will be aborted. The value must be between
+ *  [0, 100]
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percentage;
+
+@end
+
+
+/**
+ *  Specification of how client requests are delayed as part of fault injection
+ *  before being sent to a destination.
+ */
+@interface GTLRNetworkServices_GrpcRouteFaultInjectionPolicyDelay : GTLRObject
+
+/** Specify a fixed delay before forwarding the request. */
+@property(nonatomic, strong, nullable) GTLRDuration *fixedDelay;
+
+/**
+ *  The percentage of traffic on which delay will be injected. The value must be
+ *  between [0, 100]
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percentage;
+
+@end
+
+
+/**
+ *  A match against a collection of headers.
+ */
+@interface GTLRNetworkServices_GrpcRouteHeaderMatch : GTLRObject
+
+/** Required. The key of the header. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  Optional. Specifies how to match against the value of the header. If not
+ *  specified, a default value of EXACT is used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_GrpcRouteHeaderMatch_Type_Exact Will only
+ *        match the exact value provided. (Value: "EXACT")
+ *    @arg @c kGTLRNetworkServices_GrpcRouteHeaderMatch_Type_RegularExpression
+ *        Will match paths conforming to the prefix specified by value. RE2
+ *        syntax is supported. (Value: "REGULAR_EXPRESSION")
+ *    @arg @c kGTLRNetworkServices_GrpcRouteHeaderMatch_Type_TypeUnspecified
+ *        Unspecified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Required. The value of the header. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Specifies a match against a method.
+ */
+@interface GTLRNetworkServices_GrpcRouteMethodMatch : GTLRObject
+
+/**
+ *  Optional. Specifies that matches are case sensitive. The default value is
+ *  true. case_sensitive must not be used with a type of REGULAR_EXPRESSION.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *caseSensitive;
+
+/**
+ *  Required. Name of the method to match against. If unspecified, will match
+ *  all methods.
+ */
+@property(nonatomic, copy, nullable) NSString *grpcMethod;
+
+/**
+ *  Required. Name of the service to match against. If unspecified, will match
+ *  all services.
+ */
+@property(nonatomic, copy, nullable) NSString *grpcService;
+
+/**
+ *  Optional. Specifies how to match against the name. If not specified, a
+ *  default value of "EXACT" is used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_GrpcRouteMethodMatch_Type_Exact Will only
+ *        match the exact name provided. (Value: "EXACT")
+ *    @arg @c kGTLRNetworkServices_GrpcRouteMethodMatch_Type_RegularExpression
+ *        Will interpret grpc_method and grpc_service as regexes. RE2 syntax is
+ *        supported. (Value: "REGULAR_EXPRESSION")
+ *    @arg @c kGTLRNetworkServices_GrpcRouteMethodMatch_Type_TypeUnspecified
+ *        Unspecified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The specifications for retries.
+ */
+@interface GTLRNetworkServices_GrpcRouteRetryPolicy : GTLRObject
+
+/**
+ *  Specifies the allowed number of retries. This number must be > 0. If not
+ *  specpfied, default to 1.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numRetries;
+
+/**
+ *  - connect-failure: Router will retry on failures connecting to Backend
+ *  Services, for example due to connection timeouts. - refused-stream: Router
+ *  will retry if the backend service resets the stream with a REFUSED_STREAM
+ *  error code. This reset type indicates that it is safe to retry. - cancelled:
+ *  Router will retry if the gRPC status code in the response header is set to
+ *  cancelled - deadline-exceeded: Router will retry if the gRPC status code in
+ *  the response header is set to deadline-exceeded - resource-exhausted: Router
+ *  will retry if the gRPC status code in the response header is set to
+ *  resource-exhausted - unavailable: Router will retry if the gRPC status code
+ *  in the response header is set to unavailable
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *retryConditions;
+
+@end
+
+
+/**
+ *  Specifies how to route matched traffic.
+ */
+@interface GTLRNetworkServices_GrpcRouteRouteAction : GTLRObject
+
+/**
+ *  Optional. The destination services to which traffic should be forwarded. If
+ *  multiple destinations are specified, traffic will be split between Backend
+ *  Service(s) according to the weight field of these destinations.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_GrpcRouteDestination *> *destinations;
+
+/**
+ *  Optional. The specification for fault injection introduced into traffic to
+ *  test the resiliency of clients to destination service failure. As part of
+ *  fault injection, when clients send requests to a destination, delays can be
+ *  introduced on a percentage of requests before sending those requests to the
+ *  destination service. Similarly requests from clients can be aborted by for a
+ *  percentage of requests. timeout and retry_policy will be ignored by clients
+ *  that are configured with a fault_injection_policy
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_GrpcRouteFaultInjectionPolicy *faultInjectionPolicy;
+
+/** Optional. Specifies the retry policy associated with this route. */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_GrpcRouteRetryPolicy *retryPolicy;
+
+/**
+ *  Optional. Specifies the timeout for selected route. Timeout is computed from
+ *  the time the request has been fully processed (i.e. end of stream) up until
+ *  the response has been completely processed. Timeout includes all retries.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+@end
+
+
+/**
+ *  Criteria for matching traffic. A RouteMatch will be considered to match when
+ *  all supplied fields match.
+ */
+@interface GTLRNetworkServices_GrpcRouteRouteMatch : GTLRObject
+
+/** Optional. Specifies a collection of headers to match. */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_GrpcRouteHeaderMatch *> *headers;
+
+/**
+ *  Optional. A gRPC method to match against. If this field is empty or omitted,
+ *  will match all methods.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_GrpcRouteMethodMatch *method;
+
+@end
+
+
+/**
+ *  Describes how to route traffic.
+ */
+@interface GTLRNetworkServices_GrpcRouteRouteRule : GTLRObject
+
+/**
+ *  Required. A detailed rule defining how to route traffic. This field is
+ *  required.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_GrpcRouteRouteAction *action;
+
+/**
+ *  Optional. Matches define conditions used for matching the rule against
+ *  incoming gRPC requests. Each match is independent, i.e. this rule will be
+ *  matched if ANY one of the matches is satisfied. If no matches field is
+ *  specified, this rule will unconditionally match traffic.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_GrpcRouteRouteMatch *> *matches;
+
+@end
+
+
+/**
+ *  HttpRoute is the resource defining how HTTP traffic should be routed by a
+ *  Mesh or Gateway resource.
+ */
+@interface GTLRNetworkServices_HttpRoute : GTLRObject
+
+/** Output only. The timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. A free-text description of the resource. Max length 1024
+ *  characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Gateways defines a list of gateways this HttpRoute is attached to,
+ *  as one of the routing rules to route the requests served by the gateway.
+ *  Each gateway reference should match the pattern: `projects/ *
+ *  /locations/global/gateways/`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *gateways;
+
+/**
+ *  Required. Hostnames define a set of hosts that should match against the HTTP
+ *  host header to select a HttpRoute to process the request. Hostname is the
+ *  fully qualified domain name of a network host, as defined by RFC 1123 with
+ *  the exception that: - IPs are not allowed. - A hostname may be prefixed with
+ *  a wildcard label (*.). The wildcard label must appear by itself as the first
+ *  label. Hostname can be "precise" which is a domain name without the
+ *  terminating dot of a network host (e.g. "foo.example.com") or "wildcard",
+ *  which is a domain name prefixed with a single wildcard label (e.g.
+ *  *.example.com). Note that as per RFC1035 and RFC1123, a label must consist
+ *  of lower case alphanumeric characters or '-', and must start and end with an
+ *  alphanumeric character. No other punctuation is allowed. The routes
+ *  associated with a Mesh or Gateways must have unique hostnames. If you
+ *  attempt to attach multiple routes with conflicting hostnames, the
+ *  configuration will be rejected. For example, while it is acceptable for
+ *  routes for the hostnames "*.foo.bar.com" and "*.bar.com" to be associated
+ *  with the same Mesh (or Gateways under the same scope), it is not possible to
+ *  associate two routes both with "*.bar.com" or both with "bar.com".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *hostnames;
+
+/** Optional. Set of label tags associated with the HttpRoute resource. */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_HttpRoute_Labels *labels;
+
+/**
+ *  Optional. Meshes defines a list of meshes this HttpRoute is attached to, as
+ *  one of the routing rules to route the requests served by the mesh. Each mesh
+ *  reference should match the pattern: `projects/ * /locations/global/meshes/`
+ *  The attached Mesh should be of a type SIDECAR
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *meshes;
+
+/**
+ *  Required. Name of the HttpRoute resource. It matches pattern `projects/ *
+ *  /locations/global/httpRoutes/http_route_name>`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Rules that define how traffic is routed and handled. Rules will be
+ *  matched sequentially based on the RouteMatch specified for the rule.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_HttpRouteRouteRule *> *rules;
+
+/** Output only. Server-defined URL of this resource */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** Output only. The timestamp when the resource was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Set of label tags associated with the HttpRoute resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkServices_HttpRoute_Labels : GTLRObject
+@end
+
+
+/**
+ *  The Specification for allowing client side cross-origin requests.
+ */
+@interface GTLRNetworkServices_HttpRouteCorsPolicy : GTLRObject
+
+/**
+ *  In response to a preflight request, setting this to true indicates that the
+ *  actual request can include user credentials. This translates to the
+ *  Access-Control-Allow-Credentials header. Default value is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowCredentials;
+
+/** Specifies the content for Access-Control-Allow-Headers header. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowHeaders;
+
+/** Specifies the content for Access-Control-Allow-Methods header. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowMethods;
+
+/**
+ *  Specifies the regular expression patterns that match allowed origins. For
+ *  regular expression grammar, please see
+ *  https://github.com/google/re2/wiki/Syntax.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowOriginRegexes;
+
+/**
+ *  Specifies the list of origins that will be allowed to do CORS requests. An
+ *  origin is allowed if it matches either an item in allow_origins or an item
+ *  in allow_origin_regexes.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowOrigins;
+
+/**
+ *  If true, the CORS policy is disabled. The default value is false, which
+ *  indicates that the CORS policy is in effect.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/** Specifies the content for Access-Control-Expose-Headers header. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *exposeHeaders;
+
+/**
+ *  Specifies how long result of a preflight request can be cached in seconds.
+ *  This translates to the Access-Control-Max-Age header.
+ */
+@property(nonatomic, copy, nullable) NSString *maxAge;
+
+@end
+
+
+/**
+ *  Specifications of a destination to which the request should be routed to.
+ */
+@interface GTLRNetworkServices_HttpRouteDestination : GTLRObject
+
+/** The URL of a BackendService to route traffic to. */
+@property(nonatomic, copy, nullable) NSString *serviceName;
+
+/**
+ *  Specifies the proportion of requests forwarded to the backend referenced by
+ *  the serviceName field. This is computed as: weight/Sum(weights in this
+ *  destination list). For non-zero values, there may be some epsilon from the
+ *  exact proportion defined here depending on the precision an implementation
+ *  supports. If only one serviceName is specified and it has a weight greater
+ *  than 0, 100% of the traffic is forwarded to that backend. If weights are
+ *  specified for any one service name, they need to be specified for all of
+ *  them. If weights are unspecified for all services, then, traffic is
+ *  distributed in equal proportions to all of them.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *weight;
+
+@end
+
+
+/**
+ *  The specification for fault injection introduced into traffic to test the
+ *  resiliency of clients to destination service failure. As part of fault
+ *  injection, when clients send requests to a destination, delays can be
+ *  introduced by client proxy on a percentage of requests before sending those
+ *  requests to the destination service. Similarly requests can be aborted by
+ *  client proxy for a percentage of requests.
+ */
+@interface GTLRNetworkServices_HttpRouteFaultInjectionPolicy : GTLRObject
+
+/** The specification for aborting to client requests. */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_HttpRouteFaultInjectionPolicyAbort *abort;
+
+/** The specification for injecting delay to client requests. */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_HttpRouteFaultInjectionPolicyDelay *delay;
+
+@end
+
+
+/**
+ *  Specification of how client requests are aborted as part of fault injection
+ *  before being sent to a destination.
+ */
+@interface GTLRNetworkServices_HttpRouteFaultInjectionPolicyAbort : GTLRObject
+
+/**
+ *  The HTTP status code used to abort the request. The value must be between
+ *  200 and 599 inclusive.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *httpStatus;
+
+/**
+ *  The percentage of traffic which will be aborted. The value must be between
+ *  [0, 100]
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percentage;
+
+@end
+
+
+/**
+ *  Specification of how client requests are delayed as part of fault injection
+ *  before being sent to a destination.
+ */
+@interface GTLRNetworkServices_HttpRouteFaultInjectionPolicyDelay : GTLRObject
+
+/** Specify a fixed delay before forwarding the request. */
+@property(nonatomic, strong, nullable) GTLRDuration *fixedDelay;
+
+/**
+ *  The percentage of traffic on which delay will be injected. The value must be
+ *  between [0, 100]
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percentage;
+
+@end
+
+
+/**
+ *  Specifies how to select a route rule based on HTTP request headers.
+ */
+@interface GTLRNetworkServices_HttpRouteHeaderMatch : GTLRObject
+
+/**
+ *  The value of the header should match exactly the content of exact_match.
+ */
+@property(nonatomic, copy, nullable) NSString *exactMatch;
+
+/** The name of the HTTP header to match against. */
+@property(nonatomic, copy, nullable) NSString *header;
+
+/**
+ *  If specified, the match result will be inverted before checking. Default
+ *  value is set to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *invertMatch;
+
+/** The value of the header must start with the contents of prefix_match. */
+@property(nonatomic, copy, nullable) NSString *prefixMatch;
+
+/**
+ *  A header with header_name must exist. The match takes place whether or not
+ *  the header has a value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *presentMatch;
+
+/**
+ *  If specified, the rule will match if the request header value is within the
+ *  range.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_HttpRouteHeaderMatchIntegerRange *rangeMatch;
+
+/**
+ *  The value of the header must match the regular expression specified in
+ *  regex_match. For regular expression grammar, please see:
+ *  https://github.com/google/re2/wiki/Syntax
+ */
+@property(nonatomic, copy, nullable) NSString *regexMatch;
+
+/** The value of the header must end with the contents of suffix_match. */
+@property(nonatomic, copy, nullable) NSString *suffixMatch;
+
+@end
+
+
+/**
+ *  Represents an integer value range.
+ */
+@interface GTLRNetworkServices_HttpRouteHeaderMatchIntegerRange : GTLRObject
+
+/**
+ *  End of the range (exclusive)
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *end;
+
+/**
+ *  Start of the range (inclusive)
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *start;
+
+@end
+
+
+/**
+ *  The specification for modifying HTTP header in HTTP request and HTTP
+ *  response.
+ */
+@interface GTLRNetworkServices_HttpRouteHeaderModifier : GTLRObject
+
+/**
+ *  Add the headers with given map where key is the name of the header, value is
+ *  the value of the header.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_HttpRouteHeaderModifier_Add *add;
+
+/** Remove headers (matching by header names) specified in the list. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *remove;
+
+/**
+ *  Completely overwrite/replace the headers with given map where key is the
+ *  name of the header, value is the value of the header.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_HttpRouteHeaderModifier_Set *set;
+
+@end
+
+
+/**
+ *  Add the headers with given map where key is the name of the header, value is
+ *  the value of the header.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkServices_HttpRouteHeaderModifier_Add : GTLRObject
+@end
+
+
+/**
+ *  Completely overwrite/replace the headers with given map where key is the
+ *  name of the header, value is the value of the header.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkServices_HttpRouteHeaderModifier_Set : GTLRObject
+@end
+
+
+/**
+ *  Specifications to match a query parameter in the request.
+ */
+@interface GTLRNetworkServices_HttpRouteQueryParameterMatch : GTLRObject
+
+/**
+ *  The value of the query parameter must exactly match the contents of
+ *  exact_match. Only one of exact_match, regex_match, or present_match must be
+ *  set.
+ */
+@property(nonatomic, copy, nullable) NSString *exactMatch;
+
+/**
+ *  Specifies that the QueryParameterMatcher matches if request contains query
+ *  parameter, irrespective of whether the parameter has a value or not. Only
+ *  one of exact_match, regex_match, or present_match must be set.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *presentMatch;
+
+/** The name of the query parameter to match. */
+@property(nonatomic, copy, nullable) NSString *queryParameter;
+
+/**
+ *  The value of the query parameter must match the regular expression specified
+ *  by regex_match. For regular expression grammar, please see
+ *  https://github.com/google/re2/wiki/Syntax Only one of exact_match,
+ *  regex_match, or present_match must be set.
+ */
+@property(nonatomic, copy, nullable) NSString *regexMatch;
+
+@end
+
+
+/**
+ *  The specification for redirecting traffic.
+ */
+@interface GTLRNetworkServices_HttpRouteRedirect : GTLRObject
+
+/**
+ *  The host that will be used in the redirect response instead of the one that
+ *  was supplied in the request.
+ */
+@property(nonatomic, copy, nullable) NSString *hostRedirect;
+
+/**
+ *  If set to true, the URL scheme in the redirected request is set to https. If
+ *  set to false, the URL scheme of the redirected request will remain the same
+ *  as that of the request. The default is set to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *httpsRedirect;
+
+/**
+ *  The path that will be used in the redirect response instead of the one that
+ *  was supplied in the request. path_redirect can not be supplied together with
+ *  prefix_redirect. Supply one alone or neither. If neither is supplied, the
+ *  path of the original request will be used for the redirect.
+ */
+@property(nonatomic, copy, nullable) NSString *pathRedirect;
+
+/**
+ *  The port that will be used in the redirected request instead of the one that
+ *  was supplied in the request.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *portRedirect;
+
+/**
+ *  Indicates that during redirection, the matched prefix (or path) should be
+ *  swapped with this value. This option allows URLs be dynamically created
+ *  based on the request.
+ */
+@property(nonatomic, copy, nullable) NSString *prefixRewrite;
+
+/**
+ *  The HTTP Status code to use for the redirect.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_Found
+ *        Corresponds to 302. (Value: "FOUND")
+ *    @arg @c kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_MovedPermanentlyDefault
+ *        Corresponds to 301. (Value: "MOVED_PERMANENTLY_DEFAULT")
+ *    @arg @c kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_PermanentRedirect
+ *        Corresponds to 308. In this case, the request method will be retained.
+ *        (Value: "PERMANENT_REDIRECT")
+ *    @arg @c kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_ResponseCodeUnspecified
+ *        Default value (Value: "RESPONSE_CODE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_SeeOther
+ *        Corresponds to 303. (Value: "SEE_OTHER")
+ *    @arg @c kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRedirect
+ *        Corresponds to 307. In this case, the request method will be retained.
+ *        (Value: "TEMPORARY_REDIRECT")
+ */
+@property(nonatomic, copy, nullable) NSString *responseCode;
+
+/**
+ *  if set to true, any accompanying query portion of the original URL is
+ *  removed prior to redirecting the request. If set to false, the query portion
+ *  of the original URL is retained. The default is set to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stripQuery;
+
+@end
+
+
+/**
+ *  Specifies the policy on how requests are shadowed to a separate mirrored
+ *  destination service. The proxy does not wait for responses from the shadow
+ *  service. Prior to sending traffic to the shadow service, the host/authority
+ *  header is suffixed with -shadow.
+ */
+@interface GTLRNetworkServices_HttpRouteRequestMirrorPolicy : GTLRObject
+
+/**
+ *  The destination the requests will be mirrored to. The weight of the
+ *  destination will be ignored.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_HttpRouteDestination *destination;
+
+@end
+
+
+/**
+ *  The specifications for retries.
+ */
+@interface GTLRNetworkServices_HttpRouteRetryPolicy : GTLRObject
+
+/**
+ *  Specifies the allowed number of retries. This number must be > 0. If not
+ *  specified, default to 1.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numRetries;
+
+/** Specifies a non-zero timeout per retry attempt. */
+@property(nonatomic, strong, nullable) GTLRDuration *perTryTimeout;
+
+/**
+ *  Specifies one or more conditions when this retry policy applies. Valid
+ *  values are: 5xx: Proxy will attempt a retry if the destination service
+ *  responds with any 5xx response code, of if the destination service does not
+ *  respond at all, example: disconnect, reset, read timeout, connection failure
+ *  and refused streams. gateway-error: Similar to 5xx, but only applies to
+ *  response codes 502, 503, 504. reset: Proxy will attempt a retry if the
+ *  destination service does not respond at all (disconnect/reset/read timeout)
+ *  connect-failure: Proxy will retry on failures connecting to destination for
+ *  example due to connection timeouts. retriable-4xx: Proxy will retry fro
+ *  retriable 4xx response codes. Currently the only retriable error supported
+ *  is 409. refused-stream: Proxy will retry if the destination resets the
+ *  stream with a REFUSED_STREAM error code. This reset type indicates that it
+ *  is safe to retry.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *retryConditions;
+
+@end
+
+
+/**
+ *  The specifications for routing traffic and applying associated policies.
+ */
+@interface GTLRNetworkServices_HttpRouteRouteAction : GTLRObject
+
+/** The specification for allowing client side cross-origin requests. */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_HttpRouteCorsPolicy *corsPolicy;
+
+/** The destination to which traffic should be forwarded. */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_HttpRouteDestination *> *destinations;
+
+/**
+ *  The specification for fault injection introduced into traffic to test the
+ *  resiliency of clients to backend service failure. As part of fault
+ *  injection, when clients send requests to a backend service, delays can be
+ *  introduced on a percentage of requests before sending those requests to the
+ *  backend service. Similarly requests from clients can be aborted for a
+ *  percentage of requests. timeout and retry_policy will be ignored by clients
+ *  that are configured with a fault_injection_policy
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_HttpRouteFaultInjectionPolicy *faultInjectionPolicy;
+
+/** If set, the request is directed as configured by this field. */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_HttpRouteRedirect *redirect;
+
+/**
+ *  The specification for modifying the headers of a matching request prior to
+ *  delivery of the request to the destination.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_HttpRouteHeaderModifier *requestHeaderModifier;
+
+/**
+ *  Specifies the policy on how requests intended for the routes destination are
+ *  shadowed to a separate mirrored destination. Proxy will not wait for the
+ *  shadow destination to respond before returning the response. Prior to
+ *  sending traffic to the shadow service, the host/authority header is suffixed
+ *  with -shadow.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_HttpRouteRequestMirrorPolicy *requestMirrorPolicy;
+
+/**
+ *  The specification for modifying the headers of a response prior to sending
+ *  the response back to the client.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_HttpRouteHeaderModifier *responseHeaderModifier;
+
+/** Specifies the retry policy associated with this route. */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_HttpRouteRetryPolicy *retryPolicy;
+
+/**
+ *  Specifies the timeout for selected route. Timeout is computed from the time
+ *  the request has been fully processed (i.e. end of stream) up until the
+ *  response has been completely processed. Timeout includes all retries.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+/**
+ *  The specification for rewrite URL before forwarding requests to the
+ *  destination.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_HttpRouteURLRewrite *urlRewrite;
+
+@end
+
+
+/**
+ *  RouteMatch defines specifications used to match requests. If multiple match
+ *  types are set, this RouteMatch will match if ALL type of matches are
+ *  matched.
+ */
+@interface GTLRNetworkServices_HttpRouteRouteMatch : GTLRObject
+
+/**
+ *  The HTTP request path value should exactly match this value. Only one of
+ *  full_path_match, prefix_match, or regex_match should be used.
+ */
+@property(nonatomic, copy, nullable) NSString *fullPathMatch;
+
+/**
+ *  Specifies a list of HTTP request headers to match against. ALL of the
+ *  supplied headers must be matched.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_HttpRouteHeaderMatch *> *headers;
+
+/**
+ *  Specifies if prefix_match and full_path_match matches are case sensitive.
+ *  The default value is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ignoreCase;
+
+/**
+ *  The HTTP request path value must begin with specified prefix_match.
+ *  prefix_match must begin with a /. Only one of full_path_match, prefix_match,
+ *  or regex_match should be used.
+ */
+@property(nonatomic, copy, nullable) NSString *prefixMatch;
+
+/**
+ *  Specifies a list of query parameters to match against. ALL of the query
+ *  parameters must be matched.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_HttpRouteQueryParameterMatch *> *queryParameters;
+
+/**
+ *  The HTTP request path value must satisfy the regular expression specified by
+ *  regex_match after removing any query parameters and anchor supplied with the
+ *  original URL. For regular expression grammar, please see
+ *  https://github.com/google/re2/wiki/Syntax Only one of full_path_match,
+ *  prefix_match, or regex_match should be used.
+ */
+@property(nonatomic, copy, nullable) NSString *regexMatch;
+
+@end
+
+
+/**
+ *  Specifies how to match traffic and how to route traffic when traffic is
+ *  matched.
+ */
+@interface GTLRNetworkServices_HttpRouteRouteRule : GTLRObject
+
+/** The detailed rule defining how to route matched traffic. */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_HttpRouteRouteAction *action;
+
+/**
+ *  A list of matches define conditions used for matching the rule against
+ *  incoming HTTP requests. Each match is independent, i.e. this rule will be
+ *  matched if ANY one of the matches is satisfied. If no matches field is
+ *  specified, this rule will unconditionally match traffic. If a default rule
+ *  is desired to be configured, add a rule with no matches specified to the end
+ *  of the rules list.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_HttpRouteRouteMatch *> *matches;
+
+@end
+
+
+/**
+ *  The specification for modifying the URL of the request, prior to forwarding
+ *  the request to the destination.
+ */
+@interface GTLRNetworkServices_HttpRouteURLRewrite : GTLRObject
+
+/**
+ *  Prior to forwarding the request to the selected destination, the requests
+ *  host header is replaced by this value.
+ */
+@property(nonatomic, copy, nullable) NSString *hostRewrite;
+
+/**
+ *  Prior to forwarding the request to the selected destination, the matching
+ *  portion of the requests path is replaced by this value.
+ */
+@property(nonatomic, copy, nullable) NSString *pathPrefixRewrite;
+
+@end
+
+
+/**
  *  Response returned by the ListEndpointPolicies method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -499,6 +1787,90 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_Side
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_EndpointPolicy *> *endpointPolicies;
+
+/**
+ *  If there might be more results than those appearing in this response, then
+ *  `next_page_token` is included. To get the next set of results, call this
+ *  method again using the value of `next_page_token` as `page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response returned by the ListGateways method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "gateways" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRNetworkServices_ListGatewaysResponse : GTLRCollectionObject
+
+/**
+ *  List of Gateway resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_Gateway *> *gateways;
+
+/**
+ *  If there might be more results than those appearing in this response, then
+ *  `next_page_token` is included. To get the next set of results, call this
+ *  method again using the value of `next_page_token` as `page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response returned by the ListGrpcRoutes method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "grpcRoutes" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRNetworkServices_ListGrpcRoutesResponse : GTLRCollectionObject
+
+/**
+ *  List of GrpcRoute resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_GrpcRoute *> *grpcRoutes;
+
+/**
+ *  If there might be more results than those appearing in this response, then
+ *  `next_page_token` is included. To get the next set of results, call this
+ *  method again using the value of `next_page_token` as `page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response returned by the ListHttpRoutes method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "httpRoutes" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRNetworkServices_ListHttpRoutesResponse : GTLRCollectionObject
+
+/**
+ *  List of HttpRoute resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_HttpRoute *> *httpRoutes;
 
 /**
  *  If there might be more results than those appearing in this response, then
@@ -529,6 +1901,34 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_Side
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_Location *> *locations;
 
 /** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response returned by the ListMeshes method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "meshes" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRNetworkServices_ListMeshesResponse : GTLRCollectionObject
+
+/**
+ *  List of Mesh resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_Mesh *> *meshes;
+
+/**
+ *  If there might be more results than those appearing in this response, then
+ *  `next_page_token` is included. To get the next set of results, call this
+ *  method again using the value of `next_page_token` as `page_token`.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
@@ -582,6 +1982,62 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_Side
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_ServiceBinding *> *serviceBindings;
+
+@end
+
+
+/**
+ *  Response returned by the ListTcpRoutes method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "tcpRoutes" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRNetworkServices_ListTcpRoutesResponse : GTLRCollectionObject
+
+/**
+ *  If there might be more results than those appearing in this response, then
+ *  `next_page_token` is included. To get the next set of results, call this
+ *  method again using the value of `next_page_token` as `page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of TcpRoute resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_TcpRoute *> *tcpRoutes;
+
+@end
+
+
+/**
+ *  Response returned by the ListTlsRoutes method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "tlsRoutes" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRNetworkServices_ListTlsRoutesResponse : GTLRCollectionObject
+
+/**
+ *  If there might be more results than those appearing in this response, then
+ *  `next_page_token` is included. To get the next set of results, call this
+ *  method again using the value of `next_page_token` as `page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of TlsRoute resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_TlsRoute *> *tlsRoutes;
 
 @end
 
@@ -644,6 +2100,66 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_Side
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRNetworkServices_Location_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Mesh represents a logical configuration grouping for workload to workload
+ *  communication within a service mesh. Routes that point to mesh dictate how
+ *  requests are routed within this logical mesh boundary.
+ */
+@interface GTLRNetworkServices_Mesh : GTLRObject
+
+/** Output only. The timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. A free-text description of the resource. Max length 1024
+ *  characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. If set to a valid TCP port (1-65535), instructs the SIDECAR proxy
+ *  to listen on the specified port of localhost (127.0.0.1) address. The
+ *  SIDECAR proxy will expect all traffic to be redirected to this port
+ *  regardless of its actual ip:port destination. If unset, a port '15001' is
+ *  used as the interception port. This will is applicable only for sidecar
+ *  proxy deployments.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *interceptionPort;
+
+/** Optional. Set of label tags associated with the Mesh resource. */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_Mesh_Labels *labels;
+
+/**
+ *  Required. Name of the Mesh resource. It matches pattern `projects/ *
+ *  /locations/global/meshes/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Server-defined URL of this resource */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** Output only. The timestamp when the resource was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Set of label tags associated with the Mesh resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkServices_Mesh_Labels : GTLRObject
 @end
 
 
@@ -977,6 +2493,167 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_Side
 
 
 /**
+ *  TcpRoute is the resource defining how TCP traffic should be routed by a
+ *  Mesh/Gateway resource.
+ */
+@interface GTLRNetworkServices_TcpRoute : GTLRObject
+
+/** Output only. The timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. A free-text description of the resource. Max length 1024
+ *  characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Gateways defines a list of gateways this TcpRoute is attached to,
+ *  as one of the routing rules to route the requests served by the gateway.
+ *  Each gateway reference should match the pattern: `projects/ *
+ *  /locations/global/gateways/`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *gateways;
+
+/** Optional. Set of label tags associated with the TcpRoute resource. */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_TcpRoute_Labels *labels;
+
+/**
+ *  Optional. Meshes defines a list of meshes this TcpRoute is attached to, as
+ *  one of the routing rules to route the requests served by the mesh. Each mesh
+ *  reference should match the pattern: `projects/ * /locations/global/meshes/`
+ *  The attached Mesh should be of a type SIDECAR
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *meshes;
+
+/**
+ *  Required. Name of the TcpRoute resource. It matches pattern `projects/ *
+ *  /locations/global/tcpRoutes/tcp_route_name>`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Rules that define how traffic is routed and handled. At least one
+ *  RouteRule must be supplied. If there are multiple rules then the action
+ *  taken will be the first rule to match.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_TcpRouteRouteRule *> *rules;
+
+/** Output only. Server-defined URL of this resource */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** Output only. The timestamp when the resource was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Set of label tags associated with the TcpRoute resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkServices_TcpRoute_Labels : GTLRObject
+@end
+
+
+/**
+ *  The specifications for routing traffic and applying associated policies.
+ */
+@interface GTLRNetworkServices_TcpRouteRouteAction : GTLRObject
+
+/**
+ *  Optional. The destination services to which traffic should be forwarded. At
+ *  least one destination service is required.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_TcpRouteRouteDestination *> *destinations;
+
+/**
+ *  Optional. If true, Router will use the destination IP and port of the
+ *  original connection as the destination of the request. Default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *originalDestination;
+
+@end
+
+
+/**
+ *  Describe the destination for traffic to be routed to.
+ */
+@interface GTLRNetworkServices_TcpRouteRouteDestination : GTLRObject
+
+/** Required. The URL of a BackendService to route traffic to. */
+@property(nonatomic, copy, nullable) NSString *serviceName;
+
+/**
+ *  Optional. Specifies the proportion of requests forwarded to the backend
+ *  referenced by the serviceName field. This is computed as: weight/Sum(weights
+ *  in this destination list). For non-zero values, there may be some epsilon
+ *  from the exact proportion defined here depending on the precision an
+ *  implementation supports. If only one serviceName is specified and it has a
+ *  weight greater than 0, 100% of the traffic is forwarded to that backend. If
+ *  weights are specified for any one service name, they need to be specified
+ *  for all of them. If weights are unspecified for all services, then, traffic
+ *  is distributed in equal proportions to all of them.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *weight;
+
+@end
+
+
+/**
+ *  RouteMatch defines the predicate used to match requests to a given action.
+ *  Multiple match types are "OR"ed for evaluation. If no routeMatch field is
+ *  specified, this rule will unconditionally match traffic.
+ */
+@interface GTLRNetworkServices_TcpRouteRouteMatch : GTLRObject
+
+/**
+ *  Required. Must be specified in the CIDR range format. A CIDR range consists
+ *  of an IP Address and a prefix length to construct the subnet mask. By
+ *  default, the prefix length is 32 (i.e. matches a single IP address). Only
+ *  IPV4 addresses are supported. Examples: "10.0.0.1" - matches against this
+ *  exact IP address. "10.0.0.0/8" - matches against any IP address within the
+ *  10.0.0.0 subnet and 255.255.255.0 mask. "0.0.0.0/0" - matches against any IP
+ *  address'.
+ */
+@property(nonatomic, copy, nullable) NSString *address;
+
+/** Required. Specifies the destination port to match against. */
+@property(nonatomic, copy, nullable) NSString *port;
+
+@end
+
+
+/**
+ *  Specifies how to match traffic and how to route traffic when traffic is
+ *  matched.
+ */
+@interface GTLRNetworkServices_TcpRouteRouteRule : GTLRObject
+
+/** Required. The detailed rule defining how to route matched traffic. */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_TcpRouteRouteAction *action;
+
+/**
+ *  Optional. RouteMatch defines the predicate used to match requests to a given
+ *  action. Multiple match types are "OR"ed for evaluation. If no routeMatch
+ *  field is specified, this rule will unconditionally match traffic.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_TcpRouteRouteMatch *> *matches;
+
+@end
+
+
+/**
  *  Request message for `TestIamPermissions` method.
  */
 @interface GTLRNetworkServices_TestIamPermissionsRequest : GTLRObject
@@ -1000,6 +2677,141 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_Side
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  TlsRoute defines how traffic should be routed based on SNI and other
+ *  matching L3 attributes.
+ */
+@interface GTLRNetworkServices_TlsRoute : GTLRObject
+
+/** Output only. The timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. A free-text description of the resource. Max length 1024
+ *  characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Gateways defines a list of gateways this TlsRoute is attached to,
+ *  as one of the routing rules to route the requests served by the gateway.
+ *  Each gateway reference should match the pattern: `projects/ *
+ *  /locations/global/gateways/`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *gateways;
+
+/**
+ *  Optional. Meshes defines a list of meshes this TlsRoute is attached to, as
+ *  one of the routing rules to route the requests served by the mesh. Each mesh
+ *  reference should match the pattern: `projects/ * /locations/global/meshes/`
+ *  The attached Mesh should be of a type SIDECAR
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *meshes;
+
+/**
+ *  Required. Name of the TlsRoute resource. It matches pattern `projects/ *
+ *  /locations/global/tlsRoutes/tls_route_name>`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Rules that define how traffic is routed and handled. At least one
+ *  RouteRule must be supplied. If there are multiple rules then the action
+ *  taken will be the first rule to match.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_TlsRouteRouteRule *> *rules;
+
+/** Output only. Server-defined URL of this resource */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** Output only. The timestamp when the resource was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The specifications for routing traffic and applying associated policies.
+ */
+@interface GTLRNetworkServices_TlsRouteRouteAction : GTLRObject
+
+/**
+ *  Required. The destination services to which traffic should be forwarded. At
+ *  least one destination service is required.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_TlsRouteRouteDestination *> *destinations;
+
+@end
+
+
+/**
+ *  Describe the destination for traffic to be routed to.
+ */
+@interface GTLRNetworkServices_TlsRouteRouteDestination : GTLRObject
+
+/** Required. The URL of a BackendService to route traffic to. */
+@property(nonatomic, copy, nullable) NSString *serviceName;
+
+/**
+ *  Optional. Specifies the proportion of requests forwareded to the backend
+ *  referenced by the service_name field. This is computed as:
+ *  weight/Sum(weights in destinations) Weights in all destinations does not
+ *  need to sum up to 100.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *weight;
+
+@end
+
+
+/**
+ *  RouteMatch defines the predicate used to match requests to a given action.
+ *  Multiple match types are "AND"ed for evaluation. If no routeMatch field is
+ *  specified, this rule will unconditionally match traffic.
+ */
+@interface GTLRNetworkServices_TlsRouteRouteMatch : GTLRObject
+
+/**
+ *  Optional. ALPN (Application-Layer Protocol Negotiation) to match against.
+ *  Examples: "http/1.1", "h2". At least one of sni_host and alpn is required.
+ *  Up to 5 alpns across all matches can be set.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *alpn;
+
+/**
+ *  Optional. SNI (server name indicator) to match against. SNI will be matched
+ *  against all wildcard domains, i.e. www.example.com will be first matched
+ *  against www.example.com, then *.example.com, then *.com. Partial wildcards
+ *  are not supported, and values like *w.example.com are invalid. At least one
+ *  of sni_host and alpn is required. Up to 5 sni hosts across all matches can
+ *  be set.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sniHost;
+
+@end
+
+
+/**
+ *  Specifies how to match traffic and how to route traffic when traffic is
+ *  matched.
+ */
+@interface GTLRNetworkServices_TlsRouteRouteRule : GTLRObject
+
+/** Required. The detailed rule defining how to route matched traffic. */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_TlsRouteRouteAction *action;
+
+/**
+ *  Required. RouteMatch defines the predicate used to match requests to a given
+ *  action. Multiple match types are "OR"ed for evaluation.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_TlsRouteRouteMatch *> *matches;
 
 @end
 

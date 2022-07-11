@@ -2018,7 +2018,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the new notification config's parent. Its format
- *  is "organizations/[organization_id]".
+ *  is "organizations/[organization_id]" or "projects/[project_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2030,7 +2030,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSecurityCommandCenter_NotificationConfig to include
  *    in the query.
  *  @param parent Required. Resource name of the new notification config's
- *    parent. Its format is "organizations/[organization_id]".
+ *    parent. Its format is "organizations/[organization_id]" or
+ *    "projects/[project_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsCreate
  */
@@ -2124,7 +2125,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the organization to list notification configs. Its format
- *  is "organizations/[organization_id]".
+ *  is "organizations/[organization_id]" or "projects/[project_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2134,7 +2135,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists notification configs.
  *
  *  @param parent Required. Name of the organization to list notification
- *    configs. Its format is "organizations/[organization_id]".
+ *    configs. Its format is "organizations/[organization_id]" or
+ *    "projects/[project_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsList
  *

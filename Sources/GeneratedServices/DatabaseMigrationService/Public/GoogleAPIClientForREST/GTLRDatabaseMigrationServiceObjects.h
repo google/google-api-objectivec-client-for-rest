@@ -575,6 +575,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVer
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_PglogicalNodeAlreadyExists;
 /**
+ *  The source has tables with limited support. E.g. PostgreSQL tables without
+ *  primary keys.
+ *
+ *  Value: "TABLES_WITH_LIMITED_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_TablesWithLimitedSupport;
+/**
  *  The definer is not supported.
  *
  *  Value: "UNSUPPORTED_DEFINER"
@@ -1667,6 +1674,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_PglogicalNodeAlreadyExists
  *        pglogical node already exists on databases, applicable for postgres.
  *        (Value: "PGLOGICAL_NODE_ALREADY_EXISTS")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_TablesWithLimitedSupport
+ *        The source has tables with limited support. E.g. PostgreSQL tables
+ *        without primary keys. (Value: "TABLES_WITH_LIMITED_SUPPORT")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedDefiner
  *        The definer is not supported. (Value: "UNSUPPORTED_DEFINER")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedExtensions

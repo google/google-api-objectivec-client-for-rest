@@ -82,6 +82,11 @@ NSString * const kGTLRAppengine_ManagedCertificate_Status_ManagementStatusUnspec
 NSString * const kGTLRAppengine_ManagedCertificate_Status_Ok   = @"OK";
 NSString * const kGTLRAppengine_ManagedCertificate_Status_Pending = @"PENDING";
 
+// GTLRAppengine_Network.instanceIpMode
+NSString * const kGTLRAppengine_Network_InstanceIpMode_External = @"EXTERNAL";
+NSString * const kGTLRAppengine_Network_InstanceIpMode_InstanceIpModeUnspecified = @"INSTANCE_IP_MODE_UNSPECIFIED";
+NSString * const kGTLRAppengine_Network_InstanceIpMode_Internal = @"INTERNAL";
+
 // GTLRAppengine_NetworkSettings.ingressTrafficAllowed
 NSString * const kGTLRAppengine_NetworkSettings_IngressTrafficAllowed_IngressTrafficAllowedAll = @"INGRESS_TRAFFIC_ALLOWED_ALL";
 NSString * const kGTLRAppengine_NetworkSettings_IngressTrafficAllowed_IngressTrafficAllowedInternalAndLb = @"INGRESS_TRAFFIC_ALLOWED_INTERNAL_AND_LB";
@@ -849,7 +854,8 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 //
 
 @implementation GTLRAppengine_Network
-@dynamic forwardedPorts, instanceTag, name, sessionAffinity, subnetworkName;
+@dynamic forwardedPorts, instanceIpMode, instanceTag, name, sessionAffinity,
+         subnetworkName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

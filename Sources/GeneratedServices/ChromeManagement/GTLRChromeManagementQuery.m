@@ -171,7 +171,7 @@ NSString * const kGTLRChromeManagementAppTypeTheme             = @"THEME";
 
 @implementation GTLRChromeManagementQuery_CustomersTelemetryDevicesGet
 
-@dynamic name;
+@dynamic name, readMask;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

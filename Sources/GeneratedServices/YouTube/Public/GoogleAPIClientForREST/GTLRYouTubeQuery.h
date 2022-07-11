@@ -300,6 +300,14 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeRatingLike;
 FOUNDATION_EXTERN NSString * const kGTLRYouTubeRatingNone;
 
 // ----------------------------------------------------------------------------
+// resourceCueType
+
+/** Value: "cueTypeAd" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeResourceCueTypeCueTypeAd;
+/** Value: "cueTypeUnspecified" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeResourceCueTypeCueTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // safeSearch
 
 /**
@@ -2198,6 +2206,103 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRYouTube_LiveBroadcast *)object
                            part:(NSArray<NSString *> *)part;
+
+@end
+
+/**
+ *  Insert cuepoints in a broadcast
+ *
+ *  Method: youtube.liveBroadcasts.insertCuepoint
+ */
+@interface GTLRYouTubeQuery_LiveBroadcastsInsertCuepoint : GTLRYouTubeQuery
+
+/**
+ *  Broadcast to insert ads to, or equivalently `external_video_id` for internal
+ *  use.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  *Note:* This parameter is intended exclusively for YouTube content partners.
+ *  The *onBehalfOfContentOwner* parameter indicates that the request's
+ *  authorization credentials identify a YouTube CMS user who is acting on
+ *  behalf of the content owner specified in the parameter value. This parameter
+ *  is intended for YouTube content partners that own and manage many different
+ *  YouTube channels. It allows content owners to authenticate once and get
+ *  access to all their video and channel data, without having to provide
+ *  authentication credentials for each individual channel. The CMS account that
+ *  the user authenticates with must be linked to the specified YouTube content
+ *  owner.
+ */
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
+
+/**
+ *  This parameter can only be used in a properly authorized request. *Note:*
+ *  This parameter is intended exclusively for YouTube content partners. The
+ *  *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID
+ *  of the channel to which a video is being added. This parameter is required
+ *  when a request specifies a value for the onBehalfOfContentOwner parameter,
+ *  and it can only be used in conjunction with that parameter. In addition, the
+ *  request must be authorized using a CMS account that is linked to the content
+ *  owner that the onBehalfOfContentOwner parameter specifies. Finally, the
+ *  channel that the onBehalfOfContentOwnerChannel parameter value specifies
+ *  must be linked to the content owner that the onBehalfOfContentOwner
+ *  parameter specifies. This parameter is intended for YouTube content partners
+ *  that own and manage many different YouTube channels. It allows content
+ *  owners to authenticate once and perform actions on behalf of the channel
+ *  specified in the parameter value, without having to provide authentication
+ *  credentials for each separate channel.
+ */
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
+
+/**
+ *  The *part* parameter specifies a comma-separated list of one or more
+ *  liveBroadcast resource properties that the API response will include. The
+ *  part names that you can include in the parameter value are id, snippet,
+ *  contentDetails, and status.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *part;
+
+/**
+ *  resourceCueType
+ *
+ *  Likely values:
+ *    @arg @c kGTLRYouTubeResourceCueTypeCueTypeUnspecified Value
+ *        "cueTypeUnspecified"
+ *    @arg @c kGTLRYouTubeResourceCueTypeCueTypeAd Value "cueTypeAd"
+ */
+@property(nonatomic, copy, nullable) NSString *resourceCueType;
+
+/** The duration of this cuepoint. */
+@property(nonatomic, assign) NSUInteger resourceDurationSecs;
+
+@property(nonatomic, copy, nullable) NSString *resourceEtag;
+
+/** The identifier for cuepoint resource. */
+@property(nonatomic, copy, nullable) NSString *resourceId;
+
+/**
+ *  The time when the cuepoint should be inserted by offset to the broadcast
+ *  actual start time.
+ */
+@property(nonatomic, assign) long long resourceInsertionOffsetTimeMs;
+
+/**
+ *  The wall clock time at which the cuepoint should be inserted. Only one of
+ *  insertion_offset_time_ms and walltime_ms may be set at a time.
+ */
+@property(nonatomic, assign) unsigned long long resourceWalltimeMs;
+
+/**
+ *  Fetches a @c GTLRYouTube_Cuepoint.
+ *
+ *  Insert cuepoints in a broadcast
+ *
+ *  @return GTLRYouTubeQuery_LiveBroadcastsInsertCuepoint
+ */
++ (instancetype)query;
 
 @end
 
@@ -4549,7 +4654,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
- *  Fetches a @c GTLRYouTube_ThirdPartyLink.
+ *  Fetches a @c GTLRYouTube_ThirdPartyLinkListResponse.
  *
  *  Retrieves a list of resources, possibly filtered.
  *

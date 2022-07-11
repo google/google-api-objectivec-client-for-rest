@@ -76,6 +76,7 @@
 @class GTLRBigquery_HivePartitioningOptions;
 @class GTLRBigquery_HparamSearchSpaces;
 @class GTLRBigquery_HparamTuningTrial;
+@class GTLRBigquery_IndexUnusedReason;
 @class GTLRBigquery_IntArray;
 @class GTLRBigquery_IntArrayHparamSearchSpace;
 @class GTLRBigquery_IntCandidates;
@@ -135,6 +136,7 @@
 @class GTLRBigquery_RowLevelSecurityStatistics;
 @class GTLRBigquery_ScriptStackFrame;
 @class GTLRBigquery_ScriptStatistics;
+@class GTLRBigquery_SearchStatistics;
 @class GTLRBigquery_SessionInfo;
 @class GTLRBigquery_SnapshotDefinition;
 @class GTLRBigquery_StandardSqlDataType;
@@ -4306,6 +4308,37 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 
 /**
+ *  GTLRBigquery_IndexUnusedReason
+ */
+@interface GTLRBigquery_IndexUnusedReason : GTLRObject
+
+/**
+ *  [Output-only] Specifies the base table involved in the reason that no search
+ *  index was used.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_TableReference *baseTable;
+
+/**
+ *  [Output-only] Specifies the high-level reason for the scenario when no
+ *  search index was used.
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output-only] Specifies the name of the unused search index, if available.
+ */
+@property(nonatomic, copy, nullable) NSString *indexName;
+
+/**
+ *  [Output-only] Free form human-readable reason for the scenario when no
+ *  search index was used.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
  *  An array of int.
  */
 @interface GTLRBigquery_IntArray : GTLRObject
@@ -5538,6 +5571,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  of non-legacy SQL queries.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableSchema *schema;
+
+/** [Output-only] Search query specific statistics. */
+@property(nonatomic, strong, nullable) GTLRBigquery_SearchStatistics *searchStatistics;
 
 /**
  *  The type of query statement, if valid. Possible values (new values might be
@@ -6825,6 +6861,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSNumber *elapsedMs;
 
 /**
+ *  Units of work that can be scheduled immediately. Providing additional slots
+ *  for these units of work will speed up the query, provided no other query in
+ *  the reservation needs additional slots.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *estimatedRunnableUnits;
+
+/**
  *  Total parallel units of work remaining for the active stages.
  *
  *  Uses NSNumber of longLongValue.
@@ -7348,6 +7393,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 
 /**
+ *  GTLRBigquery_SearchStatistics
+ */
+@interface GTLRBigquery_SearchStatistics : GTLRObject
+
+/**
+ *  When index_usage_mode is UNUSED or PARTIALLY_USED, this field explains why
+ *  index was not used in all or part of the search query. If index_usage_mode
+ *  is FULLLY_USED, this field is not populated.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_IndexUnusedReason *> *indexUnusedReason;
+
+/** Specifies index usage mode for the query. */
+@property(nonatomic, copy, nullable) NSString *indexUsageMode;
+
+@end
+
+
+/**
  *  GTLRBigquery_SessionInfo
  */
 @interface GTLRBigquery_SessionInfo : GTLRObject
@@ -7647,6 +7710,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 /** [Optional] Materialized view definition. */
 @property(nonatomic, strong, nullable) GTLRBigquery_MaterializedViewDefinition *materializedView;
+
+/**
+ *  [Optional] Max staleness of data that could be returned when table or
+ *  materialized view is queried (formatted as Google SQL Interval type).
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *maxStaleness;
 
 /**
  *  [Output-only, Beta] Present iff this table represents a ML model. Describes
@@ -8843,6 +8915,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSNumber *maxParallelTrials;
 
 /**
+ *  Get truncated length by last n points in time series. Use separately from
+ *  time_series_length_fraction and min_time_series_length.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxTimeSeriesLength;
+
+/**
  *  Maximum depth of a tree for boosted tree models.
  *
  *  Uses NSNumber of longLongValue.
@@ -8863,6 +8943,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minSplitLoss;
+
+/**
+ *  Set fast trend ARIMA_PLUS model minimum training length. Use in pair with
+ *  time_series_length_fraction.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minTimeSeriesLength;
 
 /**
  *  Minimum sum of instance weight needed in a child for boosted tree models.
@@ -8961,6 +9049,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 /** The time series id columns that were used during ARIMA model training. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *timeSeriesIdColumns;
 
+/**
+ *  Get truncated length by fraction in time series.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *timeSeriesLengthFraction;
+
 /** Column to be designated as time series timestamp for ARIMA model. */
 @property(nonatomic, copy, nullable) NSString *timeSeriesTimestampColumn;
 
@@ -8981,6 +9076,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *        Unspecified tree method. (Value: "TREE_METHOD_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *treeMethod;
+
+/**
+ *  The smoothing window size for the trend component of the time series.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trendSmoothingWindowSize;
 
 /** User column specified for matrix factorization models. */
 @property(nonatomic, copy, nullable) NSString *userColumn;

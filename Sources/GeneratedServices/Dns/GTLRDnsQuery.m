@@ -273,6 +273,33 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @end
 
+@implementation GTLRDnsQuery_ManagedZonesGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDns_GoogleIamV1GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"dns/v1/{+resource}:getIamPolicy";
+  GTLRDnsQuery_ManagedZonesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDns_GoogleIamV1Policy class];
+  query.loggingName = @"dns.managedZones.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRDnsQuery_ManagedZonesList
 
 @dynamic dnsName, maxResults, pageToken, project;
@@ -318,6 +345,60 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
   query.managedZone = managedZone;
   query.expectedObjectClass = [GTLRDns_Operation class];
   query.loggingName = @"dns.managedZones.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDnsQuery_ManagedZonesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDns_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"dns/v1/{+resource}:setIamPolicy";
+  GTLRDnsQuery_ManagedZonesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDns_GoogleIamV1Policy class];
+  query.loggingName = @"dns.managedZones.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDnsQuery_ManagedZonesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDns_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"dns/v1/{+resource}:testIamPermissions";
+  GTLRDnsQuery_ManagedZonesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDns_GoogleIamV1TestIamPermissionsResponse class];
+  query.loggingName = @"dns.managedZones.testIamPermissions";
   return query;
 }
 

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Campaign Manager 360 API (dfareporting/v3.5)
+//   Campaign Manager 360 API (dfareporting/v4)
 // Description:
 //   Build applications to efficiently manage large or complex trafficking,
 //   reporting, and attribution workflows for Campaign Manager 360.
@@ -88,6 +88,56 @@ NSString * const kGTLRDfareporting_AdSlot_PaymentSourceType_PlanningPaymentSourc
 NSString * const kGTLRDfareporting_Advertiser_Status_Approved = @"APPROVED";
 NSString * const kGTLRDfareporting_Advertiser_Status_OnHold   = @"ON_HOLD";
 
+// GTLRDfareporting_BillingProfile.invoiceLevel
+NSString * const kGTLRDfareporting_BillingProfile_InvoiceLevel_AccountLevel = @"ACCOUNT_LEVEL";
+NSString * const kGTLRDfareporting_BillingProfile_InvoiceLevel_AdvertiserLevel = @"ADVERTISER_LEVEL";
+NSString * const kGTLRDfareporting_BillingProfile_InvoiceLevel_CampaignLevel = @"CAMPAIGN_LEVEL";
+
+// GTLRDfareporting_BillingProfile.status
+NSString * const kGTLRDfareporting_BillingProfile_Status_Active = @"ACTIVE";
+NSString * const kGTLRDfareporting_BillingProfile_Status_Archived = @"ARCHIVED";
+NSString * const kGTLRDfareporting_BillingProfile_Status_UnderReview = @"UNDER_REVIEW";
+
+// GTLRDfareporting_BillingRate.type
+NSString * const kGTLRDfareporting_BillingRate_Type_AdServing  = @"AD_SERVING";
+NSString * const kGTLRDfareporting_BillingRate_Type_AdvancedDisplayAdServing = @"ADVANCED_DISPLAY_AD_SERVING";
+NSString * const kGTLRDfareporting_BillingRate_Type_AudioAdServing = @"AUDIO_AD_SERVING";
+NSString * const kGTLRDfareporting_BillingRate_Type_Clicks     = @"CLICKS";
+NSString * const kGTLRDfareporting_BillingRate_Type_CustomReports = @"CUSTOM_REPORTS";
+NSString * const kGTLRDfareporting_BillingRate_Type_DataTransfer = @"DATA_TRANSFER";
+NSString * const kGTLRDfareporting_BillingRate_Type_DataTransferSetup = @"DATA_TRANSFER_SETUP";
+NSString * const kGTLRDfareporting_BillingRate_Type_DisplayAdServing = @"DISPLAY_AD_SERVING";
+NSString * const kGTLRDfareporting_BillingRate_Type_EnhancedFormats = @"ENHANCED_FORMATS";
+NSString * const kGTLRDfareporting_BillingRate_Type_ExposureToConversion = @"EXPOSURE_TO_CONVERSION";
+NSString * const kGTLRDfareporting_BillingRate_Type_InstreamVideo = @"INSTREAM_VIDEO";
+NSString * const kGTLRDfareporting_BillingRate_Type_InstreamVideoRedirect = @"INSTREAM_VIDEO_REDIRECT";
+NSString * const kGTLRDfareporting_BillingRate_Type_InstreamVideoVpaid = @"INSTREAM_VIDEO_VPAID";
+NSString * const kGTLRDfareporting_BillingRate_Type_MinimumService = @"MINIMUM_SERVICE";
+NSString * const kGTLRDfareporting_BillingRate_Type_NielsenDigitalAdRatingsFee = @"NIELSEN_DIGITAL_AD_RATINGS_FEE";
+NSString * const kGTLRDfareporting_BillingRate_Type_PathToConversion = @"PATH_TO_CONVERSION";
+NSString * const kGTLRDfareporting_BillingRate_Type_Pixel      = @"PIXEL";
+NSString * const kGTLRDfareporting_BillingRate_Type_ProvidedList = @"PROVIDED_LIST";
+NSString * const kGTLRDfareporting_BillingRate_Type_ProvidedListSetup = @"PROVIDED_LIST_SETUP";
+NSString * const kGTLRDfareporting_BillingRate_Type_RichMediaExpanding = @"RICH_MEDIA_EXPANDING";
+NSString * const kGTLRDfareporting_BillingRate_Type_RichMediaFloating = @"RICH_MEDIA_FLOATING";
+NSString * const kGTLRDfareporting_BillingRate_Type_RichMediaInpage = @"RICH_MEDIA_INPAGE";
+NSString * const kGTLRDfareporting_BillingRate_Type_RichMediaTeaser = @"RICH_MEDIA_TEASER";
+NSString * const kGTLRDfareporting_BillingRate_Type_RichMediaVideo = @"RICH_MEDIA_VIDEO";
+NSString * const kGTLRDfareporting_BillingRate_Type_RichMediaVpaid = @"RICH_MEDIA_VPAID";
+NSString * const kGTLRDfareporting_BillingRate_Type_Startup    = @"STARTUP";
+NSString * const kGTLRDfareporting_BillingRate_Type_StatementOfWork = @"STATEMENT_OF_WORK";
+NSString * const kGTLRDfareporting_BillingRate_Type_Tracking   = @"TRACKING";
+NSString * const kGTLRDfareporting_BillingRate_Type_TrackingAdClicks = @"TRACKING_AD_CLICKS";
+NSString * const kGTLRDfareporting_BillingRate_Type_TrackingAdImpressions = @"TRACKING_AD_IMPRESSIONS";
+NSString * const kGTLRDfareporting_BillingRate_Type_TraffickingFeature = @"TRAFFICKING_FEATURE";
+NSString * const kGTLRDfareporting_BillingRate_Type_VideoAdServing = @"VIDEO_AD_SERVING";
+
+// GTLRDfareporting_BillingRate.unitOfMeasure
+NSString * const kGTLRDfareporting_BillingRate_UnitOfMeasure_Cpc = @"CPC";
+NSString * const kGTLRDfareporting_BillingRate_UnitOfMeasure_Cpm = @"CPM";
+NSString * const kGTLRDfareporting_BillingRate_UnitOfMeasure_Ea = @"EA";
+NSString * const kGTLRDfareporting_BillingRate_UnitOfMeasure_P2c = @"P2C";
+
 // GTLRDfareporting_ConversionError.code
 NSString * const kGTLRDfareporting_ConversionError_Code_Internal = @"INTERNAL";
 NSString * const kGTLRDfareporting_ConversionError_Code_InvalidArgument = @"INVALID_ARGUMENT";
@@ -101,6 +151,7 @@ NSString * const kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeImage = @"ART
 NSString * const kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeMixed = @"ARTWORK_TYPE_MIXED";
 
 // GTLRDfareporting_Creative.authoringSource
+NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceAcs = @"CREATIVE_AUTHORING_SOURCE_ACS";
 NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceDbm = @"CREATIVE_AUTHORING_SOURCE_DBM";
 NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceDcm = @"CREATIVE_AUTHORING_SOURCE_DCM";
 NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceGwd = @"CREATIVE_AUTHORING_SOURCE_GWD";
@@ -448,6 +499,7 @@ NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_G
 NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_Html5FeatureUnsupported = @"HTML5_FEATURE_UNSUPPORTED";
 NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_LinkedFileNotFound = @"LINKED_FILE_NOT_FOUND";
 NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_MaxFlashVersion11 = @"MAX_FLASH_VERSION_11";
+NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_MissingEnablerReference = @"MISSING_ENABLER_REFERENCE";
 NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_MraidReferenced = @"MRAID_REFERENCED";
 NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_NotSslCompliant = @"NOT_SSL_COMPLIANT";
 NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_OrphanedAsset = @"ORPHANED_ASSET";
@@ -700,6 +752,7 @@ NSString * const kGTLRDfareporting_File_Format_Excel = @"EXCEL";
 NSString * const kGTLRDfareporting_File_Status_Cancelled       = @"CANCELLED";
 NSString * const kGTLRDfareporting_File_Status_Failed          = @"FAILED";
 NSString * const kGTLRDfareporting_File_Status_Processing      = @"PROCESSING";
+NSString * const kGTLRDfareporting_File_Status_Queued          = @"QUEUED";
 NSString * const kGTLRDfareporting_File_Status_ReportAvailable = @"REPORT_AVAILABLE";
 
 // GTLRDfareporting_FloodlightActivity.cacheBustingType
@@ -858,6 +911,11 @@ NSString * const kGTLRDfareporting_FsCommand_PositionOption_DistanceFromTopLeftC
 NSString * const kGTLRDfareporting_InventoryItem_Type_PlanningPlacementTypeCredit = @"PLANNING_PLACEMENT_TYPE_CREDIT";
 NSString * const kGTLRDfareporting_InventoryItem_Type_PlanningPlacementTypeRegular = @"PLANNING_PLACEMENT_TYPE_REGULAR";
 
+// GTLRDfareporting_Invoice.invoiceType
+NSString * const kGTLRDfareporting_Invoice_InvoiceType_InvoiceTypeCredit = @"INVOICE_TYPE_CREDIT";
+NSString * const kGTLRDfareporting_Invoice_InvoiceType_InvoiceTypeInvoice = @"INVOICE_TYPE_INVOICE";
+NSString * const kGTLRDfareporting_Invoice_InvoiceType_InvoiceTypeUnspecified = @"INVOICE_TYPE_UNSPECIFIED";
+
 // GTLRDfareporting_ListPopulationTerm.operatorProperty
 NSString * const kGTLRDfareporting_ListPopulationTerm_OperatorProperty_NumEquals = @"NUM_EQUALS";
 NSString * const kGTLRDfareporting_ListPopulationTerm_OperatorProperty_NumGreaterThan = @"NUM_GREATER_THAN";
@@ -883,6 +941,7 @@ NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_M
 NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerUnlinked = @"MEASUREMENT_PARTNER_UNLINKED";
 
 // GTLRDfareporting_MeasurementPartnerAdvertiserLink.measurementPartner
+NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_MeasurementPartner_DoubleVerify = @"DOUBLE_VERIFY";
 NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_MeasurementPartner_IntegralAdScience = @"INTEGRAL_AD_SCIENCE";
 NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_MeasurementPartner_None = @"NONE";
 
@@ -897,6 +956,7 @@ NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_Mea
 NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerUnlinked = @"MEASUREMENT_PARTNER_UNLINKED";
 
 // GTLRDfareporting_MeasurementPartnerCampaignLink.measurementPartner
+NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_MeasurementPartner_DoubleVerify = @"DOUBLE_VERIFY";
 NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_MeasurementPartner_IntegralAdScience = @"INTEGRAL_AD_SCIENCE";
 NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_MeasurementPartner_None = @"NONE";
 
@@ -911,22 +971,38 @@ NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_Mea
 NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerUnlinked = @"MEASUREMENT_PARTNER_UNLINKED";
 
 // GTLRDfareporting_MeasurementPartnerWrappingData.measurementPartner
+NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_MeasurementPartner_DoubleVerify = @"DOUBLE_VERIFY";
 NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_MeasurementPartner_IntegralAdScience = @"INTEGRAL_AD_SCIENCE";
 NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_MeasurementPartner_None = @"NONE";
 
 // GTLRDfareporting_MeasurementPartnerWrappingData.tagWrappingMode
 NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_Blocking = @"BLOCKING";
 NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_Monitoring = @"MONITORING";
-NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_MonitoringOnly = @"MONITORING_ONLY";
+NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_MonitoringReadOnly = @"MONITORING_READ_ONLY";
 NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_None = @"NONE";
+NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_NonVpaidFiltering = @"NON_VPAID_FILTERING";
 NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_NonVpaidMonitoring = @"NON_VPAID_MONITORING";
 NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_Tracking = @"TRACKING";
 NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VideoPixelMonitoring = @"VIDEO_PIXEL_MONITORING";
+NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VpaidBlocking = @"VPAID_BLOCKING";
+NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VpaidFiltering = @"VPAID_FILTERING";
+NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VpaidMonitoring = @"VPAID_MONITORING";
+NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VpaidOnlyBlocking = @"VPAID_ONLY_BLOCKING";
+NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VpaidOnlyFiltering = @"VPAID_ONLY_FILTERING";
+NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VpaidOnlyMonitoring = @"VPAID_ONLY_MONITORING";
 
 // GTLRDfareporting_MobileApp.directory
+NSString * const kGTLRDfareporting_MobileApp_Directory_AmazonFiretvAppStore = @"AMAZON_FIRETV_APP_STORE";
+NSString * const kGTLRDfareporting_MobileApp_Directory_AndroidTvAppStore = @"ANDROID_TV_APP_STORE";
 NSString * const kGTLRDfareporting_MobileApp_Directory_AppleAppStore = @"APPLE_APP_STORE";
+NSString * const kGTLRDfareporting_MobileApp_Directory_AppleTvAppStore = @"APPLE_TV_APP_STORE";
+NSString * const kGTLRDfareporting_MobileApp_Directory_GenericCtvAppStore = @"GENERIC_CTV_APP_STORE";
 NSString * const kGTLRDfareporting_MobileApp_Directory_GooglePlayStore = @"GOOGLE_PLAY_STORE";
+NSString * const kGTLRDfareporting_MobileApp_Directory_PlaystationAppStore = @"PLAYSTATION_APP_STORE";
+NSString * const kGTLRDfareporting_MobileApp_Directory_RokuAppStore = @"ROKU_APP_STORE";
+NSString * const kGTLRDfareporting_MobileApp_Directory_SamsungTvAppStore = @"SAMSUNG_TV_APP_STORE";
 NSString * const kGTLRDfareporting_MobileApp_Directory_Unknown = @"UNKNOWN";
+NSString * const kGTLRDfareporting_MobileApp_Directory_XboxAppStore = @"XBOX_APP_STORE";
 
 // GTLRDfareporting_ObjectFilter.status
 NSString * const kGTLRDfareporting_ObjectFilter_Status_All     = @"ALL";
@@ -953,6 +1029,13 @@ NSString * const kGTLRDfareporting_PathReportDimensionValue_MatchType_BeginsWith
 NSString * const kGTLRDfareporting_PathReportDimensionValue_MatchType_Contains = @"CONTAINS";
 NSString * const kGTLRDfareporting_PathReportDimensionValue_MatchType_Exact = @"EXACT";
 NSString * const kGTLRDfareporting_PathReportDimensionValue_MatchType_WildcardExpression = @"WILDCARD_EXPRESSION";
+
+// GTLRDfareporting_Placement.activeStatus
+NSString * const kGTLRDfareporting_Placement_ActiveStatus_PlacementStatusActive = @"PLACEMENT_STATUS_ACTIVE";
+NSString * const kGTLRDfareporting_Placement_ActiveStatus_PlacementStatusArchived = @"PLACEMENT_STATUS_ARCHIVED";
+NSString * const kGTLRDfareporting_Placement_ActiveStatus_PlacementStatusInactive = @"PLACEMENT_STATUS_INACTIVE";
+NSString * const kGTLRDfareporting_Placement_ActiveStatus_PlacementStatusPermanentlyArchived = @"PLACEMENT_STATUS_PERMANENTLY_ARCHIVED";
+NSString * const kGTLRDfareporting_Placement_ActiveStatus_PlacementStatusUnknown = @"PLACEMENT_STATUS_UNKNOWN";
 
 // GTLRDfareporting_Placement.compatibility
 NSString * const kGTLRDfareporting_Placement_Compatibility_App = @"APP";
@@ -1001,6 +1084,13 @@ NSString * const kGTLRDfareporting_Placement_VpaidAdapterChoice_Both = @"BOTH";
 NSString * const kGTLRDfareporting_Placement_VpaidAdapterChoice_Default = @"DEFAULT";
 NSString * const kGTLRDfareporting_Placement_VpaidAdapterChoice_Flash = @"FLASH";
 NSString * const kGTLRDfareporting_Placement_VpaidAdapterChoice_Html5 = @"HTML5";
+
+// GTLRDfareporting_PlacementGroup.activeStatus
+NSString * const kGTLRDfareporting_PlacementGroup_ActiveStatus_PlacementStatusActive = @"PLACEMENT_STATUS_ACTIVE";
+NSString * const kGTLRDfareporting_PlacementGroup_ActiveStatus_PlacementStatusArchived = @"PLACEMENT_STATUS_ARCHIVED";
+NSString * const kGTLRDfareporting_PlacementGroup_ActiveStatus_PlacementStatusInactive = @"PLACEMENT_STATUS_INACTIVE";
+NSString * const kGTLRDfareporting_PlacementGroup_ActiveStatus_PlacementStatusPermanentlyArchived = @"PLACEMENT_STATUS_PERMANENTLY_ARCHIVED";
+NSString * const kGTLRDfareporting_PlacementGroup_ActiveStatus_PlacementStatusUnknown = @"PLACEMENT_STATUS_UNKNOWN";
 
 // GTLRDfareporting_PlacementGroup.placementGroupType
 NSString * const kGTLRDfareporting_PlacementGroup_PlacementGroupType_PlacementPackage = @"PLACEMENT_PACKAGE";
@@ -1745,6 +1835,34 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_AdvertiserInvoicesListResponse
+//
+
+@implementation GTLRDfareporting_AdvertiserInvoicesListResponse
+@dynamic invoices, kind, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"invoices" : [GTLRDfareporting_Invoice class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"invoices";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_AdvertiserLandingPagesListResponse
 //
 
@@ -1838,6 +1956,159 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_BillingAssignment
+//
+
+@implementation GTLRDfareporting_BillingAssignment
+@dynamic accountId, advertiserId, campaignId, kind, subaccountId;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_BillingAssignmentsListResponse
+//
+
+@implementation GTLRDfareporting_BillingAssignmentsListResponse
+@dynamic billingAssignments, kind;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"billingAssignments" : [GTLRDfareporting_BillingAssignment class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_BillingProfile
+//
+
+@implementation GTLRDfareporting_BillingProfile
+@dynamic consolidatedInvoice, countryCode, currencyCode, identifier,
+         invoiceLevel, isDefault, kind, name, paymentsAccountId,
+         paymentsCustomerId, purchaseOrder, secondaryPaymentsCustomerId, status;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_BillingProfilesListResponse
+//
+
+@implementation GTLRDfareporting_BillingProfilesListResponse
+@dynamic billingProfiles, kind, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"billingProfiles" : [GTLRDfareporting_BillingProfile class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"billingProfiles";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_BillingRate
+//
+
+@implementation GTLRDfareporting_BillingRate
+@dynamic currencyCode, endDate, identifier, name, rateInMicros, startDate,
+         tieredRates, type, unitOfMeasure;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tieredRates" : [GTLRDfareporting_BillingRateTieredRate class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_BillingRatesListResponse
+//
+
+@implementation GTLRDfareporting_BillingRatesListResponse
+@dynamic billingRates, kind, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"billingRates" : [GTLRDfareporting_BillingRate class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"billingRates";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_BillingRateTieredRate
+//
+
+@implementation GTLRDfareporting_BillingRateTieredRate
+@dynamic highValue, lowValue, rateInMicros;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_Browser
 //
 
@@ -1891,8 +2162,8 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
          creativeOptimizationConfiguration,
          defaultClickThroughEventTagProperties, defaultLandingPageId, endDate,
          eventTagOverrides, externalId, identifier, idDimensionValue, kind,
-         lastModifiedInfo, measurementPartnerLink, name, nielsenOcrEnabled,
-         startDate, subaccountId, traffickerEmails;
+         lastModifiedInfo, measurementPartnerLink, name, startDate,
+         subaccountId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1903,8 +2174,7 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
     @"additionalCreativeOptimizationConfigurations" : [GTLRDfareporting_CreativeOptimizationConfiguration class],
     @"audienceSegmentGroups" : [GTLRDfareporting_AudienceSegmentGroup class],
     @"creativeGroupIds" : [NSNumber class],
-    @"eventTagOverrides" : [GTLRDfareporting_EventTagOverride class],
-    @"traffickerEmails" : [NSString class]
+    @"eventTagOverrides" : [GTLRDfareporting_EventTagOverride class]
   };
   return map;
 }
@@ -1988,6 +2258,17 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
   return @"campaigns";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_CampaignSummary
+//
+
+@implementation GTLRDfareporting_CampaignSummary
+@dynamic billingInvoiceCode, campaignId, preTaxAmountMicros, taxAmountMicros,
+         totalAmountMicros;
 @end
 
 
@@ -2320,9 +2601,9 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 @implementation GTLRDfareporting_Conversion
 @dynamic childDirectedTreatment, customVariables, dclid, encryptedUserId,
          encryptedUserIdCandidates, floodlightActivityId,
-         floodlightConfigurationId, gclid, kind, limitAdTracking, matchId,
-         mobileDeviceId, nonPersonalizedAd, ordinal, quantity, timestampMicros,
-         treatmentForUnderage, value;
+         floodlightConfigurationId, gclid, impressionId, kind, limitAdTracking,
+         matchId, mobileDeviceId, nonPersonalizedAd, ordinal, quantity,
+         timestampMicros, treatmentForUnderage, value;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3919,6 +4200,43 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_Invoice
+//
+
+@implementation GTLRDfareporting_Invoice
+@dynamic campaignSummaries, correctedInvoiceId, currencyCode, dueDate,
+         identifier, invoiceType, issueDate, kind, paymentsAccountId,
+         paymentsProfileId, pdfUrl, purchaseOrderNumber, replacedInvoiceIds,
+         serviceEndDate, serviceStartDate, subtotalAmountMicros,
+         totalAmountMicros, totalTaxAmountMicros;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"campaignSummaries" : @"campaign_summaries",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"campaign_summaries" : [GTLRDfareporting_CampaignSummary class],
+    @"replacedInvoiceIds" : [NSString class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_KeyValueTargetingExpression
 //
 
@@ -4681,8 +4999,8 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 //
 
 @implementation GTLRDfareporting_Placement
-@dynamic accountId, adBlockingOptOut, additionalSizes, advertiserId,
-         advertiserIdDimensionValue, archived, campaignId,
+@dynamic accountId, activeStatus, adBlockingOptOut, additionalSizes,
+         advertiserId, advertiserIdDimensionValue, campaignId,
          campaignIdDimensionValue, comment, compatibility, contentCategoryId,
          createInfo, directorySiteId, directorySiteIdDimensionValue, externalId,
          identifier, idDimensionValue, keyName, kind, lastModifiedInfo,
@@ -4730,7 +5048,7 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 //
 
 @implementation GTLRDfareporting_PlacementGroup
-@dynamic accountId, advertiserId, advertiserIdDimensionValue, archived,
+@dynamic accountId, activeStatus, advertiserId, advertiserIdDimensionValue,
          campaignId, campaignIdDimensionValue, childPlacementIds, comment,
          contentCategoryId, createInfo, directorySiteId,
          directorySiteIdDimensionValue, externalId, identifier,
@@ -5765,7 +6083,7 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 @implementation GTLRDfareporting_SiteVideoSettings
 @dynamic companionSettings, kind, obaEnabled, obaSettings, orientation,
-         skippableSettings, transcodeSettings;
+         publisherSpecificationId, skippableSettings, transcodeSettings;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -6406,7 +6724,8 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 @implementation GTLRDfareporting_VideoSettings
 @dynamic companionSettings, durationSeconds, kind, obaEnabled, obaSettings,
-         orientation, skippableSettings, transcodeSettings;
+         orientation, publisherSpecificationId, skippableSettings,
+         transcodeSettings;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to

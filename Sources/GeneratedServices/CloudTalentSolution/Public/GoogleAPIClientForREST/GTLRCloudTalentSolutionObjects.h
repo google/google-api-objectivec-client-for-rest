@@ -1620,17 +1620,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationTyp
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommuteAllowed;
 /**
- *  Ignore telecommute status of jobs.
+ *  Deprecated: Ignore telecommute status of jobs. Use TELECOMMUTE_JOBS_EXCLUDED
+ *  if want to exclude telecommute jobs.
  *
  *  Value: "TELECOMMUTE_EXCLUDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommuteExcluded;
+/**
+ *  Exclude telecommute jobs.
+ *
+ *  Value: "TELECOMMUTE_JOBS_EXCLUDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommuteJobsExcluded;
 /**
  *  Default value if the telecommute preference isn't specified.
  *
  *  Value: "TELECOMMUTE_PREFERENCE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommutePreferenceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudTalentSolution_NamespacedDebugInput.testingMode
+
+/** Value: "TESTING_MODE_ALL_OFF" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_NamespacedDebugInput_TestingMode_TestingModeAllOff;
+/** Value: "TESTING_MODE_ALL_ON" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_NamespacedDebugInput_TestingMode_TestingModeAllOn;
+/** Value: "TESTING_MODE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_NamespacedDebugInput_TestingMode_TestingModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_ProcessingOptions.htmlSanitization
@@ -3205,14 +3222,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 /**
  *  This filter specifies the company Company.display_name of the jobs to search
- *  against. The company name must match the value exactly. Alternatively, if
- *  the value being searched for is wrapped in `SUBSTRING_MATCH([value])`, the
- *  company name must contain a case insensitive substring match of the value.
- *  Using this function may increase latency. Sample Value:
- *  `SUBSTRING_MATCH(google)` If a value isn't specified, jobs within the search
- *  results are associated with any company. If multiple values are specified,
- *  jobs within the search results may be associated with any of the specified
- *  companies. At most 20 company display name filters are allowed.
+ *  against. The company name must match the value exactly. Alternatively, the
+ *  value being searched for can be wrapped in different match operators.
+ *  `SUBSTRING_MATCH([value])` The company name must contain a case insensitive
+ *  substring match of the value. Using this function may increase latency.
+ *  Sample Value: `SUBSTRING_MATCH(google)` `MULTI_WORD_TOKEN_MATCH([value])`
+ *  The value will be treated as a multi word token and the company name must
+ *  contain a case insensitive match of the value. Using this function may
+ *  increase latency. Sample Value: `MULTI_WORD_TOKEN_MATCH(google)` If a value
+ *  isn't specified, jobs within the search results are associated with any
+ *  company. If multiple values are specified, jobs within the search results
+ *  may be associated with any of the specified companies. At most 20 company
+ *  display name filters are allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *companyDisplayNames;
 
@@ -3582,7 +3603,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *    @arg @c kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommuteAllowed
  *        Allow telecommute jobs. (Value: "TELECOMMUTE_ALLOWED")
  *    @arg @c kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommuteExcluded
- *        Ignore telecommute status of jobs. (Value: "TELECOMMUTE_EXCLUDED")
+ *        Deprecated: Ignore telecommute status of jobs. Use
+ *        TELECOMMUTE_JOBS_EXCLUDED if want to exclude telecommute jobs. (Value:
+ *        "TELECOMMUTE_EXCLUDED")
+ *    @arg @c kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommuteJobsExcluded
+ *        Exclude telecommute jobs. (Value: "TELECOMMUTE_JOBS_EXCLUDED")
  *    @arg @c kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommutePreferenceUnspecified
  *        Default value if the telecommute preference isn't specified. (Value:
  *        "TELECOMMUTE_PREFERENCE_UNSPECIFIED")
@@ -3701,7 +3726,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
- *  Next ID: 15
+ *  Next ID: 16
  */
 @interface GTLRCloudTalentSolution_NamespacedDebugInput : GTLRObject
 
@@ -3822,6 +3847,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  rollout value.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTalentSolution_NamespacedDebugInput_ForcedRollouts *forcedRollouts;
+
+/**
+ *  If set to ALL_OFF, organic selection will be disabled; if set to ALL_ON,
+ *  organic selection will be disabled, and only select launch experiments will
+ *  receive traffic. See go/mendel-aoao-runtime-design.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudTalentSolution_NamespacedDebugInput_TestingMode_TestingModeAllOff
+ *        Value "TESTING_MODE_ALL_OFF"
+ *    @arg @c kGTLRCloudTalentSolution_NamespacedDebugInput_TestingMode_TestingModeAllOn
+ *        Value "TESTING_MODE_ALL_ON"
+ *    @arg @c kGTLRCloudTalentSolution_NamespacedDebugInput_TestingMode_TestingModeUnspecified
+ *        Value "TESTING_MODE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *testingMode;
 
 @end
 

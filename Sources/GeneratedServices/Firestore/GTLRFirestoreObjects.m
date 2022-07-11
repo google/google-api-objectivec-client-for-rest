@@ -116,6 +116,17 @@ NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata_Sta
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata_State_Processing = @"PROCESSING";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata_State_Successful = @"SUCCESSFUL";
 
+// GTLRFirestore_GoogleFirestoreAdminV1TtlConfig.state
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfig_State_Active = @"ACTIVE";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfig_State_Creating = @"CREATING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfig_State_NeedsRepair = @"NEEDS_REPAIR";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta.changeType
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta_ChangeType_Add = @"ADD";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta_ChangeType_ChangeTypeUnspecified = @"CHANGE_TYPE_UNSPECIFIED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta_ChangeType_Remove = @"REMOVE";
+
 // GTLRFirestore_Order.direction
 NSString * const kGTLRFirestore_Order_Direction_Ascending      = @"ASCENDING";
 NSString * const kGTLRFirestore_Order_Direction_Descending     = @"DESCENDING";
@@ -599,7 +610,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1Field
-@dynamic indexConfig, name;
+@dynamic indexConfig, name, ttlConfig;
 @end
 
 
@@ -610,7 +621,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1FieldOperationMetadata
 @dynamic endTime, field, indexConfigDeltas, progressBytes, progressDocuments,
-         startTime, state;
+         startTime, state, ttlConfigDelta;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -808,6 +819,26 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_GoogleFirestoreAdminV1TtlConfig
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1TtlConfig
+@dynamic state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta
+@dynamic changeType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata
 //
 
@@ -900,7 +931,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_ListCollectionIdsRequest
-@dynamic pageSize, pageToken;
+@dynamic pageSize, pageToken, readTime;
 @end
 
 
@@ -1078,7 +1109,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_PartitionQueryRequest
-@dynamic pageSize, pageToken, partitionCount, structuredQuery;
+@dynamic pageSize, pageToken, partitionCount, readTime, structuredQuery;
 @end
 
 

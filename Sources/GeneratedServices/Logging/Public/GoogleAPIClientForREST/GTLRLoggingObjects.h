@@ -3076,6 +3076,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRLogging_SourceReference *> *sourceReference;
 
+/** Stackdriver Trace span identifier for this request. */
+@property(nonatomic, copy, nullable) NSString *spanId;
+
 /** Time when the request started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
@@ -3443,9 +3446,10 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  Optional. Whether a batch's valid entries should be written even if some
  *  other entry failed due to a permanent error such as INVALID_ARGUMENT or
  *  PERMISSION_DENIED. If any entry failed, then the response status is the
- *  response status is the status of one of the failed entries. The response
- *  will include error details keyed by the entries' zero-based index in the
- *  entries.write method.
+ *  response status of one of the failed entries. The response will include
+ *  error details in WriteLogEntriesPartialErrors.log_entry_errors keyed by the
+ *  entries' zero-based index in the entries. Failed requests for which no
+ *  entries are written will not include per-entry errors.
  *
  *  Uses NSNumber of boolValue.
  */

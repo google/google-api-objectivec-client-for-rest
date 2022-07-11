@@ -150,7 +150,8 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 //
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Assessment
-@dynamic accountDefenderAssessment, event, name, riskAnalysis, tokenProperties;
+@dynamic accountDefenderAssessment, event, name,
+         privatePasswordLeakVerification, riskAnalysis, tokenProperties;
 @end
 
 
@@ -309,6 +310,25 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 //
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification
+@dynamic encryptedLeakMatchPrefixes, encryptedUserCredentialsHash,
+         lookupHashPrefix, reencryptedUserCredentialsHash;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"encryptedLeakMatchPrefixes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

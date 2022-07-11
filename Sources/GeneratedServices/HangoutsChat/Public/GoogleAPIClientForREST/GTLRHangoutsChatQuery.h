@@ -5,8 +5,7 @@
 //   Google Chat API (chat/v1)
 // Description:
 //   Enables apps to fetch information and perform actions in Google Chat.
-//   Authentication using a service account is a prerequisite for using the
-//   Google Chat REST API.
+//   Authentication is a prerequisite for using the Google Chat REST API.
 // Documentation:
 //   https://developers.google.com/hangouts/chat
 
@@ -396,12 +395,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRHangoutsChatQuery_SpacesList : GTLRHangoutsChatQuery
 
 /**
- *  Requested page size. The value is capped at 1000. Server may return fewer
- *  results than requested. If unspecified, server will default to 100.
+ *  Optional. Requested page size. The value is capped at 1000. Server may
+ *  return fewer results than requested. If unspecified, server will default to
+ *  100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** A token identifying a page of results the server should return. */
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -645,8 +647,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The field paths to be updated, comma separated if there are
- *  multiple. Currently supported field paths: * text * cards * attachment
+ *  Required. The field paths to update. Separate multiple values with commas.
+ *  Currently supported field paths: - text - cards (Requires [service account
+ *  authentication](/chat/api/guides/auth/service-accounts).) - attachment
  *
  *  String format is a comma-separated list of fields.
  */

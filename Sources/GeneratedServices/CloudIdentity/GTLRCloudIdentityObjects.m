@@ -490,7 +490,7 @@ NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_StateUnspecified
 @implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1Device
 @dynamic androidSpecificAttributes, assetTag, basebandVersion,
          bootloaderVersion, brand, buildNumber, compromisedState, createTime,
-         deviceType, enabledDeveloperOptions, enabledUsbDebugging,
+         deviceId, deviceType, enabledDeveloperOptions, enabledUsbDebugging,
          encryptionState, imei, kernelVersion, lastSyncTime, managementState,
          manufacturer, meid, model, name, networkOperator, osVersion,
          otherAccounts, ownerType, releaseVersion, securityPatchTime,

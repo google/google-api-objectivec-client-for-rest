@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Campaign Manager 360 API (dfareporting/v3.5)
+//   Campaign Manager 360 API (dfareporting/v4)
 // Description:
 //   Build applications to efficiently manage large or complex trafficking,
 //   reporting, and attribution workflows for Campaign Manager 360.
@@ -66,6 +66,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingActionActionUnlink;
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingActionActionUpdate;
 
 // ----------------------------------------------------------------------------
+// activeStatus
+
+/** Value: "PLACEMENT_STATUS_ACTIVE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingActiveStatusPlacementStatusActive;
+/** Value: "PLACEMENT_STATUS_ARCHIVED" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingActiveStatusPlacementStatusArchived;
+/** Value: "PLACEMENT_STATUS_INACTIVE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingActiveStatusPlacementStatusInactive;
+/** Value: "PLACEMENT_STATUS_PERMANENTLY_ARCHIVED" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingActiveStatusPlacementStatusPermanentlyArchived;
+/** Value: "PLACEMENT_STATUS_UNKNOWN" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingActiveStatusPlacementStatusUnknown;
+
+// ----------------------------------------------------------------------------
 // compatibilities
 
 /** Value: "APP" */
@@ -100,12 +114,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingCompatibilityInStreamVideo;
 // ----------------------------------------------------------------------------
 // directories
 
+/** Value: "AMAZON_FIRETV_APP_STORE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingDirectoriesAmazonFiretvAppStore;
+/** Value: "ANDROID_TV_APP_STORE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingDirectoriesAndroidTvAppStore;
 /** Value: "APPLE_APP_STORE" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingDirectoriesAppleAppStore;
+/** Value: "APPLE_TV_APP_STORE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingDirectoriesAppleTvAppStore;
+/** Value: "GENERIC_CTV_APP_STORE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingDirectoriesGenericCtvAppStore;
 /** Value: "GOOGLE_PLAY_STORE" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingDirectoriesGooglePlayStore;
+/** Value: "PLAYSTATION_APP_STORE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingDirectoriesPlaystationAppStore;
+/** Value: "ROKU_APP_STORE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingDirectoriesRokuAppStore;
+/** Value: "SAMSUNG_TV_APP_STORE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingDirectoriesSamsungTvAppStore;
 /** Value: "UNKNOWN" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingDirectoriesUnknown;
+/** Value: "XBOX_APP_STORE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingDirectoriesXboxAppStore;
 
 // ----------------------------------------------------------------------------
 // eventTagTypes
@@ -136,6 +166,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectAccountBilli
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectAd;
 /** Value: "OBJECT_ADVERTISER" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectAdvertiser;
+/** Value: "OBJECT_ADVERTISER_CUSTOMER_LINK" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectAdvertiserCustomerLink;
 /** Value: "OBJECT_ADVERTISER_GROUP" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectAdvertiserGroup;
 /** Value: "OBJECT_BILLING_ACCOUNT_GROUP" */
@@ -278,10 +310,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingSortOrderDescending;
 // ----------------------------------------------------------------------------
 // status
 
+/** Value: "ACTIVE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingStatusActive;
 /** Value: "APPROVED" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingStatusApproved;
+/** Value: "ARCHIVED" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingStatusArchived;
 /** Value: "ON_HOLD" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingStatusOnHold;
+/** Value: "UNDER_REVIEW" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingStatusUnderReview;
 
 // ----------------------------------------------------------------------------
 // tagFormats
@@ -1570,6 +1608,61 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
+ *  Retrieves a list of invoices for a particular issue month. The api only
+ *  works if the billing profile invoice level is set to either advertiser or
+ *  campaign non-consolidated invoice level.
+ *
+ *  Method: dfareporting.advertiserInvoices.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_AdvertiserInvoicesList : GTLRDfareportingQuery
+
+/** Advertiser ID of this invoice. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Month for which invoices are needed in the format YYYYMM. Required field
+ */
+@property(nonatomic, copy, nullable) NSString *issueMonth;
+
+/**
+ *  Maximum number of results to return.
+ *
+ *  @note If not set, the documented server-side default will be 1000 (from the
+ *        range 0..1000).
+ */
+@property(nonatomic, assign) NSInteger maxResults;
+
+/** Value of the nextPageToken from the previous result page. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** User profile ID associated with this request. */
+@property(nonatomic, assign) long long profileId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_AdvertiserInvoicesListResponse.
+ *
+ *  Retrieves a list of invoices for a particular issue month. The api only
+ *  works if the billing profile invoice level is set to either advertiser or
+ *  campaign non-consolidated invoice level.
+ *
+ *  @param profileId User profile ID associated with this request.
+ *  @param advertiserId Advertiser ID of this invoice.
+ *
+ *  @return GTLRDfareportingQuery_AdvertiserInvoicesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProfileId:(long long)profileId
+                      advertiserId:(long long)advertiserId;
+
+@end
+
+/**
  *  Gets one landing page by ID.
  *
  *  Method: dfareporting.advertiserLandingPages.get
@@ -2050,6 +2143,285 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Advertiser *)object
                       profileId:(long long)profileId;
+
+@end
+
+/**
+ *  Inserts a new billing assignment and returns the new assignment. Only one of
+ *  advertiser_id or campaign_id is support per request. If the new assignment
+ *  has no effect (assigning a campaign to the parent advertiser billing profile
+ *  or assigning an advertiser to the account billing profile), no assignment
+ *  will be returned.
+ *
+ *  Method: dfareporting.billingAssignments.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_BillingAssignmentsInsert : GTLRDfareportingQuery
+
+/** Billing profile ID of this billing assignment. */
+@property(nonatomic, assign) long long billingProfileId;
+
+/** User profile ID associated with this request. */
+@property(nonatomic, assign) long long profileId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_BillingAssignment.
+ *
+ *  Inserts a new billing assignment and returns the new assignment. Only one of
+ *  advertiser_id or campaign_id is support per request. If the new assignment
+ *  has no effect (assigning a campaign to the parent advertiser billing profile
+ *  or assigning an advertiser to the account billing profile), no assignment
+ *  will be returned.
+ *
+ *  @param object The @c GTLRDfareporting_BillingAssignment to include in the
+ *    query.
+ *  @param profileId User profile ID associated with this request.
+ *  @param billingProfileId Billing profile ID of this billing assignment.
+ *
+ *  @return GTLRDfareportingQuery_BillingAssignmentsInsert
+ */
++ (instancetype)queryWithObject:(GTLRDfareporting_BillingAssignment *)object
+                      profileId:(long long)profileId
+               billingProfileId:(long long)billingProfileId;
+
+@end
+
+/**
+ *  Retrieves a list of billing assignments.
+ *
+ *  Method: dfareporting.billingAssignments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_BillingAssignmentsList : GTLRDfareportingQuery
+
+/** Billing profile ID of this billing assignment. */
+@property(nonatomic, assign) long long billingProfileId;
+
+/** User profile ID associated with this request. */
+@property(nonatomic, assign) long long profileId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_BillingAssignmentsListResponse.
+ *
+ *  Retrieves a list of billing assignments.
+ *
+ *  @param profileId User profile ID associated with this request.
+ *  @param billingProfileId Billing profile ID of this billing assignment.
+ *
+ *  @return GTLRDfareportingQuery_BillingAssignmentsList
+ */
++ (instancetype)queryWithProfileId:(long long)profileId
+                  billingProfileId:(long long)billingProfileId;
+
+@end
+
+/**
+ *  Gets one billing profile by ID.
+ *
+ *  Method: dfareporting.billingProfiles.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_BillingProfilesGet : GTLRDfareportingQuery
+
+/**
+ *  Billing Profile ID.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, assign) long long identifier;
+
+/** User profile ID associated with this request. */
+@property(nonatomic, assign) long long profileId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_BillingProfile.
+ *
+ *  Gets one billing profile by ID.
+ *
+ *  @param profileId User profile ID associated with this request.
+ *  @param identifier Billing Profile ID.
+ *
+ *  @return GTLRDfareportingQuery_BillingProfilesGet
+ */
++ (instancetype)queryWithProfileId:(long long)profileId
+                        identifier:(long long)identifier;
+
+@end
+
+/**
+ *  Retrieves a list of billing profiles, possibly filtered. This method
+ *  supports paging.
+ *
+ *  Method: dfareporting.billingProfiles.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_BillingProfilesList : GTLRDfareportingQuery
+
+/** Select only billing profile with currency. */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/**
+ *  Select only billing profile with these IDs.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *ids;
+
+/**
+ *  Maximum number of results to return.
+ *
+ *  @note If not set, the documented server-side default will be 1000 (from the
+ *        range 0..1000).
+ */
+@property(nonatomic, assign) NSInteger maxResults;
+
+/**
+ *  Allows searching for billing profiles by name. Wildcards (*) are allowed.
+ *  For example, "profile*2020" will return objects with names like "profile
+ *  June 2020", "profile April 2020", or simply "profile 2020". Most of the
+ *  searches also add wildcards implicitly at the start and the end of the
+ *  search string. For example, a search string of "profile" will match objects
+ *  with name "my profile", "profile 2021", or simply "profile".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Select only billing profile which is suggested for the currency_code &
+ *  subaccount_id using the Billing Suggestion API.
+ */
+@property(nonatomic, assign) BOOL onlySuggestion;
+
+/** Value of the nextPageToken from the previous result page. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** User profile ID associated with this request. */
+@property(nonatomic, assign) long long profileId;
+
+/**
+ *  Field by which to sort the list.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareportingSortFieldId Value "ID"
+ *    @arg @c kGTLRDfareportingSortFieldName Value "NAME"
+ *
+ *  @note If not set, the documented server-side default will be
+ *        kGTLRDfareportingSortFieldId.
+ */
+@property(nonatomic, copy, nullable) NSString *sortField;
+
+/**
+ *  Order of sorted results.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *
+ *  @note If not set, the documented server-side default will be
+ *        kGTLRDfareportingSortOrderAscending.
+ */
+@property(nonatomic, copy, nullable) NSString *sortOrder;
+
+/**
+ *  Select only billing profile with the specified status.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareportingStatusUnderReview Value "UNDER_REVIEW"
+ *    @arg @c kGTLRDfareportingStatusActive Value "ACTIVE"
+ *    @arg @c kGTLRDfareportingStatusArchived Value "ARCHIVED"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *status;
+
+/**
+ *  Select only billing profile with the specified subaccount.When
+ *  only_suggestion is true, only a single subaccount_id is supported.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *subaccountIds;
+
+/**
+ *  Fetches a @c GTLRDfareporting_BillingProfilesListResponse.
+ *
+ *  Retrieves a list of billing profiles, possibly filtered. This method
+ *  supports paging.
+ *
+ *  @param profileId User profile ID associated with this request.
+ *
+ *  @return GTLRDfareportingQuery_BillingProfilesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProfileId:(long long)profileId;
+
+@end
+
+/**
+ *  Updates an existing billing profile.
+ *
+ *  Method: dfareporting.billingProfiles.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_BillingProfilesUpdate : GTLRDfareportingQuery
+
+/** User profile ID associated with this request. */
+@property(nonatomic, assign) long long profileId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_BillingProfile.
+ *
+ *  Updates an existing billing profile.
+ *
+ *  @param object The @c GTLRDfareporting_BillingProfile to include in the
+ *    query.
+ *  @param profileId User profile ID associated with this request.
+ *
+ *  @return GTLRDfareportingQuery_BillingProfilesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRDfareporting_BillingProfile *)object
+                      profileId:(long long)profileId;
+
+@end
+
+/**
+ *  Retrieves a list of billing rates. This method supports paging.
+ *
+ *  Method: dfareporting.billingRates.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_BillingRatesList : GTLRDfareportingQuery
+
+/** Billing profile ID of this billing rate. */
+@property(nonatomic, assign) long long billingProfileId;
+
+/** User profile ID associated with this request. */
+@property(nonatomic, assign) long long profileId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_BillingRatesListResponse.
+ *
+ *  Retrieves a list of billing rates. This method supports paging.
+ *
+ *  @param profileId User profile ID associated with this request.
+ *  @param billingProfileId Billing profile ID of this billing rate.
+ *
+ *  @return GTLRDfareportingQuery_BillingRatesList
+ */
++ (instancetype)queryWithProfileId:(long long)profileId
+                  billingProfileId:(long long)billingProfileId;
 
 @end
 
@@ -2611,6 +2983,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *        "OBJECT_SEARCH_LIFT_STUDY"
  *    @arg @c kGTLRDfareportingObjectTypeObjectFloodlightDv360Link Value
  *        "OBJECT_FLOODLIGHT_DV360_LINK"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectAdvertiserCustomerLink Value
+ *        "OBJECT_ADVERTISER_CUSTOMER_LINK"
  */
 @property(nonatomic, copy, nullable) NSString *objectType;
 
@@ -5981,6 +6355,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @arg @c kGTLRDfareportingDirectoriesAppleAppStore Value "APPLE_APP_STORE"
  *    @arg @c kGTLRDfareportingDirectoriesGooglePlayStore Value
  *        "GOOGLE_PLAY_STORE"
+ *    @arg @c kGTLRDfareportingDirectoriesRokuAppStore Value "ROKU_APP_STORE"
+ *    @arg @c kGTLRDfareportingDirectoriesAmazonFiretvAppStore Value
+ *        "AMAZON_FIRETV_APP_STORE"
+ *    @arg @c kGTLRDfareportingDirectoriesPlaystationAppStore Value
+ *        "PLAYSTATION_APP_STORE"
+ *    @arg @c kGTLRDfareportingDirectoriesAppleTvAppStore Value
+ *        "APPLE_TV_APP_STORE"
+ *    @arg @c kGTLRDfareportingDirectoriesXboxAppStore Value "XBOX_APP_STORE"
+ *    @arg @c kGTLRDfareportingDirectoriesSamsungTvAppStore Value
+ *        "SAMSUNG_TV_APP_STORE"
+ *    @arg @c kGTLRDfareportingDirectoriesAndroidTvAppStore Value
+ *        "ANDROID_TV_APP_STORE"
+ *    @arg @c kGTLRDfareportingDirectoriesGenericCtvAppStore Value
+ *        "GENERIC_CTV_APP_STORE"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *directories;
 
@@ -6566,17 +6954,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_PlacementGroupsList : GTLRDfareportingQuery
 
 /**
+ *  Select only placements with these active statuses.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareportingActiveStatusPlacementStatusUnknown Value
+ *        "PLACEMENT_STATUS_UNKNOWN"
+ *    @arg @c kGTLRDfareportingActiveStatusPlacementStatusActive Value
+ *        "PLACEMENT_STATUS_ACTIVE"
+ *    @arg @c kGTLRDfareportingActiveStatusPlacementStatusInactive Value
+ *        "PLACEMENT_STATUS_INACTIVE"
+ *    @arg @c kGTLRDfareportingActiveStatusPlacementStatusArchived Value
+ *        "PLACEMENT_STATUS_ARCHIVED"
+ *    @arg @c kGTLRDfareportingActiveStatusPlacementStatusPermanentlyArchived
+ *        Value "PLACEMENT_STATUS_PERMANENTLY_ARCHIVED"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *activeStatus;
+
+/**
  *  Select only placement groups that belong to these advertisers.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *advertiserIds;
-
-/**
- *  Select only archived placements. Don't set this field to select both
- *  archived and non-archived placements.
- */
-@property(nonatomic, assign) BOOL archived;
 
 /**
  *  Select only placement groups that belong to these campaigns.
@@ -6976,17 +7375,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @interface GTLRDfareportingQuery_PlacementsList : GTLRDfareportingQuery
 
 /**
+ *  Select only placements with these active statuses.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareportingActiveStatusPlacementStatusUnknown Value
+ *        "PLACEMENT_STATUS_UNKNOWN"
+ *    @arg @c kGTLRDfareportingActiveStatusPlacementStatusActive Value
+ *        "PLACEMENT_STATUS_ACTIVE"
+ *    @arg @c kGTLRDfareportingActiveStatusPlacementStatusInactive Value
+ *        "PLACEMENT_STATUS_INACTIVE"
+ *    @arg @c kGTLRDfareportingActiveStatusPlacementStatusArchived Value
+ *        "PLACEMENT_STATUS_ARCHIVED"
+ *    @arg @c kGTLRDfareportingActiveStatusPlacementStatusPermanentlyArchived
+ *        Value "PLACEMENT_STATUS_PERMANENTLY_ARCHIVED"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *activeStatus;
+
+/**
  *  Select only placements that belong to these advertisers.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *advertiserIds;
-
-/**
- *  Select only archived placements. Don't set this field to select both
- *  archived and non-archived placements.
- */
-@property(nonatomic, assign) BOOL archived;
 
 /**
  *  Select only placements that belong to these campaigns.

@@ -40,6 +40,8 @@
 @class GTLRFirestore_GoogleFirestoreAdminV1IndexConfigDelta;
 @class GTLRFirestore_GoogleFirestoreAdminV1IndexField;
 @class GTLRFirestore_GoogleFirestoreAdminV1Progress;
+@class GTLRFirestore_GoogleFirestoreAdminV1TtlConfig;
+@class GTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta;
 @class GTLRFirestore_GoogleLongrunningOperation;
 @class GTLRFirestore_GoogleLongrunningOperation_Metadata;
 @class GTLRFirestore_GoogleLongrunningOperation_Response;
@@ -609,6 +611,62 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOpe
  *  Value: "SUCCESSFUL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata_State_Successful;
+
+// ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1TtlConfig.state
+
+/**
+ *  The TTL is active for all documents.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfig_State_Active;
+/**
+ *  The TTL is being applied. There is an active long-running operation to track
+ *  the change. Newly written documents will have TTLs applied as requested.
+ *  Requested TTLs on existing documents are still being processed. When TTLs on
+ *  all existing documents have been processed, the state will move to 'ACTIVE'.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfig_State_Creating;
+/**
+ *  The TTL configuration could not be enabled for all existing documents. Newly
+ *  written documents will continue to have their TTL applied. The LRO returned
+ *  when last attempting to enable TTL for this `Field` has failed, and may have
+ *  more details.
+ *
+ *  Value: "NEEDS_REPAIR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfig_State_NeedsRepair;
+/**
+ *  The state is unspecified or unknown.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfig_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta.changeType
+
+/**
+ *  The TTL config is being added.
+ *
+ *  Value: "ADD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta_ChangeType_Add;
+/**
+ *  The type of change is not specified or known.
+ *
+ *  Value: "CHANGE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta_ChangeType_ChangeTypeUnspecified;
+/**
+ *  The TTL config is being removed.
+ *
+ *  Value: "REMOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta_ChangeType_Remove;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_Order.direction
@@ -1638,6 +1696,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  The TTL configuration for this `Field`. Setting or unsetting this will
+ *  enable or disable the TTL for documents that have this `Field`.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1TtlConfig *ttlConfig;
+
 @end
 
 
@@ -1700,6 +1764,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *        Request has completed successfully. (Value: "SUCCESSFUL")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/** Describes the deltas of TTL configuration. */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta *ttlConfigDelta;
 
 @end
 
@@ -2120,6 +2187,61 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  The TTL (time-to-live) configuration for documents that have this `Field`
+ *  set. Storing a timestamp value into a TTL-enabled field will be treated as
+ *  the document's absolute expiration time. Using any other data type or
+ *  leaving the field absent will disable the TTL for the individual document.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1TtlConfig : GTLRObject
+
+/**
+ *  Output only. The state of the TTL configuration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1TtlConfig_State_Active The
+ *        TTL is active for all documents. (Value: "ACTIVE")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1TtlConfig_State_Creating The
+ *        TTL is being applied. There is an active long-running operation to
+ *        track the change. Newly written documents will have TTLs applied as
+ *        requested. Requested TTLs on existing documents are still being
+ *        processed. When TTLs on all existing documents have been processed,
+ *        the state will move to 'ACTIVE'. (Value: "CREATING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1TtlConfig_State_NeedsRepair
+ *        The TTL configuration could not be enabled for all existing documents.
+ *        Newly written documents will continue to have their TTL applied. The
+ *        LRO returned when last attempting to enable TTL for this `Field` has
+ *        failed, and may have more details. (Value: "NEEDS_REPAIR")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1TtlConfig_State_StateUnspecified
+ *        The state is unspecified or unknown. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Information about an TTL configuration change.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta : GTLRObject
+
+/**
+ *  Specifies how the TTL configuration is changing.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta_ChangeType_Add
+ *        The TTL config is being added. (Value: "ADD")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta_ChangeType_ChangeTypeUnspecified
+ *        The type of change is not specified or known. (Value:
+ *        "CHANGE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta_ChangeType_Remove
+ *        The TTL config is being removed. (Value: "REMOVE")
+ */
+@property(nonatomic, copy, nullable) NSString *changeType;
+
+@end
+
+
+/**
  *  Metadata related to the update database operation.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata : GTLRObject
@@ -2276,6 +2398,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /** A page token. Must be a value from ListCollectionIdsResponse. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Reads documents as they were at the given time. This may not be older than
+ *  270 seconds.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
 @end
 
@@ -2561,6 +2689,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *partitionCount;
+
+/**
+ *  Reads documents as they were at the given time. This may not be older than
+ *  270 seconds.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
 /**
  *  A structured query. Query must specify collection with all descendants and

@@ -71,9 +71,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  updating fulfillment information. If the request is valid, the update will
  *  be enqueued and processed downstream. As a consequence, when a response is
  *  returned, the added place IDs are not immediately manifested in the Product
- *  queried by GetProduct or ListProducts. This feature is only available for
- *  users who have Retail Search enabled. Please enable Retail Search on Cloud
- *  Console before using this feature.
+ *  queried by ProductService.GetProduct or ProductService.ListProducts. This
+ *  feature is only available for users who have Retail Search enabled. Please
+ *  enable Retail Search on Cloud Console before using this feature.
  *
  *  Method: retail.projects.locations.catalogs.branches.products.addFulfillmentPlaces
  *
@@ -98,9 +98,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  updating fulfillment information. If the request is valid, the update will
  *  be enqueued and processed downstream. As a consequence, when a response is
  *  returned, the added place IDs are not immediately manifested in the Product
- *  queried by GetProduct or ListProducts. This feature is only available for
- *  users who have Retail Search enabled. Please enable Retail Search on Cloud
- *  Console before using this feature.
+ *  queried by ProductService.GetProduct or ProductService.ListProducts. This
+ *  feature is only available for users who have Retail Search enabled. Please
+ *  enable Retail Search on Cloud Console before using this feature.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2AddFulfillmentPlacesRequest to include
@@ -123,11 +123,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  is asynchronous and does not require the Product to exist before updating
  *  inventory information. If the request is valid, the update will be enqueued
  *  and processed downstream. As a consequence, when a response is returned,
- *  updates are not immediately manifested in the Product queried by GetProduct
- *  or ListProducts. Local inventory information can only be modified using this
- *  method. CreateProduct and UpdateProduct has no effect on local inventories.
- *  This feature is only available for users who have Retail Search enabled.
- *  Please enable Retail Search on Cloud Console before using this feature.
+ *  updates are not immediately manifested in the Product queried by
+ *  ProductService.GetProduct or ProductService.ListProducts. Local inventory
+ *  information can only be modified using this method.
+ *  ProductService.CreateProduct and ProductService.UpdateProduct has no effect
+ *  on local inventories. This feature is only available for users who have
+ *  Retail Search enabled. Please enable Retail Search on Cloud Console before
+ *  using this feature.
  *
  *  Method: retail.projects.locations.catalogs.branches.products.addLocalInventories
  *
@@ -152,11 +154,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  is asynchronous and does not require the Product to exist before updating
  *  inventory information. If the request is valid, the update will be enqueued
  *  and processed downstream. As a consequence, when a response is returned,
- *  updates are not immediately manifested in the Product queried by GetProduct
- *  or ListProducts. Local inventory information can only be modified using this
- *  method. CreateProduct and UpdateProduct has no effect on local inventories.
- *  This feature is only available for users who have Retail Search enabled.
- *  Please enable Retail Search on Cloud Console before using this feature.
+ *  updates are not immediately manifested in the Product queried by
+ *  ProductService.GetProduct or ProductService.ListProducts. Local inventory
+ *  information can only be modified using this method.
+ *  ProductService.CreateProduct and ProductService.UpdateProduct has no effect
+ *  on local inventories. This feature is only available for users who have
+ *  Retail Search enabled. Please enable Retail Search on Cloud Console before
+ *  using this feature.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2AddLocalInventoriesRequest to include
@@ -483,9 +487,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  before updating fulfillment information. If the request is valid, the update
  *  will be enqueued and processed downstream. As a consequence, when a response
  *  is returned, the removed place IDs are not immediately manifested in the
- *  Product queried by GetProduct or ListProducts. This feature is only
- *  available for users who have Retail Search enabled. Please enable Retail
- *  Search on Cloud Console before using this feature.
+ *  Product queried by ProductService.GetProduct or ProductService.ListProducts.
+ *  This feature is only available for users who have Retail Search enabled.
+ *  Please enable Retail Search on Cloud Console before using this feature.
  *
  *  Method: retail.projects.locations.catalogs.branches.products.removeFulfillmentPlaces
  *
@@ -510,9 +514,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  before updating fulfillment information. If the request is valid, the update
  *  will be enqueued and processed downstream. As a consequence, when a response
  *  is returned, the removed place IDs are not immediately manifested in the
- *  Product queried by GetProduct or ListProducts. This feature is only
- *  available for users who have Retail Search enabled. Please enable Retail
- *  Search on Cloud Console before using this feature.
+ *  Product queried by ProductService.GetProduct or ProductService.ListProducts.
+ *  This feature is only available for users who have Retail Search enabled.
+ *  Please enable Retail Search on Cloud Console before using this feature.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2RemoveFulfillmentPlacesRequest to
@@ -534,11 +538,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  removal timestamp. This process is asynchronous. If the request is valid,
  *  the removal will be enqueued and processed downstream. As a consequence,
  *  when a response is returned, removals are not immediately manifested in the
- *  Product queried by GetProduct or ListProducts. Local inventory information
- *  can only be removed using this method. CreateProduct and UpdateProduct has
- *  no effect on local inventories. This feature is only available for users who
- *  have Retail Search enabled. Please enable Retail Search on Cloud Console
- *  before using this feature.
+ *  Product queried by ProductService.GetProduct or ProductService.ListProducts.
+ *  Local inventory information can only be removed using this method.
+ *  ProductService.CreateProduct and ProductService.UpdateProduct has no effect
+ *  on local inventories. This feature is only available for users who have
+ *  Retail Search enabled. Please enable Retail Search on Cloud Console before
+ *  using this feature.
  *
  *  Method: retail.projects.locations.catalogs.branches.products.removeLocalInventories
  *
@@ -562,11 +567,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  removal timestamp. This process is asynchronous. If the request is valid,
  *  the removal will be enqueued and processed downstream. As a consequence,
  *  when a response is returned, removals are not immediately manifested in the
- *  Product queried by GetProduct or ListProducts. Local inventory information
- *  can only be removed using this method. CreateProduct and UpdateProduct has
- *  no effect on local inventories. This feature is only available for users who
- *  have Retail Search enabled. Please enable Retail Search on Cloud Console
- *  before using this feature.
+ *  Product queried by ProductService.GetProduct or ProductService.ListProducts.
+ *  Local inventory information can only be removed using this method.
+ *  ProductService.CreateProduct and ProductService.UpdateProduct has no effect
+ *  on local inventories. This feature is only available for users who have
+ *  Retail Search enabled. Please enable Retail Search on Cloud Console before
+ *  using this feature.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2RemoveLocalInventoriesRequest to
@@ -589,20 +595,22 @@ NS_ASSUME_NONNULL_BEGIN
  *  not require the Product to exist before updating fulfillment information. If
  *  the request is valid, the update will be enqueued and processed downstream.
  *  As a consequence, when a response is returned, updates are not immediately
- *  manifested in the Product queried by GetProduct or ListProducts. When
- *  inventory is updated with CreateProduct and UpdateProduct, the specified
+ *  manifested in the Product queried by ProductService.GetProduct or
+ *  ProductService.ListProducts. When inventory is updated with
+ *  ProductService.CreateProduct and ProductService.UpdateProduct, the specified
  *  inventory field value(s) will overwrite any existing value(s) while ignoring
  *  the last update time for this field. Furthermore, the last update time for
  *  the specified inventory fields will be overwritten to the time of the
- *  CreateProduct or UpdateProduct request. If no inventory fields are set in
- *  CreateProductRequest.product, then any pre-existing inventory information
- *  for this product will be used. If no inventory fields are set in
- *  SetInventoryRequest.set_mask, then any existing inventory information will
- *  be preserved. Pre-existing inventory information can only be updated with
- *  SetInventory, ProductService.AddFulfillmentPlaces, and
- *  RemoveFulfillmentPlaces. This feature is only available for users who have
- *  Retail Search enabled. Please enable Retail Search on Cloud Console before
- *  using this feature.
+ *  ProductService.CreateProduct or ProductService.UpdateProduct request. If no
+ *  inventory fields are set in CreateProductRequest.product, then any
+ *  pre-existing inventory information for this product will be used. If no
+ *  inventory fields are set in SetInventoryRequest.set_mask, then any existing
+ *  inventory information will be preserved. Pre-existing inventory information
+ *  can only be updated with ProductService.SetInventory,
+ *  ProductService.AddFulfillmentPlaces, and
+ *  ProductService.RemoveFulfillmentPlaces. This feature is only available for
+ *  users who have Retail Search enabled. Please enable Retail Search on Cloud
+ *  Console before using this feature.
  *
  *  Method: retail.projects.locations.catalogs.branches.products.setInventory
  *
@@ -625,20 +633,22 @@ NS_ASSUME_NONNULL_BEGIN
  *  not require the Product to exist before updating fulfillment information. If
  *  the request is valid, the update will be enqueued and processed downstream.
  *  As a consequence, when a response is returned, updates are not immediately
- *  manifested in the Product queried by GetProduct or ListProducts. When
- *  inventory is updated with CreateProduct and UpdateProduct, the specified
+ *  manifested in the Product queried by ProductService.GetProduct or
+ *  ProductService.ListProducts. When inventory is updated with
+ *  ProductService.CreateProduct and ProductService.UpdateProduct, the specified
  *  inventory field value(s) will overwrite any existing value(s) while ignoring
  *  the last update time for this field. Furthermore, the last update time for
  *  the specified inventory fields will be overwritten to the time of the
- *  CreateProduct or UpdateProduct request. If no inventory fields are set in
- *  CreateProductRequest.product, then any pre-existing inventory information
- *  for this product will be used. If no inventory fields are set in
- *  SetInventoryRequest.set_mask, then any existing inventory information will
- *  be preserved. Pre-existing inventory information can only be updated with
- *  SetInventory, ProductService.AddFulfillmentPlaces, and
- *  RemoveFulfillmentPlaces. This feature is only available for users who have
- *  Retail Search enabled. Please enable Retail Search on Cloud Console before
- *  using this feature.
+ *  ProductService.CreateProduct or ProductService.UpdateProduct request. If no
+ *  inventory fields are set in CreateProductRequest.product, then any
+ *  pre-existing inventory information for this product will be used. If no
+ *  inventory fields are set in SetInventoryRequest.set_mask, then any existing
+ *  inventory information will be preserved. Pre-existing inventory information
+ *  can only be updated with ProductService.SetInventory,
+ *  ProductService.AddFulfillmentPlaces, and
+ *  ProductService.RemoveFulfillmentPlaces. This feature is only available for
+ *  users who have Retail Search enabled. Please enable Retail Search on Cloud
+ *  Console before using this feature.
  *
  *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2SetInventoryRequest
  *    to include in the query.
@@ -693,12 +703,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *deviceType;
 
 /**
- *  The language filters applied to the output suggestions. If set, it should
- *  contain the language of the query. If not set, suggestions are returned
- *  without considering language restrictions. This is the BCP-47 language code,
- *  such as "en-US" or "sr-Latn". For more information, see [Tags for
- *  Identifying Languages](https://tools.ietf.org/html/bcp47). The maximum
- *  number of language codes is 3.
+ *  Note that this field applies for `user-data` dataset only. For requests with
+ *  `cloud-retail` dataset, setting this field has no effect. The language
+ *  filters applied to the output suggestions. If set, it should contain the
+ *  language of the query. If not set, suggestions are returned without
+ *  considering language restrictions. This is the BCP-47 language code, such as
+ *  "en-US" or "sr-Latn". For more information, see [Tags for Identifying
+ *  Languages](https://tools.ietf.org/html/bcp47). The maximum number of
+ *  language codes is 3.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *languageCodes;
 
@@ -1006,14 +1018,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsPlacementsPredict : GTLRCloudRetailQuery
 
 /**
- *  Required. Full resource name of the format: {name=projects/ *
- *  /locations/global/catalogs/default_catalog/placements/ *} The ID of the
- *  Recommendations AI placement. Before you can request predictions from your
- *  model, you must create at least one placement for it. For more information,
- *  see [Managing
- *  placements](https://cloud.google.com/retail/recommendations-ai/docs/manage-placements).
- *  The full list of available placements can be seen at
- *  https://console.cloud.google.com/recommendation/catalogs/default_catalog/placements
+ *  Required. Full resource name of the format: {placement=projects/ *
+ *  /locations/global/catalogs/default_catalog/servingConfigs/ *} or
+ *  {placement=projects/ *
+ *  /locations/global/catalogs/default_catalog/placements/ *}. We recommend
+ *  using the `servingConfigs` resource. `placements` is a legacy resource. The
+ *  ID of the Recommendations AI serving config or placement. Before you can
+ *  request predictions from your model, you must create at least one serving
+ *  config or placement for it. For more information, see [Managing serving
+ *  configurations] (https://cloud.google.com/retail/docs/manage-configs). The
+ *  full list of available serving configs can be seen at
+ *  https://console.cloud.google.com/ai/retail/catalogs/default_catalog/configs
  */
 @property(nonatomic, copy, nullable) NSString *placement;
 
@@ -1024,14 +1039,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2PredictRequest to
  *    include in the query.
- *  @param placement Required. Full resource name of the format: {name=projects/
- *    * /locations/global/catalogs/default_catalog/placements/ *} The ID of the
- *    Recommendations AI placement. Before you can request predictions from your
- *    model, you must create at least one placement for it. For more
- *    information, see [Managing
- *    placements](https://cloud.google.com/retail/recommendations-ai/docs/manage-placements).
- *    The full list of available placements can be seen at
- *    https://console.cloud.google.com/recommendation/catalogs/default_catalog/placements
+ *  @param placement Required. Full resource name of the format:
+ *    {placement=projects/ *
+ *    /locations/global/catalogs/default_catalog/servingConfigs/ *} or
+ *    {placement=projects/ *
+ *    /locations/global/catalogs/default_catalog/placements/ *}. We recommend
+ *    using the `servingConfigs` resource. `placements` is a legacy resource.
+ *    The ID of the Recommendations AI serving config or placement. Before you
+ *    can request predictions from your model, you must create at least one
+ *    serving config or placement for it. For more information, see [Managing
+ *    serving configurations]
+ *    (https://cloud.google.com/retail/docs/manage-configs). The full list of
+ *    available serving configs can be seen at
+ *    https://console.cloud.google.com/ai/retail/catalogs/default_catalog/configs
  *
  *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsPlacementsPredict
  */
@@ -1053,8 +1073,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsPlacementsSearch : GTLRCloudRetailQuery
 
 /**
- *  Required. The resource name of the search engine placement, such as
+ *  Required. The resource name of the Retail Search serving config, such as
  *  `projects/ *
+ *  /locations/global/catalogs/default_catalog/servingConfigs/default_serving_config`
+ *  or the name of the legacy placement resource, such as `projects/ *
  *  /locations/global/catalogs/default_catalog/placements/default_search`. This
  *  field is used to identify the serving configuration name and the set of
  *  models that will be used to make the search.
@@ -1070,13 +1092,115 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2SearchRequest to
  *    include in the query.
- *  @param placement Required. The resource name of the search engine placement,
- *    such as `projects/ *
+ *  @param placement Required. The resource name of the Retail Search serving
+ *    config, such as `projects/ *
+ *    /locations/global/catalogs/default_catalog/servingConfigs/default_serving_config`
+ *    or the name of the legacy placement resource, such as `projects/ *
  *    /locations/global/catalogs/default_catalog/placements/default_search`.
  *    This field is used to identify the serving configuration name and the set
  *    of models that will be used to make the search.
  *
  *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsPlacementsSearch
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2SearchRequest *)object
+                      placement:(NSString *)placement;
+
+@end
+
+/**
+ *  Makes a recommendation prediction.
+ *
+ *  Method: retail.projects.locations.catalogs.servingConfigs.predict
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsPredict : GTLRCloudRetailQuery
+
+/**
+ *  Required. Full resource name of the format: {placement=projects/ *
+ *  /locations/global/catalogs/default_catalog/servingConfigs/ *} or
+ *  {placement=projects/ *
+ *  /locations/global/catalogs/default_catalog/placements/ *}. We recommend
+ *  using the `servingConfigs` resource. `placements` is a legacy resource. The
+ *  ID of the Recommendations AI serving config or placement. Before you can
+ *  request predictions from your model, you must create at least one serving
+ *  config or placement for it. For more information, see [Managing serving
+ *  configurations] (https://cloud.google.com/retail/docs/manage-configs). The
+ *  full list of available serving configs can be seen at
+ *  https://console.cloud.google.com/ai/retail/catalogs/default_catalog/configs
+ */
+@property(nonatomic, copy, nullable) NSString *placement;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2PredictResponse.
+ *
+ *  Makes a recommendation prediction.
+ *
+ *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2PredictRequest to
+ *    include in the query.
+ *  @param placement Required. Full resource name of the format:
+ *    {placement=projects/ *
+ *    /locations/global/catalogs/default_catalog/servingConfigs/ *} or
+ *    {placement=projects/ *
+ *    /locations/global/catalogs/default_catalog/placements/ *}. We recommend
+ *    using the `servingConfigs` resource. `placements` is a legacy resource.
+ *    The ID of the Recommendations AI serving config or placement. Before you
+ *    can request predictions from your model, you must create at least one
+ *    serving config or placement for it. For more information, see [Managing
+ *    serving configurations]
+ *    (https://cloud.google.com/retail/docs/manage-configs). The full list of
+ *    available serving configs can be seen at
+ *    https://console.cloud.google.com/ai/retail/catalogs/default_catalog/configs
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsPredict
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2PredictRequest *)object
+                      placement:(NSString *)placement;
+
+@end
+
+/**
+ *  Performs a search. This feature is only available for users who have Retail
+ *  Search enabled. Please enable Retail Search on Cloud Console before using
+ *  this feature.
+ *
+ *  Method: retail.projects.locations.catalogs.servingConfigs.search
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsSearch : GTLRCloudRetailQuery
+
+/**
+ *  Required. The resource name of the Retail Search serving config, such as
+ *  `projects/ *
+ *  /locations/global/catalogs/default_catalog/servingConfigs/default_serving_config`
+ *  or the name of the legacy placement resource, such as `projects/ *
+ *  /locations/global/catalogs/default_catalog/placements/default_search`. This
+ *  field is used to identify the serving configuration name and the set of
+ *  models that will be used to make the search.
+ */
+@property(nonatomic, copy, nullable) NSString *placement;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2SearchResponse.
+ *
+ *  Performs a search. This feature is only available for users who have Retail
+ *  Search enabled. Please enable Retail Search on Cloud Console before using
+ *  this feature.
+ *
+ *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2SearchRequest to
+ *    include in the query.
+ *  @param placement Required. The resource name of the Retail Search serving
+ *    config, such as `projects/ *
+ *    /locations/global/catalogs/default_catalog/servingConfigs/default_serving_config`
+ *    or the name of the legacy placement resource, such as `projects/ *
+ *    /locations/global/catalogs/default_catalog/placements/default_search`.
+ *    This field is used to identify the serving configuration name and the set
+ *    of models that will be used to make the search.
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsSearch
  */
 + (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2SearchRequest *)object
                       placement:(NSString *)placement;

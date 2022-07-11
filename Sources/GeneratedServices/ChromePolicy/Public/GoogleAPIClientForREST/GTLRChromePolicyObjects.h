@@ -695,7 +695,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
  *  view a particular schema, for example: chrome.users.ShowLogoutButton
  *  Wildcards are supported, but only in the leaf portion of the schema name.
  *  Wildcards cannot be used in namespace directly. Please read
- *  https://developers.google.com/chrome/chrome-management/guides/policyapi for
+ *  https://developers.google.com/chrome/policy/guides/policy-schemas for
  *  details on schema namepsaces. For example: Valid: "chrome.users.*",
  *  "chrome.users.apps.*", "chrome.printers.*" Invalid: "*", "*.users",
  *  "chrome.*", "chrome.*.apps.*"
@@ -735,32 +735,6 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromePolicy_GoogleChromePolicyV1ResolvedPolicy *> *resolvedPolicies;
-
-@end
-
-
-/**
- *  Request message for uploading a file for a policy. Next ID: 5
- */
-@interface GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileRequest : GTLRObject
-
-/**
- *  Required. The fully qualified policy schema and field name this file is
- *  uploaded for. This information will be used to validate the content type of
- *  the file.
- */
-@property(nonatomic, copy, nullable) NSString *policyField;
-
-@end
-
-
-/**
- *  Response message for downloading an uploaded file. Next ID: 2
- */
-@interface GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileResponse : GTLRObject
-
-/** The uri for end user to download the file. */
-@property(nonatomic, copy, nullable) NSString *downloadUri;
 
 @end
 
@@ -1008,8 +982,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 @property(nonatomic, copy, nullable) NSString *package;
 
 /**
- *  The syntax of the proto file. The supported values are "proto2" and
- *  "proto3".
+ *  The syntax of the proto file. The supported values are "proto2", "proto3",
+ *  and "editions". If `edition` is present, this value must be "editions".
  */
 @property(nonatomic, copy, nullable) NSString *syntax;
 

@@ -497,8 +497,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspec
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -509,8 +510,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspec
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGetIamPolicy
  */
@@ -821,8 +823,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspec
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesSetIamPolicy : GTLRAIPlatformNotebooksQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -836,8 +839,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspec
  *  @param object The @c GTLRAIPlatformNotebooks_SetIamPolicyRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesSetIamPolicy
  */
@@ -994,7 +998,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspec
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1010,8 +1015,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspec
  *  @param object The @c GTLRAIPlatformNotebooks_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesTestIamPermissions
  */
@@ -1527,8 +1533,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspec
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1539,8 +1546,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspec
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesGetIamPolicy
  */
@@ -1585,6 +1593,58 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspec
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update Notebook Runtime configuration.
+ *
+ *  Method: notebooks.projects.locations.runtimes.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesPatch : GTLRAIPlatformNotebooksQuery
+
+/**
+ *  Output only. The resource name of the runtime. Format:
+ *  `projects/{project}/locations/{location}/runtimes/{runtimeId}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Idempotent request UUID. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Specifies the path, relative to `Runtime`, of the field to update.
+ *  For example, to change the software configuration kernels, the `update_mask`
+ *  parameter would be specified as `software_config.kernels`, and the `PATCH`
+ *  request body would specify the new value, as follows: { "software_config":{
+ *  "kernels": [{ 'repository':
+ *  'gcr.io/deeplearning-platform-release/pytorch-gpu', 'tag': 'latest' }], } }
+ *  Currently, only the following fields can be updated: -
+ *  software_config.kernels - software_config.post_startup_script -
+ *  software_config.custom_gpu_driver_path - software_config.idle_shutdown -
+ *  software_config.idle_shutdown_timeout
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Operation.
+ *
+ *  Update Notebook Runtime configuration.
+ *
+ *  @param object The @c GTLRAIPlatformNotebooks_Runtime to include in the
+ *    query.
+ *  @param name Output only. The resource name of the runtime. Format:
+ *    `projects/{project}/locations/{location}/runtimes/{runtimeId}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesPatch
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_Runtime *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1703,8 +1763,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspec
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesSetIamPolicy : GTLRAIPlatformNotebooksQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1718,8 +1779,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspec
  *  @param object The @c GTLRAIPlatformNotebooks_SetIamPolicyRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesSetIamPolicy
  */
@@ -1855,7 +1917,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspec
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1871,8 +1934,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspec
  *  @param object The @c GTLRAIPlatformNotebooks_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesTestIamPermissions
  */

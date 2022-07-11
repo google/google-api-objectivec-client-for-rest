@@ -36,15 +36,21 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1GraphicsAdapterInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1GraphicsInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1GraphicsStatusReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData;
 @class GTLRChromeManagement_GoogleChromeManagementV1InstalledApp;
 @class GTLRChromeManagement_GoogleChromeManagementV1MemoryInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1MemoryStatusReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1NetworkDevice;
+@class GTLRChromeManagement_GoogleChromeManagementV1NetworkDiagnosticsReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1NetworkInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageInfoDiskVolume;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageStatusReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryDevice;
+@class GTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo;
+@class GTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo;
 @class GTLRChromeManagement_GoogleRpcStatus;
 @class GTLRChromeManagement_GoogleRpcStatus_Details_Item;
 @class GTLRChromeManagement_GoogleTypeDate;
@@ -218,6 +224,40 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1CpuInfo_Architecture_X64;
 
 // ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData.problem
+
+/**
+ *  One or more DNS resolutions resulted in a failure.
+ *
+ *  Value: "FAILED_DNS_RESOLUTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData_Problem_FailedDnsResolutions;
+/**
+ *  One or more HTTPS requests resulted in a failure.
+ *
+ *  Value: "FAILED_HTTPS_REQUESTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData_Problem_FailedHttpsRequests;
+/**
+ *  Average HTTPS request latency time between 500ms and 1000ms is high.
+ *
+ *  Value: "HIGH_LATENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData_Problem_HighLatency;
+/**
+ *  HTTPS latency problem not specified.
+ *
+ *  Value: "HTTPS_LATENCY_PROBLEM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData_Problem_HttpsLatencyProblemUnspecified;
+/**
+ *  Average HTTPS request latency time greater than 1000ms is very high.
+ *
+ *  Value: "VERY_HIGH_LATENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData_Problem_VeryHighLatency;
+
+// ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1InstalledApp.appInstallType
 
 /**
@@ -326,6 +366,116 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1InstalledApp_AppType_Theme;
 
 // ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1NetworkDevice.type
+
+/**
+ *  Cellular device.
+ *
+ *  Value: "CELLULAR_DEVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkDevice_Type_CellularDevice;
+/**
+ *  Ethernet device.
+ *
+ *  Value: "ETHERNET_DEVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkDevice_Type_EthernetDevice;
+/**
+ *  Network device type not specified.
+ *
+ *  Value: "NETWORK_DEVICE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkDevice_Type_NetworkDeviceTypeUnspecified;
+/**
+ *  Wifi device.
+ *
+ *  Value: "WIFI_DEVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkDevice_Type_WifiDevice;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport.connectionState
+
+/**
+ *  The network is connected and not in a detected portal state, but internet
+ *  connectivity may not be available.
+ *
+ *  Value: "CONNECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionState_Connected;
+/**
+ *  The network is in the process of connecting.
+ *
+ *  Value: "CONNECTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionState_Connecting;
+/**
+ *  Network connection state unspecified.
+ *
+ *  Value: "NETWORK_CONNECTION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionState_NetworkConnectionStateUnspecified;
+/**
+ *  The network is not connected.
+ *
+ *  Value: "NOT_CONNECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionState_NotConnected;
+/**
+ *  The network is connected and internet connectivity is available.
+ *
+ *  Value: "ONLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionState_Online;
+/**
+ *  The network is connected but a portal state was detected. Internet
+ *  connectivity may be limited.
+ *
+ *  Value: "PORTAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionState_Portal;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport.connectionType
+
+/**
+ *  Cellular network connection.
+ *
+ *  Value: "CELLULAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionType_Cellular;
+/**
+ *  Ethernet network connection.
+ *
+ *  Value: "ETHERNET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionType_Ethernet;
+/**
+ *  Network connection type unspecified
+ *
+ *  Value: "NETWORK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionType_NetworkTypeUnspecified;
+/**
+ *  Tether network connection.
+ *
+ *  Value: "TETHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionType_Tether;
+/**
+ *  VPN network connection.
+ *
+ *  Value: "VPN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionType_Vpn;
+/**
+ *  Wifi network connection.
+ *
+ *  Value: "WIFI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionType_Wifi;
+
+// ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus.updateState
 
 /**
@@ -352,6 +502,120 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "UPDATE_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_UpdateState_UpdateStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo.securityLevel
+
+/**
+ *  The firmware automatically creates tunnels for Thunderbolt.
+ *
+ *  Value: "THUNDERBOLT_SECURITY_DP_ONLY_LEVEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecurityDpOnlyLevel;
+/**
+ *  Thunderbolt security level is not set.
+ *
+ *  Value: "THUNDERBOLT_SECURITY_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecurityLevelUnspecified;
+/**
+ *  All devices are automatically connected by the firmware. No user approval is
+ *  needed.
+ *
+ *  Value: "THUNDERBOLT_SECURITY_NONE_LEVEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecurityNoneLevel;
+/**
+ *  PCIE tunneling is disabled.
+ *
+ *  Value: "THUNDERBOLT_SECURITY_NO_PCIE_LEVEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecurityNoPcieLevel;
+/**
+ *  User is asked whether the device is allowed to be connected. In addition the
+ *  device is sent a challenge that should match the expected one based on a
+ *  random key written to the key sysfs attribute
+ *
+ *  Value: "THUNDERBOLT_SECURITY_SECURE_LEVEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecuritySecureLevel;
+/**
+ *  The firmware automatically creates tunnels for the USB controller and
+ *  Display Port in a dock. All PCIe links downstream of the dock are removed.
+ *
+ *  Value: "THUNDERBOLT_SECURITY_USB_ONLY_LEVEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecurityUsbOnlyLevel;
+/**
+ *  User is asked whether the device is allowed to be connected.
+ *
+ *  Value: "THUNDERBOLT_SECURITY_USER_LEVEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecurityUserLevel;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo.encryptionAlgorithm
+
+/**
+ *  The memory encryption algorithm is using the AES_XTS encryption algorithm
+ *  with a 128 bit block cypher.
+ *
+ *  Value: "MEMORY_ENCRYPTION_ALGORITHM_AES_XTS_128"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionAlgorithm_MemoryEncryptionAlgorithmAesXts128;
+/**
+ *  The memory encryption algorithm is using the AES_XTS encryption algorithm
+ *  with a 256 bit block cypher.
+ *
+ *  Value: "MEMORY_ENCRYPTION_ALGORITHM_AES_XTS_256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionAlgorithm_MemoryEncryptionAlgorithmAesXts256;
+/**
+ *  The memory encryption algorithm being used is unknown.
+ *
+ *  Value: "MEMORY_ENCRYPTION_ALGORITHM_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionAlgorithm_MemoryEncryptionAlgorithmUnknown;
+/**
+ *  Memory encryption algorithm is not set.
+ *
+ *  Value: "MEMORY_ENCRYPTION_ALGORITHM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionAlgorithm_MemoryEncryptionAlgorithmUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo.encryptionState
+
+/**
+ *  Memory encrpytion on the device is disabled.
+ *
+ *  Value: "MEMORY_ENCRYPTION_STATE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionState_MemoryEncryptionStateDisabled;
+/**
+ *  Memory encryption on the device uses multi-key total memory encryption.
+ *
+ *  Value: "MEMORY_ENCRYPTION_STATE_MKTME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionState_MemoryEncryptionStateMktme;
+/**
+ *  Memory encryption on the device uses total memory encryption.
+ *
+ *  Value: "MEMORY_ENCRYPTION_STATE_TME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionState_MemoryEncryptionStateTme;
+/**
+ *  The memory encryption state is unknown.
+ *
+ *  Value: "MEMORY_ENCRYPTION_STATE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionState_MemoryEncryptionStateUnknown;
+/**
+ *  Memory encryption state is not set.
+ *
+ *  Value: "MEMORY_ENCRYPTION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionState_MemoryEncryptionStateUnspecified;
 
 /**
  *  Android app information.
@@ -1004,6 +1268,21 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 @property(nonatomic, copy, nullable) NSString *architecture;
 
 /**
+ *  Output only. Whether keylocker is configured.`TRUE` = Enabled; `FALSE` =
+ *  disabled. Only reported if keylockerSupported = `TRUE`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *keylockerConfigured;
+
+/**
+ *  Output only. Whether keylocker is supported.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *keylockerSupported;
+
+/**
  *  Output only. The max CPU clock speed in kHz.
  *
  *  Uses NSNumber of intValue.
@@ -1271,6 +1550,43 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Data that describes the result of the HTTPS latency diagnostics routine,
+ *  with the HTTPS requests issued to Google websites.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData : GTLRObject
+
+/**
+ *  Output only. HTTPS latency if routine succeeded or failed because of
+ *  HIGH_LATENCY or VERY_HIGH_LATENCY.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *latency;
+
+/**
+ *  Output only. HTTPS latency routine problem if a problem occurred.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData_Problem_FailedDnsResolutions
+ *        One or more DNS resolutions resulted in a failure. (Value:
+ *        "FAILED_DNS_RESOLUTIONS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData_Problem_FailedHttpsRequests
+ *        One or more HTTPS requests resulted in a failure. (Value:
+ *        "FAILED_HTTPS_REQUESTS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData_Problem_HighLatency
+ *        Average HTTPS request latency time between 500ms and 1000ms is high.
+ *        (Value: "HIGH_LATENCY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData_Problem_HttpsLatencyProblemUnspecified
+ *        HTTPS latency problem not specified. (Value:
+ *        "HTTPS_LATENCY_PROBLEM_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData_Problem_VeryHighLatency
+ *        Average HTTPS request latency time greater than 1000ms is very high.
+ *        (Value: "VERY_HIGH_LATENCY")
+ */
+@property(nonatomic, copy, nullable) NSString *problem;
+
+@end
+
+
+/**
  *  Describes an installed app.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1InstalledApp : GTLRObject
@@ -1412,6 +1728,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 @property(nonatomic, strong, nullable) NSNumber *availableRamBytes;
 
+/** Output only. Total memory encryption info for the device. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo *totalMemoryEncryption;
+
 /**
  *  Output only. Total RAM in bytes.
  *
@@ -1455,15 +1774,149 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Network device.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1NetworkDevice : GTLRObject
+
+/**
+ *  Output only. The integrated circuit card ID associated with the device's sim
+ *  card.
+ */
+@property(nonatomic, copy, nullable) NSString *iccid;
+
+/** Output only. IMEI (if applicable) of the corresponding network device. */
+@property(nonatomic, copy, nullable) NSString *imei;
+
+/**
+ *  Output only. MAC address (if applicable) of the corresponding network
+ *  device.
+ */
+@property(nonatomic, copy, nullable) NSString *macAddress;
+
+/**
+ *  Output only. The mobile directory number associated with the device's sim
+ *  card.
+ */
+@property(nonatomic, copy, nullable) NSString *mdn;
+
+/** Output only. MEID (if applicable) of the corresponding network device. */
+@property(nonatomic, copy, nullable) NSString *meid;
+
+/**
+ *  Output only. Network device type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1NetworkDevice_Type_CellularDevice
+ *        Cellular device. (Value: "CELLULAR_DEVICE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1NetworkDevice_Type_EthernetDevice
+ *        Ethernet device. (Value: "ETHERNET_DEVICE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1NetworkDevice_Type_NetworkDeviceTypeUnspecified
+ *        Network device type not specified. (Value:
+ *        "NETWORK_DEVICE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1NetworkDevice_Type_WifiDevice
+ *        Wifi device. (Value: "WIFI_DEVICE")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Network testing results to determine the health of the device's network
+ *  connection, for example whether the HTTPS latency is high or normal.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1NetworkDiagnosticsReport : GTLRObject
+
+/** Output only. HTTPS latency test data. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData *httpsLatencyData;
+
+/** Output only. Timestamp of when the diagnostics were collected. */
+@property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
+
+@end
+
+
+/**
+ *  Network devices info.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1NetworkInfo : GTLRObject
+
+/** Output only. List of network devices. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1NetworkDevice *> *networkDevices;
+
+@end
+
+
+/**
  *  State of visible/configured networks.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport : GTLRObject
 
+/**
+ *  Output only. Current connection state of the network.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionState_Connected
+ *        The network is connected and not in a detected portal state, but
+ *        internet connectivity may not be available. (Value: "CONNECTED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionState_Connecting
+ *        The network is in the process of connecting. (Value: "CONNECTING")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionState_NetworkConnectionStateUnspecified
+ *        Network connection state unspecified. (Value:
+ *        "NETWORK_CONNECTION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionState_NotConnected
+ *        The network is not connected. (Value: "NOT_CONNECTED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionState_Online
+ *        The network is connected and internet connectivity is available.
+ *        (Value: "ONLINE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionState_Portal
+ *        The network is connected but a portal state was detected. Internet
+ *        connectivity may be limited. (Value: "PORTAL")
+ */
+@property(nonatomic, copy, nullable) NSString *connectionState;
+
+/**
+ *  Output only. Network connection type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionType_Cellular
+ *        Cellular network connection. (Value: "CELLULAR")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionType_Ethernet
+ *        Ethernet network connection. (Value: "ETHERNET")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionType_NetworkTypeUnspecified
+ *        Network connection type unspecified (Value:
+ *        "NETWORK_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionType_Tether
+ *        Tether network connection. (Value: "TETHER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionType_Vpn
+ *        VPN network connection. (Value: "VPN")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport_ConnectionType_Wifi
+ *        Wifi network connection. (Value: "WIFI")
+ */
+@property(nonatomic, copy, nullable) NSString *connectionType;
+
+/**
+ *  Output only. Whether the wifi encryption key is turned off.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *encryptionOn;
+
 /** Output only. Gateway IP address. */
 @property(nonatomic, copy, nullable) NSString *gatewayIpAddress;
 
+/** Output only. Network connection guid. */
+@property(nonatomic, copy, nullable) NSString *guid;
+
 /** Output only. LAN IP address. */
 @property(nonatomic, copy, nullable) NSString *lanIpAddress;
+
+/**
+ *  Output only. Receiving bit rate measured in megabytes per second.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *receivingBitRateMbps;
 
 /** Output only. Time at which the network state was reported. */
 @property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
@@ -1477,6 +1930,35 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *signalStrengthDbm;
+
+/**
+ *  Output only. Transmission bit rate measured in megabytes per second.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *transmissionBitRateMbps;
+
+/**
+ *  Output only. Transmission power measured in decibels.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *transmissionPowerDbm;
+
+/**
+ *  Output only. Wifi link quality. Value ranges from [0, 70]. 0 indicates no
+ *  signal and 70 indicates a strong signal.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *wifiLinkQuality;
+
+/**
+ *  Output only. Wifi power management enabled
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *wifiPowerManagementEnabled;
 
 @end
 
@@ -1652,6 +2134,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 /** Output only. Resource name of the device. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Output only. Network diagnostics collected periodically. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1NetworkDiagnosticsReport *> *networkDiagnosticsReport;
+
+/** Output only. Network devices information. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1NetworkInfo *networkInfo;
+
 /** Output only. Network specs collected periodically. */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport *> *networkStatusReport;
 
@@ -1674,6 +2162,113 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** Output only. Storage reports collected periodically. */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1StorageStatusReport *> *storageStatusReport;
+
+/** Output only. Information on Thunderbolt bus. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo *> *thunderboltInfo;
+
+@end
+
+
+/**
+ *  Thunderbolt bus info.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo : GTLRObject
+
+/**
+ *  Security level of the Thunderbolt bus.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecurityDpOnlyLevel
+ *        The firmware automatically creates tunnels for Thunderbolt. (Value:
+ *        "THUNDERBOLT_SECURITY_DP_ONLY_LEVEL")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecurityLevelUnspecified
+ *        Thunderbolt security level is not set. (Value:
+ *        "THUNDERBOLT_SECURITY_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecurityNoneLevel
+ *        All devices are automatically connected by the firmware. No user
+ *        approval is needed. (Value: "THUNDERBOLT_SECURITY_NONE_LEVEL")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecurityNoPcieLevel
+ *        PCIE tunneling is disabled. (Value:
+ *        "THUNDERBOLT_SECURITY_NO_PCIE_LEVEL")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecuritySecureLevel
+ *        User is asked whether the device is allowed to be connected. In
+ *        addition the device is sent a challenge that should match the expected
+ *        one based on a random key written to the key sysfs attribute (Value:
+ *        "THUNDERBOLT_SECURITY_SECURE_LEVEL")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecurityUsbOnlyLevel
+ *        The firmware automatically creates tunnels for the USB controller and
+ *        Display Port in a dock. All PCIe links downstream of the dock are
+ *        removed. (Value: "THUNDERBOLT_SECURITY_USB_ONLY_LEVEL")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo_SecurityLevel_ThunderboltSecurityUserLevel
+ *        User is asked whether the device is allowed to be connected. (Value:
+ *        "THUNDERBOLT_SECURITY_USER_LEVEL")
+ */
+@property(nonatomic, copy, nullable) NSString *securityLevel;
+
+@end
+
+
+/**
+ *  Memory encryption information of a device.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo : GTLRObject
+
+/**
+ *  Memory encryption algorithm.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionAlgorithm_MemoryEncryptionAlgorithmAesXts128
+ *        The memory encryption algorithm is using the AES_XTS encryption
+ *        algorithm with a 128 bit block cypher. (Value:
+ *        "MEMORY_ENCRYPTION_ALGORITHM_AES_XTS_128")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionAlgorithm_MemoryEncryptionAlgorithmAesXts256
+ *        The memory encryption algorithm is using the AES_XTS encryption
+ *        algorithm with a 256 bit block cypher. (Value:
+ *        "MEMORY_ENCRYPTION_ALGORITHM_AES_XTS_256")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionAlgorithm_MemoryEncryptionAlgorithmUnknown
+ *        The memory encryption algorithm being used is unknown. (Value:
+ *        "MEMORY_ENCRYPTION_ALGORITHM_UNKNOWN")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionAlgorithm_MemoryEncryptionAlgorithmUnspecified
+ *        Memory encryption algorithm is not set. (Value:
+ *        "MEMORY_ENCRYPTION_ALGORITHM_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionAlgorithm;
+
+/**
+ *  The state of memory encryption on the device.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionState_MemoryEncryptionStateDisabled
+ *        Memory encrpytion on the device is disabled. (Value:
+ *        "MEMORY_ENCRYPTION_STATE_DISABLED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionState_MemoryEncryptionStateMktme
+ *        Memory encryption on the device uses multi-key total memory
+ *        encryption. (Value: "MEMORY_ENCRYPTION_STATE_MKTME")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionState_MemoryEncryptionStateTme
+ *        Memory encryption on the device uses total memory encryption. (Value:
+ *        "MEMORY_ENCRYPTION_STATE_TME")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionState_MemoryEncryptionStateUnknown
+ *        The memory encryption state is unknown. (Value:
+ *        "MEMORY_ENCRYPTION_STATE_UNKNOWN")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionState_MemoryEncryptionStateUnspecified
+ *        Memory encryption state is not set. (Value:
+ *        "MEMORY_ENCRYPTION_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionState;
+
+/**
+ *  The length of the encryption keys.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *keyLength;
+
+/**
+ *  The maximum number of keys that can be used for encryption.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxKeys;
 
 @end
 

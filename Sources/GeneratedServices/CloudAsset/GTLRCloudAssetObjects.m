@@ -224,7 +224,8 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 @implementation GTLRCloudAsset_Asset
 @dynamic accessLevel, accessPolicy, ancestors, assetType, iamPolicy, name,
-         orgPolicy, osInventory, resource, servicePerimeter, updateTime;
+         orgPolicy, osInventory, relatedAsset, relatedAssets, resource,
+         servicePerimeter, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -927,10 +928,11 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressTo
-@dynamic operations, resources;
+@dynamic externalResources, operations, resources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"externalResources" : [NSString class],
     @"operations" : [GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ApiOperation class],
     @"resources" : [NSString class]
   };
@@ -1467,6 +1469,42 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_RelatedAsset
+//
+
+@implementation GTLRCloudAsset_RelatedAsset
+@dynamic ancestors, asset, assetType, relationshipType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ancestors" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_RelatedAssets
+//
+
+@implementation GTLRCloudAsset_RelatedAssets
+@dynamic assets, relationshipAttributes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assets" : [GTLRCloudAsset_RelatedAsset class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_RelatedResource
 //
 
@@ -1490,6 +1528,16 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_RelationshipAttributes
+//
+
+@implementation GTLRCloudAsset_RelationshipAttributes
+@dynamic action, sourceResourceType, targetResourceType, type;
 @end
 
 

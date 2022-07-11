@@ -261,6 +261,33 @@
 
 @end
 
+@implementation GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsImport
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudDomains_ImportDomainRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/registrations:import";
+  GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsImport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudDomains_Operation class];
+  query.loggingName = @"domains.projects.locations.registrations.import";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsList
 
 @dynamic filter, pageSize, pageToken, parent;
@@ -375,6 +402,25 @@
   query.registration = registration;
   query.expectedObjectClass = [GTLRCloudDomains_AuthorizationCode class];
   query.loggingName = @"domains.projects.locations.registrations.retrieveAuthorizationCode";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRetrieveImportableDomains
+
+@dynamic location, pageSize, pageToken;
+
++ (instancetype)queryWithLocation:(NSString *)location {
+  NSArray *pathParams = @[ @"location" ];
+  NSString *pathURITemplate = @"v1/{+location}/registrations:retrieveImportableDomains";
+  GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRetrieveImportableDomains *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.location = location;
+  query.expectedObjectClass = [GTLRCloudDomains_RetrieveImportableDomainsResponse class];
+  query.loggingName = @"domains.projects.locations.registrations.retrieveImportableDomains";
   return query;
 }
 

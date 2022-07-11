@@ -39,6 +39,10 @@ NSString * const kGTLRCloudRedis_Instance_State_Repairing      = @"REPAIRING";
 NSString * const kGTLRCloudRedis_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudRedis_Instance_State_Updating       = @"UPDATING";
 
+// GTLRCloudRedis_Instance.suspensionReasons
+NSString * const kGTLRCloudRedis_Instance_SuspensionReasons_CustomerManagedKeyIssue = @"CUSTOMER_MANAGED_KEY_ISSUE";
+NSString * const kGTLRCloudRedis_Instance_SuspensionReasons_SuspensionReasonUnspecified = @"SUSPENSION_REASON_UNSPECIFIED";
+
 // GTLRCloudRedis_Instance.tier
 NSString * const kGTLRCloudRedis_Instance_Tier_Basic           = @"BASIC";
 NSString * const kGTLRCloudRedis_Instance_Tier_StandardHa      = @"STANDARD_HA";
@@ -197,17 +201,19 @@ NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday = @"WEDNE
 
 @implementation GTLRCloudRedis_Instance
 @dynamic alternativeLocationId, authEnabled, authorizedNetwork, connectMode,
-         createTime, currentLocationId, displayName, host, labels, locationId,
-         maintenancePolicy, maintenanceSchedule, maintenanceVersion,
+         createTime, currentLocationId, customerManagedKey, displayName, host,
+         labels, locationId, maintenancePolicy, maintenanceSchedule,
          memorySizeGb, name, nodes, persistenceConfig, persistenceIamIdentity,
          port, readEndpoint, readEndpointPort, readReplicasMode, redisConfigs,
          redisVersion, replicaCount, reservedIpRange, secondaryIpRange,
-         serverCaCerts, state, statusMessage, tier, transitEncryptionMode;
+         serverCaCerts, state, statusMessage, suspensionReasons, tier,
+         transitEncryptionMode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"nodes" : [GTLRCloudRedis_NodeInfo class],
-    @"serverCaCerts" : [GTLRCloudRedis_TlsCertificate class]
+    @"serverCaCerts" : [GTLRCloudRedis_TlsCertificate class],
+    @"suspensionReasons" : [NSString class]
   };
   return map;
 }

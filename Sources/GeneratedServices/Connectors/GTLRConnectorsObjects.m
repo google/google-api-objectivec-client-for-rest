@@ -24,16 +24,19 @@ NSString * const kGTLRConnectors_AuditLogConfig_LogType_LogTypeUnspecified = @"L
 NSString * const kGTLRConnectors_AuthConfig_AuthType_AuthTypeUnspecified = @"AUTH_TYPE_UNSPECIFIED";
 NSString * const kGTLRConnectors_AuthConfig_AuthType_Oauth2ClientCredentials = @"OAUTH2_CLIENT_CREDENTIALS";
 NSString * const kGTLRConnectors_AuthConfig_AuthType_Oauth2JwtBearer = @"OAUTH2_JWT_BEARER";
+NSString * const kGTLRConnectors_AuthConfig_AuthType_SshPublicKey = @"SSH_PUBLIC_KEY";
 NSString * const kGTLRConnectors_AuthConfig_AuthType_UserPassword = @"USER_PASSWORD";
 
 // GTLRConnectors_AuthConfigTemplate.authType
 NSString * const kGTLRConnectors_AuthConfigTemplate_AuthType_AuthTypeUnspecified = @"AUTH_TYPE_UNSPECIFIED";
 NSString * const kGTLRConnectors_AuthConfigTemplate_AuthType_Oauth2ClientCredentials = @"OAUTH2_CLIENT_CREDENTIALS";
 NSString * const kGTLRConnectors_AuthConfigTemplate_AuthType_Oauth2JwtBearer = @"OAUTH2_JWT_BEARER";
+NSString * const kGTLRConnectors_AuthConfigTemplate_AuthType_SshPublicKey = @"SSH_PUBLIC_KEY";
 NSString * const kGTLRConnectors_AuthConfigTemplate_AuthType_UserPassword = @"USER_PASSWORD";
 
 // GTLRConnectors_ConfigVariableTemplate.valueType
 NSString * const kGTLRConnectors_ConfigVariableTemplate_ValueType_Bool = @"BOOL";
+NSString * const kGTLRConnectors_ConfigVariableTemplate_ValueType_Enum = @"ENUM";
 NSString * const kGTLRConnectors_ConfigVariableTemplate_ValueType_Int = @"INT";
 NSString * const kGTLRConnectors_ConfigVariableTemplate_ValueType_Secret = @"SECRET";
 NSString * const kGTLRConnectors_ConfigVariableTemplate_ValueType_String = @"STRING";
@@ -274,7 +277,7 @@ NSString * const kGTLRConnectors_Source_SourceType_SourceTypeUnspecified = @"SOU
 
 @implementation GTLRConnectors_AuthConfig
 @dynamic additionalVariables, authType, oauth2ClientCredentials,
-         oauth2JwtBearer, userPassword;
+         oauth2JwtBearer, sshPublicKey, userPassword;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -347,11 +350,18 @@ NSString * const kGTLRConnectors_Source_SourceType_SourceTypeUnspecified = @"SOU
 //
 
 @implementation GTLRConnectors_ConfigVariableTemplate
-@dynamic descriptionProperty, displayName, key, required, roleGrant,
-         validationRegex, valueType;
+@dynamic descriptionProperty, displayName, enumOptions, key, required,
+         roleGrant, validationRegex, valueType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enumOptions" : [GTLRConnectors_EnumOption class]
+  };
+  return map;
 }
 
 @end
@@ -513,6 +523,21 @@ NSString * const kGTLRConnectors_Source_SourceType_SourceTypeUnspecified = @"SOU
 //
 
 @implementation GTLRConnectors_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_EnumOption
+//
+
+@implementation GTLRConnectors_EnumOption
+@dynamic displayName, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 
@@ -1083,6 +1108,16 @@ NSString * const kGTLRConnectors_Source_SourceType_SourceTypeUnspecified = @"SOU
 
 @implementation GTLRConnectors_Source
 @dynamic fieldId, sourceType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_SshPublicKey
+//
+
+@implementation GTLRConnectors_SshPublicKey
+@dynamic certType, password, sshClientCert, username;
 @end
 
 

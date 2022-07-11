@@ -200,7 +200,7 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_AwsSourceVmDetails
-@dynamic firmware;
+@dynamic committedStorageBytes, firmware;
 @end
 
 
@@ -408,7 +408,7 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_FetchInventoryResponse
-@dynamic updateTime, vmwareVms;
+@dynamic nextPageToken, updateTime, vmwareVms;
 @end
 
 
@@ -605,6 +605,29 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 + (NSString *)collectionItemsKey {
   return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_ListReplicationCyclesResponse
+//
+
+@implementation GTLRVMMigrationService_ListReplicationCyclesResponse
+@dynamic nextPageToken, replicationCycles, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"replicationCycles" : [GTLRVMMigrationService_ReplicationCycle class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"replicationCycles";
 }
 
 @end

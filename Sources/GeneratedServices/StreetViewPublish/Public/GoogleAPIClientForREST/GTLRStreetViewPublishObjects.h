@@ -17,8 +17,16 @@
 #endif
 
 @class GTLRStreetViewPublish_Connection;
+@class GTLRStreetViewPublish_GpsDataGapFailureDetails;
+@class GTLRStreetViewPublish_Imu;
+@class GTLRStreetViewPublish_ImuDataGapFailureDetails;
+@class GTLRStreetViewPublish_InsufficientGpsFailureDetails;
 @class GTLRStreetViewPublish_LatLng;
+@class GTLRStreetViewPublish_LatLngBounds;
 @class GTLRStreetViewPublish_Level;
+@class GTLRStreetViewPublish_Measurement3d;
+@class GTLRStreetViewPublish_NotOutdoorsFailureDetails;
+@class GTLRStreetViewPublish_Operation;
 @class GTLRStreetViewPublish_Operation_Metadata;
 @class GTLRStreetViewPublish_Operation_Response;
 @class GTLRStreetViewPublish_Photo;
@@ -26,6 +34,7 @@
 @class GTLRStreetViewPublish_PhotoResponse;
 @class GTLRStreetViewPublish_Place;
 @class GTLRStreetViewPublish_Pose;
+@class GTLRStreetViewPublish_ProcessingFailureDetails;
 @class GTLRStreetViewPublish_Status;
 @class GTLRStreetViewPublish_Status_Details_Item;
 @class GTLRStreetViewPublish_UpdatePhotoRequest;
@@ -116,6 +125,177 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_R
  *  Value: "TRANSFER_STATUS_UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_TransferStatusUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRStreetViewPublish_PhotoSequence.failureReason
+
+/**
+ *  The video file was corrupt.
+ *
+ *  Value: "CORRUPT_VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_CorruptVideo;
+/**
+ *  This video has been uploaded before.
+ *
+ *  Value: "DUPLICATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_Duplicate;
+/**
+ *  The sequence of photos could not be accurately located in the world.
+ *
+ *  Value: "FAILED_TO_REFINE_POSITIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_FailedToRefinePositions;
+/**
+ *  GPS data contains a gap greater than 5 seconds in duration.
+ *
+ *  Value: "GPS_DATA_GAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_GpsDataGap;
+/**
+ *  IMU (Accelerometer, Gyroscope, etc.) data contain gaps greater than 0.1
+ *  seconds in duration.
+ *
+ *  Value: "IMU_DATA_GAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_ImuDataGap;
+/**
+ *  Too few GPS points.
+ *
+ *  Value: "INSUFFICIENT_GPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientGps;
+/**
+ *  A permanent failure in the underlying system occurred.
+ *
+ *  Value: "INTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_Internal;
+/**
+ *  Invalid capture time. Timestamps were from the future.
+ *
+ *  Value: "INVALID_CAPTURE_TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InvalidCaptureTime;
+/**
+ *  GPS is invalid (e.x. all GPS points are at (0,0))
+ *
+ *  Value: "INVALID_GPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InvalidGps;
+/**
+ *  IMU (Accelerometer, Gyroscope, etc.) data are not valid. They may be missing
+ *  required fields (x, y, z or time), may not be formatted correctly, or any
+ *  other issue that prevents our systems from parsing it.
+ *
+ *  Value: "INVALID_IMU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InvalidImu;
+/**
+ *  Invalid image aspect ratio found.
+ *
+ *  Value: "INVALID_VIDEO_DIMENSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InvalidVideoDimensions;
+/**
+ *  The video format is invalid or unsupported.
+ *
+ *  Value: "INVALID_VIDEO_FORMAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InvalidVideoFormat;
+/**
+ *  GPS data is too erratic to be processed.
+ *
+ *  Value: "JUMPY_GPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_JumpyGps;
+/**
+ *  Video frame's resolution is too small.
+ *
+ *  Value: "LOW_RESOLUTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_LowResolution;
+/**
+ *  No overlap between the time frame of GPS track and the time frame of video.
+ *
+ *  Value: "NO_OVERLAP_GPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_NoOverlapGps;
+/**
+ *  Some frames were indoors, which is unsupported.
+ *
+ *  Value: "NOT_OUTDOORS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_NotOutdoors;
+/**
+ *  The failure reason is unspecified, this is the default value.
+ *
+ *  Value: "PROCESSING_FAILURE_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_ProcessingFailureReasonUnspecified;
+/**
+ *  The sequence was taken down for policy reasons.
+ *
+ *  Value: "TAKEDOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_Takedown;
+/**
+ *  The camera is not supported.
+ *
+ *  Value: "UNSUPPORTED_CAMERA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_UnsupportedCamera;
+
+// ----------------------------------------------------------------------------
+// GTLRStreetViewPublish_PhotoSequence.gpsSource
+
+/**
+ *  GPS in Camera Motion Metadata Track (CAMM) takes precedence if it exists.
+ *
+ *  Value: "CAMERA_MOTION_METADATA_TRACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_GpsSource_CameraMotionMetadataTrack;
+/**
+ *  GPS in raw_gps_timeline takes precedence if it exists.
+ *
+ *  Value: "PHOTO_SEQUENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_GpsSource_PhotoSequence;
+
+// ----------------------------------------------------------------------------
+// GTLRStreetViewPublish_PhotoSequence.processingState
+
+/**
+ *  The sequence failed processing. See FailureReason for more details.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_ProcessingState_Failed;
+/**
+ *  The sequence has not yet started processing.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_ProcessingState_Pending;
+/**
+ *  The sequence has finished processing including refining position.
+ *
+ *  Value: "PROCESSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_ProcessingState_Processed;
+/**
+ *  The sequence is currently in processing.
+ *
+ *  Value: "PROCESSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_ProcessingState_Processing;
+/**
+ *  The state is unspecified, this is the default value.
+ *
+ *  Value: "PROCESSING_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_ProcessingState_ProcessingStateUnspecified;
 
 /**
  *  Request to delete multiple Photos.
@@ -209,6 +389,79 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 
 
 /**
+ *  Details related to ProcessingFailureReason#GPS_DATA_GAP.
+ */
+@interface GTLRStreetViewPublish_GpsDataGapFailureDetails : GTLRObject
+
+/** The duration of the gap in GPS data that was found. */
+@property(nonatomic, strong, nullable) GTLRDuration *gapDuration;
+
+/**
+ *  Relative time (from the start of the video stream) when the gap started.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *gapTime;
+
+@end
+
+
+/**
+ *  IMU data from the device sensors.
+ */
+@interface GTLRStreetViewPublish_Imu : GTLRObject
+
+/**
+ *  The accelerometer measurements in meters/sec^2 with increasing timestamps
+ *  from devices.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRStreetViewPublish_Measurement3d *> *accelMpsps;
+
+/**
+ *  The gyroscope measurements in radians/sec with increasing timestamps from
+ *  devices.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRStreetViewPublish_Measurement3d *> *gyroRps;
+
+/**
+ *  The magnetometer measurements of the magnetic field in microtesla (uT) with
+ *  increasing timestamps from devices.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRStreetViewPublish_Measurement3d *> *magUt;
+
+@end
+
+
+/**
+ *  Details related to ProcessingFailureReason#IMU_DATA_GAP.
+ */
+@interface GTLRStreetViewPublish_ImuDataGapFailureDetails : GTLRObject
+
+/** The duration of the gap in IMU data that was found. */
+@property(nonatomic, strong, nullable) GTLRDuration *gapDuration;
+
+/**
+ *  Relative time (from the start of the video stream) when the gap started.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *gapTime;
+
+@end
+
+
+/**
+ *  Details related to ProcessingFailureReason#INSUFFICIENT_GPS.
+ */
+@interface GTLRStreetViewPublish_InsufficientGpsFailureDetails : GTLRObject
+
+/**
+ *  The number of GPS points that were found in the video.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gpsPointsFound;
+
+@end
+
+
+/**
  *  An object that represents a latitude/longitude pair. This is expressed as a
  *  pair of doubles to represent degrees latitude and degrees longitude. Unless
  *  specified otherwise, this object must conform to the WGS84 standard. Values
@@ -229,6 +482,20 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *longitude;
+
+@end
+
+
+/**
+ *  A rectangle in geographical coordinates.
+ */
+@interface GTLRStreetViewPublish_LatLngBounds : GTLRObject
+
+/** The northeast corner of these bounds. */
+@property(nonatomic, strong, nullable) GTLRStreetViewPublish_LatLng *northeast;
+
+/** The southwest corner of these bounds. */
+@property(nonatomic, strong, nullable) GTLRStreetViewPublish_LatLng *southwest;
 
 @end
 
@@ -258,6 +525,39 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 
 
 /**
+ *  Response to list all photo sequences that belong to a user.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "photoSequences" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRStreetViewPublish_ListPhotoSequencesResponse : GTLRCollectionObject
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of photo sequences via Operation interface. The maximum number of items
+ *  returned is based on the pageSize field in the request. Each item in the
+ *  list can have three possible states, * `Operation.done` = false, if the
+ *  processing of PhotoSequence is not finished yet. * `Operation.done` = true
+ *  and `Operation.error` is populated, if there was an error in processing. *
+ *  `Operation.done` = true and `Operation.response` contains a PhotoSequence
+ *  message, In each sequence, only Id is populated.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRStreetViewPublish_Operation *> *photoSequences;
+
+@end
+
+
+/**
  *  Response to list all photos that belong to a user.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -281,6 +581,52 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRStreetViewPublish_Photo *> *photos;
+
+@end
+
+
+/**
+ *  A Generic 3d measurement sample.
+ */
+@interface GTLRStreetViewPublish_Measurement3d : GTLRObject
+
+/** The timestamp of the IMU measurement. */
+@property(nonatomic, strong, nullable) GTLRDateTime *captureTime;
+
+/**
+ *  The sensor measurement in the x axis.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *x;
+
+/**
+ *  The sensor measurement in the y axis.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *y;
+
+/**
+ *  The sensor measurement in the z axis.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *z;
+
+@end
+
+
+/**
+ *  Details related to ProcessingFailureReason#NOT_OUTDOORS.
+ */
+@interface GTLRStreetViewPublish_NotOutdoorsFailureDetails : GTLRObject
+
+/**
+ *  Relative time (from the start of the video stream) when an indoor frame was
+ *  found.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *time;
 
 @end
 
@@ -506,6 +852,190 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 
 
 /**
+ *  A sequence of 360 photos along with metadata.
+ */
+@interface GTLRStreetViewPublish_PhotoSequence : GTLRObject
+
+/**
+ *  Optional. Absolute time when the photo sequence starts to be captured. If
+ *  the photo sequence is a video, this is the start time of the video. If this
+ *  field is populated in input, it overrides the capture time in the video or
+ *  XDM file.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *captureTimeOverride;
+
+/**
+ *  Output only. The computed distance of the photo sequence in meters.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *distanceMeters;
+
+/**
+ *  Output only. If this sequence has `failure_reason` set, this may contain
+ *  additional details about the failure.
+ */
+@property(nonatomic, strong, nullable) GTLRStreetViewPublish_ProcessingFailureDetails *failureDetails;
+
+/**
+ *  Output only. If this sequence has processing_state = FAILED, this will
+ *  contain the reason why it failed. If the processing_state is any other
+ *  value, this field will be unset.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_CorruptVideo
+ *        The video file was corrupt. (Value: "CORRUPT_VIDEO")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_Duplicate This
+ *        video has been uploaded before. (Value: "DUPLICATE")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_FailedToRefinePositions
+ *        The sequence of photos could not be accurately located in the world.
+ *        (Value: "FAILED_TO_REFINE_POSITIONS")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_GpsDataGap GPS
+ *        data contains a gap greater than 5 seconds in duration. (Value:
+ *        "GPS_DATA_GAP")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_ImuDataGap IMU
+ *        (Accelerometer, Gyroscope, etc.) data contain gaps greater than 0.1
+ *        seconds in duration. (Value: "IMU_DATA_GAP")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientGps
+ *        Too few GPS points. (Value: "INSUFFICIENT_GPS")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_Internal A
+ *        permanent failure in the underlying system occurred. (Value:
+ *        "INTERNAL")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_InvalidCaptureTime
+ *        Invalid capture time. Timestamps were from the future. (Value:
+ *        "INVALID_CAPTURE_TIME")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_InvalidGps GPS
+ *        is invalid (e.x. all GPS points are at (0,0)) (Value: "INVALID_GPS")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_InvalidImu IMU
+ *        (Accelerometer, Gyroscope, etc.) data are not valid. They may be
+ *        missing required fields (x, y, z or time), may not be formatted
+ *        correctly, or any other issue that prevents our systems from parsing
+ *        it. (Value: "INVALID_IMU")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_InvalidVideoDimensions
+ *        Invalid image aspect ratio found. (Value: "INVALID_VIDEO_DIMENSIONS")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_InvalidVideoFormat
+ *        The video format is invalid or unsupported. (Value:
+ *        "INVALID_VIDEO_FORMAT")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_JumpyGps GPS
+ *        data is too erratic to be processed. (Value: "JUMPY_GPS")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_LowResolution
+ *        Video frame's resolution is too small. (Value: "LOW_RESOLUTION")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_NoOverlapGps No
+ *        overlap between the time frame of GPS track and the time frame of
+ *        video. (Value: "NO_OVERLAP_GPS")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_NotOutdoors
+ *        Some frames were indoors, which is unsupported. (Value:
+ *        "NOT_OUTDOORS")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_ProcessingFailureReasonUnspecified
+ *        The failure reason is unspecified, this is the default value. (Value:
+ *        "PROCESSING_FAILURE_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_Takedown The
+ *        sequence was taken down for policy reasons. (Value: "TAKEDOWN")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_UnsupportedCamera
+ *        The camera is not supported. (Value: "UNSUPPORTED_CAMERA")
+ */
+@property(nonatomic, copy, nullable) NSString *failureReason;
+
+/**
+ *  Output only. The filename of the upload. Does not include the directory
+ *  path. Only available if the sequence was uploaded on a platform that
+ *  provides the filename.
+ */
+@property(nonatomic, copy, nullable) NSString *filename;
+
+/**
+ *  Input only. If both raw_gps_timeline and the Camera Motion Metadata Track
+ *  (CAMM) contain GPS measurements, indicate which takes precedence.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_GpsSource_CameraMotionMetadataTrack
+ *        GPS in Camera Motion Metadata Track (CAMM) takes precedence if it
+ *        exists. (Value: "CAMERA_MOTION_METADATA_TRACK")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_GpsSource_PhotoSequence GPS
+ *        in raw_gps_timeline takes precedence if it exists. (Value:
+ *        "PHOTO_SEQUENCE")
+ */
+@property(nonatomic, copy, nullable) NSString *gpsSource;
+
+/**
+ *  Output only. Unique identifier for the photo sequence. This also acts as a
+ *  long running operation ID if uploading is performed asynchronously.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Input only. Three axis IMU data for the collection. If this data is too
+ *  large to put in the request, then it should be put in the CAMM track for the
+ *  video. This data always takes precedence over the equivalent CAMM data, if
+ *  it exists.
+ */
+@property(nonatomic, strong, nullable) GTLRStreetViewPublish_Imu *imu;
+
+/** Output only. Photos with increasing timestamps. */
+@property(nonatomic, strong, nullable) NSArray<GTLRStreetViewPublish_Photo *> *photos;
+
+/**
+ *  Output only. The processing state of this sequence.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_ProcessingState_Failed The
+ *        sequence failed processing. See FailureReason for more details.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_ProcessingState_Pending The
+ *        sequence has not yet started processing. (Value: "PENDING")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_ProcessingState_Processed The
+ *        sequence has finished processing including refining position. (Value:
+ *        "PROCESSED")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_ProcessingState_Processing
+ *        The sequence is currently in processing. (Value: "PROCESSING")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_ProcessingState_ProcessingStateUnspecified
+ *        The state is unspecified, this is the default value. (Value:
+ *        "PROCESSING_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *processingState;
+
+/**
+ *  Input only. Raw GPS measurements with increasing timestamps from the device
+ *  that aren't time synced with each photo. These raw measurements will be used
+ *  to infer the pose of each frame. Required in input when InputType is VIDEO
+ *  and raw GPS measurements are not in Camera Motion Metadata Track (CAMM).
+ *  User can indicate which takes precedence using gps_source if raw GPS
+ *  measurements are provided in both raw_gps_timeline and Camera Motion
+ *  Metadata Track (CAMM).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRStreetViewPublish_Pose *> *rawGpsTimeline;
+
+/**
+ *  Output only. A rectangular box that encapsulates every image in this photo
+ *  sequence.
+ */
+@property(nonatomic, strong, nullable) GTLRStreetViewPublish_LatLngBounds *sequenceBounds;
+
+/**
+ *  Input only. Required when creating photo sequence. The resource name where
+ *  the bytes of the photo sequence (in the form of video) are uploaded.
+ */
+@property(nonatomic, strong, nullable) GTLRStreetViewPublish_UploadRef *uploadReference;
+
+/**
+ *  Output only. The time this photo sequence was created in uSV Store service.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *uploadTime;
+
+/**
+ *  Output only. The total number of views that all the published images in this
+ *  PhotoSequence have received.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *viewCount;
+
+@end
+
+
+/**
  *  Place metadata for an entity.
  */
 @interface GTLRStreetViewPublish_Place : GTLRObject
@@ -553,6 +1083,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
  */
 @property(nonatomic, strong, nullable) NSNumber *altitude;
 
+/** Time of the GPS record since UTC epoch. */
+@property(nonatomic, strong, nullable) GTLRDateTime *gpsRecordTimestampUnixEpoch;
+
 /**
  *  The following pose parameters pertain to the center of the photo. They match
  *  https://developers.google.com/streetview/spherical-metadata. Compass
@@ -591,6 +1124,29 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *roll;
+
+@end
+
+
+/**
+ *  Additional details to accompany the ProcessingFailureReason enum. This
+ *  message is always expected to be used in conjunction with
+ *  ProcessingFailureReason, and the oneof value set in this message should
+ *  match the FailureReason.
+ */
+@interface GTLRStreetViewPublish_ProcessingFailureDetails : GTLRObject
+
+/** See GpsDataGapFailureDetails. */
+@property(nonatomic, strong, nullable) GTLRStreetViewPublish_GpsDataGapFailureDetails *gpsDataGapDetails;
+
+/** See ImuDataGapFailureDetails. */
+@property(nonatomic, strong, nullable) GTLRStreetViewPublish_ImuDataGapFailureDetails *imuDataGapDetails;
+
+/** See InsufficientGpsFailureDetails. */
+@property(nonatomic, strong, nullable) GTLRStreetViewPublish_InsufficientGpsFailureDetails *insufficientGpsDetails;
+
+/** See NotOutdoorsFailureDetails. */
+@property(nonatomic, strong, nullable) GTLRStreetViewPublish_NotOutdoorsFailureDetails *notOutdoorsDetails;
 
 @end
 

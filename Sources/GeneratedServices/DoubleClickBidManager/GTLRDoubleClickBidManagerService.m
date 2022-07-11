@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DoubleClick Bid Manager API (doubleclickbidmanager/v1.1)
+//   DoubleClick Bid Manager API (doubleclickbidmanager/v2)
 // Description:
 //   DoubleClick Bid Manager API allows users to manage and create campaigns and
 //   reports.
@@ -27,7 +27,7 @@ NSString * const kGTLRAuthScopeDoubleClickBidManager = @"https://www.googleapis.
   if (self) {
     // From discovery.
     self.rootURLString = @"https://doubleclickbidmanager.googleapis.com/";
-    self.servicePath = @"doubleclickbidmanager/v1.1/";
+    self.servicePath = @"v2/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }

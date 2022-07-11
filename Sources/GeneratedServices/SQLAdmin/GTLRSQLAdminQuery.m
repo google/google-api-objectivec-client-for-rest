@@ -1244,6 +1244,31 @@
 
 @end
 
+@implementation GTLRSQLAdminQuery_UsersGet
+
+@dynamic instance, name, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance
+                            name:(NSString *)name {
+  NSArray *pathParams = @[
+    @"instance", @"name", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/users/{name}";
+  GTLRSQLAdminQuery_UsersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.instance = instance;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSQLAdmin_User class];
+  query.loggingName = @"sql.users.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRSQLAdminQuery_UsersInsert
 
 @dynamic instance, project;

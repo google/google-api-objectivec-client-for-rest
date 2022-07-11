@@ -13,11 +13,6 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRDataproc_AuthenticationConfig.authenticationType
-NSString * const kGTLRDataproc_AuthenticationConfig_AuthenticationType_AuthenticationTypeUnspecified = @"AUTHENTICATION_TYPE_UNSPECIFIED";
-NSString * const kGTLRDataproc_AuthenticationConfig_AuthenticationType_InjectableCredentials = @"INJECTABLE_CREDENTIALS";
-NSString * const kGTLRDataproc_AuthenticationConfig_AuthenticationType_ServiceAccount = @"SERVICE_ACCOUNT";
-
 // GTLRDataproc_Batch.state
 NSString * const kGTLRDataproc_Batch_State_Cancelled        = @"CANCELLED";
 NSString * const kGTLRDataproc_Batch_State_Cancelling       = @"CANCELLING";
@@ -42,6 +37,7 @@ NSString * const kGTLRDataproc_ClusterStatus_State_Creating    = @"CREATING";
 NSString * const kGTLRDataproc_ClusterStatus_State_Deleting    = @"DELETING";
 NSString * const kGTLRDataproc_ClusterStatus_State_Error       = @"ERROR";
 NSString * const kGTLRDataproc_ClusterStatus_State_ErrorDueToUpdate = @"ERROR_DUE_TO_UPDATE";
+NSString * const kGTLRDataproc_ClusterStatus_State_Repairing   = @"REPAIRING";
 NSString * const kGTLRDataproc_ClusterStatus_State_Running     = @"RUNNING";
 NSString * const kGTLRDataproc_ClusterStatus_State_Starting    = @"STARTING";
 NSString * const kGTLRDataproc_ClusterStatus_State_Stopped     = @"STOPPED";
@@ -109,6 +105,10 @@ NSString * const kGTLRDataproc_Metric_MetricSource_MonitoringAgentDefaults = @"M
 NSString * const kGTLRDataproc_Metric_MetricSource_Spark       = @"SPARK";
 NSString * const kGTLRDataproc_Metric_MetricSource_SparkHistoryServer = @"SPARK_HISTORY_SERVER";
 NSString * const kGTLRDataproc_Metric_MetricSource_Yarn        = @"YARN";
+
+// GTLRDataproc_NodePool.repairAction
+NSString * const kGTLRDataproc_NodePool_RepairAction_Delete    = @"DELETE";
+NSString * const kGTLRDataproc_NodePool_RepairAction_RepairActionUnspecified = @"REPAIR_ACTION_UNSPECIFIED";
 
 // GTLRDataproc_ReservationAffinity.consumeReservationType
 NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_AnyReservation = @"ANY_RESERVATION";
@@ -178,16 +178,6 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_AcceleratorConfig
 @dynamic acceleratorCount, acceleratorTypeUri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataproc_AuthenticationConfig
-//
-
-@implementation GTLRDataproc_AuthenticationConfig
-@dynamic authenticationType, injectableCredentialsConfig;
 @end
 
 
@@ -469,8 +459,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_ClusterOperationMetadata
-@dynamic clusterName, clusterUuid, descriptionProperty, labels, operationType,
-         status, statusHistory, warnings;
+@dynamic childOperationIds, clusterName, clusterUuid, descriptionProperty,
+         labels, operationType, status, statusHistory, warnings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -478,6 +468,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"childOperationIds" : [NSString class],
     @"statusHistory" : [GTLRDataproc_ClusterOperationStatus class],
     @"warnings" : [NSString class]
   };
@@ -755,8 +746,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_GkeNodeConfig
-@dynamic accelerators, localSsdCount, machineType, minCpuPlatform, preemptible,
-         spot;
+@dynamic accelerators, bootDiskKmsKey, localSsdCount, machineType,
+         minCpuPlatform, preemptible, spot;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -928,15 +919,6 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
   return [NSString class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataproc_InjectableCredentialsConfig
-//
-
-@implementation GTLRDataproc_InjectableCredentialsConfig
 @end
 
 
@@ -1456,6 +1438,28 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_NodePool
+//
+
+@implementation GTLRDataproc_NodePool
+@dynamic identifier, instanceNames, repairAction;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instanceNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_Operation
 //
 
@@ -1749,7 +1753,15 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_RepairClusterRequest
-@dynamic clusterUuid, requestId;
+@dynamic clusterUuid, nodePools, requestId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"nodePools" : [GTLRDataproc_NodePool class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1777,7 +1789,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_RuntimeConfig
-@dynamic containerImage, properties, sessionAuthenticationConfig, version;
+@dynamic containerImage, properties, version;
 @end
 
 

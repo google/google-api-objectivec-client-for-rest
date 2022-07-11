@@ -34,6 +34,7 @@
 @class GTLRCloudResourceManager_TagBinding;
 @class GTLRCloudResourceManager_TagHold;
 @class GTLRCloudResourceManager_TagKey;
+@class GTLRCloudResourceManager_TagKey_PurposeData;
 @class GTLRCloudResourceManager_TagValue;
 
 // Generated comments include content from the discovery document; avoid them
@@ -272,6 +273,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Project_State_Delet
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Project_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudResourceManager_TagKey.purpose
+
+/**
+ *  Purpose for Compute Engine firewalls. A corresponding purpose_data should be
+ *  set for the network the tag is intended for. The key should be 'network' and
+ *  the value should be in the format of the network url id string:
+ *  https://compute.googleapis.com/v1/projects/{project_number}/global/networks/{network_id}
+ *
+ *  Value: "GCE_FIREWALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_GceFirewall;
+/**
+ *  Unspecified purpose.
+ *
+ *  Value: "PURPOSE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified;
 
 /**
  *  Specifies the audit configuration for a service. The configuration
@@ -1836,6 +1856,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Project_State_State
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. A purpose denotes that this Tag is intended for use in policies of
+ *  a specific policy engine, and will involve that policy engine in management
+ *  operations involving this Tag. A purpose does not grant a policy engine
+ *  exclusive rights to the Tag, and it may be referenced by other policy
+ *  engines. A purpose cannot be changed once set.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudResourceManager_TagKey_Purpose_GceFirewall Purpose for
+ *        Compute Engine firewalls. A corresponding purpose_data should be set
+ *        for the network the tag is intended for. The key should be 'network'
+ *        and the value should be in the format of the network url id string:
+ *        https://compute.googleapis.com/v1/projects/{project_number}/global/networks/{network_id}
+ *        (Value: "GCE_FIREWALL")
+ *    @arg @c kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified
+ *        Unspecified purpose. (Value: "PURPOSE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *purpose;
+
+/**
+ *  Optional. Purpose data corresponds to the policy system that the tag is
+ *  intended for. See documentation for `Purpose` for formatting of this field.
+ *  Purpose data cannot be changed once set.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_TagKey_PurposeData *purposeData;
+
+/**
  *  Required. Immutable. The user friendly name for a TagKey. The short name
  *  should be unique for TagKeys within the same tag namespace. The short name
  *  must be 1-63 characters, beginning and ending with an alphanumeric character
@@ -1847,6 +1893,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Project_State_State
 /** Output only. Update time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Optional. Purpose data corresponds to the policy system that the tag is
+ *  intended for. See documentation for `Purpose` for formatting of this field.
+ *  Purpose data cannot be changed once set.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudResourceManager_TagKey_PurposeData : GTLRObject
 @end
 
 

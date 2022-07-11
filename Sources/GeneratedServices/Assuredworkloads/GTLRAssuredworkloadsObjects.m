@@ -21,6 +21,7 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateW
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_Hipaa = @"HIPAA";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_Hitrust = @"HITRUST";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_Il4 = @"IL4";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_Itar = @"ITAR";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_UsRegionalAccess = @"US_REGIONAL_ACCESS";
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload.complianceRegime
@@ -33,6 +34,7 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workloa
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_Hipaa = @"HIPAA";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_Hitrust = @"HITRUST";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_Il4 = @"IL4";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_Itar = @"ITAR";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_UsRegionalAccess = @"US_REGIONAL_ACCESS";
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload.kajEnrollmentState
@@ -76,7 +78,13 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorklo
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hipaa = @"HIPAA";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hitrust = @"HITRUST";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il4 = @"IL4";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Itar = @"ITAR";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsRegionalAccess = @"US_REGIONAL_ACCESS";
+
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest.restrictionType
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest_RestrictionType_AllowAllGcpResources = @"ALLOW_ALL_GCP_RESOURCES";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest_RestrictionType_AllowCompliantResources = @"ALLOW_COMPLIANT_RESOURCES";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest_RestrictionType_RestrictionTypeUnspecified = @"RESTRICTION_TYPE_UNSPECIFIED";
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload.complianceRegime
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CaRegionsAndSupport = @"CA_REGIONS_AND_SUPPORT";
@@ -88,6 +96,7 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Com
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hipaa = @"HIPAA";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hitrust = @"HITRUST";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il4 = @"IL4";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Itar = @"ITAR";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsRegionalAccess = @"US_REGIONAL_ACCESS";
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload.kajEnrollmentState
@@ -131,6 +140,7 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1ma
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainCreateWorkloadOperationMetadata_ComplianceRegime_Hipaa = @"HIPAA";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainCreateWorkloadOperationMetadata_ComplianceRegime_Hitrust = @"HITRUST";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainCreateWorkloadOperationMetadata_ComplianceRegime_Il4 = @"IL4";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainCreateWorkloadOperationMetadata_ComplianceRegime_Itar = @"ITAR";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainCreateWorkloadOperationMetadata_ComplianceRegime_UsRegionalAccess = @"US_REGIONAL_ACCESS";
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload.complianceRegime
@@ -143,6 +153,7 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1ma
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_ComplianceRegime_Hipaa = @"HIPAA";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_ComplianceRegime_Hitrust = @"HITRUST";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_ComplianceRegime_Il4 = @"IL4";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_ComplianceRegime_Itar = @"ITAR";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_ComplianceRegime_UsRegionalAccess = @"US_REGIONAL_ACCESS";
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload.kajEnrollmentState
@@ -357,6 +368,25 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1ma
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest
+@dynamic restrictionType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesResponse
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload
 //
 
@@ -467,10 +497,11 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1ma
 //
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload
-@dynamic billingAccount, cjisSettings, complianceRegime, createTime,
-         displayName, enableSovereignControls, ETag, fedrampHighSettings,
-         fedrampModerateSettings, il4Settings, kajEnrollmentState, kmsSettings,
-         labels, name, provisionedResourcesParent, resources, resourceSettings,
+@dynamic billingAccount, cjisSettings, complianceRegime, complianceStatus,
+         createTime, displayName, enableSovereignControls, ETag,
+         fedrampHighSettings, fedrampModerateSettings, il4Settings,
+         kajEnrollmentState, kmsSettings, labels, name,
+         provisionedResourcesParent, resources, resourceSettings,
          saaEnrollmentResponse;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -509,6 +540,16 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1ma
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadCJISSettings
 @dynamic kmsSettings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadComplianceStatus
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadComplianceStatus
+@dynamic activeViolationCount;
 @end
 
 

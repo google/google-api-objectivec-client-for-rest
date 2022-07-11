@@ -119,6 +119,7 @@
 @class GTLRDocs_Person;
 @class GTLRDocs_Person_SuggestedTextStyleChanges;
 @class GTLRDocs_PersonProperties;
+@class GTLRDocs_PinTableHeaderRowsRequest;
 @class GTLRDocs_PositionedObject;
 @class GTLRDocs_PositionedObject_SuggestedPositionedObjectPropertiesChanges;
 @class GTLRDocs_PositionedObjectPositioning;
@@ -4231,7 +4232,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  Whether the current paragraph should always start at the beginning of a
- *  page. If unset, the value is inherited from the parent.
+ *  page. If unset, the value is inherited from the parent. Attempting to update
+ *  page_break_before for paragraphs in unsupported regions, including Table,
+ *  Header, Footer and Footnote, can result in an invalid document state which
+ *  returns a 400 bad request error.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4502,6 +4506,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  instead of the person's email address.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Updates the number of pinned table header rows in a table.
+ */
+@interface GTLRDocs_PinTableHeaderRowsRequest : GTLRObject
+
+/**
+ *  The number of table rows to pin, where 0 implies that all rows are unpinned.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pinnedHeaderRowsCount;
+
+/** The location where the table starts in the document. */
+@property(nonatomic, strong, nullable) GTLRDocs_Location *tableStartLocation;
 
 @end
 
@@ -4874,6 +4896,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /** Merges cells in a table. */
 @property(nonatomic, strong, nullable) GTLRDocs_MergeTableCellsRequest *mergeTableCells;
+
+/** Updates the number of pinned header rows in a table. */
+@property(nonatomic, strong, nullable) GTLRDocs_PinTableHeaderRowsRequest *pinTableHeaderRows;
 
 /** Replaces all instances of the specified text. */
 @property(nonatomic, strong, nullable) GTLRDocs_ReplaceAllTextRequest *replaceAllText;
@@ -5563,8 +5588,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  A ParagraphStyle that only includes the changes made in this suggestion.
- *  This can be used along with the paragraph_suggestion_state to see which
- *  fields have changed and their new values.
+ *  This can be used along with the paragraph_style_suggestion_state to see
+ *  which fields have changed and their new values.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_ParagraphStyle *paragraphStyle;
 
@@ -6145,6 +6170,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  */
 @property(nonatomic, strong, nullable) GTLRDocs_Dimension *minRowHeight;
 
+/**
+ *  Whether the row cannot overflow across page or column boundaries.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *preventOverflow;
+
+/**
+ *  Whether the row is a table header.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tableHeader;
+
 @end
 
 
@@ -6507,8 +6546,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  The fields that should be updated. At least one field must be specified. The
- *  root `paragraph_style` is implied and should not be specified. For example,
- *  to update the paragraph style's alignment property, set `fields` to
+ *  root `paragraph_style` is implied and should not be specified. A single
+ *  `"*"` can be used as short-hand for listing every field. For example, to
+ *  update the paragraph style's alignment property, set `fields` to
  *  `"alignment"`. To reset a property to its default value, include its field
  *  name in the field mask but leave the field itself unset.
  *

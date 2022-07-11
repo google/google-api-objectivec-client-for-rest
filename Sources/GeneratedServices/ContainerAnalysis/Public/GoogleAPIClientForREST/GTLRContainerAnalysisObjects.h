@@ -87,6 +87,16 @@
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1TimeSpan;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Volume;
 @class GTLRContainerAnalysis_GrafeasV1FileLocation;
+@class GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaBuilder;
+@class GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaCompleteness;
+@class GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource;
+@class GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource_Digest;
+@class GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation;
+@class GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation_Environment;
+@class GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation_Parameters;
+@class GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial;
+@class GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial_Digest;
+@class GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaMetadata;
 @class GTLRContainerAnalysis_Hash;
 @class GTLRContainerAnalysis_Hint;
 @class GTLRContainerAnalysis_Identity;
@@ -120,6 +130,8 @@
 @class GTLRContainerAnalysis_SlsaCompleteness;
 @class GTLRContainerAnalysis_SlsaMetadata;
 @class GTLRContainerAnalysis_SlsaProvenance;
+@class GTLRContainerAnalysis_SlsaProvenanceZeroTwo;
+@class GTLRContainerAnalysis_SlsaProvenanceZeroTwo_BuildConfig;
 @class GTLRContainerAnalysis_SlsaRecipe;
 @class GTLRContainerAnalysis_SlsaRecipe_Arguments;
 @class GTLRContainerAnalysis_SlsaRecipe_Environment;
@@ -2501,10 +2513,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @property(nonatomic, copy, nullable) NSString *algo;
 
 /**
- *  Value of the digest encoded. For example: SHA512 - base64 encoding, SHA1 -
- *  hex encoding.
+ *  Value of the digest.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
  */
-@property(nonatomic, copy, nullable) NSString *digestValue;
+@property(nonatomic, copy, nullable) NSString *digestBytes;
 
 @end
 
@@ -4210,6 +4224,157 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
+ *  Identifies the entity that executed the recipe, which is trusted to have
+ *  correctly performed the operation and populated this provenance.
+ */
+@interface GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaBuilder : GTLRObject
+
+/**
+ *  identifier
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  Indicates that the builder claims certain fields in this message to be
+ *  complete.
+ */
+@interface GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaCompleteness : GTLRObject
+
+/**
+ *  environment
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *environment;
+
+/**
+ *  materials
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *materials;
+
+/**
+ *  parameters
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *parameters;
+
+@end
+
+
+/**
+ *  Describes where the config file that kicked off the build came from. This is
+ *  effectively a pointer to the source where buildConfig came from.
+ */
+@interface GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource_Digest *digest;
+@property(nonatomic, copy, nullable) NSString *entryPoint;
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource_Digest
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource_Digest : GTLRObject
+@end
+
+
+/**
+ *  Identifies the event that kicked off the build.
+ */
+@interface GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource *configSource;
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation_Environment *environment;
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation_Parameters *parameters;
+
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation_Environment
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation_Environment : GTLRObject
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation_Parameters
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation_Parameters : GTLRObject
+@end
+
+
+/**
+ *  The collection of artifacts that influenced the build including sources,
+ *  dependencies, build tools, base images, and so on.
+ */
+@interface GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial_Digest *digest;
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial_Digest
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial_Digest : GTLRObject
+@end
+
+
+/**
+ *  Other properties of the build.
+ */
+@interface GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaMetadata : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDateTime *buildFinishedOn;
+@property(nonatomic, copy, nullable) NSString *buildInvocationId;
+@property(nonatomic, strong, nullable) GTLRDateTime *buildStartedOn;
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaCompleteness *completeness;
+
+/**
+ *  reproducible
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reproducible;
+
+@end
+
+
+/**
  *  Container message for hash values.
  */
 @interface GTLRContainerAnalysis_Hash : GTLRObject
@@ -4362,6 +4527,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_InTotoProvenance *provenance;
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_SlsaProvenance *slsaProvenance;
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_SlsaProvenanceZeroTwo *slsaProvenanceZeroTwo;
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Subject *> *subject;
 
 @end
@@ -5394,6 +5560,33 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_SlsaRecipe *recipe;
 
+@end
+
+
+/**
+ *  See full explanation of fields at slsa.dev/provenance/v0.2.
+ */
+@interface GTLRContainerAnalysis_SlsaProvenanceZeroTwo : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_SlsaProvenanceZeroTwo_BuildConfig *buildConfig;
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaBuilder *builder;
+@property(nonatomic, copy, nullable) NSString *buildType;
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation *invocation;
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial *> *materials;
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GrafeasV1SlsaProvenanceZeroTwoSlsaMetadata *metadata;
+
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_SlsaProvenanceZeroTwo_BuildConfig
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContainerAnalysis_SlsaProvenanceZeroTwo_BuildConfig : GTLRObject
 @end
 
 

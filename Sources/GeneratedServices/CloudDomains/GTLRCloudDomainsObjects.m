@@ -29,6 +29,14 @@ NSString * const kGTLRCloudDomains_ContactSettings_Privacy_PrivateContactData = 
 NSString * const kGTLRCloudDomains_ContactSettings_Privacy_PublicContactData = @"PUBLIC_CONTACT_DATA";
 NSString * const kGTLRCloudDomains_ContactSettings_Privacy_RedactedContactData = @"REDACTED_CONTACT_DATA";
 
+// GTLRCloudDomains_Domain.resourceState
+NSString * const kGTLRCloudDomains_Domain_ResourceState_Deleted = @"DELETED";
+NSString * const kGTLRCloudDomains_Domain_ResourceState_Expired = @"EXPIRED";
+NSString * const kGTLRCloudDomains_Domain_ResourceState_Importable = @"IMPORTABLE";
+NSString * const kGTLRCloudDomains_Domain_ResourceState_ResourceStateUnspecified = @"RESOURCE_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudDomains_Domain_ResourceState_Suspended = @"SUSPENDED";
+NSString * const kGTLRCloudDomains_Domain_ResourceState_Unsupported = @"UNSUPPORTED";
+
 // GTLRCloudDomains_DsRecord.algorithm
 NSString * const kGTLRCloudDomains_DsRecord_Algorithm_AlgorithmUnspecified = @"ALGORITHM_UNSPECIFIED";
 NSString * const kGTLRCloudDomains_DsRecord_Algorithm_Dh       = @"DH";
@@ -101,9 +109,16 @@ NSString * const kGTLRCloudDomains_Registration_Issues_ContactSupport = @"CONTAC
 NSString * const kGTLRCloudDomains_Registration_Issues_IssueUnspecified = @"ISSUE_UNSPECIFIED";
 NSString * const kGTLRCloudDomains_Registration_Issues_UnverifiedEmail = @"UNVERIFIED_EMAIL";
 
+// GTLRCloudDomains_Registration.registerFailureReason
+NSString * const kGTLRCloudDomains_Registration_RegisterFailureReason_DomainNotAvailable = @"DOMAIN_NOT_AVAILABLE";
+NSString * const kGTLRCloudDomains_Registration_RegisterFailureReason_InvalidContacts = @"INVALID_CONTACTS";
+NSString * const kGTLRCloudDomains_Registration_RegisterFailureReason_RegisterFailureReasonUnknown = @"REGISTER_FAILURE_REASON_UNKNOWN";
+NSString * const kGTLRCloudDomains_Registration_RegisterFailureReason_RegisterFailureReasonUnspecified = @"REGISTER_FAILURE_REASON_UNSPECIFIED";
+
 // GTLRCloudDomains_Registration.state
 NSString * const kGTLRCloudDomains_Registration_State_Active   = @"ACTIVE";
 NSString * const kGTLRCloudDomains_Registration_State_Exported = @"EXPORTED";
+NSString * const kGTLRCloudDomains_Registration_State_ImportPending = @"IMPORT_PENDING";
 NSString * const kGTLRCloudDomains_Registration_State_RegistrationFailed = @"REGISTRATION_FAILED";
 NSString * const kGTLRCloudDomains_Registration_State_RegistrationPending = @"REGISTRATION_PENDING";
 NSString * const kGTLRCloudDomains_Registration_State_StateUnspecified = @"STATE_UNSPECIFIED";
@@ -116,6 +131,19 @@ NSString * const kGTLRCloudDomains_Registration_SupportedPrivacy_ContactPrivacyU
 NSString * const kGTLRCloudDomains_Registration_SupportedPrivacy_PrivateContactData = @"PRIVATE_CONTACT_DATA";
 NSString * const kGTLRCloudDomains_Registration_SupportedPrivacy_PublicContactData = @"PUBLIC_CONTACT_DATA";
 NSString * const kGTLRCloudDomains_Registration_SupportedPrivacy_RedactedContactData = @"REDACTED_CONTACT_DATA";
+
+// GTLRCloudDomains_Registration.transferFailureReason
+NSString * const kGTLRCloudDomains_Registration_TransferFailureReason_DomainHasTransferLock = @"DOMAIN_HAS_TRANSFER_LOCK";
+NSString * const kGTLRCloudDomains_Registration_TransferFailureReason_DomainNotEligibleForTransfer = @"DOMAIN_NOT_ELIGIBLE_FOR_TRANSFER";
+NSString * const kGTLRCloudDomains_Registration_TransferFailureReason_DomainNotRegistered = @"DOMAIN_NOT_REGISTERED";
+NSString * const kGTLRCloudDomains_Registration_TransferFailureReason_EmailConfirmationFailure = @"EMAIL_CONFIRMATION_FAILURE";
+NSString * const kGTLRCloudDomains_Registration_TransferFailureReason_InvalidAuthorizationCode = @"INVALID_AUTHORIZATION_CODE";
+NSString * const kGTLRCloudDomains_Registration_TransferFailureReason_InvalidRegistrantEmailAddress = @"INVALID_REGISTRANT_EMAIL_ADDRESS";
+NSString * const kGTLRCloudDomains_Registration_TransferFailureReason_TransferAlreadyPending = @"TRANSFER_ALREADY_PENDING";
+NSString * const kGTLRCloudDomains_Registration_TransferFailureReason_TransferCancelled = @"TRANSFER_CANCELLED";
+NSString * const kGTLRCloudDomains_Registration_TransferFailureReason_TransferFailureReasonUnknown = @"TRANSFER_FAILURE_REASON_UNKNOWN";
+NSString * const kGTLRCloudDomains_Registration_TransferFailureReason_TransferFailureReasonUnspecified = @"TRANSFER_FAILURE_REASON_UNSPECIFIED";
+NSString * const kGTLRCloudDomains_Registration_TransferFailureReason_TransferRejected = @"TRANSFER_REJECTED";
 
 // GTLRCloudDomains_TransferDomainRequest.contactNotices
 NSString * const kGTLRCloudDomains_TransferDomainRequest_ContactNotices_ContactNoticeUnspecified = @"CONTACT_NOTICE_UNSPECIFIED";
@@ -293,6 +321,16 @@ NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDomains_Domain
+//
+
+@implementation GTLRCloudDomains_Domain
+@dynamic domainName, resourceState, yearlyPrice;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDomains_DsRecord
 //
 
@@ -358,6 +396,30 @@ NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
     @"nameServers" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDomains_ImportDomainRequest
+//
+
+@implementation GTLRCloudDomains_ImportDomainRequest
+@dynamic domainName, labels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDomains_ImportDomainRequest_Labels
+//
+
+@implementation GTLRCloudDomains_ImportDomainRequest_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -624,7 +686,7 @@ NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
 @implementation GTLRCloudDomains_Registration
 @dynamic contactSettings, createTime, dnsSettings, domainName, expireTime,
          issues, labels, managementSettings, name, pendingContactSettings,
-         state, supportedPrivacy;
+         registerFailureReason, state, supportedPrivacy, transferFailureReason;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -657,6 +719,28 @@ NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
 //
 
 @implementation GTLRCloudDomains_ResetAuthorizationCodeRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDomains_RetrieveImportableDomainsResponse
+//
+
+@implementation GTLRCloudDomains_RetrieveImportableDomainsResponse
+@dynamic domains, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"domains" : [GTLRCloudDomains_Domain class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"domains";
+}
+
 @end
 
 
@@ -801,8 +885,8 @@ NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
 //
 
 @implementation GTLRCloudDomains_TransferParameters
-@dynamic currentRegistrar, domainName, nameServers, supportedPrivacy,
-         transferLockState, yearlyPrice;
+@dynamic currentRegistrar, currentRegistrarUri, domainName, nameServers,
+         supportedPrivacy, transferLockState, yearlyPrice;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

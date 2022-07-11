@@ -318,10 +318,11 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 //
 
 @implementation GTLRAccessContextManager_EgressTo
-@dynamic operations, resources;
+@dynamic externalResources, operations, resources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"externalResources" : [NSString class],
     @"operations" : [GTLRAccessContextManager_ApiOperation class],
     @"resources" : [NSString class]
   };

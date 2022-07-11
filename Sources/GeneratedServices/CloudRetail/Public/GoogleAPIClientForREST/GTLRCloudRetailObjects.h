@@ -1019,7 +1019,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  Metadata related to the progress of the RemoveFulfillmentPlaces operation.
  *  Currently empty because there is no meaningful metadata populated from the
- *  RemoveFulfillmentPlaces method.
+ *  ProductService.RemoveFulfillmentPlaces method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2alphaRemoveFulfillmentPlacesMetadata : GTLRObject
 @end
@@ -1027,8 +1027,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  Response of the RemoveFulfillmentPlacesRequest. Currently empty because
- *  there is no meaningful response populated from the RemoveFulfillmentPlaces
- *  method.
+ *  there is no meaningful response populated from the
+ *  ProductService.RemoveFulfillmentPlaces method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2alphaRemoveFulfillmentPlacesResponse : GTLRObject
 @end
@@ -1037,15 +1037,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  Metadata related to the progress of the RemoveLocalInventories operation.
  *  Currently empty because there is no meaningful metadata populated from the
- *  RemoveLocalInventories method.
+ *  ProductService.RemoveLocalInventories method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2alphaRemoveLocalInventoriesMetadata : GTLRObject
 @end
 
 
 /**
- *  Response of the RemoveLocalInventories API. Currently empty because there is
- *  no meaningful response populated from the RemoveLocalInventories method.
+ *  Response of the ProductService.RemoveLocalInventories API. Currently empty
+ *  because there is no meaningful response populated from the
+ *  ProductService.RemoveLocalInventories method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2alphaRemoveLocalInventoriesResponse : GTLRObject
 @end
@@ -1054,7 +1055,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  Metadata related to the progress of the SetInventory operation. Currently
  *  empty because there is no meaningful metadata populated from the
- *  SetInventory method.
+ *  ProductService.SetInventory method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2alphaSetInventoryMetadata : GTLRObject
 @end
@@ -1062,7 +1063,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  Response of the SetInventoryRequest. Currently empty because there is no
- *  meaningful response populated from the SetInventory method.
+ *  meaningful response populated from the ProductService.SetInventory method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2alphaSetInventoryResponse : GTLRObject
 @end
@@ -1390,7 +1391,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  Metadata related to the progress of the RemoveFulfillmentPlaces operation.
  *  Currently empty because there is no meaningful metadata populated from the
- *  RemoveFulfillmentPlaces method.
+ *  ProductService.RemoveFulfillmentPlaces method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2betaRemoveFulfillmentPlacesMetadata : GTLRObject
 @end
@@ -1398,8 +1399,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  Response of the RemoveFulfillmentPlacesRequest. Currently empty because
- *  there is no meaningful response populated from the RemoveFulfillmentPlaces
- *  method.
+ *  there is no meaningful response populated from the
+ *  ProductService.RemoveFulfillmentPlaces method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2betaRemoveFulfillmentPlacesResponse : GTLRObject
 @end
@@ -1408,15 +1409,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  Metadata related to the progress of the RemoveLocalInventories operation.
  *  Currently empty because there is no meaningful metadata populated from the
- *  RemoveLocalInventories method.
+ *  ProductService.RemoveLocalInventories method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2betaRemoveLocalInventoriesMetadata : GTLRObject
 @end
 
 
 /**
- *  Response of the RemoveLocalInventories API. Currently empty because there is
- *  no meaningful response populated from the RemoveLocalInventories method.
+ *  Response of the ProductService.RemoveLocalInventories API. Currently empty
+ *  because there is no meaningful response populated from the
+ *  ProductService.RemoveLocalInventories method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2betaRemoveLocalInventoriesResponse : GTLRObject
 @end
@@ -1425,7 +1427,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  Metadata related to the progress of the SetInventory operation. Currently
  *  empty because there is no meaningful metadata populated from the
- *  SetInventory method.
+ *  ProductService.SetInventory method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2betaSetInventoryMetadata : GTLRObject
 @end
@@ -1433,7 +1435,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  Response of the SetInventoryRequest. Currently empty because there is no
- *  meaningful response populated from the SetInventory method.
+ *  meaningful response populated from the ProductService.SetInventory method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2betaSetInventoryResponse : GTLRObject
 @end
@@ -2260,6 +2262,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  the filters, set `strictFiltering` to True in `PredictRequest.params` to
  *  receive empty results instead. Note that the API will never return items
  *  with storageStatus of "EXPIRED" or "DELETED" regardless of filter choices.
+ *  If `filterSyntaxV2` is set to true under the `params` field, then attribute
+ *  based expressions are expected instead of the above described tag-based
+ *  syntax. Examples: * (colors: ANY("Red", "Blue")) AND NOT (categories:
+ *  ANY("Phones")) * (availability: ANY("IN_STOCK")) AND (colors: ANY("Red") OR
+ *  categories: ANY("Phones"))
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2310,7 +2317,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  Default empty. If set to be non-empty, then it needs to be one of
  *  {'no-diversity', 'low-diversity', 'medium-diversity', 'high-diversity',
  *  'auto-diversity'}. This gives request-level control and adjusts prediction
- *  results based on product category.
+ *  results based on product category. * `filterSyntaxV2`: Boolean. False by
+ *  default. If set to true, the `filter` field will be interpreteted according
+ *  to the new, attribute-based syntax.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2PredictRequest_Params *params;
 
@@ -2380,7 +2389,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  Default empty. If set to be non-empty, then it needs to be one of
  *  {'no-diversity', 'low-diversity', 'medium-diversity', 'high-diversity',
  *  'auto-diversity'}. This gives request-level control and adjusts prediction
- *  results based on product category.
+ *  results based on product category. * `filterSyntaxV2`: Boolean. False by
+ *  default. If set to true, the `filter` field will be interpreteted according
+ *  to the new, attribute-based syntax.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -3069,16 +3080,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
- *  Promotion information.
+ *  Promotion specification.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2Promotion : GTLRObject
 
 /**
- *  ID of the promotion. For example, "free gift". The value must be a UTF-8
- *  encoded string with a length limit of 128 characters, and match the pattern:
- *  `a-zA-Z*`. For example, id0LikeThis or ID_1_LIKE_THIS. Otherwise, an
- *  INVALID_ARGUMENT error is returned. Google Merchant Center property
- *  [promotion](https://support.google.com/merchants/answer/7050148).
+ *  Promotion identifier, which is the final component of name. For example,
+ *  this field is "free_gift", if name is `projects/ *
+ *  /locations/global/catalogs/default_catalog/promotions/free_gift`. The value
+ *  must be a UTF-8 encoded string with a length limit of 128 characters, and
+ *  match the pattern: `a-zA-Z*`. For example, id0LikeThis or ID_1_LIKE_THIS.
+ *  Otherwise, an INVALID_ARGUMENT error is returned. Corresponds to Google
+ *  Merchant Center property
+ *  [promotion_id](https://support.google.com/merchants/answer/7050148).
  */
 @property(nonatomic, copy, nullable) NSString *promotionId;
 
@@ -3274,14 +3288,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  Metadata related to the progress of the RemoveFulfillmentPlaces operation.
  *  Currently empty because there is no meaningful metadata populated from the
- *  RemoveFulfillmentPlaces method.
+ *  ProductService.RemoveFulfillmentPlaces method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2RemoveFulfillmentPlacesMetadata : GTLRObject
 @end
 
 
 /**
- *  Request message for RemoveFulfillmentPlaces method.
+ *  Request message for ProductService.RemoveFulfillmentPlaces method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2RemoveFulfillmentPlacesRequest : GTLRObject
 
@@ -3328,8 +3342,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  Response of the RemoveFulfillmentPlacesRequest. Currently empty because
- *  there is no meaningful response populated from the RemoveFulfillmentPlaces
- *  method.
+ *  there is no meaningful response populated from the
+ *  ProductService.RemoveFulfillmentPlaces method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2RemoveFulfillmentPlacesResponse : GTLRObject
 @end
@@ -3338,14 +3352,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  Metadata related to the progress of the RemoveLocalInventories operation.
  *  Currently empty because there is no meaningful metadata populated from the
- *  RemoveLocalInventories method.
+ *  ProductService.RemoveLocalInventories method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2RemoveLocalInventoriesMetadata : GTLRObject
 @end
 
 
 /**
- *  Request message for RemoveLocalInventories method.
+ *  Request message for ProductService.RemoveLocalInventories method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2RemoveLocalInventoriesRequest : GTLRObject
 
@@ -3376,8 +3390,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
- *  Response of the RemoveLocalInventories API. Currently empty because there is
- *  no meaningful response populated from the RemoveLocalInventories method.
+ *  Response of the ProductService.RemoveLocalInventories API. Currently empty
+ *  because there is no meaningful response populated from the
+ *  ProductService.RemoveLocalInventories method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2RemoveLocalInventoriesResponse : GTLRObject
 @end
@@ -3779,6 +3794,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @interface GTLRCloudRetail_GoogleCloudRetailV2SearchRequestFacetSpecFacetKey : GTLRObject
 
 /**
+ *  True to make facet keys case insensitive when getting faceting values with
+ *  prefixes or contains; false otherwise.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *caseInsensitive;
+
+/**
  *  Only get facet values that contains the given strings. For example, suppose
  *  "categories" has three values "Women > Shoe", "Women > Dress" and "Men >
  *  Shoe". If set "contains" to "Shoe", the "categories" facet will give only
@@ -3811,10 +3834,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @property(nonatomic, copy, nullable) NSString *key;
 
 /**
- *  The order in which Facet.values are returned. Allowed values are: * "count
- *  desc", which means order by Facet.FacetValue.count descending. * "value
- *  desc", which means order by Facet.FacetValue.value descending. Only applies
- *  to textual facets. If not set, textual values are sorted in [natural
+ *  The order in which SearchResponse.Facet.values are returned. Allowed values
+ *  are: * "count desc", which means order by SearchResponse.Facet.values.count
+ *  descending. * "value desc", which means order by
+ *  SearchResponse.Facet.values.value descending. Only applies to textual
+ *  facets. If not set, textual values are sorted in [natural
  *  order](https://en.wikipedia.org/wiki/Natural_sort_order); numerical
  *  intervals are sorted in the order given by FacetSpec.FacetKey.intervals;
  *  FulfillmentInfo.place_ids are sorted in the order given by
@@ -3836,13 +3860,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  provided, it will override the default behavior of facet computation. The
  *  query syntax is the same as a filter expression. See SearchRequest.filter
  *  for detail syntax and limitations. Notice that there is no limitation on
- *  FacetKey.key when query is specified. In the response, FacetValue.value will
- *  be always "1" and FacetValue.count will be the number of results that
- *  matches the query. For example, you can set a customized facet for
- *  "shipToStore", where FacetKey.key is "customizedShipToStore", and
- *  FacetKey.query is "availability: ANY(\\"IN_STOCK\\") AND shipToStore:
- *  ANY(\\"123\\")". Then the facet will count the products that are both in
- *  stock and ship to store "123".
+ *  FacetKey.key when query is specified. In the response,
+ *  SearchResponse.Facet.values.value will be always "1" and
+ *  SearchResponse.Facet.values.count will be the number of results that match
+ *  the query. For example, you can set a customized facet for "shipToStore",
+ *  where FacetKey.key is "customizedShipToStore", and FacetKey.query is
+ *  "availability: ANY(\\"IN_STOCK\\") AND shipToStore: ANY(\\"123\\")". Then
+ *  the facet will count the products that are both in stock and ship to store
+ *  "123".
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -3850,10 +3875,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  Only get facet for the given restricted values. For example, when using
  *  "pickupInStore" as key and set restricted values to ["store123",
  *  "store456"], only facets for "store123" and "store456" are returned. Only
- *  supported on textual fields and fulfillments. Maximum is 20. Must be set for
- *  the fulfillment facet keys: * pickupInStore * shipToStore * sameDayDelivery
- *  * nextDayDelivery * customFulfillment1 * customFulfillment2 *
- *  customFulfillment3 * customFulfillment4 * customFulfillment5
+ *  supported on predefined textual fields, custom textual attributes and
+ *  fulfillments. Maximum is 20. Must be set for the fulfillment facet keys: *
+ *  pickupInStore * shipToStore * sameDayDelivery * nextDayDelivery *
+ *  customFulfillment1 * customFulfillment2 * customFulfillment3 *
+ *  customFulfillment4 * customFulfillment5
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedValues;
 
@@ -4215,14 +4241,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  Metadata related to the progress of the SetInventory operation. Currently
  *  empty because there is no meaningful metadata populated from the
- *  SetInventory method.
+ *  ProductService.SetInventory method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2SetInventoryMetadata : GTLRObject
 @end
 
 
 /**
- *  Request message for SetInventory method.
+ *  Request message for ProductService.SetInventory method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2SetInventoryRequest : GTLRObject
 
@@ -4263,7 +4289,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  time is recorded for the following inventory fields: * Product.price_info *
  *  Product.availability * Product.available_quantity * Product.fulfillment_info
  *  If a full overwrite of inventory information while ignoring timestamps is
- *  needed, UpdateProduct should be invoked instead.
+ *  needed, ProductService.UpdateProduct should be invoked instead.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2Product *inventory;
 
@@ -4288,7 +4314,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  Response of the SetInventoryRequest. Currently empty because there is no
- *  meaningful response populated from the SetInventory method.
+ *  meaningful response populated from the ProductService.SetInventory method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2SetInventoryResponse : GTLRObject
 @end

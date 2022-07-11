@@ -28,12 +28,15 @@
 @class GTLRArtifactRegistry_Location;
 @class GTLRArtifactRegistry_Location_Labels;
 @class GTLRArtifactRegistry_Location_Metadata;
+@class GTLRArtifactRegistry_MavenArtifact;
 @class GTLRArtifactRegistry_MavenRepositoryConfig;
+@class GTLRArtifactRegistry_NpmPackage;
 @class GTLRArtifactRegistry_Operation;
 @class GTLRArtifactRegistry_Operation_Metadata;
 @class GTLRArtifactRegistry_Operation_Response;
 @class GTLRArtifactRegistry_Package;
 @class GTLRArtifactRegistry_Policy;
+@class GTLRArtifactRegistry_PythonPackage;
 @class GTLRArtifactRegistry_Repository;
 @class GTLRArtifactRegistry_Repository_Labels;
 @class GTLRArtifactRegistry_Status;
@@ -169,6 +172,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Docke
  *  Value: "FORMAT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified;
+/**
+ *  Kubeflow Pipelines package format.
+ *
+ *  Value: "KFP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Kfp;
 /**
  *  Maven package format.
  *
@@ -714,6 +723,60 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
+ *  The response from listing maven artifacts.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "mavenArtifacts" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRArtifactRegistry_ListMavenArtifactsResponse : GTLRCollectionObject
+
+/**
+ *  The maven artifacts returned.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_MavenArtifact *> *mavenArtifacts;
+
+/**
+ *  The token to retrieve the next page of artifacts, or empty if there are no
+ *  more artifacts to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response from listing npm packages.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "npmPackages" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRArtifactRegistry_ListNpmPackagesResponse : GTLRCollectionObject
+
+/**
+ *  The token to retrieve the next page of artifacts, or empty if there are no
+ *  more artifacts to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The npm packages returned.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_NpmPackage *> *npmPackages;
+
+@end
+
+
+/**
  *  The response from listing packages.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -736,6 +799,33 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_Package *> *packages;
+
+@end
+
+
+/**
+ *  The response from listing python packages.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "pythonPackages" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRArtifactRegistry_ListPythonPackagesResponse : GTLRCollectionObject
+
+/**
+ *  The token to retrieve the next page of artifacts, or empty if there are no
+ *  more artifacts to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The python packages returned.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_PythonPackage *> *pythonPackages;
 
 @end
 
@@ -883,6 +973,45 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
+ *  MavenArtifact represents a maven artifact.
+ */
+@interface GTLRArtifactRegistry_MavenArtifact : GTLRObject
+
+/** Artifact ID for the artifact. */
+@property(nonatomic, copy, nullable) NSString *artifactId;
+
+/** Output only. Time the artifact was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Group ID for the artifact. Example: com.google.guava */
+@property(nonatomic, copy, nullable) NSString *groupId;
+
+/**
+ *  Required. registry_location, project_id, repository_name and maven_artifact
+ *  forms a unique artifact For example,
+ *  "projects/test-project/locations/us-west4/repositories/test-repo/mavenArtifacts/
+ *  com.google.guava:guava:31.0-jre", where "us-west4" is the registry_location,
+ *  "test-project" is the project_id, "test-repo" is the repository_name and
+ *  "com.google.guava:guava:31.0-jre" is the maven artifact.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. URL to access the pom file of the artifact. Example:
+ *  us-west4-maven.pkg.dev/test-project/test-repo/com/google/guava/guava/31.0/guava-31.0.pom
+ */
+@property(nonatomic, copy, nullable) NSString *pomUri;
+
+/** Output only. Time the artifact was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** Version of this artifact. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
  *  MavenRepositoryConfig is maven related repository details. Provides
  *  additional configuration details for repositories of the maven format type.
  */
@@ -912,6 +1041,39 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *        versions. (Value: "VERSION_POLICY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *versionPolicy;
+
+@end
+
+
+/**
+ *  NpmPackage represents an npm artifact.
+ */
+@interface GTLRArtifactRegistry_NpmPackage : GTLRObject
+
+/** Output only. Time the package was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. registry_location, project_id, repository_name and npm_package
+ *  forms a unique package For example,
+ *  "projects/test-project/locations/us-west4/repositories/test-repo/npmPackages/
+ *  npm_test:1.0.0", where "us-west4" is the registry_location, "test-project"
+ *  is the project_id, "test-repo" is the repository_name and npm_test:1.0.0" is
+ *  the npm package.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Package for the artifact. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Tags attached to this package. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+/** Output only. Time the package was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** Version of this package. */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -1150,6 +1312,43 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
+ *  PythonPackage represents a python artifact.
+ */
+@interface GTLRArtifactRegistry_PythonPackage : GTLRObject
+
+/** Output only. Time the package was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. registry_location, project_id, repository_name and python_package
+ *  forms a unique package
+ *  name:`projects//locations//repository//pythonPackages/`. For example,
+ *  "projects/test-project/locations/us-west4/repositories/test-repo/pythonPackages/
+ *  python_package:1.0.0", where "us-west4" is the registry_location,
+ *  "test-project" is the project_id, "test-repo" is the repository_name and
+ *  python_package:1.0.0" is the python package.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Package for the artifact. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Output only. Time the package was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Required. URL to access the package. Example:
+ *  us-west4-python.pkg.dev/test-project/test-repo/python_package/file-name-1.0.0.tar.gz
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+/** Version of this package. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
  *  A Repository for storing artifacts with a specific format.
  */
 @interface GTLRArtifactRegistry_Repository : GTLRObject
@@ -1174,6 +1373,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *        format. (Value: "DOCKER")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_FormatUnspecified
  *        Unspecified package format. (Value: "FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRArtifactRegistry_Repository_Format_Kfp Kubeflow Pipelines
+ *        package format. (Value: "KFP")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_Maven Maven package
  *        format. (Value: "MAVEN")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_Npm NPM package format.

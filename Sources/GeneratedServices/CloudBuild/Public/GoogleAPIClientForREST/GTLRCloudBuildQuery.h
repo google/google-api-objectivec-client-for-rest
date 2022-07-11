@@ -1645,7 +1645,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Runs a `BuildTrigger` at a particular source revision.
+ *  Runs a `BuildTrigger` at a particular source revision. To run a regional or
+ *  global trigger, use the POST request that includes the location endpoint in
+ *  the path. The POST request that does not include the location endpoint in
+ *  the path can only be used when running global triggers.
  *
  *  Method: cloudbuild.projects.locations.triggers.run
  *
@@ -1663,7 +1666,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudBuild_Operation.
  *
- *  Runs a `BuildTrigger` at a particular source revision.
+ *  Runs a `BuildTrigger` at a particular source revision. To run a regional or
+ *  global trigger, use the POST request that includes the location endpoint in
+ *  the path. The POST request that does not include the location endpoint in
+ *  the path can only be used when running global triggers.
  *
  *  @param object The @c GTLRCloudBuild_RunBuildTriggerRequest to include in the
  *    query.
@@ -2128,7 +2134,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Runs a `BuildTrigger` at a particular source revision.
+ *  Runs a `BuildTrigger` at a particular source revision. To run a regional or
+ *  global trigger, use the POST request that includes the location endpoint in
+ *  the path. The POST request that does not include the location endpoint in
+ *  the path can only be used when running global triggers.
  *
  *  Method: cloudbuild.projects.triggers.run
  *
@@ -2152,7 +2161,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudBuild_Operation.
  *
- *  Runs a `BuildTrigger` at a particular source revision.
+ *  Runs a `BuildTrigger` at a particular source revision. To run a regional or
+ *  global trigger, use the POST request that includes the location endpoint in
+ *  the path. The POST request that does not include the location endpoint in
+ *  the path can only be used when running global triggers.
  *
  *  @param object The @c GTLRCloudBuild_RepoSource to include in the query.
  *  @param projectId Required. ID of the project.

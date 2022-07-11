@@ -371,6 +371,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_EvaluateUserConsentsRequ
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_EvaluateUserConsentsRequest_ResponseView_ResponseViewUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudHealthcare_FhirStore.complexDataTypeReferenceParsing
+
+/**
+ *  No parsing behavior specified. This is the same as DISABLED for backwards
+ *  compatibility.
+ *
+ *  Value: "COMPLEX_DATA_TYPE_REFERENCE_PARSING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_FhirStore_ComplexDataTypeReferenceParsing_ComplexDataTypeReferenceParsingUnspecified;
+/**
+ *  References in complex data types are ignored.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_FhirStore_ComplexDataTypeReferenceParsing_Disabled;
+/**
+ *  References in complex data types are parsed.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_FhirStore_ComplexDataTypeReferenceParsing_Enabled;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudHealthcare_FhirStore.version
 
 /**
@@ -559,7 +582,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactio
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_RedactNoText;
 /**
- *  Redact sensitive text.
+ *  Redact sensitive text. Uses the set of [Default DICOM
+ *  InfoTypes](https://cloud.google.com/healthcare-api/docs/how-tos/dicom-deidentify#default_dicom_infotypes).
  *
  *  Value: "REDACT_SENSITIVE_TEXT"
  */
@@ -648,6 +672,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ParserConfig_Version_V2;
  *  Value: "ANALYTICS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Analytics;
+/**
+ *  Analytics V2, similar to schema defined by the FHIR community, with added
+ *  support for extensions with one or more occurrences and contained resources
+ *  in stringified JSON.
+ *
+ *  Value: "ANALYTICS_V2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_AnalyticsV2;
 /**
  *  No schema type specified. This type is unsupported.
  *
@@ -1434,7 +1466,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 /**
  *  An AES 128/192/256 bit key. Causes the hash to be computed based on this
  *  key. A default key is generated for each Deidentify operation and is used
- *  wherever crypto_key is not specified.
+ *  when neither `crypto_key` nor `kms_wrapped` is specified. Must not be set if
+ *  `kms_wrapped` is set.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1477,8 +1510,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 /**
  *  An AES 128/192/256 bit key. Causes the shift to be computed based on this
- *  key and the patient ID. A default key is generated for each Deidentify
- *  operation and is used wherever crypto_key is not specified.
+ *  key and the patient ID. A default key is generated for each
+ *  de-identification operation and is used when neither `crypto_key` nor
+ *  `kms_wrapped` is specified. Must not be set if `kms_wrapped` is set.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2237,6 +2271,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_FhirStore : GTLRObject
 
 /**
+ *  Enable parsing of references within complex FHIR data types such as
+ *  Extensions. If this value is set to ENABLED, then features like referential
+ *  integrity and Bundle reference rewriting apply to all references. If this
+ *  flag has not been specified the behavior of the FHIR store will not change,
+ *  references in complex data types will not be parsed. New stores will have
+ *  this value set to ENABLED after a notification period. Warning: turning on
+ *  this flag causes processing existing resources to fail if they contain
+ *  references to non-existent resources.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudHealthcare_FhirStore_ComplexDataTypeReferenceParsing_ComplexDataTypeReferenceParsingUnspecified
+ *        No parsing behavior specified. This is the same as DISABLED for
+ *        backwards compatibility. (Value:
+ *        "COMPLEX_DATA_TYPE_REFERENCE_PARSING_UNSPECIFIED")
+ *    @arg @c kGTLRCloudHealthcare_FhirStore_ComplexDataTypeReferenceParsing_Disabled
+ *        References in complex data types are ignored. (Value: "DISABLED")
+ *    @arg @c kGTLRCloudHealthcare_FhirStore_ComplexDataTypeReferenceParsing_Enabled
+ *        References in complex data types are parsed. (Value: "ENABLED")
+ */
+@property(nonatomic, copy, nullable) NSString *complexDataTypeReferenceParsing;
+
+/**
  *  If true, overrides the default search behavior for this FHIR store to
  *  `handling=strict` which returns an error for unrecognized search parameters.
  *  If false, uses the FHIR specification default `handling=lenient` which
@@ -2945,7 +3001,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 /**
  *  Resource name of the HL7v2 store, of the form
- *  `projects/{project_id}/datasets/{dataset_id}/hl7V2Stores/{hl7v2_store_id}`.
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7V2Stores/{hl7v2_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3098,7 +3154,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *    @arg @c kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_RedactNoText Do
  *        not redact text. (Value: "REDACT_NO_TEXT")
  *    @arg @c kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_RedactSensitiveText
- *        Redact sensitive text. (Value: "REDACT_SENSITIVE_TEXT")
+ *        Redact sensitive text. Uses the set of [Default DICOM
+ *        InfoTypes](https://cloud.google.com/healthcare-api/docs/how-tos/dicom-deidentify#default_dicom_infotypes).
+ *        (Value: "REDACT_SENSITIVE_TEXT")
  *    @arg @c kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_TextRedactionModeUnspecified
  *        No text redaction specified. Same as REDACT_NO_TEXT. (Value:
  *        "TEXT_REDACTION_MODE_UNSPECIFIED")
@@ -3738,7 +3796,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 /**
  *  Resource name of the Message, of the form
- *  `projects/{project_id}/datasets/{dataset_id}/hl7V2Stores/{hl7_v2_store_id}/messages/{message_id}`.
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7V2Stores/{hl7_v2_store_id}/messages/{message_id}`.
  *  Assigned by the server.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4322,6 +4380,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *        type `Resource`, which can hold any resource type. The affected fields
  *        are `Parameters.parameter.resource`, `Bundle.entry.resource`, and
  *        `Bundle.entry.response.outcome`. (Value: "ANALYTICS")
+ *    @arg @c kGTLRCloudHealthcare_SchemaConfig_SchemaType_AnalyticsV2 Analytics
+ *        V2, similar to schema defined by the FHIR community, with added
+ *        support for extensions with one or more occurrences and contained
+ *        resources in stringified JSON. (Value: "ANALYTICS_V2")
  *    @arg @c kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecified
  *        No schema type specified. This type is unsupported. (Value:
  *        "SCHEMA_TYPE_UNSPECIFIED")

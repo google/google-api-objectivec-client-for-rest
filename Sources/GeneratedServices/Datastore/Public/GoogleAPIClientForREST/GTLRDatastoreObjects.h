@@ -779,6 +779,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @interface GTLRDatastore_AllocateIdsRequest : GTLRObject
 
+/** If not empty, the ID of the database against which to make the request. */
+@property(nonatomic, copy, nullable) NSString *databaseId;
+
 /**
  *  Required. A list of keys with incomplete key paths for which to allocate
  *  IDs. No key may be reserved/read-only.
@@ -821,6 +824,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @interface GTLRDatastore_BeginTransactionRequest : GTLRObject
 
+/** If not empty, the ID of the database against which to make the request. */
+@property(nonatomic, copy, nullable) NSString *databaseId;
+
 /** Options for a new transaction. */
 @property(nonatomic, strong, nullable) GTLRDatastore_TransactionOptions *transactionOptions;
 
@@ -847,6 +853,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  The request for Datastore.Commit.
  */
 @interface GTLRDatastore_CommitRequest : GTLRObject
+
+/** If not empty, the ID of the database against which to make the request. */
+@property(nonatomic, copy, nullable) NSString *databaseId;
 
 /**
  *  The type of commit to perform. Defaults to `TRANSACTIONAL`.
@@ -919,7 +928,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @interface GTLRDatastore_CompositeFilter : GTLRObject
 
-/** The list of filters to combine. Must contain at least one filter. */
+/**
+ *  The list of filters to combine. Requires: * At least one filter is present.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Filter *> *filters;
 
 /**
@@ -2086,6 +2097,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @interface GTLRDatastore_LookupRequest : GTLRObject
 
+/** If not empty, the ID of the database against which to make the request. */
+@property(nonatomic, copy, nullable) NSString *databaseId;
+
 /** Required. Keys of entities to look up. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Key *> *keys;
 
@@ -2230,6 +2244,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @interface GTLRDatastore_PartitionId : GTLRObject
 
+/** If not empty, the ID of the database to which the entities belong. */
+@property(nonatomic, copy, nullable) NSString *databaseId;
+
 /** If not empty, the ID of the namespace to which the entities belong. */
 @property(nonatomic, copy, nullable) NSString *namespaceId;
 
@@ -2258,14 +2275,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 /**
  *  The kind of the entity. A kind matching regex `__.*__` is
  *  reserved/read-only. A kind must not contain more than 1500 bytes when UTF-8
- *  encoded. Cannot be `""`.
+ *  encoded. Cannot be `""`. Must be valid UTF-8 bytes. Legacy values that are
+ *  not valid UTF-8 are encoded as `__bytes__` where `` is the base-64 encoding
+ *  of the bytes.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The name of the entity. A name matching regex `__.*__` is
  *  reserved/read-only. A name must not be more than 1500 bytes when UTF-8
- *  encoded. Cannot be `""`.
+ *  encoded. Cannot be `""`. Must be valid UTF-8 bytes. Legacy values that are
+ *  not valid UTF-8 are encoded as `__bytes__` where `` is the base-64 encoding
+ *  of the bytes.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2641,6 +2662,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @interface GTLRDatastore_RollbackRequest : GTLRObject
 
+/** If not empty, the ID of the database against which to make the request. */
+@property(nonatomic, copy, nullable) NSString *databaseId;
+
 /**
  *  Required. The transaction identifier, returned by a call to
  *  Datastore.BeginTransaction.
@@ -2664,6 +2688,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  The request for Datastore.RunQuery.
  */
 @interface GTLRDatastore_RunQueryRequest : GTLRObject
+
+/** If not empty, the ID of the database against which to make the request. */
+@property(nonatomic, copy, nullable) NSString *databaseId;
 
 /** The GQL query to run. This query must be a non-aggregation query. */
 @property(nonatomic, strong, nullable) GTLRDatastore_GqlQuery *gqlQuery;

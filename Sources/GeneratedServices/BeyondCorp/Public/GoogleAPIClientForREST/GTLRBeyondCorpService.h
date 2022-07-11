@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   BeyondCorp API (beyondcorp/v1alpha)
+//   BeyondCorp API (beyondcorp/v1)
 // Description:
 //   Beyondcorp Enterprise provides identity and context aware access controls
 //   for enterprise resources and enables zero-trust access. Using the

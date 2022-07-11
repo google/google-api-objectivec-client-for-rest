@@ -139,6 +139,7 @@
 @class GTLRYouTube_SuperChatEventSnippet;
 @class GTLRYouTube_SuperStickerMetadata;
 @class GTLRYouTube_TestItemTestItemSnippet;
+@class GTLRYouTube_ThirdPartyLink;
 @class GTLRYouTube_ThirdPartyLinkSnippet;
 @class GTLRYouTube_ThirdPartyLinkStatus;
 @class GTLRYouTube_Thumbnail;
@@ -3500,6 +3501,14 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_TvpgRating_TvpgY7F
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_YtRating_YtAgeRestricted;
 /** Value: "ytUnspecified" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_YtRating_YtUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRYouTube_Cuepoint.cueType
+
+/** Value: "cueTypeAd" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_Cuepoint_CueType_CueTypeAd;
+/** Value: "cueTypeUnspecified" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_Cuepoint_CueType_CueTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_InvideoPosition.cornerPosition
@@ -7890,6 +7899,58 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 
 /**
+ *  Note that there may be a 5-second end-point resolution issue. For instance,
+ *  if a cuepoint comes in for 22:03:27, we may stuff the cuepoint into 22:03:25
+ *  or 22:03:30, depending. This is an artifact of HLS.
+ */
+@interface GTLRYouTube_Cuepoint : GTLRObject
+
+/**
+ *  cueType
+ *
+ *  Likely values:
+ *    @arg @c kGTLRYouTube_Cuepoint_CueType_CueTypeAd Value "cueTypeAd"
+ *    @arg @c kGTLRYouTube_Cuepoint_CueType_CueTypeUnspecified Value
+ *        "cueTypeUnspecified"
+ */
+@property(nonatomic, copy, nullable) NSString *cueType;
+
+/**
+ *  The duration of this cuepoint.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *durationSecs;
+
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  The identifier for cuepoint resource.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The time when the cuepoint should be inserted by offset to the broadcast
+ *  actual start time.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *insertionOffsetTimeMs;
+
+/**
+ *  The wall clock time at which the cuepoint should be inserted. Only one of
+ *  insertion_offset_time_ms and walltime_ms may be set at a time.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *walltimeMs;
+
+@end
+
+
+/**
  *  GTLRYouTube_Entity
  */
 @interface GTLRYouTube_Entity : GTLRObject
@@ -11287,6 +11348,34 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /** The status object contains information about the status of the link. */
 @property(nonatomic, strong, nullable) GTLRYouTube_ThirdPartyLinkStatus *status;
+
+@end
+
+
+/**
+ *  GTLRYouTube_ThirdPartyLinkListResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRYouTube_ThirdPartyLinkListResponse : GTLRCollectionObject
+
+/** Etag of this resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  items
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_ThirdPartyLink *> *items;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "youtube#thirdPartyLinkListResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 

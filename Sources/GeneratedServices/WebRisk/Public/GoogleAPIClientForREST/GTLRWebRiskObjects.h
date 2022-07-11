@@ -65,6 +65,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1ComputeThrea
 // GTLRWebRisk_GoogleCloudWebriskV1SearchHashesResponseThreatHash.threatTypes
 
 /**
+ *  High Recall Social Engineering list targeting any platform.
+ *
+ *  Value: "HIGH_RECALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchHashesResponseThreatHash_ThreatTypes_HighRecall;
+/**
  *  Malware targeting any platform.
  *
  *  Value: "MALWARE"
@@ -93,6 +99,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchHashes
 // GTLRWebRisk_GoogleCloudWebriskV1SearchUrisResponseThreatUri.threatTypes
 
 /**
+ *  High Recall Social Engineering list targeting any platform.
+ *
+ *  Value: "HIGH_RECALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchUrisResponseThreatUri_ThreatTypes_HighRecall;
+/**
  *  Malware targeting any platform.
  *
  *  Value: "MALWARE"
@@ -120,6 +132,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchUrisRe
 // ----------------------------------------------------------------------------
 // GTLRWebRisk_GoogleCloudWebriskV1Submission.threatTypes
 
+/**
+ *  High Recall Social Engineering list targeting any platform.
+ *
+ *  Value: "HIGH_RECALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_HighRecall;
 /**
  *  Malware targeting any platform.
  *

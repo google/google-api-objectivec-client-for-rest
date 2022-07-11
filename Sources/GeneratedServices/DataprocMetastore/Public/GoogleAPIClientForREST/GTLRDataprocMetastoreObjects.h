@@ -100,18 +100,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType
 // GTLRDataprocMetastore_BackendMetastore.metastoreType
 
 /**
- *  The backend metastore is BigQuery.
- *
- *  Value: "BIGQUERY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_Bigquery;
-/**
- *  The backend metastore is Dataplex.
- *
- *  Value: "DATAPLEX"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_Dataplex;
-/**
  *  The backend metastore is Dataproc Metastore.
  *
  *  Value: "DATAPROC_METASTORE"
@@ -754,10 +742,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  *  The type of the backend metastore.
  *
  *  Likely values:
- *    @arg @c kGTLRDataprocMetastore_BackendMetastore_MetastoreType_Bigquery The
- *        backend metastore is BigQuery. (Value: "BIGQUERY")
- *    @arg @c kGTLRDataprocMetastore_BackendMetastore_MetastoreType_Dataplex The
- *        backend metastore is Dataplex. (Value: "DATAPLEX")
  *    @arg @c kGTLRDataprocMetastore_BackendMetastore_MetastoreType_DataprocMetastore
  *        The backend metastore is Dataproc Metastore. (Value:
  *        "DATAPROC_METASTORE")
@@ -1121,10 +1105,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 
 /**
  *  A map from BackendMetastore rank to BackendMetastores from which the
- *  federation service serves metadata at query time. The map key is an integer
- *  that represents the order in which BackendMetastores should be evaluated to
- *  resolve database names at query time. A BackendMetastore with a lower number
- *  will be evaluated before a BackendMetastore with a higher number.
+ *  federation service serves metadata at query time. The map key represents the
+ *  order in which BackendMetastores should be evaluated to resolve database
+ *  names at query time and should be greater than or equal to zero. A
+ *  BackendMetastore with a lower number will be evaluated before a
+ *  BackendMetastore with a higher number.
  */
 @property(nonatomic, strong, nullable) GTLRDataprocMetastore_Federation_BackendMetastores *backendMetastores;
 
@@ -1192,10 +1177,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 
 /**
  *  A map from BackendMetastore rank to BackendMetastores from which the
- *  federation service serves metadata at query time. The map key is an integer
- *  that represents the order in which BackendMetastores should be evaluated to
- *  resolve database names at query time. A BackendMetastore with a lower number
- *  will be evaluated before a BackendMetastore with a higher number.
+ *  federation service serves metadata at query time. The map key represents the
+ *  order in which BackendMetastores should be evaluated to resolve database
+ *  names at query time and should be greater than or equal to zero. A
+ *  BackendMetastore with a lower number will be evaluated before a
+ *  BackendMetastore with a higher number.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDataprocMetastore_BackendMetastore. Use @c -additionalJSONKeys and

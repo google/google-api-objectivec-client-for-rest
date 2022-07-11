@@ -878,9 +878,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 @property(nonatomic, copy, nullable) NSString *gracePeriodDuration;
 
 /**
- *  Whether the renewing base plan is compatible with legacy version of the Play
- *  Billing Library (prior to version 3) or not. Only one renewing base plan can
- *  be marked as legacy compatible for a given subscription.
+ *  Whether the renewing base plan is backward compatible. The backward
+ *  compatible base plan is returned by the Google Play Billing Library
+ *  deprecated method querySkuDetailsAsync(). Only one renewing base plan can be
+ *  marked as legacy compatible for a given subscription.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2882,7 +2883,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 /**
  *  Required. A string representing version of the available regions being used
- *  for the specified resource.
+ *  for the specified resource. The current version is 2022/01.
  */
 @property(nonatomic, copy, nullable) NSString *version;
 

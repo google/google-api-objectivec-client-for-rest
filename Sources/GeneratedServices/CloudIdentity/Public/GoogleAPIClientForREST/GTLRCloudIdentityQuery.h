@@ -111,6 +111,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.cancelWipe
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  */
 @interface GTLRCloudIdentityQuery_DevicesCancelWipe : GTLRCloudIdentityQuery
@@ -158,6 +159,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  */
 @interface GTLRCloudIdentityQuery_DevicesCreate : GTLRCloudIdentityQuery
@@ -196,6 +198,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  */
 @interface GTLRCloudIdentityQuery_DevicesDelete : GTLRCloudIdentityQuery
@@ -240,6 +243,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.deviceUsers.approve
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersApprove : GTLRCloudIdentityQuery
@@ -280,6 +284,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.deviceUsers.block
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersBlock : GTLRCloudIdentityQuery
@@ -322,6 +327,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.deviceUsers.cancelWipe
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersCancelWipe : GTLRCloudIdentityQuery
@@ -364,6 +370,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.deviceUsers.clientStates.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevicesReadonly
  */
@@ -430,6 +437,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.deviceUsers.clientStates.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevicesReadonly
  */
@@ -496,6 +504,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.deviceUsers.clientStates.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersClientStatesPatch : GTLRCloudIdentityQuery
@@ -580,6 +589,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.deviceUsers.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersDelete : GTLRCloudIdentityQuery
@@ -627,6 +637,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.deviceUsers.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevicesReadonly
  */
@@ -674,6 +685,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.deviceUsers.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevicesReadonly
  */
@@ -842,6 +854,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.deviceUsers.wipe
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersWipe : GTLRCloudIdentityQuery
@@ -888,6 +901,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevicesReadonly
  */
@@ -934,6 +948,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevicesReadonly
  */
@@ -1021,6 +1036,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.wipe
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  */
 @interface GTLRCloudIdentityQuery_DevicesWipe : GTLRCloudIdentityQuery
@@ -1061,6 +1077,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.groups.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
@@ -1101,6 +1118,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.groups.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
@@ -1134,6 +1152,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.groups.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
@@ -1168,6 +1187,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.groups.getSecuritySettings
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
@@ -1209,6 +1229,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.groups.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
@@ -1275,6 +1296,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.groups.lookup
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
@@ -1324,6 +1346,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.groups.memberships.checkTransitiveMembership
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
@@ -1377,6 +1400,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.groups.memberships.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
@@ -1410,6 +1434,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.groups.memberships.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
@@ -1445,6 +1470,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.groups.memberships.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
@@ -1488,6 +1514,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.groups.memberships.getMembershipGraph
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
@@ -1548,6 +1575,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.groups.memberships.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
@@ -1616,6 +1644,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.groups.memberships.lookup
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
@@ -1667,6 +1696,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.groups.memberships.modifyMembershipRoles
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
@@ -1711,6 +1741,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.groups.memberships.searchTransitiveGroups
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
@@ -1783,6 +1814,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.groups.memberships.searchTransitiveMemberships
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
@@ -1836,6 +1868,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.groups.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
@@ -1879,6 +1912,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.groups.search
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
@@ -1946,6 +1980,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.groups.updateSecuritySettings
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentity
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */

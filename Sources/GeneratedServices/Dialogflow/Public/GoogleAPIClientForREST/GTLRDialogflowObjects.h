@@ -31,6 +31,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Environment;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1EnvironmentTestCasesConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1EnvironmentVersionConfig;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1EnvironmentWebhookConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1EventHandler;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1EventInput;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Form;
@@ -77,6 +78,9 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TestRunDifference;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TextInput;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TransitionRoute;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Webhook;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_RequestHeaders;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequest_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestFulfillmentInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestIntentInfo;
@@ -85,6 +89,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestSentimentAnalysisResult;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookServiceDirectoryConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Changelog;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationTurn;
@@ -102,6 +107,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Environment;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3EnvironmentTestCasesConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3EnvironmentVersionConfig;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3EnvironmentWebhookConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3EventHandler;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3EventInput;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment;
@@ -3240,7 +3246,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSNumber *enableStackdriverLogging;
 
 /**
- *  Indiciates whether the agent is locked for changes. If the agent is locked,
+ *  Indicates whether the agent is locked for changes. If the agent is locked,
  *  modifications to the agent will be rejected except for RestoreAgent.
  *
  *  Uses NSNumber of boolValue.
@@ -3728,6 +3734,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3beta1EnvironmentVersionConfig *> *versionConfigs;
 
+/** The webhook configuration for this environment. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1EnvironmentWebhookConfig *webhookConfig;
+
 @end
 
 
@@ -3768,6 +3777,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Required. Format: projects//locations//agents//flows//versions/. */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Configuration for webhooks.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1EnvironmentWebhookConfig : GTLRObject
+
+/**
+ *  The list of webhooks to override for the agent environment. The webhook must
+ *  exist in the agent. You can override fields in `generic_web_service` and
+ *  `service_directory`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Webhook *> *webhookOverrides;
 
 @end
 
@@ -5396,8 +5420,106 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Webhooks host the developer's business logic. During a session, webhooks
+ *  allow the developer to use the data extracted by Dialogflow's natural
+ *  language processing to generate dynamic responses, validate collected data,
+ *  or trigger actions on the backend.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Webhook : GTLRObject
+
+/**
+ *  Indicates whether the webhook is disabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/**
+ *  Required. The human-readable name of the webhook, unique within the agent.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Configuration for a generic web service. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService *genericWebService;
+
+/**
+ *  The unique identifier of the webhook. Required for the
+ *  Webhooks.UpdateWebhook method. Webhooks.CreateWebhook populates the name
+ *  automatically. Format: `projects//locations//agents//webhooks/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Configuration for a [Service
+ *  Directory](https://cloud.google.com/service-directory) service.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookServiceDirectoryConfig *serviceDirectory;
+
+/**
+ *  Webhook execution timeout. Execution is considered failed if Dialogflow
+ *  doesn't receive a response from webhook at the end of the timeout period.
+ *  Defaults to 5 seconds, maximum allowed timeout is 30 seconds.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+@end
+
+
+/**
+ *  Represents configuration for a generic web service.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService : GTLRObject
+
+/**
+ *  Optional. Specifies a list of allowed custom CA certificates (in DER format)
+ *  for HTTPS verification. This overrides the default SSL trust store. If this
+ *  is empty or unspecified, Dialogflow will use Google's default trust store to
+ *  verify certificates. N.B. Make sure the HTTPS server certificates are signed
+ *  with "subject alt name". For instance a certificate can be self-signed using
+ *  the following command, ``` openssl x509 -req -days 200 -in example.com.csr
+ *  \\ -signkey example.com.key \\ -out example.com.crt \\ -extfile <(printf
+ *  "\\nsubjectAltName='DNS:www.example.com'") ```
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedCaCerts;
+
+/** The password for HTTP Basic authentication. */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/** The HTTP request headers to send together with webhook requests. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_RequestHeaders *requestHeaders;
+
+/**
+ *  Required. The webhook URI for receiving POST requests. It must use https
+ *  protocol.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+/** The user name for HTTP Basic authentication. */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  The HTTP request headers to send together with webhook requests.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_RequestHeaders : GTLRObject
+@end
+
+
+/**
  *  The request message for a webhook call. The request is sent as a JSON object
- *  and the field names will be presented in camel cases.
+ *  and the field names will be presented in camel cases. You may see
+ *  undocumented fields in an actual request. These fields are used internally
+ *  by Dialogflow and should be ignored.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequest : GTLRObject
 
@@ -5664,6 +5786,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** The list of rich message responses to present to the user. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessage *> *messages;
+
+@end
+
+
+/**
+ *  Represents configuration for a [Service
+ *  Directory](https://cloud.google.com/service-directory) service.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookServiceDirectoryConfig : GTLRObject
+
+/** Generic Service configuration of this webhook. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService *genericWebService;
+
+/**
+ *  Required. The name of [Service
+ *  Directory](https://cloud.google.com/service-directory) service. Format:
+ *  `projects//locations//namespaces//services/`. `Location ID` of the service
+ *  directory must be the same as the location of the agent.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
 
 @end
 
@@ -6347,6 +6489,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3EnvironmentVersionConfig *> *versionConfigs;
 
+/** The webhook configuration for this environment. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3EnvironmentWebhookConfig *webhookConfig;
+
 @end
 
 
@@ -6387,6 +6532,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Required. Format: projects//locations//agents//flows//versions/. */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Configuration for webhooks.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3EnvironmentWebhookConfig : GTLRObject
+
+/**
+ *  The list of webhooks to override for the agent environment. The webhook must
+ *  exist in the agent. You can override fields in `generic_web_service` and
+ *  `service_directory`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3Webhook *> *webhookOverrides;
 
 @end
 
@@ -10738,7 +10898,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  The request message for a webhook call. The request is sent as a JSON object
- *  and the field names will be presented in camel cases.
+ *  and the field names will be presented in camel cases. You may see
+ *  undocumented fields in an actual request. These fields are used internally
+ *  by Dialogflow and should be ignored.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequest : GTLRObject
 
@@ -13321,7 +13483,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  Indicates whether the conversational query triggers a cancellation for slot
- *  filling.
+ *  filling. For more information, see the [cancel slot filling
+ *  documentation](https://cloud.google.com/dialogflow/es/docs/intents-actions-parameters#cancel).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -15833,7 +15996,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  Indicates whether the conversational query triggers a cancellation for slot
- *  filling.
+ *  filling. For more information, see the [cancel slot filling
+ *  documentation](https://cloud.google.com/dialogflow/es/docs/intents-actions-parameters#cancel).
  *
  *  Uses NSNumber of boolValue.
  */

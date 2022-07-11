@@ -335,6 +335,44 @@ NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage = @"WIPE
 
 @end
 
+@implementation GTLRAndroidManagementQuery_EnterprisesEnrollmentTokensGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAndroidManagementQuery_EnterprisesEnrollmentTokensGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAndroidManagement_EnrollmentToken class];
+  query.loggingName = @"androidmanagement.enterprises.enrollmentTokens.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidManagementQuery_EnterprisesEnrollmentTokensList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/enrollmentTokens";
+  GTLRAndroidManagementQuery_EnterprisesEnrollmentTokensList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAndroidManagement_ListEnrollmentTokensResponse class];
+  query.loggingName = @"androidmanagement.enterprises.enrollmentTokens.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidManagementQuery_EnterprisesGet
 
 @dynamic name;

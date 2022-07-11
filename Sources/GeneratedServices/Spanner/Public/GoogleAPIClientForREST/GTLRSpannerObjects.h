@@ -23,6 +23,7 @@
 @class GTLRSpanner_ContextValue;
 @class GTLRSpanner_CopyBackupEncryptionConfig;
 @class GTLRSpanner_Database;
+@class GTLRSpanner_DatabaseRole;
 @class GTLRSpanner_Delete;
 @class GTLRSpanner_DerivedMetric;
 @class GTLRSpanner_DiagnosticMessage;
@@ -1477,6 +1478,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
+ *  A Cloud Spanner database role.
+ */
+@interface GTLRSpanner_DatabaseRole : GTLRObject
+
+/**
+ *  Required. The name of the database role. Values are of the form
+ *  `projects//instances//databases//databaseRoles/ {role}`, where `` is as
+ *  specified in the `CREATE ROLE` DDL statement. This name can be passed to
+ *  Get/Set IAMPolicy methods to identify the database role.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Arguments to delete operations.
  */
 @interface GTLRSpanner_Delete : GTLRObject
@@ -2443,6 +2460,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_Operation *> *operations;
+
+@end
+
+
+/**
+ *  The response for ListDatabaseRoles.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "databaseRoles" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRSpanner_ListDatabaseRolesResponse : GTLRCollectionObject
+
+/**
+ *  Database roles that matched the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_DatabaseRole *> *databaseRoles;
+
+/**
+ *  `next_page_token` can be sent in a subsequent ListDatabaseRoles call to
+ *  fetch more of the matching roles.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -4102,6 +4146,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 /** Output only. The timestamp when the session is created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** The database role which created this session. */
+@property(nonatomic, copy, nullable) NSString *creatorRole;
+
 /**
  *  The labels for the session. * Label keys must be between 1 and 63 characters
  *  long and must conform to the following regular expression:
@@ -4386,31 +4433,37 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  Locking read-write. This type of transaction is the only way to write data
  *  into Cloud Spanner. These transactions rely on pessimistic locking and, if
  *  necessary, two-phase commit. Locking read-write transactions may abort,
- *  requiring the application to retry. 2. Snapshot read-only. This transaction
- *  type provides guaranteed consistency across several reads, but does not
- *  allow writes. Snapshot read-only transactions can be configured to read at
- *  timestamps in the past. Snapshot read-only transactions do not need to be
- *  committed. 3. Partitioned DML. This type of transaction is used to execute a
- *  single Partitioned DML statement. Partitioned DML partitions the key space
- *  and runs the DML statement over each partition in parallel using separate,
- *  internal transactions that commit independently. Partitioned DML
- *  transactions do not need to be committed. For transactions that only read,
- *  snapshot read-only transactions provide simpler semantics and are almost
- *  always faster. In particular, read-only transactions do not take locks, so
- *  they do not conflict with read-write transactions. As a consequence of not
- *  taking locks, they also do not abort, so retry loops are not needed.
- *  Transactions may only read-write data in a single database. They may,
- *  however, read-write data in different tables within that database. Locking
- *  read-write transactions: Locking transactions may be used to atomically
- *  read-modify-write data anywhere in a database. This type of transaction is
- *  externally consistent. Clients should attempt to minimize the amount of time
- *  a transaction is active. Faster transactions commit with higher probability
- *  and cause less contention. Cloud Spanner attempts to keep read locks active
- *  as long as the transaction continues to do reads, and the transaction has
- *  not been terminated by Commit or Rollback. Long periods of inactivity at the
- *  client may cause Cloud Spanner to release a transaction's locks and abort
- *  it. Conceptually, a read-write transaction consists of zero or more reads or
- *  SQL statements followed by Commit. At any time before Commit, the client can
+ *  requiring the application to retry. 2. Snapshot read-only. Snapshot
+ *  read-only transactions provide guaranteed consistency across several reads,
+ *  but do not allow writes. Snapshot read-only transactions can be configured
+ *  to read at timestamps in the past, or configured to perform a strong read
+ *  (where Spanner will select a timestamp such that the read is guaranteed to
+ *  see the effects of all transactions that have committed before the start of
+ *  the read). Snapshot read-only transactions do not need to be committed.
+ *  Queries on change streams must be performed with the snapshot read-only
+ *  transaction mode, specifying a strong read. Please see
+ *  TransactionOptions.ReadOnly.strong for more details. 3. Partitioned DML.
+ *  This type of transaction is used to execute a single Partitioned DML
+ *  statement. Partitioned DML partitions the key space and runs the DML
+ *  statement over each partition in parallel using separate, internal
+ *  transactions that commit independently. Partitioned DML transactions do not
+ *  need to be committed. For transactions that only read, snapshot read-only
+ *  transactions provide simpler semantics and are almost always faster. In
+ *  particular, read-only transactions do not take locks, so they do not
+ *  conflict with read-write transactions. As a consequence of not taking locks,
+ *  they also do not abort, so retry loops are not needed. Transactions may only
+ *  read-write data in a single database. They may, however, read-write data in
+ *  different tables within that database. Locking read-write transactions:
+ *  Locking transactions may be used to atomically read-modify-write data
+ *  anywhere in a database. This type of transaction is externally consistent.
+ *  Clients should attempt to minimize the amount of time a transaction is
+ *  active. Faster transactions commit with higher probability and cause less
+ *  contention. Cloud Spanner attempts to keep read locks active as long as the
+ *  transaction continues to do reads, and the transaction has not been
+ *  terminated by Commit or Rollback. Long periods of inactivity at the client
+ *  may cause Cloud Spanner to release a transaction's locks and abort it.
+ *  Conceptually, a read-write transaction consists of zero or more reads or SQL
+ *  statements followed by Commit. At any time before Commit, the client can
  *  send a Rollback request to abort the transaction. Semantics: Cloud Spanner
  *  can commit the transaction if all read locks it acquired are still valid at
  *  commit time, and it is able to acquire write locks for all writes. Cloud
@@ -4463,9 +4516,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  reads are not repeatable: two consecutive strong read-only transactions
  *  might return inconsistent results if there are concurrent writes. If
  *  consistency across reads is required, the reads should be executed within a
- *  transaction or at an exact read timestamp. See
- *  TransactionOptions.ReadOnly.strong. Exact staleness: These timestamp bounds
- *  execute reads at a user-specified timestamp. Reads at a timestamp are
+ *  transaction or at an exact read timestamp. Queries on change streams (see
+ *  below for more details) must also specify the strong read timestamp bound.
+ *  See TransactionOptions.ReadOnly.strong. Exact staleness: These timestamp
+ *  bounds execute reads at a user-specified timestamp. Reads at a timestamp are
  *  guaranteed to see a consistent prefix of the global transaction history:
  *  they observe modifications done by all transactions with a commit timestamp
  *  less than or equal to the read timestamp, and observe none of the
@@ -4507,16 +4561,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  with the error `FAILED_PRECONDITION`. You can configure and extend the
  *  `VERSION_RETENTION_PERIOD` of a database up to a period as long as one week,
  *  which allows Cloud Spanner to perform reads up to one week in the past.
- *  Partitioned DML transactions: Partitioned DML transactions are used to
- *  execute DML statements with a different execution strategy that provides
- *  different, and often better, scalability properties for large, table-wide
- *  operations than DML in a ReadWrite transaction. Smaller scoped statements,
- *  such as an OLTP workload, should prefer using ReadWrite transactions.
- *  Partitioned DML partitions the keyspace and runs the DML statement on each
- *  partition in separate, internal transactions. These transactions commit
- *  automatically when complete, and run independently from one another. To
- *  reduce lock contention, this execution strategy only acquires read locks on
- *  rows that match the WHERE clause of the statement. Additionally, the smaller
+ *  Querying change Streams: A Change Stream is a schema object that can be
+ *  configured to watch data changes on the entire database, a set of tables, or
+ *  a set of columns in a database. When a change stream is created, Spanner
+ *  automatically defines a corresponding SQL Table-Valued Function (TVF) that
+ *  can be used to query the change records in the associated change stream
+ *  using the ExecuteStreamingSql API. The name of the TVF for a change stream
+ *  is generated from the name of the change stream: READ_. All queries on
+ *  change stream TVFs must be executed using the ExecuteStreamingSql API with a
+ *  single-use read-only transaction with a strong read-only timestamp_bound.
+ *  The change stream TVF allows users to specify the start_timestamp and
+ *  end_timestamp for the time range of interest. All change records within the
+ *  retention period is accessible using the strong read-only timestamp_bound.
+ *  All other TransactionOptions are invalid for change stream queries. In
+ *  addition, if TransactionOptions.read_only.return_read_timestamp is set to
+ *  true, a special value of 2^63 - 2 will be returned in the Transaction
+ *  message that describes the transaction, instead of a valid read timestamp.
+ *  This special value should be discarded and not used for any subsequent
+ *  queries. Please see https://cloud.google.com/spanner/docs/change-streams for
+ *  more details on how to query the change stream TVFs. Partitioned DML
+ *  transactions: Partitioned DML transactions are used to execute DML
+ *  statements with a different execution strategy that provides different, and
+ *  often better, scalability properties for large, table-wide operations than
+ *  DML in a ReadWrite transaction. Smaller scoped statements, such as an OLTP
+ *  workload, should prefer using ReadWrite transactions. Partitioned DML
+ *  partitions the keyspace and runs the DML statement on each partition in
+ *  separate, internal transactions. These transactions commit automatically
+ *  when complete, and run independently from one another. To reduce lock
+ *  contention, this execution strategy only acquires read locks on rows that
+ *  match the WHERE clause of the statement. Additionally, the smaller
  *  per-partition transactions hold locks for less time. That said, Partitioned
  *  DML is not a drop-in replacement for standard DML used in ReadWrite
  *  transactions. - The DML statement must be fully-partitionable. Specifically,

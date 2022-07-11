@@ -11,6 +11,27 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings.acquisitionConversionEventLookbackWindow
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_AcquisitionConversionEventLookbackWindow_AcquisitionConversionEventLookbackWindow30Days = @"ACQUISITION_CONVERSION_EVENT_LOOKBACK_WINDOW_30_DAYS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_AcquisitionConversionEventLookbackWindow_AcquisitionConversionEventLookbackWindow7Days = @"ACQUISITION_CONVERSION_EVENT_LOOKBACK_WINDOW_7_DAYS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_AcquisitionConversionEventLookbackWindow_AcquisitionConversionEventLookbackWindowUnspecified = @"ACQUISITION_CONVERSION_EVENT_LOOKBACK_WINDOW_UNSPECIFIED";
+
+// GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings.otherConversionEventLookbackWindow
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_OtherConversionEventLookbackWindow_OtherConversionEventLookbackWindow30Days = @"OTHER_CONVERSION_EVENT_LOOKBACK_WINDOW_30_DAYS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_OtherConversionEventLookbackWindow_OtherConversionEventLookbackWindow60Days = @"OTHER_CONVERSION_EVENT_LOOKBACK_WINDOW_60_DAYS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_OtherConversionEventLookbackWindow_OtherConversionEventLookbackWindow90Days = @"OTHER_CONVERSION_EVENT_LOOKBACK_WINDOW_90_DAYS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_OtherConversionEventLookbackWindow_OtherConversionEventLookbackWindowUnspecified = @"OTHER_CONVERSION_EVENT_LOOKBACK_WINDOW_UNSPECIFIED";
+
+// GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings.reportingAttributionModel
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_AdsPreferredLastClick = @"ADS_PREFERRED_LAST_CLICK";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_CrossChannelDataDriven = @"CROSS_CHANNEL_DATA_DRIVEN";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_CrossChannelFirstClick = @"CROSS_CHANNEL_FIRST_CLICK";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_CrossChannelLastClick = @"CROSS_CHANNEL_LAST_CLICK";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_CrossChannelLinear = @"CROSS_CHANNEL_LINEAR";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_CrossChannelPositionBased = @"CROSS_CHANNEL_POSITION_BASED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_CrossChannelTimeDecay = @"CROSS_CHANNEL_TIME_DECAY";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_ReportingAttributionModelUnspecified = @"REPORTING_ATTRIBUTION_MODEL_UNSPECIFIED";
+
 // GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange.action
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_Created = @"CREATED";
@@ -142,6 +163,7 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest.resourceType
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_Account = @"ACCOUNT";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_AttributionSettings = @"ATTRIBUTION_SETTINGS";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ChangeHistoryResourceTypeUnspecified = @"CHANGE_HISTORY_RESOURCE_TYPE_UNSPECIFIED";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ConversionEvent = @"CONVERSION_EVENT";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_CustomDimension = @"CUSTOM_DIMENSION";
@@ -246,6 +268,17 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 //
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomMetricRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings
+@dynamic acquisitionConversionEventLookbackWindow, name,
+         otherConversionEventLookbackWindow, reportingAttributionModel;
 @end
 
 
@@ -433,10 +466,11 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 //
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChangeChangeHistoryResource
-@dynamic account, conversionEvent, customDimension, customMetric,
-         dataRetentionSettings, dataStream, displayVideo360AdvertiserLink,
-         displayVideo360AdvertiserLinkProposal, firebaseLink, googleAdsLink,
-         googleSignalsSettings, measurementProtocolSecret, property;
+@dynamic account, attributionSettings, conversionEvent, customDimension,
+         customMetric, dataRetentionSettings, dataStream,
+         displayVideo360AdvertiserLink, displayVideo360AdvertiserLinkProposal,
+         firebaseLink, googleAdsLink, googleSignalsSettings,
+         measurementProtocolSecret, property;
 @end
 
 

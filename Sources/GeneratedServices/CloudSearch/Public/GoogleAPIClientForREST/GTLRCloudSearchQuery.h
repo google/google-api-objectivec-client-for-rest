@@ -44,7 +44,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchModeAsynchronous;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearchModeSynchronous;
 /**
- *  Priority is not specified in the update request. Leaving priority
+ *  The priority is not specified in the update request. Leaving priority
  *  unspecified results in an update failure.
  *
  *  Value: "UNSPECIFIED"
@@ -377,7 +377,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
 /**
- *  Name of the data source to delete Schema. Format: datasources/{source_id}
+ *  The name of the data source to delete Schema. Format:
+ *  datasources/{source_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -387,7 +388,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  Deletes the schema of a data source. **Note:** This API requires an admin or
  *  service account to execute.
  *
- *  @param name Name of the data source to delete Schema. Format:
+ *  @param name The name of the data source to delete Schema. Format:
  *    datasources/{source_id}
  *
  *  @return GTLRCloudSearchQuery_IndexingDatasourcesDeleteSchema
@@ -415,7 +416,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
-/** Name of the data source to get Schema. Format: datasources/{source_id} */
+/**
+ *  The name of the data source to get Schema. Format: datasources/{source_id}
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -424,7 +427,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  Gets the schema of a data source. **Note:** This API requires an admin or
  *  service account to execute.
  *
- *  @param name Name of the data source to get Schema. Format:
+ *  @param name The name of the data source to get Schema. Format:
  *    datasources/{source_id}
  *
  *  @return GTLRCloudSearchQuery_IndexingDatasourcesGetSchema
@@ -447,7 +450,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @interface GTLRCloudSearchQuery_IndexingDatasourcesItemsDelete : GTLRCloudSearchQuery
 
 /**
- *  Name of connector making this call. Format:
+ *  The name of connector making this call. Format:
  *  datasources/{source_id}/connectors/{ID}
  */
 @property(nonatomic, copy, nullable) NSString *connectorName;
@@ -462,8 +465,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  Required. The RequestMode for this request.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudSearchModeUnspecified Priority is not specified in the
- *        update request. Leaving priority unspecified results in an update
+ *    @arg @c kGTLRCloudSearchModeUnspecified The priority is not specified in
+ *        the update request. Leaving priority unspecified results in an update
  *        failure. (Value: "UNSPECIFIED")
  *    @arg @c kGTLRCloudSearchModeSynchronous For real-time updates. (Value:
  *        "SYNCHRONOUS")
@@ -473,7 +476,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @property(nonatomic, copy, nullable) NSString *mode;
 
 /**
- *  Required. Name of the item to delete. Format:
+ *  Required. The name of the item to delete. Format:
  *  datasources/{source_id}/items/{item_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -501,7 +504,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  admin or service account to execute. The service account used is the one
  *  whitelisted in the corresponding data source.
  *
- *  @param name Required. Name of the item to delete. Format:
+ *  @param name Required. The name of the item to delete. Format:
  *    datasources/{source_id}/items/{item_id}
  *
  *  @return GTLRCloudSearchQuery_IndexingDatasourcesItemsDelete
@@ -524,7 +527,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @interface GTLRCloudSearchQuery_IndexingDatasourcesItemsDeleteQueueItems : GTLRCloudSearchQuery
 
 /**
- *  Name of the Data Source to delete items in a queue. Format:
+ *  The name of the Data Source to delete items in a queue. Format:
  *  datasources/{source_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -538,7 +541,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *
  *  @param object The @c GTLRCloudSearch_DeleteQueueItemsRequest to include in
  *    the query.
- *  @param name Name of the Data Source to delete items in a queue. Format:
+ *  @param name The name of the Data Source to delete items in a queue. Format:
  *    datasources/{source_id}
  *
  *  @return GTLRCloudSearchQuery_IndexingDatasourcesItemsDeleteQueueItems
@@ -562,7 +565,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @interface GTLRCloudSearchQuery_IndexingDatasourcesItemsGet : GTLRCloudSearchQuery
 
 /**
- *  Name of connector making this call. Format:
+ *  The name of connector making this call. Format:
  *  datasources/{source_id}/connectors/{ID}
  */
 @property(nonatomic, copy, nullable) NSString *connectorName;
@@ -574,7 +577,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
 /**
- *  Name of the item to get info. Format:
+ *  The name of the item to get info. Format:
  *  datasources/{source_id}/items/{item_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -586,7 +589,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  account to execute. The service account used is the one whitelisted in the
  *  corresponding data source.
  *
- *  @param name Name of the item to get info. Format:
+ *  @param name The name of the item to get info. Format:
  *    datasources/{source_id}/items/{item_id}
  *
  *  @return GTLRCloudSearchQuery_IndexingDatasourcesItemsGet
@@ -611,8 +614,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @interface GTLRCloudSearchQuery_IndexingDatasourcesItemsIndex : GTLRCloudSearchQuery
 
 /**
- *  Name of the Item. Format: datasources/{source_id}/items/{item_id} This is a
- *  required field. The maximum length is 1536 characters.
+ *  The name of the Item. Format: datasources/{source_id}/items/{item_id} This
+ *  is a required field. The maximum length is 1536 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -627,7 +630,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *
  *  @param object The @c GTLRCloudSearch_IndexItemRequest to include in the
  *    query.
- *  @param name Name of the Item. Format:
+ *  @param name The name of the Item. Format:
  *    datasources/{source_id}/items/{item_id} This is a required field. The
  *    maximum length is 1536 characters.
  *
@@ -663,7 +666,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @property(nonatomic, assign) BOOL brief;
 
 /**
- *  Name of connector making this call. Format:
+ *  The name of connector making this call. Format:
  *  datasources/{source_id}/connectors/{ID}
  */
 @property(nonatomic, copy, nullable) NSString *connectorName;
@@ -674,7 +677,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
-/** Name of the Data Source to list Items. Format: datasources/{source_id} */
+/**
+ *  The name of the Data Source to list Items. Format: datasources/{source_id}
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -696,7 +701,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  service account to execute. The service account used is the one whitelisted
  *  in the corresponding data source.
  *
- *  @param name Name of the Data Source to list Items. Format:
+ *  @param name The name of the Data Source to list Items. Format:
  *    datasources/{source_id}
  *
  *  @return GTLRCloudSearchQuery_IndexingDatasourcesItemsList
@@ -730,7 +735,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  */
 @interface GTLRCloudSearchQuery_IndexingDatasourcesItemsPoll : GTLRCloudSearchQuery
 
-/** Name of the Data Source to poll items. Format: datasources/{source_id} */
+/**
+ *  The name of the Data Source to poll items. Format: datasources/{source_id}
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -750,7 +757,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *
  *  @param object The @c GTLRCloudSearch_PollItemsRequest to include in the
  *    query.
- *  @param name Name of the Data Source to poll items. Format:
+ *  @param name The name of the Data Source to poll items. Format:
  *    datasources/{source_id}
  *
  *  @return GTLRCloudSearchQuery_IndexingDatasourcesItemsPoll
@@ -774,7 +781,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @interface GTLRCloudSearchQuery_IndexingDatasourcesItemsPush : GTLRCloudSearchQuery
 
 /**
- *  Name of the item to push into the indexing queue. Format:
+ *  The name of the item to push into the indexing queue. Format:
  *  datasources/{source_id}/items/{ID} This is a required field. The maximum
  *  length is 1536 characters.
  */
@@ -789,7 +796,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *
  *  @param object The @c GTLRCloudSearch_PushItemRequest to include in the
  *    query.
- *  @param name Name of the item to push into the indexing queue. Format:
+ *  @param name The name of the item to push into the indexing queue. Format:
  *    datasources/{source_id}/items/{ID} This is a required field. The maximum
  *    length is 1536 characters.
  *
@@ -816,7 +823,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @interface GTLRCloudSearchQuery_IndexingDatasourcesItemsUnreserve : GTLRCloudSearchQuery
 
 /**
- *  Name of the Data Source to unreserve all items. Format:
+ *  The name of the Data Source to unreserve all items. Format:
  *  datasources/{source_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -832,7 +839,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *
  *  @param object The @c GTLRCloudSearch_UnreserveItemsRequest to include in the
  *    query.
- *  @param name Name of the Data Source to unreserve all items. Format:
+ *  @param name The name of the Data Source to unreserve all items. Format:
  *    datasources/{source_id}
  *
  *  @return GTLRCloudSearchQuery_IndexingDatasourcesItemsUnreserve
@@ -857,7 +864,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @interface GTLRCloudSearchQuery_IndexingDatasourcesItemsUpload : GTLRCloudSearchQuery
 
 /**
- *  Name of the Item to start a resumable upload. Format:
+ *  The name of the Item to start a resumable upload. Format:
  *  datasources/{source_id}/items/{item_id}. The maximum length is 1536 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -872,7 +879,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *
  *  @param object The @c GTLRCloudSearch_StartUploadItemRequest to include in
  *    the query.
- *  @param name Name of the Item to start a resumable upload. Format:
+ *  @param name The name of the Item to start a resumable upload. Format:
  *    datasources/{source_id}/items/{item_id}. The maximum length is 1536 bytes.
  *
  *  @return GTLRCloudSearchQuery_IndexingDatasourcesItemsUpload
@@ -898,7 +905,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @interface GTLRCloudSearchQuery_IndexingDatasourcesUpdateSchema : GTLRCloudSearchQuery
 
 /**
- *  Name of the data source to update Schema. Format: datasources/{source_id}
+ *  The name of the data source to update Schema. Format:
+ *  datasources/{source_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -912,7 +920,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *
  *  @param object The @c GTLRCloudSearch_UpdateSchemaRequest to include in the
  *    query.
- *  @param name Name of the data source to update Schema. Format:
+ *  @param name The name of the data source to update Schema. Format:
  *    datasources/{source_id}
  *
  *  @return GTLRCloudSearchQuery_IndexingDatasourcesUpdateSchema
@@ -1269,7 +1277,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
-/** Name of the datasource. Format: datasources/{source_id}. */
+/** The name of the datasource. Format: datasources/{source_id}. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1278,7 +1286,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  Deletes a datasource. **Note:** This API requires an admin account to
  *  execute.
  *
- *  @param name Name of the datasource. Format: datasources/{source_id}.
+ *  @param name The name of the datasource. Format: datasources/{source_id}.
  *
  *  @return GTLRCloudSearchQuery_SettingsDatasourcesDelete
  */
@@ -1304,7 +1312,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
-/** Name of the datasource resource. Format: datasources/{source_id}. */
+/** The name of the datasource resource. Format: datasources/{source_id}. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1312,7 +1320,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *
  *  Gets a datasource. **Note:** This API requires an admin account to execute.
  *
- *  @param name Name of the datasource resource. Format:
+ *  @param name The name of the datasource resource. Format:
  *    datasources/{source_id}.
  *
  *  @return GTLRCloudSearchQuery_SettingsDatasourcesGet
@@ -1377,8 +1385,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @interface GTLRCloudSearchQuery_SettingsDatasourcesUpdate : GTLRCloudSearchQuery
 
 /**
- *  Name of the datasource resource. Format: datasources/{source_id}. The name
- *  is ignored when creating a datasource.
+ *  The name of the datasource resource. Format: datasources/{source_id}. The
+ *  name is ignored when creating a datasource.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1390,7 +1398,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *
  *  @param object The @c GTLRCloudSearch_UpdateDataSourceRequest to include in
  *    the query.
- *  @param name Name of the datasource resource. Format:
+ *  @param name The name of the datasource resource. Format:
  *    datasources/{source_id}. The name is ignored when creating a datasource.
  *
  *  @return GTLRCloudSearchQuery_SettingsDatasourcesUpdate
@@ -1513,7 +1521,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
 /**
- *  Name of the search application. Format: searchapplications/{application_id}.
+ *  The name of the search application. Format:
+ *  searchapplications/{application_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1523,7 +1532,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  Gets the specified search application. **Note:** This API requires an admin
  *  account to execute.
  *
- *  @param name Name of the search application. Format:
+ *  @param name The name of the search application. Format:
  *    searchapplications/{application_id}.
  *
  *  @return GTLRCloudSearchQuery_SettingsSearchapplicationsGet
@@ -1627,7 +1636,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @interface GTLRCloudSearchQuery_SettingsSearchapplicationsUpdate : GTLRCloudSearchQuery
 
 /**
- *  Name of the Search Application. Format: searchapplications/{application_id}.
+ *  The name of the Search Application. Format:
+ *  searchapplications/{application_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1639,7 +1649,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *
  *  @param object The @c GTLRCloudSearch_SearchApplication to include in the
  *    query.
- *  @param name Name of the Search Application. Format:
+ *  @param name The name of the Search Application. Format:
  *    searchapplications/{application_id}.
  *
  *  @return GTLRCloudSearchQuery_SettingsSearchapplicationsUpdate

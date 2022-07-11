@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Campaign Manager 360 API (dfareporting/v3.5)
+//   Campaign Manager 360 API (dfareporting/v4)
 // Description:
 //   Build applications to efficiently manage large or complex trafficking,
 //   reporting, and attribution workflows for Campaign Manager 360.
@@ -27,9 +27,14 @@
 @class GTLRDfareporting_AdvertiserGroup;
 @class GTLRDfareporting_AudienceSegment;
 @class GTLRDfareporting_AudienceSegmentGroup;
+@class GTLRDfareporting_BillingAssignment;
+@class GTLRDfareporting_BillingProfile;
+@class GTLRDfareporting_BillingRate;
+@class GTLRDfareporting_BillingRateTieredRate;
 @class GTLRDfareporting_Browser;
 @class GTLRDfareporting_Campaign;
 @class GTLRDfareporting_CampaignCreativeAssociation;
+@class GTLRDfareporting_CampaignSummary;
 @class GTLRDfareporting_ChangeLog;
 @class GTLRDfareporting_ChannelGrouping;
 @class GTLRDfareporting_ChannelGroupingRule;
@@ -94,6 +99,7 @@
 @class GTLRDfareporting_FsCommand;
 @class GTLRDfareporting_GeoTargeting;
 @class GTLRDfareporting_InventoryItem;
+@class GTLRDfareporting_Invoice;
 @class GTLRDfareporting_KeyValueTargetingExpression;
 @class GTLRDfareporting_LandingPage;
 @class GTLRDfareporting_Language;
@@ -347,6 +353,106 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Advertiser_Status_Approved;
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Advertiser_Status_OnHold;
 
 // ----------------------------------------------------------------------------
+// GTLRDfareporting_BillingProfile.invoiceLevel
+
+/** Value: "ACCOUNT_LEVEL" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingProfile_InvoiceLevel_AccountLevel;
+/** Value: "ADVERTISER_LEVEL" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingProfile_InvoiceLevel_AdvertiserLevel;
+/** Value: "CAMPAIGN_LEVEL" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingProfile_InvoiceLevel_CampaignLevel;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_BillingProfile.status
+
+/** Value: "ACTIVE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingProfile_Status_Active;
+/** Value: "ARCHIVED" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingProfile_Status_Archived;
+/** Value: "UNDER_REVIEW" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingProfile_Status_UnderReview;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_BillingRate.type
+
+/** Value: "AD_SERVING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_AdServing;
+/** Value: "ADVANCED_DISPLAY_AD_SERVING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_AdvancedDisplayAdServing;
+/** Value: "AUDIO_AD_SERVING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_AudioAdServing;
+/** Value: "CLICKS" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_Clicks;
+/** Value: "CUSTOM_REPORTS" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_CustomReports;
+/** Value: "DATA_TRANSFER" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_DataTransfer;
+/** Value: "DATA_TRANSFER_SETUP" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_DataTransferSetup;
+/** Value: "DISPLAY_AD_SERVING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_DisplayAdServing;
+/** Value: "ENHANCED_FORMATS" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_EnhancedFormats;
+/** Value: "EXPOSURE_TO_CONVERSION" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_ExposureToConversion;
+/** Value: "INSTREAM_VIDEO" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_InstreamVideo;
+/** Value: "INSTREAM_VIDEO_REDIRECT" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_InstreamVideoRedirect;
+/** Value: "INSTREAM_VIDEO_VPAID" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_InstreamVideoVpaid;
+/** Value: "MINIMUM_SERVICE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_MinimumService;
+/** Value: "NIELSEN_DIGITAL_AD_RATINGS_FEE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_NielsenDigitalAdRatingsFee;
+/** Value: "PATH_TO_CONVERSION" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_PathToConversion;
+/** Value: "PIXEL" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_Pixel;
+/** Value: "PROVIDED_LIST" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_ProvidedList;
+/** Value: "PROVIDED_LIST_SETUP" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_ProvidedListSetup;
+/** Value: "RICH_MEDIA_EXPANDING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_RichMediaExpanding;
+/** Value: "RICH_MEDIA_FLOATING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_RichMediaFloating;
+/** Value: "RICH_MEDIA_INPAGE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_RichMediaInpage;
+/** Value: "RICH_MEDIA_TEASER" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_RichMediaTeaser;
+/** Value: "RICH_MEDIA_VIDEO" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_RichMediaVideo;
+/** Value: "RICH_MEDIA_VPAID" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_RichMediaVpaid;
+/** Value: "STARTUP" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_Startup;
+/** Value: "STATEMENT_OF_WORK" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_StatementOfWork;
+/** Value: "TRACKING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_Tracking;
+/** Value: "TRACKING_AD_CLICKS" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_TrackingAdClicks;
+/** Value: "TRACKING_AD_IMPRESSIONS" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_TrackingAdImpressions;
+/** Value: "TRAFFICKING_FEATURE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_TraffickingFeature;
+/** Value: "VIDEO_AD_SERVING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_Type_VideoAdServing;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_BillingRate.unitOfMeasure
+
+/** Value: "CPC" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_UnitOfMeasure_Cpc;
+/** Value: "CPM" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_UnitOfMeasure_Cpm;
+/** Value: "EA" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_UnitOfMeasure_Ea;
+/** Value: "P2C" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_UnitOfMeasure_P2c;
+
+// ----------------------------------------------------------------------------
 // GTLRDfareporting_ConversionError.code
 
 /** Value: "INTERNAL" */
@@ -373,6 +479,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_ArtworkType_Artwor
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Creative.authoringSource
 
+/** Value: "CREATIVE_AUTHORING_SOURCE_ACS" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceAcs;
 /** Value: "CREATIVE_AUTHORING_SOURCE_DBM" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceDbm;
 /** Value: "CREATIVE_AUTHORING_SOURCE_DCM" */
@@ -1067,6 +1175,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_Warne
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_LinkedFileNotFound;
 /** Value: "MAX_FLASH_VERSION_11" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_MaxFlashVersion11;
+/** Value: "MISSING_ENABLER_REFERENCE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_MissingEnablerReference;
 /** Value: "MRAID_REFERENCED" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_MraidReferenced;
 /** Value: "NOT_SSL_COMPLIANT" */
@@ -1571,6 +1681,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_File_Status_Cancelled;
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_File_Status_Failed;
 /** Value: "PROCESSING" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_File_Status_Processing;
+/** Value: "QUEUED" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_File_Status_Queued;
 /** Value: "REPORT_AVAILABLE" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_File_Status_ReportAvailable;
 
@@ -1887,6 +1999,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_InventoryItem_Type_Planning
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_InventoryItem_Type_PlanningPlacementTypeRegular;
 
 // ----------------------------------------------------------------------------
+// GTLRDfareporting_Invoice.invoiceType
+
+/** Value: "INVOICE_TYPE_CREDIT" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Invoice_InvoiceType_InvoiceTypeCredit;
+/** Value: "INVOICE_TYPE_INVOICE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Invoice_InvoiceType_InvoiceTypeInvoice;
+/** Value: "INVOICE_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Invoice_InvoiceType_InvoiceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDfareporting_ListPopulationTerm.operatorProperty
 
 /** Value: "NUM_EQUALS" */
@@ -1937,6 +2059,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertise
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_MeasurementPartnerAdvertiserLink.measurementPartner
 
+/** Value: "DOUBLE_VERIFY" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_MeasurementPartner_DoubleVerify;
 /** Value: "INTEGRAL_AD_SCIENCE" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_MeasurementPartner_IntegralAdScience;
 /** Value: "NONE" */
@@ -1965,6 +2089,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignL
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_MeasurementPartnerCampaignLink.measurementPartner
 
+/** Value: "DOUBLE_VERIFY" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_MeasurementPartner_DoubleVerify;
 /** Value: "INTEGRAL_AD_SCIENCE" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_MeasurementPartner_IntegralAdScience;
 /** Value: "NONE" */
@@ -1993,6 +2119,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingD
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_MeasurementPartnerWrappingData.measurementPartner
 
+/** Value: "DOUBLE_VERIFY" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_MeasurementPartner_DoubleVerify;
 /** Value: "INTEGRAL_AD_SCIENCE" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_MeasurementPartner_IntegralAdScience;
 /** Value: "NONE" */
@@ -2005,26 +2133,56 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingD
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_Blocking;
 /** Value: "MONITORING" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_Monitoring;
-/** Value: "MONITORING_ONLY" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_MonitoringOnly;
+/** Value: "MONITORING_READ_ONLY" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_MonitoringReadOnly;
 /** Value: "NONE" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_None;
+/** Value: "NON_VPAID_FILTERING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_NonVpaidFiltering;
 /** Value: "NON_VPAID_MONITORING" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_NonVpaidMonitoring;
 /** Value: "TRACKING" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_Tracking;
 /** Value: "VIDEO_PIXEL_MONITORING" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VideoPixelMonitoring;
+/** Value: "VPAID_BLOCKING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VpaidBlocking;
+/** Value: "VPAID_FILTERING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VpaidFiltering;
+/** Value: "VPAID_MONITORING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VpaidMonitoring;
+/** Value: "VPAID_ONLY_BLOCKING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VpaidOnlyBlocking;
+/** Value: "VPAID_ONLY_FILTERING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VpaidOnlyFiltering;
+/** Value: "VPAID_ONLY_MONITORING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VpaidOnlyMonitoring;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_MobileApp.directory
 
+/** Value: "AMAZON_FIRETV_APP_STORE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MobileApp_Directory_AmazonFiretvAppStore;
+/** Value: "ANDROID_TV_APP_STORE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MobileApp_Directory_AndroidTvAppStore;
 /** Value: "APPLE_APP_STORE" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MobileApp_Directory_AppleAppStore;
+/** Value: "APPLE_TV_APP_STORE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MobileApp_Directory_AppleTvAppStore;
+/** Value: "GENERIC_CTV_APP_STORE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MobileApp_Directory_GenericCtvAppStore;
 /** Value: "GOOGLE_PLAY_STORE" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MobileApp_Directory_GooglePlayStore;
+/** Value: "PLAYSTATION_APP_STORE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MobileApp_Directory_PlaystationAppStore;
+/** Value: "ROKU_APP_STORE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MobileApp_Directory_RokuAppStore;
+/** Value: "SAMSUNG_TV_APP_STORE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MobileApp_Directory_SamsungTvAppStore;
 /** Value: "UNKNOWN" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MobileApp_Directory_Unknown;
+/** Value: "XBOX_APP_STORE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MobileApp_Directory_XboxAppStore;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_ObjectFilter.status
@@ -2077,6 +2235,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PathReportDimensionValue_Ma
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PathReportDimensionValue_MatchType_Exact;
 /** Value: "WILDCARD_EXPRESSION" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PathReportDimensionValue_MatchType_WildcardExpression;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_Placement.activeStatus
+
+/** Value: "PLACEMENT_STATUS_ACTIVE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_ActiveStatus_PlacementStatusActive;
+/** Value: "PLACEMENT_STATUS_ARCHIVED" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_ActiveStatus_PlacementStatusArchived;
+/** Value: "PLACEMENT_STATUS_INACTIVE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_ActiveStatus_PlacementStatusInactive;
+/** Value: "PLACEMENT_STATUS_PERMANENTLY_ARCHIVED" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_ActiveStatus_PlacementStatusPermanentlyArchived;
+/** Value: "PLACEMENT_STATUS_UNKNOWN" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_ActiveStatus_PlacementStatusUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Placement.compatibility
@@ -2173,6 +2345,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_VpaidAdapterChoic
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_VpaidAdapterChoice_Flash;
 /** Value: "HTML5" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_VpaidAdapterChoice_Html5;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_PlacementGroup.activeStatus
+
+/** Value: "PLACEMENT_STATUS_ACTIVE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PlacementGroup_ActiveStatus_PlacementStatusActive;
+/** Value: "PLACEMENT_STATUS_ARCHIVED" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PlacementGroup_ActiveStatus_PlacementStatusArchived;
+/** Value: "PLACEMENT_STATUS_INACTIVE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PlacementGroup_ActiveStatus_PlacementStatusInactive;
+/** Value: "PLACEMENT_STATUS_PERMANENTLY_ARCHIVED" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PlacementGroup_ActiveStatus_PlacementStatusPermanentlyArchived;
+/** Value: "PLACEMENT_STATUS_UNKNOWN" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PlacementGroup_ActiveStatus_PlacementStatusUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_PlacementGroup.placementGroupType
@@ -3971,6 +4157,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
+ *  Invoice List Response
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "invoices" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDfareporting_AdvertiserInvoicesListResponse : GTLRCollectionObject
+
+/**
+ *  Invoice collection
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Invoice *> *invoices;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#advertiserInvoicesListResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Pagination token to be used for the next list operation. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Landing Page List Response
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4088,6 +4304,370 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  less than 65 characters long.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  List account, subaccount, advertiser, and campaign associated with a given
+ *  Billing Profile.
+ */
+@interface GTLRDfareporting_BillingAssignment : GTLRObject
+
+/**
+ *  ID of the account associated with the billing assignment.This is a
+ *  read-only, auto-generated field.
+ */
+@property(nonatomic, copy, nullable) NSString *accountId;
+
+/**
+ *  ID of the advertiser associated with the billing assignment.Wildcard (*)
+ *  means this assignment is not limited to a single advertiser
+ */
+@property(nonatomic, copy, nullable) NSString *advertiserId;
+
+/**
+ *  ID of the campaign associated with the billing assignment. Wildcard (*)
+ *  means this assignment is not limited to a single campaign
+ */
+@property(nonatomic, copy, nullable) NSString *campaignId;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#billingAssignment".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  ID of the subaccount associated with the billing assignment.Wildcard (*)
+ *  means this assignment is not limited to a single subaccountThis is a
+ *  read-only, auto-generated field.
+ */
+@property(nonatomic, copy, nullable) NSString *subaccountId;
+
+@end
+
+
+/**
+ *  Billing assignment List Response
+ */
+@interface GTLRDfareporting_BillingAssignmentsListResponse : GTLRObject
+
+/** Billing assignments collection. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_BillingAssignment *> *billingAssignments;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#billingAssignmentsListResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  Contains properties of a Campaign Manager Billing Profile.
+ */
+@interface GTLRDfareporting_BillingProfile : GTLRObject
+
+/**
+ *  Consolidated invoice option for this billing profile. Used to get a single,
+ *  consolidated invoice across the chosen invoice level.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *consolidatedInvoice;
+
+/** Country code of this billing profile.This is a read-only field. */
+@property(nonatomic, copy, nullable) NSString *countryCode;
+
+/** Billing currency code in ISO 4217 format.This is a read-only field. */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/**
+ *  ID of this billing profile. This is a read-only, auto-generated field.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  Invoice level for this billing profile. Used to group fees into separate
+ *  invoices by account, advertiser, or campaign.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_BillingProfile_InvoiceLevel_AccountLevel Value
+ *        "ACCOUNT_LEVEL"
+ *    @arg @c kGTLRDfareporting_BillingProfile_InvoiceLevel_AdvertiserLevel
+ *        Value "ADVERTISER_LEVEL"
+ *    @arg @c kGTLRDfareporting_BillingProfile_InvoiceLevel_CampaignLevel Value
+ *        "CAMPAIGN_LEVEL"
+ */
+@property(nonatomic, copy, nullable) NSString *invoiceLevel;
+
+/**
+ *  True if the billing profile is the account default profile. This is a
+ *  read-only field.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isDefault;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#billingProfile".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Name of this billing profile. This is a required field and must be less than
+ *  256 characters long and must be unique among billing profile in the same
+ *  account.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The ID of the payment account the billing profile belongs to. This is a
+ *  read-only field.
+ */
+@property(nonatomic, copy, nullable) NSString *paymentsAccountId;
+
+/**
+ *  The ID of the payment customer the billing profile belongs to. This is a
+ *  read-only field.
+ */
+@property(nonatomic, copy, nullable) NSString *paymentsCustomerId;
+
+/**
+ *  Purchase order (PO) for this billing profile. This PO number is used in the
+ *  invoices for all of the advertisers in this billing profile.
+ */
+@property(nonatomic, copy, nullable) NSString *purchaseOrder;
+
+/**
+ *  The ID of the secondary payment customer the billing profile belongs to.
+ *  This is a read-only field.
+ */
+@property(nonatomic, copy, nullable) NSString *secondaryPaymentsCustomerId;
+
+/**
+ *  Status of this billing profile.This is a read-only field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_BillingProfile_Status_Active Value "ACTIVE"
+ *    @arg @c kGTLRDfareporting_BillingProfile_Status_Archived Value "ARCHIVED"
+ *    @arg @c kGTLRDfareporting_BillingProfile_Status_UnderReview Value
+ *        "UNDER_REVIEW"
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  Billing profile List Response
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "billingProfiles" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRDfareporting_BillingProfilesListResponse : GTLRCollectionObject
+
+/**
+ *  Billing profiles collection.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_BillingProfile *> *billingProfiles;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#billingProfilesListResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Pagination token to be used for the next list operation. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  GTLRDfareporting_BillingRate
+ */
+@interface GTLRDfareporting_BillingRate : GTLRObject
+
+/** Billing currency code in ISO 4217 format. */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/** End date of this billing rate. */
+@property(nonatomic, copy, nullable) NSString *endDate;
+
+/**
+ *  ID of this billing rate.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/** Name of this billing rate. This must be less than 256 characters long. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Flat rate in micros of this billing rate. This cannot co-exist with tiered
+ *  rate.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rateInMicros;
+
+/** Start date of this billing rate. */
+@property(nonatomic, copy, nullable) NSString *startDate;
+
+/** Tiered rate of this billing rate. This cannot co-exist with flat rate. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_BillingRateTieredRate *> *tieredRates;
+
+/**
+ *  Type of this billing rate.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_AdServing Value "AD_SERVING"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_AdvancedDisplayAdServing Value
+ *        "ADVANCED_DISPLAY_AD_SERVING"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_AudioAdServing Value
+ *        "AUDIO_AD_SERVING"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_Clicks Value "CLICKS"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_CustomReports Value
+ *        "CUSTOM_REPORTS"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_DataTransfer Value
+ *        "DATA_TRANSFER"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_DataTransferSetup Value
+ *        "DATA_TRANSFER_SETUP"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_DisplayAdServing Value
+ *        "DISPLAY_AD_SERVING"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_EnhancedFormats Value
+ *        "ENHANCED_FORMATS"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_ExposureToConversion Value
+ *        "EXPOSURE_TO_CONVERSION"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_InstreamVideo Value
+ *        "INSTREAM_VIDEO"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_InstreamVideoRedirect Value
+ *        "INSTREAM_VIDEO_REDIRECT"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_InstreamVideoVpaid Value
+ *        "INSTREAM_VIDEO_VPAID"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_MinimumService Value
+ *        "MINIMUM_SERVICE"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_NielsenDigitalAdRatingsFee
+ *        Value "NIELSEN_DIGITAL_AD_RATINGS_FEE"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_PathToConversion Value
+ *        "PATH_TO_CONVERSION"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_Pixel Value "PIXEL"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_ProvidedList Value
+ *        "PROVIDED_LIST"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_ProvidedListSetup Value
+ *        "PROVIDED_LIST_SETUP"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_RichMediaExpanding Value
+ *        "RICH_MEDIA_EXPANDING"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_RichMediaFloating Value
+ *        "RICH_MEDIA_FLOATING"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_RichMediaInpage Value
+ *        "RICH_MEDIA_INPAGE"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_RichMediaTeaser Value
+ *        "RICH_MEDIA_TEASER"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_RichMediaVideo Value
+ *        "RICH_MEDIA_VIDEO"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_RichMediaVpaid Value
+ *        "RICH_MEDIA_VPAID"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_Startup Value "STARTUP"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_StatementOfWork Value
+ *        "STATEMENT_OF_WORK"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_Tracking Value "TRACKING"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_TrackingAdClicks Value
+ *        "TRACKING_AD_CLICKS"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_TrackingAdImpressions Value
+ *        "TRACKING_AD_IMPRESSIONS"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_TraffickingFeature Value
+ *        "TRAFFICKING_FEATURE"
+ *    @arg @c kGTLRDfareporting_BillingRate_Type_VideoAdServing Value
+ *        "VIDEO_AD_SERVING"
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Unit of measure for this billing rate.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_BillingRate_UnitOfMeasure_Cpc Value "CPC"
+ *    @arg @c kGTLRDfareporting_BillingRate_UnitOfMeasure_Cpm Value "CPM"
+ *    @arg @c kGTLRDfareporting_BillingRate_UnitOfMeasure_Ea Value "EA"
+ *    @arg @c kGTLRDfareporting_BillingRate_UnitOfMeasure_P2c Value "P2C"
+ */
+@property(nonatomic, copy, nullable) NSString *unitOfMeasure;
+
+@end
+
+
+/**
+ *  Billing Rate List Response
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "billingRates" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDfareporting_BillingRatesListResponse : GTLRCollectionObject
+
+/**
+ *  Billing rates collection.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_BillingRate *> *billingRates;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#billingRatesListResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Pagination token to be used for the next list operation. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  GTLRDfareporting_BillingRateTieredRate
+ */
+@interface GTLRDfareporting_BillingRateTieredRate : GTLRObject
+
+/**
+ *  The maximum for this tier range.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *highValue;
+
+/**
+ *  The minimum for this tier range.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lowValue;
+
+/**
+ *  Rate in micros for this tier.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rateInMicros;
 
 @end
 
@@ -4303,17 +4883,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) GTLRDfareporting_MeasurementPartnerCampaignLink *measurementPartnerLink;
 
 /**
- *  Name of this campaign. This is a required field and must be less than 256
+ *  Name of this campaign. This is a required field and must be less than 512
  *  characters long and unique among campaigns of the same advertiser.
  */
 @property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Whether Nielsen reports are enabled for this campaign.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *nielsenOcrEnabled;
 
 /**
  *  startDate
@@ -4329,9 +4902,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *subaccountId;
-
-/** Campaign trafficker contact emails. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *traffickerEmails;
 
 @end
 
@@ -4413,6 +4983,46 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /** Pagination token to be used for the next list operation. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Represents a summarized campaign information associated with this invoice.
+ */
+@interface GTLRDfareporting_CampaignSummary : GTLRObject
+
+/** Campaign billing invoice code. */
+@property(nonatomic, copy, nullable) NSString *billingInvoiceCode;
+
+/**
+ *  Campaign ID.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *campaignId;
+
+/**
+ *  The pre-tax amount for this campaign, in micros of the invoice's currency.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *preTaxAmountMicros;
+
+/**
+ *  The tax amount for this campaign, in micros of the invoice's currency.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *taxAmountMicros;
+
+/**
+ *  The total amount of charges for this campaign, in micros of the invoice's
+ *  currency.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalAmountMicros;
 
 @end
 
@@ -4973,18 +5583,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /**
  *  The display click ID. This field is mutually exclusive with encryptedUserId,
- *  encryptedUserIdCandidates[], matchId, mobileDeviceId and gclid. This or
- *  encryptedUserId or encryptedUserIdCandidates[] or matchId or mobileDeviceId
- *  or gclid is a required field.
+ *  encryptedUserIdCandidates[], matchId, mobileDeviceId, gclid, and
+ *  impressionId. This or encryptedUserId or encryptedUserIdCandidates[] or
+ *  matchId or mobileDeviceId or gclid or impressionId is a required field.
  */
 @property(nonatomic, copy, nullable) NSString *dclid;
 
 /**
  *  The alphanumeric encrypted user ID. When set, encryptionInfo should also be
  *  specified. This field is mutually exclusive with
- *  encryptedUserIdCandidates[], matchId, mobileDeviceId, gclid and dclid. This
- *  or encryptedUserIdCandidates[] or matchId or mobileDeviceId or gclid or
- *  dclid is a required field.
+ *  encryptedUserIdCandidates[], matchId, mobileDeviceId, gclid, dclid, and
+ *  impressionId. This or encryptedUserIdCandidates[] or matchId or
+ *  mobileDeviceId or gclid or dclid or impressionId is a required field.
  */
 @property(nonatomic, copy, nullable) NSString *encryptedUserId;
 
@@ -4995,8 +5605,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  INVALID_ARGUMENT error. When set, encryptionInfo should also be specified.
  *  This field may only be used when calling batchinsert; it is not supported by
  *  batchupdate. This field is mutually exclusive with encryptedUserId, matchId,
- *  mobileDeviceId, gclid and dclid. This or encryptedUserId or matchId or
- *  mobileDeviceId or gclid or dclid is a required field.
+ *  mobileDeviceId, gclid dclid, and impressionId. This or encryptedUserId or
+ *  matchId or mobileDeviceId or gclid or dclid or impressionId is a required
+ *  field.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *encryptedUserIdCandidates;
 
@@ -5016,11 +5627,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /**
  *  The Google click ID. This field is mutually exclusive with encryptedUserId,
- *  encryptedUserIdCandidates[], matchId, mobileDeviceId and dclid. This or
- *  encryptedUserId or encryptedUserIdCandidates[] or matchId or mobileDeviceId
- *  or dclid is a required field.
+ *  encryptedUserIdCandidates[], matchId, mobileDeviceId, dclid, and
+ *  impressionId. This or encryptedUserId or encryptedUserIdCandidates[] or
+ *  matchId or mobileDeviceId or dclid or impressionId is a required field.
  */
 @property(nonatomic, copy, nullable) NSString *gclid;
+
+/**
+ *  The impression ID. This field is mutually exclusive with encryptedUserId,
+ *  encryptedUserIdCandidates[], matchId, mobileDeviceId, and gclid. One of
+ *  these identifiers must be set.
+ */
+@property(nonatomic, copy, nullable) NSString *impressionId;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
@@ -5040,17 +5658,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  The match ID field. A match ID is your own first-party identifier that has
  *  been synced with Google using the match ID feature in Floodlight. This field
  *  is mutually exclusive with encryptedUserId,
- *  encryptedUserIdCandidates[],mobileDeviceId, gclid and dclid. This or
- *  encryptedUserId or encryptedUserIdCandidates[] or mobileDeviceId or gclid or
- *  dclid is a required field.
+ *  encryptedUserIdCandidates[],mobileDeviceId, gclid, dclid, and impressionId.
+ *  This or encryptedUserId orencryptedUserIdCandidates[] or mobileDeviceId or
+ *  gclid or dclid or impressionIdis a required field.
  */
 @property(nonatomic, copy, nullable) NSString *matchId;
 
 /**
  *  The mobile device ID. This field is mutually exclusive with encryptedUserId,
- *  encryptedUserIdCandidates[], matchId, gclid and dclid. This or
- *  encryptedUserId or encryptedUserIdCandidates[] or matchId or gclid or dclid
- *  is a required field.
+ *  encryptedUserIdCandidates[], matchId, gclid, dclid, and impressionId. This
+ *  or encryptedUserId or encryptedUserIdCandidates[] or matchId or gclid or
+ *  dclid or impressionId is a required field.
  */
 @property(nonatomic, copy, nullable) NSString *mobileDeviceId;
 
@@ -5394,6 +6012,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  creatives will have this field set. Applicable to all creative types.
  *
  *  Likely values:
+ *    @arg @c kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceAcs
+ *        Value "CREATIVE_AUTHORING_SOURCE_ACS"
  *    @arg @c kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceDbm
  *        Value "CREATIVE_AUTHORING_SOURCE_DBM"
  *    @arg @c kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceDcm
@@ -8423,6 +9043,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *    @arg @c kGTLRDfareporting_File_Status_Cancelled Value "CANCELLED"
  *    @arg @c kGTLRDfareporting_File_Status_Failed Value "FAILED"
  *    @arg @c kGTLRDfareporting_File_Status_Processing Value "PROCESSING"
+ *    @arg @c kGTLRDfareporting_File_Status_Queued Value "QUEUED"
  *    @arg @c kGTLRDfareporting_File_Status_ReportAvailable Value
  *        "REPORT_AVAILABLE"
  */
@@ -9516,6 +10137,118 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
+ *  Contains information about a single invoice
+ */
+@interface GTLRDfareporting_Invoice : GTLRObject
+
+/**
+ *  The list of summarized campaign information associated with this invoice.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_CampaignSummary *> *campaignSummaries;
+
+/**
+ *  The originally issued invoice that is being adjusted by this invoice, if
+ *  applicable. May appear on invoice PDF as *Reference invoice number*.
+ */
+@property(nonatomic, copy, nullable) NSString *correctedInvoiceId;
+
+/** Invoice currency code in ISO 4217 format. */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/** The invoice due date. */
+@property(nonatomic, copy, nullable) NSString *dueDate;
+
+/**
+ *  ID of this invoice.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The type of invoice document.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_Invoice_InvoiceType_InvoiceTypeCredit Value
+ *        "INVOICE_TYPE_CREDIT"
+ *    @arg @c kGTLRDfareporting_Invoice_InvoiceType_InvoiceTypeInvoice Value
+ *        "INVOICE_TYPE_INVOICE"
+ *    @arg @c kGTLRDfareporting_Invoice_InvoiceType_InvoiceTypeUnspecified Value
+ *        "INVOICE_TYPE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *invoiceType;
+
+/** The date when the invoice was issued. */
+@property(nonatomic, copy, nullable) NSString *issueDate;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#invoice".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The ID of the payments account the invoice belongs to. Appears on the
+ *  invoice PDF as *Billing Account Number*.
+ */
+@property(nonatomic, copy, nullable) NSString *paymentsAccountId;
+
+/**
+ *  The ID of the payments profile the invoice belongs to. Appears on the
+ *  invoice PDF as *Billing ID*.
+ */
+@property(nonatomic, copy, nullable) NSString *paymentsProfileId;
+
+/**
+ *  The URL to download a PDF copy of the invoice. Note that this URL is user
+ *  specific and requires a valid OAuth 2.0 access token to access. The access
+ *  token must be provided in an *Authorization: Bearer* HTTP header. The URL
+ *  will only be usable for 7 days from when the api is called.
+ */
+@property(nonatomic, copy, nullable) NSString *pdfUrl;
+
+/** Purchase order number associated with the invoice. */
+@property(nonatomic, copy, nullable) NSString *purchaseOrderNumber;
+
+/**
+ *  The originally issued invoice(s) that is being cancelled by this invoice, if
+ *  applicable. May appear on invoice PDF as *Replaced invoice numbers*. Note:
+ *  There may be multiple replaced invoices due to consolidation of multiple
+ *  invoices into a single invoice.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *replacedInvoiceIds;
+
+/** The invoice service end date. */
+@property(nonatomic, copy, nullable) NSString *serviceEndDate;
+
+/** The invoice service start date. */
+@property(nonatomic, copy, nullable) NSString *serviceStartDate;
+
+/**
+ *  The pre-tax subtotal amount, in micros of the invoice's currency.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *subtotalAmountMicros;
+
+/**
+ *  The invoice total amount, in micros of the invoice's currency.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalAmountMicros;
+
+/**
+ *  The sum of all taxes in invoice, in micros of the invoice's currency.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalTaxAmountMicros;
+
+@end
+
+
+/**
  *  Key Value Targeting Expression.
  */
 @interface GTLRDfareporting_KeyValueTargetingExpression : GTLRObject
@@ -9867,6 +10600,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Measurement partner used for tag wrapping.
  *
  *  Likely values:
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_MeasurementPartner_DoubleVerify
+ *        Value "DOUBLE_VERIFY"
  *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_MeasurementPartner_IntegralAdScience
  *        Value "INTEGRAL_AD_SCIENCE"
  *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_MeasurementPartner_None
@@ -9912,6 +10647,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Measurement partner used for tag wrapping.
  *
  *  Likely values:
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_MeasurementPartner_DoubleVerify
+ *        Value "DOUBLE_VERIFY"
  *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_MeasurementPartner_IntegralAdScience
  *        Value "INTEGRAL_AD_SCIENCE"
  *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_MeasurementPartner_None
@@ -9960,6 +10697,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Measurement partner used for wrapping the placement.
  *
  *  Likely values:
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_MeasurementPartner_DoubleVerify
+ *        Value "DOUBLE_VERIFY"
  *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_MeasurementPartner_IntegralAdScience
  *        Value "INTEGRAL_AD_SCIENCE"
  *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_MeasurementPartner_None
@@ -9975,16 +10714,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *        Value "BLOCKING"
  *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_Monitoring
  *        Value "MONITORING"
- *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_MonitoringOnly
- *        Value "MONITORING_ONLY"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_MonitoringReadOnly
+ *        Value "MONITORING_READ_ONLY"
  *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_None
  *        Value "NONE"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_NonVpaidFiltering
+ *        Value "NON_VPAID_FILTERING"
  *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_NonVpaidMonitoring
  *        Value "NON_VPAID_MONITORING"
  *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_Tracking
  *        Value "TRACKING"
  *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VideoPixelMonitoring
  *        Value "VIDEO_PIXEL_MONITORING"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VpaidBlocking
+ *        Value "VPAID_BLOCKING"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VpaidFiltering
+ *        Value "VPAID_FILTERING"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VpaidMonitoring
+ *        Value "VPAID_MONITORING"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VpaidOnlyBlocking
+ *        Value "VPAID_ONLY_BLOCKING"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VpaidOnlyFiltering
+ *        Value "VPAID_ONLY_FILTERING"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VpaidOnlyMonitoring
+ *        Value "VPAID_ONLY_MONITORING"
  */
 @property(nonatomic, copy, nullable) NSString *tagWrappingMode;
 
@@ -10079,11 +10832,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Mobile app directory.
  *
  *  Likely values:
+ *    @arg @c kGTLRDfareporting_MobileApp_Directory_AmazonFiretvAppStore Value
+ *        "AMAZON_FIRETV_APP_STORE"
+ *    @arg @c kGTLRDfareporting_MobileApp_Directory_AndroidTvAppStore Value
+ *        "ANDROID_TV_APP_STORE"
  *    @arg @c kGTLRDfareporting_MobileApp_Directory_AppleAppStore Value
  *        "APPLE_APP_STORE"
+ *    @arg @c kGTLRDfareporting_MobileApp_Directory_AppleTvAppStore Value
+ *        "APPLE_TV_APP_STORE"
+ *    @arg @c kGTLRDfareporting_MobileApp_Directory_GenericCtvAppStore Value
+ *        "GENERIC_CTV_APP_STORE"
  *    @arg @c kGTLRDfareporting_MobileApp_Directory_GooglePlayStore Value
  *        "GOOGLE_PLAY_STORE"
+ *    @arg @c kGTLRDfareporting_MobileApp_Directory_PlaystationAppStore Value
+ *        "PLAYSTATION_APP_STORE"
+ *    @arg @c kGTLRDfareporting_MobileApp_Directory_RokuAppStore Value
+ *        "ROKU_APP_STORE"
+ *    @arg @c kGTLRDfareporting_MobileApp_Directory_SamsungTvAppStore Value
+ *        "SAMSUNG_TV_APP_STORE"
  *    @arg @c kGTLRDfareporting_MobileApp_Directory_Unknown Value "UNKNOWN"
+ *    @arg @c kGTLRDfareporting_MobileApp_Directory_XboxAppStore Value
+ *        "XBOX_APP_STORE"
  */
 @property(nonatomic, copy, nullable) NSString *directory;
 
@@ -10940,6 +11709,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSNumber *accountId;
 
 /**
+ *  Whether this placement is active, inactive, archived or permanently
+ *  archived.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_Placement_ActiveStatus_PlacementStatusActive
+ *        Value "PLACEMENT_STATUS_ACTIVE"
+ *    @arg @c kGTLRDfareporting_Placement_ActiveStatus_PlacementStatusArchived
+ *        Value "PLACEMENT_STATUS_ARCHIVED"
+ *    @arg @c kGTLRDfareporting_Placement_ActiveStatus_PlacementStatusInactive
+ *        Value "PLACEMENT_STATUS_INACTIVE"
+ *    @arg @c kGTLRDfareporting_Placement_ActiveStatus_PlacementStatusPermanentlyArchived
+ *        Value "PLACEMENT_STATUS_PERMANENTLY_ARCHIVED"
+ *    @arg @c kGTLRDfareporting_Placement_ActiveStatus_PlacementStatusUnknown
+ *        Value "PLACEMENT_STATUS_UNKNOWN"
+ */
+@property(nonatomic, copy, nullable) NSString *activeStatus;
+
+/**
  *  Whether this placement opts out of ad blocking. When true, ad blocking is
  *  disabled for this placement. When false, the campaign and site settings take
  *  effect.
@@ -10966,13 +11753,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  auto-generated field.
  */
 @property(nonatomic, strong, nullable) GTLRDfareporting_DimensionValue *advertiserIdDimensionValue;
-
-/**
- *  Whether this placement is archived.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *archived;
 
 /**
  *  Campaign ID of this placement. This field is a required field on insertion.
@@ -11077,7 +11857,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /**
  *  Name of this placement.This is a required field and must be less than or
- *  equal to 256 characters long.
+ *  equal to 512 characters long.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -11311,6 +12091,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSNumber *accountId;
 
 /**
+ *  Whether this placement group is active, inactive, archived or permanently
+ *  archived.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_PlacementGroup_ActiveStatus_PlacementStatusActive
+ *        Value "PLACEMENT_STATUS_ACTIVE"
+ *    @arg @c kGTLRDfareporting_PlacementGroup_ActiveStatus_PlacementStatusArchived
+ *        Value "PLACEMENT_STATUS_ARCHIVED"
+ *    @arg @c kGTLRDfareporting_PlacementGroup_ActiveStatus_PlacementStatusInactive
+ *        Value "PLACEMENT_STATUS_INACTIVE"
+ *    @arg @c kGTLRDfareporting_PlacementGroup_ActiveStatus_PlacementStatusPermanentlyArchived
+ *        Value "PLACEMENT_STATUS_PERMANENTLY_ARCHIVED"
+ *    @arg @c kGTLRDfareporting_PlacementGroup_ActiveStatus_PlacementStatusUnknown
+ *        Value "PLACEMENT_STATUS_UNKNOWN"
+ */
+@property(nonatomic, copy, nullable) NSString *activeStatus;
+
+/**
  *  Advertiser ID of this placement group. This is a required field on
  *  insertion.
  *
@@ -11323,13 +12121,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  auto-generated field.
  */
 @property(nonatomic, strong, nullable) GTLRDfareporting_DimensionValue *advertiserIdDimensionValue;
-
-/**
- *  Whether this placement group is archived.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *archived;
 
 /**
  *  Campaign ID of this placement group. This field is required on insertion.
@@ -13666,6 +14457,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, copy, nullable) NSString *orientation;
 
 /**
+ *  Publisher specification ID used to identify site-associated publisher
+ *  requirements and automatically populate transcode settings. If publisher
+ *  specification ID is specified, it will take precedence over transcode
+ *  settings.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *publisherSpecificationId;
+
+/**
  *  Settings for the skippability of video creatives served to this site. This
  *  will act as default for new placements created under this site.
  */
@@ -15138,6 +15939,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *        "PORTRAIT"
  */
 @property(nonatomic, copy, nullable) NSString *orientation;
+
+/**
+ *  Publisher specification ID of a video placement.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *publisherSpecificationId;
 
 /**
  *  Settings for the skippability of video creatives served to this placement.

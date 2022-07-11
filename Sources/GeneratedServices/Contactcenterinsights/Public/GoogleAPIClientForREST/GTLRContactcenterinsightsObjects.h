@@ -1157,8 +1157,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ArticleSuggestionData_Metadata *metadata;
 
 /**
- *  Name of the query record. Format:
- *  projects/{project}/locations/{location}/queryRecords/{query_record}
+ *  The name of the answer record. Format:
+ *  projects/{project}/locations/{location}/answerRecords/{answer_record}
  */
 @property(nonatomic, copy, nullable) NSString *queryRecord;
 
@@ -2183,8 +2183,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FaqAnswerData_Metadata *metadata;
 
 /**
- *  Name of the query record. Format:
- *  projects/{project}/locations/{location}/queryRecords/{query_record}.
+ *  The name of the answer record. Format:
+ *  projects/{project}/locations/{location}/answerRecords/{answer_record}
  */
 @property(nonatomic, copy, nullable) NSString *queryRecord;
 
@@ -2983,8 +2983,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SmartComposeSuggestionData_Metadata *metadata;
 
 /**
- *  Name of the query record. Format:
- *  projects/{project}/locations/{location}/queryRecords/{query_record}
+ *  The name of the answer record. Format:
+ *  projects/{project}/locations/{location}/answerRecords/{answer_record}
  */
 @property(nonatomic, copy, nullable) NSString *queryRecord;
 
@@ -3028,8 +3028,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SmartReplyData_Metadata *metadata;
 
 /**
- *  Name of the query record. Format:
- *  projects/{project}/locations/{location}/queryRecords/{query_record}
+ *  The name of the answer record. Format:
+ *  projects/{project}/locations/{location}/answerRecords/{answer_record}
  */
 @property(nonatomic, copy, nullable) NSString *queryRecord;
 

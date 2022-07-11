@@ -171,6 +171,11 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentOperati
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentOperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentOperationMetadata_State_Succeeded = @"SUCCEEDED";
 
+// GTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentResponse.state
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentResponse_State_Rejected = @"REJECTED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentResponse_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentResponse_State_Succeeded = @"SUCCEEDED";
+
 // GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata.state
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata_State_Cancelled = @"CANCELLED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata_State_Cancelling = @"CANCELLING";
@@ -210,6 +215,13 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Ev
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_OperationTypeUnspecified = @"OPERATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Remove = @"REMOVE";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Replace = @"REPLACE";
+
+// GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty.occurrenceType
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_OccurrenceTypeUnspecified = @"OCCURRENCE_TYPE_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_OptionalMultiple = @"OPTIONAL_MULTIPLE";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_OptionalOnce = @"OPTIONAL_ONCE";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_RequiredMultiple = @"REQUIRED_MULTIPLE";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_RequiredOnce = @"REQUIRED_ONCE";
 
 // GTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus.state
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Error = @"ERROR";
@@ -251,6 +263,11 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Und
 // GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest.priority
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Priority_Default = @"DEFAULT";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Priority_Urgent = @"URGENT";
+
+// GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse.state
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_State_Rejected = @"REJECTED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_State_Succeeded = @"SUCCEEDED";
 
 // ----------------------------------------------------------------------------
 //
@@ -1037,7 +1054,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageMatrix
-@dynamic applied, cols, data, rows, type;
+@dynamic cols, data, rows, type;
 @end
 
 
@@ -1683,7 +1700,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageMatrix
-@dynamic applied, cols, data, rows, type;
+@dynamic cols, data, rows, type;
 @end
 
 
@@ -2205,7 +2222,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentResponse
-@dynamic gcsDestination;
+@dynamic gcsDestination, rejectionReason, state;
 @end
 
 
@@ -2600,7 +2617,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentPageMatrix
-@dynamic applied, cols, data, rows, type;
+@dynamic cols, data, rows, type;
 @end
 
 
@@ -2810,6 +2827,85 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentRevisionHumanReview
 @dynamic state, stateMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentSchema
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentSchema
+@dynamic descriptionProperty, displayName, entityTypes, metadata;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entityTypes" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityType class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityType
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityType
+@dynamic baseTypes, displayName, enumValues, name, properties;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"baseTypes" : [NSString class],
+    @"properties" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeEnumValues
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeEnumValues
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty
+@dynamic name, occurrenceType, valueType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaMetadata
+@dynamic documentAllowMultipleLabels, documentSplitter;
 @end
 
 
@@ -3144,7 +3240,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest
-@dynamic enableSchemaValidation, inlineDocument, priority;
+@dynamic documentSchema, enableSchemaValidation, inlineDocument, priority;
 @end
 
 
@@ -3154,7 +3250,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse
-@dynamic gcsDestination;
+@dynamic gcsDestination, rejectionReason, state;
 @end
 
 

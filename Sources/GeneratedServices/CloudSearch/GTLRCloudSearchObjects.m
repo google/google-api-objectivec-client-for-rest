@@ -160,6 +160,11 @@ NSString * const kGTLRCloudSearch_ItemStatus_Code_Error        = @"ERROR";
 NSString * const kGTLRCloudSearch_ItemStatus_Code_Modified     = @"MODIFIED";
 NSString * const kGTLRCloudSearch_ItemStatus_Code_NewItem      = @"NEW_ITEM";
 
+// GTLRCloudSearch_PhoneNumber.type
+NSString * const kGTLRCloudSearch_PhoneNumber_Type_Mobile = @"MOBILE";
+NSString * const kGTLRCloudSearch_PhoneNumber_Type_Office = @"OFFICE";
+NSString * const kGTLRCloudSearch_PhoneNumber_Type_Other  = @"OTHER";
+
 // GTLRCloudSearch_PollItemsRequest.statusCodes
 NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_Accepted = @"ACCEPTED";
 NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_CodeUnspecified = @"CODE_UNSPECIFIED";
@@ -385,8 +390,9 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 //
 
 @implementation GTLRCloudSearch_CustomEmoji
-@dynamic blobId, contentType, createTimeMicros, creatorUserId, ephemeralUrl,
-         ownerCustomerId, readToken, shortcode, state, updateTimeMicros, uuid;
+@dynamic blobId, contentType, createTimeMicros, creatorUserId, deleteTimeMicros,
+         ephemeralUrl, ownerCustomerId, readToken, shortcode, state,
+         updateTimeMicros, uuid;
 @end
 
 
@@ -1709,17 +1715,28 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 //
 
 @implementation GTLRCloudSearch_Person
-@dynamic emailAddresses, name, obfuscatedId, personNames, photos;
+@dynamic emailAddresses, name, obfuscatedId, personNames, phoneNumbers, photos;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"emailAddresses" : [GTLRCloudSearch_EmailAddress class],
     @"personNames" : [GTLRCloudSearch_Name class],
+    @"phoneNumbers" : [GTLRCloudSearch_PhoneNumber class],
     @"photos" : [GTLRCloudSearch_Photo class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_PhoneNumber
+//
+
+@implementation GTLRCloudSearch_PhoneNumber
+@dynamic phoneNumber, type;
 @end
 
 

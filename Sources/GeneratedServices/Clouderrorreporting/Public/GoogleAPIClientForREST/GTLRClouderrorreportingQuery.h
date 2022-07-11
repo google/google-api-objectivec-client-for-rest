@@ -447,7 +447,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *  Required. The resource name of the Google Cloud Platform project. Written as
  *  `projects/{projectID}` or `projects/{projectNumber}`, where `{projectID}`
  *  and `{projectNumber}` can be found in the [Google Cloud
- *  Console](https://support.google.com/cloud/answer/6158840). Examples:
+ *  console](https://support.google.com/cloud/answer/6158840). Examples:
  *  `projects/my-project-123`, `projects/5551234`.
  */
 @property(nonatomic, copy, nullable) NSString *projectName;
@@ -508,7 +508,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *  @param projectName Required. The resource name of the Google Cloud Platform
  *    project. Written as `projects/{projectID}` or `projects/{projectNumber}`,
  *    where `{projectID}` and `{projectNumber}` can be found in the [Google
- *    Cloud Console](https://support.google.com/cloud/answer/6158840). Examples:
+ *    Cloud console](https://support.google.com/cloud/answer/6158840). Examples:
  *    `projects/my-project-123`, `projects/5551234`.
  *
  *  @return GTLRClouderrorreportingQuery_ProjectsGroupStatsList

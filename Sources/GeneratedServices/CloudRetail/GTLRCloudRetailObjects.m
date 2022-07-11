@@ -1704,7 +1704,8 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2SearchRequestFacetSpecFacetKey
-@dynamic contains, intervals, key, orderBy, prefixes, query, restrictedValues;
+@dynamic caseInsensitive, contains, intervals, key, orderBy, prefixes, query,
+         restrictedValues;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

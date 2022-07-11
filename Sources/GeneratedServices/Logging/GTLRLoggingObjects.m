@@ -920,7 +920,7 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 @dynamic appEngineRelease, appId, cost, endTime, finished, first, host,
          httpVersion, instanceId, instanceIndex, ip, latency, line, megaCycles,
          method, moduleId, nickname, pendingTime, referrer, requestId, resource,
-         responseSize, sourceReference, startTime, status, taskName,
+         responseSize, sourceReference, spanId, startTime, status, taskName,
          taskQueueName, traceId, traceSampled, urlMapEntry, userAgent,
          versionId, wasLoadingRequest;
 

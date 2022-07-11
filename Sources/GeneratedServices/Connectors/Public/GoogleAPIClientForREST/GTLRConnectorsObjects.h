@@ -30,6 +30,7 @@
 @class GTLRConnectors_ConnectorVersion;
 @class GTLRConnectors_ConnectorVersion_Labels;
 @class GTLRConnectors_EgressControlConfig;
+@class GTLRConnectors_EnumOption;
 @class GTLRConnectors_Expr;
 @class GTLRConnectors_ExtractionRule;
 @class GTLRConnectors_ExtractionRules;
@@ -56,6 +57,7 @@
 @class GTLRConnectors_RuntimeEntitySchema;
 @class GTLRConnectors_Secret;
 @class GTLRConnectors_Source;
+@class GTLRConnectors_SshPublicKey;
 @class GTLRConnectors_Status;
 @class GTLRConnectors_Status_Details_Item;
 @class GTLRConnectors_SupportedRuntimeFeatures;
@@ -122,6 +124,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_AuthConfig_AuthType_Oauth2Cli
  */
 FOUNDATION_EXTERN NSString * const kGTLRConnectors_AuthConfig_AuthType_Oauth2JwtBearer;
 /**
+ *  SSH Public Key Authentication
+ *
+ *  Value: "SSH_PUBLIC_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_AuthConfig_AuthType_SshPublicKey;
+/**
  *  Username and Password Authentication.
  *
  *  Value: "USER_PASSWORD"
@@ -151,6 +159,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_AuthConfigTemplate_AuthType_O
  */
 FOUNDATION_EXTERN NSString * const kGTLRConnectors_AuthConfigTemplate_AuthType_Oauth2JwtBearer;
 /**
+ *  SSH Public Key Authentication
+ *
+ *  Value: "SSH_PUBLIC_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_AuthConfigTemplate_AuthType_SshPublicKey;
+/**
  *  Username and Password Authentication.
  *
  *  Value: "USER_PASSWORD"
@@ -166,6 +180,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_AuthConfigTemplate_AuthType_U
  *  Value: "BOOL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRConnectors_ConfigVariableTemplate_ValueType_Bool;
+/**
+ *  Value type is enum.
+ *
+ *  Value: "ENUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_ConfigVariableTemplate_ValueType_Enum;
 /**
  *  Value type is integer.
  *
@@ -1343,6 +1363,8 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_Source_SourceType_SourceTypeU
  *    @arg @c kGTLRConnectors_AuthConfig_AuthType_Oauth2JwtBearer JSON Web Token
  *        (JWT) Profile for Oauth 2.0 Authorization Grant based authentication
  *        (Value: "OAUTH2_JWT_BEARER")
+ *    @arg @c kGTLRConnectors_AuthConfig_AuthType_SshPublicKey SSH Public Key
+ *        Authentication (Value: "SSH_PUBLIC_KEY")
  *    @arg @c kGTLRConnectors_AuthConfig_AuthType_UserPassword Username and
  *        Password Authentication. (Value: "USER_PASSWORD")
  */
@@ -1353,6 +1375,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_Source_SourceType_SourceTypeU
 
 /** Oauth2JwtBearer. */
 @property(nonatomic, strong, nullable) GTLRConnectors_Oauth2JwtBearer *oauth2JwtBearer;
+
+/** SSH Public Key. */
+@property(nonatomic, strong, nullable) GTLRConnectors_SshPublicKey *sshPublicKey;
 
 /** UserPassword. */
 @property(nonatomic, strong, nullable) GTLRConnectors_UserPassword *userPassword;
@@ -1377,6 +1402,8 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_Source_SourceType_SourceTypeU
  *    @arg @c kGTLRConnectors_AuthConfigTemplate_AuthType_Oauth2JwtBearer JSON
  *        Web Token (JWT) Profile for Oauth 2.0 Authorization Grant based
  *        authentication (Value: "OAUTH2_JWT_BEARER")
+ *    @arg @c kGTLRConnectors_AuthConfigTemplate_AuthType_SshPublicKey SSH
+ *        Public Key Authentication (Value: "SSH_PUBLIC_KEY")
  *    @arg @c kGTLRConnectors_AuthConfigTemplate_AuthType_UserPassword Username
  *        and Password Authentication. (Value: "USER_PASSWORD")
  */
@@ -1500,6 +1527,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_Source_SourceType_SourceTypeU
 /** Display name of the parameter. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
+/** Enum options. To be populated if `ValueType` is `ENUM` */
+@property(nonatomic, strong, nullable) NSArray<GTLRConnectors_EnumOption *> *enumOptions;
+
 /** Key of the config variable. */
 @property(nonatomic, copy, nullable) NSString *key;
 
@@ -1527,6 +1557,8 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_Source_SourceType_SourceTypeU
  *  Likely values:
  *    @arg @c kGTLRConnectors_ConfigVariableTemplate_ValueType_Bool Value type
  *        is boolean. (Value: "BOOL")
+ *    @arg @c kGTLRConnectors_ConfigVariableTemplate_ValueType_Enum Value type
+ *        is enum. (Value: "ENUM")
  *    @arg @c kGTLRConnectors_ConfigVariableTemplate_ValueType_Int Value type is
  *        integer. (Value: "INT")
  *    @arg @c kGTLRConnectors_ConfigVariableTemplate_ValueType_Secret Value type
@@ -1896,6 +1928,24 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_Source_SourceType_SourceTypeU
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRConnectors_Empty : GTLRObject
+@end
+
+
+/**
+ *  EnumOption definition
+ */
+@interface GTLRConnectors_EnumOption : GTLRObject
+
+/** Display name of the option. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Id of the option.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
 @end
 
 
@@ -3242,6 +3292,29 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_Source_SourceType_SourceTypeU
  *        SOURCE. (Value: "SOURCE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *sourceType;
+
+@end
+
+
+/**
+ *  Parameters to support Ssh public key Authentication.
+ */
+@interface GTLRConnectors_SshPublicKey : GTLRObject
+
+/** Format of SSH Client cert. */
+@property(nonatomic, copy, nullable) NSString *certType;
+
+/**
+ *  This is an optional field used in case client has enabled multi-factor
+ *  authentication
+ */
+@property(nonatomic, strong, nullable) GTLRConnectors_Secret *password;
+
+/** SSH Client Cert. It should contain both public and private key. */
+@property(nonatomic, strong, nullable) GTLRConnectors_Secret *sshClientCert;
+
+/** The user account used to authenticate. */
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 

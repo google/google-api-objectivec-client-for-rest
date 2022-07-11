@@ -658,8 +658,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesGetIamPolicy : GTLRCloudIotQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -672,8 +673,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *  @param object The @c GTLRCloudIot_GetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesGetIamPolicy
  */
@@ -800,8 +802,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsGetIamPolicy : GTLRCloudIotQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -814,8 +817,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *  @param object The @c GTLRCloudIot_GetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsGetIamPolicy
  */
@@ -837,8 +841,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsSetIamPolicy : GTLRCloudIotQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -851,8 +856,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *  @param object The @c GTLRCloudIot_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsSetIamPolicy
  */
@@ -876,7 +882,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -890,8 +897,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *  @param object The @c GTLRCloudIot_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsTestIamPermissions
  */
@@ -1007,8 +1015,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesSetIamPolicy : GTLRCloudIotQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1021,8 +1030,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *  @param object The @c GTLRCloudIot_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesSetIamPolicy
  */
@@ -1046,7 +1056,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1060,8 +1071,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *  @param object The @c GTLRCloudIot_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesTestIamPermissions
  */

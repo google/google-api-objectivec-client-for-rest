@@ -175,7 +175,7 @@
 
 @implementation GTLRFirebaseManagementQuery_ProjectsAndroidAppsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent, showDeleted;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -214,6 +214,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRFirebaseManagement_AndroidApp class];
   query.loggingName = @"firebase.projects.androidApps.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseManagementQuery_ProjectsAndroidAppsRemove
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRFirebaseManagement_RemoveAndroidAppRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}:remove";
+  GTLRFirebaseManagementQuery_ProjectsAndroidAppsRemove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseManagement_Operation class];
+  query.loggingName = @"firebase.projects.androidApps.remove";
   return query;
 }
 
@@ -454,7 +481,7 @@
 
 @implementation GTLRFirebaseManagementQuery_ProjectsIosAppsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent, showDeleted;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -493,6 +520,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRFirebaseManagement_IosApp class];
   query.loggingName = @"firebase.projects.iosApps.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseManagementQuery_ProjectsIosAppsRemove
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRFirebaseManagement_RemoveIosAppRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}:remove";
+  GTLRFirebaseManagementQuery_ProjectsIosAppsRemove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseManagement_Operation class];
+  query.loggingName = @"firebase.projects.iosApps.remove";
   return query;
 }
 
@@ -571,7 +625,7 @@
 
 @implementation GTLRFirebaseManagementQuery_ProjectsSearchApps
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent, showDeleted;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -655,7 +709,7 @@
 
 @implementation GTLRFirebaseManagementQuery_ProjectsWebAppsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent, showDeleted;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -694,6 +748,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRFirebaseManagement_WebApp class];
   query.loggingName = @"firebase.projects.webApps.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseManagementQuery_ProjectsWebAppsRemove
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRFirebaseManagement_RemoveWebAppRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}:remove";
+  GTLRFirebaseManagementQuery_ProjectsWebAppsRemove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseManagement_Operation class];
+  query.loggingName = @"firebase.projects.webApps.remove";
   return query;
 }
 

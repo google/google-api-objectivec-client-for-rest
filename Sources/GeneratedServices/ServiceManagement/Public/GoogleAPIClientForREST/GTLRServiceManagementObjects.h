@@ -1851,6 +1851,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 
 /**
+ *  Operation payload for EnableService method.
+ */
+@interface GTLRServiceManagement_EnableServiceResponse : GTLRObject
+@end
+
+
+/**
  *  `Endpoint` describes a network address of a service that serves a set of
  *  APIs. It is commonly known as a service endpoint. A service may expose any
  *  number of service endpoints, and all service endpoints share the same

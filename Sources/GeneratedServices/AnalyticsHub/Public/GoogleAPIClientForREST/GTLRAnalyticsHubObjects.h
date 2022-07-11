@@ -943,7 +943,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecif
 
 
 /**
- *  Message for response when you subscribe to a listing. Empty for now.
+ *  Message for response when you subscribe to a listing.
  */
 @interface GTLRAnalyticsHub_SubscribeListingResponse : GTLRObject
 @end

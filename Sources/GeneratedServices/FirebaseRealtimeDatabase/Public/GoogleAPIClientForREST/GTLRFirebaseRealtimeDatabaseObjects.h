@@ -86,7 +86,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRealtimeDatabase_DatabaseInstanc
  */
 @interface GTLRFirebaseRealtimeDatabase_DatabaseInstance : GTLRObject
 
-/** Immutable. The globally unique hostname of the database. */
+/** Output only. Output Only. The globally unique hostname of the database. */
 @property(nonatomic, copy, nullable) NSString *databaseUrl;
 
 /**
@@ -96,13 +96,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRealtimeDatabase_DatabaseInstanc
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The resource name of the project this instance belongs to. For example:
- *  `projects/{project-number}`.
+ *  Output only. The resource name of the project this instance belongs to. For
+ *  example: `projects/{project-number}`.
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  The database's lifecycle state. Read-only.
+ *  Output only. The database's lifecycle state. Read-only.
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseRealtimeDatabase_DatabaseInstance_State_Active The
@@ -120,8 +120,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRealtimeDatabase_DatabaseInstanc
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  The database instance type. On creation only USER_DATABASE is allowed, which
- *  is also the default when omitted.
+ *  Immutable. The database instance type. On creation only USER_DATABASE is
+ *  allowed, which is also the default when omitted.
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseRealtimeDatabase_DatabaseInstance_Type_DatabaseInstanceTypeUnspecified

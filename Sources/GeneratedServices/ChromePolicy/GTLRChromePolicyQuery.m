@@ -136,32 +136,3 @@
 }
 
 @end
-
-@implementation GTLRChromePolicyQuery_MediaUpload
-
-@dynamic customer;
-
-+ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileRequest *)object
-                       customer:(NSString *)customer
-               uploadParameters:(GTLRUploadParameters *)uploadParameters {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"customer" ];
-  NSString *pathURITemplate = @"v1/{+customer}/policies/files:uploadPolicyFile";
-  GTLRChromePolicyQuery_MediaUpload *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.customer = customer;
-  query.uploadParameters = uploadParameters;
-  query.expectedObjectClass = [GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileResponse class];
-  query.loggingName = @"chromepolicy.media.upload";
-  return query;
-}
-
-@end

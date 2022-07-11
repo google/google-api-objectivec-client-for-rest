@@ -558,7 +558,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @end
 
 /**
- *  Creates an enrollment token for a given enterprise.
+ *  Creates an enrollment token for a given enterprise. It's up to the caller's
+ *  responsibility to manage the lifecycle of newly created tokens and deleting
+ *  them when they're not intended to be used anymore. Once an enrollment token
+ *  has been created, it's not possible to retrieve the token's content anymore
+ *  using AM API. It is recommended for EMMs to securely store the token if it's
+ *  intended to be reused.
  *
  *  Method: androidmanagement.enterprises.enrollmentTokens.create
  *
@@ -573,7 +578,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 /**
  *  Fetches a @c GTLRAndroidManagement_EnrollmentToken.
  *
- *  Creates an enrollment token for a given enterprise.
+ *  Creates an enrollment token for a given enterprise. It's up to the caller's
+ *  responsibility to manage the lifecycle of newly created tokens and deleting
+ *  them when they're not intended to be used anymore. Once an enrollment token
+ *  has been created, it's not possible to retrieve the token's content anymore
+ *  using AM API. It is recommended for EMMs to securely store the token if it's
+ *  intended to be reused.
  *
  *  @param object The @c GTLRAndroidManagement_EnrollmentToken to include in the
  *    query.
@@ -616,6 +626,99 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *  @return GTLRAndroidManagementQuery_EnterprisesEnrollmentTokensDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an active, unexpired enrollment token. Only a partial view of
+ *  EnrollmentToken is returned: all the fields but name and
+ *  expiration_timestamp are empty. This method is meant to help manage active
+ *  enrollment tokens lifecycle. For security reasons, it's recommended to
+ *  delete active enrollment tokens as soon as they're not intended to be used
+ *  anymore.
+ *
+ *  Method: androidmanagement.enterprises.enrollmentTokens.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
+ */
+@interface GTLRAndroidManagementQuery_EnterprisesEnrollmentTokensGet : GTLRAndroidManagementQuery
+
+/**
+ *  Required. The name of the enrollment token in the form
+ *  enterprises/{enterpriseId}/enrollmentTokens/{enrollmentTokenId}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAndroidManagement_EnrollmentToken.
+ *
+ *  Gets an active, unexpired enrollment token. Only a partial view of
+ *  EnrollmentToken is returned: all the fields but name and
+ *  expiration_timestamp are empty. This method is meant to help manage active
+ *  enrollment tokens lifecycle. For security reasons, it's recommended to
+ *  delete active enrollment tokens as soon as they're not intended to be used
+ *  anymore.
+ *
+ *  @param name Required. The name of the enrollment token in the form
+ *    enterprises/{enterpriseId}/enrollmentTokens/{enrollmentTokenId}.
+ *
+ *  @return GTLRAndroidManagementQuery_EnterprisesEnrollmentTokensGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists active, unexpired enrollment tokens for a given enterprise. The list
+ *  items contain only a partial view of EnrollmentToken: all the fields but
+ *  name and expiration_timestamp are empty. This method is meant to help manage
+ *  active enrollment tokens lifecycle. For security reasons, it's recommended
+ *  to delete active enrollment tokens as soon as they're not intended to be
+ *  used anymore.
+ *
+ *  Method: androidmanagement.enterprises.enrollmentTokens.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
+ */
+@interface GTLRAndroidManagementQuery_EnterprisesEnrollmentTokensList : GTLRAndroidManagementQuery
+
+/**
+ *  The requested page size. The service may return fewer than this value. If
+ *  unspecified, at most 10 items will be returned. The maximum value is 100;
+ *  values above 100 will be coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A token identifying a page of results returned by the server. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the enterprise in the form enterprises/{enterpriseId}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAndroidManagement_ListEnrollmentTokensResponse.
+ *
+ *  Lists active, unexpired enrollment tokens for a given enterprise. The list
+ *  items contain only a partial view of EnrollmentToken: all the fields but
+ *  name and expiration_timestamp are empty. This method is meant to help manage
+ *  active enrollment tokens lifecycle. For security reasons, it's recommended
+ *  to delete active enrollment tokens as soon as they're not intended to be
+ *  used anymore.
+ *
+ *  @param parent Required. The name of the enterprise in the form
+ *    enterprises/{enterpriseId}.
+ *
+ *  @return GTLRAndroidManagementQuery_EnterprisesEnrollmentTokensList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

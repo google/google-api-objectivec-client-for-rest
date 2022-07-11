@@ -364,6 +364,46 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Create a database.
+ *
+ *  Method: firestore.projects.databases.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesCreate : GTLRFirestoreQuery
+
+/**
+ *  Required. The ID to use for the database, which will become the final
+ *  component of the database's resource name. This value should be 4-63
+ *  characters. Valid characters are /a-z-/ with first character a letter and
+ *  the last a letter or a number. Must not be UUID-like
+ *  /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/. "(default)" database id is also
+ *  valid.
+ */
+@property(nonatomic, copy, nullable) NSString *databaseId;
+
+/** Required. A parent name of the form `projects/{project_id}` */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleLongrunningOperation.
+ *
+ *  Create a database.
+ *
+ *  @param object The @c GTLRFirestore_GoogleFirestoreAdminV1Database to include
+ *    in the query.
+ *  @param parent Required. A parent name of the form `projects/{project_id}`
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesCreate
+ */
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1Database *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets multiple documents. Documents returned by this method are not
  *  guaranteed to be returned in the same order that they were requested.
  *

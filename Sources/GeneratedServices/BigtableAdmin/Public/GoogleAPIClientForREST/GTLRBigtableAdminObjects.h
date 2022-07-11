@@ -536,6 +536,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  */
 @property(nonatomic, strong, nullable) NSNumber *cpuUtilizationPercent;
 
+/**
+ *  The storage utilization that the Autoscaler should be trying to achieve.
+ *  This number is limited between 2560 (2.5TiB) and 5120 (5TiB) for a SSD
+ *  cluster and between 8192 (8TiB) and 16384 (16TiB) for an HDD cluster,
+ *  otherwise it will return INVALID_ARGUMENT error. If this value is set to 0,
+ *  it will be treated as if it were set to the default value: 2560 for SSD,
+ *  8192 for HDD.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *storageUtilizationGibPerNode;
+
 @end
 
 
@@ -2444,6 +2456,32 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
+@end
+
+
+/**
+ *  Metadata type for the operation returned by
+ *  google.bigtable.admin.v2.BigtableTableAdmin.UndeleteTable.
+ */
+@interface GTLRBigtableAdmin_UndeleteTableMetadata : GTLRObject
+
+/** If set, the time at which this operation finished or was cancelled. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The name of the table being restored. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The time at which this operation started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Request message for
+ *  google.bigtable.admin.v2.BigtableTableAdmin.UndeleteTable
+ */
+@interface GTLRBigtableAdmin_UndeleteTableRequest : GTLRObject
 @end
 
 

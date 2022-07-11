@@ -21,8 +21,6 @@ NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType_DataWrite = @"DAT
 NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
 // GTLRDataprocMetastore_BackendMetastore.metastoreType
-NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_Bigquery = @"BIGQUERY";
-NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_Dataplex = @"DATAPLEX";
 NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_DataprocMetastore = @"DATAPROC_METASTORE";
 NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_MetastoreTypeUnspecified = @"METASTORE_TYPE_UNSPECIFIED";
 

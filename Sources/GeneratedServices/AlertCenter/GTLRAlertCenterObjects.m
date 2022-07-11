@@ -4,7 +4,8 @@
 // API:
 //   Google Workspace Alert Center API (alertcenter/v1beta1)
 // Description:
-//   Manages alerts on issues affecting your domain.
+//   Manages alerts on issues affecting your domain. Note: The current version
+//   of this API (v1beta1) is available to all Google Workspace customers.
 // Documentation:
 //   https://developers.google.com/admin-sdk/alertcenter/
 
@@ -693,6 +694,16 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDea
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAlertCenter_PrimaryAdminChangedEvent
+//
+
+@implementation GTLRAlertCenter_PrimaryAdminChangedEvent
+@dynamic domain, previousAdminEmail, updatedAdminEmail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAlertCenter_ReportingRule
 //
 
@@ -765,6 +776,18 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDea
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAlertCenter_SensitiveAdminAction
+//
+
+@implementation GTLRAlertCenter_SensitiveAdminAction
+@dynamic actorEmail, eventTime, primaryAdminChangedEvent,
+         ssoProfileCreatedEvent, ssoProfileDeletedEvent, ssoProfileUpdatedEvent,
+         superAdminPasswordResetEvent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAlertCenter_Settings
 //
 
@@ -778,6 +801,36 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDea
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_SSOProfileCreatedEvent
+//
+
+@implementation GTLRAlertCenter_SSOProfileCreatedEvent
+@dynamic inboundSsoProfileName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_SSOProfileDeletedEvent
+//
+
+@implementation GTLRAlertCenter_SSOProfileDeletedEvent
+@dynamic inboundSsoProfileName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_SSOProfileUpdatedEvent
+//
+
+@implementation GTLRAlertCenter_SSOProfileUpdatedEvent
+@dynamic inboundSsoProfileChanges, inboundSsoProfileName;
 @end
 
 
@@ -820,6 +873,16 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDea
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_SuperAdminPasswordResetEvent
+//
+
+@implementation GTLRAlertCenter_SuperAdminPasswordResetEvent
+@dynamic userEmail;
 @end
 
 

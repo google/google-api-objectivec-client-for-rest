@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   BeyondCorp API (beyondcorp/v1alpha)
+//   BeyondCorp API (beyondcorp/v1)
 // Description:
 //   Beyondcorp Enterprise provides identity and context aware access controls
 //   for enterprise resources and enables zero-trust access. Using the
@@ -16,233 +16,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRBeyondCorp_AppGateway.hostType
-NSString * const kGTLRBeyondCorp_AppGateway_HostType_GcpRegionalMig = @"GCP_REGIONAL_MIG";
-NSString * const kGTLRBeyondCorp_AppGateway_HostType_HostTypeUnspecified = @"HOST_TYPE_UNSPECIFIED";
-
-// GTLRBeyondCorp_AppGateway.state
-NSString * const kGTLRBeyondCorp_AppGateway_State_Created      = @"CREATED";
-NSString * const kGTLRBeyondCorp_AppGateway_State_Creating     = @"CREATING";
-NSString * const kGTLRBeyondCorp_AppGateway_State_Deleting     = @"DELETING";
-NSString * const kGTLRBeyondCorp_AppGateway_State_Down         = @"DOWN";
-NSString * const kGTLRBeyondCorp_AppGateway_State_StateUnspecified = @"STATE_UNSPECIFIED";
-NSString * const kGTLRBeyondCorp_AppGateway_State_Updating     = @"UPDATING";
-
-// GTLRBeyondCorp_AppGateway.type
-NSString * const kGTLRBeyondCorp_AppGateway_Type_TcpProxy      = @"TCP_PROXY";
-NSString * const kGTLRBeyondCorp_AppGateway_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
-
-// GTLRBeyondCorp_ClientConnectorService.state
-NSString * const kGTLRBeyondCorp_ClientConnectorService_State_Creating = @"CREATING";
-NSString * const kGTLRBeyondCorp_ClientConnectorService_State_Deleting = @"DELETING";
-NSString * const kGTLRBeyondCorp_ClientConnectorService_State_Down = @"DOWN";
-NSString * const kGTLRBeyondCorp_ClientConnectorService_State_Error = @"ERROR";
-NSString * const kGTLRBeyondCorp_ClientConnectorService_State_Running = @"RUNNING";
-NSString * const kGTLRBeyondCorp_ClientConnectorService_State_StateUnspecified = @"STATE_UNSPECIFIED";
-NSString * const kGTLRBeyondCorp_ClientConnectorService_State_Updating = @"UPDATING";
-
-// GTLRBeyondCorp_ClientGateway.state
-NSString * const kGTLRBeyondCorp_ClientGateway_State_Creating  = @"CREATING";
-NSString * const kGTLRBeyondCorp_ClientGateway_State_Deleting  = @"DELETING";
-NSString * const kGTLRBeyondCorp_ClientGateway_State_Down      = @"DOWN";
-NSString * const kGTLRBeyondCorp_ClientGateway_State_Error     = @"ERROR";
-NSString * const kGTLRBeyondCorp_ClientGateway_State_Running   = @"RUNNING";
-NSString * const kGTLRBeyondCorp_ClientGateway_State_StateUnspecified = @"STATE_UNSPECIFIED";
-NSString * const kGTLRBeyondCorp_ClientGateway_State_Updating  = @"UPDATING";
-
-// GTLRBeyondCorp_Config.transportProtocol
-NSString * const kGTLRBeyondCorp_Config_TransportProtocol_Tcp  = @"TCP";
-NSString * const kGTLRBeyondCorp_Config_TransportProtocol_TransportProtocolUnspecified = @"TRANSPORT_PROTOCOL_UNSPECIFIED";
-
-// GTLRBeyondCorp_Connection.state
-NSString * const kGTLRBeyondCorp_Connection_State_Created      = @"CREATED";
-NSString * const kGTLRBeyondCorp_Connection_State_Creating     = @"CREATING";
-NSString * const kGTLRBeyondCorp_Connection_State_Deleting     = @"DELETING";
-NSString * const kGTLRBeyondCorp_Connection_State_Down         = @"DOWN";
-NSString * const kGTLRBeyondCorp_Connection_State_StateUnspecified = @"STATE_UNSPECIFIED";
-NSString * const kGTLRBeyondCorp_Connection_State_Updating     = @"UPDATING";
-
-// GTLRBeyondCorp_Connection.type
-NSString * const kGTLRBeyondCorp_Connection_Type_TcpProxy      = @"TCP_PROXY";
-NSString * const kGTLRBeyondCorp_Connection_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
-
-// GTLRBeyondCorp_Connector.state
-NSString * const kGTLRBeyondCorp_Connector_State_Created       = @"CREATED";
-NSString * const kGTLRBeyondCorp_Connector_State_Creating      = @"CREATING";
-NSString * const kGTLRBeyondCorp_Connector_State_Deleting      = @"DELETING";
-NSString * const kGTLRBeyondCorp_Connector_State_Down          = @"DOWN";
-NSString * const kGTLRBeyondCorp_Connector_State_StateUnspecified = @"STATE_UNSPECIFIED";
-NSString * const kGTLRBeyondCorp_Connector_State_Updating      = @"UPDATING";
-
-// GTLRBeyondCorp_Gateway.type
-NSString * const kGTLRBeyondCorp_Gateway_Type_GcpRegionalMig  = @"GCP_REGIONAL_MIG";
-NSString * const kGTLRBeyondCorp_Gateway_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
-
-// GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnection.state
-NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnection_State_Created = @"CREATED";
-NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnection_State_Creating = @"CREATING";
-NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnection_State_Deleting = @"DELETING";
-NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnection_State_Down = @"DOWN";
-NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnection_State_StateUnspecified = @"STATE_UNSPECIFIED";
-NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnection_State_Updating = @"UPDATING";
-
-// GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnection.type
-NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnection_Type_TcpProxy = @"TCP_PROXY";
-NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnection_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
-
-// GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnectionGateway.type
-NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnectionGateway_Type_GcpRegionalMig = @"GCP_REGIONAL_MIG";
-NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnectionGateway_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
-
-// GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnector.state
-NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnector_State_Created = @"CREATED";
-NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnector_State_Creating = @"CREATING";
-NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnector_State_Deleting = @"DELETING";
-NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnector_State_Down = @"DOWN";
-NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnector_State_StateUnspecified = @"STATE_UNSPECIFIED";
-NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnector_State_Updating = @"UPDATING";
-
-// GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaResourceInfo.status
-NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaResourceInfo_Status_Degraded = @"DEGRADED";
-NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaResourceInfo_Status_HealthStatusUnspecified = @"HEALTH_STATUS_UNSPECIFIED";
-NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaResourceInfo_Status_Healthy = @"HEALTHY";
-NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaResourceInfo_Status_Unhealthy = @"UNHEALTHY";
-NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaResourceInfo_Status_Unresponsive = @"UNRESPONSIVE";
-
 // GTLRBeyondCorp_GoogleIamV1AuditLogConfig.logType
 NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
 NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_DataRead = @"DATA_READ";
 NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
-
-// GTLRBeyondCorp_ResourceInfo.status
-NSString * const kGTLRBeyondCorp_ResourceInfo_Status_Degraded  = @"DEGRADED";
-NSString * const kGTLRBeyondCorp_ResourceInfo_Status_HealthStatusUnspecified = @"HEALTH_STATUS_UNSPECIFIED";
-NSString * const kGTLRBeyondCorp_ResourceInfo_Status_Healthy   = @"HEALTHY";
-NSString * const kGTLRBeyondCorp_ResourceInfo_Status_Unhealthy = @"UNHEALTHY";
-NSString * const kGTLRBeyondCorp_ResourceInfo_Status_Unresponsive = @"UNRESPONSIVE";
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_AllocatedConnection
-//
-
-@implementation GTLRBeyondCorp_AllocatedConnection
-@dynamic ingressPort, pscUri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_AppGateway
-//
-
-@implementation GTLRBeyondCorp_AppGateway
-@dynamic allocatedConnections, createTime, displayName, hostType, labels, name,
-         state, type, uid, updateTime, uri;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"allocatedConnections" : [GTLRBeyondCorp_AllocatedConnection class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_AppGateway_Labels
-//
-
-@implementation GTLRBeyondCorp_AppGateway_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_AppGatewayOperationMetadata
-//
-
-@implementation GTLRBeyondCorp_AppGatewayOperationMetadata
-@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
-         target, verb;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ApplicationEndpoint
-//
-
-@implementation GTLRBeyondCorp_ApplicationEndpoint
-@dynamic host, port;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ClientConnectorService
-//
-
-@implementation GTLRBeyondCorp_ClientConnectorService
-@dynamic createTime, displayName, egress, ingress, name, state, updateTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ClientConnectorServiceOperationMetadata
-//
-
-@implementation GTLRBeyondCorp_ClientConnectorServiceOperationMetadata
-@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
-         target, verb;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ClientGateway
-//
-
-@implementation GTLRBeyondCorp_ClientGateway
-@dynamic clientConnectorService, createTime, identifier, name, state,
-         updateTime;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ClientGatewayOperationMetadata
-//
-
-@implementation GTLRBeyondCorp_ClientGatewayOperationMetadata
-@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
-         target, verb;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_CloudPubSubNotificationConfig
-//
-
-@implementation GTLRBeyondCorp_CloudPubSubNotificationConfig
-@dynamic pubsubSubscription;
-@end
-
 
 // ----------------------------------------------------------------------------
 //
@@ -298,257 +76,10 @@ NSString * const kGTLRBeyondCorp_ResourceInfo_Status_Unresponsive = @"UNRESPONSI
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBeyondCorp_Config
-//
-
-@implementation GTLRBeyondCorp_Config
-@dynamic destinationRoutes, transportProtocol;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"destinationRoutes" : [GTLRBeyondCorp_DestinationRoute class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_Connection
-//
-
-@implementation GTLRBeyondCorp_Connection
-@dynamic applicationEndpoint, connectors, createTime, displayName, gateway,
-         labels, name, state, type, uid, updateTime;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"connectors" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_Connection_Labels
-//
-
-@implementation GTLRBeyondCorp_Connection_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ConnectionDetails
-//
-
-@implementation GTLRBeyondCorp_ConnectionDetails
-@dynamic connection, recentMigVms;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"recentMigVms" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ConnectionOperationMetadata
-//
-
-@implementation GTLRBeyondCorp_ConnectionOperationMetadata
-@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
-         target, verb;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_Connector
-//
-
-@implementation GTLRBeyondCorp_Connector
-@dynamic createTime, displayName, labels, name, principalInfo, resourceInfo,
-         state, uid, updateTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_Connector_Labels
-//
-
-@implementation GTLRBeyondCorp_Connector_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ConnectorInstanceConfig
-//
-
-@implementation GTLRBeyondCorp_ConnectorInstanceConfig
-@dynamic imageConfig, instanceConfig, notificationConfig, sequenceNumber;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ConnectorInstanceConfig_InstanceConfig
-//
-
-@implementation GTLRBeyondCorp_ConnectorInstanceConfig_InstanceConfig
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ConnectorOperationMetadata
-//
-
-@implementation GTLRBeyondCorp_ConnectorOperationMetadata
-@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
-         target, verb;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ContainerHealthDetails
-//
-
-@implementation GTLRBeyondCorp_ContainerHealthDetails
-@dynamic currentConfigVersion, errorMsg, expectedConfigVersion, extendedStatus;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ContainerHealthDetails_ExtendedStatus
-//
-
-@implementation GTLRBeyondCorp_ContainerHealthDetails_ExtendedStatus
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_DestinationRoute
-//
-
-@implementation GTLRBeyondCorp_DestinationRoute
-@dynamic address, netmask;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_Egress
-//
-
-@implementation GTLRBeyondCorp_Egress
-@dynamic peeredVpc;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBeyondCorp_Empty
 //
 
 @implementation GTLRBeyondCorp_Empty
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_Gateway
-//
-
-@implementation GTLRBeyondCorp_Gateway
-@dynamic type, uri, userPort;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnection
-//
-
-@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnection
-@dynamic applicationEndpoint, connectors, createTime, displayName, gateway,
-         labels, name, state, type, uid, updateTime;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"connectors" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnection_Labels
-//
-
-@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnection_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnectionApplicationEndpoint
-//
-
-@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnectionApplicationEndpoint
-@dynamic host, port;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnectionGateway
-//
-
-@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnectionGateway
-@dynamic appGateway, ingressPort, type, uri;
 @end
 
 
@@ -565,119 +96,6 @@ NSString * const kGTLRBeyondCorp_ResourceInfo_Status_Unresponsive = @"UNRESPONSI
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaListAppConnectionsResponse
-//
-
-@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaListAppConnectionsResponse
-@dynamic appConnections, nextPageToken, unreachable;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"appConnections" : [GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaAppConnection class],
-    @"unreachable" : [NSString class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"appConnections";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaResolveAppConnectionsResponse
-//
-
-@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaResolveAppConnectionsResponse
-@dynamic appConnectionDetails, nextPageToken, unreachable;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"appConnectionDetails" : [GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaResolveAppConnectionsResponseAppConnectionDetails class],
-    @"unreachable" : [NSString class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"appConnectionDetails";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaResolveAppConnectionsResponseAppConnectionDetails
-//
-
-@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1alphaResolveAppConnectionsResponseAppConnectionDetails
-@dynamic appConnection, recentMigVms;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"recentMigVms" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnector
-//
-
-@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnector
-@dynamic createTime, displayName, labels, name, principalInfo, resourceInfo,
-         state, uid, updateTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnector_Labels
-//
-
-@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnector_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnectorInstanceConfig
-//
-
-@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnectorInstanceConfig
-@dynamic imageConfig, instanceConfig, notificationConfig, sequenceNumber;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnectorInstanceConfig_InstanceConfig
-//
-
-@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnectorInstanceConfig_InstanceConfig
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnectorOperationMetadata
 //
 
@@ -689,130 +107,133 @@ NSString * const kGTLRBeyondCorp_ResourceInfo_Status_Unresponsive = @"UNRESPONSI
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnectorPrincipalInfo
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaContainerHealthDetails
 //
 
-@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnectorPrincipalInfo
-@dynamic serviceAccount;
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaContainerHealthDetails
+@dynamic currentConfigVersion, errorMsg, expectedConfigVersion, extendedStatus;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnectorPrincipalInfoServiceAccount
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaContainerHealthDetails_ExtendedStatus
 //
 
-@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnectorPrincipalInfoServiceAccount
-@dynamic email;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaImageConfig
-//
-
-@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaImageConfig
-@dynamic stableImage, targetImage;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaListAppConnectorsResponse
-//
-
-@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaListAppConnectorsResponse
-@dynamic appConnectors, nextPageToken, unreachable;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"appConnectors" : [GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaAppConnector class],
-    @"unreachable" : [NSString class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"appConnectors";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaNotificationConfig
-//
-
-@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaNotificationConfig
-@dynamic pubsubNotification;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaNotificationConfigCloudPubSubNotificationConfig
-//
-
-@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaNotificationConfigCloudPubSubNotificationConfig
-@dynamic pubsubSubscription;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaReportStatusRequest
-//
-
-@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaReportStatusRequest
-@dynamic requestId, resourceInfo, validateOnly;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaResolveInstanceConfigResponse
-//
-
-@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaResolveInstanceConfigResponse
-@dynamic instanceConfig;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaResourceInfo
-//
-
-@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaResourceInfo
-@dynamic identifier, resource, status, sub, time;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"sub" : [GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaResourceInfo class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaResourceInfo_Resource
-//
-
-@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaResourceInfo_Resource
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaContainerHealthDetails_ExtendedStatus
 
 + (Class)classForAdditionalProperties {
-  return [NSObject class];
+  return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaRemoteAgentDetails
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1alphaRemoteAgentDetails
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpAppgatewaysV1alphaAppGatewayOperationMetadata
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpAppgatewaysV1alphaAppGatewayOperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpApplicationsV1alphaApplicationOperationMetadata
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpApplicationsV1alphaApplicationOperationMetadata
+@dynamic createTime, endTime, requestedCancellation, statusMessage, target,
+         verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpClientconnectorservicesV1alphaClientConnectorServiceOperationMetadata
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpClientconnectorservicesV1alphaClientConnectorServiceOperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpClientgatewaysV1alphaClientGatewayOperationMetadata
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpClientgatewaysV1alphaClientGatewayOperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpConnectionsV1alphaConnectionOperationMetadata
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpConnectionsV1alphaConnectionOperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpConnectorsV1alphaConnectorOperationMetadata
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpConnectorsV1alphaConnectorOperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpConnectorsV1alphaContainerHealthDetails
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpConnectorsV1alphaContainerHealthDetails
+@dynamic currentConfigVersion, errorMsg, expectedConfigVersion, extendedStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpConnectorsV1alphaContainerHealthDetails_ExtendedStatus
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpConnectorsV1alphaContainerHealthDetails_ExtendedStatus
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpConnectorsV1alphaRemoteAgentDetails
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpConnectorsV1alphaRemoteAgentDetails
 @end
 
 
@@ -1112,269 +533,6 @@ NSString * const kGTLRBeyondCorp_ResourceInfo_Status_Unresponsive = @"UNRESPONSI
   return @{ @"descriptionProperty" : @"description" };
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ImageConfig
-//
-
-@implementation GTLRBeyondCorp_ImageConfig
-@dynamic stableImage, targetImage;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_Ingress
-//
-
-@implementation GTLRBeyondCorp_Ingress
-@dynamic config;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ListAppGatewaysResponse
-//
-
-@implementation GTLRBeyondCorp_ListAppGatewaysResponse
-@dynamic appGateways, nextPageToken, unreachable;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"appGateways" : [GTLRBeyondCorp_AppGateway class],
-    @"unreachable" : [NSString class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"appGateways";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ListClientConnectorServicesResponse
-//
-
-@implementation GTLRBeyondCorp_ListClientConnectorServicesResponse
-@dynamic clientConnectorServices, nextPageToken, unreachable;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"clientConnectorServices" : [GTLRBeyondCorp_ClientConnectorService class],
-    @"unreachable" : [NSString class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"clientConnectorServices";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ListClientGatewaysResponse
-//
-
-@implementation GTLRBeyondCorp_ListClientGatewaysResponse
-@dynamic clientGateways, nextPageToken, unreachable;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"clientGateways" : [GTLRBeyondCorp_ClientGateway class],
-    @"unreachable" : [NSString class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"clientGateways";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ListConnectionsResponse
-//
-
-@implementation GTLRBeyondCorp_ListConnectionsResponse
-@dynamic connections, nextPageToken, unreachable;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"connections" : [GTLRBeyondCorp_Connection class],
-    @"unreachable" : [NSString class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"connections";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ListConnectorsResponse
-//
-
-@implementation GTLRBeyondCorp_ListConnectorsResponse
-@dynamic connectors, nextPageToken, unreachable;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"connectors" : [GTLRBeyondCorp_Connector class],
-    @"unreachable" : [NSString class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"connectors";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_NotificationConfig
-//
-
-@implementation GTLRBeyondCorp_NotificationConfig
-@dynamic pubsubNotification;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_PeeredVpc
-//
-
-@implementation GTLRBeyondCorp_PeeredVpc
-@dynamic networkVpc;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_PrincipalInfo
-//
-
-@implementation GTLRBeyondCorp_PrincipalInfo
-@dynamic serviceAccount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_RemoteAgentDetails
-//
-
-@implementation GTLRBeyondCorp_RemoteAgentDetails
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ReportStatusRequest
-//
-
-@implementation GTLRBeyondCorp_ReportStatusRequest
-@dynamic requestId, resourceInfo, validateOnly;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ResolveConnectionsResponse
-//
-
-@implementation GTLRBeyondCorp_ResolveConnectionsResponse
-@dynamic connectionDetails, nextPageToken, unreachable;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"connectionDetails" : [GTLRBeyondCorp_ConnectionDetails class],
-    @"unreachable" : [NSString class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"connectionDetails";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ResolveInstanceConfigResponse
-//
-
-@implementation GTLRBeyondCorp_ResolveInstanceConfigResponse
-@dynamic instanceConfig;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ResourceInfo
-//
-
-@implementation GTLRBeyondCorp_ResourceInfo
-@dynamic identifier, resource, status, sub, time;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"sub" : [GTLRBeyondCorp_ResourceInfo class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ResourceInfo_Resource
-//
-
-@implementation GTLRBeyondCorp_ResourceInfo_Resource
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBeyondCorp_ServiceAccount
-//
-
-@implementation GTLRBeyondCorp_ServiceAccount
-@dynamic email;
 @end
 
 

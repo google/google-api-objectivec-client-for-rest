@@ -825,6 +825,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeAccessConfig_
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeAccessConfig_AccessType_SingleUser;
 
 // ----------------------------------------------------------------------------
+// GTLRAIPlatformNotebooks_RuntimeSoftwareConfig.postStartupScriptBehavior
+
+/**
+ *  Downloads and runs the provided post startup script at every start.
+ *
+ *  Value: "DOWNLOAD_AND_RUN_EVERY_START"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeSoftwareConfig_PostStartupScriptBehavior_DownloadAndRunEveryStart;
+/**
+ *  Unspecified post startup script behavior. Will run only once at creation.
+ *
+ *  Value: "POST_STARTUP_SCRIPT_BEHAVIOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeSoftwareConfig_PostStartupScriptBehavior_PostStartupScriptBehaviorUnspecified;
+/**
+ *  Runs the post startup script provided during creation at every start.
+ *
+ *  Value: "RUN_EVERY_START"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeSoftwareConfig_PostStartupScriptBehavior_RunEveryStart;
+
+// ----------------------------------------------------------------------------
 // GTLRAIPlatformNotebooks_Schedule.state
 
 /**
@@ -3377,6 +3399,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 @property(nonatomic, copy, nullable) NSString *postStartupScript;
 
 /**
+ *  Behavior for the post startup script.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_RuntimeSoftwareConfig_PostStartupScriptBehavior_DownloadAndRunEveryStart
+ *        Downloads and runs the provided post startup script at every start.
+ *        (Value: "DOWNLOAD_AND_RUN_EVERY_START")
+ *    @arg @c kGTLRAIPlatformNotebooks_RuntimeSoftwareConfig_PostStartupScriptBehavior_PostStartupScriptBehaviorUnspecified
+ *        Unspecified post startup script behavior. Will run only once at
+ *        creation. (Value: "POST_STARTUP_SCRIPT_BEHAVIOR_UNSPECIFIED")
+ *    @arg @c kGTLRAIPlatformNotebooks_RuntimeSoftwareConfig_PostStartupScriptBehavior_RunEveryStart
+ *        Runs the post startup script provided during creation at every start.
+ *        (Value: "RUN_EVERY_START")
+ */
+@property(nonatomic, copy, nullable) NSString *postStartupScriptBehavior;
+
+/**
  *  Output only. Bool indicating whether an newer image is available in an image
  *  family.
  *
@@ -4242,7 +4280,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 /**
  *  Required. The name of the Google Cloud project that this VM image belongs
- *  to. Format: `projects/{project_id}`
+ *  to. Format: `{project_id}`
  */
 @property(nonatomic, copy, nullable) NSString *project;
 

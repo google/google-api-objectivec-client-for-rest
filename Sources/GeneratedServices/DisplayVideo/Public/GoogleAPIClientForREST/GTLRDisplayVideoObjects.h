@@ -82,6 +82,7 @@
 @class GTLRDisplayVideo_Creative;
 @class GTLRDisplayVideo_CreativeConfig;
 @class GTLRDisplayVideo_CustomBiddingAlgorithm;
+@class GTLRDisplayVideo_CustomBiddingModelReadinessState;
 @class GTLRDisplayVideo_CustomBiddingScript;
 @class GTLRDisplayVideo_CustomBiddingScriptRef;
 @class GTLRDisplayVideo_CustomList;
@@ -104,6 +105,7 @@
 @class GTLRDisplayVideo_DoubleVerifyDisplayViewability;
 @class GTLRDisplayVideo_DoubleVerifyFraudInvalidTraffic;
 @class GTLRDisplayVideo_DoubleVerifyVideoViewability;
+@class GTLRDisplayVideo_EditInventorySourceReadWriteAccessorsRequestAdvertisersUpdate;
 @class GTLRDisplayVideo_EnvironmentAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_EnvironmentTargetingOptionDetails;
 @class GTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails;
@@ -126,6 +128,8 @@
 @class GTLRDisplayVideo_GoogleAudience;
 @class GTLRDisplayVideo_GoogleAudienceGroup;
 @class GTLRDisplayVideo_GoogleAudienceTargetingSetting;
+@class GTLRDisplayVideo_GuaranteedOrder;
+@class GTLRDisplayVideo_GuaranteedOrderStatus;
 @class GTLRDisplayVideo_HouseholdIncomeAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_HouseholdIncomeTargetingOptionDetails;
 @class GTLRDisplayVideo_IdFilter;
@@ -135,6 +139,9 @@
 @class GTLRDisplayVideo_IntegralAdScience;
 @class GTLRDisplayVideo_IntegrationDetails;
 @class GTLRDisplayVideo_InventorySource;
+@class GTLRDisplayVideo_InventorySourceAccessors;
+@class GTLRDisplayVideo_InventorySourceAccessorsAdvertiserAccessors;
+@class GTLRDisplayVideo_InventorySourceAccessorsPartnerAccessor;
 @class GTLRDisplayVideo_InventorySourceAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_InventorySourceDisplayCreativeConfig;
 @class GTLRDisplayVideo_InventorySourceFilter;
@@ -2510,6 +2517,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskReques
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion54;
 /**
+ *  SDF version 5.5
+ *
+ *  Value: "SDF_VERSION_5_5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion55;
+/**
  *  SDF version value is not specified or is unknown in this version.
  *
  *  Value: "SDF_VERSION_UNSPECIFIED"
@@ -3035,6 +3048,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_Enti
  *  Value: "ENTITY_STATUS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_EntityStatus_EntityStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_CustomBiddingModelReadinessState.readinessState
+
+/**
+ *  The model is trained and ready for serving.
+ *
+ *  Value: "READINESS_STATE_ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingModelReadinessState_ReadinessState_ReadinessStateActive;
+/**
+ *  There is not enough data to train the serving model.
+ *
+ *  Value: "READINESS_STATE_INSUFFICIENT_DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingModelReadinessState_ReadinessState_ReadinessStateInsufficientData;
+/**
+ *  A valid custom bidding script has not been provided with which to train the
+ *  model. This state will only be applied to algorithms whose
+ *  `custom_bidding_algorithm_type` is `SCRIPT_BASED`.
+ *
+ *  Value: "READINESS_STATE_NO_VALID_SCRIPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingModelReadinessState_ReadinessState_ReadinessStateNoValidScript;
+/**
+ *  The model is training and not ready for serving.
+ *
+ *  Value: "READINESS_STATE_TRAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingModelReadinessState_ReadinessState_ReadinessStateTraining;
+/**
+ *  State is not specified or is unknown in this version.
+ *
+ *  Value: "READINESS_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingModelReadinessState_ReadinessState_ReadinessStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_CustomBiddingScript.state
@@ -6401,6 +6450,470 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GoogleAudience_GoogleAudien
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_GuaranteedOrder.exchange
+
+/**
+ *  Adform.
+ *
+ *  Value: "EXCHANGE_ADFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAdform;
+/**
+ *  Admeta.
+ *
+ *  Value: "EXCHANGE_ADMETA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAdmeta;
+/**
+ *  Admixer.
+ *
+ *  Value: "EXCHANGE_ADMIXER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAdmixer;
+/**
+ *  AdsMogo.
+ *
+ *  Value: "EXCHANGE_ADSMOGO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAdsmogo;
+/**
+ *  AdsWizz.
+ *
+ *  Value: "EXCHANGE_ADSWIZZ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAdswizz;
+/**
+ *  Aja.
+ *
+ *  Value: "EXCHANGE_AJA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAja;
+/**
+ *  AppNexus.
+ *
+ *  Value: "EXCHANGE_APPNEXUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAppnexus;
+/**
+ *  BidSwitch.
+ *
+ *  Value: "EXCHANGE_BIDSWITCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeBidswitch;
+/**
+ *  BrightRoll Exchange for Video from Yahoo!.
+ *
+ *  Value: "EXCHANGE_BRIGHTROLL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeBrightroll;
+/**
+ *  BrightRoll Exchange for Display from Yahoo!.
+ *
+ *  Value: "EXCHANGE_BRIGHTROLL_DISPLAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeBrightrollDisplay;
+/**
+ *  Cadreon.
+ *
+ *  Value: "EXCHANGE_CADREON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeCadreon;
+/**
+ *  Dailymotion.
+ *
+ *  Value: "EXCHANGE_DAILYMOTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDailymotion;
+/**
+ *  Five.
+ *
+ *  Value: "EXCHANGE_FIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFive;
+/**
+ *  Fluct.
+ *
+ *  Value: "EXCHANGE_FLUCT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFluct;
+/**
+ *  FreeWheel SSP.
+ *
+ *  Value: "EXCHANGE_FREEWHEEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFreewheel;
+/**
+ *  Geniee.
+ *
+ *  Value: "EXCHANGE_GENIEE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeGeniee;
+/**
+ *  Google Ad Manager.
+ *
+ *  Value: "EXCHANGE_GOOGLE_AD_MANAGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeGoogleAdManager;
+/**
+ *  GumGum.
+ *
+ *  Value: "EXCHANGE_GUMGUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeGumgum;
+/**
+ *  iBILLBOARD.
+ *
+ *  Value: "EXCHANGE_IBILLBOARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeIbillboard;
+/**
+ *  i-mobile.
+ *
+ *  Value: "EXCHANGE_IMOBILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeImobile;
+/**
+ *  Improve Digital.
+ *
+ *  Value: "EXCHANGE_IMPROVE_DIGITAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeImproveDigital;
+/**
+ *  Index Exchange.
+ *
+ *  Value: "EXCHANGE_INDEX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeIndex;
+/**
+ *  InMobi.
+ *
+ *  Value: "EXCHANGE_INMOBI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeInmobi;
+/**
+ *  Kargo.
+ *
+ *  Value: "EXCHANGE_KARGO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeKargo;
+/**
+ *  Media.net.
+ *
+ *  Value: "EXCHANGE_MEDIANET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeMedianet;
+/**
+ *  MicroAd.
+ *
+ *  Value: "EXCHANGE_MICROAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeMicroad;
+/**
+ *  MoPub.
+ *
+ *  Value: "EXCHANGE_MOPUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeMopub;
+/**
+ *  Nend.
+ *
+ *  Value: "EXCHANGE_NEND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeNend;
+/**
+ *  Nexstar Digital.
+ *
+ *  Value: "EXCHANGE_NEXSTAR_DIGITAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeNexstarDigital;
+/**
+ *  ONE by AOL: Display Market Place.
+ *
+ *  Value: "EXCHANGE_ONE_BY_AOL_DISPLAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeOneByAolDisplay;
+/**
+ *  ONE by AOL: Mobile.
+ *
+ *  Value: "EXCHANGE_ONE_BY_AOL_MOBILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeOneByAolMobile;
+/**
+ *  ONE by AOL: Video.
+ *
+ *  Value: "EXCHANGE_ONE_BY_AOL_VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeOneByAolVideo;
+/**
+ *  Ooyala.
+ *
+ *  Value: "EXCHANGE_OOYALA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeOoyala;
+/**
+ *  Open8.
+ *
+ *  Value: "EXCHANGE_OPEN8"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeOpen8;
+/**
+ *  OpenX.
+ *
+ *  Value: "EXCHANGE_OPENX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeOpenx;
+/**
+ *  Permodo.
+ *
+ *  Value: "EXCHANGE_PERMODO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangePermodo;
+/**
+ *  PlatformId.
+ *
+ *  Value: "EXCHANGE_PLATFORMID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangePlatformid;
+/**
+ *  Platform One.
+ *
+ *  Value: "EXCHANGE_PLATFORMONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangePlatformone;
+/**
+ *  PubMatic.
+ *
+ *  Value: "EXCHANGE_PUBMATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangePubmatic;
+/**
+ *  PulsePoint.
+ *
+ *  Value: "EXCHANGE_PULSEPOINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangePulsepoint;
+/**
+ *  Red For Publishers.
+ *
+ *  Value: "EXCHANGE_RED_FOR_PUBLISHERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeRedForPublishers;
+/**
+ *  RevenueMax.
+ *
+ *  Value: "EXCHANGE_REVENUEMAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeRevenuemax;
+/**
+ *  Rubicon.
+ *
+ *  Value: "EXCHANGE_RUBICON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeRubicon;
+/**
+ *  Sharethrough.
+ *
+ *  Value: "EXCHANGE_SHARETHROUGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSharethrough;
+/**
+ *  Smaato.
+ *
+ *  Value: "EXCHANGE_SMAATO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSmaato;
+/**
+ *  SmartClip.
+ *
+ *  Value: "EXCHANGE_SMARTCLIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSmartclip;
+/**
+ *  SmartRTB+.
+ *
+ *  Value: "EXCHANGE_SMARTRTB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSmartrtb;
+/**
+ *  SmartstreamTv.
+ *
+ *  Value: "EXCHANGE_SMARTSTREAMTV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSmartstreamtv;
+/**
+ *  SoundCast.
+ *
+ *  Value: "EXCHANGE_SOUNDCAST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSoundcast;
+/**
+ *  Sovrn.
+ *
+ *  Value: "EXCHANGE_SOVRN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSovrn;
+/**
+ *  SpotXchange.
+ *
+ *  Value: "EXCHANGE_SPOTXCHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSpotxchange;
+/**
+ *  Ströer SSP.
+ *
+ *  Value: "EXCHANGE_STROER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeStroer;
+/**
+ *  Supership.
+ *
+ *  Value: "EXCHANGE_SUPERSHIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSupership;
+/**
+ *  Taboola.
+ *
+ *  Value: "EXCHANGE_TABOOLA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTaboola;
+/**
+ *  Tapjoy.
+ *
+ *  Value: "EXCHANGE_TAPJOY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTapjoy;
+/**
+ *  TeadsTv.
+ *
+ *  Value: "EXCHANGE_TEADSTV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTeadstv;
+/**
+ *  Telaria.
+ *
+ *  Value: "EXCHANGE_TELARIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTelaria;
+/**
+ *  TripleLift.
+ *
+ *  Value: "EXCHANGE_TRIPLELIFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTriplelift;
+/**
+ *  Triton.
+ *
+ *  Value: "EXCHANGE_TRITON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTriton;
+/**
+ *  TVN.
+ *
+ *  Value: "EXCHANGE_TVN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTvn;
+/**
+ *  United.
+ *
+ *  Value: "EXCHANGE_UNITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeUnited;
+/**
+ *  UnrulyX.
+ *
+ *  Value: "EXCHANGE_UNRULYX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeUnrulyx;
+/**
+ *  Exchange is not specified or is unknown in this version.
+ *
+ *  Value: "EXCHANGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeUnspecified;
+/**
+ *  Waze.
+ *
+ *  Value: "EXCHANGE_WAZE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeWaze;
+/**
+ *  Yieldlab.
+ *
+ *  Value: "EXCHANGE_YIELDLAB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeYieldlab;
+/**
+ *  Yieldmo.
+ *
+ *  Value: "EXCHANGE_YIELDMO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeYieldmo;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_GuaranteedOrderStatus.configStatus
+
+/**
+ *  The state after the buyer configures a guaranteed order.
+ *
+ *  Value: "COMPLETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrderStatus_ConfigStatus_Completed;
+/**
+ *  The approval status is not specified or is unknown in this version.
+ *
+ *  Value: "GUARANTEED_ORDER_CONFIG_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrderStatus_ConfigStatus_GuaranteedOrderConfigStatusUnspecified;
+/**
+ *  The beginning state of a guaranteed order. The guaranteed order in this
+ *  state needs to be configured before it can serve.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrderStatus_ConfigStatus_Pending;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_GuaranteedOrderStatus.entityStatus
+
+/**
+ *  The entity is enabled to bid and spend budget.
+ *
+ *  Value: "ENTITY_STATUS_ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrderStatus_EntityStatus_EntityStatusActive;
+/**
+ *  The entity is archived. Bidding and budget spending are disabled. An entity
+ *  can be deleted after archived. Deleted entities cannot be retrieved.
+ *
+ *  Value: "ENTITY_STATUS_ARCHIVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrderStatus_EntityStatus_EntityStatusArchived;
+/**
+ *  The entity is under draft. Bidding and budget spending are disabled.
+ *
+ *  Value: "ENTITY_STATUS_DRAFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrderStatus_EntityStatus_EntityStatusDraft;
+/**
+ *  Bidding and budget spending are paused for the entity.
+ *
+ *  Value: "ENTITY_STATUS_PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrderStatus_EntityStatus_EntityStatusPaused;
+/**
+ *  The entity is scheduled for deletion.
+ *
+ *  Value: "ENTITY_STATUS_SCHEDULED_FOR_DELETION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrderStatus_EntityStatus_EntityStatusScheduledForDeletion;
+/**
+ *  Default value when status is not specified or is unknown in this version.
+ *
+ *  Value: "ENTITY_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrderStatus_EntityStatus_EntityStatusUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_HouseholdIncomeAssignedTargetingOptionDetails.householdIncome
 
 /**
@@ -7449,6 +7962,75 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  *  Value: "EXCHANGE_YIELDMO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeYieldmo;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_InventorySource.inventorySourceProductType
+
+/**
+ *  The inventory source sells inventory through Auction Package. Modifying
+ *  inventory sources of this product type are not supported via API.
+ *
+ *  Value: "AUCTION_PACKAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_InventorySourceProductType_AuctionPackage;
+/**
+ *  The inventory source sells inventory through Guaranteed Package. Modifying
+ *  inventory sources of this product type are not supported via API.
+ *
+ *  Value: "GUARANTEED_PACKAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_InventorySourceProductType_GuaranteedPackage;
+/**
+ *  The inventory source sells inventory through Instant Reserve. Modifying
+ *  inventory sources of this product type are not supported via API.
+ *
+ *  Value: "INSTANT_RESERVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_InventorySourceProductType_InstantReserve;
+/**
+ *  The product type is not specified or is unknown in this version. Modifying
+ *  inventory sources of this product type are not supported via API.
+ *
+ *  Value: "INVENTORY_SOURCE_PRODUCT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_InventorySourceProductType_InventorySourceProductTypeUnspecified;
+/**
+ *  The inventory source sells inventory through Preferred Deal.
+ *
+ *  Value: "PREFERRED_DEAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_InventorySourceProductType_PreferredDeal;
+/**
+ *  The inventory source sells inventory through Private Auction.
+ *
+ *  Value: "PRIVATE_AUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_InventorySourceProductType_PrivateAuction;
+/**
+ *  The inventory source sells inventory through Programmatic Guaranteed.
+ *
+ *  Value: "PROGRAMMATIC_GUARANTEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_InventorySourceProductType_ProgrammaticGuaranteed;
+/**
+ *  The inventory source sells inventory through Programmtic TV. Modifying
+ *  inventory sources of this product type are not supported via API.
+ *
+ *  Value: "PROGRAMMATIC_TV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_InventorySourceProductType_ProgrammaticTv;
+/**
+ *  The inventory source sells inventory through Tag Guaranteed.
+ *
+ *  Value: "TAG_GUARANTEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_InventorySourceProductType_TagGuaranteed;
+/**
+ *  The inventory source sells inventory through YouTube Reserve.
+ *
+ *  Value: "YOUTUBE_RESERVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_InventorySourceProductType_YoutubeReserve;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_InventorySource.inventorySourceType
@@ -9307,6 +9889,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersio
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion54;
 /**
+ *  SDF version 5.5
+ *
+ *  Value: "SDF_VERSION_5_5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion55;
+/**
  *  SDF version value is not specified or is unknown in this version.
  *
  *  Value: "SDF_VERSION_UNSPECIFIED"
@@ -9370,6 +9958,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Ver
  *  Value: "SDF_VERSION_5_4"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion54;
+/**
+ *  SDF version 5.5
+ *
+ *  Value: "SDF_VERSION_5_5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion55;
 /**
  *  SDF version value is not specified or is unknown in this version.
  *
@@ -10800,7 +11394,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  range of an audience. Thus, the age range represented in this field can be
  *  1) targeted solely, or, 2) part of a larger continuous age range. The reach
  *  of a continuous age range targeting can be expanded by also targeting an
- *  audience of an unknown age. Output only in v1.
+ *  audience of an unknown age. Output only in v1. Required in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange1824
@@ -11809,7 +12403,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @interface GTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails : GTLRObject
 
 /**
- *  The audio content type. Output only in v1.
+ *  The audio content type. Output only in v1. Required in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeBroadcast
@@ -13392,7 +13986,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 /**
  *  A list of ContactInfo objects defining Customer Match audience members. The
- *  size of contact_infos mustn't be greater than 500,000.
+ *  size of members after splitting the contact_infos mustn't be greater than
+ *  500,000.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ContactInfo *> *contactInfos;
 
@@ -13557,6 +14152,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 /**
  *  The content instream position for video or audio ads. Output only in v1.
+ *  Required in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails_ContentInstreamPosition_ContentInstreamPositionMidRoll
@@ -13653,7 +14249,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, copy, nullable) NSString *adType;
 
 /**
- *  The content outstream position. Output only in v1.
+ *  The content outstream position. Output only in v1. Required in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_ContentOutstreamPositionAssignedTargetingOptionDetails_ContentOutstreamPosition_ContentOutstreamPositionInArticle
@@ -14072,6 +14668,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        SDF version 5.3 (Value: "SDF_VERSION_5_3")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion54
  *        SDF version 5.4 (Value: "SDF_VERSION_5_4")
+ *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion55
+ *        SDF version 5.5 (Value: "SDF_VERSION_5_5")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")
@@ -14821,6 +15419,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  */
 @property(nonatomic, copy, nullable) NSString *entityStatus;
 
+/**
+ *  Output only. The state of custom bidding model readiness for each advertiser
+ *  who has access. This field may only include the state of the queried
+ *  advertiser if the algorithm
+ *  [`owner`](/display-video/api/reference/rest/v1/customBiddingAlgorithms#CustomBiddingAlgorithm.FIELDS.oneof_owner)
+ *  is a partner and is being retrieved using an advertiser
+ *  [`accessor`](/display-video/api/reference/rest/v1/customBiddingAlgorithms/list#body.QUERY_PARAMETERS.oneof_accessor).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_CustomBiddingModelReadinessState *> *modelReadiness;
+
 /** Output only. The resource name of the custom bidding algorithm. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -14843,6 +15451,46 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *sharedAdvertiserIds;
+
+@end
+
+
+/**
+ *  The custom bidding algorithm model readiness state for a single shared
+ *  advertiser.
+ */
+@interface GTLRDisplayVideo_CustomBiddingModelReadinessState : GTLRObject
+
+/**
+ *  The unique ID of the relevant advertiser.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *advertiserId;
+
+/**
+ *  The readiness state of custom bidding model.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_CustomBiddingModelReadinessState_ReadinessState_ReadinessStateActive
+ *        The model is trained and ready for serving. (Value:
+ *        "READINESS_STATE_ACTIVE")
+ *    @arg @c kGTLRDisplayVideo_CustomBiddingModelReadinessState_ReadinessState_ReadinessStateInsufficientData
+ *        There is not enough data to train the serving model. (Value:
+ *        "READINESS_STATE_INSUFFICIENT_DATA")
+ *    @arg @c kGTLRDisplayVideo_CustomBiddingModelReadinessState_ReadinessState_ReadinessStateNoValidScript
+ *        A valid custom bidding script has not been provided with which to
+ *        train the model. This state will only be applied to algorithms whose
+ *        `custom_bidding_algorithm_type` is `SCRIPT_BASED`. (Value:
+ *        "READINESS_STATE_NO_VALID_SCRIPT")
+ *    @arg @c kGTLRDisplayVideo_CustomBiddingModelReadinessState_ReadinessState_ReadinessStateTraining
+ *        The model is training and not ready for serving. (Value:
+ *        "READINESS_STATE_TRAINING")
+ *    @arg @c kGTLRDisplayVideo_CustomBiddingModelReadinessState_ReadinessState_ReadinessStateUnspecified
+ *        State is not specified or is unknown in this version. (Value:
+ *        "READINESS_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *readinessState;
 
 @end
 
@@ -15320,7 +15968,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @interface GTLRDisplayVideo_DeviceTypeAssignedTargetingOptionDetails : GTLRObject
 
 /**
- *  The display name of the device type. Output only in v1.
+ *  The display name of the device type. Output only in v1. Required in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_DeviceTypeAssignedTargetingOptionDetails_DeviceType_DeviceTypeComputer
@@ -15810,6 +16458,121 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
+ *  Request message for GuaranteedOrderService.EditGuaranteedOrderReadAccessors.
+ */
+@interface GTLRDisplayVideo_EditGuaranteedOrderReadAccessorsRequest : GTLRObject
+
+/**
+ *  The advertisers to add as read accessors to the guaranteed order.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *addedAdvertisers;
+
+/**
+ *  Required. The partner context in which the change is being made.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partnerId;
+
+/**
+ *  Whether to give all advertisers of the read/write accessor partner read
+ *  access to the guaranteed order. Only applicable if read_write_partner_id is
+ *  set in the guaranteed order.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readAccessInherited;
+
+/**
+ *  The advertisers to remove as read accessors to the guaranteed order.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *removedAdvertisers;
+
+@end
+
+
+/**
+ *  GTLRDisplayVideo_EditGuaranteedOrderReadAccessorsResponse
+ */
+@interface GTLRDisplayVideo_EditGuaranteedOrderReadAccessorsResponse : GTLRObject
+
+/**
+ *  Whether all advertisers of read_write_partner_id have read access to the
+ *  guaranteed order.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readAccessInherited;
+
+/**
+ *  The IDs of advertisers with read access to the guaranteed order.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *readAdvertiserIds;
+
+@end
+
+
+/**
+ *  Request message for
+ *  InventorySourceService.EditInventorySourceReadWriteAccessors.
+ */
+@interface GTLRDisplayVideo_EditInventorySourceReadWriteAccessorsRequest : GTLRObject
+
+/**
+ *  The advertisers to add or remove from the list of advertisers that have
+ *  read/write access to the inventory source. This change will remove an
+ *  existing partner read/write accessor.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_EditInventorySourceReadWriteAccessorsRequestAdvertisersUpdate *advertisersUpdate;
+
+/**
+ *  Set the partner context as read/write accessor of the inventory source. This
+ *  will remove all other current read/write advertiser accessors.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *assignPartner;
+
+/**
+ *  Required. The partner context by which the accessors change is being made.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partnerId;
+
+@end
+
+
+/**
+ *  Update to the list of advertisers with read/write access to the inventory
+ *  source.
+ */
+@interface GTLRDisplayVideo_EditInventorySourceReadWriteAccessorsRequestAdvertisersUpdate : GTLRObject
+
+/**
+ *  The advertisers to add.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *addedAdvertisers;
+
+/**
+ *  The advertisers to remove.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *removedAdvertisers;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -15827,7 +16590,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @interface GTLRDisplayVideo_EnvironmentAssignedTargetingOptionDetails : GTLRObject
 
 /**
- *  The serving environment. Output only in v1.
+ *  The serving environment. Output only in v1. Required in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_EnvironmentAssignedTargetingOptionDetails_Environment_EnvironmentApp
@@ -16885,7 +17648,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 /**
  *  The maximum number of times a user may be shown the same ad during this
- *  period. Must be greater than 0. Required when unlimited is `false`.
+ *  period. Must be greater than 0. Required when unlimited is `false` and
+ *  max_views is not set.
  *
  *  Uses NSNumber of intValue.
  */
@@ -16946,12 +17710,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 /**
  *  Details for assigned gender targeting option. This will be populated in the
  *  details field of an AssignedTargetingOption when targeting_type is
- *  `TARTGETING_TYPE_GENDER`.
+ *  `TARGETING_TYPE_GENDER`.
  */
 @interface GTLRDisplayVideo_GenderAssignedTargetingOptionDetails : GTLRObject
 
 /**
- *  The gender of the audience. Output only in v1.
+ *  The gender of the audience. Output only in v1. Required in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_GenderAssignedTargetingOptionDetails_Gender_GenderFemale
@@ -17387,6 +18151,311 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
+ *  A guaranteed order. Guaranteed orders are parent entity of guaranteed
+ *  inventory sources. When creating a guaranteed inventory source, a guaranteed
+ *  order ID must be assigned to the inventory source.
+ */
+@interface GTLRDisplayVideo_GuaranteedOrder : GTLRObject
+
+/**
+ *  Output only. The ID of default advertiser of the guaranteed order. The
+ *  default advertiser is either the read_write_advertiser_id or, if that is not
+ *  set, the first advertiser listed in read_advertiser_ids. Otherwise, there is
+ *  no default advertiser.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultAdvertiserId;
+
+/**
+ *  The ID of the default campaign that is assigned to the guaranteed order. The
+ *  default campaign must belong to the default advertiser.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultCampaignId;
+
+/**
+ *  Required. The display name of the guaranteed order. Must be UTF-8 encoded
+ *  with a maximum size of 240 bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Required. Immutable. The exchange where the guaranteed order originated.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAdform Adform.
+ *        (Value: "EXCHANGE_ADFORM")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAdmeta Admeta.
+ *        (Value: "EXCHANGE_ADMETA")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAdmixer
+ *        Admixer. (Value: "EXCHANGE_ADMIXER")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAdsmogo
+ *        AdsMogo. (Value: "EXCHANGE_ADSMOGO")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAdswizz
+ *        AdsWizz. (Value: "EXCHANGE_ADSWIZZ")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAja Aja.
+ *        (Value: "EXCHANGE_AJA")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAppnexus
+ *        AppNexus. (Value: "EXCHANGE_APPNEXUS")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeBidswitch
+ *        BidSwitch. (Value: "EXCHANGE_BIDSWITCH")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeBrightroll
+ *        BrightRoll Exchange for Video from Yahoo!. (Value:
+ *        "EXCHANGE_BRIGHTROLL")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeBrightrollDisplay
+ *        BrightRoll Exchange for Display from Yahoo!. (Value:
+ *        "EXCHANGE_BRIGHTROLL_DISPLAY")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeCadreon
+ *        Cadreon. (Value: "EXCHANGE_CADREON")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDailymotion
+ *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFive Five.
+ *        (Value: "EXCHANGE_FIVE")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFluct Fluct.
+ *        (Value: "EXCHANGE_FLUCT")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFreewheel
+ *        FreeWheel SSP. (Value: "EXCHANGE_FREEWHEEL")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeGeniee Geniee.
+ *        (Value: "EXCHANGE_GENIEE")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeGoogleAdManager
+ *        Google Ad Manager. (Value: "EXCHANGE_GOOGLE_AD_MANAGER")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeGumgum GumGum.
+ *        (Value: "EXCHANGE_GUMGUM")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeIbillboard
+ *        iBILLBOARD. (Value: "EXCHANGE_IBILLBOARD")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeImobile
+ *        i-mobile. (Value: "EXCHANGE_IMOBILE")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeImproveDigital
+ *        Improve Digital. (Value: "EXCHANGE_IMPROVE_DIGITAL")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeIndex Index
+ *        Exchange. (Value: "EXCHANGE_INDEX")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeInmobi InMobi.
+ *        (Value: "EXCHANGE_INMOBI")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeKargo Kargo.
+ *        (Value: "EXCHANGE_KARGO")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeMedianet
+ *        Media.net. (Value: "EXCHANGE_MEDIANET")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeMicroad
+ *        MicroAd. (Value: "EXCHANGE_MICROAD")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeMopub MoPub.
+ *        (Value: "EXCHANGE_MOPUB")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeNend Nend.
+ *        (Value: "EXCHANGE_NEND")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeNexstarDigital
+ *        Nexstar Digital. (Value: "EXCHANGE_NEXSTAR_DIGITAL")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeOneByAolDisplay
+ *        ONE by AOL: Display Market Place. (Value:
+ *        "EXCHANGE_ONE_BY_AOL_DISPLAY")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeOneByAolMobile
+ *        ONE by AOL: Mobile. (Value: "EXCHANGE_ONE_BY_AOL_MOBILE")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeOneByAolVideo
+ *        ONE by AOL: Video. (Value: "EXCHANGE_ONE_BY_AOL_VIDEO")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeOoyala Ooyala.
+ *        (Value: "EXCHANGE_OOYALA")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeOpen8 Open8.
+ *        (Value: "EXCHANGE_OPEN8")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeOpenx OpenX.
+ *        (Value: "EXCHANGE_OPENX")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangePermodo
+ *        Permodo. (Value: "EXCHANGE_PERMODO")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangePlatformid
+ *        PlatformId. (Value: "EXCHANGE_PLATFORMID")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangePlatformone
+ *        Platform One. (Value: "EXCHANGE_PLATFORMONE")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangePubmatic
+ *        PubMatic. (Value: "EXCHANGE_PUBMATIC")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangePulsepoint
+ *        PulsePoint. (Value: "EXCHANGE_PULSEPOINT")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeRedForPublishers
+ *        Red For Publishers. (Value: "EXCHANGE_RED_FOR_PUBLISHERS")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeRevenuemax
+ *        RevenueMax. (Value: "EXCHANGE_REVENUEMAX")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeRubicon
+ *        Rubicon. (Value: "EXCHANGE_RUBICON")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSharethrough
+ *        Sharethrough. (Value: "EXCHANGE_SHARETHROUGH")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSmaato Smaato.
+ *        (Value: "EXCHANGE_SMAATO")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSmartclip
+ *        SmartClip. (Value: "EXCHANGE_SMARTCLIP")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSmartrtb
+ *        SmartRTB+. (Value: "EXCHANGE_SMARTRTB")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSmartstreamtv
+ *        SmartstreamTv. (Value: "EXCHANGE_SMARTSTREAMTV")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSoundcast
+ *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSovrn Sovrn.
+ *        (Value: "EXCHANGE_SOVRN")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSpotxchange
+ *        SpotXchange. (Value: "EXCHANGE_SPOTXCHANGE")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeStroer Ströer
+ *        SSP. (Value: "EXCHANGE_STROER")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSupership
+ *        Supership. (Value: "EXCHANGE_SUPERSHIP")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTaboola
+ *        Taboola. (Value: "EXCHANGE_TABOOLA")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTapjoy Tapjoy.
+ *        (Value: "EXCHANGE_TAPJOY")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTeadstv
+ *        TeadsTv. (Value: "EXCHANGE_TEADSTV")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTelaria
+ *        Telaria. (Value: "EXCHANGE_TELARIA")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTriplelift
+ *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTriton Triton.
+ *        (Value: "EXCHANGE_TRITON")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTvn TVN.
+ *        (Value: "EXCHANGE_TVN")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeUnited United.
+ *        (Value: "EXCHANGE_UNITED")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeUnrulyx
+ *        UnrulyX. (Value: "EXCHANGE_UNRULYX")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeUnspecified
+ *        Exchange is not specified or is unknown in this version. (Value:
+ *        "EXCHANGE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeWaze Waze.
+ *        (Value: "EXCHANGE_WAZE")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeYieldlab
+ *        Yieldlab. (Value: "EXCHANGE_YIELDLAB")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeYieldmo
+ *        Yieldmo. (Value: "EXCHANGE_YIELDMO")
+ */
+@property(nonatomic, copy, nullable) NSString *exchange;
+
+/**
+ *  Output only. The unique identifier of the guaranteed order. The guaranteed
+ *  order IDs have the format `{exchange}-{legacy_guaranteed_order_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *guaranteedOrderId;
+
+/**
+ *  Output only. The legacy ID of the guaranteed order. Assigned by the original
+ *  exchange. The legacy ID is unique within one exchange, but is not guaranteed
+ *  to be unique across all guaranteed orders. This ID is used in SDF and UI.
+ */
+@property(nonatomic, copy, nullable) NSString *legacyGuaranteedOrderId;
+
+/** Output only. The resource name of the guaranteed order. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The publisher name of the guaranteed order. Must be UTF-8 encoded
+ *  with a maximum size of 240 bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *publisherName;
+
+/**
+ *  Whether all advertisers of read_write_partner_id have read access to the
+ *  guaranteed order. Only applicable if read_write_partner_id is set. If True,
+ *  overrides read_advertiser_ids.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readAccessInherited;
+
+/**
+ *  The IDs of advertisers with read access to the guaranteed order. This field
+ *  must not include the advertiser assigned to read_write_advertiser_id if it
+ *  is set. All advertisers in this field must belong to read_write_partner_id
+ *  or the same partner as read_write_advertiser_id.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *readAdvertiserIds;
+
+/**
+ *  The advertiser with read/write access to the guaranteed order. This is also
+ *  the default advertiser of the guaranteed order.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readWriteAdvertiserId;
+
+/**
+ *  The partner with read/write access to the guaranteed order.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readWritePartnerId;
+
+/** The status settings of the guaranteed order. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_GuaranteedOrderStatus *status;
+
+/**
+ *  Output only. The timestamp when the guaranteed order was last updated.
+ *  Assigned by the system.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The status settings of the guaranteed order.
+ */
+@interface GTLRDisplayVideo_GuaranteedOrderStatus : GTLRObject
+
+/**
+ *  Output only. The configuration status of the guaranteed order. Acceptable
+ *  values are `PENDING` and `COMPLETED`. A guaranteed order must be configured
+ *  (fill in the required fields, choose creatives, and select a default
+ *  campaign) before it can serve. Currently the configuration action can only
+ *  be performed via UI.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrderStatus_ConfigStatus_Completed The
+ *        state after the buyer configures a guaranteed order. (Value:
+ *        "COMPLETED")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrderStatus_ConfigStatus_GuaranteedOrderConfigStatusUnspecified
+ *        The approval status is not specified or is unknown in this version.
+ *        (Value: "GUARANTEED_ORDER_CONFIG_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrderStatus_ConfigStatus_Pending The
+ *        beginning state of a guaranteed order. The guaranteed order in this
+ *        state needs to be configured before it can serve. (Value: "PENDING")
+ */
+@property(nonatomic, copy, nullable) NSString *configStatus;
+
+/**
+ *  The user-provided reason for pausing this guaranteed order. Must be UTF-8
+ *  encoded with a maximum length of 100 bytes. Only applicable when
+ *  entity_status is set to `ENTITY_STATUS_PAUSED`.
+ */
+@property(nonatomic, copy, nullable) NSString *entityPauseReason;
+
+/**
+ *  Whether or not the guaranteed order is servable. Acceptable values are
+ *  `ENTITY_STATUS_ACTIVE`, `ENTITY_STATUS_ARCHIVED`, and
+ *  `ENTITY_STATUS_PAUSED`. Default value is `ENTITY_STATUS_ACTIVE`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrderStatus_EntityStatus_EntityStatusActive
+ *        The entity is enabled to bid and spend budget. (Value:
+ *        "ENTITY_STATUS_ACTIVE")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrderStatus_EntityStatus_EntityStatusArchived
+ *        The entity is archived. Bidding and budget spending are disabled. An
+ *        entity can be deleted after archived. Deleted entities cannot be
+ *        retrieved. (Value: "ENTITY_STATUS_ARCHIVED")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrderStatus_EntityStatus_EntityStatusDraft
+ *        The entity is under draft. Bidding and budget spending are disabled.
+ *        (Value: "ENTITY_STATUS_DRAFT")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrderStatus_EntityStatus_EntityStatusPaused
+ *        Bidding and budget spending are paused for the entity. (Value:
+ *        "ENTITY_STATUS_PAUSED")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrderStatus_EntityStatus_EntityStatusScheduledForDeletion
+ *        The entity is scheduled for deletion. (Value:
+ *        "ENTITY_STATUS_SCHEDULED_FOR_DELETION")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrderStatus_EntityStatus_EntityStatusUnspecified
+ *        Default value when status is not specified or is unknown in this
+ *        version. (Value: "ENTITY_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *entityStatus;
+
+@end
+
+
+/**
  *  Details for assigned household income targeting option. This will be
  *  populated in the details field of an AssignedTargetingOption when
  *  targeting_type is `TARGETING_TYPE_HOUSEHOLD_INCOME`.
@@ -17394,7 +18463,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @interface GTLRDisplayVideo_HouseholdIncomeAssignedTargetingOptionDetails : GTLRObject
 
 /**
- *  Output only. The household income of the audience.
+ *  The household income of the audience. Output only in v1. Required in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_HouseholdIncomeAssignedTargetingOptionDetails_HouseholdIncome_HouseholdIncomeLower50Percent
@@ -18233,11 +19302,61 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, copy, nullable) NSString *exchange;
 
 /**
+ *  Immutable. The ID of the guaranteed order that this inventory source belongs
+ *  to. Only applicable when commitment is
+ *  `INVENTORY_SOURCE_COMMITMENT_GUARANTEED`.
+ */
+@property(nonatomic, copy, nullable) NSString *guaranteedOrderId;
+
+/**
  *  Output only. The unique ID of the inventory source. Assigned by the system.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *inventorySourceId;
+
+/**
+ *  Output only. The product type of the inventory source, denoting the way
+ *  through which it sells inventory.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_InventorySource_InventorySourceProductType_AuctionPackage
+ *        The inventory source sells inventory through Auction Package.
+ *        Modifying inventory sources of this product type are not supported via
+ *        API. (Value: "AUCTION_PACKAGE")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_InventorySourceProductType_GuaranteedPackage
+ *        The inventory source sells inventory through Guaranteed Package.
+ *        Modifying inventory sources of this product type are not supported via
+ *        API. (Value: "GUARANTEED_PACKAGE")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_InventorySourceProductType_InstantReserve
+ *        The inventory source sells inventory through Instant Reserve.
+ *        Modifying inventory sources of this product type are not supported via
+ *        API. (Value: "INSTANT_RESERVE")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_InventorySourceProductType_InventorySourceProductTypeUnspecified
+ *        The product type is not specified or is unknown in this version.
+ *        Modifying inventory sources of this product type are not supported via
+ *        API. (Value: "INVENTORY_SOURCE_PRODUCT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_InventorySourceProductType_PreferredDeal
+ *        The inventory source sells inventory through Preferred Deal. (Value:
+ *        "PREFERRED_DEAL")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_InventorySourceProductType_PrivateAuction
+ *        The inventory source sells inventory through Private Auction. (Value:
+ *        "PRIVATE_AUCTION")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_InventorySourceProductType_ProgrammaticGuaranteed
+ *        The inventory source sells inventory through Programmatic Guaranteed.
+ *        (Value: "PROGRAMMATIC_GUARANTEED")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_InventorySourceProductType_ProgrammaticTv
+ *        The inventory source sells inventory through Programmtic TV. Modifying
+ *        inventory sources of this product type are not supported via API.
+ *        (Value: "PROGRAMMATIC_TV")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_InventorySourceProductType_TagGuaranteed
+ *        The inventory source sells inventory through Tag Guaranteed. (Value:
+ *        "TAG_GUARANTEED")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_InventorySourceProductType_YoutubeReserve
+ *        The inventory source sells inventory through YouTube Reserve. (Value:
+ *        "YOUTUBE_RESERVE")
+ */
+@property(nonatomic, copy, nullable) NSString *inventorySourceProductType;
 
 /**
  *  Denotes the type of the inventory source.
@@ -18262,8 +19381,46 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 /** Required. The rate details of the inventory source. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_RateDetails *rateDetails;
 
+/**
+ *  Output only. The IDs of advertisers with read-only access to the inventory
+ *  source.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *readAdvertiserIds;
+
+/**
+ *  Output only. The IDs of partners with read-only access to the inventory
+ *  source. All advertisers of partners in this field inherit read-only access
+ *  to the inventory source.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *readPartnerIds;
+
+/**
+ *  The partner or advertisers that have read/write access to the inventory
+ *  source. Output only when commitment is
+ *  `INVENTORY_SOURCE_COMMITMENT_GUARANTEED`, in which case the read/write
+ *  accessors are inherited from the parent guaranteed order. Required when
+ *  commitment is `INVENTORY_SOURCE_COMMITMENT_NON_GUARANTEED`. If commitment is
+ *  `INVENTORY_SOURCE_COMMITMENT_NON_GUARANTEED` and a partner is set in this
+ *  field, all advertisers under this partner will automatically have read-only
+ *  access to the inventory source. These advertisers will not be included in
+ *  read_advertiser_ids.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_InventorySourceAccessors *readWriteAccessors;
+
 /** The status settings of the inventory source. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_InventorySourceStatus *status;
+
+/**
+ *  Immutable. The unique ID of the sub-site property assigned to this inventory
+ *  source.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *subSitePropertyId;
 
 /** The time range when this inventory source starts and stops serving. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_TimeRange *timeRange;
@@ -18273,6 +19430,53 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  Assigned by the system.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The partner or advertisers with access to the inventory source.
+ */
+@interface GTLRDisplayVideo_InventorySourceAccessors : GTLRObject
+
+/**
+ *  The advertisers with access to the inventory source. All advertisers must
+ *  belong to the same partner.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_InventorySourceAccessorsAdvertiserAccessors *advertisers;
+
+/** The partner with access to the inventory source. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_InventorySourceAccessorsPartnerAccessor *partner;
+
+@end
+
+
+/**
+ *  The advertisers with access to the inventory source.
+ */
+@interface GTLRDisplayVideo_InventorySourceAccessorsAdvertiserAccessors : GTLRObject
+
+/**
+ *  The IDs of the advertisers.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *advertiserIds;
+
+@end
+
+
+/**
+ *  The partner with access to the inventory source.
+ */
+@interface GTLRDisplayVideo_InventorySourceAccessorsPartnerAccessor : GTLRObject
+
+/**
+ *  The ID of the partner.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partnerId;
 
 @end
 
@@ -19409,6 +20613,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
+ *  GTLRDisplayVideo_ListGuaranteedOrdersResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "guaranteedOrders" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRDisplayVideo_ListGuaranteedOrdersResponse : GTLRCollectionObject
+
+/**
+ *  The list of guaranteed orders. This list will be absent if empty.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_GuaranteedOrder *> *guaranteedOrders;
+
+/**
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  page_token field in the subsequent call to `ListGuaranteedOrders` method to
+ *  retrieve the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for ListInsertionOrderAssignedTargetingOptions.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -20185,7 +21417,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @interface GTLRDisplayVideo_NativeContentPositionAssignedTargetingOptionDetails : GTLRObject
 
 /**
- *  The content position. Output only in v1.
+ *  The content position. Output only in v1. Required in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_NativeContentPositionAssignedTargetingOptionDetails_ContentPosition_NativeContentPositionInArticle
@@ -20413,7 +21645,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @interface GTLRDisplayVideo_OmidAssignedTargetingOptionDetails : GTLRObject
 
 /**
- *  The type of Open Measurement enabled inventory. Output only in v1.
+ *  The type of Open Measurement enabled inventory. Output only in v1. Required
+ *  in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_OmidAssignedTargetingOptionDetails_Omid_OmidForMobileDisplayAds
@@ -20739,12 +21972,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 /**
  *  Details for assigned parental status targeting option. This will be
  *  populated in the details field of an AssignedTargetingOption when
- *  targeting_type is `TARTGETING_TYPE_PARENTAL_STATUS`.
+ *  targeting_type is `TARGETING_TYPE_PARENTAL_STATUS`.
  */
 @interface GTLRDisplayVideo_ParentalStatusAssignedTargetingOptionDetails : GTLRObject
 
 /**
- *  Output only. The parental status of the audience.
+ *  The parental status of the audience. Output only in v1. Required in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_ParentalStatusAssignedTargetingOptionDetails_ParentalStatus_ParentalStatusNotAParent
@@ -21888,6 +23121,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        (Value: "SDF_VERSION_5_3")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion54 SDF version 5.4
  *        (Value: "SDF_VERSION_5_4")
+ *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion55 SDF version 5.5
+ *        (Value: "SDF_VERSION_5_5")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersionUnspecified SDF
  *        version value is not specified or is unknown in this version. (Value:
  *        "SDF_VERSION_UNSPECIFIED")
@@ -21948,6 +23183,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        version 5.3 (Value: "SDF_VERSION_5_3")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion54 SDF
  *        version 5.4 (Value: "SDF_VERSION_5_4")
+ *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion55 SDF
+ *        version 5.5 (Value: "SDF_VERSION_5_5")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")
@@ -22047,8 +23284,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, copy, nullable) NSString *excludedTargetingOptionId;
 
 /**
- *  An enum for the DV360 Sensitive category content classifier. Output only in
- *  v1.
+ *  Output only. An enum for the DV360 Sensitive category content classifier.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_SensitiveCategory_SensitiveCategoryAdult
@@ -23024,7 +24260,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, copy, nullable) NSString *targetingOptionId;
 
 /**
- *  The video player size. Output only in v1.
+ *  The video player size. Output only in v1. Required in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_VideoPlayerSizeAssignedTargetingOptionDetails_VideoPlayerSize_VideoPlayerSizeHd
@@ -23103,7 +24339,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, copy, nullable) NSString *targetingOptionId;
 
 /**
- *  The predicted viewability percentage. Output only in v1.
+ *  The predicted viewability percentage. Output only in v1. Required in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_ViewabilityAssignedTargetingOptionDetails_Viewability_Viewability10PercentOrMore

@@ -521,6 +521,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
  */
 @property(nonatomic, copy, nullable) NSString *priority;
 
+/** The ID of the project associated with the case. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
 /**
  *  The severity of this case. Deprecated. Use priority instead.
  *

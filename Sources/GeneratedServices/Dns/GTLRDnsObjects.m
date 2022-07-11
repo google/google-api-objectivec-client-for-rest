@@ -37,6 +37,12 @@ NSString * const kGTLRDns_DnsKeySpec_Algorithm_Rsasha512       = @"rsasha512";
 NSString * const kGTLRDns_DnsKeySpec_KeyType_KeySigning  = @"keySigning";
 NSString * const kGTLRDns_DnsKeySpec_KeyType_ZoneSigning = @"zoneSigning";
 
+// GTLRDns_GoogleIamV1AuditLogConfig.logType
+NSString * const kGTLRDns_GoogleIamV1AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
+NSString * const kGTLRDns_GoogleIamV1AuditLogConfig_LogType_DataRead = @"DATA_READ";
+NSString * const kGTLRDns_GoogleIamV1AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
+NSString * const kGTLRDns_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
+
 // GTLRDns_KeyDigest.type
 NSString * const kGTLRDns_KeyDigest_Type_Sha1   = @"sha1";
 NSString * const kGTLRDns_KeyDigest_Type_Sha256 = @"sha256";
@@ -172,6 +178,164 @@ NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassResponsePolicy = @"b
 
 @implementation GTLRDns_DnsKeySpec
 @dynamic algorithm, keyLength, keyType, kind;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_Expr
+//
+
+@implementation GTLRDns_Expr
+@dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_GoogleIamV1AuditConfig
+//
+
+@implementation GTLRDns_GoogleIamV1AuditConfig
+@dynamic auditLogConfigs, service;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auditLogConfigs" : [GTLRDns_GoogleIamV1AuditLogConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_GoogleIamV1AuditLogConfig
+//
+
+@implementation GTLRDns_GoogleIamV1AuditLogConfig
+@dynamic exemptedMembers, logType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exemptedMembers" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_GoogleIamV1Binding
+//
+
+@implementation GTLRDns_GoogleIamV1Binding
+@dynamic condition, members, role;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"members" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_GoogleIamV1GetIamPolicyRequest
+//
+
+@implementation GTLRDns_GoogleIamV1GetIamPolicyRequest
+@dynamic options;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_GoogleIamV1GetPolicyOptions
+//
+
+@implementation GTLRDns_GoogleIamV1GetPolicyOptions
+@dynamic requestedPolicyVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_GoogleIamV1Policy
+//
+
+@implementation GTLRDns_GoogleIamV1Policy
+@dynamic auditConfigs, bindings, ETag, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auditConfigs" : [GTLRDns_GoogleIamV1AuditConfig class],
+    @"bindings" : [GTLRDns_GoogleIamV1Binding class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_GoogleIamV1SetIamPolicyRequest
+//
+
+@implementation GTLRDns_GoogleIamV1SetIamPolicyRequest
+@dynamic policy, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_GoogleIamV1TestIamPermissionsRequest
+//
+
+@implementation GTLRDns_GoogleIamV1TestIamPermissionsRequest
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_GoogleIamV1TestIamPermissionsResponse
+//
+
+@implementation GTLRDns_GoogleIamV1TestIamPermissionsResponse
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -576,9 +740,12 @@ NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassResponsePolicy = @"b
 //
 
 @implementation GTLRDns_Quota
-@dynamic dnsKeysPerManagedZone, itemsPerRoutingPolicy, kind, managedZones,
-         managedZonesPerNetwork, networksPerManagedZone, networksPerPolicy,
+@dynamic dnsKeysPerManagedZone, gkeClustersPerManagedZone, gkeClustersPerPolicy,
+         gkeClustersPerResponsePolicy, itemsPerRoutingPolicy, kind,
+         managedZones, managedZonesPerGkeCluster, managedZonesPerNetwork,
+         networksPerManagedZone, networksPerPolicy, networksPerResponsePolicy,
          peeringZonesPerTargetNetwork, policies, resourceRecordsPerRrset,
+         responsePolicies, responsePolicyRulesPerResponsePolicy,
          rrsetAdditionsPerChange, rrsetDeletionsPerChange, rrsetsPerManagedZone,
          targetNameServersPerManagedZone, targetNameServersPerPolicy,
          totalRrdataSizePerChange, whitelistedKeySpecs;

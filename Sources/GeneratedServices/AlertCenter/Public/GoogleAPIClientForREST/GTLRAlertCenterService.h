@@ -4,7 +4,8 @@
 // API:
 //   Google Workspace Alert Center API (alertcenter/v1beta1)
 // Description:
-//   Manages alerts on issues affecting your domain.
+//   Manages alerts on issues affecting your domain. Note: The current version
+//   of this API (v1beta1) is available to all Google Workspace customers.
 // Documentation:
 //   https://developers.google.com/admin-sdk/alertcenter/
 
@@ -39,7 +40,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAlertCenterAppsAlerts;
 /**
  *  Service for executing Google Workspace Alert Center API queries.
  *
- *  Manages alerts on issues affecting your domain.
+ *  Manages alerts on issues affecting your domain. Note: The current version of
+ *  this API (v1beta1) is available to all Google Workspace customers.
  */
 @interface GTLRAlertCenterService : GTLRService
 

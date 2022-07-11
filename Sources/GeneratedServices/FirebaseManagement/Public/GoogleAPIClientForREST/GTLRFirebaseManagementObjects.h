@@ -44,6 +44,28 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRFirebaseManagement_AndroidApp.state
+
+/**
+ *  The normal and active state.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_AndroidApp_State_Active;
+/**
+ *  The app has been soft deleted.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_AndroidApp_State_Deleted;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_AndroidApp_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRFirebaseManagement_FirebaseAppInfo.platform
 
 /**
@@ -72,6 +94,28 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_Platf
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_Platform_Web;
 
 // ----------------------------------------------------------------------------
+// GTLRFirebaseManagement_FirebaseAppInfo.state
+
+/**
+ *  The normal and active state.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_State_Active;
+/**
+ *  The app has been soft deleted.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_State_Deleted;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRFirebaseManagement_FirebaseProject.state
 
 /**
@@ -92,6 +136,28 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseProject_State
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseProject_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRFirebaseManagement_IosApp.state
+
+/**
+ *  The normal and active state.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_IosApp_State_Active;
+/**
+ *  The app has been soft deleted.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_IosApp_State_Deleted;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_IosApp_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseManagement_Location.features
@@ -173,6 +239,28 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
  *  Value: "SHA_CERTIFICATE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRFirebaseManagement_WebApp.state
+
+/**
+ *  The normal and active state.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_Active;
+/**
+ *  The app has been soft deleted.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_Deleted;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUnspecified;
 
 /**
  *  All fields are required.
@@ -319,9 +407,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, copy, nullable) NSString *apiKeyId;
 
 /**
- *  Immutable. The globally unique, Firebase-assigned identifier for the
- *  `AndroidApp`. This identifier should be treated as an opaque token, as the
- *  data format is not specified.
+ *  Output only. Immutable. The globally unique, Firebase-assigned identifier
+ *  for the `AndroidApp`. This identifier should be treated as an opaque token,
+ *  as the data format is not specified.
  */
 @property(nonatomic, copy, nullable) NSString *appId;
 
@@ -350,10 +438,23 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
- *  Immutable. A user-assigned unique identifier of the parent FirebaseProject
- *  for the `AndroidApp`.
+ *  Output only. Immutable. A user-assigned unique identifier of the parent
+ *  FirebaseProject for the `AndroidApp`.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Output only. The lifecycle state of the App.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseManagement_AndroidApp_State_Active The normal and
+ *        active state. (Value: "ACTIVE")
+ *    @arg @c kGTLRFirebaseManagement_AndroidApp_State_Deleted The app has been
+ *        soft deleted. (Value: "DELETED")
+ *    @arg @c kGTLRFirebaseManagement_AndroidApp_State_StateUnspecified
+ *        Unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -386,20 +487,21 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @interface GTLRFirebaseManagement_DefaultResources : GTLRObject
 
 /**
- *  The default Firebase Hosting site name, in the format: PROJECT_ID Though
- *  rare, your `projectId` might already be used as the name for an existing
- *  Hosting site in another project (learn more about creating non-default,
- *  [additional sites](https://firebase.google.com/docs/hosting/multisites)). In
- *  these cases, your `projectId` is appended with a hyphen then five
- *  alphanumeric characters to create your default Hosting site name. For
- *  example, if your `projectId` is `myproject123`, your default Hosting site
- *  name might be: `myproject123-a5c16`
+ *  Output only. The default Firebase Hosting site name, in the format:
+ *  PROJECT_ID Though rare, your `projectId` might already be used as the name
+ *  for an existing Hosting site in another project (learn more about creating
+ *  non-default, [additional
+ *  sites](https://firebase.google.com/docs/hosting/multisites)). In these
+ *  cases, your `projectId` is appended with a hyphen then five alphanumeric
+ *  characters to create your default Hosting site name. For example, if your
+ *  `projectId` is `myproject123`, your default Hosting site name might be:
+ *  `myproject123-a5c16`
  */
 @property(nonatomic, copy, nullable) NSString *hostingSite;
 
 /**
- *  The ID of the Project's default GCP resource location. The location is one
- *  of the available [GCP resource
+ *  Output only. The ID of the Project's default GCP resource location. The
+ *  location is one of the available [GCP resource
  *  locations](https://firebase.google.com/docs/projects/locations). This field
  *  is omitted if the default GCP resource location has not been finalized yet.
  *  To set a Project's default GCP resource location, call
@@ -409,10 +511,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  The default Firebase Realtime Database instance name, in the format:
- *  PROJECT_ID Though rare, your `projectId` might already be used as the name
- *  for an existing Realtime Database instance in another project (learn more
- *  about [database
+ *  Output only. The default Firebase Realtime Database instance name, in the
+ *  format: PROJECT_ID Though rare, your `projectId` might already be used as
+ *  the name for an existing Realtime Database instance in another project
+ *  (learn more about [database
  *  sharding](https://firebase.google.com/docs/database/usage/sharding)). In
  *  these cases, your `projectId` is appended with a hyphen then five
  *  alphanumeric characters to create your default Realtime Database instance
@@ -422,8 +524,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, copy, nullable) NSString *realtimeDatabaseInstance;
 
 /**
- *  The default Cloud Storage for Firebase storage bucket, in the format:
- *  PROJECT_ID.appspot.com
+ *  Output only. The default Cloud Storage for Firebase storage bucket, in the
+ *  format: PROJECT_ID.appspot.com
  */
 @property(nonatomic, copy, nullable) NSString *storageBucket;
 
@@ -459,6 +561,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
  *  A high-level summary of an App.
  */
 @interface GTLRFirebaseManagement_FirebaseAppInfo : GTLRObject
+
+/**
+ *  The key_id of the GCP ApiKey associated with this App. If set must have no
+ *  restrictions, or only have restrictions that are valid for the associated
+ *  Firebase App. Cannot be set to an empty value in update requests. If left
+ *  unset on create requests, an existing valid API Key will be chosen, or if no
+ *  valid API Keys exist, one will be provisioned for you.
+ */
+@property(nonatomic, copy, nullable) NSString *apiKeyId;
 
 /**
  *  Output only. Immutable. The globally unique, Firebase-assigned identifier
@@ -507,6 +618,19 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
  */
 @property(nonatomic, copy, nullable) NSString *platform;
 
+/**
+ *  Output only. The lifecycle state of the App.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseManagement_FirebaseAppInfo_State_Active The normal
+ *        and active state. (Value: "ACTIVE")
+ *    @arg @c kGTLRFirebaseManagement_FirebaseAppInfo_State_Deleted The app has
+ *        been soft deleted. (Value: "DELETED")
+ *    @arg @c kGTLRFirebaseManagement_FirebaseAppInfo_State_StateUnspecified
+ *        Unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 @end
 
 
@@ -540,7 +664,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Immutable. A user-assigned unique identifier for the Project. This
+ *  Output only. A user-assigned unique identifier for the Project. This
  *  identifier may appear in URLs or names for some Firebase resources
  *  associated with the Project, but it should generally be treated as a
  *  convenience alias to reference the Project.
@@ -548,15 +672,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  Immutable. The globally unique, Google-assigned canonical identifier for the
- *  Project. Use this identifier when configuring integrations and/or making API
- *  calls to Firebase or third-party services.
+ *  Output only. The globally unique, Google-assigned canonical identifier for
+ *  the Project. Use this identifier when configuring integrations and/or making
+ *  API calls to Firebase or third-party services.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *projectNumber;
 
-/** The default Firebase resources associated with the Project. */
+/**
+ *  Output only. The default Firebase resources associated with the Project.
+ */
 @property(nonatomic, strong, nullable) GTLRFirebaseManagement_DefaultResources *resources;
 
 /**
@@ -592,9 +718,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, copy, nullable) NSString *apiKeyId;
 
 /**
- *  Immutable. The globally unique, Firebase-assigned identifier for the
- *  `IosApp`. This identifier should be treated as an opaque token, as the data
- *  format is not specified.
+ *  Output only. Immutable. The globally unique, Firebase-assigned identifier
+ *  for the `IosApp`. This identifier should be treated as an opaque token, as
+ *  the data format is not specified.
  */
 @property(nonatomic, copy, nullable) NSString *appId;
 
@@ -628,10 +754,23 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Immutable. A user-assigned unique identifier of the parent FirebaseProject
- *  for the `IosApp`.
+ *  Output only. Immutable. A user-assigned unique identifier of the parent
+ *  FirebaseProject for the `IosApp`.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Output only. The lifecycle state of the App.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseManagement_IosApp_State_Active The normal and active
+ *        state. (Value: "ACTIVE")
+ *    @arg @c kGTLRFirebaseManagement_IosApp_State_Deleted The app has been soft
+ *        deleted. (Value: "DELETED")
+ *    @arg @c kGTLRFirebaseManagement_IosApp_State_StateUnspecified Unspecified
+ *        state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 /** The Apple Developer Team ID associated with the App in the App Store. */
 @property(nonatomic, copy, nullable) NSString *teamId;
@@ -1028,6 +1167,93 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 
 
 /**
+ *  GTLRFirebaseManagement_RemoveAndroidAppRequest
+ */
+@interface GTLRFirebaseManagement_RemoveAndroidAppRequest : GTLRObject
+
+/**
+ *  If set to true, and the App is not found, the request will succeed but no
+ *  action will be taken on the server.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowMissing;
+
+/**
+ *  Checksum provided in the AndroidApp entity, which if provided ensures the
+ *  client has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  If set to true, only validate the request and do not delete the app.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  GTLRFirebaseManagement_RemoveIosAppRequest
+ */
+@interface GTLRFirebaseManagement_RemoveIosAppRequest : GTLRObject
+
+/**
+ *  If set to true, and the App is not found, the request will succeed but no
+ *  action will be taken on the server.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowMissing;
+
+/**
+ *  Checksum provided in the IosApp entity, which if provided ensures the client
+ *  has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  If set to true, only validate the request and do not delete the app.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  GTLRFirebaseManagement_RemoveWebAppRequest
+ */
+@interface GTLRFirebaseManagement_RemoveWebAppRequest : GTLRObject
+
+/**
+ *  If set to true, and the App is not found, the request will succeed but no
+ *  action will be taken on the server.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowMissing;
+
+/**
+ *  Checksum provided in the WebApp entity, which if provided ensures the client
+ *  has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  If set to true, only validate the request and do not delete the app.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
  *  GTLRFirebaseManagement_SearchFirebaseAppsResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1231,9 +1457,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, copy, nullable) NSString *apiKeyId;
 
 /**
- *  Immutable. The globally unique, Firebase-assigned identifier for the
- *  `WebApp`. This identifier should be treated as an opaque token, as the data
- *  format is not specified.
+ *  Output only. Immutable. The globally unique, Firebase-assigned identifier
+ *  for the `WebApp`. This identifier should be treated as an opaque token, as
+ *  the data format is not specified.
  */
 @property(nonatomic, copy, nullable) NSString *appId;
 
@@ -1258,10 +1484,23 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Immutable. A user-assigned unique identifier of the parent FirebaseProject
- *  for the `WebApp`.
+ *  Output only. Immutable. A user-assigned unique identifier of the parent
+ *  FirebaseProject for the `WebApp`.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Output only. The lifecycle state of the App.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseManagement_WebApp_State_Active The normal and active
+ *        state. (Value: "ACTIVE")
+ *    @arg @c kGTLRFirebaseManagement_WebApp_State_Deleted The app has been soft
+ *        deleted. (Value: "DELETED")
+ *    @arg @c kGTLRFirebaseManagement_WebApp_State_StateUnspecified Unspecified
+ *        state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 /**
  *  Output only. Immutable. A unique, Firebase-assigned identifier for the

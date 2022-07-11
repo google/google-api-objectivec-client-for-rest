@@ -66,8 +66,10 @@ NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_UnspecifiedDataSou
 // GTLRMonitoring_ContentMatcher.matcher
 NSString * const kGTLRMonitoring_ContentMatcher_Matcher_ContainsString = @"CONTAINS_STRING";
 NSString * const kGTLRMonitoring_ContentMatcher_Matcher_ContentMatcherOptionUnspecified = @"CONTENT_MATCHER_OPTION_UNSPECIFIED";
+NSString * const kGTLRMonitoring_ContentMatcher_Matcher_MatchesJsonPath = @"MATCHES_JSON_PATH";
 NSString * const kGTLRMonitoring_ContentMatcher_Matcher_MatchesRegex = @"MATCHES_REGEX";
 NSString * const kGTLRMonitoring_ContentMatcher_Matcher_NotContainsString = @"NOT_CONTAINS_STRING";
+NSString * const kGTLRMonitoring_ContentMatcher_Matcher_NotMatchesJsonPath = @"NOT_MATCHES_JSON_PATH";
 NSString * const kGTLRMonitoring_ContentMatcher_Matcher_NotMatchesRegex = @"NOT_MATCHES_REGEX";
 
 // GTLRMonitoring_Field.cardinality
@@ -110,6 +112,11 @@ NSString * const kGTLRMonitoring_HttpCheck_RequestMethod_Post  = @"POST";
 NSString * const kGTLRMonitoring_InternalChecker_State_Creating = @"CREATING";
 NSString * const kGTLRMonitoring_InternalChecker_State_Running = @"RUNNING";
 NSString * const kGTLRMonitoring_InternalChecker_State_Unspecified = @"UNSPECIFIED";
+
+// GTLRMonitoring_JsonPathMatcher.jsonMatcher
+NSString * const kGTLRMonitoring_JsonPathMatcher_JsonMatcher_ExactMatch = @"EXACT_MATCH";
+NSString * const kGTLRMonitoring_JsonPathMatcher_JsonMatcher_JsonPathMatcherOptionUnspecified = @"JSON_PATH_MATCHER_OPTION_UNSPECIFIED";
+NSString * const kGTLRMonitoring_JsonPathMatcher_JsonMatcher_RegexMatch = @"REGEX_MATCH";
 
 // GTLRMonitoring_LabelDescriptor.valueType
 NSString * const kGTLRMonitoring_LabelDescriptor_ValueType_Bool = @"BOOL";
@@ -517,7 +524,7 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_ContentMatcher
-@dynamic content, matcher;
+@dynamic content, jsonPathMatcher, matcher;
 @end
 
 
@@ -883,6 +890,16 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 @implementation GTLRMonitoring_IstioCanonicalService
 @dynamic canonicalService, canonicalServiceNamespace, meshUid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_JsonPathMatcher
+//
+
+@implementation GTLRMonitoring_JsonPathMatcher
+@dynamic jsonMatcher, jsonPath;
 @end
 
 

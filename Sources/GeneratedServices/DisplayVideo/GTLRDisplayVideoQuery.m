@@ -2583,6 +2583,120 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability = @"TARG
 
 @end
 
+@implementation GTLRDisplayVideoQuery_GuaranteedOrdersCreate
+
+@dynamic advertiserId, partnerId;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_GuaranteedOrder *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/guaranteedOrders";
+  GTLRDisplayVideoQuery_GuaranteedOrdersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRDisplayVideo_GuaranteedOrder class];
+  query.loggingName = @"displayvideo.guaranteedOrders.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_GuaranteedOrdersEditGuaranteedOrderReadAccessors
+
+@dynamic guaranteedOrderId;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_EditGuaranteedOrderReadAccessorsRequest *)object
+              guaranteedOrderId:(NSString *)guaranteedOrderId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"guaranteedOrderId" ];
+  NSString *pathURITemplate = @"v1/guaranteedOrders/{+guaranteedOrderId}:editGuaranteedOrderReadAccessors";
+  GTLRDisplayVideoQuery_GuaranteedOrdersEditGuaranteedOrderReadAccessors *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.guaranteedOrderId = guaranteedOrderId;
+  query.expectedObjectClass = [GTLRDisplayVideo_EditGuaranteedOrderReadAccessorsResponse class];
+  query.loggingName = @"displayvideo.guaranteedOrders.editGuaranteedOrderReadAccessors";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_GuaranteedOrdersGet
+
+@dynamic advertiserId, guaranteedOrderId, partnerId;
+
++ (instancetype)queryWithGuaranteedOrderId:(NSString *)guaranteedOrderId {
+  NSArray *pathParams = @[ @"guaranteedOrderId" ];
+  NSString *pathURITemplate = @"v1/guaranteedOrders/{+guaranteedOrderId}";
+  GTLRDisplayVideoQuery_GuaranteedOrdersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.guaranteedOrderId = guaranteedOrderId;
+  query.expectedObjectClass = [GTLRDisplayVideo_GuaranteedOrder class];
+  query.loggingName = @"displayvideo.guaranteedOrders.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_GuaranteedOrdersList
+
+@dynamic advertiserId, filter, orderBy, pageSize, pageToken, partnerId;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/guaranteedOrders";
+  GTLRDisplayVideoQuery_GuaranteedOrdersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRDisplayVideo_ListGuaranteedOrdersResponse class];
+  query.loggingName = @"displayvideo.guaranteedOrders.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_GuaranteedOrdersPatch
+
+@dynamic advertiserId, guaranteedOrderId, partnerId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_GuaranteedOrder *)object
+              guaranteedOrderId:(NSString *)guaranteedOrderId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"guaranteedOrderId" ];
+  NSString *pathURITemplate = @"v1/guaranteedOrders/{+guaranteedOrderId}";
+  GTLRDisplayVideoQuery_GuaranteedOrdersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.guaranteedOrderId = guaranteedOrderId;
+  query.expectedObjectClass = [GTLRDisplayVideo_GuaranteedOrder class];
+  query.loggingName = @"displayvideo.guaranteedOrders.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRDisplayVideoQuery_InventorySourceGroupsAssignedInventorySourcesBulkEdit
 
 @dynamic inventorySourceGroupId;
@@ -2787,6 +2901,57 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability = @"TARG
 
 @end
 
+@implementation GTLRDisplayVideoQuery_InventorySourcesCreate
+
+@dynamic advertiserId, partnerId;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_InventorySource *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/inventorySources";
+  GTLRDisplayVideoQuery_InventorySourcesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRDisplayVideo_InventorySource class];
+  query.loggingName = @"displayvideo.inventorySources.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_InventorySourcesEditInventorySourceReadWriteAccessors
+
+@dynamic inventorySourceId;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_EditInventorySourceReadWriteAccessorsRequest *)object
+              inventorySourceId:(long long)inventorySourceId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"inventorySourceId" ];
+  NSString *pathURITemplate = @"v1/inventorySources/{+inventorySourceId}:editInventorySourceReadWriteAccessors";
+  GTLRDisplayVideoQuery_InventorySourcesEditInventorySourceReadWriteAccessors *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.inventorySourceId = inventorySourceId;
+  query.expectedObjectClass = [GTLRDisplayVideo_InventorySourceAccessors class];
+  query.loggingName = @"displayvideo.inventorySources.editInventorySourceReadWriteAccessors";
+  return query;
+}
+
+@end
+
 @implementation GTLRDisplayVideoQuery_InventorySourcesGet
 
 @dynamic inventorySourceId, partnerId;
@@ -2818,6 +2983,33 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability = @"TARG
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRDisplayVideo_ListInventorySourcesResponse class];
   query.loggingName = @"displayvideo.inventorySources.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_InventorySourcesPatch
+
+@dynamic advertiserId, inventorySourceId, partnerId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_InventorySource *)object
+              inventorySourceId:(long long)inventorySourceId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"inventorySourceId" ];
+  NSString *pathURITemplate = @"v1/inventorySources/{+inventorySourceId}";
+  GTLRDisplayVideoQuery_InventorySourcesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.inventorySourceId = inventorySourceId;
+  query.expectedObjectClass = [GTLRDisplayVideo_InventorySource class];
+  query.loggingName = @"displayvideo.inventorySources.patch";
   return query;
 }
 

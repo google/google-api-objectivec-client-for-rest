@@ -15,6 +15,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudchannel_GoogleCloudChannelV1alpha1ChannelPartnerEvent.eventType
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1ChannelPartnerEvent_EventType_LinkStateChanged = @"LINK_STATE_CHANGED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1ChannelPartnerEvent_EventType_PartnerAdvantageInfoChanged = @"PARTNER_ADVANTAGE_INFO_CHANGED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1ChannelPartnerEvent_EventType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRCloudchannel_GoogleCloudChannelV1alpha1CustomerEvent.eventType
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1CustomerEvent_EventType_PrimaryDomainChanged = @"PRIMARY_DOMAIN_CHANGED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1CustomerEvent_EventType_PrimaryDomainVerified = @"PRIMARY_DOMAIN_VERIFIED";
@@ -268,6 +273,16 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudchannel_GoogleCloudChannelV1alpha1ChannelPartnerEvent
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1alpha1ChannelPartnerEvent
+@dynamic channelPartner, eventType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudchannel_GoogleCloudChannelV1alpha1CommitmentSettings
 //
 
@@ -375,7 +390,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1alpha1SubscriberEvent
-@dynamic customerEvent, entitlementEvent;
+@dynamic channelPartnerEvent, customerEvent, entitlementEvent;
 @end
 
 

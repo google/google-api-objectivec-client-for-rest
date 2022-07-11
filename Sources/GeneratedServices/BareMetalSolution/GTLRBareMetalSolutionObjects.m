@@ -19,16 +19,26 @@ NSString * const kGTLRBareMetalSolution_AllowedClient_MountPermissions_MountPerm
 NSString * const kGTLRBareMetalSolution_AllowedClient_MountPermissions_Read = @"READ";
 NSString * const kGTLRBareMetalSolution_AllowedClient_MountPermissions_ReadWrite = @"READ_WRITE";
 
+// GTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2ServerNetworkTemplateLogicalInterface.type
+NSString * const kGTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2ServerNetworkTemplateLogicalInterface_Type_Bond = @"BOND";
+NSString * const kGTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2ServerNetworkTemplateLogicalInterface_Type_InterfaceTypeUnspecified = @"INTERFACE_TYPE_UNSPECIFIED";
+NSString * const kGTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2ServerNetworkTemplateLogicalInterface_Type_Nic = @"NIC";
+
 // GTLRBareMetalSolution_Instance.state
 NSString * const kGTLRBareMetalSolution_Instance_State_Deleted = @"DELETED";
 NSString * const kGTLRBareMetalSolution_Instance_State_Provisioning = @"PROVISIONING";
 NSString * const kGTLRBareMetalSolution_Instance_State_Running = @"RUNNING";
 NSString * const kGTLRBareMetalSolution_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
-// GTLRBareMetalSolution_LogicalInterface.type
-NSString * const kGTLRBareMetalSolution_LogicalInterface_Type_Bond = @"BOND";
-NSString * const kGTLRBareMetalSolution_LogicalInterface_Type_InterfaceTypeUnspecified = @"INTERFACE_TYPE_UNSPECIFIED";
-NSString * const kGTLRBareMetalSolution_LogicalInterface_Type_Nic = @"NIC";
+// GTLRBareMetalSolution_InstanceConfig.networkConfig
+NSString * const kGTLRBareMetalSolution_InstanceConfig_NetworkConfig_MultiVlan = @"MULTI_VLAN";
+NSString * const kGTLRBareMetalSolution_InstanceConfig_NetworkConfig_NetworkconfigUnspecified = @"NETWORKCONFIG_UNSPECIFIED";
+NSString * const kGTLRBareMetalSolution_InstanceConfig_NetworkConfig_SingleVlan = @"SINGLE_VLAN";
+
+// GTLRBareMetalSolution_LogicalNetworkInterface.networkType
+NSString * const kGTLRBareMetalSolution_LogicalNetworkInterface_NetworkType_Client = @"CLIENT";
+NSString * const kGTLRBareMetalSolution_LogicalNetworkInterface_NetworkType_Private = @"PRIVATE";
+NSString * const kGTLRBareMetalSolution_LogicalNetworkInterface_NetworkType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRBareMetalSolution_Lun.multiprotocolType
 NSString * const kGTLRBareMetalSolution_Lun_MultiprotocolType_Linux = @"LINUX";
@@ -47,6 +57,7 @@ NSString * const kGTLRBareMetalSolution_Lun_StorageType_Ssd    = @"SSD";
 NSString * const kGTLRBareMetalSolution_Lun_StorageType_StorageTypeUnspecified = @"STORAGE_TYPE_UNSPECIFIED";
 
 // GTLRBareMetalSolution_Network.state
+NSString * const kGTLRBareMetalSolution_Network_State_Deprovisioning = @"DEPROVISIONING";
 NSString * const kGTLRBareMetalSolution_Network_State_Provisioned = @"PROVISIONED";
 NSString * const kGTLRBareMetalSolution_Network_State_Provisioning = @"PROVISIONING";
 NSString * const kGTLRBareMetalSolution_Network_State_StateUnspecified = @"STATE_UNSPECIFIED";
@@ -81,12 +92,16 @@ NSString * const kGTLRBareMetalSolution_NfsExport_Permissions_ReadOnly = @"READ_
 NSString * const kGTLRBareMetalSolution_NfsExport_Permissions_ReadWrite = @"READ_WRITE";
 
 // GTLRBareMetalSolution_NfsShare.state
+NSString * const kGTLRBareMetalSolution_NfsShare_State_Creating = @"CREATING";
+NSString * const kGTLRBareMetalSolution_NfsShare_State_Deleting = @"DELETING";
 NSString * const kGTLRBareMetalSolution_NfsShare_State_Provisioned = @"PROVISIONED";
 NSString * const kGTLRBareMetalSolution_NfsShare_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRBareMetalSolution_NfsShare_State_Updating = @"UPDATING";
 
 // GTLRBareMetalSolution_ProvisioningConfig.state
 NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Cancelled = @"CANCELLED";
 NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Draft = @"DRAFT";
+NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Failed = @"FAILED";
 NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Provisioned = @"PROVISIONED";
 NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Provisioning = @"PROVISIONING";
 NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
@@ -148,7 +163,7 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_DetachLunRequest
-@dynamic lun;
+@dynamic lun, skipReboot;
 @end
 
 
@@ -172,13 +187,42 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2LogicalInterface
+//
+
+@implementation GTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2LogicalInterface
+@dynamic interfaceIndex, logicalNetworkInterfaces, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"logicalNetworkInterfaces" : [GTLRBareMetalSolution_LogicalNetworkInterface class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2ServerNetworkTemplateLogicalInterface
+//
+
+@implementation GTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2ServerNetworkTemplateLogicalInterface
+@dynamic name, required, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBareMetalSolution_Instance
 //
 
 @implementation GTLRBareMetalSolution_Instance
 @dynamic createTime, hyperthreadingEnabled, identifier,
-         interactiveSerialConsoleEnabled, labels, luns, machineType, name,
-         networks, osImage, state, updateTime;
+         interactiveSerialConsoleEnabled, labels, logicalInterfaces, luns,
+         machineType, name, networks, networkTemplate, osImage, pod, state,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -186,6 +230,7 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"logicalInterfaces" : [GTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2LogicalInterface class],
     @"luns" : [GTLRBareMetalSolution_Lun class],
     @"networks" : [GTLRBareMetalSolution_Network class]
   };
@@ -216,10 +261,18 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 @implementation GTLRBareMetalSolution_InstanceConfig
 @dynamic accountNetworksEnabled, clientNetwork, hyperthreading, identifier,
-         instanceType, name, osImage, privateNetwork, userNote;
+         instanceType, logicalInterfaces, name, networkConfig, networkTemplate,
+         osImage, privateNetwork, userNote;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"logicalInterfaces" : [GTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2LogicalInterface class]
+  };
+  return map;
 }
 
 @end
@@ -467,11 +520,16 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBareMetalSolution_LogicalInterface
+//   GTLRBareMetalSolution_LogicalNetworkInterface
 //
 
-@implementation GTLRBareMetalSolution_LogicalInterface
-@dynamic name, required, type;
+@implementation GTLRBareMetalSolution_LogicalNetworkInterface
+@dynamic defaultGateway, identifier, ipAddress, network, networkType;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 
@@ -565,8 +623,8 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_NetworkConfig
-@dynamic bandwidth, cidr, gcpService, identifier, name, serviceCidr, type,
-         userNote, vlanAttachments, vlanSameProject;
+@dynamic bandwidth, cidr, gcpService, identifier, jumboFramesEnabled, name,
+         serviceCidr, type, userNote, vlanAttachments, vlanSameProject;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -617,7 +675,12 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_NfsShare
-@dynamic allowedClients, labels, name, nfsShareId, state, volume;
+@dynamic allowedClients, identifier, labels, name, nfsShareId, requestedSizeGib,
+         state, volume;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -683,6 +746,17 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBareMetalSolution_OperationMetadata
+//
+
+@implementation GTLRBareMetalSolution_OperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBareMetalSolution_OSImage
 //
 
@@ -712,7 +786,8 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 @implementation GTLRBareMetalSolution_ProvisioningConfig
 @dynamic cloudConsoleUri, email, handoverServiceAccount, instances, location,
-         name, networks, state, ticketId, updateTime, volumes;
+         name, networks, state, statusMessage, ticketId, updateTime, volumes,
+         vpcScEnabled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -758,6 +833,16 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBareMetalSolution_ResizeVolumeRequest
+//
+
+@implementation GTLRBareMetalSolution_ResizeVolumeRequest
+@dynamic sizeGib;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBareMetalSolution_ServerNetworkTemplate
 //
 
@@ -767,7 +852,7 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"applicableInstanceTypes" : [NSString class],
-    @"logicalInterfaces" : [GTLRBareMetalSolution_LogicalInterface class]
+    @"logicalInterfaces" : [GTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2ServerNetworkTemplateLogicalInterface class]
   };
   return map;
 }
@@ -873,9 +958,9 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 @implementation GTLRBareMetalSolution_Volume
 @dynamic autoGrownSizeGib, currentSizeGib, emergencySizeGib, identifier, labels,
-         name, remainingSpaceGib, requestedSizeGib, snapshotAutoDeleteBehavior,
-         snapshotEnabled, snapshotReservationDetail, snapshotSchedulePolicy,
-         state, storageType;
+         maxSizeGib, name, originallyRequestedSizeGib, pod, remainingSpaceGib,
+         requestedSizeGib, snapshotAutoDeleteBehavior, snapshotEnabled,
+         snapshotReservationDetail, snapshotSchedulePolicy, state, storageType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

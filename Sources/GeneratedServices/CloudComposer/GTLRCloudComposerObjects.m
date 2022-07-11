@@ -306,8 +306,8 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 //
 
 @implementation GTLRCloudComposer_NodeConfig
-@dynamic diskSizeGb, ipAllocationPolicy, location, machineType, network,
-         oauthScopes, serviceAccount, subnetwork, tags;
+@dynamic diskSizeGb, enableIpMasqAgent, ipAllocationPolicy, location,
+         machineType, network, oauthScopes, serviceAccount, subnetwork, tags;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

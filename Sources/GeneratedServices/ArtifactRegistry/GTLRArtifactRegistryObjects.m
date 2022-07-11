@@ -39,6 +39,7 @@ NSString * const kGTLRArtifactRegistry_ProjectSettings_LegacyRedirectionState_Re
 NSString * const kGTLRArtifactRegistry_Repository_Format_Apt   = @"APT";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Docker = @"DOCKER";
 NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified = @"FORMAT_UNSPECIFIED";
+NSString * const kGTLRArtifactRegistry_Repository_Format_Kfp   = @"KFP";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Maven = @"MAVEN";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Npm   = @"NPM";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Python = @"PYTHON";
@@ -365,6 +366,50 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRArtifactRegistry_ListMavenArtifactsResponse
+//
+
+@implementation GTLRArtifactRegistry_ListMavenArtifactsResponse
+@dynamic mavenArtifacts, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mavenArtifacts" : [GTLRArtifactRegistry_MavenArtifact class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"mavenArtifacts";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_ListNpmPackagesResponse
+//
+
+@implementation GTLRArtifactRegistry_ListNpmPackagesResponse
+@dynamic nextPageToken, npmPackages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"npmPackages" : [GTLRArtifactRegistry_NpmPackage class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"npmPackages";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRArtifactRegistry_ListPackagesResponse
 //
 
@@ -380,6 +425,28 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 + (NSString *)collectionItemsKey {
   return @"packages";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_ListPythonPackagesResponse
+//
+
+@implementation GTLRArtifactRegistry_ListPythonPackagesResponse
+@dynamic nextPageToken, pythonPackages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pythonPackages" : [GTLRArtifactRegistry_PythonPackage class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"pythonPackages";
 }
 
 @end
@@ -491,11 +558,39 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRArtifactRegistry_MavenArtifact
+//
+
+@implementation GTLRArtifactRegistry_MavenArtifact
+@dynamic artifactId, createTime, groupId, name, pomUri, updateTime, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRArtifactRegistry_MavenRepositoryConfig
 //
 
 @implementation GTLRArtifactRegistry_MavenRepositoryConfig
 @dynamic allowSnapshotOverwrites, versionPolicy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_NpmPackage
+//
+
+@implementation GTLRArtifactRegistry_NpmPackage
+@dynamic createTime, name, packageName, tags, updateTime, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tags" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -585,6 +680,16 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 @implementation GTLRArtifactRegistry_ProjectSettings
 @dynamic legacyRedirectionState, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_PythonPackage
+//
+
+@implementation GTLRArtifactRegistry_PythonPackage
+@dynamic createTime, name, packageName, updateTime, uri, version;
 @end
 
 

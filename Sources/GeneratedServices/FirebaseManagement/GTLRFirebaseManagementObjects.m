@@ -15,16 +15,31 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRFirebaseManagement_AndroidApp.state
+NSString * const kGTLRFirebaseManagement_AndroidApp_State_Active = @"ACTIVE";
+NSString * const kGTLRFirebaseManagement_AndroidApp_State_Deleted = @"DELETED";
+NSString * const kGTLRFirebaseManagement_AndroidApp_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRFirebaseManagement_FirebaseAppInfo.platform
 NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_Platform_Android = @"ANDROID";
 NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_Platform_Ios = @"IOS";
 NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_Platform_PlatformUnspecified = @"PLATFORM_UNSPECIFIED";
 NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_Platform_Web = @"WEB";
 
+// GTLRFirebaseManagement_FirebaseAppInfo.state
+NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_State_Active = @"ACTIVE";
+NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_State_Deleted = @"DELETED";
+NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRFirebaseManagement_FirebaseProject.state
 NSString * const kGTLRFirebaseManagement_FirebaseProject_State_Active = @"ACTIVE";
 NSString * const kGTLRFirebaseManagement_FirebaseProject_State_Deleted = @"DELETED";
 NSString * const kGTLRFirebaseManagement_FirebaseProject_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRFirebaseManagement_IosApp.state
+NSString * const kGTLRFirebaseManagement_IosApp_State_Active   = @"ACTIVE";
+NSString * const kGTLRFirebaseManagement_IosApp_State_Deleted  = @"DELETED";
+NSString * const kGTLRFirebaseManagement_IosApp_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRFirebaseManagement_Location.features
 NSString * const kGTLRFirebaseManagement_Location_Features_DefaultStorage = @"DEFAULT_STORAGE";
@@ -41,6 +56,11 @@ NSString * const kGTLRFirebaseManagement_Location_Type_Regional = @"REGIONAL";
 NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_Sha1 = @"SHA_1";
 NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_Sha256 = @"SHA_256";
 NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateTypeUnspecified = @"SHA_CERTIFICATE_TYPE_UNSPECIFIED";
+
+// GTLRFirebaseManagement_WebApp.state
+NSString * const kGTLRFirebaseManagement_WebApp_State_Active   = @"ACTIVE";
+NSString * const kGTLRFirebaseManagement_WebApp_State_Deleted  = @"DELETED";
+NSString * const kGTLRFirebaseManagement_WebApp_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -111,7 +131,7 @@ NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateT
 //
 
 @implementation GTLRFirebaseManagement_AndroidApp
-@dynamic apiKeyId, appId, displayName, name, packageName, projectId;
+@dynamic apiKeyId, appId, displayName, name, packageName, projectId, state;
 @end
 
 
@@ -160,7 +180,7 @@ NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateT
 //
 
 @implementation GTLRFirebaseManagement_FirebaseAppInfo
-@dynamic appId, displayName, name, namespaceProperty, platform;
+@dynamic apiKeyId, appId, displayName, name, namespaceProperty, platform, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"namespaceProperty" : @"namespace" };
@@ -186,7 +206,7 @@ NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateT
 
 @implementation GTLRFirebaseManagement_IosApp
 @dynamic apiKeyId, appId, appStoreId, bundleId, displayName, name, projectId,
-         teamId;
+         state, teamId;
 @end
 
 
@@ -437,6 +457,51 @@ NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseManagement_RemoveAndroidAppRequest
+//
+
+@implementation GTLRFirebaseManagement_RemoveAndroidAppRequest
+@dynamic allowMissing, ETag, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseManagement_RemoveIosAppRequest
+//
+
+@implementation GTLRFirebaseManagement_RemoveIosAppRequest
+@dynamic allowMissing, ETag, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseManagement_RemoveWebAppRequest
+//
+
+@implementation GTLRFirebaseManagement_RemoveWebAppRequest
+@dynamic allowMissing, ETag, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseManagement_SearchFirebaseAppsResponse
 //
 
@@ -525,7 +590,7 @@ NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateT
 //
 
 @implementation GTLRFirebaseManagement_WebApp
-@dynamic apiKeyId, appId, appUrls, displayName, name, projectId, webId;
+@dynamic apiKeyId, appId, appUrls, displayName, name, projectId, state, webId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

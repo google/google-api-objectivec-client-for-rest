@@ -170,7 +170,11 @@ NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignRa
 // GTLRCloudKMS_ImportJob.importMethod
 NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_ImportMethodUnspecified = @"IMPORT_METHOD_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_RsaOaep3072Sha1Aes256 = @"RSA_OAEP_3072_SHA1_AES_256";
+NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_RsaOaep3072Sha256 = @"RSA_OAEP_3072_SHA256";
+NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_RsaOaep3072Sha256Aes256 = @"RSA_OAEP_3072_SHA256_AES_256";
 NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_RsaOaep4096Sha1Aes256 = @"RSA_OAEP_4096_SHA1_AES_256";
+NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_RsaOaep4096Sha256 = @"RSA_OAEP_4096_SHA256";
+NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_RsaOaep4096Sha256Aes256 = @"RSA_OAEP_4096_SHA256_AES_256";
 
 // GTLRCloudKMS_ImportJob.protectionLevel
 NSString * const kGTLRCloudKMS_ImportJob_ProtectionLevel_External = @"EXTERNAL";
@@ -555,7 +559,7 @@ NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Software = @"SOFTWARE";
 //
 
 @implementation GTLRCloudKMS_ImportCryptoKeyVersionRequest
-@dynamic algorithm, cryptoKeyVersion, importJob, rsaAesWrappedKey;
+@dynamic algorithm, cryptoKeyVersion, importJob, rsaAesWrappedKey, wrappedKey;
 @end
 
 

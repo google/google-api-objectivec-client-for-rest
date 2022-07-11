@@ -2077,6 +2077,43 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
+ *  Restores a specified table which was accidentally deleted.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.undelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesUndelete : GTLRBigtableAdminQuery
+
+/**
+ *  Required. The unique name of the table to be restored. Values are of the
+ *  form `projects/{project}/instances/{instance}/tables/{table}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Operation.
+ *
+ *  Restores a specified table which was accidentally deleted.
+ *
+ *  @param object The @c GTLRBigtableAdmin_UndeleteTableRequest to include in
+ *    the query.
+ *  @param name Required. The unique name of the table to be restored. Values
+ *    are of the form `projects/{project}/instances/{instance}/tables/{table}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesUndelete
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_UndeleteTableRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Returns permissions that the caller has on the specified instance resource.
  *
  *  Method: bigtableadmin.projects.instances.testIamPermissions

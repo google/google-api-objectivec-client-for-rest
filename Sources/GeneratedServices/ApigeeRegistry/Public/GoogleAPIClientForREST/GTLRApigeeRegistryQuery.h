@@ -432,6 +432,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisDelete : GTLRApigeeRegistryQuery
 
 /**
+ *  If set to true, any child resources will also be deleted. (Otherwise, the
+ *  request will only work if there are no child resources.)
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
  *  Required. The name of the API to delete. Format: projects/ * /locations/ *
  *  /apis/ *
  */
@@ -1808,6 +1814,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeApigeeRegistryCloudPlatform
  */
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsDelete : GTLRApigeeRegistryQuery
+
+/**
+ *  If set to true, any child resources will also be deleted. (Otherwise, the
+ *  request will only work if there are no child resources.)
+ */
+@property(nonatomic, assign) BOOL force;
 
 /**
  *  Required. The name of the version to delete. Format: projects/ * /locations/

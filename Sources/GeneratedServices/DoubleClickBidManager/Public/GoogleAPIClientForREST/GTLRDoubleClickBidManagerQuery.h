@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DoubleClick Bid Manager API (doubleclickbidmanager/v1.1)
+//   DoubleClick Bid Manager API (doubleclickbidmanager/v2)
 // Description:
 //   DoubleClick Bid Manager API allows users to manage and create campaigns and
 //   reports.
@@ -37,20 +37,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Creates a query.
  *
- *  Method: doubleclickbidmanager.queries.createquery
+ *  Method: doubleclickbidmanager.queries.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDoubleClickBidManager
  */
-@interface GTLRDoubleClickBidManagerQuery_QueriesCreatequery : GTLRDoubleClickBidManagerQuery
-
-/**
- *  If true, tries to run the query asynchronously. Only applicable when the
- *  frequency is ONE_TIME.
- *
- *  @note If not set, the documented server-side default will be false.
- */
-@property(nonatomic, assign) BOOL asynchronous;
+@interface GTLRDoubleClickBidManagerQuery_QueriesCreate : GTLRDoubleClickBidManagerQuery
 
 /**
  *  Fetches a @c GTLRDoubleClickBidManager_Query.
@@ -60,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDoubleClickBidManager_Query to include in the
  *    query.
  *
- *  @return GTLRDoubleClickBidManagerQuery_QueriesCreatequery
+ *  @return GTLRDoubleClickBidManagerQuery_QueriesCreate
  */
 + (instancetype)queryWithObject:(GTLRDoubleClickBidManager_Query *)object;
 
@@ -69,14 +61,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Deletes a stored query as well as the associated stored reports.
  *
- *  Method: doubleclickbidmanager.queries.deletequery
+ *  Method: doubleclickbidmanager.queries.delete
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDoubleClickBidManager
  */
-@interface GTLRDoubleClickBidManagerQuery_QueriesDeletequery : GTLRDoubleClickBidManagerQuery
+@interface GTLRDoubleClickBidManagerQuery_QueriesDelete : GTLRDoubleClickBidManagerQuery
 
-/** Query ID to delete. */
+/** Required. Query ID to delete. */
 @property(nonatomic, assign) long long queryId;
 
 /**
@@ -85,9 +77,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a stored query as well as the associated stored reports.
  *
- *  @param queryId Query ID to delete.
+ *  @param queryId Required. Query ID to delete.
  *
- *  @return GTLRDoubleClickBidManagerQuery_QueriesDeletequery
+ *  @return GTLRDoubleClickBidManagerQuery_QueriesDelete
  */
 + (instancetype)queryWithQueryId:(long long)queryId;
 
@@ -96,14 +88,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Retrieves a stored query.
  *
- *  Method: doubleclickbidmanager.queries.getquery
+ *  Method: doubleclickbidmanager.queries.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDoubleClickBidManager
  */
-@interface GTLRDoubleClickBidManagerQuery_QueriesGetquery : GTLRDoubleClickBidManagerQuery
+@interface GTLRDoubleClickBidManagerQuery_QueriesGet : GTLRDoubleClickBidManagerQuery
 
-/** Query ID to retrieve. */
+/** Required. Query ID to retrieve. */
 @property(nonatomic, assign) long long queryId;
 
 /**
@@ -111,9 +103,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Retrieves a stored query.
  *
- *  @param queryId Query ID to retrieve.
+ *  @param queryId Required. Query ID to retrieve.
  *
- *  @return GTLRDoubleClickBidManagerQuery_QueriesGetquery
+ *  @return GTLRDoubleClickBidManagerQuery_QueriesGet
  */
 + (instancetype)queryWithQueryId:(long long)queryId;
 
@@ -122,20 +114,31 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Retrieves stored queries.
  *
- *  Method: doubleclickbidmanager.queries.listqueries
+ *  Method: doubleclickbidmanager.queries.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDoubleClickBidManager
  */
-@interface GTLRDoubleClickBidManagerQuery_QueriesListqueries : GTLRDoubleClickBidManagerQuery
+@interface GTLRDoubleClickBidManagerQuery_QueriesList : GTLRDoubleClickBidManagerQuery
 
 /**
- *  Maximum number of results per page. Must be between 1 and 100. Defaults to
- *  100 if unspecified.
+ *  Name of a field used to order results. The default sorting order is
+ *  ascending. To specify descending order for a field, append a " desc" suffix.
+ *  For example "metadata.title desc". Sorting is only supported for the
+ *  following fields: * queryId * metadata.title
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Maximum number of results per page. Must be between `1` and `100`. Defaults
+ *  to `100` if unspecified.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** Optional pagination token. */
+/**
+ *  A page token, received from a previous list call. Provide this to retrieve
+ *  the subsequent page of queries.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -143,7 +146,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Retrieves stored queries.
  *
- *  @return GTLRDoubleClickBidManagerQuery_QueriesListqueries
+ *  @return GTLRDoubleClickBidManagerQuery_QueriesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -154,78 +157,119 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Runs a stored query to generate a report.
+ *  Retrieves a stored report.
  *
- *  Method: doubleclickbidmanager.queries.runquery
+ *  Method: doubleclickbidmanager.queries.reports.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDoubleClickBidManager
  */
-@interface GTLRDoubleClickBidManagerQuery_QueriesRunquery : GTLRDoubleClickBidManagerQuery
+@interface GTLRDoubleClickBidManagerQuery_QueriesReportsGet : GTLRDoubleClickBidManagerQuery
 
-/**
- *  If true, tries to run the query asynchronously.
- *
- *  @note If not set, the documented server-side default will be false.
- */
-@property(nonatomic, assign) BOOL asynchronous;
-
-/** Query ID to run. */
+/** Required. ID of the query the report is associated with. */
 @property(nonatomic, assign) long long queryId;
 
+/** Required. ID of the report to retrieve. */
+@property(nonatomic, assign) long long reportId;
+
 /**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
+ *  Fetches a @c GTLRDoubleClickBidManager_Report.
  *
- *  Runs a stored query to generate a report.
+ *  Retrieves a stored report.
  *
- *  @param object The @c GTLRDoubleClickBidManager_RunQueryRequest to include in
- *    the query.
- *  @param queryId Query ID to run.
+ *  @param queryId Required. ID of the query the report is associated with.
+ *  @param reportId Required. ID of the report to retrieve.
  *
- *  @return GTLRDoubleClickBidManagerQuery_QueriesRunquery
+ *  @return GTLRDoubleClickBidManagerQuery_QueriesReportsGet
  */
-+ (instancetype)queryWithObject:(GTLRDoubleClickBidManager_RunQueryRequest *)object
-                        queryId:(long long)queryId;
++ (instancetype)queryWithQueryId:(long long)queryId
+                        reportId:(long long)reportId;
 
 @end
 
 /**
- *  Retrieves stored reports.
+ *  Lists reports.
  *
- *  Method: doubleclickbidmanager.reports.listreports
+ *  Method: doubleclickbidmanager.queries.reports.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDoubleClickBidManager
  */
-@interface GTLRDoubleClickBidManagerQuery_ReportsListreports : GTLRDoubleClickBidManagerQuery
+@interface GTLRDoubleClickBidManagerQuery_QueriesReportsList : GTLRDoubleClickBidManagerQuery
 
 /**
- *  Maximum number of results per page. Must be between 1 and 100. Defaults to
- *  100 if unspecified.
+ *  Name of a field used to order results. The default sorting order is
+ *  ascending. To specify descending order for a field, append a " desc" suffix.
+ *  For example "key.reportId desc". Sorting is only supported for the following
+ *  fields: * key.reportId
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Maximum number of results per page. Must be between `1` and `100`. Defaults
+ *  to `100` if unspecified.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** Optional pagination token. */
+/**
+ *  A page token, received from a previous list call. Provide this to retrieve
+ *  the subsequent page of reports.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Query ID with which the reports are associated. */
+/** Required. Query ID with which the reports are associated. */
 @property(nonatomic, assign) long long queryId;
 
 /**
  *  Fetches a @c GTLRDoubleClickBidManager_ListReportsResponse.
  *
- *  Retrieves stored reports.
+ *  Lists reports.
  *
- *  @param queryId Query ID with which the reports are associated.
+ *  @param queryId Required. Query ID with which the reports are associated.
  *
- *  @return GTLRDoubleClickBidManagerQuery_ReportsListreports
+ *  @return GTLRDoubleClickBidManagerQuery_QueriesReportsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
 + (instancetype)queryWithQueryId:(long long)queryId;
+
+@end
+
+/**
+ *  Runs a stored query to generate a report.
+ *
+ *  Method: doubleclickbidmanager.queries.run
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDoubleClickBidManager
+ */
+@interface GTLRDoubleClickBidManagerQuery_QueriesRun : GTLRDoubleClickBidManagerQuery
+
+/** Required. Query ID to run. */
+@property(nonatomic, assign) long long queryId;
+
+/**
+ *  Whether the query should be run synchronously. When true, this method will
+ *  not return until the query has finished running. When false or not
+ *  specified, this method will return immediately.
+ */
+@property(nonatomic, assign) BOOL synchronous;
+
+/**
+ *  Fetches a @c GTLRDoubleClickBidManager_Report.
+ *
+ *  Runs a stored query to generate a report.
+ *
+ *  @param object The @c GTLRDoubleClickBidManager_RunQueryRequest to include in
+ *    the query.
+ *  @param queryId Required. Query ID to run.
+ *
+ *  @return GTLRDoubleClickBidManagerQuery_QueriesRun
+ */
++ (instancetype)queryWithObject:(GTLRDoubleClickBidManager_RunQueryRequest *)object
+                        queryId:(long long)queryId;
 
 @end
 

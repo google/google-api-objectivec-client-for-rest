@@ -251,6 +251,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
 /** The time at which the approval expires. */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
+/** If set, denotes the timestamp at which the approval is invalidated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *invalidateTime;
+
 /** The signature for the ApprovalRequest and details on how it was signed. */
 @property(nonatomic, strong, nullable) GTLRAccessApproval_SignatureInfo *signatureInfo;
 
@@ -336,6 +339,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
  */
 @property(nonatomic, copy, nullable) NSString *enrollmentLevel;
 
+@end
+
+
+/**
+ *  Request to invalidate an existing approval.
+ */
+@interface GTLRAccessApproval_InvalidateApprovalRequestMessage : GTLRObject
 @end
 
 

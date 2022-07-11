@@ -90,6 +90,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2ImageLocation;
 @class GTLRDLP_GooglePrivacyDlpV2ImageRedactionConfig;
 @class GTLRDLP_GooglePrivacyDlpV2InfoType;
+@class GTLRDLP_GooglePrivacyDlpV2InfoTypeCategory;
 @class GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription;
 @class GTLRDLP_GooglePrivacyDlpV2InfoTypeLimit;
 @class GTLRDLP_GooglePrivacyDlpV2InfoTypeStats;
@@ -873,6 +874,340 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood
  *  Value: "VERY_UNLIKELY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2InfoTypeCategory.industryCategory
+
+/**
+ *  The infoType is typically used in the finance industry.
+ *
+ *  Value: "FINANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_IndustryCategory_Finance;
+/**
+ *  The infoType is typically used in the health industry.
+ *
+ *  Value: "HEALTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_IndustryCategory_Health;
+/**
+ *  Unused industry
+ *
+ *  Value: "INDUSTRY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_IndustryCategory_IndustryUnspecified;
+/**
+ *  The infoType is typically used in the telecommunications industry.
+ *
+ *  Value: "TELECOMMUNICATIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_IndustryCategory_Telecommunications;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2InfoTypeCategory.locationCategory
+
+/**
+ *  The infoType is typically used in Argentina.
+ *
+ *  Value: "ARGENTINA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Argentina;
+/**
+ *  The infoType is typically used in Australia.
+ *
+ *  Value: "AUSTRALIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Australia;
+/**
+ *  The infoType is typically used in Belgium.
+ *
+ *  Value: "BELGIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Belgium;
+/**
+ *  The infoType is typically used in Brazil.
+ *
+ *  Value: "BRAZIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Brazil;
+/**
+ *  The infoType is typically used in Canada.
+ *
+ *  Value: "CANADA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Canada;
+/**
+ *  The infoType is typically used in Chile.
+ *
+ *  Value: "CHILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Chile;
+/**
+ *  The infoType is typically used in China.
+ *
+ *  Value: "CHINA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_China;
+/**
+ *  The infoType is typically used in Colombia.
+ *
+ *  Value: "COLOMBIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Colombia;
+/**
+ *  The infoType is typically used in Denmark.
+ *
+ *  Value: "DENMARK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Denmark;
+/**
+ *  The infoType is typically used in Finland.
+ *
+ *  Value: "FINLAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Finland;
+/**
+ *  The infoType is typically used in France.
+ *
+ *  Value: "FRANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_France;
+/**
+ *  The infoType is typically used in Germany.
+ *
+ *  Value: "GERMANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Germany;
+/**
+ *  The infoType is not issued by or tied to a specific region, but is used
+ *  almost everywhere.
+ *
+ *  Value: "GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Global;
+/**
+ *  The infoType is typically used in Hong Kong.
+ *
+ *  Value: "HONG_KONG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_HongKong;
+/**
+ *  The infoType is typically used in India.
+ *
+ *  Value: "INDIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_India;
+/**
+ *  The infoType is typically used in Indonesia.
+ *
+ *  Value: "INDONESIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Indonesia;
+/**
+ *  The infoType is typically used in Google internally.
+ *
+ *  Value: "INTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Internal;
+/**
+ *  The infoType is typically used in Ireland.
+ *
+ *  Value: "IRELAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Ireland;
+/**
+ *  The infoType is typically used in Israel.
+ *
+ *  Value: "ISRAEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Israel;
+/**
+ *  The infoType is typically used in Italy.
+ *
+ *  Value: "ITALY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Italy;
+/**
+ *  The infoType is typically used in Japan.
+ *
+ *  Value: "JAPAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Japan;
+/**
+ *  The infoType is typically used in Korea.
+ *
+ *  Value: "KOREA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Korea;
+/**
+ *  Unused location
+ *
+ *  Value: "LOCATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_LocationUnspecified;
+/**
+ *  The infoType is typically used in Mexico.
+ *
+ *  Value: "MEXICO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Mexico;
+/**
+ *  The infoType is typically used in Norway.
+ *
+ *  Value: "NORWAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Norway;
+/**
+ *  The infoType is typically used in Paraguay.
+ *
+ *  Value: "PARAGUAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Paraguay;
+/**
+ *  The infoType is typically used in Peru.
+ *
+ *  Value: "PERU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Peru;
+/**
+ *  The infoType is typically used in Poland.
+ *
+ *  Value: "POLAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Poland;
+/**
+ *  The infoType is typically used in Portugal.
+ *
+ *  Value: "PORTUGAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Portugal;
+/**
+ *  The infoType is typically used in Singapore.
+ *
+ *  Value: "SINGAPORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Singapore;
+/**
+ *  The infoType is typically used in South Africa.
+ *
+ *  Value: "SOUTH_AFRICA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_SouthAfrica;
+/**
+ *  The infoType is typically used in Spain.
+ *
+ *  Value: "SPAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Spain;
+/**
+ *  The infoType is typically used in Sweden.
+ *
+ *  Value: "SWEDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Sweden;
+/**
+ *  The infoType is typically used in Taiwan.
+ *
+ *  Value: "TAIWAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Taiwan;
+/**
+ *  The infoType is typically used in Thailand.
+ *
+ *  Value: "THAILAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Thailand;
+/**
+ *  The infoType is typically used in the Netherlands.
+ *
+ *  Value: "THE_NETHERLANDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_TheNetherlands;
+/**
+ *  The infoType is typically used in Turkey.
+ *
+ *  Value: "TURKEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Turkey;
+/**
+ *  The infoType is typically used in the United Kingdom.
+ *
+ *  Value: "UNITED_KINGDOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_UnitedKingdom;
+/**
+ *  The infoType is typically used in the United States.
+ *
+ *  Value: "UNITED_STATES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_UnitedStates;
+/**
+ *  The infoType is typically used in Uruguay.
+ *
+ *  Value: "URUGUAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Uruguay;
+/**
+ *  The infoType is typically used in Venezuela.
+ *
+ *  Value: "VENEZUELA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Venezuela;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2InfoTypeCategory.typeCategory
+
+/**
+ *  Information that is not sensitive on its own, but provides details about the
+ *  circumstances surrounding an entity or an event.
+ *
+ *  Value: "CONTEXTUAL_INFORMATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_ContextualInformation;
+/**
+ *  Confidential or secret information, for example, a password.
+ *
+ *  Value: "CREDENTIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Credential;
+/**
+ *  Attributes that can partially identify someone, especially in combination
+ *  with other attributes, like age, height, and gender.
+ *
+ *  Value: "DEMOGRAPHIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Demographic;
+/**
+ *  A document, for example, a resume or source code.
+ *
+ *  Value: "DOCUMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Document;
+/**
+ *  An identification document issued by a government.
+ *
+ *  Value: "GOVERNMENT_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_GovernmentId;
+/**
+ *  Personally identifiable information, for example, a name or phone number
+ *
+ *  Value: "PII"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Pii;
+/**
+ *  Personally identifiable information that is especially sensitive, for
+ *  example, a passport number.
+ *
+ *  Value: "SPII"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Spii;
+/**
+ *  Unused type
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription.supportedBy
@@ -1896,7 +2231,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Number of characters to mask. If not set, all matching chars will be masked.
- *  Skipped characters do not count towards this tally.
+ *  Skipped characters do not count towards this tally. If `number_to_mask` is
+ *  negative, this denotes inverse masking. Cloud DLP masks all but a number of
+ *  characters. For example, suppose you have the following values: -
+ *  `masking_character` is `*` - `number_to_mask` is `-4` - `reverse_order` is
+ *  `false` - `CharsToIgnore` includes `-` - Input string is
+ *  `1234-5678-9012-3456` The resulting de-identified string is
+ *  `****-****-****-3456`. Cloud DLP masks all but the last four characters. If
+ *  `reverse_order` is `true`, all but the first four characters are masked as
+ *  `1234-****-****-****`.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4045,9 +4388,166 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Classification of infoTypes to organize them according to geographic
+ *  location, industry, and data type.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2InfoTypeCategory : GTLRObject
+
+/**
+ *  The group of relevant businesses where this infoType is commonly used
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_IndustryCategory_Finance
+ *        The infoType is typically used in the finance industry. (Value:
+ *        "FINANCE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_IndustryCategory_Health
+ *        The infoType is typically used in the health industry. (Value:
+ *        "HEALTH")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_IndustryCategory_IndustryUnspecified
+ *        Unused industry (Value: "INDUSTRY_UNSPECIFIED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_IndustryCategory_Telecommunications
+ *        The infoType is typically used in the telecommunications industry.
+ *        (Value: "TELECOMMUNICATIONS")
+ */
+@property(nonatomic, copy, nullable) NSString *industryCategory;
+
+/**
+ *  The region or country that issued the ID or document represented by the
+ *  infoType.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Argentina
+ *        The infoType is typically used in Argentina. (Value: "ARGENTINA")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Australia
+ *        The infoType is typically used in Australia. (Value: "AUSTRALIA")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Belgium
+ *        The infoType is typically used in Belgium. (Value: "BELGIUM")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Brazil
+ *        The infoType is typically used in Brazil. (Value: "BRAZIL")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Canada
+ *        The infoType is typically used in Canada. (Value: "CANADA")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Chile
+ *        The infoType is typically used in Chile. (Value: "CHILE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_China
+ *        The infoType is typically used in China. (Value: "CHINA")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Colombia
+ *        The infoType is typically used in Colombia. (Value: "COLOMBIA")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Denmark
+ *        The infoType is typically used in Denmark. (Value: "DENMARK")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Finland
+ *        The infoType is typically used in Finland. (Value: "FINLAND")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_France
+ *        The infoType is typically used in France. (Value: "FRANCE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Germany
+ *        The infoType is typically used in Germany. (Value: "GERMANY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Global
+ *        The infoType is not issued by or tied to a specific region, but is
+ *        used almost everywhere. (Value: "GLOBAL")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_HongKong
+ *        The infoType is typically used in Hong Kong. (Value: "HONG_KONG")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_India
+ *        The infoType is typically used in India. (Value: "INDIA")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Indonesia
+ *        The infoType is typically used in Indonesia. (Value: "INDONESIA")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Internal
+ *        The infoType is typically used in Google internally. (Value:
+ *        "INTERNAL")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Ireland
+ *        The infoType is typically used in Ireland. (Value: "IRELAND")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Israel
+ *        The infoType is typically used in Israel. (Value: "ISRAEL")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Italy
+ *        The infoType is typically used in Italy. (Value: "ITALY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Japan
+ *        The infoType is typically used in Japan. (Value: "JAPAN")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Korea
+ *        The infoType is typically used in Korea. (Value: "KOREA")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_LocationUnspecified
+ *        Unused location (Value: "LOCATION_UNSPECIFIED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Mexico
+ *        The infoType is typically used in Mexico. (Value: "MEXICO")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Norway
+ *        The infoType is typically used in Norway. (Value: "NORWAY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Paraguay
+ *        The infoType is typically used in Paraguay. (Value: "PARAGUAY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Peru
+ *        The infoType is typically used in Peru. (Value: "PERU")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Poland
+ *        The infoType is typically used in Poland. (Value: "POLAND")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Portugal
+ *        The infoType is typically used in Portugal. (Value: "PORTUGAL")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Singapore
+ *        The infoType is typically used in Singapore. (Value: "SINGAPORE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_SouthAfrica
+ *        The infoType is typically used in South Africa. (Value:
+ *        "SOUTH_AFRICA")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Spain
+ *        The infoType is typically used in Spain. (Value: "SPAIN")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Sweden
+ *        The infoType is typically used in Sweden. (Value: "SWEDEN")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Taiwan
+ *        The infoType is typically used in Taiwan. (Value: "TAIWAN")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Thailand
+ *        The infoType is typically used in Thailand. (Value: "THAILAND")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_TheNetherlands
+ *        The infoType is typically used in the Netherlands. (Value:
+ *        "THE_NETHERLANDS")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Turkey
+ *        The infoType is typically used in Turkey. (Value: "TURKEY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_UnitedKingdom
+ *        The infoType is typically used in the United Kingdom. (Value:
+ *        "UNITED_KINGDOM")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_UnitedStates
+ *        The infoType is typically used in the United States. (Value:
+ *        "UNITED_STATES")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Uruguay
+ *        The infoType is typically used in Uruguay. (Value: "URUGUAY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Venezuela
+ *        The infoType is typically used in Venezuela. (Value: "VENEZUELA")
+ */
+@property(nonatomic, copy, nullable) NSString *locationCategory;
+
+/**
+ *  The class of identifiers where this infoType belongs
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_ContextualInformation
+ *        Information that is not sensitive on its own, but provides details
+ *        about the circumstances surrounding an entity or an event. (Value:
+ *        "CONTEXTUAL_INFORMATION")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Credential
+ *        Confidential or secret information, for example, a password. (Value:
+ *        "CREDENTIAL")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Demographic
+ *        Attributes that can partially identify someone, especially in
+ *        combination with other attributes, like age, height, and gender.
+ *        (Value: "DEMOGRAPHIC")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Document
+ *        A document, for example, a resume or source code. (Value: "DOCUMENT")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_GovernmentId
+ *        An identification document issued by a government. (Value:
+ *        "GOVERNMENT_ID")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Pii
+ *        Personally identifiable information, for example, a name or phone
+ *        number (Value: "PII")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Spii
+ *        Personally identifiable information that is especially sensitive, for
+ *        example, a passport number. (Value: "SPII")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_TypeUnspecified
+ *        Unused type (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *typeCategory;
+
+@end
+
+
+/**
  *  InfoType description.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription : GTLRObject
+
+/** The category of the infoType. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoTypeCategory *> *categories;
 
 /**
  *  Description of the infotype. Translated when language is provided in the

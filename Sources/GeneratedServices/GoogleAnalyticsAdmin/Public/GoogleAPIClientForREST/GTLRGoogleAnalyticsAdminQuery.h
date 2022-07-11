@@ -2292,6 +2292,37 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Lookup for a AttributionSettings singleton.
+ *
+ *  Method: analyticsadmin.properties.getAttributionSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesGetAttributionSettings : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The name of the attribution settings to retrieve. Format:
+ *  properties/{property}/attributionSettings
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings.
+ *
+ *  Lookup for a AttributionSettings singleton.
+ *
+ *  @param name Required. The name of the attribution settings to retrieve.
+ *    Format: properties/{property}/attributionSettings
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesGetAttributionSettings
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Returns the singleton data retention settings for this property.
  *
  *  Method: analyticsadmin.properties.getDataRetentionSettings
@@ -2609,6 +2640,51 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesPatch
  */
 + (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaProperty *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates attribution settings on a property.
+ *
+ *  Method: analyticsadmin.properties.updateAttributionSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesUpdateAttributionSettings : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Output only. Resource name of this attribution settings resource. Format:
+ *  properties/{property_id}/attributionSettings Example:
+ *  "properties/1000/attributionSettings"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to be updated. Field names must be in snake
+ *  case (e.g., "field_to_update"). Omitted fields will not be updated. To
+ *  replace the entire entity, use one path with the string "*" to match all
+ *  fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings.
+ *
+ *  Updates attribution settings on a property.
+ *
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings to
+ *    include in the query.
+ *  @param name Output only. Resource name of this attribution settings
+ *    resource. Format: properties/{property_id}/attributionSettings Example:
+ *    "properties/1000/attributionSettings"
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesUpdateAttributionSettings
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings *)object
                            name:(NSString *)name;
 
 @end

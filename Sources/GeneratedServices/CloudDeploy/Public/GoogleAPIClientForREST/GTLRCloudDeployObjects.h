@@ -251,6 +251,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_E
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_FailureCauseUnspecified;
 /**
+ *  Release is abandoned.
+ *
+ *  Value: "RELEASE_ABANDONED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_ReleaseAbandoned;
+/**
  *  Release is in a failed state.
  *
  *  Value: "RELEASE_FAILED"
@@ -405,6 +411,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
  *  Value: "TARGET_RENDER_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateUnspecified;
+
+/**
+ *  The request object used by `AbandonRelease`.
+ */
+@interface GTLRCloudDeploy_AbandonReleaseRequest : GTLRObject
+@end
+
+
+/**
+ *  The response object for `AbandonRelease`.
+ */
+@interface GTLRCloudDeploy_AbandonReleaseResponse : GTLRObject
+@end
+
 
 /**
  *  Information specifying an Anthos Cluster.
@@ -730,6 +750,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
  *  SerialPipeline defines a sequential set of stages for a `DeliveryPipeline`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_SerialPipeline *serialPipeline;
+
+/**
+ *  When suspended, no new releases or rollouts can be created, but in-progress
+ *  ones will complete.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *suspended;
 
 /** Output only. Unique identifier of the `DeliveryPipeline`. */
 @property(nonatomic, copy, nullable) NSString *uid;
@@ -1444,6 +1472,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
 @interface GTLRCloudDeploy_Release : GTLRObject
 
 /**
+ *  Output only. Indicates whether this is an abandoned release.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *abandoned;
+
+/**
  *  User annotations. These attributes can only be set and used by the user, and
  *  not by Google Cloud Deploy. See https://google.aip.dev/128#annotations for
  *  more details such as format and size limitations.
@@ -1726,6 +1761,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
  *    @arg @c kGTLRCloudDeploy_Rollout_DeployFailureCause_FailureCauseUnspecified
  *        No reason for failure is specified. (Value:
  *        "FAILURE_CAUSE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDeploy_Rollout_DeployFailureCause_ReleaseAbandoned
+ *        Release is abandoned. (Value: "RELEASE_ABANDONED")
  *    @arg @c kGTLRCloudDeploy_Rollout_DeployFailureCause_ReleaseFailed Release
  *        is in a failed state. (Value: "RELEASE_FAILED")
  */

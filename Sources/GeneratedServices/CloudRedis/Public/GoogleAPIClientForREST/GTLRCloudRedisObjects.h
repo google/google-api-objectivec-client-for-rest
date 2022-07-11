@@ -182,6 +182,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_State_StateUnspecifi
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_State_Updating;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRedis_Instance.suspensionReasons
+
+/**
+ *  Something wrong with the CMEK key provided by customer.
+ *
+ *  Value: "CUSTOMER_MANAGED_KEY_ISSUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_SuspensionReasons_CustomerManagedKeyIssue;
+/**
+ *  Not set.
+ *
+ *  Value: "SUSPENSION_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_SuspensionReasons_SuspensionReasonUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRedis_Instance.tier
 
 /**
@@ -592,6 +608,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
  */
 @property(nonatomic, copy, nullable) NSString *currentLocationId;
 
+/**
+ *  Optional. The KMS key reference that the customer provides when trying to
+ *  create the instance.
+ */
+@property(nonatomic, copy, nullable) NSString *customerManagedKey;
+
 /** An arbitrary and optional user-provided name for the instance. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -624,12 +646,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
  *  scheduled.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_MaintenanceSchedule *maintenanceSchedule;
-
-/**
- *  Optional. The self service update maintenance version. The version is date
- *  based such as "20210712_00_00".
- */
-@property(nonatomic, copy, nullable) NSString *maintenanceVersion;
 
 /**
  *  Required. Redis memory size in GiB.
@@ -790,6 +806,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
  *  instance, if available.
  */
 @property(nonatomic, copy, nullable) NSString *statusMessage;
+
+/** Optional. reasons that causes instance in "SUSPENDED" state. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *suspensionReasons;
 
 /**
  *  Required. The service tier of the instance.

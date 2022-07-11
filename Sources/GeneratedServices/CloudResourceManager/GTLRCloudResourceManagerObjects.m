@@ -62,6 +62,10 @@ NSString * const kGTLRCloudResourceManager_Project_State_Active = @"ACTIVE";
 NSString * const kGTLRCloudResourceManager_Project_State_DeleteRequested = @"DELETE_REQUESTED";
 NSString * const kGTLRCloudResourceManager_Project_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRCloudResourceManager_TagKey.purpose
+NSString * const kGTLRCloudResourceManager_TagKey_Purpose_GceFirewall = @"GCE_FIREWALL";
+NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @"PURPOSE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudResourceManager_AuditConfig
@@ -812,7 +816,7 @@ NSString * const kGTLRCloudResourceManager_Project_State_StateUnspecified = @"ST
 
 @implementation GTLRCloudResourceManager_TagKey
 @dynamic createTime, descriptionProperty, ETag, name, namespacedName, parent,
-         shortName, updateTime;
+         purpose, purposeData, shortName, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -820,6 +824,20 @@ NSString * const kGTLRCloudResourceManager_Project_State_StateUnspecified = @"ST
     @"ETag" : @"etag"
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_TagKey_PurposeData
+//
+
+@implementation GTLRCloudResourceManager_TagKey_PurposeData
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

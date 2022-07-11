@@ -71,8 +71,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
- *  language accepts strings like "displayName=tokyo", and is documented in more
- *  detail in [AIP-160](https://google.aip.dev/160).
+ *  language accepts strings like `"displayName=tokyo"`, and is documented in
+ *  more detail in [AIP-160](https://google.aip.dev/160).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -450,8 +450,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -462,12 +463,54 @@ NS_ASSUME_NONNULL_BEGIN
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Imports a domain name from [Google Domains](https://domains.google/) for use
+ *  in Cloud Domains. To transfer a domain from another registrar, use the
+ *  `TransferDomain` method instead. Since individual users can own domains in
+ *  Google Domains, the calling user must have ownership permission on the
+ *  domain.
+ *
+ *  Method: domains.projects.locations.registrations.import
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
+ */
+@interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsImport : GTLRCloudDomainsQuery
+
+/**
+ *  Required. The parent resource of the Registration. Must be in the format
+ *  `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudDomains_Operation.
+ *
+ *  Imports a domain name from [Google Domains](https://domains.google/) for use
+ *  in Cloud Domains. To transfer a domain from another registrar, use the
+ *  `TransferDomain` method instead. Since individual users can own domains in
+ *  Google Domains, the calling user must have ownership permission on the
+ *  domain.
+ *
+ *  @param object The @c GTLRCloudDomains_ImportDomainRequest to include in the
+ *    query.
+ *  @param parent Required. The parent resource of the Registration. Must be in
+ *    the format `projects/ * /locations/ *`.
+ *
+ *  @return GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsImport
+ */
++ (instancetype)queryWithObject:(GTLRCloudDomains_ImportDomainRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -702,6 +745,56 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Lists domain names from [Google Domains](https://domains.google/) that can
+ *  be imported to Cloud Domains using the `ImportDomain` method. Since
+ *  individual users can own domains in Google Domains, the list of domains
+ *  returned depends on the individual user making the call. Domains supported
+ *  by Google Domains, but not supported by Cloud Domains, are not returned.
+ *
+ *  Method: domains.projects.locations.registrations.retrieveImportableDomains
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
+ */
+@interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRetrieveImportableDomains : GTLRCloudDomainsQuery
+
+/**
+ *  Required. The location. Must be in the format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** Maximum number of results to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  When set to the `next_page_token` from a prior response, provides the next
+ *  page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRCloudDomains_RetrieveImportableDomainsResponse.
+ *
+ *  Lists domain names from [Google Domains](https://domains.google/) that can
+ *  be imported to Cloud Domains using the `ImportDomain` method. Since
+ *  individual users can own domains in Google Domains, the list of domains
+ *  returned depends on the individual user making the call. Domains supported
+ *  by Google Domains, but not supported by Cloud Domains, are not returned.
+ *
+ *  @param location Required. The location. Must be in the format `projects/ *
+ *    /locations/ *`.
+ *
+ *  @return GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRetrieveImportableDomains
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithLocation:(NSString *)location;
+
+@end
+
+/**
  *  Gets parameters needed to register a new domain name, including price and
  *  up-to-date availability. Use the returned values to call `RegisterDomain`.
  *
@@ -740,8 +833,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets parameters needed to transfer a domain name from another registrar to
- *  Cloud Domains. For domains managed by Google Domains, transferring to Cloud
- *  Domains is not supported. Use the returned values to call `TransferDomain`.
+ *  Cloud Domains. For domains already managed by [Google
+ *  Domains](https://domains.google/), use `ImportDomain` instead. Use the
+ *  returned values to call `TransferDomain`.
  *
  *  Method: domains.projects.locations.registrations.retrieveTransferParameters
  *
@@ -765,8 +859,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudDomains_RetrieveTransferParametersResponse.
  *
  *  Gets parameters needed to transfer a domain name from another registrar to
- *  Cloud Domains. For domains managed by Google Domains, transferring to Cloud
- *  Domains is not supported. Use the returned values to call `TransferDomain`.
+ *  Cloud Domains. For domains already managed by [Google
+ *  Domains](https://domains.google/), use `ImportDomain` instead. Use the
+ *  returned values to call `TransferDomain`.
  *
  *  @param location Required. The location. Must be in the format `projects/ *
  *    /locations/ *`.
@@ -828,8 +923,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsSetIamPolicy : GTLRCloudDomainsQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -843,8 +939,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudDomains_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsSetIamPolicy
  */
@@ -869,7 +966,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -885,8 +983,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudDomains_TestIamPermissionsRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsTestIamPermissions
  */
@@ -897,13 +996,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Transfers a domain name from another registrar to Cloud Domains. For domains
- *  managed by Google Domains, transferring to Cloud Domains is not supported.
- *  Before calling this method, go to the domain's current registrar to unlock
- *  the domain for transfer and retrieve the domain's transfer authorization
- *  code. Then call `RetrieveTransferParameters` to confirm that the domain is
- *  unlocked and to get values needed to build a call to this method. A
- *  successful call creates a `Registration` resource in state
- *  `TRANSFER_PENDING`. It can take several days to complete the transfer
+ *  already managed by [Google Domains](https://domains.google/), use
+ *  `ImportDomain` instead. Before calling this method, go to the domain's
+ *  current registrar to unlock the domain for transfer and retrieve the
+ *  domain's transfer authorization code. Then call `RetrieveTransferParameters`
+ *  to confirm that the domain is unlocked and to get values needed to build a
+ *  call to this method. A successful call creates a `Registration` resource in
+ *  state `TRANSFER_PENDING`. It can take several days to complete the transfer
  *  process. The registrant can often speed up this process by approving the
  *  transfer through the current registrar, either by clicking a link in an
  *  email from the registrar or by visiting the registrar's website. A few
@@ -930,13 +1029,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudDomains_Operation.
  *
  *  Transfers a domain name from another registrar to Cloud Domains. For domains
- *  managed by Google Domains, transferring to Cloud Domains is not supported.
- *  Before calling this method, go to the domain's current registrar to unlock
- *  the domain for transfer and retrieve the domain's transfer authorization
- *  code. Then call `RetrieveTransferParameters` to confirm that the domain is
- *  unlocked and to get values needed to build a call to this method. A
- *  successful call creates a `Registration` resource in state
- *  `TRANSFER_PENDING`. It can take several days to complete the transfer
+ *  already managed by [Google Domains](https://domains.google/), use
+ *  `ImportDomain` instead. Before calling this method, go to the domain's
+ *  current registrar to unlock the domain for transfer and retrieve the
+ *  domain's transfer authorization code. Then call `RetrieveTransferParameters`
+ *  to confirm that the domain is unlocked and to get values needed to build a
+ *  call to this method. A successful call creates a `Registration` resource in
+ *  state `TRANSFER_PENDING`. It can take several days to complete the transfer
  *  process. The registrant can often speed up this process by approving the
  *  transfer through the current registrar, either by clicking a link in an
  *  email from the registrar or by visiting the registrar's website. A few

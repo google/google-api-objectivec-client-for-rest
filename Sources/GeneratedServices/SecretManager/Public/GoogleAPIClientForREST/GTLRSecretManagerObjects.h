@@ -34,6 +34,7 @@
 @class GTLRSecretManager_Rotation;
 @class GTLRSecretManager_Secret;
 @class GTLRSecretManager_Secret_Labels;
+@class GTLRSecretManager_Secret_VersionAliases;
 @class GTLRSecretManager_SecretPayload;
 @class GTLRSecretManager_SecretVersion;
 @class GTLRSecretManager_Topic;
@@ -839,6 +840,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 /** Input only. The TTL for the Secret. */
 @property(nonatomic, strong, nullable) GTLRDuration *ttl;
 
+/**
+ *  Optional. Mapping from version alias to version name. A version alias is a
+ *  string with a maximum length of 63 characters and can contain uppercase and
+ *  lowercase letters, numerals, and the hyphen (`-`) and underscore ('_')
+ *  characters. An alias string must start with a letter and cannot be the
+ *  string 'latest' or 'NEW'. No more than 50 aliases can be assigned to a given
+ *  secret. Version-Alias pairs will be viewable via GetSecret and modifiable
+ *  via UpdateSecret. At launch Access by Allias will only be supported on
+ *  GetSecretVersion and AccessSecretVersion.
+ */
+@property(nonatomic, strong, nullable) GTLRSecretManager_Secret_VersionAliases *versionAliases;
+
 @end
 
 
@@ -857,6 +870,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *        fetch them all at once.
  */
 @interface GTLRSecretManager_Secret_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Mapping from version alias to version name. A version alias is a
+ *  string with a maximum length of 63 characters and can contain uppercase and
+ *  lowercase letters, numerals, and the hyphen (`-`) and underscore ('_')
+ *  characters. An alias string must start with a letter and cannot be the
+ *  string 'latest' or 'NEW'. No more than 50 aliases can be assigned to a given
+ *  secret. Version-Alias pairs will be viewable via GetSecret and modifiable
+ *  via UpdateSecret. At launch Access by Allias will only be supported on
+ *  GetSecretVersion and AccessSecretVersion.
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of longLongValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSecretManager_Secret_VersionAliases : GTLRObject
 @end
 
 

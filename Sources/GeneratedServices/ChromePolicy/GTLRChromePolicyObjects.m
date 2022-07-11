@@ -351,26 +351,6 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileRequest
-//
-
-@implementation GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileRequest
-@dynamic policyField;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileResponse
-//
-
-@implementation GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileResponse
-@dynamic downloadUri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRChromePolicy_GoogleProtobufEmpty
 //
 

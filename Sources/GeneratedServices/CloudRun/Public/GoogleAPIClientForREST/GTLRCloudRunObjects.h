@@ -1490,6 +1490,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2ExecutionReference : GTLRObject
 
 /** Creation timestamp of the execution. */
+@property(nonatomic, strong, nullable) GTLRDateTime *completionTime;
+
+/** Creation timestamp of the execution. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /** Name of the execution. */

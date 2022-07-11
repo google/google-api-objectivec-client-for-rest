@@ -373,8 +373,8 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1AddonsConfig
-@dynamic advancedApiOpsConfig, connectorsPlatformConfig, integrationConfig,
-         monetizationConfig;
+@dynamic advancedApiOpsConfig, apiSecurityConfig, connectorsPlatformConfig,
+         integrationConfig, monetizationConfig;
 @end
 
 
@@ -576,6 +576,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1ApiSecurityConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ApiSecurityConfig
+@dynamic enabled, expiresAt;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1App
 //
 
@@ -769,6 +779,56 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1CommonNameConfig
 @dynamic matchWildCards, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1ComputeEnvironmentScoresRequest
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ComputeEnvironmentScoresRequest
+@dynamic filters, pageSize, pageToken, timeRange;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"filters" : [GTLRApigee_GoogleCloudApigeeV1ComputeEnvironmentScoresRequestFilter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1ComputeEnvironmentScoresRequestFilter
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ComputeEnvironmentScoresRequestFilter
+@dynamic scorePath;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1ComputeEnvironmentScoresResponse
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ComputeEnvironmentScoresResponse
+@dynamic nextPageToken, scores;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"scores" : [GTLRApigee_GoogleCloudApigeeV1Score class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"scores";
+}
+
 @end
 
 
@@ -1262,7 +1322,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1Environment
 @dynamic apiProxyType, createdAt, deploymentType, descriptionProperty,
-         displayName, lastModifiedAt, name, properties, state;
+         displayName, forwardProxyUri, lastModifiedAt, name, properties, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1278,9 +1338,9 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1EnvironmentConfig
 @dynamic arcConfigLocation, createTime, dataCollectors, debugMask, deployments,
-         featureFlags, flowhooks, gatewayConfigLocation, keystores, name,
-         provider, pubsubTopic, resourceReferences, resources, revisionId,
-         sequenceNumber, targets, traceConfig, uid;
+         featureFlags, flowhooks, forwardProxyUri, gatewayConfigLocation,
+         keystores, name, provider, pubsubTopic, resourceReferences, resources,
+         revisionId, sequenceNumber, targets, traceConfig, uid;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1709,6 +1769,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1KeyValueEntry
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1KeyValueEntry
+@dynamic name, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1KeyValueMap
 //
 
@@ -2129,6 +2199,28 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1ListKeyValueEntriesResponse
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ListKeyValueEntriesResponse
+@dynamic keyValueEntries, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"keyValueEntries" : [GTLRApigee_GoogleCloudApigeeV1KeyValueEntry class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"keyValueEntries";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1ListNatAddressesResponse
 //
 
@@ -2198,6 +2290,72 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
     @"ratePlans" : [GTLRApigee_GoogleCloudApigeeV1RatePlan class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1ListSecurityProfileRevisionsResponse
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ListSecurityProfileRevisionsResponse
+@dynamic nextPageToken, securityProfiles;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"securityProfiles" : [GTLRApigee_GoogleCloudApigeeV1SecurityProfile class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"securityProfiles";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1ListSecurityProfilesResponse
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ListSecurityProfilesResponse
+@dynamic nextPageToken, securityProfiles;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"securityProfiles" : [GTLRApigee_GoogleCloudApigeeV1SecurityProfile class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"securityProfiles";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1ListSecurityReportsResponse
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ListSecurityReportsResponse
+@dynamic nextPageToken, securityReports;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"securityReports" : [GTLRApigee_GoogleCloudApigeeV1SecurityReport class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"securityReports";
 }
 
 @end
@@ -2482,7 +2640,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1OrganizationProjectMapping
-@dynamic organization, projectId, projectIds;
+@dynamic location, organization, projectId, projectIds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2937,6 +3095,252 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1SchemaSchemaProperty
 @dynamic createTime, custom, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1Score
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1Score
+@dynamic component, subcomponents, timeRange;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"subcomponents" : [GTLRApigee_GoogleCloudApigeeV1ScoreComponent class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1ScoreComponent
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ScoreComponent
+@dynamic calculateTime, dataCaptureTime, drilldownPaths, recommendations, score,
+         scorePath;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"drilldownPaths" : [NSString class],
+    @"recommendations" : [GTLRApigee_GoogleCloudApigeeV1ScoreComponentRecommendation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1ScoreComponentRecommendation
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ScoreComponentRecommendation
+@dynamic actions, descriptionProperty, impact, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"actions" : [GTLRApigee_GoogleCloudApigeeV1ScoreComponentRecommendationAction class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1ScoreComponentRecommendationAction
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ScoreComponentRecommendationAction
+@dynamic actionContext, descriptionProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1ScoreComponentRecommendationActionActionContext
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ScoreComponentRecommendationActionActionContext
+@dynamic documentationLink;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1SecurityProfile
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1SecurityProfile
+@dynamic displayName, environments, maxScore, minScore, name,
+         revisionCreateTime, revisionId, revisionPublishTime,
+         revisionUpdateTime, scoringConfigs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"environments" : [GTLRApigee_GoogleCloudApigeeV1SecurityProfileEnvironment class],
+    @"scoringConfigs" : [GTLRApigee_GoogleCloudApigeeV1SecurityProfileScoringConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1SecurityProfileEnvironment
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1SecurityProfileEnvironment
+@dynamic attachTime, environment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1SecurityProfileEnvironmentAssociation
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1SecurityProfileEnvironmentAssociation
+@dynamic attachTime, name, securityProfileRevisionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1SecurityProfileScoringConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1SecurityProfileScoringConfig
+@dynamic descriptionProperty, scorePath, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1SecurityReport
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1SecurityReport
+@dynamic created, displayName, envgroupHostname, error, executionTime,
+         queryParams, reportDefinitionId, result, resultFileSize, resultRows,
+         selfProperty, state, updated;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"selfProperty" : @"self" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1SecurityReportMetadata
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1SecurityReportMetadata
+@dynamic dimensions, endTimestamp, metrics, mimeType, startTimestamp, timeUnit;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensions" : [NSString class],
+    @"metrics" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1SecurityReportQuery
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1SecurityReportQuery
+@dynamic csvDelimiter, dimensions, displayName, envgroupHostname, filter,
+         groupByTimeUnit, limit, metrics, mimeType, reportDefinitionId,
+         timeRange;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensions" : [NSString class],
+    @"metrics" : [GTLRApigee_GoogleCloudApigeeV1SecurityReportQueryMetric class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1SecurityReportQueryMetric
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1SecurityReportQueryMetric
+@dynamic aggregationFunction, alias, name, operatorProperty, value;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"operatorProperty" : @"operator" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1SecurityReportResultMetadata
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1SecurityReportResultMetadata
+@dynamic expires, selfProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"selfProperty" : @"self" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1SecurityReportResultView
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1SecurityReportResultView
+@dynamic code, error, metadata, rows, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rows" : [NSObject class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3525,6 +3929,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleTypeInterval
+//
+
+@implementation GTLRApigee_GoogleTypeInterval
+@dynamic endTime, startTime;
 @end
 
 

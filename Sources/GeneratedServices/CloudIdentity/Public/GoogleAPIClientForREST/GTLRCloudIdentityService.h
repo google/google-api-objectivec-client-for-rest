@@ -26,6 +26,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Authorization scope: Private Service:
+ *  https://www.googleapis.com/auth/cloud-identity
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-identity"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentity;
+/**
+ *  Authorization scope: Private Service:
  *  https://www.googleapis.com/auth/cloud-identity.devices
  *
  *  Value "https://www.googleapis.com/auth/cloud-identity.devices"

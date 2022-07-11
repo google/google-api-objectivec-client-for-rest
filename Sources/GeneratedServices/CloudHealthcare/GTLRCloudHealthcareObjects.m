@@ -61,6 +61,11 @@ NSString * const kGTLRCloudHealthcare_EvaluateUserConsentsRequest_ResponseView_B
 NSString * const kGTLRCloudHealthcare_EvaluateUserConsentsRequest_ResponseView_Full = @"FULL";
 NSString * const kGTLRCloudHealthcare_EvaluateUserConsentsRequest_ResponseView_ResponseViewUnspecified = @"RESPONSE_VIEW_UNSPECIFIED";
 
+// GTLRCloudHealthcare_FhirStore.complexDataTypeReferenceParsing
+NSString * const kGTLRCloudHealthcare_FhirStore_ComplexDataTypeReferenceParsing_ComplexDataTypeReferenceParsingUnspecified = @"COMPLEX_DATA_TYPE_REFERENCE_PARSING_UNSPECIFIED";
+NSString * const kGTLRCloudHealthcare_FhirStore_ComplexDataTypeReferenceParsing_Disabled = @"DISABLED";
+NSString * const kGTLRCloudHealthcare_FhirStore_ComplexDataTypeReferenceParsing_Enabled = @"ENABLED";
+
 // GTLRCloudHealthcare_FhirStore.version
 NSString * const kGTLRCloudHealthcare_FhirStore_Version_Dstu2  = @"DSTU2";
 NSString * const kGTLRCloudHealthcare_FhirStore_Version_R4     = @"R4";
@@ -117,6 +122,7 @@ NSString * const kGTLRCloudHealthcare_ParserConfig_Version_V2  = @"V2";
 
 // GTLRCloudHealthcare_SchemaConfig.schemaType
 NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Analytics = @"ANALYTICS";
+NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_AnalyticsV2 = @"ANALYTICS_V2";
 NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecified = @"SCHEMA_TYPE_UNSPECIFIED";
 
 // GTLRCloudHealthcare_SchemaPackage.schematizedParsingType
@@ -858,9 +864,10 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_FhirStore
-@dynamic defaultSearchHandlingStrict, disableReferentialIntegrity,
-         disableResourceVersioning, enableUpdateCreate, labels, name,
-         notificationConfig, streamConfigs, validationConfig, version;
+@dynamic complexDataTypeReferenceParsing, defaultSearchHandlingStrict,
+         disableReferentialIntegrity, disableResourceVersioning,
+         enableUpdateCreate, labels, name, notificationConfig, streamConfigs,
+         validationConfig, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
