@@ -134,6 +134,43 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Invalidates an existing ApprovalRequest. Returns the updated
+ *  ApprovalRequest. NOTE: This does not deny access to the resource if another
+ *  request has been made and approved. It only invalidates a single approval.
+ *  Returns FAILED_PRECONDITION if the request exists but is not in an approved
+ *  state.
+ *
+ *  Method: accessapproval.folders.approvalRequests.invalidate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
+ */
+@interface GTLRAccessApprovalQuery_FoldersApprovalRequestsInvalidate : GTLRAccessApprovalQuery
+
+/** Name of the ApprovalRequest to invalidate. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAccessApproval_ApprovalRequest.
+ *
+ *  Invalidates an existing ApprovalRequest. Returns the updated
+ *  ApprovalRequest. NOTE: This does not deny access to the resource if another
+ *  request has been made and approved. It only invalidates a single approval.
+ *  Returns FAILED_PRECONDITION if the request exists but is not in an approved
+ *  state.
+ *
+ *  @param object The @c GTLRAccessApproval_InvalidateApprovalRequestMessage to
+ *    include in the query.
+ *  @param name Name of the ApprovalRequest to invalidate.
+ *
+ *  @return GTLRAccessApprovalQuery_FoldersApprovalRequestsInvalidate
+ */
++ (instancetype)queryWithObject:(GTLRAccessApproval_InvalidateApprovalRequestMessage *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Lists approval requests associated with a project, folder, or organization.
  *  Approval requests can be filtered by state (pending, active, dismissed). The
  *  order is reverse chronological.
@@ -435,6 +472,43 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Invalidates an existing ApprovalRequest. Returns the updated
+ *  ApprovalRequest. NOTE: This does not deny access to the resource if another
+ *  request has been made and approved. It only invalidates a single approval.
+ *  Returns FAILED_PRECONDITION if the request exists but is not in an approved
+ *  state.
+ *
+ *  Method: accessapproval.organizations.approvalRequests.invalidate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
+ */
+@interface GTLRAccessApprovalQuery_OrganizationsApprovalRequestsInvalidate : GTLRAccessApprovalQuery
+
+/** Name of the ApprovalRequest to invalidate. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAccessApproval_ApprovalRequest.
+ *
+ *  Invalidates an existing ApprovalRequest. Returns the updated
+ *  ApprovalRequest. NOTE: This does not deny access to the resource if another
+ *  request has been made and approved. It only invalidates a single approval.
+ *  Returns FAILED_PRECONDITION if the request exists but is not in an approved
+ *  state.
+ *
+ *  @param object The @c GTLRAccessApproval_InvalidateApprovalRequestMessage to
+ *    include in the query.
+ *  @param name Name of the ApprovalRequest to invalidate.
+ *
+ *  @return GTLRAccessApprovalQuery_OrganizationsApprovalRequestsInvalidate
+ */
++ (instancetype)queryWithObject:(GTLRAccessApproval_InvalidateApprovalRequestMessage *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Lists approval requests associated with a project, folder, or organization.
  *  Approval requests can be filtered by state (pending, active, dismissed). The
  *  order is reverse chronological.
@@ -732,6 +806,43 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRAccessApprovalQuery_ProjectsApprovalRequestsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Invalidates an existing ApprovalRequest. Returns the updated
+ *  ApprovalRequest. NOTE: This does not deny access to the resource if another
+ *  request has been made and approved. It only invalidates a single approval.
+ *  Returns FAILED_PRECONDITION if the request exists but is not in an approved
+ *  state.
+ *
+ *  Method: accessapproval.projects.approvalRequests.invalidate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
+ */
+@interface GTLRAccessApprovalQuery_ProjectsApprovalRequestsInvalidate : GTLRAccessApprovalQuery
+
+/** Name of the ApprovalRequest to invalidate. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAccessApproval_ApprovalRequest.
+ *
+ *  Invalidates an existing ApprovalRequest. Returns the updated
+ *  ApprovalRequest. NOTE: This does not deny access to the resource if another
+ *  request has been made and approved. It only invalidates a single approval.
+ *  Returns FAILED_PRECONDITION if the request exists but is not in an approved
+ *  state.
+ *
+ *  @param object The @c GTLRAccessApproval_InvalidateApprovalRequestMessage to
+ *    include in the query.
+ *  @param name Name of the ApprovalRequest to invalidate.
+ *
+ *  @return GTLRAccessApprovalQuery_ProjectsApprovalRequestsInvalidate
+ */
++ (instancetype)queryWithObject:(GTLRAccessApproval_InvalidateApprovalRequestMessage *)object
+                           name:(NSString *)name;
 
 @end
 

@@ -1308,6 +1308,25 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_IndexUnusedReason
+//
+
+@implementation GTLRBigquery_IndexUnusedReason
+@dynamic baseTable, code, indexName, message;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"baseTable" : @"base_table",
+    @"indexName" : @"index_name"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_IntArray
 //
 
@@ -1672,8 +1691,8 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
          estimatedBytesProcessed, mlStatistics, modelTraining,
          modelTrainingCurrentIteration, modelTrainingExpectedTotalIteration,
          numDmlAffectedRows, queryPlan, referencedRoutines, referencedTables,
-         reservationUsage, schema, statementType, timeline, totalBytesBilled,
-         totalBytesProcessed, totalBytesProcessedAccuracy,
+         reservationUsage, schema, searchStatistics, statementType, timeline,
+         totalBytesBilled, totalBytesProcessed, totalBytesProcessedAccuracy,
          totalPartitionsProcessed, totalSlotMs, undeclaredQueryParameters;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -2239,7 +2258,8 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 //
 
 @implementation GTLRBigquery_QueryTimelineSample
-@dynamic activeUnits, completedUnits, elapsedMs, pendingUnits, totalSlotMs;
+@dynamic activeUnits, completedUnits, elapsedMs, estimatedRunnableUnits,
+         pendingUnits, totalSlotMs;
 @end
 
 
@@ -2433,6 +2453,24 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_SearchStatistics
+//
+
+@implementation GTLRBigquery_SearchStatistics
+@dynamic indexUnusedReason, indexUsageMode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"indexUnusedReason" : [GTLRBigquery_IndexUnusedReason class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_SessionInfo
 //
 
@@ -2554,7 +2592,7 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 @dynamic cloneDefinition, clustering, creationTime, defaultCollation,
          descriptionProperty, encryptionConfiguration, ETag, expirationTime,
          externalDataConfiguration, friendlyName, identifier, kind, labels,
-         lastModifiedTime, location, materializedView, model,
+         lastModifiedTime, location, materializedView, maxStaleness, model,
          numActiveLogicalBytes, numActivePhysicalBytes, numLongTermLogicalBytes,
          numLongTermPhysicalBytes, numPartitions, numTimeTravelPhysicalBytes,
          numTotalLogicalBytes, numTotalPhysicalBytes, numBytes,
@@ -2927,12 +2965,14 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
          kmeansInitializationColumn, kmeansInitializationMethod,
          l1Regularization, l2Regularization, labelClassWeights, learnRate,
          learnRateStrategy, lossType, maxIterations, maxParallelTrials,
-         maxTreeDepth, minRelativeProgress, minSplitLoss, minTreeChildWeight,
-         modelUri, nonSeasonalOrder, numClusters, numFactors, numParallelTree,
-         numTrials, optimizationStrategy, preserveInputStructs,
-         sampledShapleyNumPaths, subsample, timeSeriesDataColumn,
-         timeSeriesIdColumn, timeSeriesIdColumns, timeSeriesTimestampColumn,
-         treeMethod, userColumn, walsAlpha, warmStart;
+         maxTimeSeriesLength, maxTreeDepth, minRelativeProgress, minSplitLoss,
+         minTimeSeriesLength, minTreeChildWeight, modelUri, nonSeasonalOrder,
+         numClusters, numFactors, numParallelTree, numTrials,
+         optimizationStrategy, preserveInputStructs, sampledShapleyNumPaths,
+         subsample, timeSeriesDataColumn, timeSeriesIdColumn,
+         timeSeriesIdColumns, timeSeriesLengthFraction,
+         timeSeriesTimestampColumn, treeMethod, trendSmoothingWindowSize,
+         userColumn, walsAlpha, warmStart;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

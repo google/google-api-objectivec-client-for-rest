@@ -22,10 +22,12 @@
 @class GTLRCloudDomains_ContactSettings;
 @class GTLRCloudDomains_CustomDns;
 @class GTLRCloudDomains_DnsSettings;
+@class GTLRCloudDomains_Domain;
 @class GTLRCloudDomains_DsRecord;
 @class GTLRCloudDomains_Expr;
 @class GTLRCloudDomains_GlueRecord;
 @class GTLRCloudDomains_GoogleDomainsDns;
+@class GTLRCloudDomains_ImportDomainRequest_Labels;
 @class GTLRCloudDomains_Location;
 @class GTLRCloudDomains_Location_Labels;
 @class GTLRCloudDomains_Location_Metadata;
@@ -133,6 +135,52 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ContactSettings_Privacy_Pub
  *  Value: "REDACTED_CONTACT_DATA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ContactSettings_Privacy_RedactedContactData;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDomains_Domain.resourceState
+
+/**
+ *  A `Registration` resource cannot be created for this domain because it is
+ *  deleted, but can be restored with Google Domains.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Domain_ResourceState_Deleted;
+/**
+ *  A `Registration` resource cannot be created for this domain because it is
+ *  expired and needs to be renewed with Google Domains.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Domain_ResourceState_Expired;
+/**
+ *  A `Registration` resource can be created for this domain by calling
+ *  `ImportDomain`.
+ *
+ *  Value: "IMPORTABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Domain_ResourceState_Importable;
+/**
+ *  The assessment is undefined.
+ *
+ *  Value: "RESOURCE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Domain_ResourceState_ResourceStateUnspecified;
+/**
+ *  A `Registration` resource cannot be created for this domain because it is
+ *  suspended and needs to be resolved with Google Domains.
+ *
+ *  Value: "SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Domain_ResourceState_Suspended;
+/**
+ *  A `Registration` resource cannot be created for this domain because it is
+ *  not supported by Cloud Domains; for example, the top-level domain is not
+ *  supported or the registry charges non-standard pricing for yearly renewals.
+ *
+ *  Value: "UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Domain_ResourceState_Unsupported;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDomains_DsRecord.algorithm
@@ -512,6 +560,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_Issues_IssueUn
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_Issues_UnverifiedEmail;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudDomains_Registration.registerFailureReason
+
+/**
+ *  The domain is not available for registration.
+ *
+ *  Value: "DOMAIN_NOT_AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_RegisterFailureReason_DomainNotAvailable;
+/**
+ *  The provided contact information was rejected.
+ *
+ *  Value: "INVALID_CONTACTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_RegisterFailureReason_InvalidContacts;
+/**
+ *  Registration failed for an unknown reason.
+ *
+ *  Value: "REGISTER_FAILURE_REASON_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_RegisterFailureReason_RegisterFailureReasonUnknown;
+/**
+ *  Register failure unspecified.
+ *
+ *  Value: "REGISTER_FAILURE_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_RegisterFailureReason_RegisterFailureReasonUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudDomains_Registration.state
 
 /**
@@ -531,6 +607,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_State_Active;
  *  Value: "EXPORTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_State_Exported;
+/**
+ *  The domain is being imported from Google Domains to Cloud Domains.
+ *
+ *  Value: "IMPORT_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_State_ImportPending;
 /**
  *  The domain registration failed. You can delete resources in this state to
  *  allow registration to be retried.
@@ -606,6 +688,82 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPriva
  *  Value: "REDACTED_CONTACT_DATA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPrivacy_RedactedContactData;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDomains_Registration.transferFailureReason
+
+/**
+ *  The domain has a transfer lock with its current registrar which must be
+ *  removed prior to transfer.
+ *
+ *  Value: "DOMAIN_HAS_TRANSFER_LOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_TransferFailureReason_DomainHasTransferLock;
+/**
+ *  The domain is not eligible for transfer due requirements imposed by the
+ *  current registrar or TLD registry.
+ *
+ *  Value: "DOMAIN_NOT_ELIGIBLE_FOR_TRANSFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_TransferFailureReason_DomainNotEligibleForTransfer;
+/**
+ *  The domain is available for registration.
+ *
+ *  Value: "DOMAIN_NOT_REGISTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_TransferFailureReason_DomainNotRegistered;
+/**
+ *  An email confirmation sent to the user was rejected or expired.
+ *
+ *  Value: "EMAIL_CONFIRMATION_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_TransferFailureReason_EmailConfirmationFailure;
+/**
+ *  The authorization code entered is not valid.
+ *
+ *  Value: "INVALID_AUTHORIZATION_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_TransferFailureReason_InvalidAuthorizationCode;
+/**
+ *  The registrant email address cannot be parsed from the domain's current
+ *  public contact data.
+ *
+ *  Value: "INVALID_REGISTRANT_EMAIL_ADDRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_TransferFailureReason_InvalidRegistrantEmailAddress;
+/**
+ *  Another transfer is already pending for this domain. The existing transfer
+ *  attempt must expire or be cancelled in order to proceed.
+ *
+ *  Value: "TRANSFER_ALREADY_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_TransferFailureReason_TransferAlreadyPending;
+/**
+ *  The transfer was cancelled by the domain owner, current registrar, or TLD
+ *  registry.
+ *
+ *  Value: "TRANSFER_CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_TransferFailureReason_TransferCancelled;
+/**
+ *  Transfer failed for an unknown reason.
+ *
+ *  Value: "TRANSFER_FAILURE_REASON_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_TransferFailureReason_TransferFailureReasonUnknown;
+/**
+ *  Transfer failure unspecified.
+ *
+ *  Value: "TRANSFER_FAILURE_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_TransferFailureReason_TransferFailureReasonUnspecified;
+/**
+ *  The transfer was rejected by the current registrar. Contact the current
+ *  registrar for more information.
+ *
+ *  Value: "TRANSFER_REJECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_TransferFailureReason_TransferRejected;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDomains_TransferDomainRequest.contactNotices
@@ -697,8 +855,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  *  "audit_log_configs": [ { "log_type": "DATA_READ" }, { "log_type":
  *  "DATA_WRITE", "exempted_members": [ "user:aliya\@example.com" ] } ] } ] }
  *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
- *  logging. It also exempts jose\@example.com from DATA_READ logging, and
- *  aliya\@example.com from DATA_WRITE logging.
+ *  logging. It also exempts `jose\@example.com` from DATA_READ logging, and
+ *  `aliya\@example.com` from DATA_WRITE logging.
  */
 @interface GTLRCloudDomains_AuditConfig : GTLRObject
 
@@ -779,7 +937,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
 @property(nonatomic, strong, nullable) GTLRCloudDomains_Expr *condition;
 
 /**
- *  Specifies the principals requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Google Cloud resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -1026,6 +1184,49 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
 
 
 /**
+ *  A domain that the calling user manages in Google Domains.
+ */
+@interface GTLRCloudDomains_Domain : GTLRObject
+
+/** The domain name. Unicode domain names are expressed in Punycode format. */
+@property(nonatomic, copy, nullable) NSString *domainName;
+
+/**
+ *  The state of this domain as a `Registration` resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDomains_Domain_ResourceState_Deleted A `Registration`
+ *        resource cannot be created for this domain because it is deleted, but
+ *        can be restored with Google Domains. (Value: "DELETED")
+ *    @arg @c kGTLRCloudDomains_Domain_ResourceState_Expired A `Registration`
+ *        resource cannot be created for this domain because it is expired and
+ *        needs to be renewed with Google Domains. (Value: "EXPIRED")
+ *    @arg @c kGTLRCloudDomains_Domain_ResourceState_Importable A `Registration`
+ *        resource can be created for this domain by calling `ImportDomain`.
+ *        (Value: "IMPORTABLE")
+ *    @arg @c kGTLRCloudDomains_Domain_ResourceState_ResourceStateUnspecified
+ *        The assessment is undefined. (Value: "RESOURCE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDomains_Domain_ResourceState_Suspended A `Registration`
+ *        resource cannot be created for this domain because it is suspended and
+ *        needs to be resolved with Google Domains. (Value: "SUSPENDED")
+ *    @arg @c kGTLRCloudDomains_Domain_ResourceState_Unsupported A
+ *        `Registration` resource cannot be created for this domain because it
+ *        is not supported by Cloud Domains; for example, the top-level domain
+ *        is not supported or the registry charges non-standard pricing for
+ *        yearly renewals. (Value: "UNSUPPORTED")
+ */
+@property(nonatomic, copy, nullable) NSString *resourceState;
+
+/**
+ *  Price to renew the domain for one year. Only set when `resource_state` is
+ *  `IMPORTABLE`.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDomains_Money *yearlyPrice;
+
+@end
+
+
+/**
  *  Defines a Delegation Signer (DS) record, which is needed to enable DNSSEC
  *  for a domain. It contains a digest (hash) of a DNSKEY record that must be
  *  present in the domain's DNS zone.
@@ -1232,6 +1433,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *nameServers;
 
+@end
+
+
+/**
+ *  Request for the `ImportDomain` method.
+ */
+@interface GTLRCloudDomains_ImportDomainRequest : GTLRObject
+
+/**
+ *  Required. The domain name. Unicode domain names must be expressed in
+ *  Punycode format.
+ */
+@property(nonatomic, copy, nullable) NSString *domainName;
+
+/** Set of labels associated with the `Registration`. */
+@property(nonatomic, strong, nullable) GTLRCloudDomains_ImportDomainRequest_Labels *labels;
+
+@end
+
+
+/**
+ *  Set of labels associated with the `Registration`.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDomains_ImportDomainRequest_Labels : GTLRObject
 @end
 
 
@@ -1852,7 +2082,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  *  another registrar. First, go to the current registrar to unlock the domain
  *  for transfer and retrieve the domain's transfer authorization code. Then
  *  call `RetrieveTransferParameters` to confirm that the domain is unlocked and
- *  to get values needed to build a call to `TransferDomain`.
+ *  to get values needed to build a call to `TransferDomain`. Finally, you can
+ *  create a new `Registration` by importing an existing domain managed with
+ *  [Google Domains](https://domains.google/). First, call
+ *  `RetrieveImportableDomains` to list domains to which the calling user has
+ *  sufficient access. Then call `ImportDomain` on any domain names you want to
+ *  use with Cloud Domains.
  */
 @interface GTLRCloudDomains_Registration : GTLRObject
 
@@ -1915,6 +2150,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
 @property(nonatomic, strong, nullable) GTLRCloudDomains_ContactSettings *pendingContactSettings;
 
 /**
+ *  Output only. The reason the domain registration failed. Only set for domains
+ *  in REGISTRATION_FAILED state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDomains_Registration_RegisterFailureReason_DomainNotAvailable
+ *        The domain is not available for registration. (Value:
+ *        "DOMAIN_NOT_AVAILABLE")
+ *    @arg @c kGTLRCloudDomains_Registration_RegisterFailureReason_InvalidContacts
+ *        The provided contact information was rejected. (Value:
+ *        "INVALID_CONTACTS")
+ *    @arg @c kGTLRCloudDomains_Registration_RegisterFailureReason_RegisterFailureReasonUnknown
+ *        Registration failed for an unknown reason. (Value:
+ *        "REGISTER_FAILURE_REASON_UNKNOWN")
+ *    @arg @c kGTLRCloudDomains_Registration_RegisterFailureReason_RegisterFailureReasonUnspecified
+ *        Register failure unspecified. (Value:
+ *        "REGISTER_FAILURE_REASON_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *registerFailureReason;
+
+/**
  *  Output only. The state of the `Registration`
  *
  *  Likely values:
@@ -1928,6 +2183,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  *        this API, and information shown about it may be stale. Domains in this
  *        state are not automatically renewed by Cloud Domains. (Value:
  *        "EXPORTED")
+ *    @arg @c kGTLRCloudDomains_Registration_State_ImportPending The domain is
+ *        being imported from Google Domains to Cloud Domains. (Value:
+ *        "IMPORT_PENDING")
  *    @arg @c kGTLRCloudDomains_Registration_State_RegistrationFailed The domain
  *        registration failed. You can delete resources in this state to allow
  *        registration to be retried. (Value: "REGISTRATION_FAILED")
@@ -1954,6 +2212,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedPrivacy;
 
+/**
+ *  Output only. The reason the domain transfer failed. Only set for domains in
+ *  TRANSFER_FAILED state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDomains_Registration_TransferFailureReason_DomainHasTransferLock
+ *        The domain has a transfer lock with its current registrar which must
+ *        be removed prior to transfer. (Value: "DOMAIN_HAS_TRANSFER_LOCK")
+ *    @arg @c kGTLRCloudDomains_Registration_TransferFailureReason_DomainNotEligibleForTransfer
+ *        The domain is not eligible for transfer due requirements imposed by
+ *        the current registrar or TLD registry. (Value:
+ *        "DOMAIN_NOT_ELIGIBLE_FOR_TRANSFER")
+ *    @arg @c kGTLRCloudDomains_Registration_TransferFailureReason_DomainNotRegistered
+ *        The domain is available for registration. (Value:
+ *        "DOMAIN_NOT_REGISTERED")
+ *    @arg @c kGTLRCloudDomains_Registration_TransferFailureReason_EmailConfirmationFailure
+ *        An email confirmation sent to the user was rejected or expired.
+ *        (Value: "EMAIL_CONFIRMATION_FAILURE")
+ *    @arg @c kGTLRCloudDomains_Registration_TransferFailureReason_InvalidAuthorizationCode
+ *        The authorization code entered is not valid. (Value:
+ *        "INVALID_AUTHORIZATION_CODE")
+ *    @arg @c kGTLRCloudDomains_Registration_TransferFailureReason_InvalidRegistrantEmailAddress
+ *        The registrant email address cannot be parsed from the domain's
+ *        current public contact data. (Value:
+ *        "INVALID_REGISTRANT_EMAIL_ADDRESS")
+ *    @arg @c kGTLRCloudDomains_Registration_TransferFailureReason_TransferAlreadyPending
+ *        Another transfer is already pending for this domain. The existing
+ *        transfer attempt must expire or be cancelled in order to proceed.
+ *        (Value: "TRANSFER_ALREADY_PENDING")
+ *    @arg @c kGTLRCloudDomains_Registration_TransferFailureReason_TransferCancelled
+ *        The transfer was cancelled by the domain owner, current registrar, or
+ *        TLD registry. (Value: "TRANSFER_CANCELLED")
+ *    @arg @c kGTLRCloudDomains_Registration_TransferFailureReason_TransferFailureReasonUnknown
+ *        Transfer failed for an unknown reason. (Value:
+ *        "TRANSFER_FAILURE_REASON_UNKNOWN")
+ *    @arg @c kGTLRCloudDomains_Registration_TransferFailureReason_TransferFailureReasonUnspecified
+ *        Transfer failure unspecified. (Value:
+ *        "TRANSFER_FAILURE_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDomains_Registration_TransferFailureReason_TransferRejected
+ *        The transfer was rejected by the current registrar. Contact the
+ *        current registrar for more information. (Value: "TRANSFER_REJECTED")
+ */
+@property(nonatomic, copy, nullable) NSString *transferFailureReason;
+
 @end
 
 
@@ -1973,6 +2275,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  *  Request for the `ResetAuthorizationCode` method.
  */
 @interface GTLRCloudDomains_ResetAuthorizationCodeRequest : GTLRObject
+@end
+
+
+/**
+ *  Response for the `RetrieveImportableDomains` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "domains" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudDomains_RetrieveImportableDomainsResponse : GTLRCollectionObject
+
+/**
+ *  A list of domains that the calling user manages in Google Domains.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDomains_Domain *> *domains;
+
+/**
+ *  When present, there are more results to retrieve. Set `page_token` to this
+ *  value on a subsequent call to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
 @end
 
 
@@ -2017,7 +2346,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
  *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
- *  but certain Cloud Platform services (such as Projects) might reject them.
+ *  but certain Google Cloud services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDomains_Policy *policy;
 
@@ -2085,7 +2414,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
  *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
@@ -2156,6 +2485,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
 
 /** The registrar that currently manages the domain. */
 @property(nonatomic, copy, nullable) NSString *currentRegistrar;
+
+/** The URL of registrar that currently manages the domain. */
+@property(nonatomic, copy, nullable) NSString *currentRegistrarUri;
 
 /** The domain name. Unicode domain names are expressed in Punycode format. */
 @property(nonatomic, copy, nullable) NSString *domainName;

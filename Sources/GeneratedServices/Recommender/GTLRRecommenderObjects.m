@@ -152,6 +152,60 @@ NSString * const kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInf
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRRecommender_GoogleCloudRecommenderV1InsightTypeConfig
+//
+
+@implementation GTLRRecommender_GoogleCloudRecommenderV1InsightTypeConfig
+@dynamic annotations, displayName, ETag, insightTypeGenerationConfig, name,
+         revisionId, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecommender_GoogleCloudRecommenderV1InsightTypeConfig_Annotations
+//
+
+@implementation GTLRRecommender_GoogleCloudRecommenderV1InsightTypeConfig_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecommender_GoogleCloudRecommenderV1InsightTypeGenerationConfig
+//
+
+@implementation GTLRRecommender_GoogleCloudRecommenderV1InsightTypeGenerationConfig
+@dynamic params;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecommender_GoogleCloudRecommenderV1InsightTypeGenerationConfig_Params
+//
+
+@implementation GTLRRecommender_GoogleCloudRecommenderV1InsightTypeGenerationConfig_Params
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRRecommender_GoogleCloudRecommenderV1ListInsightsResponse
 //
 
@@ -457,6 +511,60 @@ NSString * const kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInf
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig
+//
+
+@implementation GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig
+@dynamic annotations, displayName, ETag, name, recommenderGenerationConfig,
+         revisionId, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig_Annotations
+//
+
+@implementation GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecommender_GoogleCloudRecommenderV1RecommenderGenerationConfig
+//
+
+@implementation GTLRRecommender_GoogleCloudRecommenderV1RecommenderGenerationConfig
+@dynamic params;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecommender_GoogleCloudRecommenderV1RecommenderGenerationConfig_Params
+//
+
+@implementation GTLRRecommender_GoogleCloudRecommenderV1RecommenderGenerationConfig_Params
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

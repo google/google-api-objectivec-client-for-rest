@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DoubleClick Bid Manager API (doubleclickbidmanager/v1.1)
+//   DoubleClick Bid Manager API (doubleclickbidmanager/v2)
 // Description:
 //   DoubleClick Bid Manager API allows users to manage and create campaigns and
 //   reports.
@@ -17,9 +17,7 @@
 
 @end
 
-@implementation GTLRDoubleClickBidManagerQuery_QueriesCreatequery
-
-@dynamic asynchronous;
+@implementation GTLRDoubleClickBidManagerQuery_QueriesCreate
 
 + (instancetype)queryWithObject:(GTLRDoubleClickBidManager_Query *)object {
   if (object == nil) {
@@ -28,76 +26,118 @@
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"query";
-  GTLRDoubleClickBidManagerQuery_QueriesCreatequery *query =
+  NSString *pathURITemplate = @"queries";
+  GTLRDoubleClickBidManagerQuery_QueriesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
   query.expectedObjectClass = [GTLRDoubleClickBidManager_Query class];
-  query.loggingName = @"doubleclickbidmanager.queries.createquery";
+  query.loggingName = @"doubleclickbidmanager.queries.create";
   return query;
 }
 
 @end
 
-@implementation GTLRDoubleClickBidManagerQuery_QueriesDeletequery
+@implementation GTLRDoubleClickBidManagerQuery_QueriesDelete
 
 @dynamic queryId;
 
 + (instancetype)queryWithQueryId:(long long)queryId {
   NSArray *pathParams = @[ @"queryId" ];
-  NSString *pathURITemplate = @"query/{queryId}";
-  GTLRDoubleClickBidManagerQuery_QueriesDeletequery *query =
+  NSString *pathURITemplate = @"queries/{queryId}";
+  GTLRDoubleClickBidManagerQuery_QueriesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.queryId = queryId;
-  query.loggingName = @"doubleclickbidmanager.queries.deletequery";
+  query.loggingName = @"doubleclickbidmanager.queries.delete";
   return query;
 }
 
 @end
 
-@implementation GTLRDoubleClickBidManagerQuery_QueriesGetquery
+@implementation GTLRDoubleClickBidManagerQuery_QueriesGet
 
 @dynamic queryId;
 
 + (instancetype)queryWithQueryId:(long long)queryId {
   NSArray *pathParams = @[ @"queryId" ];
-  NSString *pathURITemplate = @"query/{queryId}";
-  GTLRDoubleClickBidManagerQuery_QueriesGetquery *query =
+  NSString *pathURITemplate = @"queries/{queryId}";
+  GTLRDoubleClickBidManagerQuery_QueriesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.queryId = queryId;
   query.expectedObjectClass = [GTLRDoubleClickBidManager_Query class];
-  query.loggingName = @"doubleclickbidmanager.queries.getquery";
+  query.loggingName = @"doubleclickbidmanager.queries.get";
   return query;
 }
 
 @end
 
-@implementation GTLRDoubleClickBidManagerQuery_QueriesListqueries
+@implementation GTLRDoubleClickBidManagerQuery_QueriesList
 
-@dynamic pageSize, pageToken;
+@dynamic orderBy, pageSize, pageToken;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"queries";
-  GTLRDoubleClickBidManagerQuery_QueriesListqueries *query =
+  GTLRDoubleClickBidManagerQuery_QueriesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRDoubleClickBidManager_ListQueriesResponse class];
-  query.loggingName = @"doubleclickbidmanager.queries.listqueries";
+  query.loggingName = @"doubleclickbidmanager.queries.list";
   return query;
 }
 
 @end
 
-@implementation GTLRDoubleClickBidManagerQuery_QueriesRunquery
+@implementation GTLRDoubleClickBidManagerQuery_QueriesReportsGet
 
-@dynamic asynchronous, queryId;
+@dynamic queryId, reportId;
+
++ (instancetype)queryWithQueryId:(long long)queryId
+                        reportId:(long long)reportId {
+  NSArray *pathParams = @[
+    @"queryId", @"reportId"
+  ];
+  NSString *pathURITemplate = @"queries/{queryId}/reports/{reportId}";
+  GTLRDoubleClickBidManagerQuery_QueriesReportsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.queryId = queryId;
+  query.reportId = reportId;
+  query.expectedObjectClass = [GTLRDoubleClickBidManager_Report class];
+  query.loggingName = @"doubleclickbidmanager.queries.reports.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDoubleClickBidManagerQuery_QueriesReportsList
+
+@dynamic orderBy, pageSize, pageToken, queryId;
+
++ (instancetype)queryWithQueryId:(long long)queryId {
+  NSArray *pathParams = @[ @"queryId" ];
+  NSString *pathURITemplate = @"queries/{queryId}/reports";
+  GTLRDoubleClickBidManagerQuery_QueriesReportsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.queryId = queryId;
+  query.expectedObjectClass = [GTLRDoubleClickBidManager_ListReportsResponse class];
+  query.loggingName = @"doubleclickbidmanager.queries.reports.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDoubleClickBidManagerQuery_QueriesRun
+
+@dynamic queryId, synchronous;
 
 + (instancetype)queryWithObject:(GTLRDoubleClickBidManager_RunQueryRequest *)object
                         queryId:(long long)queryId {
@@ -108,33 +148,15 @@
     return nil;
   }
   NSArray *pathParams = @[ @"queryId" ];
-  NSString *pathURITemplate = @"query/{queryId}";
-  GTLRDoubleClickBidManagerQuery_QueriesRunquery *query =
+  NSString *pathURITemplate = @"queries/{queryId}:run";
+  GTLRDoubleClickBidManagerQuery_QueriesRun *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.queryId = queryId;
-  query.loggingName = @"doubleclickbidmanager.queries.runquery";
-  return query;
-}
-
-@end
-
-@implementation GTLRDoubleClickBidManagerQuery_ReportsListreports
-
-@dynamic pageSize, pageToken, queryId;
-
-+ (instancetype)queryWithQueryId:(long long)queryId {
-  NSArray *pathParams = @[ @"queryId" ];
-  NSString *pathURITemplate = @"queries/{queryId}/reports";
-  GTLRDoubleClickBidManagerQuery_ReportsListreports *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.queryId = queryId;
-  query.expectedObjectClass = [GTLRDoubleClickBidManager_ListReportsResponse class];
-  query.loggingName = @"doubleclickbidmanager.reports.listreports";
+  query.expectedObjectClass = [GTLRDoubleClickBidManager_Report class];
+  query.loggingName = @"doubleclickbidmanager.queries.run";
   return query;
 }
 

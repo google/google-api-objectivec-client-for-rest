@@ -615,6 +615,145 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @end
 
 /**
+ *  Gets a maven artifact.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.mavenArtifacts.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesMavenArtifactsGet : GTLRArtifactRegistryQuery
+
+/** Required. The name of the maven artifact. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_MavenArtifact.
+ *
+ *  Gets a maven artifact.
+ *
+ *  @param name Required. The name of the maven artifact.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesMavenArtifactsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists maven artifacts.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.mavenArtifacts.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesMavenArtifactsList : GTLRArtifactRegistryQuery
+
+/** The maximum number of artifacts to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value returned from a previous list request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the parent resource whose maven artifacts will be
+ *  listed.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_ListMavenArtifactsResponse.
+ *
+ *  Lists maven artifacts.
+ *
+ *  @param parent Required. The name of the parent resource whose maven
+ *    artifacts will be listed.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesMavenArtifactsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets a npm package.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.npmPackages.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesNpmPackagesGet : GTLRArtifactRegistryQuery
+
+/** Required. The name of the npm package. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_NpmPackage.
+ *
+ *  Gets a npm package.
+ *
+ *  @param name Required. The name of the npm package.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesNpmPackagesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists npm packages.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.npmPackages.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesNpmPackagesList : GTLRArtifactRegistryQuery
+
+/** The maximum number of artifacts to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value returned from a previous list request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the parent resource whose npm packages will be listed.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_ListNpmPackagesResponse.
+ *
+ *  Lists npm packages.
+ *
+ *  @param parent Required. The name of the parent resource whose npm packages
+ *    will be listed.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesNpmPackagesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Deletes a package and all of its versions and tags. The returned operation
  *  will complete once the package has been deleted.
  *
@@ -1056,6 +1195,76 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  */
 + (instancetype)queryWithObject:(GTLRArtifactRegistry_Repository *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a python package.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.pythonPackages.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPythonPackagesGet : GTLRArtifactRegistryQuery
+
+/** Required. The name of the python package. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_PythonPackage.
+ *
+ *  Gets a python package.
+ *
+ *  @param name Required. The name of the python package.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPythonPackagesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists python packages.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.pythonPackages.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPythonPackagesList : GTLRArtifactRegistryQuery
+
+/** The maximum number of artifacts to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value returned from a previous list request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the parent resource whose python packages will be
+ *  listed.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_ListPythonPackagesResponse.
+ *
+ *  Lists python packages.
+ *
+ *  @param parent Required. The name of the parent resource whose python
+ *    packages will be listed.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPythonPackagesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

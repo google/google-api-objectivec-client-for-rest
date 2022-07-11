@@ -429,6 +429,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_Ok;
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_Pending;
 
 // ----------------------------------------------------------------------------
+// GTLRAppengine_Network.instanceIpMode
+
+/**
+ *  Instances are created with both internal and external IP addresses.
+ *
+ *  Value: "EXTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Network_InstanceIpMode_External;
+/**
+ *  Unspecified is treated as EXTERNAL.
+ *
+ *  Value: "INSTANCE_IP_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Network_InstanceIpMode_InstanceIpModeUnspecified;
+/**
+ *  Instances are created with internal IP addresses only.
+ *
+ *  Value: "INTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Network_InstanceIpMode_Internal;
+
+// ----------------------------------------------------------------------------
 // GTLRAppengine_NetworkSettings.ingressTrafficAllowed
 
 /**
@@ -2402,6 +2424,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  *  environment.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *forwardedPorts;
+
+/**
+ *  The IP mode for instances. Only applicable in the App Engine flexible
+ *  environment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengine_Network_InstanceIpMode_External Instances are
+ *        created with both internal and external IP addresses. (Value:
+ *        "EXTERNAL")
+ *    @arg @c kGTLRAppengine_Network_InstanceIpMode_InstanceIpModeUnspecified
+ *        Unspecified is treated as EXTERNAL. (Value:
+ *        "INSTANCE_IP_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRAppengine_Network_InstanceIpMode_Internal Instances are
+ *        created with internal IP addresses only. (Value: "INTERNAL")
+ */
+@property(nonatomic, copy, nullable) NSString *instanceIpMode;
 
 /**
  *  Tag to apply to the instance during creation. Only applicable in the App

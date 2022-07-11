@@ -29,6 +29,28 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// inputType
+
+/**
+ *  Not specified. Server will return google.rpc.Code.INVALID_ARGUMENT.
+ *
+ *  Value: "INPUT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishInputTypeInputTypeUnspecified;
+/**
+ *  360 Video.
+ *
+ *  Value: "VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishInputTypeVideo;
+/**
+ *  Extensible Device Metadata, http://www.xdm.org
+ *
+ *  Value: "XDM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishInputTypeXdm;
+
+// ----------------------------------------------------------------------------
 // view
 
 /**
@@ -330,6 +352,238 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  @return GTLRStreetViewPublishQuery_PhotosBatchUpdate
  */
 + (instancetype)queryWithObject:(GTLRStreetViewPublish_BatchUpdatePhotosRequest *)object;
+
+@end
+
+/**
+ *  After the client finishes uploading the PhotoSequence with the returned
+ *  UploadRef, CreatePhotoSequence extracts a sequence of 360 photos from a
+ *  video or Extensible Device Metadata (XDM, http://www.xdm.org/) to be
+ *  published to Street View on Google Maps. `CreatePhotoSequence` returns an
+ *  Operation, with the PhotoSequence Id set in the `Operation.name` field. This
+ *  method returns the following error codes: * google.rpc.Code.INVALID_ARGUMENT
+ *  if the request is malformed. * google.rpc.Code.NOT_FOUND if the upload
+ *  reference does not exist.
+ *
+ *  Method: streetviewpublish.photoSequence.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStreetViewPublish
+ */
+@interface GTLRStreetViewPublishQuery_PhotoSequenceCreate : GTLRStreetViewPublishQuery
+
+/**
+ *  Required. The input form of PhotoSequence.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStreetViewPublishInputTypeInputTypeUnspecified Not specified.
+ *        Server will return google.rpc.Code.INVALID_ARGUMENT. (Value:
+ *        "INPUT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRStreetViewPublishInputTypeVideo 360 Video. (Value: "VIDEO")
+ *    @arg @c kGTLRStreetViewPublishInputTypeXdm Extensible Device Metadata,
+ *        http://www.xdm.org (Value: "XDM")
+ */
+@property(nonatomic, copy, nullable) NSString *inputType;
+
+/**
+ *  Fetches a @c GTLRStreetViewPublish_Operation.
+ *
+ *  After the client finishes uploading the PhotoSequence with the returned
+ *  UploadRef, CreatePhotoSequence extracts a sequence of 360 photos from a
+ *  video or Extensible Device Metadata (XDM, http://www.xdm.org/) to be
+ *  published to Street View on Google Maps. `CreatePhotoSequence` returns an
+ *  Operation, with the PhotoSequence Id set in the `Operation.name` field. This
+ *  method returns the following error codes: * google.rpc.Code.INVALID_ARGUMENT
+ *  if the request is malformed. * google.rpc.Code.NOT_FOUND if the upload
+ *  reference does not exist.
+ *
+ *  @param object The @c GTLRStreetViewPublish_PhotoSequence to include in the
+ *    query.
+ *
+ *  @return GTLRStreetViewPublishQuery_PhotoSequenceCreate
+ */
++ (instancetype)queryWithObject:(GTLRStreetViewPublish_PhotoSequence *)object;
+
+@end
+
+/**
+ *  Deletes a PhotoSequence and its metadata. This method returns the following
+ *  error codes: * google.rpc.Code.PERMISSION_DENIED if the requesting user did
+ *  not create the requested photo sequence. * google.rpc.Code.NOT_FOUND if the
+ *  photo sequence ID does not exist. * google.rpc.Code.FAILED_PRECONDITION if
+ *  the photo sequence ID is not yet finished processing.
+ *
+ *  Method: streetviewpublish.photoSequence.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStreetViewPublish
+ */
+@interface GTLRStreetViewPublishQuery_PhotoSequenceDelete : GTLRStreetViewPublishQuery
+
+/** Required. ID of the PhotoSequence. */
+@property(nonatomic, copy, nullable) NSString *sequenceId;
+
+/**
+ *  Fetches a @c GTLRStreetViewPublish_Empty.
+ *
+ *  Deletes a PhotoSequence and its metadata. This method returns the following
+ *  error codes: * google.rpc.Code.PERMISSION_DENIED if the requesting user did
+ *  not create the requested photo sequence. * google.rpc.Code.NOT_FOUND if the
+ *  photo sequence ID does not exist. * google.rpc.Code.FAILED_PRECONDITION if
+ *  the photo sequence ID is not yet finished processing.
+ *
+ *  @param sequenceId Required. ID of the PhotoSequence.
+ *
+ *  @return GTLRStreetViewPublishQuery_PhotoSequenceDelete
+ */
++ (instancetype)queryWithSequenceId:(NSString *)sequenceId;
+
+@end
+
+/**
+ *  Gets the metadata of the specified PhotoSequence via the Operation
+ *  interface. This method returns the following three types of responses: *
+ *  `Operation.done` = false, if the processing of PhotoSequence is not finished
+ *  yet. * `Operation.done` = true and `Operation.error` is populated, if there
+ *  was an error in processing. * `Operation.done` = true and
+ *  `Operation.response` is poulated, which contains a PhotoSequence message.
+ *  This method returns the following error codes: *
+ *  google.rpc.Code.PERMISSION_DENIED if the requesting user did not create the
+ *  requested PhotoSequence. * google.rpc.Code.NOT_FOUND if the requested
+ *  PhotoSequence does not exist.
+ *
+ *  Method: streetviewpublish.photoSequence.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStreetViewPublish
+ */
+@interface GTLRStreetViewPublishQuery_PhotoSequenceGet : GTLRStreetViewPublishQuery
+
+/**
+ *  Optional. The filter expression. For example: `published_status=PUBLISHED`.
+ *  The filters supported are: `published_status`. See
+ *  https://google.aip.dev/160 for more information.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Required. ID of the photo sequence. */
+@property(nonatomic, copy, nullable) NSString *sequenceId;
+
+/**
+ *  Specifies if a download URL for the photo sequence should be returned in
+ *  `download_url` of individual photos in the PhotoSequence response. > Note:
+ *  Currently not implemented.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStreetViewPublishViewBasic Server responses do not include
+ *        the download URL for the photo bytes. The default value. (Value:
+ *        "BASIC")
+ *    @arg @c kGTLRStreetViewPublishViewIncludeDownloadUrl Server responses
+ *        include the download URL for the photo bytes. (Value:
+ *        "INCLUDE_DOWNLOAD_URL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRStreetViewPublish_Operation.
+ *
+ *  Gets the metadata of the specified PhotoSequence via the Operation
+ *  interface. This method returns the following three types of responses: *
+ *  `Operation.done` = false, if the processing of PhotoSequence is not finished
+ *  yet. * `Operation.done` = true and `Operation.error` is populated, if there
+ *  was an error in processing. * `Operation.done` = true and
+ *  `Operation.response` is poulated, which contains a PhotoSequence message.
+ *  This method returns the following error codes: *
+ *  google.rpc.Code.PERMISSION_DENIED if the requesting user did not create the
+ *  requested PhotoSequence. * google.rpc.Code.NOT_FOUND if the requested
+ *  PhotoSequence does not exist.
+ *
+ *  @param sequenceId Required. ID of the photo sequence.
+ *
+ *  @return GTLRStreetViewPublishQuery_PhotoSequenceGet
+ */
++ (instancetype)queryWithSequenceId:(NSString *)sequenceId;
+
+@end
+
+/**
+ *  Lists all the PhotoSequences that belong to the user, in descending
+ *  CreatePhotoSequence timestamp order.
+ *
+ *  Method: streetviewpublish.photoSequences.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStreetViewPublish
+ */
+@interface GTLRStreetViewPublishQuery_PhotoSequencesList : GTLRStreetViewPublishQuery
+
+/**
+ *  Optional. The filter expression. For example: `imagery_type=SPHERICAL`. The
+ *  filters supported are: `imagery_type`, `processing_state`, `min_latitude`,
+ *  `max_latitude`, `min_longitude`, `max_longitude`, and `filename_query`. See
+ *  https://google.aip.dev/160 for more information. Filename queries should
+ *  sent as a Phrase in order to support multple words and special characters by
+ *  adding escaped quotes. Ex: filename_query="example of a phrase.mp4"
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of photo sequences to return. `pageSize` must
+ *  be non-negative. If `pageSize` is zero or is not provided, the default page
+ *  size of 100 is used. The number of photo sequences returned in the response
+ *  may be less than `pageSize` if the number of matches is less than
+ *  `pageSize`. This is currently unimplemented but is in process.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The nextPageToken value returned from a previous
+ *  ListPhotoSequences request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRStreetViewPublish_ListPhotoSequencesResponse.
+ *
+ *  Lists all the PhotoSequences that belong to the user, in descending
+ *  CreatePhotoSequence timestamp order.
+ *
+ *  @return GTLRStreetViewPublishQuery_PhotoSequencesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Creates an upload session to start uploading photo sequence data. The upload
+ *  URL of the returned UploadRef is used to upload the data for the
+ *  `photoSequence`. After the upload is complete, the UploadRef is used with
+ *  CreatePhotoSequence to create the PhotoSequence object entry.
+ *
+ *  Method: streetviewpublish.photoSequence.startUpload
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStreetViewPublish
+ */
+@interface GTLRStreetViewPublishQuery_PhotoSequenceStartUpload : GTLRStreetViewPublishQuery
+
+/**
+ *  Fetches a @c GTLRStreetViewPublish_UploadRef.
+ *
+ *  Creates an upload session to start uploading photo sequence data. The upload
+ *  URL of the returned UploadRef is used to upload the data for the
+ *  `photoSequence`. After the upload is complete, the UploadRef is used with
+ *  CreatePhotoSequence to create the PhotoSequence object entry.
+ *
+ *  @param object The @c GTLRStreetViewPublish_Empty to include in the query.
+ *
+ *  @return GTLRStreetViewPublishQuery_PhotoSequenceStartUpload
+ */
++ (instancetype)queryWithObject:(GTLRStreetViewPublish_Empty *)object;
 
 @end
 

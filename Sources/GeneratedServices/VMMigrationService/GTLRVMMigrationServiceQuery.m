@@ -478,7 +478,7 @@ NSString * const kGTLRVMMigrationServiceViewUtilizationReportViewUnspecified = @
 
 @implementation GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesFetchInventory
 
-@dynamic forceRefresh, source;
+@dynamic forceRefresh, pageSize, pageToken, source;
 
 + (instancetype)queryWithSource:(NSString *)source {
   NSArray *pathParams = @[ @"source" ];
@@ -877,6 +877,44 @@ NSString * const kGTLRVMMigrationServiceViewUtilizationReportViewUnspecified = @
   query.migratingVm = migratingVm;
   query.expectedObjectClass = [GTLRVMMigrationService_Operation class];
   query.loggingName = @"vmmigration.projects.locations.sources.migratingVms.pauseMigration";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsReplicationCyclesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsReplicationCyclesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMMigrationService_ReplicationCycle class];
+  query.loggingName = @"vmmigration.projects.locations.sources.migratingVms.replicationCycles.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsReplicationCyclesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/replicationCycles";
+  GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsReplicationCyclesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMMigrationService_ListReplicationCyclesResponse class];
+  query.loggingName = @"vmmigration.projects.locations.sources.migratingVms.replicationCycles.list";
   return query;
 }
 

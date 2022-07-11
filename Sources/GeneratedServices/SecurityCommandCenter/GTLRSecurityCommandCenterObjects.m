@@ -387,11 +387,57 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_Compliance
+//
+
+@implementation GTLRSecurityCommandCenter_Compliance
+@dynamic ids, standard, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ids" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_Connection
 //
 
 @implementation GTLRSecurityCommandCenter_Connection
 @dynamic destinationIp, destinationPort, protocol, sourceIp, sourcePort;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_Contact
+//
+
+@implementation GTLRSecurityCommandCenter_Contact
+@dynamic email;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_ContactDetails
+//
+
+@implementation GTLRSecurityCommandCenter_ContactDetails
+@dynamic contacts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"contacts" : [GTLRSecurityCommandCenter_Contact class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -431,10 +477,67 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_Detection
+//
+
+@implementation GTLRSecurityCommandCenter_Detection
+@dynamic binary, percentPagesMatched;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_Empty
 //
 
 @implementation GTLRSecurityCommandCenter_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_EnvironmentVariable
+//
+
+@implementation GTLRSecurityCommandCenter_EnvironmentVariable
+@dynamic name, val;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_ExfilResource
+//
+
+@implementation GTLRSecurityCommandCenter_ExfilResource
+@dynamic components, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"components" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_Exfiltration
+//
+
+@implementation GTLRSecurityCommandCenter_Exfiltration
+@dynamic sources, targets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sources" : [GTLRSecurityCommandCenter_ExfilResource class],
+    @"targets" : [GTLRSecurityCommandCenter_ExfilResource class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -455,15 +558,26 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_File
+//
+
+@implementation GTLRSecurityCommandCenter_File
+@dynamic contents, hashedSize, partiallyHashed, path, sha256, size;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_Finding
 //
 
 @implementation GTLRSecurityCommandCenter_Finding
-@dynamic access, canonicalName, category, connections, createTime,
-         descriptionProperty, eventTime, externalSystems, externalUri,
-         findingClass, iamBindings, indicator, mitreAttack, mute, muteInitiator,
-         muteUpdateTime, name, nextSteps, parent, resourceName, securityMarks,
-         severity, sourceProperties, state, vulnerability;
+@dynamic access, canonicalName, category, compliances, connections, contacts,
+         createTime, descriptionProperty, eventTime, exfiltration,
+         externalSystems, externalUri, findingClass, iamBindings, indicator,
+         mitreAttack, mute, muteInitiator, muteUpdateTime, name, nextSteps,
+         parent, processes, resourceName, securityMarks, severity,
+         sourceProperties, state, vulnerability;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -471,10 +585,26 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"compliances" : [GTLRSecurityCommandCenter_Compliance class],
     @"connections" : [GTLRSecurityCommandCenter_Connection class],
-    @"iamBindings" : [GTLRSecurityCommandCenter_IamBinding class]
+    @"iamBindings" : [GTLRSecurityCommandCenter_IamBinding class],
+    @"processes" : [GTLRSecurityCommandCenter_Process class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_Finding_Contacts
+//
+
+@implementation GTLRSecurityCommandCenter_Finding_Contacts
+
++ (Class)classForAdditionalProperties {
+  return [GTLRSecurityCommandCenter_ContactDetails class];
 }
 
 @end
@@ -867,12 +997,13 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 //
 
 @implementation GTLRSecurityCommandCenter_Indicator
-@dynamic domains, ipAddresses;
+@dynamic domains, ipAddresses, signatures;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"domains" : [NSString class],
-    @"ipAddresses" : [NSString class]
+    @"ipAddresses" : [NSString class],
+    @"signatures" : [GTLRSecurityCommandCenter_ProcessSignature class]
   };
   return map;
 }
@@ -1056,6 +1187,24 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_MemoryHashSignature
+//
+
+@implementation GTLRSecurityCommandCenter_MemoryHashSignature
+@dynamic binaryFamily, detections;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"detections" : [GTLRSecurityCommandCenter_Detection class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_MitreAttack
 //
 
@@ -1159,6 +1308,37 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_Process
+//
+
+@implementation GTLRSecurityCommandCenter_Process
+@dynamic args, argumentsTruncated, binary, envVariables, envVariablesTruncated,
+         libraries, name, parentPid, pid, script;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"args" : [NSString class],
+    @"envVariables" : [GTLRSecurityCommandCenter_EnvironmentVariable class],
+    @"libraries" : [GTLRSecurityCommandCenter_File class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_ProcessSignature
+//
+
+@implementation GTLRSecurityCommandCenter_ProcessSignature
+@dynamic memoryHashSignature, yaraRuleSignature;
 @end
 
 
@@ -1375,4 +1555,14 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 
 @implementation GTLRSecurityCommandCenter_Vulnerability
 @dynamic cve;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_YaraRuleSignature
+//
+
+@implementation GTLRSecurityCommandCenter_YaraRuleSignature
+@dynamic yaraRule;
 @end

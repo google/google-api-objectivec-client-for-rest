@@ -209,8 +209,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The list of fields to update. The only currently supported fields are:
- *  `labels` `hyperthreading_enabled`
+ *  The list of fields to update. The currently supported fields are: `labels`
+ *  `hyperthreading_enabled` `os_image`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -488,7 +488,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The list of fields to update. The only currently supported fields are:
- *  `labels`
+ *  `labels`, `reservations`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -613,6 +613,34 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRBareMetalSolution_NfsShare *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Get details about an operation. This method used only to work around CCFE
+ *  lack of passthrough LRO support (b/221498758).
+ *
+ *  Method: baremetalsolution.projects.locations.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsOperationsGet : GTLRBareMetalSolutionQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_Operation.
+ *
+ *  Get details about an operation. This method used only to work around CCFE
+ *  lack of passthrough LRO support (b/221498758).
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -947,8 +975,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The list of fields to update. The only currently supported fields are:
  *  `snapshot_auto_delete_behavior` `snapshot_schedule_policy_name` 'labels'
- *  'requested_size_gib' 'snapshot_enabled'
- *  'snapshot_reservation_detail.reserved_space_percent'
+ *  'snapshot_enabled' 'snapshot_reservation_detail.reserved_space_percent'
  *
  *  String format is a comma-separated list of fields.
  */
@@ -969,6 +996,35 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRBareMetalSolution_Volume *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Emergency Volume resize.
+ *
+ *  Method: baremetalsolution.projects.locations.volumes.resize
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesResize : GTLRBareMetalSolutionQuery
+
+/** Required. Volume to resize. */
+@property(nonatomic, copy, nullable) NSString *volume;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_Operation.
+ *
+ *  Emergency Volume resize.
+ *
+ *  @param object The @c GTLRBareMetalSolution_ResizeVolumeRequest to include in
+ *    the query.
+ *  @param volume Required. Volume to resize.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesResize
+ */
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_ResizeVolumeRequest *)object
+                         volume:(NSString *)volume;
 
 @end
 

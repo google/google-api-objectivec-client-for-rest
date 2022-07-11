@@ -114,6 +114,7 @@ NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_Err
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InvalidWalLevel = @"INVALID_WAL_LEVEL";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_NoPglogicalInstalled = @"NO_PGLOGICAL_INSTALLED";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_PglogicalNodeAlreadyExists = @"PGLOGICAL_NODE_ALREADY_EXISTS";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_TablesWithLimitedSupport = @"TABLES_WITH_LIMITED_SUPPORT";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedDefiner = @"UNSUPPORTED_DEFINER";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedExtensions = @"UNSUPPORTED_EXTENSIONS";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedGtidMode = @"UNSUPPORTED_GTID_MODE";

@@ -23,7 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scope
 
 /**
- *  Authorization scope: Manage your AdWords campaigns
+ *  Authorization scope: See, edit, create, and delete your Google Ads accounts
+ *  and data.
  *
  *  Value "https://www.googleapis.com/auth/adwords"
  */

@@ -250,7 +250,7 @@
 
 @implementation GTLRApigeeRegistryQuery_ProjectsLocationsApisDelete
 
-@dynamic name;
+@dynamic force, name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -1055,7 +1055,7 @@
 
 @implementation GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsDelete
 
-@dynamic name;
+@dynamic force, name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

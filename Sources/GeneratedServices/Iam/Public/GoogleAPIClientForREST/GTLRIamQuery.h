@@ -2170,8 +2170,8 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
- *  Disable a ServiceAccountKey. A disabled service account key can be enabled
- *  through EnableServiceAccountKey.
+ *  Disable a ServiceAccountKey. A disabled service account key can be
+ *  re-enabled with EnableServiceAccountKey.
  *
  *  Method: iam.projects.serviceAccounts.keys.disable
  *
@@ -2192,8 +2192,8 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 /**
  *  Fetches a @c GTLRIam_Empty.
  *
- *  Disable a ServiceAccountKey. A disabled service account key can be enabled
- *  through EnableServiceAccountKey.
+ *  Disable a ServiceAccountKey. A disabled service account key can be
+ *  re-enabled with EnableServiceAccountKey.
  *
  *  @param object The @c GTLRIam_DisableServiceAccountKeyRequest to include in
  *    the query.

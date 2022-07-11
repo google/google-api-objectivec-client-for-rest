@@ -142,6 +142,8 @@
 @class GTLRCompute_DistributionPolicy;
 @class GTLRCompute_DistributionPolicyZoneConfiguration;
 @class GTLRCompute_Duration;
+@class GTLRCompute_ErrorInfo;
+@class GTLRCompute_ErrorInfo_Metadatas;
 @class GTLRCompute_ExchangedPeeringRoute;
 @class GTLRCompute_ExchangedPeeringRoutesList_Warning;
 @class GTLRCompute_ExchangedPeeringRoutesList_Warning_Data_Item;
@@ -202,6 +204,8 @@
 @class GTLRCompute_HealthStatus;
 @class GTLRCompute_HealthStatus_Annotations;
 @class GTLRCompute_HealthStatusForNetworkEndpoint;
+@class GTLRCompute_Help;
+@class GTLRCompute_HelpLink;
 @class GTLRCompute_HostRule;
 @class GTLRCompute_HTTP2HealthCheck;
 @class GTLRCompute_HttpFaultAbort;
@@ -320,9 +324,11 @@
 @class GTLRCompute_LicensesListResponse_Warning;
 @class GTLRCompute_LicensesListResponse_Warning_Data_Item;
 @class GTLRCompute_LocalDisk;
+@class GTLRCompute_LocalizedMessage;
 @class GTLRCompute_LocationPolicy;
 @class GTLRCompute_LocationPolicy_Locations;
 @class GTLRCompute_LocationPolicyLocation;
+@class GTLRCompute_LocationPolicyLocationConstraints;
 @class GTLRCompute_LogConfig;
 @class GTLRCompute_LogConfigCloudAuditOptions;
 @class GTLRCompute_LogConfigCounterOptions;
@@ -347,6 +353,7 @@
 @class GTLRCompute_ManagedInstanceLastAttempt;
 @class GTLRCompute_ManagedInstanceLastAttempt_Errors;
 @class GTLRCompute_ManagedInstanceLastAttempt_Errors_Errors_Item;
+@class GTLRCompute_ManagedInstanceLastAttempt_Errors_Errors_Item_ErrorDetails_Item;
 @class GTLRCompute_ManagedInstanceVersion;
 @class GTLRCompute_Metadata;
 @class GTLRCompute_Metadata_Items_Item;
@@ -427,6 +434,7 @@
 @class GTLRCompute_Operation;
 @class GTLRCompute_Operation_Error;
 @class GTLRCompute_Operation_Error_Errors_Item;
+@class GTLRCompute_Operation_Error_Errors_Item_ErrorDetails_Item;
 @class GTLRCompute_Operation_Warnings_Item;
 @class GTLRCompute_Operation_Warnings_Item_Data_Item;
 @class GTLRCompute_OperationAggregatedList_Items;
@@ -728,6 +736,7 @@
 @class GTLRCompute_UsageExportLocation;
 @class GTLRCompute_VmEndpointNatMappings;
 @class GTLRCompute_VmEndpointNatMappingsInterfaceNatMappings;
+@class GTLRCompute_VmEndpointNatMappingsInterfaceNatMappingsNatRuleMappings;
 @class GTLRCompute_VmEndpointNatMappingsList_Warning;
 @class GTLRCompute_VmEndpointNatMappingsList_Warning_Data_Item;
 @class GTLRCompute_VpnGateway;
@@ -1984,6 +1993,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AllocationSpecificSKUAllocationA
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk_Interface_Scsi;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_AttachedDisk.architecture
+
+/**
+ *  Default value indicating Architecture is not set.
+ *
+ *  Value: "ARCHITECTURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AttachedDisk_Architecture_ArchitectureUnspecified;
+/**
+ *  Machines with architecture ARM64
+ *
+ *  Value: "ARM64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AttachedDisk_Architecture_Arm64;
+/**
+ *  Machines with architecture X86_64
+ *
+ *  Value: "X86_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AttachedDisk_Architecture_X8664;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_AttachedDisk.interface
 
 /** Value: "NVME" */
@@ -2016,6 +2047,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AttachedDisk_Mode_ReadWrite;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AttachedDisk_Type_Persistent;
 /** Value: "SCRATCH" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AttachedDisk_Type_Scratch;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_AttachedDiskInitializeParams.architecture
+
+/**
+ *  Default value indicating Architecture is not set.
+ *
+ *  Value: "ARCHITECTURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AttachedDiskInitializeParams_Architecture_ArchitectureUnspecified;
+/**
+ *  Machines with architecture ARM64
+ *
+ *  Value: "ARM64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AttachedDiskInitializeParams_Architecture_Arm64;
+/**
+ *  Machines with architecture X86_64
+ *
+ *  Value: "X86_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AttachedDiskInitializeParams_Architecture_X8664;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AttachedDiskInitializeParams.onUpdateAction
@@ -4007,6 +4060,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Plan_TwelveMonth;
 
 /** Value: "ACTIVE" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Status_Active;
+/** Value: "CANCELLED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Status_Cancelled;
 /** Value: "CREATING" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Status_Creating;
 /** Value: "EXPIRED" */
@@ -4035,6 +4090,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeN2
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeT2d;
 /** Value: "MEMORY_OPTIMIZED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_MemoryOptimized;
+/** Value: "MEMORY_OPTIMIZED_M3" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedM3;
 /** Value: "TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_TypeUnspecified;
 
@@ -4685,6 +4742,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DeprecationStatus_State_Deleted;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DeprecationStatus_State_Deprecated;
 /** Value: "OBSOLETE" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DeprecationStatus_State_Obsolete;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_Disk.architecture
+
+/**
+ *  Default value indicating Architecture is not set.
+ *
+ *  Value: "ARCHITECTURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Disk_Architecture_ArchitectureUnspecified;
+/**
+ *  Machines with architecture ARM64
+ *
+ *  Value: "ARM64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Disk_Architecture_Arm64;
+/**
+ *  Machines with architecture X86_64
+ *
+ *  Value: "X86_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Disk_Architecture_X8664;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Disk.status
@@ -6715,6 +6794,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_PscConnectionStat
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_PscConnectionStatus_Closed;
 /**
+ *  The connection has been accepted by the producer, but the producer needs to
+ *  take further action before the forwarding rule can serve traffic.
+ *
+ *  Value: "NEEDS_ATTENTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_PscConnectionStatus_NeedsAttention;
+/**
  *  The connection is pending acceptance by the producer.
  *
  *  Value: "PENDING"
@@ -8531,6 +8617,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Cod
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_Image.architecture
+
+/**
+ *  Default value indicating Architecture is not set.
+ *
+ *  Value: "ARCHITECTURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Image_Architecture_ArchitectureUnspecified;
+/**
+ *  Machines with architecture ARM64
+ *
+ *  Value: "ARM64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Image_Architecture_Arm64;
+/**
+ *  Machines with architecture X86_64
+ *
+ *  Value: "X86_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Image_Architecture_X8664;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_Image.sourceType
 
 /** Value: "RAW" */
@@ -8739,6 +8847,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_Undeclare
  *  Value: "UNREACHABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_Instance.keyRevocationActionType
+
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Instance_KeyRevocationActionType_KeyRevocationActionTypeUnspecified;
+/**
+ *  Indicates user chose no operation.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Instance_KeyRevocationActionType_None;
+/**
+ *  Indicates user chose to opt for VM shutdown on key revocation.
+ *
+ *  Value: "STOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Instance_KeyRevocationActionType_Stop;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Instance.privateIpv6GoogleAccess
@@ -10984,6 +11114,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanc
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Verifying;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_InstanceProperties.keyRevocationActionType
+
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceProperties_KeyRevocationActionType_KeyRevocationActionTypeUnspecified;
+/**
+ *  Indicates user chose no operation.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceProperties_KeyRevocationActionType_None;
+/**
+ *  Indicates user chose to opt for VM shutdown on key revocation.
+ *
+ *  Value: "STOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceProperties_KeyRevocationActionType_Stop;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_InstanceProperties.privateIpv6GoogleAccess
 
 /**
@@ -12977,6 +13129,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Cod
  *  Value: "UNREACHABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_LocationPolicy.targetShape
+
+/**
+ *  GCE picks zones for creating VM instances to fulfill the requested number of
+ *  VMs within present resource constraints and to maximize utilization of
+ *  unused zonal reservations. Recommended for batch workloads that do not
+ *  require high availability.
+ *
+ *  Value: "ANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LocationPolicy_TargetShape_Any;
+/**
+ *  GCE always selects a single zone for all the VMs, optimizing for resource
+ *  quotas, available reservations and general capacity. Recommended for batch
+ *  workloads that cannot tollerate distribution over multiple zones. This the
+ *  default shape in Bulk Insert and Capacity Advisor APIs.
+ *
+ *  Value: "ANY_SINGLE_ZONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LocationPolicy_TargetShape_AnySingleZone;
+/**
+ *  GCE prioritizes acquisition of resources, scheduling VMs in zones where
+ *  resources are available while distributing VMs as evenly as possible across
+ *  allowed zones to minimize the impact of zonal failure. Recommended for
+ *  highly available serving workloads.
+ *
+ *  Value: "BALANCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LocationPolicy_TargetShape_Balanced;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_LocationPolicyLocation.preference
@@ -23424,6 +23607,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SavedAttachedDisk_Type_Persisten
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SavedAttachedDisk_Type_Scratch;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_SavedDisk.architecture
+
+/**
+ *  Default value indicating Architecture is not set.
+ *
+ *  Value: "ARCHITECTURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SavedDisk_Architecture_ArchitectureUnspecified;
+/**
+ *  Machines with architecture ARM64
+ *
+ *  Value: "ARM64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SavedDisk_Architecture_Arm64;
+/**
+ *  Machines with architecture X86_64
+ *
+ *  Value: "X86_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SavedDisk_Architecture_X8664;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_SavedDisk.storageBytesStatus
 
 /** Value: "UPDATING" */
@@ -24337,6 +24542,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ServiceAttachmentConnectedEndpoi
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ServiceAttachmentConnectedEndpoint_Status_Closed;
 /**
+ *  The connection has been accepted by the producer, but the producer needs to
+ *  take further action before the forwarding rule can serve traffic.
+ *
+ *  Value: "NEEDS_ATTENTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ServiceAttachmentConnectedEndpoint_Status_NeedsAttention;
+/**
  *  The connection is pending acceptance by the producer.
  *
  *  Value: "PENDING"
@@ -24714,6 +24926,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ShareSettings_ShareType_ShareTyp
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ShareSettings_ShareType_SpecificProjects;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_Snapshot.architecture
+
+/**
+ *  Default value indicating Architecture is not set.
+ *
+ *  Value: "ARCHITECTURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Snapshot_Architecture_ArchitectureUnspecified;
+/**
+ *  Machines with architecture ARM64
+ *
+ *  Value: "ARM64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Snapshot_Architecture_Arm64;
+/**
+ *  Machines with architecture X86_64
+ *
+ *  Value: "X86_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Snapshot_Architecture_X8664;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_Snapshot.status
 
 /**
@@ -24924,6 +25158,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_Undecl
  *  Value: "UNREACHABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_SourceInstanceProperties.keyRevocationActionType
+
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SourceInstanceProperties_KeyRevocationActionType_KeyRevocationActionTypeUnspecified;
+/**
+ *  Indicates user chose no operation.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SourceInstanceProperties_KeyRevocationActionType_None;
+/**
+ *  Indicates user chose to opt for VM shutdown on key revocation.
+ *
+ *  Value: "STOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SourceInstanceProperties_KeyRevocationActionType_Stop;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SslCertificate.type
@@ -30286,6 +30542,90 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsValidateRequest_LoadBalan
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsValidateRequest_LoadBalancingSchemes_LoadBalancingSchemeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_UsableSubnetwork.ipv6AccessType
+
+/**
+ *  VMs on this subnet will be assigned IPv6 addresses that are accessible via
+ *  the Internet, as well as the VPC network.
+ *
+ *  Value: "EXTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetwork_Ipv6AccessType_External;
+/**
+ *  VMs on this subnet will be assigned IPv6 addresses that are only accessible
+ *  over the VPC network.
+ *
+ *  Value: "INTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetwork_Ipv6AccessType_Internal;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_UsableSubnetwork.purpose
+
+/**
+ *  Subnet reserved for Internal HTTP(S) Load Balancing.
+ *
+ *  Value: "INTERNAL_HTTPS_LOAD_BALANCER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetwork_Purpose_InternalHttpsLoadBalancer;
+/**
+ *  Regular user created or automatically created subnet.
+ *
+ *  Value: "PRIVATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetwork_Purpose_Private;
+/**
+ *  Regular user created or automatically created subnet.
+ *
+ *  Value: "PRIVATE_RFC_1918"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetwork_Purpose_PrivateRfc1918;
+/**
+ *  Subnetworks created for Private Service Connect in the producer network.
+ *
+ *  Value: "PRIVATE_SERVICE_CONNECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetwork_Purpose_PrivateServiceConnect;
+/**
+ *  Subnetwork used for Regional Internal/External HTTP(S) Load Balancing.
+ *
+ *  Value: "REGIONAL_MANAGED_PROXY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetwork_Purpose_RegionalManagedProxy;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_UsableSubnetwork.role
+
+/**
+ *  The ACTIVE subnet that is currently used.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetwork_Role_Active;
+/**
+ *  The BACKUP subnet that could be promoted to ACTIVE.
+ *
+ *  Value: "BACKUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetwork_Role_Backup;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_UsableSubnetwork.stackType
+
+/**
+ *  New VMs in this subnet can have both IPv4 and IPv6 addresses.
+ *
+ *  Value: "IPV4_IPV6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetwork_StackType_Ipv4Ipv6;
+/**
+ *  New VMs in this subnet will only be assigned IPv4 addresses.
+ *
+ *  Value: "IPV4_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetwork_StackType_Ipv4Only;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_UsableSubnetworksAggregatedList_Warning.code
 
 /**
@@ -33645,7 +33985,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  This reservation type allows to pre allocate specific instance
- *  configuration. Next ID: 5
+ *  configuration. Next ID: 6
  */
 @interface GTLRCompute_AllocationSpecificSKUReservation : GTLRObject
 
@@ -33680,6 +34020,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  An instance-attached disk resource.
  */
 @interface GTLRCompute_AttachedDisk : GTLRObject
+
+/**
+ *  [Output Only] The architecture of the attached disk. Valid values are ARM64
+ *  or X86_64.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_AttachedDisk_Architecture_ArchitectureUnspecified
+ *        Default value indicating Architecture is not set. (Value:
+ *        "ARCHITECTURE_UNSPECIFIED")
+ *    @arg @c kGTLRCompute_AttachedDisk_Architecture_Arm64 Machines with
+ *        architecture ARM64 (Value: "ARM64")
+ *    @arg @c kGTLRCompute_AttachedDisk_Architecture_X8664 Machines with
+ *        architecture X86_64 (Value: "X86_64")
+ */
+@property(nonatomic, copy, nullable) NSString *architecture;
 
 /**
  *  Specifies whether the disk will be auto-deleted when the instance is deleted
@@ -33829,6 +34184,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  can only define one or the other, but not both.
  */
 @interface GTLRCompute_AttachedDiskInitializeParams : GTLRObject
+
+/**
+ *  The architecture of the attached disk. Valid values are arm64 or x86_64.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_AttachedDiskInitializeParams_Architecture_ArchitectureUnspecified
+ *        Default value indicating Architecture is not set. (Value:
+ *        "ARCHITECTURE_UNSPECIFIED")
+ *    @arg @c kGTLRCompute_AttachedDiskInitializeParams_Architecture_Arm64
+ *        Machines with architecture ARM64 (Value: "ARM64")
+ *    @arg @c kGTLRCompute_AttachedDiskInitializeParams_Architecture_X8664
+ *        Machines with architecture X86_64 (Value: "X86_64")
+ */
+@property(nonatomic, copy, nullable) NSString *architecture;
 
 /**
  *  An optional description. Provide this property when creating the disk.
@@ -35795,9 +36164,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  internal HTTP(S) load balancers and Traffic Director and requires
  *  GENERATED_COOKIE or HTTP_COOKIE session affinity. If set to 0, the cookie is
  *  non-persistent and lasts only until the end of the browser session (or
- *  equivalent). The maximum allowed value is one day (86,400). Not supported
- *  when the backend service is referenced by a URL map that is bound to target
- *  gRPC proxy that has validateForProxyless field set to true.
+ *  equivalent). The maximum allowed value is two weeks (1,209,600). Not
+ *  supported when the backend service is referenced by a URL map that is bound
+ *  to target gRPC proxy that has validateForProxyless field set to true.
  *
  *  Uses NSNumber of intValue.
  */
@@ -37080,7 +37449,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  service. The value of the field must be in [0, 1]. This configures the
  *  sampling rate of requests to the load balancer where 1.0 means all logged
  *  requests are reported and 0.0 means no logged requests are reported. The
- *  default value is 1.0.
+ *  default value is 0.0.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -37952,6 +38321,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Commitment_Status_Active Value "ACTIVE"
+ *    @arg @c kGTLRCompute_Commitment_Status_Cancelled Value "CANCELLED"
  *    @arg @c kGTLRCompute_Commitment_Status_Creating Value "CREATING"
  *    @arg @c kGTLRCompute_Commitment_Status_Expired Value "EXPIRED"
  *    @arg @c kGTLRCompute_Commitment_Status_NotYetActive Value "NOT_YET_ACTIVE"
@@ -37986,6 +38356,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "GENERAL_PURPOSE_T2D"
  *    @arg @c kGTLRCompute_Commitment_Type_MemoryOptimized Value
  *        "MEMORY_OPTIMIZED"
+ *    @arg @c kGTLRCompute_Commitment_Type_MemoryOptimizedM3 Value
+ *        "MEMORY_OPTIMIZED_M3"
  *    @arg @c kGTLRCompute_Commitment_Type_TypeUnspecified Value
  *        "TYPE_UNSPECIFIED"
  */
@@ -38850,6 +39222,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  information, read Regional resources.
  */
 @interface GTLRCompute_Disk : GTLRObject
+
+/**
+ *  The architecture of the disk. Valid values are ARM64 or X86_64.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Disk_Architecture_ArchitectureUnspecified Default
+ *        value indicating Architecture is not set. (Value:
+ *        "ARCHITECTURE_UNSPECIFIED")
+ *    @arg @c kGTLRCompute_Disk_Architecture_Arm64 Machines with architecture
+ *        ARM64 (Value: "ARM64")
+ *    @arg @c kGTLRCompute_Disk_Architecture_X8664 Machines with architecture
+ *        X86_64 (Value: "X86_64")
+ */
+@property(nonatomic, copy, nullable) NSString *architecture;
 
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
@@ -40475,6 +40861,69 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, strong, nullable) NSNumber *seconds;
 
+@end
+
+
+/**
+ *  Describes the cause of the error with structured details. Example of an
+ *  error when contacting the "pubsub.googleapis.com" API when it is not
+ *  enabled: { "reason": "API_DISABLED" "domain": "googleapis.com" "metadata": {
+ *  "resource": "projects/123", "service": "pubsub.googleapis.com" } } This
+ *  response indicates that the pubsub.googleapis.com API is not enabled.
+ *  Example of an error that is returned when attempting to create a Spanner
+ *  instance in a region that is out of stock: { "reason": "STOCKOUT" "domain":
+ *  "spanner.googleapis.com", "metadata": { "availableRegions":
+ *  "us-central1,us-east2" } }
+ */
+@interface GTLRCompute_ErrorInfo : GTLRObject
+
+/**
+ *  The logical grouping to which the "reason" belongs. The error domain is
+ *  typically the registered service name of the tool or product that generates
+ *  the error. Example: "pubsub.googleapis.com". If the error is generated by
+ *  some common infrastructure, the error domain must be a globally unique value
+ *  that identifies the infrastructure. For Google API infrastructure, the error
+ *  domain is "googleapis.com".
+ */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+/**
+ *  Additional structured details about this error. Keys should match
+ *  /[a-zA-Z0-9-_]/ and be limited to 64 characters in length. When identifying
+ *  the current value of an exceeded limit, the units should be contained in the
+ *  key, not the value. For example, rather than {"instanceLimit":
+ *  "100/request"}, should be returned as, {"instanceLimitPerRequest": "100"},
+ *  if the client exceeds the number of instances that can be created in a
+ *  single (batch) request.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_ErrorInfo_Metadatas *metadatas;
+
+/**
+ *  The reason of the error. This is a constant value that identifies the
+ *  proximate cause of the error. Error reasons are unique within a particular
+ *  domain of errors. This should be at most 63 characters and match
+ *  /[A-Z0-9_]+/.
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+@end
+
+
+/**
+ *  Additional structured details about this error. Keys should match
+ *  /[a-zA-Z0-9-_]/ and be limited to 64 characters in length. When identifying
+ *  the current value of an exceeded limit, the units should be contained in the
+ *  key, not the value. For example, rather than {"instanceLimit":
+ *  "100/request"}, should be returned as, {"instanceLimitPerRequest": "100"},
+ *  if the client exceeds the number of instances that can be created in a
+ *  single (batch) request.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_ErrorInfo_Metadatas : GTLRObject
 @end
 
 
@@ -42235,8 +42684,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The IP Version that will be used by this forwarding rule. Valid options are
- *  IPV4 or IPV6. This can only be specified for an external global forwarding
- *  rule.
+ *  IPV4 or IPV6.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_ForwardingRule_IpVersion_Ipv4 Value "IPV4"
@@ -42420,6 +42868,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ForwardingRule_PscConnectionStatus_Closed The
  *        connection has been closed by the producer and will not serve traffic
  *        going forward. (Value: "CLOSED")
+ *    @arg @c kGTLRCompute_ForwardingRule_PscConnectionStatus_NeedsAttention The
+ *        connection has been accepted by the producer, but the producer needs
+ *        to take further action before the forwarding rule can serve traffic.
+ *        (Value: "NEEDS_ATTENTION")
  *    @arg @c kGTLRCompute_ForwardingRule_PscConnectionStatus_Pending The
  *        connection is pending acceptance by the producer. (Value: "PENDING")
  *    @arg @c kGTLRCompute_ForwardingRule_PscConnectionStatus_Rejected The
@@ -43417,8 +43869,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *timeoutSec;
 
 /**
- *  Specifies the type of the healthCheck, either TCP, SSL, HTTP, HTTPS or
- *  HTTP2. Exactly one of the protocol-specific health check field must be
+ *  Specifies the type of the healthCheck, either TCP, SSL, HTTP, HTTPS, HTTP2
+ *  or GRPC. Exactly one of the protocol-specific health check fields must be
  *  specified, which must match type field.
  *
  *  Likely values:
@@ -44414,6 +44866,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "UNKNOWN"
  */
 @property(nonatomic, copy, nullable) NSString *healthState;
+
+@end
+
+
+/**
+ *  Provides links to documentation or for performing an out of band action. For
+ *  example, if a quota check failed with an error indicating the calling
+ *  project hasn't enabled the accessed service, this can contain a URL pointing
+ *  directly to the right place in the developer console to flip the bit.
+ */
+@interface GTLRCompute_Help : GTLRObject
+
+/**
+ *  URL(s) pointing to additional information on handling the current error.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_HelpLink *> *links;
+
+@end
+
+
+/**
+ *  Describes a URL link.
+ */
+@interface GTLRCompute_HelpLink : GTLRObject
+
+/**
+ *  Describes what the link offers.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The URL of the link. */
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -45879,6 +46365,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_Image : GTLRObject
 
 /**
+ *  The architecture of the image. Valid values are ARM64 or X86_64.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Image_Architecture_ArchitectureUnspecified Default
+ *        value indicating Architecture is not set. (Value:
+ *        "ARCHITECTURE_UNSPECIFIED")
+ *    @arg @c kGTLRCompute_Image_Architecture_Arm64 Machines with architecture
+ *        ARM64 (Value: "ARM64")
+ *    @arg @c kGTLRCompute_Image_Architecture_X8664 Machines with architecture
+ *        X86_64 (Value: "X86_64")
+ */
+@property(nonatomic, copy, nullable) NSString *architecture;
+
+/**
  *  Size of the image tar.gz archive stored in Google Cloud Storage (in bytes).
  *
  *  Uses NSNumber of longLongValue.
@@ -46075,8 +46575,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *sourceSnapshotId;
 
 /**
- *  The type of the image used to create this disk. The default and only value
- *  is RAW
+ *  The type of the image used to create this disk. The default and only valid
+ *  value is RAW.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Image_SourceType_Raw Value "RAW"
@@ -46452,6 +46952,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Uses NSNumber of unsignedLongLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  KeyRevocationActionType of the instance. Supported options are "STOP" and
+ *  "NONE". The default value is "NONE" if it is not specified.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Instance_KeyRevocationActionType_KeyRevocationActionTypeUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCompute_Instance_KeyRevocationActionType_None Indicates user
+ *        chose no operation. (Value: "NONE")
+ *    @arg @c kGTLRCompute_Instance_KeyRevocationActionType_Stop Indicates user
+ *        chose to opt for VM shutdown on key revocation. (Value: "STOP")
+ */
+@property(nonatomic, copy, nullable) NSString *keyRevocationActionType;
 
 /**
  *  [Output Only] Type of the resource. Always compute#instance for instances.
@@ -49829,6 +50344,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_AcceleratorConfig *> *guestAccelerators;
 
+/**
+ *  KeyRevocationActionType of the instance. Supported options are "STOP" and
+ *  "NONE". The default value is "NONE" if it is not specified.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InstanceProperties_KeyRevocationActionType_KeyRevocationActionTypeUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCompute_InstanceProperties_KeyRevocationActionType_None
+ *        Indicates user chose no operation. (Value: "NONE")
+ *    @arg @c kGTLRCompute_InstanceProperties_KeyRevocationActionType_Stop
+ *        Indicates user chose to opt for VM shutdown on key revocation. (Value:
+ *        "STOP")
+ */
+@property(nonatomic, copy, nullable) NSString *keyRevocationActionType;
+
 /** Labels to apply to instances that are created from these properties. */
 @property(nonatomic, strong, nullable) GTLRCompute_InstanceProperties_Labels *labels;
 
@@ -53007,6 +53538,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  Provides a localized error message that is safe to return to the user which
+ *  can be attached to an RPC error.
+ */
+@interface GTLRCompute_LocalizedMessage : GTLRObject
+
+/**
+ *  The locale used following the specification defined at
+ *  http://www.rfc-editor.org/rfc/bcp/bcp47.txt. Examples are: "en-US", "fr-CH",
+ *  "es-MX"
+ */
+@property(nonatomic, copy, nullable) NSString *locale;
+
+/** The localized error message in the above locale. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
  *  Configuration for location policy among multiple possible locations (e.g.
  *  preferences for zone selection among zones in a single region).
  */
@@ -53018,6 +53568,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  zones/us-central1-a.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_LocationPolicy_Locations *locations;
+
+/**
+ *  Strategy for distributing VMs across zones in a region.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_LocationPolicy_TargetShape_Any GCE picks zones for
+ *        creating VM instances to fulfill the requested number of VMs within
+ *        present resource constraints and to maximize utilization of unused
+ *        zonal reservations. Recommended for batch workloads that do not
+ *        require high availability. (Value: "ANY")
+ *    @arg @c kGTLRCompute_LocationPolicy_TargetShape_AnySingleZone GCE always
+ *        selects a single zone for all the VMs, optimizing for resource quotas,
+ *        available reservations and general capacity. Recommended for batch
+ *        workloads that cannot tollerate distribution over multiple zones. This
+ *        the default shape in Bulk Insert and Capacity Advisor APIs. (Value:
+ *        "ANY_SINGLE_ZONE")
+ *    @arg @c kGTLRCompute_LocationPolicy_TargetShape_Balanced GCE prioritizes
+ *        acquisition of resources, scheduling VMs in zones where resources are
+ *        available while distributing VMs as evenly as possible across allowed
+ *        zones to minimize the impact of zonal failure. Recommended for highly
+ *        available serving workloads. (Value: "BALANCED")
+ */
+@property(nonatomic, copy, nullable) NSString *targetShape;
 
 @end
 
@@ -53042,6 +53615,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_LocationPolicyLocation : GTLRObject
 
 /**
+ *  Constraints that the caller requires on the result distribution in this
+ *  zone.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_LocationPolicyLocationConstraints *constraints;
+
+/**
  *  Preference for a given location.
  *
  *  Likely values:
@@ -53053,6 +53632,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Default value, unused. (Value: "PREFERENCE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *preference;
+
+@end
+
+
+/**
+ *  Per-zone constraints on location policy for this zone.
+ */
+@interface GTLRCompute_LocationPolicyLocationConstraints : GTLRObject
+
+/**
+ *  Maximum number of items that are allowed to be placed in this zone. The
+ *  value must be non-negative.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxCount;
 
 @end
 
@@ -54347,6 +54942,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *code;
 
 /**
+ *  [Output Only] An optional list of messages that contain the error details.
+ *  There is a set of defined message types to use for providing details.The
+ *  syntax depends on the error code. For example, QuotaExceededInfo will have
+ *  details when the error code is QUOTA_EXCEEDED.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_ManagedInstanceLastAttempt_Errors_Errors_Item_ErrorDetails_Item *> *errorDetails;
+
+/**
  *  [Output Only] Indicates the field in the request that caused the error. This
  *  property is optional.
  */
@@ -54354,6 +54957,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] An optional, human-readable error message. */
 @property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_ManagedInstanceLastAttempt_Errors_Errors_Item_ErrorDetails_Item
+ */
+@interface GTLRCompute_ManagedInstanceLastAttempt_Errors_Errors_Item_ErrorDetails_Item : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCompute_ErrorInfo *errorInfo;
+@property(nonatomic, strong, nullable) GTLRCompute_Help *help;
+@property(nonatomic, strong, nullable) GTLRCompute_LocalizedMessage *localizedMessage;
 
 @end
 
@@ -59531,6 +60146,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *code;
 
 /**
+ *  [Output Only] An optional list of messages that contain the error details.
+ *  There is a set of defined message types to use for providing details.The
+ *  syntax depends on the error code. For example, QuotaExceededInfo will have
+ *  details when the error code is QUOTA_EXCEEDED.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_Operation_Error_Errors_Item_ErrorDetails_Item *> *errorDetails;
+
+/**
  *  [Output Only] Indicates the field in the request that caused the error. This
  *  property is optional.
  */
@@ -59560,6 +60183,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_Operation_Error_Errors_Item_ErrorDetails_Item
+ */
+@interface GTLRCompute_Operation_Error_Errors_Item_ErrorDetails_Item : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCompute_ErrorInfo *errorInfo;
+@property(nonatomic, strong, nullable) GTLRCompute_Help *help;
+@property(nonatomic, strong, nullable) GTLRCompute_LocalizedMessage *localizedMessage;
 
 @end
 
@@ -68406,6 +69041,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_SavedDisk : GTLRObject
 
 /**
+ *  [Output Only] The architecture of the attached disk.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_SavedDisk_Architecture_ArchitectureUnspecified
+ *        Default value indicating Architecture is not set. (Value:
+ *        "ARCHITECTURE_UNSPECIFIED")
+ *    @arg @c kGTLRCompute_SavedDisk_Architecture_Arm64 Machines with
+ *        architecture ARM64 (Value: "ARM64")
+ *    @arg @c kGTLRCompute_SavedDisk_Architecture_X8664 Machines with
+ *        architecture X86_64 (Value: "X86_64")
+ */
+@property(nonatomic, copy, nullable) NSString *architecture;
+
+/**
  *  [Output Only] Type of the resource. Always compute#savedDisk for attached
  *  disks.
  */
@@ -68532,8 +69181,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  Defines the maintenance behavior for this instance. For standard instances,
  *  the default behavior is MIGRATE. For preemptible instances, the default and
- *  only possible behavior is TERMINATE. For more information, see Set VM
- *  availability policies.
+ *  only possible behavior is TERMINATE. For more information, see Set VM host
+ *  maintenance policy.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Scheduling_OnHostMaintenance_Migrate *[Default]*
@@ -70112,6 +70761,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        The connection has been accepted by the producer. (Value: "ACCEPTED")
  *    @arg @c kGTLRCompute_ServiceAttachmentConnectedEndpoint_Status_Closed The
  *        connection has been closed by the producer. (Value: "CLOSED")
+ *    @arg @c kGTLRCompute_ServiceAttachmentConnectedEndpoint_Status_NeedsAttention
+ *        The connection has been accepted by the producer, but the producer
+ *        needs to take further action before the forwarding rule can serve
+ *        traffic. (Value: "NEEDS_ATTENTION")
  *    @arg @c kGTLRCompute_ServiceAttachmentConnectedEndpoint_Status_Pending The
  *        connection is pending acceptance by the producer. (Value: "PENDING")
  *    @arg @c kGTLRCompute_ServiceAttachmentConnectedEndpoint_Status_Rejected
@@ -70640,6 +71293,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_Snapshot : GTLRObject
 
 /**
+ *  [Output Only] The architecture of the snapshot. Valid values are ARM64 or
+ *  X86_64.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Snapshot_Architecture_ArchitectureUnspecified Default
+ *        value indicating Architecture is not set. (Value:
+ *        "ARCHITECTURE_UNSPECIFIED")
+ *    @arg @c kGTLRCompute_Snapshot_Architecture_Arm64 Machines with
+ *        architecture ARM64 (Value: "ARM64")
+ *    @arg @c kGTLRCompute_Snapshot_Architecture_X8664 Machines with
+ *        architecture X86_64 (Value: "X86_64")
+ */
+@property(nonatomic, copy, nullable) NSString *architecture;
+
+/**
  *  [Output Only] Set to true if snapshots are automatically created by applying
  *  resource policy on the target disk.
  *
@@ -71106,6 +71774,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  created from this machine image.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_AcceleratorConfig *> *guestAccelerators;
+
+/**
+ *  KeyRevocationActionType of the instance. Supported options are "STOP" and
+ *  "NONE". The default value is "NONE" if it is not specified.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_SourceInstanceProperties_KeyRevocationActionType_KeyRevocationActionTypeUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCompute_SourceInstanceProperties_KeyRevocationActionType_None
+ *        Indicates user chose no operation. (Value: "NONE")
+ *    @arg @c kGTLRCompute_SourceInstanceProperties_KeyRevocationActionType_Stop
+ *        Indicates user chose to opt for VM shutdown on key revocation. (Value:
+ *        "STOP")
+ */
+@property(nonatomic, copy, nullable) NSString *keyRevocationActionType;
 
 /** Labels to apply to instances that are created from this machine image. */
 @property(nonatomic, strong, nullable) GTLRCompute_SourceInstanceProperties_Labels *labels;
@@ -78365,14 +79049,97 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @interface GTLRCompute_UsableSubnetwork : GTLRObject
 
+/**
+ *  [Output Only] The external IPv6 address range that is assigned to this
+ *  subnetwork.
+ */
+@property(nonatomic, copy, nullable) NSString *externalIpv6Prefix;
+
+/**
+ *  [Output Only] The internal IPv6 address range that is assigned to this
+ *  subnetwork.
+ */
+@property(nonatomic, copy, nullable) NSString *internalIpv6Prefix;
+
 /** The range of internal addresses that are owned by this subnetwork. */
 @property(nonatomic, copy, nullable) NSString *ipCidrRange;
+
+/**
+ *  The access type of IPv6 address this subnet holds. It's immutable and can
+ *  only be specified during creation or the first time the subnet is updated
+ *  into IPV4_IPV6 dual stack.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_UsableSubnetwork_Ipv6AccessType_External VMs on this
+ *        subnet will be assigned IPv6 addresses that are accessible via the
+ *        Internet, as well as the VPC network. (Value: "EXTERNAL")
+ *    @arg @c kGTLRCompute_UsableSubnetwork_Ipv6AccessType_Internal VMs on this
+ *        subnet will be assigned IPv6 addresses that are only accessible over
+ *        the VPC network. (Value: "INTERNAL")
+ */
+@property(nonatomic, copy, nullable) NSString *ipv6AccessType;
 
 /** Network URL. */
 @property(nonatomic, copy, nullable) NSString *network;
 
+/**
+ *  The purpose of the resource. This field can be either PRIVATE_RFC_1918 or
+ *  INTERNAL_HTTPS_LOAD_BALANCER. A subnetwork with purpose set to
+ *  INTERNAL_HTTPS_LOAD_BALANCER is a user-created subnetwork that is reserved
+ *  for Internal HTTP(S) Load Balancing. If unspecified, the purpose defaults to
+ *  PRIVATE_RFC_1918. The enableFlowLogs field isn't supported with the purpose
+ *  field set to INTERNAL_HTTPS_LOAD_BALANCER.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_UsableSubnetwork_Purpose_InternalHttpsLoadBalancer
+ *        Subnet reserved for Internal HTTP(S) Load Balancing. (Value:
+ *        "INTERNAL_HTTPS_LOAD_BALANCER")
+ *    @arg @c kGTLRCompute_UsableSubnetwork_Purpose_Private Regular user created
+ *        or automatically created subnet. (Value: "PRIVATE")
+ *    @arg @c kGTLRCompute_UsableSubnetwork_Purpose_PrivateRfc1918 Regular user
+ *        created or automatically created subnet. (Value: "PRIVATE_RFC_1918")
+ *    @arg @c kGTLRCompute_UsableSubnetwork_Purpose_PrivateServiceConnect
+ *        Subnetworks created for Private Service Connect in the producer
+ *        network. (Value: "PRIVATE_SERVICE_CONNECT")
+ *    @arg @c kGTLRCompute_UsableSubnetwork_Purpose_RegionalManagedProxy
+ *        Subnetwork used for Regional Internal/External HTTP(S) Load Balancing.
+ *        (Value: "REGIONAL_MANAGED_PROXY")
+ */
+@property(nonatomic, copy, nullable) NSString *purpose;
+
+/**
+ *  The role of subnetwork. Currently, this field is only used when purpose =
+ *  INTERNAL_HTTPS_LOAD_BALANCER. The value can be set to ACTIVE or BACKUP. An
+ *  ACTIVE subnetwork is one that is currently being used for Internal HTTP(S)
+ *  Load Balancing. A BACKUP subnetwork is one that is ready to be promoted to
+ *  ACTIVE or is currently draining. This field can be updated with a patch
+ *  request.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_UsableSubnetwork_Role_Active The ACTIVE subnet that
+ *        is currently used. (Value: "ACTIVE")
+ *    @arg @c kGTLRCompute_UsableSubnetwork_Role_Backup The BACKUP subnet that
+ *        could be promoted to ACTIVE. (Value: "BACKUP")
+ */
+@property(nonatomic, copy, nullable) NSString *role;
+
 /** Secondary IP ranges. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_UsableSubnetworkSecondaryRange *> *secondaryIpRanges;
+
+/**
+ *  The stack type for the subnet. If set to IPV4_ONLY, new VMs in the subnet
+ *  are assigned IPv4 addresses only. If set to IPV4_IPV6, new VMs in the subnet
+ *  can be assigned both IPv4 and IPv6 addresses. If not specified, IPV4_ONLY is
+ *  used. This field can be both set at resource creation time and updated using
+ *  patch.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_UsableSubnetwork_StackType_Ipv4Ipv6 New VMs in this
+ *        subnet can have both IPv4 and IPv6 addresses. (Value: "IPV4_IPV6")
+ *    @arg @c kGTLRCompute_UsableSubnetwork_StackType_Ipv4Only New VMs in this
+ *        subnet will only be assigned IPv4 addresses. (Value: "IPV4_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *stackType;
 
 /** Subnetwork URL. */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
@@ -78655,6 +79422,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, strong, nullable) NSNumber *numTotalNatPorts;
 
+/** Information about mappings provided by rules in this NAT. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_VmEndpointNatMappingsInterfaceNatMappingsNatRuleMappings *> *ruleMappings;
+
 /**
  *  Alias IP range for this interface endpoint. It will be a private (RFC 1918)
  *  IP range. Examples: "10.33.4.55/32", or "192.168.5.0/24".
@@ -78663,6 +79433,52 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** Primary IP of the VM for this NIC. */
 @property(nonatomic, copy, nullable) NSString *sourceVirtualIp;
+
+@end
+
+
+/**
+ *  Contains information of NAT Mappings provided by a NAT Rule.
+ */
+@interface GTLRCompute_VmEndpointNatMappingsInterfaceNatMappingsNatRuleMappings : GTLRObject
+
+/**
+ *  List of all drain IP:port-range mappings assigned to this interface by this
+ *  rule. These ranges are inclusive, that is, both the first and the last ports
+ *  can be used for NAT. Example: ["2.2.2.2:12345-12355", "1.1.1.1:2234-2234"].
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *drainNatIpPortRanges;
+
+/**
+ *  A list of all IP:port-range mappings assigned to this interface by this
+ *  rule. These ranges are inclusive, that is, both the first and the last ports
+ *  can be used for NAT. Example: ["2.2.2.2:12345-12355", "1.1.1.1:2234-2234"].
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *natIpPortRanges;
+
+/**
+ *  Total number of drain ports across all NAT IPs allocated to this interface
+ *  by this rule. It equals the aggregated port number in the field
+ *  drain_nat_ip_port_ranges.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numTotalDrainNatPorts;
+
+/**
+ *  Total number of ports across all NAT IPs allocated to this interface by this
+ *  rule. It equals the aggregated port number in the field nat_ip_port_ranges.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numTotalNatPorts;
+
+/**
+ *  Rule number of the NAT Rule.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ruleNumber;
 
 @end
 

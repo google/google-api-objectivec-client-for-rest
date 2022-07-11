@@ -50,6 +50,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskConstraintsSupportedCompressionsR
 // threatType
 
 /**
+ *  High Recall Social Engineering list targeting any platform.
+ *
+ *  Value: "HIGH_RECALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypeHighRecall;
+/**
  *  Malware targeting any platform.
  *
  *  Value: "MALWARE"
@@ -77,6 +83,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypeUnwantedSoftware;
 // ----------------------------------------------------------------------------
 // threatTypes
 
+/**
+ *  High Recall Social Engineering list targeting any platform.
+ *
+ *  Value: "HIGH_RECALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesHighRecall;
 /**
  *  Malware targeting any platform.
  *
@@ -154,6 +166,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware;
  *        targeting any platform. (Value: "SOCIAL_ENGINEERING")
  *    @arg @c kGTLRWebRiskThreatTypesUnwantedSoftware Unwanted software
  *        targeting any platform. (Value: "UNWANTED_SOFTWARE")
+ *    @arg @c kGTLRWebRiskThreatTypesHighRecall High Recall Social Engineering
+ *        list targeting any platform. (Value: "HIGH_RECALL")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *threatTypes;
 
@@ -477,6 +491,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware;
  *        targeting any platform. (Value: "SOCIAL_ENGINEERING")
  *    @arg @c kGTLRWebRiskThreatTypeUnwantedSoftware Unwanted software targeting
  *        any platform. (Value: "UNWANTED_SOFTWARE")
+ *    @arg @c kGTLRWebRiskThreatTypeHighRecall High Recall Social Engineering
+ *        list targeting any platform. (Value: "HIGH_RECALL")
  */
 @property(nonatomic, copy, nullable) NSString *threatType;
 
@@ -535,6 +551,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware;
  *        targeting any platform. (Value: "SOCIAL_ENGINEERING")
  *    @arg @c kGTLRWebRiskThreatTypesUnwantedSoftware Unwanted software
  *        targeting any platform. (Value: "UNWANTED_SOFTWARE")
+ *    @arg @c kGTLRWebRiskThreatTypesHighRecall High Recall Social Engineering
+ *        list targeting any platform. (Value: "HIGH_RECALL")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *threatTypes;
 

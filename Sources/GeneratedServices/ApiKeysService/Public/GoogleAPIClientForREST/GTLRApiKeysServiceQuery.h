@@ -303,11 +303,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The field mask specifies which fields to be updated as part of this request.
- *  All other fields are ignored. Mutable fields are:
- *  `display_name`,`restrictions` and `annotations`. If an update mask is not
- *  provided, the service treats it as an implied mask equivalent to all allowed
- *  fields that are set on the wire. If the field mask has a special value "*",
- *  the service treats it equivalent to replace all allowed mutable fields.
+ *  All other fields are ignored. Mutable fields are: `display_name`,
+ *  `restrictions`, and `annotations`. If an update mask is not provided, the
+ *  service treats it as an implied mask equivalent to all allowed fields that
+ *  are set on the wire. If the field mask has a special value "*", the service
+ *  treats it equivalent to replace all allowed mutable fields.
  *
  *  String format is a comma-separated list of fields.
  */

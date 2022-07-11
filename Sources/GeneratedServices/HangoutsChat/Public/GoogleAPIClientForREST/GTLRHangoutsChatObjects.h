@@ -5,8 +5,7 @@
 //   Google Chat API (chat/v1)
 // Description:
 //   Enables apps to fetch information and perform actions in Google Chat.
-//   Authentication using a service account is a prerequisite for using the
-//   Google Chat REST API.
+//   Authentication is a prerequisite for using the Google Chat REST API.
 // Documentation:
 //   https://developers.google.com/hangouts/chat
 
@@ -38,6 +37,7 @@
 @class GTLRHangoutsChat_FormAction;
 @class GTLRHangoutsChat_GoogleAppsCardV1Action;
 @class GTLRHangoutsChat_GoogleAppsCardV1ActionParameter;
+@class GTLRHangoutsChat_GoogleAppsCardV1AppUri;
 @class GTLRHangoutsChat_GoogleAppsCardV1BorderStyle;
 @class GTLRHangoutsChat_GoogleAppsCardV1Button;
 @class GTLRHangoutsChat_GoogleAppsCardV1ButtonList;
@@ -48,12 +48,14 @@
 @class GTLRHangoutsChat_GoogleAppsCardV1DateTimePicker;
 @class GTLRHangoutsChat_GoogleAppsCardV1DecoratedText;
 @class GTLRHangoutsChat_GoogleAppsCardV1Divider;
+@class GTLRHangoutsChat_GoogleAppsCardV1ExtraData;
 @class GTLRHangoutsChat_GoogleAppsCardV1Grid;
 @class GTLRHangoutsChat_GoogleAppsCardV1GridItem;
 @class GTLRHangoutsChat_GoogleAppsCardV1Icon;
 @class GTLRHangoutsChat_GoogleAppsCardV1Image;
 @class GTLRHangoutsChat_GoogleAppsCardV1ImageComponent;
 @class GTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle;
+@class GTLRHangoutsChat_GoogleAppsCardV1Intent;
 @class GTLRHangoutsChat_GoogleAppsCardV1OnClick;
 @class GTLRHangoutsChat_GoogleAppsCardV1OpenLink;
 @class GTLRHangoutsChat_GoogleAppsCardV1Section;
@@ -1996,6 +1998,26 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
+ *  Represents the platform specific uri/intent to open for each client.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1AppUri : GTLRObject
+
+/** An intent object to be opened in the corresponding android hosting app. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Intent *androidIntent;
+
+/**
+ *  A companion uri string to be opened in the chat companion window. on the
+ *  web.
+ */
+@property(nonatomic, copy, nullable) NSString *companionUri;
+
+/** A uri string to be opened in the corresponding iOS hosting app. */
+@property(nonatomic, copy, nullable) NSString *iosUri;
+
+@end
+
+
+/**
  *  Represents the complete border style applied to widgets.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1BorderStyle : GTLRObject
@@ -2333,6 +2355,21 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
+ *  Extra data for an android intent. Valid keys are defined in the hosting app
+ *  contract.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1ExtraData : GTLRObject
+
+/** A key for the intent extra data. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** Value for the given extra data key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  Represents a Grid widget that displays items in a configurable grid layout.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2531,6 +2568,27 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
+ *  Android intent.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1Intent : GTLRObject
+
+/**
+ *  A list of extra data for the android intent. For example, for a calendar
+ *  event edit intent, the event title information can be passed as extra data.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1ExtraData *> *extraData;
+
+/**
+ *  An android intent action string for the {\@link android.content.Intent}
+ *  object. For example: for the view intent action type, a valid value will be
+ *  android.content.Intent.ACTION_VIEW.
+ */
+@property(nonatomic, copy, nullable) NSString *intentAction;
+
+@end
+
+
+/**
  *  Represents the response to an `onClick` event.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1OnClick : GTLRObject
@@ -2559,6 +2617,17 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Represents an `onClick` event that opens a hyperlink.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1OpenLink : GTLRObject
+
+/**
+ *  Represents the platform specific uri/intent to open on each client. For
+ *  example: A companion_url will open in a companion window on the web. An iOS
+ *  URL and android intent will open in the corresponding hosting apps. If these
+ *  platform specific URLs can't be handled correctly, i.e. if the companion
+ *  isn't supported on web and the hosting apps aren't available on the mobile
+ *  platforms then the `uri` will open in a new browser window on all the
+ *  platforms.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1AppUri *appUri;
 
 /**
  *  Whether the client forgets about a link after opening it, or observes it
@@ -3300,9 +3369,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *fallbackText;
 
 /**
- *  Output only. The time at which the message was last updated in Google Chat
- *  server. If the message was never updated, this field will be same as
- *  create_time.
+ *  Output only. The time at which the message was last updated. If the message
+ *  was never updated, this field matches `create_time`.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastUpdateTime;
 

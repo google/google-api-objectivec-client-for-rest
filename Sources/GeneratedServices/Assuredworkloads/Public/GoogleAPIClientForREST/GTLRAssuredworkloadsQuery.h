@@ -333,6 +333,57 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  Restrict the list of resources allowed in the Workload environment. The
+ *  current list of allowed products can be found at
+ *  https://cloud.google.com/assured-workloads/docs/supported-products In
+ *  addition to assuredworkloads.workload.update permission, the user should
+ *  also have orgpolicy.policy.set permission on the folder resource to use this
+ *  functionality.
+ *
+ *  Method: assuredworkloads.organizations.locations.workloads.restrictAllowedResources
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsRestrictAllowedResources : GTLRAssuredworkloadsQuery
+
+/**
+ *  Required. The resource name of the Workload. This is the workloads's
+ *  relative path in the API, formatted as
+ *  "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}".
+ *  For example,
+ *  "organizations/123/locations/us-east1/workloads/assured-workload-1".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesResponse.
+ *
+ *  Restrict the list of resources allowed in the Workload environment. The
+ *  current list of allowed products can be found at
+ *  https://cloud.google.com/assured-workloads/docs/supported-products In
+ *  addition to assuredworkloads.workload.update permission, the user should
+ *  also have orgpolicy.policy.set permission on the folder resource to use this
+ *  functionality.
+ *
+ *  @param object The @c
+ *    GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest
+ *    to include in the query.
+ *  @param name Required. The resource name of the Workload. This is the
+ *    workloads's relative path in the API, formatted as
+ *    "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}".
+ *    For example,
+ *    "organizations/123/locations/us-east1/workloads/assured-workload-1".
+ *
+ *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsRestrictAllowedResources
+ */
++ (instancetype)queryWithObject:(GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest *)object
+                           name:(NSString *)name;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

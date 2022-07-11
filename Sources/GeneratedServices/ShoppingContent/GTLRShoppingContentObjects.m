@@ -5813,9 +5813,10 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_Segments
 @dynamic brand, categoryL1, categoryL2, categoryL3, categoryL4, categoryL5,
-         currencyCode, customLabel0, customLabel1, customLabel2, customLabel3,
-         customLabel4, date, offerId, productTypeL1, productTypeL2,
-         productTypeL3, productTypeL4, productTypeL5, program, title, week;
+         currencyCode, customerCountryCode, customLabel0, customLabel1,
+         customLabel2, customLabel3, customLabel4, date, offerId, productTypeL1,
+         productTypeL2, productTypeL3, productTypeL4, productTypeL5, program,
+         title, week;
 @end
 
 

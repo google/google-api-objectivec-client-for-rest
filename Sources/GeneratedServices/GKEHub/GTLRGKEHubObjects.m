@@ -95,6 +95,11 @@ NSString * const kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_Error
 NSString * const kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_Installed = @"INSTALLED";
 NSString * const kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_NotInstalled = @"NOT_INSTALLED";
 
+// GTLRGKEHub_ConfigManagementPolicyControllerMonitoring.backends
+NSString * const kGTLRGKEHub_ConfigManagementPolicyControllerMonitoring_Backends_CloudMonitoring = @"CLOUD_MONITORING";
+NSString * const kGTLRGKEHub_ConfigManagementPolicyControllerMonitoring_Backends_MonitoringBackendUnspecified = @"MONITORING_BACKEND_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementPolicyControllerMonitoring_Backends_Prometheus = @"PROMETHEUS";
+
 // GTLRGKEHub_ConfigManagementSyncState.code
 NSString * const kGTLRGKEHub_ConfigManagementSyncState_Code_Error = @"ERROR";
 NSString * const kGTLRGKEHub_ConfigManagementSyncState_Code_NotConfigured = @"NOT_CONFIGURED";
@@ -137,6 +142,13 @@ NSString * const kGTLRGKEHub_MembershipState_Code_Deleting     = @"DELETING";
 NSString * const kGTLRGKEHub_MembershipState_Code_Ready        = @"READY";
 NSString * const kGTLRGKEHub_MembershipState_Code_ServiceUpdating = @"SERVICE_UPDATING";
 NSString * const kGTLRGKEHub_MembershipState_Code_Updating     = @"UPDATING";
+
+// GTLRGKEHub_OnPremCluster.clusterType
+NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_Bootstrap = @"BOOTSTRAP";
+NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_ClustertypeUnspecified = @"CLUSTERTYPE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_Hybrid  = @"HYBRID";
+NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_Standalone = @"STANDALONE";
+NSString * const kGTLRGKEHub_OnPremCluster_ClusterType_User    = @"USER";
 
 // GTLRGKEHub_ServiceMeshControlPlaneManagement.state
 NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Active = @"ACTIVE";
@@ -241,6 +253,16 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEHub_ApplianceCluster
+//
+
+@implementation GTLRGKEHub_ApplianceCluster
+@dynamic resourceLink;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEHub_AuditConfig
 //
 
@@ -338,7 +360,7 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_ConfigManagementConfigSync
-@dynamic enabled, git, preventDrift, sourceFormat;
+@dynamic enabled, git, oci, preventDrift, sourceFormat;
 @end
 
 
@@ -495,6 +517,16 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEHub_ConfigManagementOciConfig
+//
+
+@implementation GTLRGKEHub_ConfigManagementOciConfig
+@dynamic gcpServiceAccountEmail, policyDir, secretType, syncRepo, syncWaitSecs;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEHub_ConfigManagementOperatorState
 //
 
@@ -518,11 +550,30 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 @implementation GTLRGKEHub_ConfigManagementPolicyController
 @dynamic auditIntervalSeconds, enabled, exemptableNamespaces, logDeniesEnabled,
-         referentialRulesEnabled, templateLibraryInstalled;
+         monitoring, mutationEnabled, referentialRulesEnabled,
+         templateLibraryInstalled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"exemptableNamespaces" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ConfigManagementPolicyControllerMonitoring
+//
+
+@implementation GTLRGKEHub_ConfigManagementPolicyControllerMonitoring
+@dynamic backends;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backends" : [NSString class]
   };
   return map;
 }
@@ -1030,8 +1081,8 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_MembershipEndpoint
-@dynamic edgeCluster, gkeCluster, kubernetesMetadata, kubernetesResource,
-         multiCloudCluster, onPremCluster;
+@dynamic applianceCluster, edgeCluster, gkeCluster, kubernetesMetadata,
+         kubernetesResource, multiCloudCluster, onPremCluster;
 @end
 
 
@@ -1110,7 +1161,7 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_OnPremCluster
-@dynamic adminCluster, clusterMissing, resourceLink;
+@dynamic adminCluster, clusterMissing, clusterType, resourceLink;
 @end
 
 

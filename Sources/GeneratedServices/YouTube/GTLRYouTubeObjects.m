@@ -863,6 +863,10 @@ NSString * const kGTLRYouTube_ContentRating_TvpgRating_TvpgY7Fv = @"tvpgY7Fv";
 NSString * const kGTLRYouTube_ContentRating_YtRating_YtAgeRestricted = @"ytAgeRestricted";
 NSString * const kGTLRYouTube_ContentRating_YtRating_YtUnspecified = @"ytUnspecified";
 
+// GTLRYouTube_Cuepoint.cueType
+NSString * const kGTLRYouTube_Cuepoint_CueType_CueTypeAd       = @"cueTypeAd";
+NSString * const kGTLRYouTube_Cuepoint_CueType_CueTypeUnspecified = @"cueTypeUnspecified";
+
 // GTLRYouTube_InvideoPosition.cornerPosition
 NSString * const kGTLRYouTube_InvideoPosition_CornerPosition_BottomLeft = @"bottomLeft";
 NSString * const kGTLRYouTube_InvideoPosition_CornerPosition_BottomRight = @"bottomRight";
@@ -2034,6 +2038,26 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
   NSDictionary<NSString *, Class> *map = @{
     @"djctqRatingReasons" : [NSString class],
     @"fpbRatingReasons" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_Cuepoint
+//
+
+@implementation GTLRYouTube_Cuepoint
+@dynamic cueType, durationSecs, ETag, identifier, insertionOffsetTimeMs,
+         walltimeMs;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"ETag" : @"etag",
+    @"identifier" : @"id"
   };
   return map;
 }
@@ -3383,6 +3407,28 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_ThirdPartyLinkListResponse
+//
+
+@implementation GTLRYouTube_ThirdPartyLinkListResponse
+@dynamic ETag, items, kind;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRYouTube_ThirdPartyLink class]
+  };
+  return map;
 }
 
 @end

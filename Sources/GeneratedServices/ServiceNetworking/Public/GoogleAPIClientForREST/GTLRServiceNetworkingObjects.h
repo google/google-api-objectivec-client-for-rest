@@ -53,7 +53,6 @@
 @class GTLRServiceNetworking_MetricDescriptor;
 @class GTLRServiceNetworking_MetricDescriptorMetadata;
 @class GTLRServiceNetworking_MetricRule;
-@class GTLRServiceNetworking_MetricRule_DynamicMetricCosts;
 @class GTLRServiceNetworking_MetricRule_MetricCosts;
 @class GTLRServiceNetworking_Mixin;
 @class GTLRServiceNetworking_MonitoredResourceDescriptor;
@@ -573,40 +572,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetada
 FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
-// GTLRServiceNetworking_MetricRule_DynamicMetricCosts.dynamicMetricCost
-
-/**
- *  Unspecified dynamic cost type.
- *
- *  Value: "DYNAMIC_COST_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricRule_DynamicMetricCosts_DynamicMetricCost_DynamicCostTypeUnspecified;
-/**
- *  Cost is the request body and HTTP header bytes
- *
- *  Value: "REQUEST_BODY_AND_HEADER_BYTES"
- */
-FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricRule_DynamicMetricCosts_DynamicMetricCost_RequestBodyAndHeaderBytes;
-/**
- *  Cost is the request body bytes
- *
- *  Value: "REQUEST_BODY_BYTES"
- */
-FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricRule_DynamicMetricCosts_DynamicMetricCost_RequestBodyBytes;
-/**
- *  Cost is the response body and header bytes
- *
- *  Value: "RESPONSE_BODY_AND_HEADER_BYTES"
- */
-FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricRule_DynamicMetricCosts_DynamicMetricCost_ResponseBodyAndHeaderBytes;
-/**
- *  Cost is the response body bytes
- *
- *  Value: "RESPONSE_BODY_BYTES"
- */
-FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricRule_DynamicMetricCosts_DynamicMetricCost_ResponseBodyBytes;
-
-// ----------------------------------------------------------------------------
 // GTLRServiceNetworking_MonitoredResourceDescriptor.launchStage
 
 /**
@@ -927,6 +892,19 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, strong, nullable) NSNumber *checkServiceNetworkingUsePermission;
 
 /**
+ *  Optional. Specifies a custom time bucket for Arcus subnetwork request
+ *  idempotency. If two equivalent concurrent requests are made, Arcus will know
+ *  to ignore the request if it has already been completed or is in progress.
+ *  Only requests with matching compute_idempotency_window have guaranteed
+ *  idempotency. Changing this time window between requests results in undefined
+ *  behavior. Zero (or empty) value with custom_compute_idempotency_window=true
+ *  specifies no idempotency (i.e. no request ID is provided to Arcus). Maximum
+ *  value of 14 days (enforced by Arcus limit). For more information on how to
+ *  use, see: go/revisit-sn-idempotency-window
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *computeIdempotencyWindow;
+
+/**
  *  Required. A resource that represents the service consumer, such as
  *  `projects/123456`. The project number can be different from the value in the
  *  consumer network parameter. For example, the network might be part of a
@@ -1024,10 +1002,21 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
 /**
- *  A list of members that are granted the `compute.networkUser` role on the
- *  subnet.
+ *  A list of members that are granted the
+ *  `roles/servicenetworking.subnetworkAdmin` role on the subnet.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *subnetworkUsers;
+
+/**
+ *  Optional. Specifies if Service Networking should use a custom time bucket
+ *  for Arcus idempotency. If false, Service Networking uses a 300 second (5
+ *  minute) Arcus idempotency window. If true, Service Networking uses a custom
+ *  idempotency window provided by the user in field compute_idempotency_window.
+ *  For more information on how to use, see: go/revisit-sn-idempotency-window
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useCustomComputeIdempotencyWindow;
 
 @end
 
@@ -3005,15 +2994,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @interface GTLRServiceNetworking_MetricRule : GTLRObject
 
 /**
- *  Metrics to update when the selected methods are called. The key of the map
- *  is the metric name, the value is the DynamicCostType to specify how to
- *  calculate the cost from the request. The cost amount will be increased for
- *  the metric against which the quota limits are defined. It is only
- *  implemented in CloudESF(go/cloudesf)
- */
-@property(nonatomic, strong, nullable) GTLRServiceNetworking_MetricRule_DynamicMetricCosts *dynamicMetricCosts;
-
-/**
  *  Metrics to update when the selected methods are called, and the associated
  *  cost applied to each metric. The key of the map is the metric name, and the
  *  values are the amount increased for the metric against which the quota
@@ -3027,22 +3007,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  */
 @property(nonatomic, copy, nullable) NSString *selector;
 
-@end
-
-
-/**
- *  Metrics to update when the selected methods are called. The key of the map
- *  is the metric name, the value is the DynamicCostType to specify how to
- *  calculate the cost from the request. The cost amount will be increased for
- *  the metric against which the quota limits are defined. It is only
- *  implemented in CloudESF(go/cloudesf)
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRServiceNetworking_MetricRule_DynamicMetricCosts : GTLRObject
 @end
 
 

@@ -250,8 +250,22 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 //
 
 @implementation GTLRTranscoder_Job
-@dynamic config, createTime, endTime, error, inputUri, name, outputUri,
+@dynamic config, createTime, endTime, error, inputUri, labels, name, outputUri,
          startTime, state, templateId, ttlAfterCompletionDays;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranscoder_Job_Labels
+//
+
+@implementation GTLRTranscoder_Job_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -287,7 +301,21 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 //
 
 @implementation GTLRTranscoder_JobTemplate
-@dynamic config, name;
+@dynamic config, labels, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranscoder_JobTemplate_Labels
+//
+
+@implementation GTLRTranscoder_JobTemplate_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

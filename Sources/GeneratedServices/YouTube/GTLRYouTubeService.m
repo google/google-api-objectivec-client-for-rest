@@ -84,6 +84,7 @@ NSString * const kGTLRAuthScopeYouTubeYoutubepartnerChannelAudit = @"https://www
     @"youtube#superChatEvent" : [GTLRYouTube_SuperChatEvent class],
     @"youtube#superChatEventListResponse" : [GTLRYouTube_SuperChatEventListResponse class],
     @"youtube#thirdPartyLink" : [GTLRYouTube_ThirdPartyLink class],
+    @"youtube#thirdPartyLinkListResponse" : [GTLRYouTube_ThirdPartyLinkListResponse class],
     @"youtube#thumbnailSetResponse" : [GTLRYouTube_ThumbnailSetResponse class],
     @"youtube#video" : [GTLRYouTube_Video class],
     @"youtube#videoAbuseReportReason" : [GTLRYouTube_VideoAbuseReportReason class],

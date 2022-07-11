@@ -152,6 +152,33 @@
 
 @end
 
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesAbandon
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudDeploy_AbandonReleaseRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:abandon";
+  GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesAbandon *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudDeploy_AbandonReleaseResponse class];
+  query.loggingName = @"clouddeploy.projects.locations.deliveryPipelines.releases.abandon";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesCreate
 
 @dynamic parent, releaseId, requestId, validateOnly;

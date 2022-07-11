@@ -334,8 +334,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entr
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Service;
 /**
- *  Output only. The entry type that has a GoogleSQL schema, including logical
- *  views.
+ *  The entry type that has a GoogleSQL schema, including logical views.
  *
  *  Value: "TABLE"
  */
@@ -924,8 +923,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec : GTLRObject
 
 /**
- *  Fields specific to a Dataplex table and present only in the Dataplex table
- *  entries.
+ *  Output only. Fields specific to a Dataplex table and present only in the
+ *  Dataplex table entries.
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1DataplexTableSpec *dataplexTable;
 
@@ -1103,15 +1102,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1Entry : GTLRObject
 
 /**
- *  Specification for a group of BigQuery tables with the `[prefix]YYYYMMDD`
- *  name pattern. For more information, see [Introduction to partitioned tables]
+ *  Output only. Specification for a group of BigQuery tables with the
+ *  `[prefix]YYYYMMDD` name pattern. For more information, see [Introduction to
+ *  partitioned tables]
  *  (https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding).
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryDateShardedSpec *bigqueryDateShardedSpec;
 
 /**
- *  Specification that applies to a BigQuery table. Valid only for entries with
- *  the `TABLE` type.
+ *  Output only. Specification that applies to a BigQuery table. Valid only for
+ *  entries with the `TABLE` type.
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec *bigqueryTableSpec;
 
@@ -1279,9 +1279,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *        only. Routine, for example, a BigQuery routine. (Value: "ROUTINE")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Service A
  *        service, for example, a Dataproc Metastore service. (Value: "SERVICE")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Table Output
- *        only. The entry type that has a GoogleSQL schema, including logical
- *        views. (Value: "TABLE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Table The
+ *        entry type that has a GoogleSQL schema, including logical views.
+ *        (Value: "TABLE")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Zone A
  *        Dataplex zone. (Value: "ZONE")
  */

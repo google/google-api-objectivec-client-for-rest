@@ -1277,6 +1277,16 @@ NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecified = @"SNAPSHOT_T
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGames_ScopedPlayerIds
+//
+
+@implementation GTLRGames_ScopedPlayerIds
+@dynamic developerPlayerKey, gamePlayerId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGames_ScoreSubmission
 //
 

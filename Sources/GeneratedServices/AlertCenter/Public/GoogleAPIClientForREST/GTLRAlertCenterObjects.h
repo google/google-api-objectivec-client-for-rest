@@ -4,7 +4,8 @@
 // API:
 //   Google Workspace Alert Center API (alertcenter/v1beta1)
 // Description:
-//   Manages alerts on issues affecting your domain.
+//   Manages alerts on issues affecting your domain. Note: The current version
+//   of this API (v1beta1) is available to all Google Workspace customers.
 // Documentation:
 //   https://developers.google.com/admin-sdk/alertcenter/
 
@@ -35,12 +36,17 @@
 @class GTLRAlertCenter_MergeInfo;
 @class GTLRAlertCenter_Notification;
 @class GTLRAlertCenter_PredefinedDetectorInfo;
+@class GTLRAlertCenter_PrimaryAdminChangedEvent;
 @class GTLRAlertCenter_RequestInfo;
 @class GTLRAlertCenter_ResourceInfo;
 @class GTLRAlertCenter_RuleInfo;
 @class GTLRAlertCenter_RuleViolationInfo;
+@class GTLRAlertCenter_SSOProfileCreatedEvent;
+@class GTLRAlertCenter_SSOProfileDeletedEvent;
+@class GTLRAlertCenter_SSOProfileUpdatedEvent;
 @class GTLRAlertCenter_Status;
 @class GTLRAlertCenter_Status_Details_Item;
+@class GTLRAlertCenter_SuperAdminPasswordResetEvent;
 @class GTLRAlertCenter_SuspiciousActivitySecurityDetail;
 @class GTLRAlertCenter_User;
 @class GTLRAlertCenter_UserDefinedDetectorInfo;
@@ -1401,6 +1407,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 
 
 /**
+ *  Event occurred when primary admin changed in customer's account. The event
+ *  are being received from insight forwarder
+ */
+@interface GTLRAlertCenter_PrimaryAdminChangedEvent : GTLRObject
+
+/** domain in which actioned occurred */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+/** Email of person who was the primary admin before the action */
+@property(nonatomic, copy, nullable) NSString *previousAdminEmail;
+
+/** Email of person who is the primary admin after the action */
+@property(nonatomic, copy, nullable) NSString *updatedAdminEmail;
+
+@end
+
+
+/**
  *  Alerts from Reporting Rules configured by Admin.
  */
 @interface GTLRAlertCenter_ReportingRule : GTLRObject
@@ -1547,12 +1571,83 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 
 
 /**
+ *  Alert that is triggered when Sensitive Admin Action occur in customer
+ *  account.
+ */
+@interface GTLRAlertCenter_SensitiveAdminAction : GTLRObject
+
+/** Email of person who performed the action */
+@property(nonatomic, copy, nullable) NSString *actorEmail;
+
+/** The time at which event occurred */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+/** Event occurred when primary admin changed in customer's account */
+@property(nonatomic, strong, nullable) GTLRAlertCenter_PrimaryAdminChangedEvent *primaryAdminChangedEvent;
+
+/** Event occurred when SSO Profile created in customer's account */
+@property(nonatomic, strong, nullable) GTLRAlertCenter_SSOProfileCreatedEvent *ssoProfileCreatedEvent;
+
+/** Event occurred when SSO Profile deleted in customer's account */
+@property(nonatomic, strong, nullable) GTLRAlertCenter_SSOProfileDeletedEvent *ssoProfileDeletedEvent;
+
+/** Event occurred when SSO Profile updated in customer's account */
+@property(nonatomic, strong, nullable) GTLRAlertCenter_SSOProfileUpdatedEvent *ssoProfileUpdatedEvent;
+
+/**
+ *  Event occurred when password was reset for super admin in customer's account
+ */
+@property(nonatomic, strong, nullable) GTLRAlertCenter_SuperAdminPasswordResetEvent *superAdminPasswordResetEvent;
+
+@end
+
+
+/**
  *  Customer-level settings.
  */
 @interface GTLRAlertCenter_Settings : GTLRObject
 
 /** The list of notifications. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAlertCenter_Notification *> *notifications;
+
+@end
+
+
+/**
+ *  Event occurred when SSO Profile created in customer's account. The event are
+ *  being received from insight forwarder
+ */
+@interface GTLRAlertCenter_SSOProfileCreatedEvent : GTLRObject
+
+/** sso profile name which got created */
+@property(nonatomic, copy, nullable) NSString *inboundSsoProfileName;
+
+@end
+
+
+/**
+ *  Event occurred when SSO Profile deleted in customer's account. The event are
+ *  being received from insight forwarder
+ */
+@interface GTLRAlertCenter_SSOProfileDeletedEvent : GTLRObject
+
+/** sso profile name which got deleted */
+@property(nonatomic, copy, nullable) NSString *inboundSsoProfileName;
+
+@end
+
+
+/**
+ *  Event occurred when SSO Profile updated in customer's account. The event are
+ *  being received from insight forwarder
+ */
+@interface GTLRAlertCenter_SSOProfileUpdatedEvent : GTLRObject
+
+/** changes made to sso profile */
+@property(nonatomic, copy, nullable) NSString *inboundSsoProfileChanges;
+
+/** sso profile name which got updated */
+@property(nonatomic, copy, nullable) NSString *inboundSsoProfileName;
 
 @end
 
@@ -1610,6 +1705,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRAlertCenter_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Event occurred when password was reset for super admin in customer's
+ *  account. The event are being received from insight forwarder
+ */
+@interface GTLRAlertCenter_SuperAdminPasswordResetEvent : GTLRObject
+
+/** email of person whose password was reset */
+@property(nonatomic, copy, nullable) NSString *userEmail;
+
 @end
 
 

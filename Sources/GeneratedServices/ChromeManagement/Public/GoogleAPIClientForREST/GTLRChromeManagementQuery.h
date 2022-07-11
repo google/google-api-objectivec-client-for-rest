@@ -445,6 +445,13 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Required. Read mask to specify which fields to return.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
  *  Fetches a @c GTLRChromeManagement_GoogleChromeManagementV1TelemetryDevice.
  *
  *  Get telemetry device.

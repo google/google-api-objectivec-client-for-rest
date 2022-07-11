@@ -84,29 +84,6 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
 
 @end
 
-@implementation GTLRShoppingContentQuery_AccountsbyexternalselleridGet
-
-@dynamic externalSellerId, merchantId;
-
-+ (instancetype)queryWithMerchantId:(long long)merchantId
-                   externalSellerId:(NSString *)externalSellerId {
-  NSArray *pathParams = @[
-    @"externalSellerId", @"merchantId"
-  ];
-  NSString *pathURITemplate = @"{merchantId}/accountsbyexternalsellerid/{externalSellerId}";
-  GTLRShoppingContentQuery_AccountsbyexternalselleridGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.merchantId = merchantId;
-  query.externalSellerId = externalSellerId;
-  query.expectedObjectClass = [GTLRShoppingContent_Account class];
-  query.loggingName = @"content.accountsbyexternalsellerid.get";
-  return query;
-}
-
-@end
-
 @implementation GTLRShoppingContentQuery_AccountsClaimwebsite
 
 @dynamic accountId, merchantId, overwrite;

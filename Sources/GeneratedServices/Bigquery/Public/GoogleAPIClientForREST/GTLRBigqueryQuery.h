@@ -65,6 +65,40 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterPending;
 FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 
 // ----------------------------------------------------------------------------
+// view
+
+/**
+ *  Includes basic table information including schema and partitioning
+ *  specification. This view does not include storage statistics such as numRows
+ *  or numBytes. This view is significantly more efficient and should be used to
+ *  support high query rates.
+ *
+ *  Value: "BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewBasic;
+/**
+ *  Includes all table information, including storage statistics. It returns
+ *  same information as STORAGE_STATS view, but may contain additional
+ *  information in the future.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewFull;
+/**
+ *  Includes all information in the BASIC view as well as storage statistics
+ *  (numBytes, numLongTermBytes, numRows and lastModifiedTime).
+ *
+ *  Value: "STORAGE_STATS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewStorageStats;
+/**
+ *  The default value. Default to the STORAGE_STATS view.
+ *
+ *  Value: "TABLE_METADATA_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified;
+
+// ----------------------------------------------------------------------------
 // Query Classes
 //
 
@@ -1473,6 +1507,29 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 
 /** Table ID of the requested table */
 @property(nonatomic, copy, nullable) NSString *tableId;
+
+/**
+ *  Specifies the view that determines which table information is returned. By
+ *  default, basic table information and storage statistics (STORAGE_STATS) are
+ *  returned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigqueryViewBasic Includes basic table information including
+ *        schema and partitioning specification. This view does not include
+ *        storage statistics such as numRows or numBytes. This view is
+ *        significantly more efficient and should be used to support high query
+ *        rates. (Value: "BASIC")
+ *    @arg @c kGTLRBigqueryViewFull Includes all table information, including
+ *        storage statistics. It returns same information as STORAGE_STATS view,
+ *        but may contain additional information in the future. (Value: "FULL")
+ *    @arg @c kGTLRBigqueryViewStorageStats Includes all information in the
+ *        BASIC view as well as storage statistics (numBytes, numLongTermBytes,
+ *        numRows and lastModifiedTime). (Value: "STORAGE_STATS")
+ *    @arg @c kGTLRBigqueryViewTableMetadataViewUnspecified The default value.
+ *        Default to the STORAGE_STATS view. (Value:
+ *        "TABLE_METADATA_VIEW_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRBigquery_Table.

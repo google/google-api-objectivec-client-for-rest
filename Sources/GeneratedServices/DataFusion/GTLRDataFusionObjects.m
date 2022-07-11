@@ -178,7 +178,7 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 //
 
 @implementation GTLRDataFusion_EventPublishConfig
-@dynamic eventPublishEnabled, project, topic;
+@dynamic enabled, topic;
 @end
 
 

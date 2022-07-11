@@ -33,6 +33,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1ApiProxy;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProxy_Labels;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProxyRevision_EntityMetaDataAsProperties;
+@class GTLRApigee_GoogleCloudApigeeV1ApiSecurityConfig;
 @class GTLRApigee_GoogleCloudApigeeV1App;
 @class GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment;
 @class GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment_Labels;
@@ -43,6 +44,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1Certificate;
 @class GTLRApigee_GoogleCloudApigeeV1CertInfo;
 @class GTLRApigee_GoogleCloudApigeeV1CommonNameConfig;
+@class GTLRApigee_GoogleCloudApigeeV1ComputeEnvironmentScoresRequestFilter;
 @class GTLRApigee_GoogleCloudApigeeV1ConfigVersion;
 @class GTLRApigee_GoogleCloudApigeeV1ConnectorsPlatformConfig;
 @class GTLRApigee_GoogleCloudApigeeV1Credential;
@@ -86,6 +88,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1IntegrationConfig;
 @class GTLRApigee_GoogleCloudApigeeV1KeyAliasReference;
 @class GTLRApigee_GoogleCloudApigeeV1KeystoreConfig;
+@class GTLRApigee_GoogleCloudApigeeV1KeyValueEntry;
 @class GTLRApigee_GoogleCloudApigeeV1Metadata;
 @class GTLRApigee_GoogleCloudApigeeV1Metric;
 @class GTLRApigee_GoogleCloudApigeeV1MonetizationConfig;
@@ -122,6 +125,18 @@
 @class GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig;
 @class GTLRApigee_GoogleCloudApigeeV1SchemaSchemaElement;
 @class GTLRApigee_GoogleCloudApigeeV1SchemaSchemaProperty;
+@class GTLRApigee_GoogleCloudApigeeV1Score;
+@class GTLRApigee_GoogleCloudApigeeV1ScoreComponent;
+@class GTLRApigee_GoogleCloudApigeeV1ScoreComponentRecommendation;
+@class GTLRApigee_GoogleCloudApigeeV1ScoreComponentRecommendationAction;
+@class GTLRApigee_GoogleCloudApigeeV1ScoreComponentRecommendationActionActionContext;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityProfile;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityProfileEnvironment;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityProfileScoringConfig;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityReport;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityReportMetadata;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityReportQueryMetric;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityReportResultMetadata;
 @class GTLRApigee_GoogleCloudApigeeV1ServiceIssuersMapping;
 @class GTLRApigee_GoogleCloudApigeeV1Session;
 @class GTLRApigee_GoogleCloudApigeeV1SharedFlow;
@@ -147,6 +162,7 @@
 @class GTLRApigee_GoogleRpcStatus;
 @class GTLRApigee_GoogleRpcStatus_Details_Item;
 @class GTLRApigee_GoogleTypeExpr;
+@class GTLRApigee_GoogleTypeInterval;
 @class GTLRApigee_GoogleTypeMoney;
 
 // Generated comments include content from the discovery document; avoid them
@@ -1481,6 +1497,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** Configuration for the Advanced API Ops add-on. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1AdvancedApiOpsConfig *advancedApiOpsConfig;
 
+/** Configuration for the API Security add-on. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ApiSecurityConfig *apiSecurityConfig;
+
 /** Configuration for the Connectors Platform add-on. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ConnectorsPlatformConfig *connectorsPlatformConfig;
 
@@ -2033,6 +2052,29 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Configurations of the API Security add-on.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ApiSecurityConfig : GTLRObject
+
+/**
+ *  Flag that specifies whether the API security add-on is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Output only. Time at which the API Security add-on expires in in
+ *  milliseconds since epoch. If unspecified, the add-on will never expire.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *expiresAt;
+
+@end
+
+
+/**
  *  GTLRApigee_GoogleCloudApigeeV1App
  */
 @interface GTLRApigee_GoogleCloudApigeeV1App : GTLRObject
@@ -2475,6 +2517,90 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSNumber *matchWildCards;
 
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Request for ComputeEnvironmentScores.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ComputeEnvironmentScoresRequest : GTLRObject
+
+/**
+ *  Optional. Filters are used to filter scored components. Return all the
+ *  components if no filter is mentioned. Example: [{ "scorePath":
+ *  "/org\@myorg/envgroup\@myenvgroup/env\@myenv/proxies/proxy\@myproxy/source"
+ *  }, { "scorePath":
+ *  "/org\@myorg/envgroup\@myenvgroup/env\@myenv/proxies/proxy\@myproxy/target",
+ *  }] This will return components with path:
+ *  "/org\@myorg/envgroup\@myenvgroup/env\@myenv/proxies/proxy\@myproxy/source"
+ *  OR
+ *  "/org\@myorg/envgroup\@myenvgroup/env\@myenv/proxies/proxy\@myproxy/target"
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1ComputeEnvironmentScoresRequestFilter *> *filters;
+
+/**
+ *  Optional. The maximum number of subcomponents to be returned in a single
+ *  page. The service may return fewer than this value. If unspecified, at most
+ *  100 subcomponents will be returned in a single page.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  Optional. A token that can be sent as `page_token` to retrieve the next
+ *  page. If this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Time range for score calculation. At most 14 days of scores will
+ *  be returned.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleTypeInterval *timeRange;
+
+@end
+
+
+/**
+ *  Filter scores by component path. Used custom filter instead of AIP-160 as
+ *  the use cases are highly constrained and predictable.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ComputeEnvironmentScoresRequestFilter : GTLRObject
+
+/**
+ *  Optional. Return scores for this component. Example:
+ *  "/org\@myorg/envgroup\@myenvgroup/env\@myenv/proxies/proxy\@myproxy/source"
+ */
+@property(nonatomic, copy, nullable) NSString *scorePath;
+
+@end
+
+
+/**
+ *  Response for ComputeEnvironmentScores.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "scores" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ComputeEnvironmentScoresResponse : GTLRCollectionObject
+
+/**
+ *  A page token, received from a previous `ComputeScore` call. Provide this to
+ *  retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of scores. One score per day.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Score *> *scores;
 
 @end
 
@@ -3062,20 +3188,20 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  Errors reported for this deployment. Populated only when state == ERROR.
- *  This field is not populated in List APIs.
+ *  **Note**: This field is displayed only when viewing deployment status.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleRpcStatus *> *errors;
 
 /**
- *  Status reported by each runtime instance. This field is not populated in
- *  List APIs.
+ *  Status reported by each runtime instance. **Note**: This field is displayed
+ *  only when viewing deployment status.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1InstanceDeploymentStatus *> *instances;
 
 /**
- *  Status reported by runtime pods. This field is not populated for List APIs.
- *  **Note**: **This field is deprecated**. Runtime versions 1.3 and above
- *  report instance level status rather than pod status.
+ *  Status reported by runtime pods. **Note**: **This field is deprecated**.
+ *  Runtime versions 1.3 and above report instance level status rather than pod
+ *  status.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1PodStatus *> *pods;
 
@@ -3087,8 +3213,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  conflicts does not cause the state to be `ERROR`, but it will mean that some
  *  of the deployment's base paths are not routed to its environment. If the
  *  conflicts change, the state will transition to `PROGRESSING` until the
- *  latest configuration is rolled out to all instances. This field is not
- *  populated in List APIs.
+ *  latest configuration is rolled out to all instances. **Note**: This field is
+ *  displayed only when viewing deployment status.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1DeploymentChangeReportRoutingConflict *> *routeConflicts;
 
@@ -3099,7 +3225,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /**
- *  Current state of the deployment. This field is not populated in List APIs.
+ *  Current state of the deployment. **Note**: This field is displayed only when
+ *  viewing deployment status.
  *
  *  Likely values:
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Deployment_State_Error Encountered
@@ -3744,6 +3871,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Optional. Url of the forward proxy to be applied to the runtime instances in
+ *  this environment. Must be in the format of {scheme}://{hostname}:{port}.
+ *  Note that scheme must be one of "http" or "https", and port must be
+ *  supplied.
+ */
+@property(nonatomic, copy, nullable) NSString *forwardProxyUri;
+
+/**
  *  Output only. Last modification time of this environment as milliseconds
  *  since epoch.
  *
@@ -3812,6 +3947,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** List of flow hooks in the environment. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1FlowHookConfig *> *flowhooks;
+
+/**
+ *  The forward proxy's url to be used by the runtime. When set, runtime will
+ *  send requests to the target via the given forward proxy. This is only used
+ *  by programmable gateways.
+ */
+@property(nonatomic, copy, nullable) NSString *forwardProxyUri;
 
 /**
  *  The location for the gateway config blob as a URI, e.g. a Cloud Storage URI.
@@ -4672,13 +4814,35 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Key value map pair where the value represents the data associated with the
+ *  corresponding key.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1KeyValueEntry : GTLRObject
+
+/**
+ *  Resource URI that can be used to identify the scope of the key value map
+ *  entries.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Data or payload that is being retrieved and associated with the
+ *  unique key.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  Collection of key/value string pairs.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1KeyValueMap : GTLRObject
 
 /**
- *  Optional. Flag that specifies whether entry values will be encrypted. Enable
- *  to encrypt entry values.
+ *  Optional. Flag that specifies whether entry values will be encrypted. You
+ *  must set this value to `true`. Apigee X and hybrid do not support
+ *  unencrytped key value maps.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5067,6 +5231,34 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  The request structure for listing Key value map keys and its corrresponding
+ *  values.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "keyValueEntries" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListKeyValueEntriesResponse : GTLRCollectionObject
+
+/**
+ *  One or more key value map keys and values.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1KeyValueEntry *> *keyValueEntries;
+
+/**
+ *  Token that can be sent as `next_page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response for ListNatAddresses.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -5128,6 +5320,92 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** List of rate plans in an organization. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1RatePlan *> *ratePlans;
+
+@end
+
+
+/**
+ *  Response for ListSecurityProfileRevisions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "securityProfiles" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListSecurityProfileRevisionsResponse : GTLRCollectionObject
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of security profile revisions. The revisions may be attached or
+ *  unattached to any environment.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SecurityProfile *> *securityProfiles;
+
+@end
+
+
+/**
+ *  Response for ListSecurityProfiles.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "securityProfiles" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListSecurityProfilesResponse : GTLRCollectionObject
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of security profiles in the organization. The profiles may be attached
+ *  or unattached to any environment. This will return latest revision of each
+ *  profile.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SecurityProfile *> *securityProfiles;
+
+@end
+
+
+/**
+ *  The response for SecurityReports.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "securityReports" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListSecurityReportsResponse : GTLRCollectionObject
+
+/**
+ *  If the number of security reports exceeded the page size requested, the
+ *  token can be used to fetch the next page in a subsequent call. If the
+ *  response is the last page and there are no more reports to return this field
+ *  is left empty.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The security reports belong to requested resource name.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SecurityReport *> *securityReports;
 
 @end
 
@@ -5722,6 +6000,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  GTLRApigee_GoogleCloudApigeeV1OrganizationProjectMapping
  */
 @interface GTLRApigee_GoogleCloudApigeeV1OrganizationProjectMapping : GTLRObject
+
+/**
+ *  Output only. The Google Cloud region where control plane data is located.
+ *  For more information, see https://cloud.google.com/about/locations/.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Name of the Apigee organization. */
 @property(nonatomic, copy, nullable) NSString *organization;
@@ -6823,6 +7107,500 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** Data type of the field. */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Represents Security Score.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1Score : GTLRObject
+
+/** Component containing score, recommendations and actions. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ScoreComponent *component;
+
+/** List of all the drilldown score components. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1ScoreComponent *> *subcomponents;
+
+/** Start and end time for the score. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleTypeInterval *timeRange;
+
+@end
+
+
+/**
+ *  Component is an individual security element that is scored.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ScoreComponent : GTLRObject
+
+/** Time when score was calculated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *calculateTime;
+
+/**
+ *  Time in the requested time period when data was last captured to compute the
+ *  score.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *dataCaptureTime;
+
+/** List of paths for next components. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *drilldownPaths;
+
+/** List of recommendations to improve API security. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1ScoreComponentRecommendation *> *recommendations;
+
+/**
+ *  Score for the component.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+/**
+ *  Path of the component. Example:
+ *  /org\@myorg/envgroup\@myenvgroup/proxies/proxy\@myproxy
+ */
+@property(nonatomic, copy, nullable) NSString *scorePath;
+
+@end
+
+
+/**
+ *  Recommendation based on security concerns and score.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ScoreComponentRecommendation : GTLRObject
+
+/** Actions for the recommendation to improve the security score. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1ScoreComponentRecommendationAction *> *actions;
+
+/**
+ *  Description of the recommendation.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Potential impact of this recommendation on the overall score. This denotes
+ *  how important this recommendation is to improve the score.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *impact;
+
+/** Title represents recommendation title. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Action to improve security score.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ScoreComponentRecommendationAction : GTLRObject
+
+/** Action context for the action. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ScoreComponentRecommendationActionActionContext *actionContext;
+
+/**
+ *  Description of the action.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+@end
+
+
+/**
+ *  Action context are all the relevant details for the action.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ScoreComponentRecommendationActionActionContext : GTLRObject
+
+/** Documentation link for the action. */
+@property(nonatomic, copy, nullable) NSString *documentationLink;
+
+@end
+
+
+/**
+ *  Represents a SecurityProfile resource.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityProfile : GTLRObject
+
+/** Display name of the security profile. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** List of environments attached to security profile. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SecurityProfileEnvironment *> *environments;
+
+/**
+ *  Output only. Maximum security score that can be generated by this profile.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxScore;
+
+/**
+ *  Output only. Minimum security score that can be generated by this profile.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minScore;
+
+/**
+ *  Immutable. Name of the security profile resource. Format:
+ *  organizations/{org}/securityProfiles/{profile}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The time when revision was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *revisionCreateTime;
+
+/**
+ *  Output only. Revision ID of the security profile.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *revisionId;
+
+/**
+ *  Output only. The time when revision was published. Once published, the
+ *  security profile revision cannot be updated further and can be attached to
+ *  environments.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *revisionPublishTime;
+
+/** Output only. The time when revision was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *revisionUpdateTime;
+
+/** List of profile scoring configs in this revision. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SecurityProfileScoringConfig *> *scoringConfigs;
+
+@end
+
+
+/**
+ *  Environment information of attached environments. Scoring an environment is
+ *  enabled only if it is attached to a security profile.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityProfileEnvironment : GTLRObject
+
+/**
+ *  Output only. Time at which environment was attached to the security profile.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *attachTime;
+
+/** Output only. Name of the environment. */
+@property(nonatomic, copy, nullable) NSString *environment;
+
+@end
+
+
+/**
+ *  Represents a SecurityProfileEnvironmentAssociation resource.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityProfileEnvironmentAssociation : GTLRObject
+
+/**
+ *  Output only. The time when environment was attached to the security profile.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *attachTime;
+
+/**
+ *  Immutable. Name of the profile-environment association resource. Format:
+ *  organizations/{org}/securityProfiles/{profile}/environments/{env}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Revision ID of the security profile.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *securityProfileRevisionId;
+
+@end
+
+
+/**
+ *  Security configurations to manage scoring.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityProfileScoringConfig : GTLRObject
+
+/**
+ *  Description of the config.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Path of the component config used for scoring. */
+@property(nonatomic, copy, nullable) NSString *scorePath;
+
+/** Title of the config. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  SecurityReport saves all the information about the created security report.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityReport : GTLRObject
+
+/** Creation time of the query. */
+@property(nonatomic, copy, nullable) NSString *created;
+
+/** Display Name specified by the user. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Hostname is available only when query is executed at host level. */
+@property(nonatomic, copy, nullable) NSString *envgroupHostname;
+
+/** Error is set when query fails. */
+@property(nonatomic, copy, nullable) NSString *error;
+
+/** ExecutionTime is available only after the query is completed. */
+@property(nonatomic, copy, nullable) NSString *executionTime;
+
+/**
+ *  Contains information like metrics, dimenstions etc of the Security Report.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityReportMetadata *queryParams;
+
+/** Report Definition ID. */
+@property(nonatomic, copy, nullable) NSString *reportDefinitionId;
+
+/** Result is available only after the query is completed. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityReportResultMetadata *result;
+
+/** ResultFileSize is available only after the query is completed. */
+@property(nonatomic, copy, nullable) NSString *resultFileSize;
+
+/**
+ *  ResultRows is available only after the query is completed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resultRows;
+
+/**
+ *  Self link of the query. Example:
+ *  `/organizations/myorg/environments/myenv/securityReports/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd`
+ *  or following format if query is running at host level:
+ *  `/organizations/myorg/hostSecurityReports/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd`
+ *
+ *  Remapped to 'selfProperty' to avoid language reserved word 'self'.
+ */
+@property(nonatomic, copy, nullable) NSString *selfProperty;
+
+/** Query state could be "enqueued", "running", "completed", "failed". */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Last updated timestamp for the query. */
+@property(nonatomic, copy, nullable) NSString *updated;
+
+@end
+
+
+/**
+ *  Metadata for the security report.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityReportMetadata : GTLRObject
+
+/** Dimensions of the SecurityReport. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dimensions;
+
+/** End timestamp of the query range. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTimestamp;
+
+/**
+ *  Metrics of the SecurityReport. Example:
+ *  ["name:bot_count,func:sum,alias:sum_bot_count"]
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
+
+/** MIME type / Output format. */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+/** Start timestamp of the query range. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTimestamp;
+
+/** Query GroupBy time unit. Example: "seconds", "minute", "hour" */
+@property(nonatomic, copy, nullable) NSString *timeUnit;
+
+@end
+
+
+/**
+ *  Body structure when user makes a request to create a security report.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityReportQuery : GTLRObject
+
+/**
+ *  Delimiter used in the CSV file, if `outputFormat` is set to `csv`. Defaults
+ *  to the `,` (comma) character. Supported delimiter characters include comma
+ *  (`,`), pipe (`|`), and tab (`\\t`).
+ */
+@property(nonatomic, copy, nullable) NSString *csvDelimiter;
+
+/**
+ *  A list of dimensions.
+ *  https://docs.apigee.com/api-platform/analytics/analytics-reference#dimensions
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dimensions;
+
+/** Security Report display name which users can specify. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Hostname needs to be specified if query intends to run at host level. This
+ *  field is only allowed when query is submitted by CreateHostSecurityReport
+ *  where analytics data will be grouped by organization and hostname.
+ */
+@property(nonatomic, copy, nullable) NSString *envgroupHostname;
+
+/**
+ *  Boolean expression that can be used to filter data. Filter expressions can
+ *  be combined using AND/OR terms and should be fully parenthesized to avoid
+ *  ambiguity. See Analytics metrics, dimensions, and filters reference
+ *  https://docs.apigee.com/api-platform/analytics/analytics-reference for more
+ *  information on the fields available to filter on. For more information on
+ *  the tokens that you use to build filter expressions, see Filter expression
+ *  syntax.
+ *  https://docs.apigee.com/api-platform/analytics/asynch-reports-api#filter-expression-syntax
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Time unit used to group the result set. Valid values include: second,
+ *  minute, hour, day, week, or month. If a query includes groupByTimeUnit, then
+ *  the result is an aggregation based on the specified time unit and the
+ *  resultant timestamp does not include milliseconds precision. If a query
+ *  omits groupByTimeUnit, then the resultant timestamp includes milliseconds
+ *  precision.
+ */
+@property(nonatomic, copy, nullable) NSString *groupByTimeUnit;
+
+/**
+ *  Maximum number of rows that can be returned in the result.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *limit;
+
+/** A list of Metrics. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SecurityReportQueryMetric *> *metrics;
+
+/**
+ *  Valid values include: `csv` or `json`. Defaults to `json`. Note: Configure
+ *  the delimiter for CSV output using the csvDelimiter property.
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+/** Report Definition ID. */
+@property(nonatomic, copy, nullable) NSString *reportDefinitionId;
+
+/**
+ *  Required. Time range for the query. Can use the following predefined strings
+ *  to specify the time range: `last60minutes` `last24hours` `last7days` Or,
+ *  specify the timeRange as a structure describing start and end timestamps in
+ *  the ISO format: yyyy-mm-ddThh:mm:ssZ. Example: "timeRange": { "start":
+ *  "2018-07-29T00:13:00Z", "end": "2018-08-01T00:18:00Z" }
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id timeRange;
+
+@end
+
+
+/**
+ *  Metric of the Query
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityReportQueryMetric : GTLRObject
+
+/** Aggregation function: avg, min, max, or sum. */
+@property(nonatomic, copy, nullable) NSString *aggregationFunction;
+
+/**
+ *  Alias for the metric. Alias will be used to replace metric name in query
+ *  results.
+ */
+@property(nonatomic, copy, nullable) NSString *alias;
+
+/** Required. Metric name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  One of `+`, `-`, `/`, `%`, `*`.
+ *
+ *  Remapped to 'operatorProperty' to avoid language reserved word 'operator'.
+ */
+@property(nonatomic, copy, nullable) NSString *operatorProperty;
+
+/** Operand value should be provided when operator is set. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Contains informations about the security report results.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityReportResultMetadata : GTLRObject
+
+/**
+ *  Output only. Expire_time is set to 7 days after report creation. Query
+ *  result will be unaccessable after this time. Example:
+ *  "2021-05-04T13:38:52-07:00"
+ */
+@property(nonatomic, copy, nullable) NSString *expires;
+
+/**
+ *  Self link of the query results. Example:
+ *  `/organizations/myorg/environments/myenv/securityReports/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd/result`
+ *  or following format if query is running at host level:
+ *  `/organizations/myorg/hostSecurityReports/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd/result`
+ *
+ *  Remapped to 'selfProperty' to avoid language reserved word 'self'.
+ */
+@property(nonatomic, copy, nullable) NSString *selfProperty;
+
+@end
+
+
+/**
+ *  The response for security report result view APIs.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityReportResultView : GTLRObject
+
+/**
+ *  Error code when there is a failure.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/** Error message when there is a failure. */
+@property(nonatomic, copy, nullable) NSString *error;
+
+/**
+ *  Metadata contains information like metrics, dimenstions etc of the security
+ *  report.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityReportMetadata *metadata;
+
+/**
+ *  Rows of security report result. Each row is a JSON object. Example:
+ *  {sum(message_count): 1, developer_app: "(not set)",…}
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) NSArray *rows;
+
+/** State of retrieving ResultView. */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -8109,6 +8887,29 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Represents a time interval, encoded as a Timestamp start (inclusive) and a
+ *  Timestamp end (exclusive). The start must be less than or equal to the end.
+ *  When the start equals the end, the interval is empty (matches no time). When
+ *  both start and end are unspecified, the interval matches any time.
+ */
+@interface GTLRApigee_GoogleTypeInterval : GTLRObject
+
+/**
+ *  Optional. Exclusive end of the interval. If specified, a Timestamp matching
+ *  this interval will have to be before the end.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Optional. Inclusive start of the interval. If specified, a Timestamp
+ *  matching this interval will have to be the same or after the start.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 

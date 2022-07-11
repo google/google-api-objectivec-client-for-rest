@@ -70,7 +70,7 @@ NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1
 //
 
 @implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1DimensionValue
-@dynamic dimension, int64Value, stringValue;
+@dynamic dimension, int64Value, stringValue, valueLabel;
 @end
 
 

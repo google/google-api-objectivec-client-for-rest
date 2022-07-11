@@ -526,12 +526,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *eventPublishEnabled;
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
-/** Project name. */
-@property(nonatomic, copy, nullable) NSString *project;
-
-/** Required. Pub/Sub Topic. */
+/**
+ *  Required. The resource name of the Pub/Sub topic. Format:
+ *  projects/{project_id}/topics/{topic_id}
+ */
 @property(nonatomic, copy, nullable) NSString *topic;
 
 @end

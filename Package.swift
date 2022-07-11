@@ -174,6 +174,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Books"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_BusinessProfilePerformance",
+            targets: ["GoogleAPIClientForREST_BusinessProfilePerformance"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Calendar",
             targets: ["GoogleAPIClientForREST_Calendar"]
         ),
@@ -1250,6 +1254,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Books",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Books",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_BusinessProfilePerformance",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/BusinessProfilePerformance",
             publicHeadersPath: "Public"
         ),
         .target(

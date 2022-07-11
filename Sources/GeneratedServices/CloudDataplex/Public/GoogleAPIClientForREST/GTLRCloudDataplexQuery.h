@@ -151,8 +151,123 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
+ *  Create a content.
+ *
+ *  Method: dataplex.projects.locations.lakes.content.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsLakesContentCreate : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The resource name of the parent lake:
+ *  projects/{project_id}/locations/{location_id}/lakes/{lake_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Only validate the request, but do not perform mutations. The
+ *  default is false.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1Content.
+ *
+ *  Create a content.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1Content to
+ *    include in the query.
+ *  @param parent Required. The resource name of the parent lake:
+ *    projects/{project_id}/locations/{location_id}/lakes/{lake_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesContentCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1Content *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a content.
+ *
+ *  Method: dataplex.projects.locations.lakes.content.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsLakesContentDelete : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The resource name of the content:
+ *  projects/{project_id}/locations/{location_id}/lakes/{lake_id}/content/{content_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_Empty.
+ *
+ *  Delete a content.
+ *
+ *  @param name Required. The resource name of the content:
+ *    projects/{project_id}/locations/{location_id}/lakes/{lake_id}/content/{content_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesContentDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a content resource.
+ *
+ *  Method: dataplex.projects.locations.lakes.content.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsLakesContentGet : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The resource name of the content:
+ *  projects/{project_id}/locations/{location_id}/lakes/{lake_id}/content/{content_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Specify content view to make a partial request.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplexViewContentViewUnspecified Content view not
+ *        specified. Defaults to BASIC. The API will default to the BASIC view.
+ *        (Value: "CONTENT_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplexViewBasic Will not return the data_text field.
+ *        (Value: "BASIC")
+ *    @arg @c kGTLRCloudDataplexViewFull Returns the complete proto. (Value:
+ *        "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1Content.
+ *
+ *  Get a content resource.
+ *
+ *  @param name Required. The resource name of the content:
+ *    projects/{project_id}/locations/{location_id}/lakes/{lake_id}/content/{content_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesContentGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a contentitem resource. A NOT_FOUND error
+ *  is returned if the resource does not exist. An empty policy is returned if
+ *  the resource exists but does not have a policy set on it.Caller must have
+ *  Google IAM dataplex.content.getIamPolicy permission on the resource.
  *
  *  Method: dataplex.projects.locations.lakes.content.getIamPolicy
  *
@@ -186,8 +301,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
  *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
+ *  Gets the access control policy for a contentitem resource. A NOT_FOUND error
+ *  is returned if the resource does not exist. An empty policy is returned if
+ *  the resource exists but does not have a policy set on it.Caller must have
+ *  Google IAM dataplex.content.getIamPolicy permission on the resource.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
  *    requested. See Resource names
@@ -314,6 +431,60 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
+ *  Gets the access control policy for a contentitem resource. A NOT_FOUND error
+ *  is returned if the resource does not exist. An empty policy is returned if
+ *  the resource exists but does not have a policy set on it.Caller must have
+ *  Google IAM dataplex.content.getIamPolicy permission on the resource.
+ *
+ *  Method: dataplex.projects.locations.lakes.contentitems.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsLakesContentitemsGetIamPolicy : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the
+ *  policy.Valid values are 0, 1, and 3. Requests specifying an invalid value
+ *  will be rejected.Requests for policies with any conditional role bindings
+ *  must specify version 3. Policies with no conditional role bindings may
+ *  specify any valid value or leave the field unset.The policy in the response
+ *  might use the policy version that you specified, or it might use a lower
+ *  policy version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1.To learn which
+ *  resources support conditions in their IAM policies, see the IAM
+ *  documentation
+ *  (https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a contentitem resource. A NOT_FOUND error
+ *  is returned if the resource does not exist. An empty policy is returned if
+ *  the resource exists but does not have a policy set on it.Caller must have
+ *  Google IAM dataplex.content.getIamPolicy permission on the resource.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesContentitemsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
  *  List content.
  *
  *  Method: dataplex.projects.locations.lakes.contentitems.list
@@ -417,9 +588,198 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
- *  PERMISSION_DENIED errors.
+ *  Sets the access control policy on the specified contentitem resource.
+ *  Replaces any existing policy.Caller must have Google IAM
+ *  dataplex.content.setIamPolicy permission on the resource.
+ *
+ *  Method: dataplex.projects.locations.lakes.contentitems.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsLakesContentitemsSetIamPolicy : GTLRCloudDataplexQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified contentitem resource.
+ *  Replaces any existing policy.Caller must have Google IAM
+ *  dataplex.content.setIamPolicy permission on the resource.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesContentitemsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns the caller's permissions on a resource. If the resource does not
+ *  exist, an empty set of permissions is returned (a NOT_FOUND error is not
+ *  returned).A caller is not required to have Google IAM permission to make
+ *  this request.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: dataplex.projects.locations.lakes.contentitems.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsLakesContentitemsTestIamPermissions : GTLRCloudDataplexQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  Resource names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns the caller's permissions on a resource. If the resource does not
+ *  exist, an empty set of permissions is returned (a NOT_FOUND error is not
+ *  returned).A caller is not required to have Google IAM permission to make
+ *  this request.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest
+ *    to include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesContentitemsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  List content.
+ *
+ *  Method: dataplex.projects.locations.lakes.content.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsLakesContentList : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. Filter request. Filters are case-sensitive. The following formats
+ *  are supported:labels.key1 = "value1" labels:key1 type = "NOTEBOOK" type =
+ *  "SQL_SCRIPT"These restrictions can be coinjoined with AND, OR and NOT
+ *  conjunctions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Maximum number of content to return. The service may return fewer
+ *  than this value. If unspecified, at most 10 content will be returned. The
+ *  maximum value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token received from a previous ListContent call. Provide this
+ *  to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to ListContent must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the parent lake:
+ *  projects/{project_id}/locations/{location_id}/lakes/{lake_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1ListContentResponse.
+ *
+ *  List content.
+ *
+ *  @param parent Required. The resource name of the parent lake:
+ *    projects/{project_id}/locations/{location_id}/lakes/{lake_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesContentList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a content. Only supports full resource update.
+ *
+ *  Method: dataplex.projects.locations.lakes.content.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsLakesContentPatch : GTLRCloudDataplexQuery
+
+/**
+ *  Output only. The relative resource name of the content, of the form:
+ *  projects/{project_id}/locations/{location_id}/lakes/{lake_id}/content/{content_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Mask of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. Only validate the request, but do not perform mutations. The
+ *  default is false.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1Content.
+ *
+ *  Update a content. Only supports full resource update.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1Content to
+ *    include in the query.
+ *  @param name Output only. The relative resource name of the content, of the
+ *    form:
+ *    projects/{project_id}/locations/{location_id}/lakes/{lake_id}/content/{content_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesContentPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1Content *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified contentitem resource.
+ *  Replaces any existing policy.Caller must have Google IAM
+ *  dataplex.content.setIamPolicy permission on the resource.
  *
  *  Method: dataplex.projects.locations.lakes.content.setIamPolicy
  *
@@ -438,9 +798,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
  *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
- *  PERMISSION_DENIED errors.
+ *  Sets the access control policy on the specified contentitem resource.
+ *  Replaces any existing policy.Caller must have Google IAM
+ *  dataplex.content.setIamPolicy permission on the resource.
  *
  *  @param object The @c GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest to
  *    include in the query.
@@ -457,9 +817,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  Returns the caller's permissions on a resource. If the resource does not
+ *  exist, an empty set of permissions is returned (a NOT_FOUND error is not
+ *  returned).A caller is not required to have Google IAM permission to make
+ *  this request.Note: This operation is designed to be used for building
  *  permission-aware UIs and command-line tools, not for authorization checking.
  *  This operation may "fail open" without warning.
  *
@@ -480,9 +841,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  Returns the caller's permissions on a resource. If the resource does not
+ *  exist, an empty set of permissions is returned (a NOT_FOUND error is not
+ *  returned).A caller is not required to have Google IAM permission to make
+ *  this request.Note: This operation is designed to be used for building
  *  permission-aware UIs and command-line tools, not for authorization checking.
  *  This operation may "fail open" without warning.
  *

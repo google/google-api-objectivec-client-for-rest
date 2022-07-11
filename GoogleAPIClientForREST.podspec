@@ -246,6 +246,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/Books/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Books/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'BusinessProfilePerformance' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/BusinessProfilePerformance/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/BusinessProfilePerformance/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'Calendar' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Calendar/**/*.{h,m}'

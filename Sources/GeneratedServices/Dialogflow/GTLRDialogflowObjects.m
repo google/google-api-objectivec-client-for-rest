@@ -928,7 +928,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Environment
 @dynamic descriptionProperty, displayName, name, testCasesConfig, updateTime,
-         versionConfigs;
+         versionConfigs, webhookConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -969,6 +969,24 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1EnvironmentVersionConfig
 @dynamic version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1EnvironmentWebhookConfig
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1EnvironmentWebhookConfig
+@dynamic webhookOverrides;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"webhookOverrides" : [GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Webhook class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1784,6 +1802,49 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Webhook
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Webhook
+@dynamic disabled, displayName, genericWebService, name, serviceDirectory,
+         timeout;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService
+@dynamic allowedCaCerts, password, requestHeaders, uri, username;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedCaCerts" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_RequestHeaders
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_RequestHeaders
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequest
 //
 
@@ -1910,6 +1971,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookServiceDirectoryConfig
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookServiceDirectoryConfig
+@dynamic genericWebService, service;
 @end
 
 
@@ -2241,7 +2312,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3Environment
 @dynamic descriptionProperty, displayName, name, testCasesConfig, updateTime,
-         versionConfigs;
+         versionConfigs, webhookConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2282,6 +2353,24 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3EnvironmentVersionConfig
 @dynamic version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3EnvironmentWebhookConfig
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3EnvironmentWebhookConfig
+@dynamic webhookOverrides;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"webhookOverrides" : [GTLRDialogflow_GoogleCloudDialogflowCxV3Webhook class]
+  };
+  return map;
+}
+
 @end
 
 

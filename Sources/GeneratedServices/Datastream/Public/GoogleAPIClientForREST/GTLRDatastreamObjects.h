@@ -1961,10 +1961,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_VpcPeeringConfig : GTLRObject
 
-/**
- *  Required. A free subnet for peering. (CIDR of /29) TODO(b/172995841) add
- *  validators.
- */
+/** Required. A free subnet for peering. (CIDR of /29) */
 @property(nonatomic, copy, nullable) NSString *subnet;
 
 /**

@@ -2296,7 +2296,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  Optional. One or more labels that you can add, to organize your models. Each
  *  label is a key-value pair, where both the key and the value are arbitrary
  *  strings that you supply. For more information, see the documentation on
- *  using labels.
+ *  using labels. Note that this field is not updatable for mls1* models.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model_Labels *labels;
 
@@ -2349,7 +2349,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  Optional. One or more labels that you can add, to organize your models. Each
  *  label is a key-value pair, where both the key and the value are arbitrary
  *  strings that you supply. For more information, see the documentation on
- *  using labels.
+ *  using labels. Note that this field is not updatable for mls1* models.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3929,7 +3929,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  Optional. One or more labels that you can add, to organize your model
  *  versions. Each label is a key-value pair, where both the key and the value
  *  are arbitrary strings that you supply. For more information, see the
- *  documentation on using labels.
+ *  documentation on using labels. Note that this field is not updatable for
+ *  mls1* models.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Labels *labels;
 
@@ -4103,7 +4104,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  Optional. One or more labels that you can add, to organize your model
  *  versions. Each label is a key-value pair, where both the key and the value
  *  are arbitrary strings that you supply. For more information, see the
- *  documentation on using labels.
+ *  documentation on using labels. Note that this field is not updatable for
+ *  mls1* models.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

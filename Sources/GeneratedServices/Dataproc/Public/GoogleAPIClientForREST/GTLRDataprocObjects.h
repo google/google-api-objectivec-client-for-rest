@@ -15,7 +15,6 @@
 #endif
 
 @class GTLRDataproc_AcceleratorConfig;
-@class GTLRDataproc_AuthenticationConfig;
 @class GTLRDataproc_AutoscalingConfig;
 @class GTLRDataproc_AutoscalingPolicy;
 @class GTLRDataproc_AutoscalingPolicy_Labels;
@@ -62,7 +61,6 @@
 @class GTLRDataproc_HiveJob_ScriptVariables;
 @class GTLRDataproc_IdentityConfig;
 @class GTLRDataproc_IdentityConfig_UserServiceAccountMapping;
-@class GTLRDataproc_InjectableCredentialsConfig;
 @class GTLRDataproc_InstanceGroupAutoscalingPolicyConfig;
 @class GTLRDataproc_InstanceGroupConfig;
 @class GTLRDataproc_InstanceReference;
@@ -91,6 +89,7 @@
 @class GTLRDataproc_NamespacedGkeDeploymentTarget;
 @class GTLRDataproc_NodeGroupAffinity;
 @class GTLRDataproc_NodeInitializationAction;
+@class GTLRDataproc_NodePool;
 @class GTLRDataproc_Operation;
 @class GTLRDataproc_Operation_Metadata;
 @class GTLRDataproc_Operation_Response;
@@ -155,28 +154,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
-
-// ----------------------------------------------------------------------------
-// GTLRDataproc_AuthenticationConfig.authenticationType
-
-/**
- *  If AuthenticationType is unspecified, SERVICE_ACCOUNT is used
- *
- *  Value: "AUTHENTICATION_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataproc_AuthenticationConfig_AuthenticationType_AuthenticationTypeUnspecified;
-/**
- *  Injectable credentials authentication type
- *
- *  Value: "INJECTABLE_CREDENTIALS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataproc_AuthenticationConfig_AuthenticationType_InjectableCredentials;
-/**
- *  Defaults to using service account credentials
- *
- *  Value: "SERVICE_ACCOUNT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataproc_AuthenticationConfig_AuthenticationType_ServiceAccount;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_Batch.state
@@ -296,6 +273,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Error;
  *  Value: "ERROR_DUE_TO_UPDATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_ErrorDueToUpdate;
+/**
+ *  The cluster is being repaired. It is not ready for use.
+ *
+ *  Value: "REPAIRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Repairing;
 /**
  *  The cluster is currently running and healthy. It is ready for use.Note: The
  *  cluster state changes from "creating" to "running" status after the master
@@ -636,9 +619,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_Hiveserver2
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_MetricSourceUnspecified;
 /**
- *  Default monitoring agent metrics, which are published with an
- *  agent.googleapis.com prefix when Dataproc enables the monitoring agent in
- *  Compute Engine.
+ *  Default monitoring agent metrics. If this source is enabled, Dataproc
+ *  enables the monitoring agent in Compute Engine, and collects default
+ *  monitoring agent metrics, which are published with an agent.googleapis.com
+ *  prefix.
  *
  *  Value: "MONITORING_AGENT_DEFAULTS"
  */
@@ -661,6 +645,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_SparkHistor
  *  Value: "YARN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_Yarn;
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_NodePool.repairAction
+
+/**
+ *  delete the specified list of nodes.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_NodePool_RepairAction_Delete;
+/**
+ *  No action will be taken by default.
+ *
+ *  Value: "REPAIR_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_NodePool_RepairAction_RepairActionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_ReservationAffinity.consumeReservationType
@@ -998,33 +998,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  example, nvidia-tesla-k80.
  */
 @property(nonatomic, copy, nullable) NSString *acceleratorTypeUri;
-
-@end
-
-
-/**
- *  Configuration for using injectable credentials or service account
- */
-@interface GTLRDataproc_AuthenticationConfig : GTLRObject
-
-/**
- *  Authentication type for session execution.
- *
- *  Likely values:
- *    @arg @c kGTLRDataproc_AuthenticationConfig_AuthenticationType_AuthenticationTypeUnspecified
- *        If AuthenticationType is unspecified, SERVICE_ACCOUNT is used (Value:
- *        "AUTHENTICATION_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRDataproc_AuthenticationConfig_AuthenticationType_InjectableCredentials
- *        Injectable credentials authentication type (Value:
- *        "INJECTABLE_CREDENTIALS")
- *    @arg @c kGTLRDataproc_AuthenticationConfig_AuthenticationType_ServiceAccount
- *        Defaults to using service account credentials (Value:
- *        "SERVICE_ACCOUNT")
- */
-@property(nonatomic, copy, nullable) NSString *authenticationType;
-
-/** Configuration for using end user authentication */
-@property(nonatomic, strong, nullable) GTLRDataproc_InjectableCredentialsConfig *injectableCredentialsConfig;
 
 @end
 
@@ -1451,8 +1424,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_Cluster : GTLRObject
 
 /**
- *  Required. The cluster name. Cluster names within a project must be unique.
- *  Names of deleted clusters can be reused.
+ *  Required. The cluster name, which must be unique within a project. The name
+ *  must start with a lowercase letter, and can contain up to 51 lowercase
+ *  letters, numbers, and hyphens. It cannot end with a hyphen. The name of a
+ *  deleted cluster can be reused.
  */
 @property(nonatomic, copy, nullable) NSString *clusterName;
 
@@ -1702,6 +1677,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @interface GTLRDataproc_ClusterOperationMetadata : GTLRObject
 
+/** Output only. Child operation ids */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *childOperationIds;
+
 /** Output only. Name of the cluster for the operation. */
 @property(nonatomic, copy, nullable) NSString *clusterName;
 
@@ -1831,6 +1809,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        encountered an error while being updated. Jobs can be submitted to the
  *        cluster, but the cluster cannot be updated. (Value:
  *        "ERROR_DUE_TO_UPDATE")
+ *    @arg @c kGTLRDataproc_ClusterStatus_State_Repairing The cluster is being
+ *        repaired. It is not ready for use. (Value: "REPAIRING")
  *    @arg @c kGTLRDataproc_ClusterStatus_State_Running The cluster is currently
  *        running and healthy. It is ready for use.Note: The cluster state
  *        changes from "creating" to "running" status after the master node(s),
@@ -1945,11 +1925,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *localSsdInterface;
 
 /**
- *  Optional. Number of attached SSDs, from 0 to 4 (default is 0). If SSDs are
+ *  Optional. Number of attached SSDs, from 0 to 8 (default is 0). If SSDs are
  *  not attached, the boot disk is used to store runtime logs and HDFS
  *  (https://hadoop.apache.org/docs/r1.2.1/hdfs_user_guide.html) data. If one or
  *  more SSDs are attached, this runtime bulk data is spread across them, and
- *  the boot disk contains only basic config and installed binaries.
+ *  the boot disk contains only basic config and installed binaries.Note: Local
+ *  SSD options may vary by machine type and number of vCPUs selected.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2329,6 +2310,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_GkeNodePoolAcceleratorConfig *> *accelerators;
 
 /**
+ *  Optional. The Customer Managed Encryption Key (CMEK)
+ *  (https://cloud.google.com/kubernetes-engine/docs/how-to/using-cmek) used to
+ *  encrypt the boot disk attached to each node in the node pool. Specify the
+ *  key using the following format: projects/KEY_PROJECT_ID/locations/LOCATION
+ *  /keyRings/RING_NAME/cryptoKeys/KEY_NAME.
+ */
+@property(nonatomic, copy, nullable) NSString *bootDiskKmsKey;
+
+/**
  *  Optional. The number of local SSD disks to attach to the node, which is
  *  limited by the maximum number of disks allowable per zone (see Adding Local
  *  SSDs (https://cloud.google.com/compute/docs/disks/local-ssd)).
@@ -2653,13 +2643,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        fetch them all at once.
  */
 @interface GTLRDataproc_IdentityConfig_UserServiceAccountMapping : GTLRObject
-@end
-
-
-/**
- *  Specific injectable credentials authentication parameters
- */
-@interface GTLRDataproc_InjectableCredentialsConfig : GTLRObject
 @end
 
 
@@ -3694,19 +3677,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  The metric source to enable, with any optional metrics, to override Dataproc
- *  default metrics.
+ *  A Dataproc OSS metric.
  */
 @interface GTLRDataproc_Metric : GTLRObject
 
 /**
- *  Optional. Optional Metrics to override the Dataproc default metrics
- *  configured for the metric source.
+ *  Optional. Specify one or more available OSS metrics
+ *  (https://cloud.google.com/dataproc/docs/guides/monitoring#available_oss_metrics)
+ *  to collect for the metric course (for the SPARK metric source, any Spark
+ *  metric (https://spark.apache.org/docs/latest/monitoring.html#metrics) can be
+ *  specified).Provide metrics in the following format: METRIC_SOURCE:
+ *  INSTANCE:GROUP:METRIC Use camelcase as appropriate.Examples:
+ *  yarn:ResourceManager:QueueMetrics:AppsCompleted
+ *  spark:driver:DAGScheduler:job.allJobs
+ *  sparkHistoryServer:JVM:Memory:NonHeapMemoryUsage.committed
+ *  hiveserver2:JVM:Memory:NonHeapMemoryUsage.used Notes: Only the specified
+ *  overridden metrics will be collected for the metric source. For example, if
+ *  one or more spark:executive metrics are listed as metric overrides, other
+ *  SPARK metrics will not be collected. The collection of the default metrics
+ *  for other OSS metric sources is unaffected. For example, if both SPARK andd
+ *  YARN metric sources are enabled, and overrides are provided for Spark
+ *  metrics only, all default YARN metrics will be collected.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metricOverrides;
 
 /**
- *  Required. MetricSource to enable.
+ *  Required. Default metrics are collected unless metricOverrides are specified
+ *  for the metric source (see Available OSS metrics
+ *  (https://cloud.google.com/dataproc/docs/guides/monitoring#available_oss_metrics)
+ *  for more information).
  *
  *  Likely values:
  *    @arg @c kGTLRDataproc_Metric_MetricSource_Hdfs HDFS metric source. (Value:
@@ -3716,9 +3715,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *    @arg @c kGTLRDataproc_Metric_MetricSource_MetricSourceUnspecified Required
  *        unspecified metric source. (Value: "METRIC_SOURCE_UNSPECIFIED")
  *    @arg @c kGTLRDataproc_Metric_MetricSource_MonitoringAgentDefaults Default
+ *        monitoring agent metrics. If this source is enabled, Dataproc enables
+ *        the monitoring agent in Compute Engine, and collects default
  *        monitoring agent metrics, which are published with an
- *        agent.googleapis.com prefix when Dataproc enables the monitoring agent
- *        in Compute Engine. (Value: "MONITORING_AGENT_DEFAULTS")
+ *        agent.googleapis.com prefix. (Value: "MONITORING_AGENT_DEFAULTS")
  *    @arg @c kGTLRDataproc_Metric_MetricSource_Spark Spark metric source.
  *        (Value: "SPARK")
  *    @arg @c kGTLRDataproc_Metric_MetricSource_SparkHistoryServer Spark History
@@ -3736,7 +3736,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @interface GTLRDataproc_MetricConfig : GTLRObject
 
-/** Required. Metrics to enable. */
+/** Required. Metrics sources to enable. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_Metric *> *metrics;
 
 @end
@@ -3797,6 +3797,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  not completed at end of the timeout period.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *executionTimeout;
+
+@end
+
+
+/**
+ *  indicating a list of workers of same type
+ */
+@interface GTLRDataproc_NodePool : GTLRObject
+
+/**
+ *  Required. A unique id of the node pool. Primary and Secondary workers can be
+ *  specified using special reserved ids PRIMARY_WORKER_POOL and
+ *  SECONDARY_WORKER_POOL respectively. Aux node pools can be referenced using
+ *  corresponding pool id.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Name of instances to be repaired. These instances must belong to specified
+ *  node pool.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *instanceNames;
+
+/**
+ *  Required. Repair action to take on specified resources of the node pool.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_NodePool_RepairAction_Delete delete the specified
+ *        list of nodes. (Value: "DELETE")
+ *    @arg @c kGTLRDataproc_NodePool_RepairAction_RepairActionUnspecified No
+ *        action will be taken by default. (Value: "REPAIR_ACTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *repairAction;
 
 @end
 
@@ -4374,6 +4409,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *clusterUuid;
 
 /**
+ *  Optional. Node pools and corresponding repair action to be taken. All node
+ *  pools should be unique in this request. i.e. Multiple entries for the same
+ *  node pool id are not allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_NodePool *> *nodePools;
+
+/**
  *  Optional. A unique ID used to identify the request. If the server receives
  *  two RepairClusterRequests with the same ID, the second request is ignored,
  *  and the first google.longrunning.Operation created and stored in the backend
@@ -4434,9 +4476,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  workload execution.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_RuntimeConfig_Properties *properties;
-
-/** Optional. Authentication configuration for the session execution. */
-@property(nonatomic, strong, nullable) GTLRDataproc_AuthenticationConfig *sessionAuthenticationConfig;
 
 /** Optional. Version of the batch runtime. */
 @property(nonatomic, copy, nullable) NSString *version;

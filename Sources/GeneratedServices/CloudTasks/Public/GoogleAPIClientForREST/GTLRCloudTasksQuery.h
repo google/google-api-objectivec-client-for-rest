@@ -275,8 +275,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 @interface GTLRCloudTasksQuery_ProjectsLocationsQueuesGetIamPolicy : GTLRCloudTasksQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -291,8 +292,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  @param object The @c GTLRCloudTasks_GetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesGetIamPolicy
  */
@@ -575,8 +577,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 @interface GTLRCloudTasksQuery_ProjectsLocationsQueuesSetIamPolicy : GTLRCloudTasksQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -593,8 +596,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  @param object The @c GTLRCloudTasks_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesSetIamPolicy
  */
@@ -876,7 +880,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -892,8 +897,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  @param object The @c GTLRCloudTasks_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesTestIamPermissions
  */

@@ -155,6 +155,11 @@ NSString * const kGTLRAIPlatformNotebooks_RuntimeAccessConfig_AccessType_Runtime
 NSString * const kGTLRAIPlatformNotebooks_RuntimeAccessConfig_AccessType_ServiceAccount = @"SERVICE_ACCOUNT";
 NSString * const kGTLRAIPlatformNotebooks_RuntimeAccessConfig_AccessType_SingleUser = @"SINGLE_USER";
 
+// GTLRAIPlatformNotebooks_RuntimeSoftwareConfig.postStartupScriptBehavior
+NSString * const kGTLRAIPlatformNotebooks_RuntimeSoftwareConfig_PostStartupScriptBehavior_DownloadAndRunEveryStart = @"DOWNLOAD_AND_RUN_EVERY_START";
+NSString * const kGTLRAIPlatformNotebooks_RuntimeSoftwareConfig_PostStartupScriptBehavior_PostStartupScriptBehaviorUnspecified = @"POST_STARTUP_SCRIPT_BEHAVIOR_UNSPECIFIED";
+NSString * const kGTLRAIPlatformNotebooks_RuntimeSoftwareConfig_PostStartupScriptBehavior_RunEveryStart = @"RUN_EVERY_START";
+
 // GTLRAIPlatformNotebooks_Schedule.state
 NSString * const kGTLRAIPlatformNotebooks_Schedule_State_Deleting = @"DELETING";
 NSString * const kGTLRAIPlatformNotebooks_Schedule_State_Disabled = @"DISABLED";
@@ -1056,7 +1061,8 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 @implementation GTLRAIPlatformNotebooks_RuntimeSoftwareConfig
 @dynamic customGpuDriverPath, enableHealthMonitoring, idleShutdown,
          idleShutdownTimeout, installGpuDriver, kernels,
-         notebookUpgradeSchedule, postStartupScript, upgradeable;
+         notebookUpgradeSchedule, postStartupScript, postStartupScriptBehavior,
+         upgradeable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

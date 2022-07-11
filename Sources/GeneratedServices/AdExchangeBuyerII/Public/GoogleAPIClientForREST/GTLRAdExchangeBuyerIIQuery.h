@@ -1296,12 +1296,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
 @end
 
 /**
- *  Update the given proposal to indicate that setup has been completed. This
- *  method is called by the buyer when the line items have been created on their
- *  end for a finalized proposal and all the required creatives have been
- *  uploaded using the creatives API. This call updates the `is_setup_completed`
- *  bit on the proposal and also notifies the seller. The server will advance
- *  the revision number of the most recent proposal.
+ *  You can opt-in to manually update proposals to indicate that setup is
+ *  complete. By default, proposal setup is automatically completed after their
+ *  deals are finalized. Contact your Technical Account Manager to opt in.
+ *  Buyers can call this method when the proposal has been finalized, and all
+ *  the required creatives have been uploaded using the Creatives API. This call
+ *  updates the `is_setup_completed` field on the deals in the proposal, and
+ *  notifies the seller. The server then advances the revision number of the
+ *  most recent proposal. To mark an individual deal as ready to serve, call
+ *  `buyers.finalizedDeals.setReadyToServe` in the Marketplace API.
  *
  *  Method: adexchangebuyer2.accounts.proposals.completeSetup
  *
@@ -1319,12 +1322,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
 /**
  *  Fetches a @c GTLRAdExchangeBuyerII_Proposal.
  *
- *  Update the given proposal to indicate that setup has been completed. This
- *  method is called by the buyer when the line items have been created on their
- *  end for a finalized proposal and all the required creatives have been
- *  uploaded using the creatives API. This call updates the `is_setup_completed`
- *  bit on the proposal and also notifies the seller. The server will advance
- *  the revision number of the most recent proposal.
+ *  You can opt-in to manually update proposals to indicate that setup is
+ *  complete. By default, proposal setup is automatically completed after their
+ *  deals are finalized. Contact your Technical Account Manager to opt in.
+ *  Buyers can call this method when the proposal has been finalized, and all
+ *  the required creatives have been uploaded using the Creatives API. This call
+ *  updates the `is_setup_completed` field on the deals in the proposal, and
+ *  notifies the seller. The server then advances the revision number of the
+ *  most recent proposal. To mark an individual deal as ready to serve, call
+ *  `buyers.finalizedDeals.setReadyToServe` in the Marketplace API.
  *
  *  @param object The @c GTLRAdExchangeBuyerII_CompleteSetupRequest to include
  *    in the query.

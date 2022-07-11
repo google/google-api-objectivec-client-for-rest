@@ -54,7 +54,6 @@
 @class GTLRServiceUsage_MetricDescriptor;
 @class GTLRServiceUsage_MetricDescriptorMetadata;
 @class GTLRServiceUsage_MetricRule;
-@class GTLRServiceUsage_MetricRule_DynamicMetricCosts;
 @class GTLRServiceUsage_MetricRule_MetricCosts;
 @class GTLRServiceUsage_Mixin;
 @class GTLRServiceUsage_MonitoredResourceDescriptor;
@@ -650,40 +649,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_La
  *  Value: "UNIMPLEMENTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Unimplemented;
-
-// ----------------------------------------------------------------------------
-// GTLRServiceUsage_MetricRule_DynamicMetricCosts.dynamicMetricCost
-
-/**
- *  Unspecified dynamic cost type.
- *
- *  Value: "DYNAMIC_COST_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricRule_DynamicMetricCosts_DynamicMetricCost_DynamicCostTypeUnspecified;
-/**
- *  Cost is the request body and HTTP header bytes
- *
- *  Value: "REQUEST_BODY_AND_HEADER_BYTES"
- */
-FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricRule_DynamicMetricCosts_DynamicMetricCost_RequestBodyAndHeaderBytes;
-/**
- *  Cost is the request body bytes
- *
- *  Value: "REQUEST_BODY_BYTES"
- */
-FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricRule_DynamicMetricCosts_DynamicMetricCost_RequestBodyBytes;
-/**
- *  Cost is the response body and header bytes
- *
- *  Value: "RESPONSE_BODY_AND_HEADER_BYTES"
- */
-FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricRule_DynamicMetricCosts_DynamicMetricCost_ResponseBodyAndHeaderBytes;
-/**
- *  Cost is the response body bytes
- *
- *  Value: "RESPONSE_BODY_BYTES"
- */
-FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricRule_DynamicMetricCosts_DynamicMetricCost_ResponseBodyBytes;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_MonitoredResourceDescriptor.launchStage
@@ -3040,15 +3005,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceUsage_MetricRule : GTLRObject
 
 /**
- *  Metrics to update when the selected methods are called. The key of the map
- *  is the metric name, the value is the DynamicCostType to specify how to
- *  calculate the cost from the request. The cost amount will be increased for
- *  the metric against which the quota limits are defined. It is only
- *  implemented in CloudESF(go/cloudesf)
- */
-@property(nonatomic, strong, nullable) GTLRServiceUsage_MetricRule_DynamicMetricCosts *dynamicMetricCosts;
-
-/**
  *  Metrics to update when the selected methods are called, and the associated
  *  cost applied to each metric. The key of the map is the metric name, and the
  *  values are the amount increased for the metric against which the quota
@@ -3062,22 +3018,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *selector;
 
-@end
-
-
-/**
- *  Metrics to update when the selected methods are called. The key of the map
- *  is the metric name, the value is the DynamicCostType to specify how to
- *  calculate the cost from the request. The cost amount will be increased for
- *  the metric against which the quota limits are defined. It is only
- *  implemented in CloudESF(go/cloudesf)
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRServiceUsage_MetricRule_DynamicMetricCosts : GTLRObject
 @end
 
 

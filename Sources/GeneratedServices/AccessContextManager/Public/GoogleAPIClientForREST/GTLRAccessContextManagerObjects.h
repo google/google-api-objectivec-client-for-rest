@@ -782,6 +782,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 @interface GTLRAccessContextManager_EgressTo : GTLRObject
 
 /**
+ *  A list of external resources that are allowed to be accessed. Only AWS and
+ *  Azure resources are supported. For Amazon S3, the supported format is
+ *  s3://BUCKET_NAME. For Azure Storage, the supported format is
+ *  azure://myaccount.blob.core.windows.net/CONTAINER_NAME. A request matches if
+ *  it contains an external resource in this list (Example: s3://bucket/path).
+ *  Currently '*' is not allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *externalResources;
+
+/**
  *  A list of ApiOperations allowed to be performed by the sources specified in
  *  the corresponding EgressFrom. A request matches if it uses an
  *  operation/service in this list.

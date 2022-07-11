@@ -14,6 +14,7 @@
 
 @class GTLRGoogleAnalyticsAdmin_V1alphaAccount;
 @class GTLRGoogleAnalyticsAdmin_V1alphaAccountSummary;
+@class GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings;
 @class GTLRGoogleAnalyticsAdmin_V1alphaAuditUserLink;
 @class GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange;
 @class GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChangeChangeHistoryResource;
@@ -49,6 +50,117 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings.acquisitionConversionEventLookbackWindow
+
+/**
+ *  30-day lookback window.
+ *
+ *  Value: "ACQUISITION_CONVERSION_EVENT_LOOKBACK_WINDOW_30_DAYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_AcquisitionConversionEventLookbackWindow_AcquisitionConversionEventLookbackWindow30Days;
+/**
+ *  7-day lookback window.
+ *
+ *  Value: "ACQUISITION_CONVERSION_EVENT_LOOKBACK_WINDOW_7_DAYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_AcquisitionConversionEventLookbackWindow_AcquisitionConversionEventLookbackWindow7Days;
+/**
+ *  Lookback window size unspecified.
+ *
+ *  Value: "ACQUISITION_CONVERSION_EVENT_LOOKBACK_WINDOW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_AcquisitionConversionEventLookbackWindow_AcquisitionConversionEventLookbackWindowUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings.otherConversionEventLookbackWindow
+
+/**
+ *  30-day lookback window.
+ *
+ *  Value: "OTHER_CONVERSION_EVENT_LOOKBACK_WINDOW_30_DAYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_OtherConversionEventLookbackWindow_OtherConversionEventLookbackWindow30Days;
+/**
+ *  60-day lookback window.
+ *
+ *  Value: "OTHER_CONVERSION_EVENT_LOOKBACK_WINDOW_60_DAYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_OtherConversionEventLookbackWindow_OtherConversionEventLookbackWindow60Days;
+/**
+ *  90-day lookback window.
+ *
+ *  Value: "OTHER_CONVERSION_EVENT_LOOKBACK_WINDOW_90_DAYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_OtherConversionEventLookbackWindow_OtherConversionEventLookbackWindow90Days;
+/**
+ *  Lookback window size unspecified.
+ *
+ *  Value: "OTHER_CONVERSION_EVENT_LOOKBACK_WINDOW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_OtherConversionEventLookbackWindow_OtherConversionEventLookbackWindowUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings.reportingAttributionModel
+
+/**
+ *  Attributes 100% of the conversion value to the last Google Ads channel that
+ *  the customer clicked through before converting.
+ *
+ *  Value: "ADS_PREFERRED_LAST_CLICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_AdsPreferredLastClick;
+/**
+ *  Data-driven attribution distributes credit for the conversion based on data
+ *  for each conversion event. Each Data-driven model is specific to each
+ *  advertiser and each conversion event.
+ *
+ *  Value: "CROSS_CHANNEL_DATA_DRIVEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_CrossChannelDataDriven;
+/**
+ *  Gives all credit for the conversion to the first channel that a customer
+ *  clicked (or engaged view through for YouTube) before converting.
+ *
+ *  Value: "CROSS_CHANNEL_FIRST_CLICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_CrossChannelFirstClick;
+/**
+ *  Ignores direct traffic and attributes 100% of the conversion value to the
+ *  last channel that the customer clicked through (or engaged view through for
+ *  YouTube) before converting.
+ *
+ *  Value: "CROSS_CHANNEL_LAST_CLICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_CrossChannelLastClick;
+/**
+ *  Distributes the credit for the conversion equally across all the channels a
+ *  customer clicked (or engaged view through for YouTube) before converting.
+ *
+ *  Value: "CROSS_CHANNEL_LINEAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_CrossChannelLinear;
+/**
+ *  Attributes 40% credit to the first and last interaction, and the remaining
+ *  20% credit is distributed evenly to the middle interactions.
+ *
+ *  Value: "CROSS_CHANNEL_POSITION_BASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_CrossChannelPositionBased;
+/**
+ *  Gives more credit to the touchpoints that happened closer in time to the
+ *  conversion.
+ *
+ *  Value: "CROSS_CHANNEL_TIME_DECAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_CrossChannelTimeDecay;
+/**
+ *  Reporting attribution model unspecified.
+ *
+ *  Value: "REPORTING_ATTRIBUTION_MODEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_ReportingAttributionModelUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange.action
@@ -711,6 +823,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_Account;
 /**
+ *  AttributionSettings resource
+ *
+ *  Value: "ATTRIBUTION_SETTINGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_AttributionSettings;
+/**
  *  Resource type unknown or not specified.
  *
  *  Value: "CHANGE_HISTORY_RESOURCE_TYPE_UNSPECIFIED"
@@ -917,6 +1035,102 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  *  Request message for ArchiveCustomMetric RPC.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomMetricRequest : GTLRObject
+@end
+
+
+/**
+ *  The attribution settings used for a given property. This is a singleton
+ *  resource.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings : GTLRObject
+
+/**
+ *  Required. The lookback window configuration for acquisition conversion
+ *  events. The default window size is 30 days.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_AcquisitionConversionEventLookbackWindow_AcquisitionConversionEventLookbackWindow30Days
+ *        30-day lookback window. (Value:
+ *        "ACQUISITION_CONVERSION_EVENT_LOOKBACK_WINDOW_30_DAYS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_AcquisitionConversionEventLookbackWindow_AcquisitionConversionEventLookbackWindow7Days
+ *        7-day lookback window. (Value:
+ *        "ACQUISITION_CONVERSION_EVENT_LOOKBACK_WINDOW_7_DAYS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_AcquisitionConversionEventLookbackWindow_AcquisitionConversionEventLookbackWindowUnspecified
+ *        Lookback window size unspecified. (Value:
+ *        "ACQUISITION_CONVERSION_EVENT_LOOKBACK_WINDOW_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *acquisitionConversionEventLookbackWindow;
+
+/**
+ *  Output only. Resource name of this attribution settings resource. Format:
+ *  properties/{property_id}/attributionSettings Example:
+ *  "properties/1000/attributionSettings"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The lookback window for all other, non-acquisition conversion
+ *  events. The default window size is 90 days.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_OtherConversionEventLookbackWindow_OtherConversionEventLookbackWindow30Days
+ *        30-day lookback window. (Value:
+ *        "OTHER_CONVERSION_EVENT_LOOKBACK_WINDOW_30_DAYS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_OtherConversionEventLookbackWindow_OtherConversionEventLookbackWindow60Days
+ *        60-day lookback window. (Value:
+ *        "OTHER_CONVERSION_EVENT_LOOKBACK_WINDOW_60_DAYS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_OtherConversionEventLookbackWindow_OtherConversionEventLookbackWindow90Days
+ *        90-day lookback window. (Value:
+ *        "OTHER_CONVERSION_EVENT_LOOKBACK_WINDOW_90_DAYS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_OtherConversionEventLookbackWindow_OtherConversionEventLookbackWindowUnspecified
+ *        Lookback window size unspecified. (Value:
+ *        "OTHER_CONVERSION_EVENT_LOOKBACK_WINDOW_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *otherConversionEventLookbackWindow;
+
+/**
+ *  Required. The reporting attribution model used to calculate conversion
+ *  credit in this property's reports. Changing the attribution model will apply
+ *  to both historical and future data. These changes will be reflected in
+ *  reports with conversion and revenue data. User and session data will be
+ *  unaffected.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_AdsPreferredLastClick
+ *        Attributes 100% of the conversion value to the last Google Ads channel
+ *        that the customer clicked through before converting. (Value:
+ *        "ADS_PREFERRED_LAST_CLICK")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_CrossChannelDataDriven
+ *        Data-driven attribution distributes credit for the conversion based on
+ *        data for each conversion event. Each Data-driven model is specific to
+ *        each advertiser and each conversion event. (Value:
+ *        "CROSS_CHANNEL_DATA_DRIVEN")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_CrossChannelFirstClick
+ *        Gives all credit for the conversion to the first channel that a
+ *        customer clicked (or engaged view through for YouTube) before
+ *        converting. (Value: "CROSS_CHANNEL_FIRST_CLICK")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_CrossChannelLastClick
+ *        Ignores direct traffic and attributes 100% of the conversion value to
+ *        the last channel that the customer clicked through (or engaged view
+ *        through for YouTube) before converting. (Value:
+ *        "CROSS_CHANNEL_LAST_CLICK")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_CrossChannelLinear
+ *        Distributes the credit for the conversion equally across all the
+ *        channels a customer clicked (or engaged view through for YouTube)
+ *        before converting. (Value: "CROSS_CHANNEL_LINEAR")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_CrossChannelPositionBased
+ *        Attributes 40% credit to the first and last interaction, and the
+ *        remaining 20% credit is distributed evenly to the middle interactions.
+ *        (Value: "CROSS_CHANNEL_POSITION_BASED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_CrossChannelTimeDecay
+ *        Gives more credit to the touchpoints that happened closer in time to
+ *        the conversion. (Value: "CROSS_CHANNEL_TIME_DECAY")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings_ReportingAttributionModel_ReportingAttributionModelUnspecified
+ *        Reporting attribution model unspecified. (Value:
+ *        "REPORTING_ATTRIBUTION_MODEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *reportingAttributionModel;
+
 @end
 
 
@@ -1141,6 +1355,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 /** A snapshot of an Account resource in change history. */
 @property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaAccount *account;
+
+/** A snapshot of AttributionSettings resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaAttributionSettings *attributionSettings;
 
 /** A snapshot of a ConversionEvent resource in change history. */
 @property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent *conversionEvent;

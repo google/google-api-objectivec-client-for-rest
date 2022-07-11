@@ -18,6 +18,7 @@
 
 @class GTLRCloudchannel_GoogleCloudChannelV1AdminUser;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1AssociationInfo;
+@class GTLRCloudchannel_GoogleCloudChannelV1alpha1ChannelPartnerEvent;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1CommitmentSettings;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1CustomerEvent;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1Entitlement;
@@ -91,6 +92,30 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRCloudchannel_GoogleCloudChannelV1alpha1ChannelPartnerEvent.eventType
+
+/**
+ *  The Channel Partner link state changed.
+ *
+ *  Value: "LINK_STATE_CHANGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1ChannelPartnerEvent_EventType_LinkStateChanged;
+/**
+ *  The Channel Partner's Partner Advantage information changed. This can entail
+ *  the Channel Partner's authorization to sell a product in a particular
+ *  region.
+ *
+ *  Value: "PARTNER_ADVANTAGE_INFO_CHANGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1ChannelPartnerEvent_EventType_PartnerAdvantageInfoChanged;
+/**
+ *  Default value. Does not display if there are no errors.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1ChannelPartnerEvent_EventType_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudchannel_GoogleCloudChannelV1alpha1CustomerEvent.eventType
@@ -1259,6 +1284,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 
 /**
+ *  Represents Pub/Sub messages about updates to a Channel Partner. You can
+ *  retrieve updated values through the ChannelPartnerLinks API.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1alpha1ChannelPartnerEvent : GTLRObject
+
+/**
+ *  Resource name for the Channel Partner Link. Channel_partner uses the format:
+ *  accounts/{account_id}/channelPartnerLinks/{channel_partner_id}
+ */
+@property(nonatomic, copy, nullable) NSString *channelPartner;
+
+/**
+ *  Type of event performed on the Channel Partner.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1ChannelPartnerEvent_EventType_LinkStateChanged
+ *        The Channel Partner link state changed. (Value: "LINK_STATE_CHANGED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1ChannelPartnerEvent_EventType_PartnerAdvantageInfoChanged
+ *        The Channel Partner's Partner Advantage information changed. This can
+ *        entail the Channel Partner's authorization to sell a product in a
+ *        particular region. (Value: "PARTNER_ADVANTAGE_INFO_CHANGED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1ChannelPartnerEvent_EventType_TypeUnspecified
+ *        Default value. Does not display if there are no errors. (Value:
+ *        "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *eventType;
+
+@end
+
+
+/**
  *  Commitment settings for commitment-based offers.
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1alpha1CommitmentSettings : GTLRObject
@@ -1704,6 +1760,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  Pub/Sub.
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1alpha1SubscriberEvent : GTLRObject
+
+/** Channel Partner event sent as part of Pub/Sub event to partners. */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1alpha1ChannelPartnerEvent *channelPartnerEvent;
 
 /** Customer event sent as part of Pub/Sub event to partners. */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1alpha1CustomerEvent *customerEvent;
@@ -4309,11 +4368,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  P.O. Box or similar. It is not intended to model geographical locations
  *  (roads, towns, mountains). In typical usage an address would be created via
  *  user input or from importing existing data, depending on the type of
- *  process. Advice on address input / editing: - Use an i18n-ready address
- *  widget such as https://github.com/google/libaddressinput) - Users should not
- *  be presented with UI elements for input or editing of fields outside
- *  countries where that field is used. For more guidance on how to use this
- *  schema, please see: https://support.google.com/business/answer/6397478
+ *  process. Advice on address input / editing: - Use an
+ *  internationalization-ready address widget such as
+ *  https://github.com/google/libaddressinput) - Users should not be presented
+ *  with UI elements for input or editing of fields outside countries where that
+ *  field is used. For more guidance on how to use this schema, please see:
+ *  https://support.google.com/business/answer/6397478
  */
 @interface GTLRCloudchannel_GoogleTypePostalAddress : GTLRObject
 

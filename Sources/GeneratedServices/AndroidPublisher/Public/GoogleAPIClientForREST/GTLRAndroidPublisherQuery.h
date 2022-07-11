@@ -2773,7 +2773,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 
 /**
  *  Required. A string representing version of the available regions being used
- *  for the specified resource.
+ *  for the specified resource. The current version is 2022/01.
  */
 @property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
 
@@ -3047,7 +3047,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 
 /**
  *  Required. A string representing version of the available regions being used
- *  for the specified resource.
+ *  for the specified resource. The current version is 2022/01.
  */
 @property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
 
@@ -3111,7 +3111,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 
 /**
  *  Required. A string representing version of the available regions being used
- *  for the specified resource.
+ *  for the specified resource. The current version is 2022/01.
  */
 @property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
 
@@ -3283,7 +3283,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 
 /**
  *  Required. A string representing version of the available regions being used
- *  for the specified resource.
+ *  for the specified resource. The current version is 2022/01.
  */
 @property(nonatomic, copy, nullable) NSString *regionsVersionVersion;
 

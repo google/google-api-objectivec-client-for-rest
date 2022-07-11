@@ -2144,23 +2144,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  `{field} {operator} {value}`. * The operator must be `EQUALS (=)` for the
  *  following fields: - `entityStatus` - `creativeType`. - `dimensions` -
  *  `minDuration` - `maxDuration` - `approvalStatus` - `exchangeReviewStatus` -
- *  `dynamic` - `creativeId` - `minModifiedTime` - `maxModifiedTime` * The
- *  operator must be `HAS (:)` for the following fields: - `lineItemIds` * For
- *  `entityStatus`, `minDuration`, `maxDuration`, `minModifiedTime`,
- *  `maxModifiedTime`, and `dynamic`, there may be at most one restriction. *
- *  For `dimensions`, the value is in the form of `"{width}x{height}"`. * For
- *  `exchangeReviewStatus`, the value is in the form of
- *  `{exchange}-{reviewStatus}`. * For `minDuration` and `maxDuration`, the
- *  value is in the form of `"{duration}s"`. Only seconds are supported with
- *  millisecond granularity. * For `minModifiedTime` and `maxModifiedTime`, the
- *  value is a unix timestamp (GMT) in seconds. The time filtered is against the
- *  update_time field in the creative, which includes system updates to the
- *  creative (e.g. creative review updates). * There may be multiple
- *  `lineItemIds` restrictions in order to search against multiple possible line
- *  item IDs. * There may be multiple `creativeId` restrictions in order to
- *  search against multiple possible creative IDs. Examples: * All native
- *  creatives: `creativeType="CREATIVE_TYPE_NATIVE"` * All active creatives with
- *  300x400 or 50x100 dimensions: `entityStatus="ENTITY_STATUS_ACTIVE" AND
+ *  `dynamic` - `creativeId` * The operator must be `HAS (:)` for the following
+ *  fields: - `lineItemIds` * The operator must be `GREATER THAN OR EQUAL TO
+ *  (>=)` or `LESS THAN OR EQUAL TO (<=)` for the following fields: -
+ *  `updateTime` (input in ISO 8601 format, or YYYY-MM-DDTHH:MM:SSZ) * For
+ *  `entityStatus`, `minDuration`, `maxDuration`, `updateTime`, and `dynamic`,
+ *  there may be at most one restriction. * For `dimensions`, the value is in
+ *  the form of `"{width}x{height}"`. * For `exchangeReviewStatus`, the value is
+ *  in the form of `{exchange}-{reviewStatus}`. * For `minDuration` and
+ *  `maxDuration`, the value is in the form of `"{duration}s"`. Only seconds are
+ *  supported with millisecond granularity. * For `updateTime`, a creative
+ *  resource's field value reflects the last time that a creative has been
+ *  updated, which includes updates made by the system (e.g. creative review
+ *  updates). * There may be multiple `lineItemIds` restrictions in order to
+ *  search against multiple possible line item IDs. * There may be multiple
+ *  `creativeId` restrictions in order to search against multiple possible
+ *  creative IDs. Examples: * All native creatives:
+ *  `creativeType="CREATIVE_TYPE_NATIVE"` * All active creatives with 300x400 or
+ *  50x100 dimensions: `entityStatus="ENTITY_STATUS_ACTIVE" AND
  *  (dimensions="300x400" OR dimensions="50x100")` * All dynamic creatives that
  *  are approved by AdX or AppNexus, with a minimum duration of 5 seconds and
  *  200ms. `dynamic="true" AND minDuration="5.2s" AND
@@ -2168,8 +2169,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  exchangeReviewStatus="EXCHANGE_APPNEXUS-REVIEW_STATUS_APPROVED")` * All
  *  video creatives that are associated with line item ID 1 or 2:
  *  `creativeType="CREATIVE_TYPE_VIDEO" AND (lineItemIds:1 OR lineItemIds:2)` *
- *  Find creatives by multiple creative IDs: `creativeId=1 OR creativeId=2` The
- *  length of this field should be no more than 500 characters.
+ *  Find creatives by multiple creative IDs: `creativeId=1 OR creativeId=2` *
+ *  All creatives with an update time greater than or equal to
+ *  `2020-11-04T18:54:47Z (format of ISO 8601)`:
+ *  `updateTime>="2020-11-04T18:54:47Z"` The length of this field should be no
+ *  more than 500 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -8806,6 +8810,230 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @end
 
 /**
+ *  Creates a new guaranteed order. Returns the newly created guaranteed order
+ *  if successful.
+ *
+ *  Method: displayvideo.guaranteedOrders.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_GuaranteedOrdersCreate : GTLRDisplayVideoQuery
+
+/** The ID of the advertiser that the request is being made within. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** The ID of the partner that the request is being made within. */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_GuaranteedOrder.
+ *
+ *  Creates a new guaranteed order. Returns the newly created guaranteed order
+ *  if successful.
+ *
+ *  @param object The @c GTLRDisplayVideo_GuaranteedOrder to include in the
+ *    query.
+ *
+ *  @return GTLRDisplayVideoQuery_GuaranteedOrdersCreate
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_GuaranteedOrder *)object;
+
+@end
+
+/**
+ *  Edits read advertisers of a guaranteed order.
+ *
+ *  Method: displayvideo.guaranteedOrders.editGuaranteedOrderReadAccessors
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_GuaranteedOrdersEditGuaranteedOrderReadAccessors : GTLRDisplayVideoQuery
+
+/**
+ *  Required. The ID of the guaranteed order to edit. The ID is of the format
+ *  `{exchange}-{legacy_guaranteed_order_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *guaranteedOrderId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_EditGuaranteedOrderReadAccessorsResponse.
+ *
+ *  Edits read advertisers of a guaranteed order.
+ *
+ *  @param object The @c
+ *    GTLRDisplayVideo_EditGuaranteedOrderReadAccessorsRequest to include in the
+ *    query.
+ *  @param guaranteedOrderId Required. The ID of the guaranteed order to edit.
+ *    The ID is of the format `{exchange}-{legacy_guaranteed_order_id}`
+ *
+ *  @return GTLRDisplayVideoQuery_GuaranteedOrdersEditGuaranteedOrderReadAccessors
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_EditGuaranteedOrderReadAccessorsRequest *)object
+              guaranteedOrderId:(NSString *)guaranteedOrderId;
+
+@end
+
+/**
+ *  Gets a guaranteed order.
+ *
+ *  Method: displayvideo.guaranteedOrders.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_GuaranteedOrdersGet : GTLRDisplayVideoQuery
+
+/** The ID of the advertiser that has access to the guaranteed order. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Required. The ID of the guaranteed order to fetch. The ID is of the format
+ *  `{exchange}-{legacy_guaranteed_order_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *guaranteedOrderId;
+
+/** The ID of the partner that has access to the guaranteed order. */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_GuaranteedOrder.
+ *
+ *  Gets a guaranteed order.
+ *
+ *  @param guaranteedOrderId Required. The ID of the guaranteed order to fetch.
+ *    The ID is of the format `{exchange}-{legacy_guaranteed_order_id}`
+ *
+ *  @return GTLRDisplayVideoQuery_GuaranteedOrdersGet
+ */
++ (instancetype)queryWithGuaranteedOrderId:(NSString *)guaranteedOrderId;
+
+@end
+
+/**
+ *  Lists guaranteed orders that are accessible to the current user. The order
+ *  is defined by the order_by parameter. If a filter by entity_status is not
+ *  specified, guaranteed orders with entity status `ENTITY_STATUS_ARCHIVED`
+ *  will not be included in the results.
+ *
+ *  Method: displayvideo.guaranteedOrders.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_GuaranteedOrdersList : GTLRDisplayVideoQuery
+
+/** The ID of the advertiser that has access to the guaranteed order. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Allows filtering by guaranteed order properties. * Filter expressions are
+ *  made up of one or more restrictions. * Restrictions can be combined by `AND`
+ *  or `OR` logical operators. A sequence of restrictions implicitly uses `AND`.
+ *  * A restriction has the form of `{field} {operator} {value}`. * The operator
+ *  must be `EQUALS (=)`. * Supported fields: - `guaranteed_order_id` -
+ *  `exchange` - `display_name` - `status.entityStatus` Examples: * All active
+ *  guaranteed orders: `status.entityStatus="ENTITY_STATUS_ACTIVE"` * Guaranteed
+ *  orders belonging to Google Ad Manager or Rubicon exchanges:
+ *  `exchange="EXCHANGE_GOOGLE_AD_MANAGER" OR exchange="EXCHANGE_RUBICON"` The
+ *  length of this field should be no more than 500 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Field by which to sort the list. Acceptable values are: * `displayName`
+ *  (default) The default sorting order is ascending. To specify descending
+ *  order for a field, a suffix "desc" should be added to the field name. For
+ *  example, `displayName desc`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Requested page size. Must be between `1` and `100`. If unspecified or
+ *  greater than `100` will default to `100`.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return. Typically,
+ *  this is the value of next_page_token returned from the previous call to
+ *  `ListGuaranteedOrders` method. If not specified, the first page of results
+ *  will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** The ID of the partner that has access to the guaranteed order. */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_ListGuaranteedOrdersResponse.
+ *
+ *  Lists guaranteed orders that are accessible to the current user. The order
+ *  is defined by the order_by parameter. If a filter by entity_status is not
+ *  specified, guaranteed orders with entity status `ENTITY_STATUS_ARCHIVED`
+ *  will not be included in the results.
+ *
+ *  @return GTLRDisplayVideoQuery_GuaranteedOrdersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Updates an existing guaranteed order. Returns the updated guaranteed order
+ *  if successful.
+ *
+ *  Method: displayvideo.guaranteedOrders.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_GuaranteedOrdersPatch : GTLRDisplayVideoQuery
+
+/** The ID of the advertiser that the request is being made within. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Output only. The unique identifier of the guaranteed order. The guaranteed
+ *  order IDs have the format `{exchange}-{legacy_guaranteed_order_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *guaranteedOrderId;
+
+/** The ID of the partner that the request is being made within. */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Required. The mask to control which fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_GuaranteedOrder.
+ *
+ *  Updates an existing guaranteed order. Returns the updated guaranteed order
+ *  if successful.
+ *
+ *  @param object The @c GTLRDisplayVideo_GuaranteedOrder to include in the
+ *    query.
+ *  @param guaranteedOrderId Output only. The unique identifier of the
+ *    guaranteed order. The guaranteed order IDs have the format
+ *    `{exchange}-{legacy_guaranteed_order_id}`.
+ *
+ *  @return GTLRDisplayVideoQuery_GuaranteedOrdersPatch
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_GuaranteedOrder *)object
+              guaranteedOrderId:(NSString *)guaranteedOrderId;
+
+@end
+
+/**
  *  Bulk edits multiple assignments between inventory sources and a single
  *  inventory source group. The operation will delete the assigned inventory
  *  sources provided in
@@ -9272,6 +9500,70 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @end
 
 /**
+ *  Creates a new inventory source. Returns the newly created inventory source
+ *  if successful.
+ *
+ *  Method: displayvideo.inventorySources.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_InventorySourcesCreate : GTLRDisplayVideoQuery
+
+/** The ID of the advertiser that the request is being made within. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** The ID of the partner that the request is being made within. */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_InventorySource.
+ *
+ *  Creates a new inventory source. Returns the newly created inventory source
+ *  if successful.
+ *
+ *  @param object The @c GTLRDisplayVideo_InventorySource to include in the
+ *    query.
+ *
+ *  @return GTLRDisplayVideoQuery_InventorySourcesCreate
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_InventorySource *)object;
+
+@end
+
+/**
+ *  Edits read/write accessors of an inventory source. Returns the updated
+ *  read_write_accessors for the inventory source.
+ *
+ *  Method: displayvideo.inventorySources.editInventorySourceReadWriteAccessors
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_InventorySourcesEditInventorySourceReadWriteAccessors : GTLRDisplayVideoQuery
+
+/** Required. The ID of inventory source to update. */
+@property(nonatomic, assign) long long inventorySourceId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_InventorySourceAccessors.
+ *
+ *  Edits read/write accessors of an inventory source. Returns the updated
+ *  read_write_accessors for the inventory source.
+ *
+ *  @param object The @c
+ *    GTLRDisplayVideo_EditInventorySourceReadWriteAccessorsRequest to include
+ *    in the query.
+ *  @param inventorySourceId Required. The ID of inventory source to update.
+ *
+ *  @return GTLRDisplayVideoQuery_InventorySourcesEditInventorySourceReadWriteAccessors
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_EditInventorySourceReadWriteAccessorsRequest *)object
+              inventorySourceId:(long long)inventorySourceId;
+
+@end
+
+/**
  *  Gets an inventory source.
  *
  *  Method: displayvideo.inventorySources.get
@@ -9374,6 +9666,53 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        information.
  */
 + (instancetype)query;
+
+@end
+
+/**
+ *  Updates an existing inventory source. Returns the updated inventory source
+ *  if successful.
+ *
+ *  Method: displayvideo.inventorySources.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_InventorySourcesPatch : GTLRDisplayVideoQuery
+
+/** The ID of the advertiser that the request is being made within. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Output only. The unique ID of the inventory source. Assigned by the system.
+ */
+@property(nonatomic, assign) long long inventorySourceId;
+
+/** The ID of the partner that the request is being made within. */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Required. The mask to control which fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_InventorySource.
+ *
+ *  Updates an existing inventory source. Returns the updated inventory source
+ *  if successful.
+ *
+ *  @param object The @c GTLRDisplayVideo_InventorySource to include in the
+ *    query.
+ *  @param inventorySourceId Output only. The unique ID of the inventory source.
+ *    Assigned by the system.
+ *
+ *  @return GTLRDisplayVideoQuery_InventorySourcesPatch
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_InventorySource *)object
+              inventorySourceId:(long long)inventorySourceId;
 
 @end
 

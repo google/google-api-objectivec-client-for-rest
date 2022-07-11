@@ -1004,6 +1004,33 @@ NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspecified = @"UPGRADE_
 
 @end
 
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_Runtime *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_Operation class];
+  query.loggingName = @"notebooks.projects.locations.runtimes.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesRefreshRuntimeTokenInternal
 
 @dynamic name;

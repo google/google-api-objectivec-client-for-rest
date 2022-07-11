@@ -22,6 +22,12 @@ NSString * const kGTLRBigqueryStateFilterDone    = @"done";
 NSString * const kGTLRBigqueryStateFilterPending = @"pending";
 NSString * const kGTLRBigqueryStateFilterRunning = @"running";
 
+// view
+NSString * const kGTLRBigqueryViewBasic                        = @"BASIC";
+NSString * const kGTLRBigqueryViewFull                         = @"FULL";
+NSString * const kGTLRBigqueryViewStorageStats                 = @"STORAGE_STATS";
+NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADATA_VIEW_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 // Query Classes
 //
@@ -828,7 +834,7 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
 
 @implementation GTLRBigqueryQuery_TablesGet
 
-@dynamic datasetId, projectId, selectedFields, tableId;
+@dynamic datasetId, projectId, selectedFields, tableId, view;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          datasetId:(NSString *)datasetId

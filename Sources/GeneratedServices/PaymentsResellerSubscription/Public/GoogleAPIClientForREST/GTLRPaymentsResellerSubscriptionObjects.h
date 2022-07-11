@@ -19,9 +19,11 @@
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1PromotionIntroductoryPricingDetails;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1PromotionIntroductoryPricingDetailsIntroductoryPricingSpec;
+@class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ServicePeriod;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem;
+@class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItemOneTimeRecurrenceDetails;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionPromotionSpec;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails;
 @class GTLRPaymentsResellerSubscription_GoogleTypeLocalizedText;
@@ -260,6 +262,28 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *  Value: "CANCELLATION_REASON_USER_DELINQUENCY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonUserDelinquency;
+
+// ----------------------------------------------------------------------------
+// GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem.recurrenceType
+
+/**
+ *  The line item does not recur in the future.
+ *
+ *  Value: "LINE_ITEM_RECURRENCE_TYPE_ONE_TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_RecurrenceType_LineItemRecurrenceTypeOneTime;
+/**
+ *  The line item recurs periodically.
+ *
+ *  Value: "LINE_ITEM_RECURRENCE_TYPE_PERIODIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_RecurrenceType_LineItemRecurrenceTypePeriodic;
+/**
+ *  The line item recurrence type is unspecified.
+ *
+ *  Value: "LINE_ITEM_RECURRENCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_RecurrenceType_LineItemRecurrenceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem.state
@@ -780,6 +804,21 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 
 
 /**
+ *  A description of what time period or moment in time the product or service
+ *  is being delivered over.
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ServicePeriod : GTLRObject
+
+/** Optional. The end time of the service period. Time is exclusive. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Required. The start time of the service period. Time is inclusive. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
  *  A Subscription resource managed by 3P Partners.
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription : GTLRObject
@@ -973,9 +1012,16 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 
 
 /**
- *  Individual line item definition of a subscription. Next id: 5
+ *  Individual line item definition of a subscription. Next id: 8
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem : GTLRObject
+
+/**
+ *  Output only. Description of this line item.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  Output only. It is set only if the line item has its own free trial applied.
@@ -993,11 +1039,30 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionPromotionSpec *> *lineItemPromotionSpecs;
 
+/** Output only. Details only set for a ONE_TIME recurrence line item. */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItemOneTimeRecurrenceDetails *oneTimeRecurrenceDetails;
+
 /**
  *  Required. Product resource name that identifies one the line item The format
  *  is 'partners/{partner_id}/products/{product_id}'.
  */
 @property(nonatomic, copy, nullable) NSString *product;
+
+/**
+ *  Output only. The recurrence type of the line item.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_RecurrenceType_LineItemRecurrenceTypeOneTime
+ *        The line item does not recur in the future. (Value:
+ *        "LINE_ITEM_RECURRENCE_TYPE_ONE_TIME")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_RecurrenceType_LineItemRecurrenceTypePeriodic
+ *        The line item recurs periodically. (Value:
+ *        "LINE_ITEM_RECURRENCE_TYPE_PERIODIC")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem_RecurrenceType_LineItemRecurrenceTypeUnspecified
+ *        The line item recurrence type is unspecified. (Value:
+ *        "LINE_ITEM_RECURRENCE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *recurrenceType;
 
 /**
  *  Output only. The state of the line item.
@@ -1023,6 +1088,17 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *        Unspecified state. (Value: "LINE_ITEM_STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Details for a ONE_TIME recurrence line item.
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItemOneTimeRecurrenceDetails : GTLRObject
+
+/** The service period of the ONE_TIME line item. */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ServicePeriod *servicePeriod;
 
 @end
 

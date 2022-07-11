@@ -1271,6 +1271,53 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
+ *  Lists Cloud Spanner database roles.
+ *
+ *  Method: spanner.projects.instances.databases.databaseRoles.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesDatabaseRolesList : GTLRSpannerQuery
+
+/**
+ *  Number of database roles to be returned in the response. If 0 or less,
+ *  defaults to the server's maximum allowed page size.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  If non-empty, `page_token` should contain a next_page_token from a previous
+ *  ListDatabaseRolesResponse.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The database whose roles should be listed. Values are of the form
+ *  `projects//instances//databases//databaseRoles`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSpanner_ListDatabaseRolesResponse.
+ *
+ *  Lists Cloud Spanner database roles.
+ *
+ *  @param parent Required. The database whose roles should be listed. Values
+ *    are of the form `projects//instances//databases//databaseRoles`.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesDatabaseRolesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Drops (aka deletes) a Cloud Spanner database. Completed backups for the
  *  database will be retained according to their `expire_time`. Note: Cloud
  *  Spanner might continue to accept requests for a few seconds after the

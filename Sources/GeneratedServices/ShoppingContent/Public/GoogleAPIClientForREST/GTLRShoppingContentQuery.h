@@ -285,40 +285,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Gets data of the account with the specified external_seller_id belonging to
- *  the MCA with the specified merchant_id.
- *
- *  Method: content.accountsbyexternalsellerid.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeShoppingContent
- */
-@interface GTLRShoppingContentQuery_AccountsbyexternalselleridGet : GTLRShoppingContentQuery
-
-/** Required. The External Seller ID of the seller account to be retrieved. */
-@property(nonatomic, copy, nullable) NSString *externalSellerId;
-
-/** Required. The ID of the MCA containing the seller. */
-@property(nonatomic, assign) long long merchantId;
-
-/**
- *  Fetches a @c GTLRShoppingContent_Account.
- *
- *  Gets data of the account with the specified external_seller_id belonging to
- *  the MCA with the specified merchant_id.
- *
- *  @param merchantId Required. The ID of the MCA containing the seller.
- *  @param externalSellerId Required. The External Seller ID of the seller
- *    account to be retrieved.
- *
- *  @return GTLRShoppingContentQuery_AccountsbyexternalselleridGet
- */
-+ (instancetype)queryWithMerchantId:(long long)merchantId
-                   externalSellerId:(NSString *)externalSellerId;
-
-@end
-
-/**
  *  Claims the website of a Merchant Center sub-account.
  *
  *  Method: content.accounts.claimwebsite
@@ -2155,7 +2121,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 /**
  *  Invokes a fetch for the datafeed in your Merchant Center account. If you
  *  need to call this method more than once per day, we recommend you use the
- *  Products service to update your product data.
+ *  [Products
+ *  service](https://developers.google.com/shopping-content/reference/rest/v2.1/products)
+ *  to update your product data.
  *
  *  Method: content.datafeeds.fetchnow
  *
@@ -2178,7 +2146,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *
  *  Invokes a fetch for the datafeed in your Merchant Center account. If you
  *  need to call this method more than once per day, we recommend you use the
- *  Products service to update your product data.
+ *  [Products
+ *  service](https://developers.google.com/shopping-content/reference/rest/v2.1/products)
+ *  to update your product data.
  *
  *  @param merchantId The ID of the account that manages the datafeed. This
  *    account cannot be a multi-client account.
@@ -5310,7 +5280,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 
 /**
  *  Inserts a promotion for your Merchant Center account. If the promotion
- *  already exists, then it will update the promotion instead.
+ *  already exists, then it updates the promotion instead.
  *
  *  Method: content.promotions.create
  *
@@ -5326,7 +5296,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Fetches a @c GTLRShoppingContent_Promotion.
  *
  *  Inserts a promotion for your Merchant Center account. If the promotion
- *  already exists, then it will update the promotion instead.
+ *  already exists, then it updates the promotion instead.
  *
  *  @param object The @c GTLRShoppingContent_Promotion to include in the query.
  *  @param merchantId Required. The ID of the account that contains the
@@ -5460,7 +5430,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Update the regional inventory of a product in your Merchant Center account.
+ *  Updates the regional inventory of a product in your Merchant Center account.
  *  If a regional inventory with the same region ID already exists, this method
  *  updates that entry.
  *
@@ -5483,7 +5453,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 /**
  *  Fetches a @c GTLRShoppingContent_RegionalInventory.
  *
- *  Update the regional inventory of a product in your Merchant Center account.
+ *  Updates the regional inventory of a product in your Merchant Center account.
  *  If a regional inventory with the same region ID already exists, this method
  *  updates that entry.
  *

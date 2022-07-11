@@ -34,6 +34,94 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Create a new ChannelConnection in a particular project and location.
+ *
+ *  Method: eventarc.projects.locations.channelConnections.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsChannelConnectionsCreate : GTLREventarcQuery
+
+/**
+ *  Required. The user-provided ID to be assigned to the channel connection.
+ */
+@property(nonatomic, copy, nullable) NSString *channelConnectionId;
+
+/**
+ *  Required. The parent collection in which to add this channel connection.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLREventarc_GoogleLongrunningOperation.
+ *
+ *  Create a new ChannelConnection in a particular project and location.
+ *
+ *  @param object The @c GTLREventarc_ChannelConnection to include in the query.
+ *  @param parent Required. The parent collection in which to add this channel
+ *    connection.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsChannelConnectionsCreate
+ */
++ (instancetype)queryWithObject:(GTLREventarc_ChannelConnection *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a single ChannelConnection.
+ *
+ *  Method: eventarc.projects.locations.channelConnections.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsChannelConnectionsDelete : GTLREventarcQuery
+
+/** Required. The name of the channel connection to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLREventarc_GoogleLongrunningOperation.
+ *
+ *  Delete a single ChannelConnection.
+ *
+ *  @param name Required. The name of the channel connection to delete.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsChannelConnectionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a single ChannelConnection.
+ *
+ *  Method: eventarc.projects.locations.channelConnections.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsChannelConnectionsGet : GTLREventarcQuery
+
+/** Required. The name of the channel connection to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLREventarc_ChannelConnection.
+ *
+ *  Get a single ChannelConnection.
+ *
+ *  @param name Required. The name of the channel connection to get.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsChannelConnectionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -59,8 +147,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -71,12 +160,58 @@ NS_ASSUME_NONNULL_BEGIN
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLREventarcQuery_ProjectsLocationsChannelConnectionsGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  List channel connections.
+ *
+ *  Method: eventarc.projects.locations.channelConnections.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsChannelConnectionsList : GTLREventarcQuery
+
+/**
+ *  The maximum number of channel connections to return on each page. Note: The
+ *  service may send fewer responses.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The page token; provide the value from the `next_page_token` field in a
+ *  previous `ListChannelConnections` call to retrieve the subsequent page. When
+ *  paginating, all other parameters provided to `ListChannelConnetions` match
+ *  the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent collection from which to list channel connections. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLREventarc_ListChannelConnectionsResponse.
+ *
+ *  List channel connections.
+ *
+ *  @param parent Required. The parent collection from which to list channel
+ *    connections.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsChannelConnectionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -93,8 +228,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLREventarcQuery_ProjectsLocationsChannelConnectionsSetIamPolicy : GTLREventarcQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -108,8 +244,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLREventarc_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLREventarcQuery_ProjectsLocationsChannelConnectionsSetIamPolicy
  */
@@ -134,7 +271,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -150,8 +288,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLREventarc_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLREventarcQuery_ProjectsLocationsChannelConnectionsTestIamPermissions
  */
@@ -281,8 +420,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -293,8 +433,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLREventarcQuery_ProjectsLocationsChannelsGetIamPolicy
  */
@@ -416,8 +557,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLREventarcQuery_ProjectsLocationsChannelsSetIamPolicy : GTLREventarcQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -431,8 +573,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLREventarc_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLREventarcQuery_ProjectsLocationsChannelsSetIamPolicy
  */
@@ -457,7 +600,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -473,8 +617,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLREventarc_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLREventarcQuery_ProjectsLocationsChannelsTestIamPermissions
  */
@@ -504,6 +649,32 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Resource name for the location.
  *
  *  @return GTLREventarcQuery_ProjectsLocationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a GoogleChannelConfig
+ *
+ *  Method: eventarc.projects.locations.getGoogleChannelConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsGetGoogleChannelConfig : GTLREventarcQuery
+
+/** Required. The name of the config to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLREventarc_GoogleChannelConfig.
+ *
+ *  Get a GoogleChannelConfig
+ *
+ *  @param name Required. The name of the config to get.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsGetGoogleChannelConfig
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -931,8 +1102,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -943,8 +1115,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLREventarcQuery_ProjectsLocationsTriggersGetIamPolicy
  */
@@ -1079,8 +1252,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLREventarcQuery_ProjectsLocationsTriggersSetIamPolicy : GTLREventarcQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1094,8 +1268,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLREventarc_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLREventarcQuery_ProjectsLocationsTriggersSetIamPolicy
  */
@@ -1120,7 +1295,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1136,13 +1312,56 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLREventarc_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
  *
  *  @return GTLREventarcQuery_ProjectsLocationsTriggersTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLREventarc_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Update a single GoogleChannelConfig
+ *
+ *  Method: eventarc.projects.locations.updateGoogleChannelConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsUpdateGoogleChannelConfig : GTLREventarcQuery
+
+/**
+ *  Required. The resource name of the config. Must be in the format of,
+ *  `projects/{project}/locations/{location}/googleChannelConfig`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The fields to be updated; only fields explicitly provided are updated. If no
+ *  field mask is provided, all provided fields in the request are updated. To
+ *  update all fields, provide a field mask of "*".
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLREventarc_GoogleChannelConfig.
+ *
+ *  Update a single GoogleChannelConfig
+ *
+ *  @param object The @c GTLREventarc_GoogleChannelConfig to include in the
+ *    query.
+ *  @param name Required. The resource name of the config. Must be in the format
+ *    of, `projects/{project}/locations/{location}/googleChannelConfig`.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsUpdateGoogleChannelConfig
+ */
++ (instancetype)queryWithObject:(GTLREventarc_GoogleChannelConfig *)object
+                           name:(NSString *)name;
 
 @end
 

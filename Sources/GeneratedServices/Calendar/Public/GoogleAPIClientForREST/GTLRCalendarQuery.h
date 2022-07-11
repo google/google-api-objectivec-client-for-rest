@@ -1455,8 +1455,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *privateExtendedProperty;
 
 /**
- *  Free text search terms to find events that match these terms in any field,
- *  except for extended properties. Optional.
+ *  Free text search terms to find events that match these terms in the
+ *  following fields: summary, description, location, attendee's displayName,
+ *  attendee's email. Optional.
  */
 @property(nonatomic, copy, nullable) NSString *q;
 
@@ -1955,8 +1956,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *privateExtendedProperty;
 
 /**
- *  Free text search terms to find events that match these terms in any field,
- *  except for extended properties. Optional.
+ *  Free text search terms to find events that match these terms in the
+ *  following fields: summary, description, location, attendee's displayName,
+ *  attendee's email. Optional.
  */
 @property(nonatomic, copy, nullable) NSString *q;
 

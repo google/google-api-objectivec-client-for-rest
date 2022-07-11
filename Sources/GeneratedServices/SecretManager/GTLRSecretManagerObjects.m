@@ -393,7 +393,7 @@ NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified = @"STA
 
 @implementation GTLRSecretManager_Secret
 @dynamic createTime, ETag, expireTime, labels, name, replication, rotation,
-         topics, ttl;
+         topics, ttl, versionAliases;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -418,6 +418,20 @@ NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified = @"STA
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecretManager_Secret_VersionAliases
+//
+
+@implementation GTLRSecretManager_Secret_VersionAliases
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
 }
 
 @end

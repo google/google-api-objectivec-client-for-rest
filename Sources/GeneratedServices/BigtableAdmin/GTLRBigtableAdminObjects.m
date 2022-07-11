@@ -150,7 +150,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_AutoscalingTargets
-@dynamic cpuUtilizationPercent;
+@dynamic cpuUtilizationPercent, storageUtilizationGibPerNode;
 @end
 
 
@@ -1081,6 +1081,25 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_UndeleteTableMetadata
+//
+
+@implementation GTLRBigtableAdmin_UndeleteTableMetadata
+@dynamic endTime, name, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_UndeleteTableRequest
+//
+
+@implementation GTLRBigtableAdmin_UndeleteTableRequest
 @end
 
 

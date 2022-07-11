@@ -897,7 +897,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** The maximum number of results to return per response. */
+/**
+ *  The maximum number of instances to return. The service may return fewer than
+ *  this value. If unspecified, at most 500 instances are returned. The maximum
+ *  value is 1000; values above 1000 are coerced to 1000.
+ */
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
@@ -1755,6 +1759,47 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Retrieves a resource containing information about a user.
+ *
+ *  Method: sql.users.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_UsersGet : GTLRSQLAdminQuery
+
+/** Database instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/**
+ *  User of the instance. If the database user has a host, this is specified as
+ *  {username}\@{host} else as {username}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_User.
+ *
+ *  Retrieves a resource containing information about a user.
+ *
+ *  @param project Project ID of the project that contains the instance.
+ *  @param instance Database instance ID. This does not include the project ID.
+ *  @param name User of the instance. If the database user has a host, this is
+ *    specified as {username}\@{host} else as {username}.
+ *
+ *  @return GTLRSQLAdminQuery_UsersGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance
+                            name:(NSString *)name;
 
 @end
 

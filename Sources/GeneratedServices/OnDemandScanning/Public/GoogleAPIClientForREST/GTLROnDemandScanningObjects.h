@@ -38,12 +38,23 @@
 @class GTLROnDemandScanning_GerritSourceContext;
 @class GTLROnDemandScanning_GitSourceContext;
 @class GTLROnDemandScanning_GrafeasV1FileLocation;
+@class GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaBuilder;
+@class GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaCompleteness;
+@class GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource;
+@class GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource_Digest;
+@class GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation;
+@class GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation_Environment;
+@class GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation_Parameters;
+@class GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial;
+@class GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial_Digest;
+@class GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaMetadata;
 @class GTLROnDemandScanning_Hash;
 @class GTLROnDemandScanning_Identity;
 @class GTLROnDemandScanning_ImageOccurrence;
 @class GTLROnDemandScanning_InTotoProvenance;
 @class GTLROnDemandScanning_InTotoStatement;
 @class GTLROnDemandScanning_Jwt;
+@class GTLROnDemandScanning_LanguagePackageDependency;
 @class GTLROnDemandScanning_Layer;
 @class GTLROnDemandScanning_License;
 @class GTLROnDemandScanning_Location;
@@ -69,6 +80,8 @@
 @class GTLROnDemandScanning_SlsaCompleteness;
 @class GTLROnDemandScanning_SlsaMetadata;
 @class GTLROnDemandScanning_SlsaProvenance;
+@class GTLROnDemandScanning_SlsaProvenanceZeroTwo;
+@class GTLROnDemandScanning_SlsaProvenanceZeroTwo_BuildConfig;
 @class GTLROnDemandScanning_SlsaRecipe;
 @class GTLROnDemandScanning_SlsaRecipe_Arguments;
 @class GTLROnDemandScanning_SlsaRecipe_Environment;
@@ -1447,6 +1460,157 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  Identifies the entity that executed the recipe, which is trusted to have
+ *  correctly performed the operation and populated this provenance.
+ */
+@interface GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaBuilder : GTLRObject
+
+/**
+ *  identifier
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  Indicates that the builder claims certain fields in this message to be
+ *  complete.
+ */
+@interface GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaCompleteness : GTLRObject
+
+/**
+ *  environment
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *environment;
+
+/**
+ *  materials
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *materials;
+
+/**
+ *  parameters
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *parameters;
+
+@end
+
+
+/**
+ *  Describes where the config file that kicked off the build came from. This is
+ *  effectively a pointer to the source where buildConfig came from.
+ */
+@interface GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource_Digest *digest;
+@property(nonatomic, copy, nullable) NSString *entryPoint;
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource_Digest
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource_Digest : GTLRObject
+@end
+
+
+/**
+ *  Identifies the event that kicked off the build.
+ */
+@interface GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource *configSource;
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation_Environment *environment;
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation_Parameters *parameters;
+
+@end
+
+
+/**
+ *  GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation_Environment
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation_Environment : GTLRObject
+@end
+
+
+/**
+ *  GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation_Parameters
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation_Parameters : GTLRObject
+@end
+
+
+/**
+ *  The collection of artifacts that influenced the build including sources,
+ *  dependencies, build tools, base images, and so on.
+ */
+@interface GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial_Digest *digest;
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial_Digest
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial_Digest : GTLRObject
+@end
+
+
+/**
+ *  Other properties of the build.
+ */
+@interface GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaMetadata : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDateTime *buildFinishedOn;
+@property(nonatomic, copy, nullable) NSString *buildInvocationId;
+@property(nonatomic, strong, nullable) GTLRDateTime *buildStartedOn;
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaCompleteness *completeness;
+
+/**
+ *  reproducible
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reproducible;
+
+@end
+
+
+/**
  *  Container message for hash values.
  */
 @interface GTLROnDemandScanning_Hash : GTLRObject
@@ -1561,6 +1725,7 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_InTotoProvenance *provenance;
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_SlsaProvenance *slsaProvenance;
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_SlsaProvenanceZeroTwo *slsaProvenanceZeroTwo;
 @property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_Subject *> *subject;
 
 @end
@@ -1577,6 +1742,18 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  https://tools.ietf.org/html/rfc7515.html#section-3.1
  */
 @property(nonatomic, copy, nullable) NSString *compactJwt;
+
+@end
+
+
+/**
+ *  Indicates a language package available between this package and the
+ *  customer's resource artifact.
+ */
+@interface GTLROnDemandScanning_LanguagePackageDependency : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *package;
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -1963,6 +2140,13 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  */
 @property(nonatomic, copy, nullable) NSString *cpeUri;
 
+/**
+ *  The dependency chain between this package and the user's artifact. List in
+ *  order from the customer's package under review first, to the current package
+ *  last. Inclusive of the original package and the current package.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_LanguagePackageDependency *> *dependencyChain;
+
 /** The path to the jar file / go binary file. */
 @property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_FileLocation *> *fileLocation;
 
@@ -2003,6 +2187,12 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *        Value "PACKAGE_TYPE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *packageType;
+
+/**
+ *  CVEs that this package is no longer vulnerable to
+ *  go/drydock-dd-custom-binary-scanning
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *patchedCve;
 
 @property(nonatomic, copy, nullable) NSString *unused;
 
@@ -2420,6 +2610,33 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  */
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_SlsaRecipe *recipe;
 
+@end
+
+
+/**
+ *  See full explanation of fields at slsa.dev/provenance/v0.2.
+ */
+@interface GTLROnDemandScanning_SlsaProvenanceZeroTwo : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_SlsaProvenanceZeroTwo_BuildConfig *buildConfig;
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaBuilder *builder;
+@property(nonatomic, copy, nullable) NSString *buildType;
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation *invocation;
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial *> *materials;
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaMetadata *metadata;
+
+@end
+
+
+/**
+ *  GTLROnDemandScanning_SlsaProvenanceZeroTwo_BuildConfig
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLROnDemandScanning_SlsaProvenanceZeroTwo_BuildConfig : GTLRObject
 @end
 
 

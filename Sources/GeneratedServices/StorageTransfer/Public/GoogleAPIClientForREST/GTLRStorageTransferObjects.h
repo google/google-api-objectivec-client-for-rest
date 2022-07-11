@@ -666,25 +666,28 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 // GTLRStorageTransfer_TransferOptions.overwriteWhen
 
 /**
- *  Always overwrite destination object.
+ *  Always overwrite the destination object with the source object, even if the
+ *  HTTP Etags or checksum values are the same.
  *
  *  Value: "ALWAYS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_Always;
 /**
- *  Overwrite destination object with source if the two objects are different.
+ *  Overwrites destination objects with the source objects, only if the objects
+ *  have the same name but different HTTP ETags or checksum values.
  *
  *  Value: "DIFFERENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_Different;
 /**
- *  Never overwrite destination object.
+ *  Never overwrites a destination object if a source object has the same name.
+ *  In this case, the source object is not transferred.
  *
  *  Value: "NEVER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_Never;
 /**
- *  Indicate the option is not set.
+ *  Overwrite behavior is unspecified.
  *
  *  Value: "OVERWRITE_WHEN_UNSPECIFIED"
  */
@@ -2202,20 +2205,24 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
 @property(nonatomic, strong, nullable) NSNumber *overwriteObjectsAlreadyExistingInSink;
 
 /**
- *  When to overwrite objects that already exist in the sink. If not set
+ *  When to overwrite objects that already exist in the sink. If not set,
  *  overwrite behavior is determined by
  *  overwrite_objects_already_existing_in_sink.
  *
  *  Likely values:
  *    @arg @c kGTLRStorageTransfer_TransferOptions_OverwriteWhen_Always Always
- *        overwrite destination object. (Value: "ALWAYS")
+ *        overwrite the destination object with the source object, even if the
+ *        HTTP Etags or checksum values are the same. (Value: "ALWAYS")
  *    @arg @c kGTLRStorageTransfer_TransferOptions_OverwriteWhen_Different
- *        Overwrite destination object with source if the two objects are
- *        different. (Value: "DIFFERENT")
+ *        Overwrites destination objects with the source objects, only if the
+ *        objects have the same name but different HTTP ETags or checksum
+ *        values. (Value: "DIFFERENT")
  *    @arg @c kGTLRStorageTransfer_TransferOptions_OverwriteWhen_Never Never
- *        overwrite destination object. (Value: "NEVER")
+ *        overwrites a destination object if a source object has the same name.
+ *        In this case, the source object is not transferred. (Value: "NEVER")
  *    @arg @c kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhenUnspecified
- *        Indicate the option is not set. (Value: "OVERWRITE_WHEN_UNSPECIFIED")
+ *        Overwrite behavior is unspecified. (Value:
+ *        "OVERWRITE_WHEN_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *overwriteWhen;
 

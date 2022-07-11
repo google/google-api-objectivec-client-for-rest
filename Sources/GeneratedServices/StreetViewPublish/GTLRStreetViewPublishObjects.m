@@ -30,6 +30,38 @@ NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_ReceivedViaTransfer
 NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Rejected = @"REJECTED";
 NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_TransferStatusUnknown = @"TRANSFER_STATUS_UNKNOWN";
 
+// GTLRStreetViewPublish_PhotoSequence.failureReason
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_CorruptVideo = @"CORRUPT_VIDEO";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_Duplicate = @"DUPLICATE";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_FailedToRefinePositions = @"FAILED_TO_REFINE_POSITIONS";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_GpsDataGap = @"GPS_DATA_GAP";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_ImuDataGap = @"IMU_DATA_GAP";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientGps = @"INSUFFICIENT_GPS";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_Internal = @"INTERNAL";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InvalidCaptureTime = @"INVALID_CAPTURE_TIME";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InvalidGps = @"INVALID_GPS";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InvalidImu = @"INVALID_IMU";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InvalidVideoDimensions = @"INVALID_VIDEO_DIMENSIONS";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InvalidVideoFormat = @"INVALID_VIDEO_FORMAT";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_JumpyGps = @"JUMPY_GPS";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_LowResolution = @"LOW_RESOLUTION";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_NoOverlapGps = @"NO_OVERLAP_GPS";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_NotOutdoors = @"NOT_OUTDOORS";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_ProcessingFailureReasonUnspecified = @"PROCESSING_FAILURE_REASON_UNSPECIFIED";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_Takedown = @"TAKEDOWN";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_UnsupportedCamera = @"UNSUPPORTED_CAMERA";
+
+// GTLRStreetViewPublish_PhotoSequence.gpsSource
+NSString * const kGTLRStreetViewPublish_PhotoSequence_GpsSource_CameraMotionMetadataTrack = @"CAMERA_MOTION_METADATA_TRACK";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_GpsSource_PhotoSequence = @"PHOTO_SEQUENCE";
+
+// GTLRStreetViewPublish_PhotoSequence.processingState
+NSString * const kGTLRStreetViewPublish_PhotoSequence_ProcessingState_Failed = @"FAILED";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_ProcessingState_Pending = @"PENDING";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_ProcessingState_Processed = @"PROCESSED";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_ProcessingState_Processing = @"PROCESSING";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_ProcessingState_ProcessingStateUnspecified = @"PROCESSING_STATE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRStreetViewPublish_BatchDeletePhotosRequest
@@ -141,6 +173,56 @@ NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_TransferStatusUnkno
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStreetViewPublish_GpsDataGapFailureDetails
+//
+
+@implementation GTLRStreetViewPublish_GpsDataGapFailureDetails
+@dynamic gapDuration, gapTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStreetViewPublish_Imu
+//
+
+@implementation GTLRStreetViewPublish_Imu
+@dynamic accelMpsps, gyroRps, magUt;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accelMpsps" : [GTLRStreetViewPublish_Measurement3d class],
+    @"gyroRps" : [GTLRStreetViewPublish_Measurement3d class],
+    @"magUt" : [GTLRStreetViewPublish_Measurement3d class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStreetViewPublish_ImuDataGapFailureDetails
+//
+
+@implementation GTLRStreetViewPublish_ImuDataGapFailureDetails
+@dynamic gapDuration, gapTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStreetViewPublish_InsufficientGpsFailureDetails
+//
+
+@implementation GTLRStreetViewPublish_InsufficientGpsFailureDetails
+@dynamic gpsPointsFound;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStreetViewPublish_LatLng
 //
 
@@ -151,11 +233,43 @@ NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_TransferStatusUnkno
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStreetViewPublish_LatLngBounds
+//
+
+@implementation GTLRStreetViewPublish_LatLngBounds
+@dynamic northeast, southwest;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStreetViewPublish_Level
 //
 
 @implementation GTLRStreetViewPublish_Level
 @dynamic name, number;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStreetViewPublish_ListPhotoSequencesResponse
+//
+
+@implementation GTLRStreetViewPublish_ListPhotoSequencesResponse
+@dynamic nextPageToken, photoSequences;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"photoSequences" : [GTLRStreetViewPublish_Operation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"photoSequences";
+}
+
 @end
 
 
@@ -178,6 +292,26 @@ NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_TransferStatusUnkno
   return @"photos";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStreetViewPublish_Measurement3d
+//
+
+@implementation GTLRStreetViewPublish_Measurement3d
+@dynamic captureTime, x, y, z;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStreetViewPublish_NotOutdoorsFailureDetails
+//
+
+@implementation GTLRStreetViewPublish_NotOutdoorsFailureDetails
+@dynamic time;
 @end
 
 
@@ -267,6 +401,31 @@ NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_TransferStatusUnkno
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStreetViewPublish_PhotoSequence
+//
+
+@implementation GTLRStreetViewPublish_PhotoSequence
+@dynamic captureTimeOverride, distanceMeters, failureDetails, failureReason,
+         filename, gpsSource, identifier, imu, photos, processingState,
+         rawGpsTimeline, sequenceBounds, uploadReference, uploadTime, viewCount;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"photos" : [GTLRStreetViewPublish_Photo class],
+    @"rawGpsTimeline" : [GTLRStreetViewPublish_Pose class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStreetViewPublish_Place
 //
 
@@ -281,7 +440,19 @@ NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_TransferStatusUnkno
 //
 
 @implementation GTLRStreetViewPublish_Pose
-@dynamic accuracyMeters, altitude, heading, latLngPair, level, pitch, roll;
+@dynamic accuracyMeters, altitude, gpsRecordTimestampUnixEpoch, heading,
+         latLngPair, level, pitch, roll;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStreetViewPublish_ProcessingFailureDetails
+//
+
+@implementation GTLRStreetViewPublish_ProcessingFailureDetails
+@dynamic gpsDataGapDetails, imuDataGapDetails, insufficientGpsDetails,
+         notOutdoorsDetails;
 @end
 
 

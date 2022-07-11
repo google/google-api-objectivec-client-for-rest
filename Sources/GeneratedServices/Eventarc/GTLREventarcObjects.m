@@ -25,6 +25,25 @@ NSString * const kGTLREventarc_Channel_State_Inactive         = @"INACTIVE";
 NSString * const kGTLREventarc_Channel_State_Pending          = @"PENDING";
 NSString * const kGTLREventarc_Channel_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLREventarc_StateCondition.code
+NSString * const kGTLREventarc_StateCondition_Code_Aborted     = @"ABORTED";
+NSString * const kGTLREventarc_StateCondition_Code_AlreadyExists = @"ALREADY_EXISTS";
+NSString * const kGTLREventarc_StateCondition_Code_Cancelled   = @"CANCELLED";
+NSString * const kGTLREventarc_StateCondition_Code_DataLoss    = @"DATA_LOSS";
+NSString * const kGTLREventarc_StateCondition_Code_DeadlineExceeded = @"DEADLINE_EXCEEDED";
+NSString * const kGTLREventarc_StateCondition_Code_FailedPrecondition = @"FAILED_PRECONDITION";
+NSString * const kGTLREventarc_StateCondition_Code_Internal    = @"INTERNAL";
+NSString * const kGTLREventarc_StateCondition_Code_InvalidArgument = @"INVALID_ARGUMENT";
+NSString * const kGTLREventarc_StateCondition_Code_NotFound    = @"NOT_FOUND";
+NSString * const kGTLREventarc_StateCondition_Code_Ok          = @"OK";
+NSString * const kGTLREventarc_StateCondition_Code_OutOfRange  = @"OUT_OF_RANGE";
+NSString * const kGTLREventarc_StateCondition_Code_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLREventarc_StateCondition_Code_ResourceExhausted = @"RESOURCE_EXHAUSTED";
+NSString * const kGTLREventarc_StateCondition_Code_Unauthenticated = @"UNAUTHENTICATED";
+NSString * const kGTLREventarc_StateCondition_Code_Unavailable = @"UNAVAILABLE";
+NSString * const kGTLREventarc_StateCondition_Code_Unimplemented = @"UNIMPLEMENTED";
+NSString * const kGTLREventarc_StateCondition_Code_Unknown     = @"UNKNOWN";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLREventarc_AuditConfig
@@ -85,8 +104,18 @@ NSString * const kGTLREventarc_Channel_State_StateUnspecified = @"STATE_UNSPECIF
 //
 
 @implementation GTLREventarc_Channel
-@dynamic activationToken, createTime, name, provider, pubsubTopic, state, uid,
-         updateTime;
+@dynamic activationToken, createTime, cryptoKeyName, name, provider,
+         pubsubTopic, state, uid, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_ChannelConnection
+//
+
+@implementation GTLREventarc_ChannelConnection
+@dynamic activationToken, channel, createTime, name, uid, updateTime;
 @end
 
 
@@ -203,6 +232,16 @@ NSString * const kGTLREventarc_Channel_State_StateUnspecified = @"STATE_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLREventarc_GoogleChannelConfig
+//
+
+@implementation GTLREventarc_GoogleChannelConfig
+@dynamic cryptoKeyName, name, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLREventarc_GoogleLongrunningCancelOperationRequest
 //
 
@@ -297,6 +336,29 @@ NSString * const kGTLREventarc_Channel_State_StateUnspecified = @"STATE_UNSPECIF
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_ListChannelConnectionsResponse
+//
+
+@implementation GTLREventarc_ListChannelConnectionsResponse
+@dynamic channelConnections, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"channelConnections" : [GTLREventarc_ChannelConnection class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"channelConnections";
 }
 
 @end
@@ -505,6 +567,16 @@ NSString * const kGTLREventarc_Channel_State_StateUnspecified = @"STATE_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLREventarc_StateCondition
+//
+
+@implementation GTLREventarc_StateCondition
+@dynamic code, message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLREventarc_TestIamPermissionsRequest
 //
 
@@ -555,8 +627,8 @@ NSString * const kGTLREventarc_Channel_State_StateUnspecified = @"STATE_UNSPECIF
 //
 
 @implementation GTLREventarc_Trigger
-@dynamic channel, createTime, destination, ETag, eventFilters, labels, name,
-         serviceAccount, transport, uid, updateTime;
+@dynamic channel, conditions, createTime, destination, ETag, eventFilters,
+         labels, name, serviceAccount, transport, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -567,6 +639,20 @@ NSString * const kGTLREventarc_Channel_State_StateUnspecified = @"STATE_UNSPECIF
     @"eventFilters" : [GTLREventarc_EventFilter class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_Trigger_Conditions
+//
+
+@implementation GTLREventarc_Trigger_Conditions
+
++ (Class)classForAdditionalProperties {
+  return [GTLREventarc_StateCondition class];
 }
 
 @end

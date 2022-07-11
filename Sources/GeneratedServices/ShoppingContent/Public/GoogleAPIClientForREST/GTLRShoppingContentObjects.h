@@ -731,30 +731,31 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_OrderTrackingSignalShipp
 // GTLRShoppingContent_Promotion.couponValueType
 
 /**
- *  Buy M quantity, get money off. buy_this_quantity and money_off_amount must
- *  be present.
+ *  Buy M quantity, get money off. `buy_this_quantity` and `money_off_amount`
+ *  must be present.
  *
  *  Value: "BUY_M_GET_MONEY_OFF"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_CouponValueType_BuyMGetMoneyOff;
 /**
- *  Buy M quantity, get N money off coupon value type. buy_this_quantity and
- *  get_this_quantity must be present. money_off_amount must also be present.
+ *  Buy M quantity, get N money off coupon value type. `buy_this_quantity` and
+ *  `get_this_quantity` must be present. `money_off_amount` must also be
+ *  present.
  *
  *  Value: "BUY_M_GET_N_MONEY_OFF"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_CouponValueType_BuyMGetNMoneyOff;
 /**
- *  Buy M quantity, get N percent off coupon value type. buy_this_quantity and
- *  get_this_quantity must be present. percent_off_percentage must also be
+ *  Buy M quantity, get N percent off coupon value type. `buy_this_quantity` and
+ *  `get_this_quantity` must be present. `percent_off_percentage` must also be
  *  present.
  *
  *  Value: "BUY_M_GET_N_PERCENT_OFF"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_CouponValueType_BuyMGetNPercentOff;
 /**
- *  Buy M quantity, get money off. buy_this_quantity and percent_off_percentage
- *  must be present.
+ *  Buy M quantity, get money off. `buy_this_quantity` and
+ *  `percent_off_percentage` must be present.
  *
  *  Value: "BUY_M_GET_PERCENT_OFF"
  */
@@ -766,13 +767,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_CouponValueTyp
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_CouponValueType_CouponValueTypeUnspecified;
 /**
- *  Free gift with description only
+ *  Free gift with description only.
  *
  *  Value: "FREE_GIFT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_CouponValueType_FreeGift;
 /**
- *  Free gift with item id (description is optional).
+ *  Free gift with item ID (description is optional).
  *
  *  Value: "FREE_GIFT_WITH_ITEM_ID"
  */
@@ -846,7 +847,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_OfferType_Offe
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_ProductApplicability_AllProducts;
 /**
- *  Unknown product applicability.
+ *  Which products the promotion applies to is unknown.
  *
  *  Value: "PRODUCT_APPLICABILITY_UNSPECIFIED"
  */
@@ -5838,7 +5839,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Average order size - the average number of items in an order. **This metric
- *  cannot be segmented by product dimensions.**
+ *  cannot be segmented by product dimensions and customer_country_code.**
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -5850,7 +5851,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  segment. If this metric is selected, 'segments.currency_code' is
  *  automatically added to the SELECT clause in the search query (unless it is
  *  explicitly selected by the user) and the currency_code segment is populated
- *  in the response. **This metric cannot be segmented by product dimensions.**
+ *  in the response. **This metric cannot be segmented by product dimensions and
+ *  customer_country_code.**
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -5908,7 +5910,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /**
  *  Average number of days between an order being placed and the order being
  *  fully shipped, reported on the last shipment date. **This metric cannot be
- *  segmented by product dimensions.**
+ *  segmented by product dimensions and customer_country_code.**
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -5923,6 +5925,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Average number of days between an item being ordered and the item being
+ *  **This metric cannot be segmented by customer_country_code.**
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -5932,7 +5935,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Percentage of shipped items in relation to all finalized items (shipped or
  *  rejected by the merchant; unshipped items are not taken into account),
  *  reported on the order date. Item fill rate is lowered by merchant
- *  rejections.
+ *  rejections. **This metric cannot be segmented by customer_country_code.**
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -5940,7 +5943,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Number of ordered items. Excludes customer cancellations that happened
- *  within 30 minutes of placing the order.
+ *  within 30 minutes of placing the order. **This metric cannot be segmented by
+ *  customer_country_code.**
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5953,6 +5957,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  If this metric is selected, 'segments.currency_code' is automatically added
  *  to the SELECT clause in the search query (unless it is explicitly selected
  *  by the user) and the currency_code segment is populated in the response.
+ *  **This metric cannot be segmented by customer_country_code.**
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5961,7 +5966,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /**
  *  Number of placed orders. Excludes customer cancellations that happened
  *  within 30 minutes of placing the order. **This metric cannot be segmented by
- *  product dimensions.**
+ *  product dimensions and customer_country_code.**
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5969,7 +5974,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Number of ordered items canceled by the merchant, reported on the order
- *  date.
+ *  date. **This metric cannot be segmented by customer_country_code.**
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5977,7 +5982,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Number of ordered items sent back for return, reported on the date when the
- *  merchant accepted the return.
+ *  merchant accepted the return. **This metric cannot be segmented by
+ *  customer_country_code.**
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5988,7 +5994,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  reported on the order date. If this metric is selected,
  *  'segments.currency_code' is automatically added to the SELECT clause in the
  *  search query (unless it is explicitly selected by the user) and the
- *  currency_code segment is populated in the response.
+ *  currency_code segment is populated in the response. **This metric cannot be
+ *  segmented by customer_country_code.**
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -6000,14 +6007,16 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  stored in the currency_code segment. If this metric is selected,
  *  'segments.currency_code' is automatically added to the SELECT clause in the
  *  search query (unless it is explicitly selected by the user) and the
- *  currency_code segment is populated in the response.
+ *  currency_code segment is populated in the response. **This metric cannot be
+ *  segmented by customer_country_code.**
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *returnsMicros;
 
 /**
- *  Number of shipped items, reported on the shipment date.
+ *  Number of shipped items, reported on the shipment date. **This metric cannot
+ *  be segmented by customer_country_code.**
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -6019,7 +6028,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  currency_code segment. If this metric is selected, 'segments.currency_code'
  *  is automatically added to the SELECT clause in the search query (unless it
  *  is explicitly selected by the user) and the currency_code segment is
- *  populated in the response.
+ *  populated in the response. **This metric cannot be segmented by
+ *  customer_country_code.**
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -6027,7 +6037,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Number of fully shipped orders, reported on the last shipment date. **This
- *  metric cannot be segmented by product dimensions.**
+ *  metric cannot be segmented by product dimensions and
+ *  customer_country_code.**
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -6037,6 +6048,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Number of ordered items not shipped up until the end of the queried day. If
  *  a multi-day period is specified in the search query, the returned value is
  *  the average number of unshipped items over the days in the queried period.
+ *  **This metric cannot be segmented by customer_country_code.**
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -6046,8 +6058,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Number of orders not shipped or partially shipped up until the end of the
  *  queried day. If a multi-day period is specified in the search query, the
  *  returned value is the average number of unshipped orders over the days in
- *  the queried period. **This metric cannot be segmented by product
- *  dimensions.**
+ *  the queried period. **This metric cannot be segmented by product dimensions
+ *  and customer_country_code.**
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -8023,12 +8035,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  post`" (Canada Post) - "`purolator`" (Purolator) - "`canpar`" (Canpar) -
  *  "`india post`" (India Post) - "`blue dart`" (Blue Dart) - "`delhivery`"
  *  (Delhivery) - "`dtdc`" (DTDC) - "`tpc india`" (TPC India) - "`lso`" (Lone
- *  Star Overnight) - "`tww`" (Team Worldwide) Supported carriers for FR are: -
- *  "`la poste`" (La Poste) *automatic status updates * - "`colissimo`"
- *  (Colissimo by La Poste) *automatic status updates* - "`ups`" (United Parcel
- *  Service) *automatic status updates * - "`chronopost`" (Chronopost by La
- *  Poste) - "`gls`" (General Logistics Systems France) - "`dpd`" (DPD Group by
- *  GeoPost) - "`bpost`" (Belgian Post Group) - "`colis prive`" (Colis Privé) -
+ *  Star Overnight) - "`tww`" (Team Worldwide) - "`deliver-it`" (Deliver-IT) -
+ *  "`cdl last mile`" (CDL Last Mile) Supported carriers for FR are: - "`la
+ *  poste`" (La Poste) *automatic status updates * - "`colissimo`" (Colissimo by
+ *  La Poste) *automatic status updates* - "`ups`" (United Parcel Service)
+ *  *automatic status updates * - "`chronopost`" (Chronopost by La Poste) -
+ *  "`gls`" (General Logistics Systems France) - "`dpd`" (DPD Group by GeoPost)
+ *  - "`bpost`" (Belgian Post Group) - "`colis prive`" (Colis Privé) -
  *  "`boxtal`" (Boxtal) - "`geodis`" (GEODIS) - "`tnt`" (TNT) - "`db schenker`"
  *  (DB Schenker) - "`aramex`" (Aramex)
  */
@@ -10817,9 +10830,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
- *  The Promotions feature is publicly available for the US, CA, IN, UK, AU
- *  target countries (en language only) in Content API for Shopping. Represents
- *  a promotion. See the following articles for more details. * [Promotions feed
+ *  Represents a promotion. See the following articles for more details. *
+ *  [Promotions feed
  *  specification](https://support.google.com/merchants/answer/2906014) * [Local
  *  promotions feed
  *  specification](https://support.google.com/merchants/answer/10146130) *
@@ -10835,8 +10847,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSArray<NSString *> *brandExclusion;
 
 /**
- *  Required. The content language used as part of the unique identifier.
- *  Currently only en value is supported.
+ *  Required. The content language used as part of the unique identifier. `en`
+ *  content language is available for all target countries. `fr` content
+ *  language is available for `CA` and `FR` target countries, and `de` content
+ *  language is available for `DE` target country.
  */
 @property(nonatomic, copy, nullable) NSString *contentLanguage;
 
@@ -10845,27 +10859,28 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *
  *  Likely values:
  *    @arg @c kGTLRShoppingContent_Promotion_CouponValueType_BuyMGetMoneyOff Buy
- *        M quantity, get money off. buy_this_quantity and money_off_amount must
- *        be present. (Value: "BUY_M_GET_MONEY_OFF")
+ *        M quantity, get money off. `buy_this_quantity` and `money_off_amount`
+ *        must be present. (Value: "BUY_M_GET_MONEY_OFF")
  *    @arg @c kGTLRShoppingContent_Promotion_CouponValueType_BuyMGetNMoneyOff
- *        Buy M quantity, get N money off coupon value type. buy_this_quantity
- *        and get_this_quantity must be present. money_off_amount must also be
- *        present. (Value: "BUY_M_GET_N_MONEY_OFF")
+ *        Buy M quantity, get N money off coupon value type. `buy_this_quantity`
+ *        and `get_this_quantity` must be present. `money_off_amount` must also
+ *        be present. (Value: "BUY_M_GET_N_MONEY_OFF")
  *    @arg @c kGTLRShoppingContent_Promotion_CouponValueType_BuyMGetNPercentOff
- *        Buy M quantity, get N percent off coupon value type. buy_this_quantity
- *        and get_this_quantity must be present. percent_off_percentage must
- *        also be present. (Value: "BUY_M_GET_N_PERCENT_OFF")
+ *        Buy M quantity, get N percent off coupon value type.
+ *        `buy_this_quantity` and `get_this_quantity` must be present.
+ *        `percent_off_percentage` must also be present. (Value:
+ *        "BUY_M_GET_N_PERCENT_OFF")
  *    @arg @c kGTLRShoppingContent_Promotion_CouponValueType_BuyMGetPercentOff
- *        Buy M quantity, get money off. buy_this_quantity and
- *        percent_off_percentage must be present. (Value:
+ *        Buy M quantity, get money off. `buy_this_quantity` and
+ *        `percent_off_percentage` must be present. (Value:
  *        "BUY_M_GET_PERCENT_OFF")
  *    @arg @c kGTLRShoppingContent_Promotion_CouponValueType_CouponValueTypeUnspecified
  *        Indicates that the coupon value type is unspecified. (Value:
  *        "COUPON_VALUE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRShoppingContent_Promotion_CouponValueType_FreeGift Free gift
- *        with description only (Value: "FREE_GIFT")
+ *        with description only. (Value: "FREE_GIFT")
  *    @arg @c kGTLRShoppingContent_Promotion_CouponValueType_FreeGiftWithItemId
- *        Free gift with item id (description is optional). (Value:
+ *        Free gift with item ID (description is optional). (Value:
  *        "FREE_GIFT_WITH_ITEM_ID")
  *    @arg @c kGTLRShoppingContent_Promotion_CouponValueType_FreeGiftWithValue
  *        Free gift with value (description is optional). (Value:
@@ -10889,14 +10904,15 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /** Free gift description for the promotion. */
 @property(nonatomic, copy, nullable) NSString *freeGiftDescription;
 
-/** Free gift item id for the promotion. */
+/** Free gift item ID for the promotion. */
 @property(nonatomic, copy, nullable) NSString *freeGiftItemId;
 
 /** Free gift value for the promotion. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_PriceAmount *freeGiftValue;
 
 /**
- *  Generic redemption code for the promotion. To be used with the above field.
+ *  Generic redemption code for the promotion. To be used with the `offerType`
+ *  field.
  */
 @property(nonatomic, copy, nullable) NSString *genericRedemptionCode;
 
@@ -10908,26 +10924,26 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *getThisQuantityDiscounted;
 
 /**
- *  Required. Output only. The REST promotion id to uniquely identify the
+ *  Required. Output only. The REST promotion ID to uniquely identify the
  *  promotion. Content API methods that operate on promotions take this as their
- *  promotionId parameter. The REST ID for a promotion is of the form
- *  [channel]:contentLanguage:targetCountry:promotionId The channel field will
- *  have a value of "online", "in_store", or "online_in_store".
+ *  `promotionId` parameter. The REST ID for a promotion is of the form
+ *  channel:contentLanguage:targetCountry:promotionId The `channel` field has a
+ *  value of `"online"`, `"in_store"`, or `"online_in_store"`.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Product filter by item group id for the promotion. */
+/** Product filter by item group ID for the promotion. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *itemGroupId;
 
-/** Product filter by item group id exclusion for the promotion. */
+/** Product filter by item group ID exclusion for the promotion. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *itemGroupIdExclusion;
 
-/** Product filter by item id for the promotion. */
+/** Product filter by item ID for the promotion. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *itemId;
 
-/** Product filter by item id exclusion for the promotion. */
+/** Product filter by item ID exclusion for the promotion. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *itemIdExclusion;
 
 /**
@@ -10953,7 +10969,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) NSNumber *minimumPurchaseQuantity;
 
-/** Promotion cost cap of the promotion. */
+/** Cost cap for the promotion. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_PriceAmount *moneyBudget;
 
 /** The money off amount offered in the promotion. */
@@ -10994,7 +11010,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *    @arg @c kGTLRShoppingContent_Promotion_ProductApplicability_AllProducts
  *        Applicable to all products. (Value: "ALL_PRODUCTS")
  *    @arg @c kGTLRShoppingContent_Promotion_ProductApplicability_ProductApplicabilityUnspecified
- *        Unknown product applicability. (Value:
+ *        Which products the promotion applies to is unknown. (Value:
  *        "PRODUCT_APPLICABILITY_UNSPECIFIED")
  *    @arg @c kGTLRShoppingContent_Promotion_ProductApplicability_SpecificProducts
  *        Applicable to only a single product or list of products. (Value:
@@ -11012,25 +11028,27 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSArray<NSString *> *promotionDestinationIds;
 
 /**
- *  String representation of the promotion display dates (deprecated: Use
- *  promotion_display_time_period instead).
+ *  String representation of the promotion display dates. Deprecated. Use
+ *  `promotion_display_time_period` instead.
  */
 @property(nonatomic, copy, nullable) NSString *promotionDisplayDates;
 
-/** TimePeriod representation of the promotion display dates. */
+/** `TimePeriod` representation of the promotion's display dates. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_TimePeriod *promotionDisplayTimePeriod;
 
 /**
- *  String representation of the promotion effective dates (deprecated: Use
- *  promotion_effective_time_period instead).
+ *  String representation of the promotion effective dates. Deprecated. Use
+ *  `promotion_effective_time_period` instead.
  */
 @property(nonatomic, copy, nullable) NSString *promotionEffectiveDates;
 
-/** Required. TimePeriod representation of the promotion effective dates. */
+/**
+ *  Required. `TimePeriod` representation of the promotion's effective dates.
+ */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_TimePeriod *promotionEffectiveTimePeriod;
 
 /**
- *  Required. The user provided promotion id to uniquely identify the promotion.
+ *  Required. The user provided promotion ID to uniquely identify the promotion.
  */
 @property(nonatomic, copy, nullable) NSString *promotionId;
 
@@ -11040,12 +11058,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *redemptionChannel;
 
-/** Shipping service names for thse promotion. */
+/** Shipping service names for the promotion. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *shippingServiceNames;
 
 /**
- *  Required. The target country used as part of the unique identifier.
- *  Currently only US and CA are supported.
+ *  Required. The target country used as part of the unique identifier. Can be
+ *  `AU`, `CA`, `DE`, `FR`, `GB`, `IN` or `US`.
  */
 @property(nonatomic, copy, nullable) NSString *targetCountry;
 
@@ -12764,11 +12782,11 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Dimensions according to which metrics are segmented in the response. Values
- *  of product dimensions, e.g., offer id, reflect the state of a product at the
- *  time of the corresponding event, e.g., impression or order. Segment fields
- *  cannot be selected in queries without also selecting at least one metric
- *  field. Values are only set for dimensions requested explicitly in the
- *  request's search query.
+ *  of product dimensions, such as `offer_id`, reflect the state of a product at
+ *  the time of the corresponding event, for example, impression or order.
+ *  Segment fields cannot be selected in queries without also selecting at least
+ *  one metric field. Values are only set for dimensions requested explicitly in
+ *  the request's search query.
  */
 @interface GTLRShoppingContent_Segments : GTLRObject
 
@@ -12811,11 +12829,18 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *categoryL5;
 
 /**
- *  Currency in which price metrics are represented, e.g., if you select
+ *  Currency in which price metrics are represented, for example, if you select
  *  `ordered_item_sales_micros`, the returned value will be represented by this
  *  currency.
  */
 @property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/**
+ *  Code of the country where the customer is located at the time of the event.
+ *  Represented in the ISO 3166 format. If the customer country cannot be
+ *  determined, a special 'ZZ' code is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *customerCountryCode;
 
 /** Custom label 0 for custom grouping of products. */
 @property(nonatomic, copy, nullable) NSString *customLabel0;
@@ -12874,7 +12899,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *productTypeL5;
 
 /**
- *  Program to which metrics apply, e.g., Free Product Listing.
+ *  Program to which metrics apply, for example, Free Product Listing.
  *
  *  Likely values:
  *    @arg @c kGTLRShoppingContent_Segments_Program_BuyOnGoogleListing Buy on

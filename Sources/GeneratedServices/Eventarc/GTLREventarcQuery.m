@@ -16,6 +16,71 @@
 
 @end
 
+@implementation GTLREventarcQuery_ProjectsLocationsChannelConnectionsCreate
+
+@dynamic channelConnectionId, parent;
+
++ (instancetype)queryWithObject:(GTLREventarc_ChannelConnection *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/channelConnections";
+  GTLREventarcQuery_ProjectsLocationsChannelConnectionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLREventarc_GoogleLongrunningOperation class];
+  query.loggingName = @"eventarc.projects.locations.channelConnections.create";
+  return query;
+}
+
+@end
+
+@implementation GTLREventarcQuery_ProjectsLocationsChannelConnectionsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLREventarcQuery_ProjectsLocationsChannelConnectionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLREventarc_GoogleLongrunningOperation class];
+  query.loggingName = @"eventarc.projects.locations.channelConnections.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLREventarcQuery_ProjectsLocationsChannelConnectionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLREventarcQuery_ProjectsLocationsChannelConnectionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLREventarc_ChannelConnection class];
+  query.loggingName = @"eventarc.projects.locations.channelConnections.get";
+  return query;
+}
+
+@end
+
 @implementation GTLREventarcQuery_ProjectsLocationsChannelConnectionsGetIamPolicy
 
 @dynamic optionsRequestedPolicyVersion, resource;
@@ -34,6 +99,25 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLREventarc_Policy class];
   query.loggingName = @"eventarc.projects.locations.channelConnections.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLREventarcQuery_ProjectsLocationsChannelConnectionsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/channelConnections";
+  GTLREventarcQuery_ProjectsLocationsChannelConnectionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLREventarc_ListChannelConnectionsResponse class];
+  query.loggingName = @"eventarc.projects.locations.channelConnections.list";
   return query;
 }
 
@@ -295,6 +379,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLREventarc_Location class];
   query.loggingName = @"eventarc.projects.locations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLREventarcQuery_ProjectsLocationsGetGoogleChannelConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLREventarcQuery_ProjectsLocationsGetGoogleChannelConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLREventarc_GoogleChannelConfig class];
+  query.loggingName = @"eventarc.projects.locations.getGoogleChannelConfig";
   return query;
 }
 
@@ -628,6 +731,33 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLREventarc_TestIamPermissionsResponse class];
   query.loggingName = @"eventarc.projects.locations.triggers.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLREventarcQuery_ProjectsLocationsUpdateGoogleChannelConfig
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLREventarc_GoogleChannelConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLREventarcQuery_ProjectsLocationsUpdateGoogleChannelConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLREventarc_GoogleChannelConfig class];
+  query.loggingName = @"eventarc.projects.locations.updateGoogleChannelConfig";
   return query;
 }
 

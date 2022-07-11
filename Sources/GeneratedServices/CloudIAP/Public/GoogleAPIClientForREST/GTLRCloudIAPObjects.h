@@ -161,7 +161,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  */
 @property(nonatomic, copy, nullable) NSString *cookieDomain;
 
-/** Settings to configure IAP's behavior for a CSM mesh. */
+/** Settings to configure IAP's behavior for a service mesh. */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_CsmSettings *csmSettings;
 
 @end
@@ -272,10 +272,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 
 
 /**
- *  Configuration for RCTokens generated for CSM workloads protected by IAP.
- *  RCTokens are IAP generated JWTs that can be verified at the application. The
- *  RCToken is primarily used for ISTIO deployments, and can be scoped to a
- *  single mesh by configuring the audience field accordingly
+ *  Configuration for RCTokens generated for service mesh workloads protected by
+ *  IAP. RCTokens are IAP generated JWTs that can be verified at the
+ *  application. The RCToken is primarily used for service mesh deployments, and
+ *  can be scoped to a single mesh by configuring the audience field accordingly
  */
 @interface GTLRCloudIAP_CsmSettings : GTLRObject
 
@@ -688,7 +688,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 @property(nonatomic, strong, nullable) GTLRDuration *maxAge;
 
 /**
- *  Reauth method required by the policy.
+ *  Reauth method requested.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudIAP_ReauthSettings_Method_Login Mimics the behavior as
@@ -867,7 +867,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 
 /**
  *  Required. Immutable. Identifier for the TunnelDestGroup. Must be unique
- *  within the project.
+ *  within the project and contain only lower case letters (a-z) and dashes (-).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

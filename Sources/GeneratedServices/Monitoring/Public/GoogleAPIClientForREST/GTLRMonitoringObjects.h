@@ -54,6 +54,7 @@
 @class GTLRMonitoring_HttpCheck_Headers;
 @class GTLRMonitoring_InternalChecker;
 @class GTLRMonitoring_IstioCanonicalService;
+@class GTLRMonitoring_JsonPathMatcher;
 @class GTLRMonitoring_LabelDescriptor;
 @class GTLRMonitoring_LabelValue;
 @class GTLRMonitoring_LatencyCriteria;
@@ -520,6 +521,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_Contai
  */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_ContentMatcherOptionUnspecified;
 /**
+ *  Selects JSONPath matching. See JsonPathMatcher for details on when the match
+ *  succeeds. JSONPath matching is only supported for HTTP/HTTPS checks.
+ *
+ *  Value: "MATCHES_JSON_PATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_MatchesJsonPath;
+/**
  *  Selects regular-expression matching. The match succeeds if the output
  *  matches the regular expression specified in the content string. Regex
  *  matching is only supported for HTTP/HTTPS checks.
@@ -534,6 +542,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_Matche
  *  Value: "NOT_CONTAINS_STRING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_NotContainsString;
+/**
+ *  Selects JSONPath matching. See JsonPathMatcher for details on when the match
+ *  succeeds. Succeeds when output does NOT match as specified. JSONPath is only
+ *  supported for HTTP/HTTPS checks.
+ *
+ *  Value: "NOT_MATCHES_JSON_PATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_NotMatchesJsonPath;
 /**
  *  Selects negation of regular-expression matching. The match succeeds if the
  *  output does NOT match the regular expression specified in the content
@@ -758,6 +774,31 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_InternalChecker_State_Running
  *  Value: "UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_InternalChecker_State_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMonitoring_JsonPathMatcher.jsonMatcher
+
+/**
+ *  Selects 'exact string' matching. The match succeeds if the content at the
+ *  json_path within the output is exactly the same as the content string.
+ *
+ *  Value: "EXACT_MATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_JsonPathMatcher_JsonMatcher_ExactMatch;
+/**
+ *  No JSONPath matcher type specified (not valid).
+ *
+ *  Value: "JSON_PATH_MATCHER_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_JsonPathMatcher_JsonMatcher_JsonPathMatcherOptionUnspecified;
+/**
+ *  Selects regular-expression matching. The match succeeds if the content at
+ *  the json_path within the output matches the regular expression specified in
+ *  the content string.
+ *
+ *  Value: "REGEX_MATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_JsonPathMatcher_JsonMatcher_RegexMatch;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_LabelDescriptor.valueType
@@ -1056,7 +1097,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricThreshold_Comparison_Co
 
 /**
  *  If there is no data to evaluate the condition, then evaluate the condition
- *  as true. The default for conditions with a duration value.
+ *  as true.
  *
  *  Value: "EVALUATION_MISSING_DATA_ACTIVE"
  */
@@ -1325,7 +1366,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_OperationMetadata_State_State
 
 /**
  *  If there is no data to evaluate the condition, then evaluate the condition
- *  as true. The default for conditions with a duration value.
+ *  as true.
  *
  *  Value: "EVALUATION_MISSING_DATA_ACTIVE"
  */
@@ -2155,8 +2196,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  The ID of the App Engine module underlying this service. Corresponds to the
- *  module_id resource label in the gae_app monitored resource:
- *  https://cloud.google.com/monitoring/api/resources#tag_gae_app
+ *  module_id resource label in the gae_app monitored resource
+ *  (https://cloud.google.com/monitoring/api/resources#tag_gae_app).
  */
 @property(nonatomic, copy, nullable) NSString *moduleId;
 
@@ -2274,8 +2315,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  The name of the Cloud Endpoints service underlying this service. Corresponds
- *  to the service resource label in the api monitored resource:
- *  https://cloud.google.com/monitoring/api/resources#tag_api
+ *  to the service resource label in the api monitored resource
+ *  (https://cloud.google.com/monitoring/api/resources#tag_api).
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
@@ -2289,15 +2330,15 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  The location the service is run. Corresponds to the location resource label
- *  in the cloud_run_revision monitored resource:
- *  https://cloud.google.com/monitoring/api/resources#tag_cloud_run_revision
+ *  in the cloud_run_revision monitored resource
+ *  (https://cloud.google.com/monitoring/api/resources#tag_cloud_run_revision).
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  The name of the Cloud Run service. Corresponds to the service_name resource
- *  label in the cloud_run_revision monitored resource:
- *  https://cloud.google.com/monitoring/api/resources#tag_cloud_run_revision
+ *  label in the cloud_run_revision monitored resource
+ *  (https://cloud.google.com/monitoring/api/resources#tag_cloud_run_revision).
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
@@ -2541,6 +2582,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  */
 @property(nonatomic, copy, nullable) NSString *content;
 
+/** Matcher information for MATCHES_JSON_PATH and NOT_MATCHES_JSON_PATH */
+@property(nonatomic, strong, nullable) GTLRMonitoring_JsonPathMatcher *jsonPathMatcher;
+
 /**
  *  The type of content matcher that will be applied to the server output,
  *  compared to the content string when the check is run.
@@ -2555,6 +2599,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        No content matcher type specified (maintained for backward
  *        compatibility, but deprecated for future use). Treated as
  *        CONTAINS_STRING. (Value: "CONTENT_MATCHER_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_MatchesJsonPath Selects
+ *        JSONPath matching. See JsonPathMatcher for details on when the match
+ *        succeeds. JSONPath matching is only supported for HTTP/HTTPS checks.
+ *        (Value: "MATCHES_JSON_PATH")
  *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_MatchesRegex Selects
  *        regular-expression matching. The match succeeds if the output matches
  *        the regular expression specified in the content string. Regex matching
@@ -2562,6 +2610,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_NotContainsString Selects
  *        negation of substring matching. The match succeeds if the output does
  *        NOT contain the content string. (Value: "NOT_CONTAINS_STRING")
+ *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_NotMatchesJsonPath Selects
+ *        JSONPath matching. See JsonPathMatcher for details on when the match
+ *        succeeds. Succeeds when output does NOT match as specified. JSONPath
+ *        is only supported for HTTP/HTTPS checks. (Value:
+ *        "NOT_MATCHES_JSON_PATH")
  *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_NotMatchesRegex Selects
  *        negation of regular-expression matching. The match succeeds if the
  *        output does NOT match the regular expression specified in the content
@@ -3116,8 +3169,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  GKE Namespace. The field names correspond to the resource metadata labels on
- *  monitored resources that fall under a namespace (e.g. k8s_container,
- *  k8s_pod).
+ *  monitored resources that fall under a namespace (for example, k8s_container
+ *  or k8s_pod).
  */
 @interface GTLRMonitoring_GkeNamespace : GTLRObject
 
@@ -3143,8 +3196,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 /**
  *  GKE Service. The "service" here represents a Kubernetes service object
  *  (https://kubernetes.io/docs/concepts/services-networking/service). The field
- *  names correspond to the resource labels on k8s_service monitored resources:
- *  https://cloud.google.com/monitoring/api/resources#tag_k8s_service
+ *  names correspond to the resource labels on k8s_service monitored resources
+ *  (https://cloud.google.com/monitoring/api/resources#tag_k8s_service).
  */
 @interface GTLRMonitoring_GkeService : GTLRObject
 
@@ -3172,8 +3225,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  A GKE Workload (Deployment, StatefulSet, etc). The field names correspond to
- *  the metadata labels on monitored resources that fall under a workload (e.g.
- *  k8s_container, k8s_pod).
+ *  the metadata labels on monitored resources that fall under a workload (for
+ *  example, k8s_container or k8s_pod).
  */
 @interface GTLRMonitoring_GkeWorkload : GTLRObject
 
@@ -3196,7 +3249,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 /** The name of this workload. */
 @property(nonatomic, copy, nullable) NSString *topLevelControllerName;
 
-/** The type of this workload (e.g. "Deployment" or "DaemonSet") */
+/** The type of this workload (for example, "Deployment" or "DaemonSet") */
 @property(nonatomic, copy, nullable) NSString *topLevelControllerType;
 
 @end
@@ -3511,6 +3564,41 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  (https://cloud.google.com/monitoring/api/metrics_istio).
  */
 @property(nonatomic, copy, nullable) NSString *meshUid;
+
+@end
+
+
+/**
+ *  Information needed to perform a JSONPath content match. Used for
+ *  ContentMatcherOption::MATCHES_JSON_PATH and
+ *  ContentMatcherOption::NOT_MATCHES_JSON_PATH.
+ */
+@interface GTLRMonitoring_JsonPathMatcher : GTLRObject
+
+/**
+ *  The type of JSONPath match that will be applied to the JSON output
+ *  (ContentMatcher.content)
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoring_JsonPathMatcher_JsonMatcher_ExactMatch Selects
+ *        'exact string' matching. The match succeeds if the content at the
+ *        json_path within the output is exactly the same as the content string.
+ *        (Value: "EXACT_MATCH")
+ *    @arg @c kGTLRMonitoring_JsonPathMatcher_JsonMatcher_JsonPathMatcherOptionUnspecified
+ *        No JSONPath matcher type specified (not valid). (Value:
+ *        "JSON_PATH_MATCHER_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMonitoring_JsonPathMatcher_JsonMatcher_RegexMatch Selects
+ *        regular-expression matching. The match succeeds if the content at the
+ *        json_path within the output matches the regular expression specified
+ *        in the content string. (Value: "REGEX_MATCH")
+ */
+@property(nonatomic, copy, nullable) NSString *jsonMatcher;
+
+/**
+ *  JSONPath within the response output pointing to the expected
+ *  ContentMatcher::content to match against.
+ */
+@property(nonatomic, copy, nullable) NSString *jsonPath;
 
 @end
 
@@ -4551,8 +4639,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  Likely values:
  *    @arg @c kGTLRMonitoring_MetricThreshold_EvaluationMissingData_EvaluationMissingDataActive
  *        If there is no data to evaluate the condition, then evaluate the
- *        condition as true. The default for conditions with a duration value.
- *        (Value: "EVALUATION_MISSING_DATA_ACTIVE")
+ *        condition as true. (Value: "EVALUATION_MISSING_DATA_ACTIVE")
  *    @arg @c kGTLRMonitoring_MetricThreshold_EvaluationMissingData_EvaluationMissingDataInactive
  *        If there is no data to evaluate the condition, then evaluate the
  *        condition as false. (Value: "EVALUATION_MISSING_DATA_INACTIVE")
@@ -5232,8 +5319,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  Likely values:
  *    @arg @c kGTLRMonitoring_QueryLanguageCondition_EvaluationMissingData_EvaluationMissingDataActive
  *        If there is no data to evaluate the condition, then evaluate the
- *        condition as true. The default for conditions with a duration value.
- *        (Value: "EVALUATION_MISSING_DATA_ACTIVE")
+ *        condition as true. (Value: "EVALUATION_MISSING_DATA_ACTIVE")
  *    @arg @c kGTLRMonitoring_QueryLanguageCondition_EvaluationMissingData_EvaluationMissingDataInactive
  *        If there is no data to evaluate the condition, then evaluate the
  *        condition as false. (Value: "EVALUATION_MISSING_DATA_INACTIVE")

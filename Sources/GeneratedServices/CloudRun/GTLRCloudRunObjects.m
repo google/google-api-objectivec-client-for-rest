@@ -316,7 +316,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2ExecutionReference
-@dynamic createTime, name;
+@dynamic completionTime, createTime, name;
 @end
 
 

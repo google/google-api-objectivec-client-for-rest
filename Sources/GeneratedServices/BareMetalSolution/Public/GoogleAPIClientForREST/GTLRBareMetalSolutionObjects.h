@@ -16,6 +16,8 @@
 #endif
 
 @class GTLRBareMetalSolution_AllowedClient;
+@class GTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2LogicalInterface;
+@class GTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2ServerNetworkTemplateLogicalInterface;
 @class GTLRBareMetalSolution_Instance;
 @class GTLRBareMetalSolution_Instance_Labels;
 @class GTLRBareMetalSolution_InstanceConfig;
@@ -24,7 +26,7 @@
 @class GTLRBareMetalSolution_Location;
 @class GTLRBareMetalSolution_Location_Labels;
 @class GTLRBareMetalSolution_Location_Metadata;
-@class GTLRBareMetalSolution_LogicalInterface;
+@class GTLRBareMetalSolution_LogicalNetworkInterface;
 @class GTLRBareMetalSolution_Lun;
 @class GTLRBareMetalSolution_LunRange;
 @class GTLRBareMetalSolution_Network;
@@ -85,6 +87,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_AllowedClient_MountPer
 FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_AllowedClient_MountPermissions_ReadWrite;
 
 // ----------------------------------------------------------------------------
+// GTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2ServerNetworkTemplateLogicalInterface.type
+
+/**
+ *  Bond interface type.
+ *
+ *  Value: "BOND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2ServerNetworkTemplateLogicalInterface_Type_Bond;
+/**
+ *  Unspecified value.
+ *
+ *  Value: "INTERFACE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2ServerNetworkTemplateLogicalInterface_Type_InterfaceTypeUnspecified;
+/**
+ *  NIC interface type.
+ *
+ *  Value: "NIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2ServerNetworkTemplateLogicalInterface_Type_Nic;
+
+// ----------------------------------------------------------------------------
 // GTLRBareMetalSolution_Instance.state
 
 /**
@@ -113,26 +137,48 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Instance_State_Running
 FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Instance_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRBareMetalSolution_LogicalInterface.type
+// GTLRBareMetalSolution_InstanceConfig.networkConfig
 
 /**
- *  Bond interface type.
+ *  Instance part of multiple (or single) client networks and private networks.
  *
- *  Value: "BOND"
+ *  Value: "MULTI_VLAN"
  */
-FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_LogicalInterface_Type_Bond;
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_InstanceConfig_NetworkConfig_MultiVlan;
+/**
+ *  The unspecified network configuration.
+ *
+ *  Value: "NETWORKCONFIG_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_InstanceConfig_NetworkConfig_NetworkconfigUnspecified;
+/**
+ *  Instance part of single client network and single private network.
+ *
+ *  Value: "SINGLE_VLAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_InstanceConfig_NetworkConfig_SingleVlan;
+
+// ----------------------------------------------------------------------------
+// GTLRBareMetalSolution_LogicalNetworkInterface.networkType
+
+/**
+ *  Client network, a network peered to a Google Cloud VPC.
+ *
+ *  Value: "CLIENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_LogicalNetworkInterface_NetworkType_Client;
+/**
+ *  Private network, a network local to the Bare Metal Solution environment.
+ *
+ *  Value: "PRIVATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_LogicalNetworkInterface_NetworkType_Private;
 /**
  *  Unspecified value.
  *
- *  Value: "INTERFACE_TYPE_UNSPECIFIED"
+ *  Value: "TYPE_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_LogicalInterface_Type_InterfaceTypeUnspecified;
-/**
- *  NIC interface ytpe.
- *
- *  Value: "NIC"
- */
-FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_LogicalInterface_Type_Nic;
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_LogicalNetworkInterface_NetworkType_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBareMetalSolution_Lun.multiprotocolType
@@ -209,6 +255,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Lun_StorageType_Storag
 // ----------------------------------------------------------------------------
 // GTLRBareMetalSolution_Network.state
 
+/**
+ *  The Network is being deprovisioned.
+ *
+ *  Value: "DEPROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Network_State_Deprovisioning;
 /**
  *  The Network has been provisioned.
  *
@@ -366,6 +418,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_NfsExport_Permissions_
 // GTLRBareMetalSolution_NfsShare.state
 
 /**
+ *  The NFS Share is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_NfsShare_State_Creating;
+/**
+ *  The NFS Share has been requested to be deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_NfsShare_State_Deleting;
+/**
  *  The share has been provisioned.
  *
  *  Value: "PROVISIONED"
@@ -377,6 +441,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_NfsShare_State_Provisi
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_NfsShare_State_StateUnspecified;
+/**
+ *  The NFS Share is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_NfsShare_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRBareMetalSolution_ProvisioningConfig.state
@@ -393,6 +463,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_ProvisioningConfig_Sta
  *  Value: "DRAFT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Draft;
+/**
+ *  The request is submitted for provisioning, with error return.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Failed;
 /**
  *  ProvisioningConfig was provisioned, meaning the resources exist.
  *
@@ -663,6 +739,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 /** Required. Name of the Lun to detach. */
 @property(nonatomic, copy, nullable) NSString *lun;
 
+/**
+ *  If true, performs lun unmapping without instance reboot.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipReboot;
+
 @end
 
 
@@ -673,6 +756,69 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 /** The OS images available. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_OSImage *> *images;
+
+@end
+
+
+/**
+ *  Each logical interface represents a logical abstraction of the underlying
+ *  physical interface (for eg. bond, nic) of the instance. Each logical
+ *  interface can effectively map to multiple network-IP pairs and still be
+ *  mapped to one underlying physical interface.
+ */
+@interface GTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2LogicalInterface : GTLRObject
+
+/**
+ *  The index of the logical interface mapping to the index of the hardware bond
+ *  or nic on the chosen network template. This field is deprecated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *interfaceIndex;
+
+/** List of logical network interfaces within a logical interface. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_LogicalNetworkInterface *> *logicalNetworkInterfaces;
+
+/**
+ *  Interface name. This is of syntax or and forms part of the network template
+ *  name.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Logical interface.
+ */
+@interface GTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2ServerNetworkTemplateLogicalInterface : GTLRObject
+
+/**
+ *  Interface name. This is not a globally unique identifier. Name is unique
+ *  only inside the ServerNetworkTemplate. This is of syntax or and forms part
+ *  of the network template name.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  If true, interface must have network connected.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *required;
+
+/**
+ *  Interface type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2ServerNetworkTemplateLogicalInterface_Type_Bond
+ *        Bond interface type. (Value: "BOND")
+ *    @arg @c kGTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2ServerNetworkTemplateLogicalInterface_Type_InterfaceTypeUnspecified
+ *        Unspecified value. (Value: "INTERFACE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2ServerNetworkTemplateLogicalInterface_Type_Nic
+ *        NIC interface type. (Value: "NIC")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -711,6 +857,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 /** Labels as key value pairs. */
 @property(nonatomic, strong, nullable) GTLRBareMetalSolution_Instance_Labels *labels;
 
+/**
+ *  List of logical interfaces for the instance. The number of logical
+ *  interfaces will be the same as number of hardware bond/nic on the chosen
+ *  network template. For the non-multivlan configurations (for eg, existing
+ *  servers) that use existing default network template (bondaa-bondaa), both
+ *  the Instance.networks field and the Instance.logical_interfaces fields will
+ *  be filled to ensure backward compatibility. For the others, only
+ *  Instance.logical_interfaces will be filled.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2LogicalInterface *> *logicalInterfaces;
+
 /** List of LUNs associated with this server. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_Lun *> *luns;
 
@@ -731,8 +888,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 /** List of networks associated with this server. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_Network *> *networks;
 
+/**
+ *  Instance network template name. For eg, bondaa-bondaa, bondab-nic, etc.
+ *  Generally, the template name follows the syntax of "bond" or "nic".
+ */
+@property(nonatomic, copy, nullable) NSString *networkTemplate;
+
 /** The OS image currently installed on the server. */
 @property(nonatomic, copy, nullable) NSString *osImage;
+
+/**
+ *  Immutable. Pod name. Pod is an independent part of infrastructure. Instance
+ *  can be connected to the assets (networks, volumes) allocated in the same pod
+ *  only.
+ */
+@property(nonatomic, copy, nullable) NSString *pod;
 
 /**
  *  The state of the server.
@@ -779,7 +949,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  */
 @property(nonatomic, strong, nullable) NSNumber *accountNetworksEnabled;
 
-/** Client network address. */
+/**
+ *  Client network address. Filled if InstanceConfig.multivlan_config is false.
+ */
 @property(nonatomic, strong, nullable) GTLRBareMetalSolution_NetworkAddress *clientNetwork;
 
 /**
@@ -803,8 +975,37 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  */
 @property(nonatomic, copy, nullable) NSString *instanceType;
 
+/**
+ *  List of logical interfaces for the instance. The number of logical
+ *  interfaces will be the same as number of hardware bond/nic on the chosen
+ *  network template. Filled if InstanceConfig.multivlan_config is true.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2LogicalInterface *> *logicalInterfaces;
+
 /** Output only. The name of the instance config. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The type of network configuration on the instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBareMetalSolution_InstanceConfig_NetworkConfig_MultiVlan
+ *        Instance part of multiple (or single) client networks and private
+ *        networks. (Value: "MULTI_VLAN")
+ *    @arg @c kGTLRBareMetalSolution_InstanceConfig_NetworkConfig_NetworkconfigUnspecified
+ *        The unspecified network configuration. (Value:
+ *        "NETWORKCONFIG_UNSPECIFIED")
+ *    @arg @c kGTLRBareMetalSolution_InstanceConfig_NetworkConfig_SingleVlan
+ *        Instance part of single client network and single private network.
+ *        (Value: "SINGLE_VLAN")
+ */
+@property(nonatomic, copy, nullable) NSString *networkConfig;
+
+/**
+ *  Server network template name. Filled if InstanceConfig.multivlan_config is
+ *  true.
+ */
+@property(nonatomic, copy, nullable) NSString *networkTemplate;
 
 /**
  *  OS image to initialize the instance. [Available
@@ -812,7 +1013,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  */
 @property(nonatomic, copy, nullable) NSString *osImage;
 
-/** Private network address, if any. */
+/**
+ *  Private network address, if any. Filled if InstanceConfig.multivlan_config
+ *  is false.
+ */
 @property(nonatomic, strong, nullable) GTLRBareMetalSolution_NetworkAddress *privateNetwork;
 
 /**
@@ -1126,35 +1330,45 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 
 /**
- *  Logical interface.
+ *  Each logical network interface is effectively a network and IP pair.
  */
-@interface GTLRBareMetalSolution_LogicalInterface : GTLRObject
+@interface GTLRBareMetalSolution_LogicalNetworkInterface : GTLRObject
 
 /**
- *  Interface name. This is not a globally unique identifier. Name is unique
- *  only inside the ServerNetworkTemplate.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  If true, interface must have network connected.
+ *  Whether this interface is the default gateway for the instance. Only one
+ *  interface can be the default gateway for the instance.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *required;
+@property(nonatomic, strong, nullable) NSNumber *defaultGateway;
 
 /**
- *  Interface type.
+ *  An identifier for the `Network`, generated by the backend.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** IP address in the network */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
+
+/** Name of the network */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Type of network.
  *
  *  Likely values:
- *    @arg @c kGTLRBareMetalSolution_LogicalInterface_Type_Bond Bond interface
- *        type. (Value: "BOND")
- *    @arg @c kGTLRBareMetalSolution_LogicalInterface_Type_InterfaceTypeUnspecified
- *        Unspecified value. (Value: "INTERFACE_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRBareMetalSolution_LogicalInterface_Type_Nic NIC interface
- *        ytpe. (Value: "NIC")
+ *    @arg @c kGTLRBareMetalSolution_LogicalNetworkInterface_NetworkType_Client
+ *        Client network, a network peered to a Google Cloud VPC. (Value:
+ *        "CLIENT")
+ *    @arg @c kGTLRBareMetalSolution_LogicalNetworkInterface_NetworkType_Private
+ *        Private network, a network local to the Bare Metal Solution
+ *        environment. (Value: "PRIVATE")
+ *    @arg @c kGTLRBareMetalSolution_LogicalNetworkInterface_NetworkType_TypeUnspecified
+ *        Unspecified value. (Value: "TYPE_UNSPECIFIED")
  */
-@property(nonatomic, copy, nullable) NSString *type;
+@property(nonatomic, copy, nullable) NSString *networkType;
 
 @end
 
@@ -1315,6 +1529,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *  The Network state.
  *
  *  Likely values:
+ *    @arg @c kGTLRBareMetalSolution_Network_State_Deprovisioning The Network is
+ *        being deprovisioned. (Value: "DEPROVISIONING")
  *    @arg @c kGTLRBareMetalSolution_Network_State_Provisioned The Network has
  *        been provisioned. (Value: "PROVISIONED")
  *    @arg @c kGTLRBareMetalSolution_Network_State_Provisioning The Network is
@@ -1439,6 +1655,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
+/**
+ *  The JumboFramesEnabled option for customer to set.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *jumboFramesEnabled;
+
 /** Output only. The name of the network config. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1474,7 +1697,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 /**
  *  User note field, it can be used by customers to add additional information
- *  for the BMS Ops team (b/194021617).
+ *  for the BMS Ops team .
  */
 @property(nonatomic, copy, nullable) NSString *userNote;
 
@@ -1572,23 +1795,47 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 /** List of allowed access points. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_AllowedClient *> *allowedClients;
 
+/**
+ *  Output only. An identifier for the NFS share, generated by the backend. This
+ *  is the same value as nfs_share_id and will replace it in the future.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
 /** Labels as key value pairs. */
 @property(nonatomic, strong, nullable) GTLRBareMetalSolution_NfsShare_Labels *labels;
 
 /** Output only. The name of the NFS share. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Output only. An identifier for the NFS share, generated by the backend. */
+/**
+ *  Output only. An identifier for the NFS share, generated by the backend. This
+ *  field will be deprecated in the future, use `id` instead.
+ */
 @property(nonatomic, copy, nullable) NSString *nfsShareId;
+
+/**
+ *  The requested size, in GiB.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedSizeGib;
 
 /**
  *  The state of the NFS share.
  *
  *  Likely values:
+ *    @arg @c kGTLRBareMetalSolution_NfsShare_State_Creating The NFS Share is
+ *        being created. (Value: "CREATING")
+ *    @arg @c kGTLRBareMetalSolution_NfsShare_State_Deleting The NFS Share has
+ *        been requested to be deleted. (Value: "DELETING")
  *    @arg @c kGTLRBareMetalSolution_NfsShare_State_Provisioned The share has
  *        been provisioned. (Value: "PROVISIONED")
  *    @arg @c kGTLRBareMetalSolution_NfsShare_State_StateUnspecified The share
  *        is in an unknown state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBareMetalSolution_NfsShare_State_Updating The NFS Share is
+ *        being updated. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -1691,6 +1938,44 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 
 /**
+ *  Represents the metadata from a long-running operation.
+ */
+@interface GTLRBareMetalSolution_OperationMetadata : GTLRObject
+
+/** Output only. API version used with the operation. */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. Identifies whether the user requested the cancellation of the
+ *  operation. Operations that have been successfully cancelled have
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
+
+/** Output only. Human-readable status of the operation, if any. */
+@property(nonatomic, copy, nullable) NSString *statusMessage;
+
+/**
+ *  Output only. Server-defined resource path for the target of the operation.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/** Output only. Name of the action executed by the operation. */
+@property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
  *  Operation System image.
  */
 @interface GTLRBareMetalSolution_OSImage : GTLRObject
@@ -1764,6 +2049,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *    @arg @c kGTLRBareMetalSolution_ProvisioningConfig_State_Draft
  *        ProvisioningConfig is a draft and can be freely modified. (Value:
  *        "DRAFT")
+ *    @arg @c kGTLRBareMetalSolution_ProvisioningConfig_State_Failed The request
+ *        is submitted for provisioning, with error return. (Value: "FAILED")
  *    @arg @c kGTLRBareMetalSolution_ProvisioningConfig_State_Provisioned
  *        ProvisioningConfig was provisioned, meaning the resources exist.
  *        (Value: "PROVISIONED")
@@ -1782,7 +2069,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/** A generated buganizer id to track provisioning request. */
+/** Optional status messages associated with the FAILED state. */
+@property(nonatomic, copy, nullable) NSString *statusMessage;
+
+/** A generated ticket id to track provisioning request. */
 @property(nonatomic, copy, nullable) NSString *ticketId;
 
 /** Output only. Last update timestamp. */
@@ -1790,6 +2080,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 /** Volumes to be created. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_VolumeConfig *> *volumes;
+
+/**
+ *  If true, VPC SC is enabled for the cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vpcScEnabled;
 
 @end
 
@@ -1880,6 +2177,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 
 /**
+ *  Request for emergency resize Volume.
+ */
+@interface GTLRBareMetalSolution_ResizeVolumeRequest : GTLRObject
+
+/**
+ *  New Volume size, in GiB.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeGib;
+
+@end
+
+
+/**
  *  Network template.
  */
 @interface GTLRBareMetalSolution_ServerNetworkTemplate : GTLRObject
@@ -1888,9 +2200,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 @property(nonatomic, strong, nullable) NSArray<NSString *> *applicableInstanceTypes;
 
 /** Logical interfaces. */
-@property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_LogicalInterface *> *logicalInterfaces;
+@property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2ServerNetworkTemplateLogicalInterface *> *logicalInterfaces;
 
-/** Output only. Template's unique name. */
+/**
+ *  Output only. Template's unique name. The full resource name follows the
+ *  pattern:
+ *  `projects/{project}/locations/{location}/serverNetworkTemplate/{server_network_template}`
+ *  Generally, the {server_network_template} follows the syntax of "bond" or
+ *  "nic".
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -2086,12 +2404,29 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 @property(nonatomic, strong, nullable) GTLRBareMetalSolution_Volume_Labels *labels;
 
 /**
+ *  Maximum size volume can be expanded to in case of evergency, in GiB.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSizeGib;
+
+/**
  *  Output only. The resource name of this `Volume`. Resource names are
  *  schemeless URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. Format:
  *  `projects/{project}/locations/{location}/volumes/{volume}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Originally requested size, in GiB.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *originallyRequestedSizeGib;
+
+/** Immutable. Pod name. */
+@property(nonatomic, copy, nullable) NSString *pod;
 
 /**
  *  The space remaining in the storage volume for new LUNs, in GiB, excluding
@@ -2261,7 +2596,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 /**
  *  User note field, it can be used by customers to add additional information
- *  for the BMS Ops team (b/194021617).
+ *  for the BMS Ops team .
  */
 @property(nonatomic, copy, nullable) NSString *userNote;
 

@@ -22,11 +22,20 @@
 @class GTLRSecurityCommandCenter_AuditConfig;
 @class GTLRSecurityCommandCenter_AuditLogConfig;
 @class GTLRSecurityCommandCenter_Binding;
+@class GTLRSecurityCommandCenter_Compliance;
 @class GTLRSecurityCommandCenter_Connection;
+@class GTLRSecurityCommandCenter_Contact;
+@class GTLRSecurityCommandCenter_ContactDetails;
 @class GTLRSecurityCommandCenter_Cve;
 @class GTLRSecurityCommandCenter_Cvssv3;
+@class GTLRSecurityCommandCenter_Detection;
+@class GTLRSecurityCommandCenter_EnvironmentVariable;
+@class GTLRSecurityCommandCenter_ExfilResource;
+@class GTLRSecurityCommandCenter_Exfiltration;
 @class GTLRSecurityCommandCenter_Expr;
+@class GTLRSecurityCommandCenter_File;
 @class GTLRSecurityCommandCenter_Finding;
+@class GTLRSecurityCommandCenter_Finding_Contacts;
 @class GTLRSecurityCommandCenter_Finding_ExternalSystems;
 @class GTLRSecurityCommandCenter_Finding_SourceProperties;
 @class GTLRSecurityCommandCenter_Folder;
@@ -49,12 +58,15 @@
 @class GTLRSecurityCommandCenter_Indicator;
 @class GTLRSecurityCommandCenter_ListAssetsResult;
 @class GTLRSecurityCommandCenter_ListFindingsResult;
+@class GTLRSecurityCommandCenter_MemoryHashSignature;
 @class GTLRSecurityCommandCenter_MitreAttack;
 @class GTLRSecurityCommandCenter_NotificationConfig;
 @class GTLRSecurityCommandCenter_Operation;
 @class GTLRSecurityCommandCenter_Operation_Metadata;
 @class GTLRSecurityCommandCenter_Operation_Response;
 @class GTLRSecurityCommandCenter_Policy;
+@class GTLRSecurityCommandCenter_Process;
+@class GTLRSecurityCommandCenter_ProcessSignature;
 @class GTLRSecurityCommandCenter_Reference;
 @class GTLRSecurityCommandCenter_Resource;
 @class GTLRSecurityCommandCenter_SecurityCenterProperties;
@@ -65,6 +77,7 @@
 @class GTLRSecurityCommandCenter_Status_Details_Item;
 @class GTLRSecurityCommandCenter_StreamingConfig;
 @class GTLRSecurityCommandCenter_Vulnerability;
+@class GTLRSecurityCommandCenter_YaraRuleSignature;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -1714,6 +1727,27 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 
 
 /**
+ *  Contains compliance information about a security standard indicating unmet
+ *  recommendations.
+ */
+@interface GTLRSecurityCommandCenter_Compliance : GTLRObject
+
+/** Policies within the standard/benchmark e.g. A.12.4.1 */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ids;
+
+/**
+ *  Refers to industry wide standards or benchmarks e.g. "cis", "pci", "owasp",
+ *  etc.
+ */
+@property(nonatomic, copy, nullable) NSString *standard;
+
+/** Version of the standard/benchmark e.g. 1.1 */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
  *  Contains information about the IP connection associated with the finding.
  */
 @interface GTLRSecurityCommandCenter_Connection : GTLRObject
@@ -1760,6 +1794,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sourcePort;
+
+@end
+
+
+/**
+ *  Representa a single contact's email address
+ */
+@interface GTLRSecurityCommandCenter_Contact : GTLRObject
+
+/** An email address e.g. "person123\@company.com" */
+@property(nonatomic, copy, nullable) NSString *email;
+
+@end
+
+
+/**
+ *  The details pertaining to specific contacts
+ */
+@interface GTLRSecurityCommandCenter_ContactDetails : GTLRObject
+
+/** A list of contacts */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Contact *> *contacts;
 
 @end
 
@@ -1971,12 +2027,89 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 
 
 /**
+ *  Memory hash detection contributing to the binary family match.
+ */
+@interface GTLRSecurityCommandCenter_Detection : GTLRObject
+
+/**
+ *  The name of the binary associated with the memory hash signature detection.
+ */
+@property(nonatomic, copy, nullable) NSString *binary;
+
+/**
+ *  The percentage of memory page hashes in the signature that were matched.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percentPagesMatched;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRSecurityCommandCenter_Empty : GTLRObject
+@end
+
+
+/**
+ *  EnvironmentVariable is a name-value pair to store environment variables for
+ *  Process.
+ */
+@interface GTLRSecurityCommandCenter_EnvironmentVariable : GTLRObject
+
+/** Environment variable name as a JSON encoded string. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Environment variable value as a JSON encoded string. */
+@property(nonatomic, copy, nullable) NSString *val;
+
+@end
+
+
+/**
+ *  Resource that has been exfiltrated or exfiltrated_to.
+ */
+@interface GTLRSecurityCommandCenter_ExfilResource : GTLRObject
+
+/**
+ *  Subcomponents of the asset that is exfiltrated - these could be URIs used
+ *  during exfiltration, table names, databases, filenames, etc. For example,
+ *  multiple tables may be exfiltrated from the same CloudSQL instance, or
+ *  multiple files from the same Cloud Storage bucket.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *components;
+
+/** Resource's URI (https://google.aip.dev/122#full-resource-names) */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Exfiltration represents a data exfiltration attempt of one or more sources
+ *  to one or more targets. Sources represent the source of data that is
+ *  exfiltrated, and Targets represents the destination the data was copied to.
+ */
+@interface GTLRSecurityCommandCenter_Exfiltration : GTLRObject
+
+/**
+ *  If there are multiple sources, then the data is considered "joined" between
+ *  them. For instance, BigQuery can join multiple tables, and each table would
+ *  be considered a source.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_ExfilResource *> *sources;
+
+/**
+ *  If there are multiple targets, each target would get a complete copy of the
+ *  "joined" source data.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_ExfilResource *> *targets;
+
 @end
 
 
@@ -2030,6 +2163,53 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 
 
 /**
+ *  File information about the related binary/library used by an executable, or
+ *  the script used by a script interpreter
+ */
+@interface GTLRSecurityCommandCenter_File : GTLRObject
+
+/**
+ *  Prefix of the file contents as a JSON encoded string. (Currently only
+ *  populated for Malicious Script Executed findings.)
+ */
+@property(nonatomic, copy, nullable) NSString *contents;
+
+/**
+ *  The length in bytes of the file prefix that was hashed. If hashed_size ==
+ *  size, any hashes reported represent the entire file.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hashedSize;
+
+/**
+ *  True when the hash covers only a prefix of the file.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partiallyHashed;
+
+/** Absolute path of the file as a JSON encoded string. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  SHA256 hash of the first hashed_size bytes of the file encoded as a hex
+ *  string. If hashed_size == size, sha256 represents the SHA256 hash of the
+ *  entire file.
+ */
+@property(nonatomic, copy, nullable) NSString *sha256;
+
+/**
+ *  Size of the file in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *size;
+
+@end
+
+
+/**
  *  Security Command Center finding. A finding is a record of assessment data
  *  like security, risk, health, or privacy, that is ingested into Security
  *  Command Center for presentation, notification, analysis, policy testing, and
@@ -2061,9 +2241,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 @property(nonatomic, copy, nullable) NSString *category;
 
 /**
+ *  Contains compliance information for security standards associated to the
+ *  finding.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Compliance *> *compliances;
+
+/**
  *  Contains information about the IP connection associated with the finding.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Connection *> *connections;
+
+/**
+ *  Output only. Map containing the point of contacts for the given finding. The
+ *  key represents the type of contact, while the value contains a list of all
+ *  the contacts that pertain. Please refer to:
+ *  https://cloud.google.com/resource-manager/docs/managing-notification-contacts#notification-categories
+ *  { “security”: {contact: {email: “person1\@company.com”} contact: {email:
+ *  “person2\@company.com”} }
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Finding_Contacts *contacts;
 
 /** The time at which the finding was created in Security Command Center. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -2085,6 +2281,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  *  current timestamp.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+/** Represents exfiltration associated with the Finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Exfiltration *exfiltration;
 
 /**
  *  Output only. Third party SIEM/SOAR fields within SCC, contains external
@@ -2185,6 +2384,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
+/** Represents operating system processes associated with the Finding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Process *> *processes;
+
 /**
  *  For findings on Google Cloud resources, the full resource name of the Google
  *  Cloud resource this finding is for. See:
@@ -2281,6 +2483,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Vulnerability *vulnerability;
 
+@end
+
+
+/**
+ *  Output only. Map containing the point of contacts for the given finding. The
+ *  key represents the type of contact, while the value contains a list of all
+ *  the contacts that pertain. Please refer to:
+ *  https://cloud.google.com/resource-manager/docs/managing-notification-contacts#notification-categories
+ *  { “security”: {contact: {email: “person1\@company.com”} contact: {email:
+ *  “person2\@company.com”} }
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRSecurityCommandCenter_ContactDetails. Use @c -additionalJSONKeys
+ *        and @c -additionalPropertyForName: to get the list of properties and
+ *        then fetch them; or @c -additionalProperties to fetch them all at
+ *        once.
+ */
+@interface GTLRSecurityCommandCenter_Finding_Contacts : GTLRObject
 @end
 
 
@@ -3342,6 +3562,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 /** List of ip addresses associated to the Finding. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ipAddresses;
 
+/**
+ *  The list of matched signatures indicating that the given process is present
+ *  in the environment.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_ProcessSignature *> *signatures;
+
 @end
 
 
@@ -3609,6 +3835,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Source *> *sources;
+
+@end
+
+
+/**
+ *  A signature corresponding to memory page hashes.
+ */
+@interface GTLRSecurityCommandCenter_MemoryHashSignature : GTLRObject
+
+/** The binary family. */
+@property(nonatomic, copy, nullable) NSString *binaryFamily;
+
+/**
+ *  The list of memory hash detections contributing to the binary family match.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Detection *> *detections;
 
 @end
 
@@ -3916,6 +4158,81 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Represents an operating system process.
+ */
+@interface GTLRSecurityCommandCenter_Process : GTLRObject
+
+/** Process arguments as JSON encoded strings. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *args;
+
+/**
+ *  True if `args` is incomplete.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *argumentsTruncated;
+
+/** File information for the process executable. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_File *binary;
+
+/** Process environment variables. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_EnvironmentVariable *> *envVariables;
+
+/**
+ *  True if `env_variables` is incomplete.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *envVariablesTruncated;
+
+/** File information for libraries loaded by the process. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_File *> *libraries;
+
+/**
+ *  The process name visible in utilities like top and ps; it can be accessed
+ *  via /proc/[pid]/comm and changed with prctl(PR_SET_NAME).
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The parent process id.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *parentPid;
+
+/**
+ *  The process id.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pid;
+
+/**
+ *  When the process represents the invocation of a script, `binary` provides
+ *  information about the interpreter while `script` provides information about
+ *  the script file provided to the interpreter.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_File *script;
+
+@end
+
+
+/**
+ *  Indicates what signature matched this process.
+ */
+@interface GTLRSecurityCommandCenter_ProcessSignature : GTLRObject
+
+/** Signature indicating that a binary family was matched. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_MemoryHashSignature *memoryHashSignature;
+
+/** Signature indicating that a YARA rule was matched. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_YaraRuleSignature *yaraRuleSignature;
 
 @end
 
@@ -4321,6 +4638,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  *  (https://cve.mitre.org/about/)
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Cve *cve;
+
+@end
+
+
+/**
+ *  A signature corresponding to a YARA rule.
+ */
+@interface GTLRSecurityCommandCenter_YaraRuleSignature : GTLRObject
+
+/** The name of the YARA rule. */
+@property(nonatomic, copy, nullable) NSString *yaraRule;
 
 @end
 

@@ -1240,6 +1240,188 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Creates key value entries in a key value map scoped to an organization,
+ *  environment, or API proxy.
+ *
+ *  Method: apigee.organizations.apis.keyvaluemaps.entries.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApisKeyvaluemapsEntriesCreate : GTLRApigeeQuery
+
+/**
+ *  Required. Scope as indicated by the URI in which to create the key value map
+ *  entry. Use **one** of the following structures in your request: *
+ *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry.
+ *
+ *  Creates key value entries in a key value map scoped to an organization,
+ *  environment, or API proxy.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry to include
+ *    in the query.
+ *  @param parent Required. Scope as indicated by the URI in which to create the
+ *    key value map entry. Use **one** of the following structures in your
+ *    request: *
+ *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApisKeyvaluemapsEntriesCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1KeyValueEntry *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a key value entry from a key value map scoped to an organization,
+ *  environment, or API proxy. **Note:** After you delete the key value entry,
+ *  the policy consuming the entry will continue to function with its cached
+ *  values for a few minutes. This is expected behavior.
+ *
+ *  Method: apigee.organizations.apis.keyvaluemaps.entries.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApisKeyvaluemapsEntriesDelete : GTLRApigeeQuery
+
+/**
+ *  Required. Scope as indicated by the URI in which to delete the key value map
+ *  entry. Use **one** of the following structures in your request: *
+ *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *  *
+ *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}`
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry.
+ *
+ *  Deletes a key value entry from a key value map scoped to an organization,
+ *  environment, or API proxy. **Note:** After you delete the key value entry,
+ *  the policy consuming the entry will continue to function with its cached
+ *  values for a few minutes. This is expected behavior.
+ *
+ *  @param name Required. Scope as indicated by the URI in which to delete the
+ *    key value map entry. Use **one** of the following structures in your
+ *    request: *
+ *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *    *
+ *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}`
+ *    *
+ *    `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApisKeyvaluemapsEntriesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get the Key value entry value for org, env or apis scoped Key value map.
+ *
+ *  Method: apigee.organizations.apis.keyvaluemaps.entries.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApisKeyvaluemapsEntriesGet : GTLRApigeeQuery
+
+/**
+ *  Required. Scope as indicated by the URI in which to fetch the key value map
+ *  entry/value. Use **one** of the following structures in your request: *
+ *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *  *
+ *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}`
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry.
+ *
+ *  Get the Key value entry value for org, env or apis scoped Key value map.
+ *
+ *  @param name Required. Scope as indicated by the URI in which to fetch the
+ *    key value map entry/value. Use **one** of the following structures in your
+ *    request: *
+ *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *    *
+ *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}`
+ *    *
+ *    `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApisKeyvaluemapsEntriesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists key value entries for key values maps scoped to an organization,
+ *  environment, or API proxy.
+ *
+ *  Method: apigee.organizations.apis.keyvaluemaps.entries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApisKeyvaluemapsEntriesList : GTLRApigeeQuery
+
+/**
+ *  Optional. Maximum number of key value entries to return. If unspecified, at
+ *  most 100 entries will be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token. If provides, must be a valid key value entry returned
+ *  from a previous call that can be used to retrieve the next page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Scope as indicated by the URI in which to list key value maps. Use
+ *  **one** of the following structures in your request: *
+ *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListKeyValueEntriesResponse.
+ *
+ *  Lists key value entries for key values maps scoped to an organization,
+ *  environment, or API proxy.
+ *
+ *  @param parent Required. Scope as indicated by the URI in which to list key
+ *    value maps. Use **one** of the following structures in your request: *
+ *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApisKeyvaluemapsEntriesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Lists the names of all API proxies in an organization. The names returned
  *  correspond to the names defined in the configuration files for each API
  *  proxy.
@@ -5027,7 +5209,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Deletes an environment from an organization.
+ *  Deletes an environment from an organization. **Note**: You must delete all
+ *  key value maps and key value entries before you can delete an environment.
  *
  *  Method: apigee.organizations.environments.delete
  *
@@ -5045,7 +5228,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
  *
- *  Deletes an environment from an organization.
+ *  Deletes an environment from an organization. **Note**: You must delete all
+ *  key value maps and key value entries before you can delete an environment.
  *
  *  @param name Required. Name of the environment. Use the following structure
  *    in your request: `organizations/{org}/environments/{env}`
@@ -5803,6 +5987,188 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Creates key value entries in a key value map scoped to an organization,
+ *  environment, or API proxy.
+ *
+ *  Method: apigee.organizations.environments.keyvaluemaps.entries.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsEntriesCreate : GTLRApigeeQuery
+
+/**
+ *  Required. Scope as indicated by the URI in which to create the key value map
+ *  entry. Use **one** of the following structures in your request: *
+ *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry.
+ *
+ *  Creates key value entries in a key value map scoped to an organization,
+ *  environment, or API proxy.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry to include
+ *    in the query.
+ *  @param parent Required. Scope as indicated by the URI in which to create the
+ *    key value map entry. Use **one** of the following structures in your
+ *    request: *
+ *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsEntriesCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1KeyValueEntry *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a key value entry from a key value map scoped to an organization,
+ *  environment, or API proxy. **Note:** After you delete the key value entry,
+ *  the policy consuming the entry will continue to function with its cached
+ *  values for a few minutes. This is expected behavior.
+ *
+ *  Method: apigee.organizations.environments.keyvaluemaps.entries.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsEntriesDelete : GTLRApigeeQuery
+
+/**
+ *  Required. Scope as indicated by the URI in which to delete the key value map
+ *  entry. Use **one** of the following structures in your request: *
+ *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *  *
+ *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}`
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry.
+ *
+ *  Deletes a key value entry from a key value map scoped to an organization,
+ *  environment, or API proxy. **Note:** After you delete the key value entry,
+ *  the policy consuming the entry will continue to function with its cached
+ *  values for a few minutes. This is expected behavior.
+ *
+ *  @param name Required. Scope as indicated by the URI in which to delete the
+ *    key value map entry. Use **one** of the following structures in your
+ *    request: *
+ *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *    *
+ *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}`
+ *    *
+ *    `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsEntriesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get the Key value entry value for org, env or apis scoped Key value map.
+ *
+ *  Method: apigee.organizations.environments.keyvaluemaps.entries.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsEntriesGet : GTLRApigeeQuery
+
+/**
+ *  Required. Scope as indicated by the URI in which to fetch the key value map
+ *  entry/value. Use **one** of the following structures in your request: *
+ *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *  *
+ *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}`
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry.
+ *
+ *  Get the Key value entry value for org, env or apis scoped Key value map.
+ *
+ *  @param name Required. Scope as indicated by the URI in which to fetch the
+ *    key value map entry/value. Use **one** of the following structures in your
+ *    request: *
+ *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *    *
+ *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}`
+ *    *
+ *    `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsEntriesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists key value entries for key values maps scoped to an organization,
+ *  environment, or API proxy.
+ *
+ *  Method: apigee.organizations.environments.keyvaluemaps.entries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsEntriesList : GTLRApigeeQuery
+
+/**
+ *  Optional. Maximum number of key value entries to return. If unspecified, at
+ *  most 100 entries will be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token. If provides, must be a valid key value entry returned
+ *  from a previous call that can be used to retrieve the next page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Scope as indicated by the URI in which to list key value maps. Use
+ *  **one** of the following structures in your request: *
+ *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListKeyValueEntriesResponse.
+ *
+ *  Lists key value entries for key values maps scoped to an organization,
+ *  environment, or API proxy.
+ *
+ *  @param parent Required. Scope as indicated by the URI in which to list key
+ *    value maps. Use **one** of the following structures in your request: *
+ *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsEntriesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Similar to GetStats except that the response is less verbose.
  *
  *  Method: apigee.organizations.environments.optimizedStats.get
@@ -6524,6 +6890,213 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
                          parent:(NSString *)parent
                            type:(NSString *)type
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Submit a report request to be processed in the background. If the submission
+ *  succeeds, the API returns a 200 status and an ID that refer to the report
+ *  request. In addition to the HTTP status 200, the `state` of "enqueued" means
+ *  that the request succeeded.
+ *
+ *  Method: apigee.organizations.environments.securityReports.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsSecurityReportsCreate : GTLRApigeeQuery
+
+/**
+ *  Required. The parent resource name. Must be of the form
+ *  `organizations/{org}/environments/{env}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityReport.
+ *
+ *  Submit a report request to be processed in the background. If the submission
+ *  succeeds, the API returns a 200 status and an ID that refer to the report
+ *  request. In addition to the HTTP status 200, the `state` of "enqueued" means
+ *  that the request succeeded.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1SecurityReportQuery to
+ *    include in the query.
+ *  @param parent Required. The parent resource name. Must be of the form
+ *    `organizations/{org}/environments/{env}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSecurityReportsCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1SecurityReportQuery *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Get security report status If the query is still in progress, the `state` is
+ *  set to "running" After the query has completed successfully, `state` is set
+ *  to "completed"
+ *
+ *  Method: apigee.organizations.environments.securityReports.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsSecurityReportsGet : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the security report to get. Must be of the form
+ *  `organizations/{org}/environments/{env}/securityReports/{reportId}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityReport.
+ *
+ *  Get security report status If the query is still in progress, the `state` is
+ *  set to "running" After the query has completed successfully, `state` is set
+ *  to "completed"
+ *
+ *  @param name Required. Name of the security report to get. Must be of the
+ *    form `organizations/{org}/environments/{env}/securityReports/{reportId}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSecurityReportsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  After the query is completed, use this API to retrieve the results as file.
+ *  If the request succeeds, and there is a non-zero result set, the result is
+ *  downloaded to the client as a zipped JSON file. The name of the downloaded
+ *  file will be: OfflineQueryResult-.zip Example:
+ *  `OfflineQueryResult-9cfc0d85-0f30-46d6-ae6f-318d0cb961bd.zip`
+ *
+ *  Method: apigee.organizations.environments.securityReports.getResult
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsSecurityReportsGetResult : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the security report result to get. Must be of the form
+ *  `organizations/{org}/environments/{env}/securityReports/{reportId}/result`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleApiHttpBody.
+ *
+ *  After the query is completed, use this API to retrieve the results as file.
+ *  If the request succeeds, and there is a non-zero result set, the result is
+ *  downloaded to the client as a zipped JSON file. The name of the downloaded
+ *  file will be: OfflineQueryResult-.zip Example:
+ *  `OfflineQueryResult-9cfc0d85-0f30-46d6-ae6f-318d0cb961bd.zip`
+ *
+ *  @param name Required. Name of the security report result to get. Must be of
+ *    the form
+ *    `organizations/{org}/environments/{env}/securityReports/{reportId}/result`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSecurityReportsGetResult
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  After the query is completed, use this API to view the query result when
+ *  result size is small.
+ *
+ *  Method: apigee.organizations.environments.securityReports.getResultView
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsSecurityReportsGetResultView : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the security report result view to get. Must be of the
+ *  form
+ *  `organizations/{org}/environments/{env}/securityReports/{reportId}/resultView`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityReportResultView.
+ *
+ *  After the query is completed, use this API to view the query result when
+ *  result size is small.
+ *
+ *  @param name Required. Name of the security report result view to get. Must
+ *    be of the form
+ *    `organizations/{org}/environments/{env}/securityReports/{reportId}/resultView`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSecurityReportsGetResultView
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Return a list of Security Reports
+ *
+ *  Method: apigee.organizations.environments.securityReports.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsSecurityReportsList : GTLRApigeeQuery
+
+/** Filter response list by dataset. Example: `api`, `mint` */
+@property(nonatomic, copy, nullable) NSString *dataset;
+
+/**
+ *  Filter response list by returning security reports that created after this
+ *  date time. Time must be in ISO date-time format like '2011-12-03T10:15:30Z'.
+ */
+@property(nonatomic, copy, nullable) NSString *from;
+
+/** The maximum number of security report to return in the list response. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Token returned from the previous list response to fetch the next page. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource name. Must be of the form
+ *  `organizations/{org}/environments/{env}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Filter response list by security reports status. */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/** Filter response list by user who submitted queries. */
+@property(nonatomic, copy, nullable) NSString *submittedBy;
+
+/**
+ *  Filter response list by returning security reports that created before this
+ *  date time. Time must be in ISO date-time format like '2011-12-03T10:16:30Z'.
+ */
+@property(nonatomic, copy, nullable) NSString *to;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListSecurityReportsResponse.
+ *
+ *  Return a list of Security Reports
+ *
+ *  @param parent Required. The parent resource name. Must be of the form
+ *    `organizations/{org}/environments/{env}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSecurityReportsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -7580,6 +8153,36 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Gets the project ID and region for an Apigee organization.
+ *
+ *  Method: apigee.organizations.getProjectMapping
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsGetProjectMapping : GTLRApigeeQuery
+
+/**
+ *  Required. Apigee organization name in the following format:
+ *  `organizations/{org}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1OrganizationProjectMapping.
+ *
+ *  Gets the project ID and region for an Apigee organization.
+ *
+ *  @param name Required. Apigee organization name in the following format:
+ *    `organizations/{org}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsGetProjectMapping
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Get runtime config for an organization.
  *
  *  Method: apigee.organizations.getRuntimeConfig
@@ -7854,6 +8457,214 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    `organizations/{org}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsHostQueriesList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Submit a query at host level to be processed in the background. If the
+ *  submission of the query succeeds, the API returns a 201 status and an ID
+ *  that refer to the query. In addition to the HTTP status 201, the `state` of
+ *  "enqueued" means that the request succeeded.
+ *
+ *  Method: apigee.organizations.hostSecurityReports.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsHostSecurityReportsCreate : GTLRApigeeQuery
+
+/**
+ *  Required. The parent resource name. Must be of the form
+ *  `organizations/{org}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityReport.
+ *
+ *  Submit a query at host level to be processed in the background. If the
+ *  submission of the query succeeds, the API returns a 201 status and an ID
+ *  that refer to the query. In addition to the HTTP status 201, the `state` of
+ *  "enqueued" means that the request succeeded.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1SecurityReportQuery to
+ *    include in the query.
+ *  @param parent Required. The parent resource name. Must be of the form
+ *    `organizations/{org}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsHostSecurityReportsCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1SecurityReportQuery *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Get status of a query submitted at host level. If the query is still in
+ *  progress, the `state` is set to "running" After the query has completed
+ *  successfully, `state` is set to "completed"
+ *
+ *  Method: apigee.organizations.hostSecurityReports.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsHostSecurityReportsGet : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the security report to get. Must be of the form
+ *  `organizations/{org}/securityReports/{reportId}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityReport.
+ *
+ *  Get status of a query submitted at host level. If the query is still in
+ *  progress, the `state` is set to "running" After the query has completed
+ *  successfully, `state` is set to "completed"
+ *
+ *  @param name Required. Name of the security report to get. Must be of the
+ *    form `organizations/{org}/securityReports/{reportId}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsHostSecurityReportsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  After the query is completed, use this API to retrieve the results. If the
+ *  request succeeds, and there is a non-zero result set, the result is
+ *  downloaded to the client as a zipped JSON file. The name of the downloaded
+ *  file will be: OfflineQueryResult-.zip Example:
+ *  `OfflineQueryResult-9cfc0d85-0f30-46d6-ae6f-318d0cb961bd.zip`
+ *
+ *  Method: apigee.organizations.hostSecurityReports.getResult
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsHostSecurityReportsGetResult : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the security report result to get. Must be of the form
+ *  `organizations/{org}/securityReports/{reportId}/result`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleApiHttpBody.
+ *
+ *  After the query is completed, use this API to retrieve the results. If the
+ *  request succeeds, and there is a non-zero result set, the result is
+ *  downloaded to the client as a zipped JSON file. The name of the downloaded
+ *  file will be: OfflineQueryResult-.zip Example:
+ *  `OfflineQueryResult-9cfc0d85-0f30-46d6-ae6f-318d0cb961bd.zip`
+ *
+ *  @param name Required. Name of the security report result to get. Must be of
+ *    the form `organizations/{org}/securityReports/{reportId}/result`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsHostSecurityReportsGetResult
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  After the query is completed, use this API to view the query result when
+ *  result size is small.
+ *
+ *  Method: apigee.organizations.hostSecurityReports.getResultView
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsHostSecurityReportsGetResultView : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the security report result view to get. Must be of the
+ *  form `organizations/{org}/securityReports/{reportId}/resultView`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityReportResultView.
+ *
+ *  After the query is completed, use this API to view the query result when
+ *  result size is small.
+ *
+ *  @param name Required. Name of the security report result view to get. Must
+ *    be of the form
+ *    `organizations/{org}/securityReports/{reportId}/resultView`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsHostSecurityReportsGetResultView
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Return a list of Security Reports at host level.
+ *
+ *  Method: apigee.organizations.hostSecurityReports.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsHostSecurityReportsList : GTLRApigeeQuery
+
+/** Filter response list by dataset. Example: `api`, `mint` */
+@property(nonatomic, copy, nullable) NSString *dataset;
+
+/** Required. Filter response list by hostname. */
+@property(nonatomic, copy, nullable) NSString *envgroupHostname;
+
+/**
+ *  Filter response list by returning security reports that created after this
+ *  date time. Time must be in ISO date-time format like '2011-12-03T10:15:30Z'.
+ */
+@property(nonatomic, copy, nullable) NSString *from;
+
+/** The maximum number of security report to return in the list response. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Token returned from the previous list response to fetch the next page. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource name. Must be of the form
+ *  `organizations/{org}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Filter response list by security report status. */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/** Filter response list by user who submitted queries. */
+@property(nonatomic, copy, nullable) NSString *submittedBy;
+
+/**
+ *  Filter response list by returning security reports that created before this
+ *  date time. Time must be in ISO date-time format like '2011-12-03T10:16:30Z'.
+ */
+@property(nonatomic, copy, nullable) NSString *to;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListSecurityReportsResponse.
+ *
+ *  Return a list of Security Reports at host level.
+ *
+ *  @param parent Required. The parent resource name. Must be of the form
+ *    `organizations/{org}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsHostSecurityReportsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 
@@ -8663,6 +9474,188 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Creates key value entries in a key value map scoped to an organization,
+ *  environment, or API proxy.
+ *
+ *  Method: apigee.organizations.keyvaluemaps.entries.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsKeyvaluemapsEntriesCreate : GTLRApigeeQuery
+
+/**
+ *  Required. Scope as indicated by the URI in which to create the key value map
+ *  entry. Use **one** of the following structures in your request: *
+ *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry.
+ *
+ *  Creates key value entries in a key value map scoped to an organization,
+ *  environment, or API proxy.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry to include
+ *    in the query.
+ *  @param parent Required. Scope as indicated by the URI in which to create the
+ *    key value map entry. Use **one** of the following structures in your
+ *    request: *
+ *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsKeyvaluemapsEntriesCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1KeyValueEntry *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a key value entry from a key value map scoped to an organization,
+ *  environment, or API proxy. **Note:** After you delete the key value entry,
+ *  the policy consuming the entry will continue to function with its cached
+ *  values for a few minutes. This is expected behavior.
+ *
+ *  Method: apigee.organizations.keyvaluemaps.entries.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsKeyvaluemapsEntriesDelete : GTLRApigeeQuery
+
+/**
+ *  Required. Scope as indicated by the URI in which to delete the key value map
+ *  entry. Use **one** of the following structures in your request: *
+ *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *  *
+ *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}`
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry.
+ *
+ *  Deletes a key value entry from a key value map scoped to an organization,
+ *  environment, or API proxy. **Note:** After you delete the key value entry,
+ *  the policy consuming the entry will continue to function with its cached
+ *  values for a few minutes. This is expected behavior.
+ *
+ *  @param name Required. Scope as indicated by the URI in which to delete the
+ *    key value map entry. Use **one** of the following structures in your
+ *    request: *
+ *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *    *
+ *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}`
+ *    *
+ *    `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsKeyvaluemapsEntriesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get the Key value entry value for org, env or apis scoped Key value map.
+ *
+ *  Method: apigee.organizations.keyvaluemaps.entries.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsKeyvaluemapsEntriesGet : GTLRApigeeQuery
+
+/**
+ *  Required. Scope as indicated by the URI in which to fetch the key value map
+ *  entry/value. Use **one** of the following structures in your request: *
+ *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *  *
+ *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}`
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry.
+ *
+ *  Get the Key value entry value for org, env or apis scoped Key value map.
+ *
+ *  @param name Required. Scope as indicated by the URI in which to fetch the
+ *    key value map entry/value. Use **one** of the following structures in your
+ *    request: *
+ *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *    *
+ *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}/entries/{entry}`
+ *    *
+ *    `organizations/{organization}/keyvaluemaps/{keyvaluemap}/entries/{entry}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsKeyvaluemapsEntriesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists key value entries for key values maps scoped to an organization,
+ *  environment, or API proxy.
+ *
+ *  Method: apigee.organizations.keyvaluemaps.entries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsKeyvaluemapsEntriesList : GTLRApigeeQuery
+
+/**
+ *  Optional. Maximum number of key value entries to return. If unspecified, at
+ *  most 100 entries will be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token. If provides, must be a valid key value entry returned
+ *  from a previous call that can be used to retrieve the next page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Scope as indicated by the URI in which to list key value maps. Use
+ *  **one** of the following structures in your request: *
+ *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListKeyValueEntriesResponse.
+ *
+ *  Lists key value entries for key values maps scoped to an organization,
+ *  environment, or API proxy.
+ *
+ *  @param parent Required. Scope as indicated by the URI in which to list key
+ *    value maps. Use **one** of the following structures in your request: *
+ *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsKeyvaluemapsEntriesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Lists the Apigee organizations and associated GCP projects that you have
  *  permission to access. See [Understanding
  *  organizations](https://cloud.google.com/apigee/docs/api-platform/fundamentals/organization-structure).
@@ -9053,6 +10046,249 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1CustomReport *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  ComputeEnvironmentScores calculates scores for requested time range for the
+ *  specified security profile and environment.
+ *
+ *  Method: apigee.organizations.securityProfiles.environments.computeEnvironmentScores
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityProfilesEnvironmentsComputeEnvironmentScores : GTLRApigeeQuery
+
+/**
+ *  Required. Name of organization and environment and profile id for which
+ *  score needs to be computed. Format:
+ *  organizations/{org}/securityProfiles/{profile}/environments/{env}
+ */
+@property(nonatomic, copy, nullable) NSString *profileEnvironment;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ComputeEnvironmentScoresResponse.
+ *
+ *  ComputeEnvironmentScores calculates scores for requested time range for the
+ *  specified security profile and environment.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1ComputeEnvironmentScoresRequest to include
+ *    in the query.
+ *  @param profileEnvironment Required. Name of organization and environment and
+ *    profile id for which score needs to be computed. Format:
+ *    organizations/{org}/securityProfiles/{profile}/environments/{env}
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityProfilesEnvironmentsComputeEnvironmentScores
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ComputeEnvironmentScoresRequest *)object
+             profileEnvironment:(NSString *)profileEnvironment;
+
+@end
+
+/**
+ *  CreateSecurityProfileEnvironmentAssociation creates profile environment
+ *  association i.e. attaches environment to security profile.
+ *
+ *  Method: apigee.organizations.securityProfiles.environments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityProfilesEnvironmentsCreate : GTLRApigeeQuery
+
+/**
+ *  Required. Name of organization and security profile ID. Format:
+ *  organizations/{org}/securityProfiles/{profile}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRApigee_GoogleCloudApigeeV1SecurityProfileEnvironmentAssociation.
+ *
+ *  CreateSecurityProfileEnvironmentAssociation creates profile environment
+ *  association i.e. attaches environment to security profile.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1SecurityProfileEnvironmentAssociation to
+ *    include in the query.
+ *  @param parent Required. Name of organization and security profile ID.
+ *    Format: organizations/{org}/securityProfiles/{profile}
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityProfilesEnvironmentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1SecurityProfileEnvironmentAssociation *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  DeleteSecurityProfileEnvironmentAssociation removes profile environment
+ *  association i.e. detaches environment from security profile.
+ *
+ *  Method: apigee.organizations.securityProfiles.environments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityProfilesEnvironmentsDelete : GTLRApigeeQuery
+
+/**
+ *  Required. The name of the environment attachment to delete. Format:
+ *  organizations/{org}/securityProfiles/{profile}/environments/{env}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
+ *
+ *  DeleteSecurityProfileEnvironmentAssociation removes profile environment
+ *  association i.e. detaches environment from security profile.
+ *
+ *  @param name Required. The name of the environment attachment to delete.
+ *    Format: organizations/{org}/securityProfiles/{profile}/environments/{env}
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityProfilesEnvironmentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  GetSecurityProfile gets the specified security profile. Returns NOT_FOUND if
+ *  security profile is not present for the specified organization.
+ *
+ *  Method: apigee.organizations.securityProfiles.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityProfilesGet : GTLRApigeeQuery
+
+/**
+ *  Required. Security profile in the following format:
+ *  `organizations/{org}/securityProfiles/{profile}'. Profile may optionally
+ *  contain revision ID. If revision ID is not provided, the response will
+ *  contain latest revision by default. Example:
+ *  organizations/testOrg/securityProfiles/testProfile\@5
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityProfile.
+ *
+ *  GetSecurityProfile gets the specified security profile. Returns NOT_FOUND if
+ *  security profile is not present for the specified organization.
+ *
+ *  @param name Required. Security profile in the following format:
+ *    `organizations/{org}/securityProfiles/{profile}'. Profile may optionally
+ *    contain revision ID. If revision ID is not provided, the response will
+ *    contain latest revision by default. Example:
+ *    organizations/testOrg/securityProfiles/testProfile\@5
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityProfilesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  ListSecurityProfiles lists all the security profiles associated with the org
+ *  including attached and unattached profiles.
+ *
+ *  Method: apigee.organizations.securityProfiles.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityProfilesList : GTLRApigeeQuery
+
+/**
+ *  The maximum number of profiles to return. The service may return fewer than
+ *  this value. If unspecified, at most 50 profiles will be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListSecurityProfiles` call. Provide
+ *  this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. For a specific organization, list of all the security profiles.
+ *  Format: `organizations/{org}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListSecurityProfilesResponse.
+ *
+ *  ListSecurityProfiles lists all the security profiles associated with the org
+ *  including attached and unattached profiles.
+ *
+ *  @param parent Required. For a specific organization, list of all the
+ *    security profiles. Format: `organizations/{org}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityProfilesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  ListSecurityProfileRevisions lists all the revisions of the security
+ *  profile.
+ *
+ *  Method: apigee.organizations.securityProfiles.listRevisions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityProfilesListRevisions : GTLRApigeeQuery
+
+/**
+ *  Required. For a specific profile, list all the revisions. Format:
+ *  `organizations/{org}/securityProfiles/{profile}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum number of profile revisions to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 revisions will be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListSecurityProfileRevisions` call.
+ *  Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRApigee_GoogleCloudApigeeV1ListSecurityProfileRevisionsResponse.
+ *
+ *  ListSecurityProfileRevisions lists all the revisions of the security
+ *  profile.
+ *
+ *  @param name Required. For a specific profile, list all the revisions.
+ *    Format: `organizations/{org}/securityProfiles/{profile}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityProfilesListRevisions
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

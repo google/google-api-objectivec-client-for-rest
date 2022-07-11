@@ -101,13 +101,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_HighScaleSsd;
 /**
- *  PREMIUM tier.
+ *  PREMIUM tier. BASIC_SSD is the preferred term for this tier.
  *
  *  Value: "PREMIUM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_Premium;
 /**
- *  STANDARD tier.
+ *  STANDARD tier. BASIC_HDD is the preferred term for this tier.
  *
  *  Value: "STANDARD"
  */
@@ -304,13 +304,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_Enterprise;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_HighScaleSsd;
 /**
- *  PREMIUM tier.
+ *  PREMIUM tier. BASIC_SSD is the preferred term for this tier.
  *
  *  Value: "PREMIUM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_Premium;
 /**
- *  STANDARD tier.
+ *  STANDARD tier. BASIC_HDD is the preferred term for this tier.
  *
  *  Value: "STANDARD"
  */
@@ -611,9 +611,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  *        HIGH_SCALE instances offer expanded capacity and performance scaling
  *        capabilities. (Value: "HIGH_SCALE_SSD")
  *    @arg @c kGTLRCloudFilestore_Backup_SourceInstanceTier_Premium PREMIUM
- *        tier. (Value: "PREMIUM")
+ *        tier. BASIC_SSD is the preferred term for this tier. (Value:
+ *        "PREMIUM")
  *    @arg @c kGTLRCloudFilestore_Backup_SourceInstanceTier_Standard STANDARD
- *        tier. (Value: "STANDARD")
+ *        tier. BASIC_HDD is the preferred term for this tier. (Value:
+ *        "STANDARD")
  *    @arg @c kGTLRCloudFilestore_Backup_SourceInstanceTier_TierUnspecified Not
  *        set. (Value: "TIER_UNSPECIFIED")
  */
@@ -1377,10 +1379,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  *    @arg @c kGTLRCloudFilestore_Instance_Tier_HighScaleSsd HIGH_SCALE
  *        instances offer expanded capacity and performance scaling
  *        capabilities. (Value: "HIGH_SCALE_SSD")
- *    @arg @c kGTLRCloudFilestore_Instance_Tier_Premium PREMIUM tier. (Value:
- *        "PREMIUM")
- *    @arg @c kGTLRCloudFilestore_Instance_Tier_Standard STANDARD tier. (Value:
- *        "STANDARD")
+ *    @arg @c kGTLRCloudFilestore_Instance_Tier_Premium PREMIUM tier. BASIC_SSD
+ *        is the preferred term for this tier. (Value: "PREMIUM")
+ *    @arg @c kGTLRCloudFilestore_Instance_Tier_Standard STANDARD tier.
+ *        BASIC_HDD is the preferred term for this tier. (Value: "STANDARD")
  *    @arg @c kGTLRCloudFilestore_Instance_Tier_TierUnspecified Not set. (Value:
  *        "TIER_UNSPECIFIED")
  */

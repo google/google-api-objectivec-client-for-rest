@@ -166,3 +166,30 @@
 }
 
 @end
+
+@implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsRestrictAllowedResources
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:restrictAllowedResources";
+  GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsRestrictAllowedResources *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesResponse class];
+  query.loggingName = @"assuredworkloads.organizations.locations.workloads.restrictAllowedResources";
+  return query;
+}
+
+@end

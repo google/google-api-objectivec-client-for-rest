@@ -371,6 +371,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Abandons a Release in the Delivery Pipeline.
+ *
+ *  Method: clouddeploy.projects.locations.deliveryPipelines.releases.abandon
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesAbandon : GTLRCloudDeployQuery
+
+/**
+ *  Required. Name of the Release. Format is
+ *  projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
+ *  releases/{release}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_AbandonReleaseResponse.
+ *
+ *  Abandons a Release in the Delivery Pipeline.
+ *
+ *  @param object The @c GTLRCloudDeploy_AbandonReleaseRequest to include in the
+ *    query.
+ *  @param name Required. Name of the Release. Format is
+ *    projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
+ *    releases/{release}.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesAbandon
+ */
++ (instancetype)queryWithObject:(GTLRCloudDeploy_AbandonReleaseRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new Release in a given project and location.
  *
  *  Method: clouddeploy.projects.locations.deliveryPipelines.releases.create

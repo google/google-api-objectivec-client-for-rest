@@ -14562,7 +14562,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_SecurityPoliciesAddRule
 
-@dynamic project, securityPolicy;
+@dynamic project, securityPolicy, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyRule *)object
                         project:(NSString *)project
@@ -14682,7 +14682,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_SecurityPoliciesInsert
 
-@dynamic project, requestId;
+@dynamic project, requestId, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRCompute_SecurityPolicy *)object
                         project:(NSString *)project {
@@ -14778,7 +14778,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_SecurityPoliciesPatchRule
 
-@dynamic priority, project, securityPolicy;
+@dynamic priority, project, securityPolicy, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyRule *)object
                         project:(NSString *)project

@@ -400,6 +400,16 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_DatabaseRole
+//
+
+@implementation GTLRSpanner_DatabaseRole
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_Delete
 //
 
@@ -833,6 +843,28 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 + (NSString *)collectionItemsKey {
   return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_ListDatabaseRolesResponse
+//
+
+@implementation GTLRSpanner_ListDatabaseRolesResponse
+@dynamic databaseRoles, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"databaseRoles" : [GTLRSpanner_DatabaseRole class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"databaseRoles";
 }
 
 @end
@@ -1579,7 +1611,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_Session
-@dynamic approximateLastUseTime, createTime, labels, name;
+@dynamic approximateLastUseTime, createTime, creatorRole, labels, name;
 @end
 
 

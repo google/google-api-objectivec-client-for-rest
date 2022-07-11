@@ -344,6 +344,82 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
 
 @end
 
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesMavenArtifactsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesMavenArtifactsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRArtifactRegistry_MavenArtifact class];
+  query.loggingName = @"artifactregistry.projects.locations.repositories.mavenArtifacts.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesMavenArtifactsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/mavenArtifacts";
+  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesMavenArtifactsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRArtifactRegistry_ListMavenArtifactsResponse class];
+  query.loggingName = @"artifactregistry.projects.locations.repositories.mavenArtifacts.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesNpmPackagesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesNpmPackagesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRArtifactRegistry_NpmPackage class];
+  query.loggingName = @"artifactregistry.projects.locations.repositories.npmPackages.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesNpmPackagesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/npmPackages";
+  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesNpmPackagesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRArtifactRegistry_ListNpmPackagesResponse class];
+  query.loggingName = @"artifactregistry.projects.locations.repositories.npmPackages.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesDelete
 
 @dynamic name;
@@ -591,6 +667,44 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
   query.name = name;
   query.expectedObjectClass = [GTLRArtifactRegistry_Repository class];
   query.loggingName = @"artifactregistry.projects.locations.repositories.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPythonPackagesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPythonPackagesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRArtifactRegistry_PythonPackage class];
+  query.loggingName = @"artifactregistry.projects.locations.repositories.pythonPackages.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPythonPackagesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/pythonPackages";
+  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPythonPackagesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRArtifactRegistry_ListPythonPackagesResponse class];
+  query.loggingName = @"artifactregistry.projects.locations.repositories.pythonPackages.list";
   return query;
 }
 

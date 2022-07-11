@@ -16,44 +16,6 @@
 
 @end
 
-@implementation GTLRLoggingQuery_BillingAccountsBucketsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v2/{+name}";
-  GTLRLoggingQuery_BillingAccountsBucketsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRLogging_LogBucket class];
-  query.loggingName = @"logging.billingAccounts.buckets.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRLoggingQuery_BillingAccountsBucketsViewsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v2/{+name}";
-  GTLRLoggingQuery_BillingAccountsBucketsViewsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRLogging_LogView class];
-  query.loggingName = @"logging.billingAccounts.buckets.views.get";
-  return query;
-}
-
-@end
-
 @implementation GTLRLoggingQuery_BillingAccountsExclusionsCreate
 
 @dynamic parent;
@@ -249,6 +211,25 @@
 
 @end
 
+@implementation GTLRLoggingQuery_BillingAccountsLocationsBucketsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_BillingAccountsLocationsBucketsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_LogBucket class];
+  query.loggingName = @"logging.billingAccounts.locations.buckets.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_BillingAccountsLocationsBucketsList
 
 @dynamic pageSize, pageToken, parent;
@@ -363,6 +344,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRLogging_Empty class];
   query.loggingName = @"logging.billingAccounts.locations.buckets.views.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_BillingAccountsLocationsBucketsViewsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_BillingAccountsLocationsBucketsViewsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_LogView class];
+  query.loggingName = @"logging.billingAccounts.locations.buckets.views.get";
   return query;
 }
 
@@ -505,6 +505,25 @@
 
 @end
 
+@implementation GTLRLoggingQuery_BillingAccountsLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_BillingAccountsLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_Operation class];
+  query.loggingName = @"logging.billingAccounts.locations.operations.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_BillingAccountsLocationsOperationsList
 
 @dynamic filter, name, pageSize, pageToken;
@@ -564,25 +583,6 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRLogging_ListLogsResponse class];
   query.loggingName = @"logging.billingAccounts.logs.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRLoggingQuery_BillingAccountsOperationsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v2/{+name}";
-  GTLRLoggingQuery_BillingAccountsOperationsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRLogging_Operation class];
-  query.loggingName = @"logging.billingAccounts.operations.get";
   return query;
 }
 

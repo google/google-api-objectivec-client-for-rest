@@ -570,6 +570,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: dns.managedZones.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadonly
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_ManagedZonesGetIamPolicy : GTLRDnsQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDns_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param object The @c GTLRDns_GoogleIamV1GetIamPolicyRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRDnsQuery_ManagedZonesGetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRDns_GoogleIamV1GetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Enumerates ManagedZones that have been created but not yet deleted.
  *
  *  Method: dns.managedZones.list
@@ -659,6 +700,94 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 + (instancetype)queryWithObject:(GTLRDns_ManagedZone *)object
                         project:(NSString *)project
                     managedZone:(NSString *)managedZone;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: dns.managedZones.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_ManagedZonesSetIamPolicy : GTLRDnsQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDns_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRDns_GoogleIamV1SetIamPolicyRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRDnsQuery_ManagedZonesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRDns_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: dns.managedZones.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadonly
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_ManagedZonesTestIamPermissions : GTLRDnsQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDns_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRDns_GoogleIamV1TestIamPermissionsRequest to include
+ *    in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRDnsQuery_ManagedZonesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRDns_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 

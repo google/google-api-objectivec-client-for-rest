@@ -753,6 +753,321 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new Gateway in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.gateways.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsGatewaysCreate : GTLRNetworkServicesQuery
+
+/** Required. Short name of the Gateway resource to be created. */
+@property(nonatomic, copy, nullable) NSString *gatewayId;
+
+/**
+ *  Required. The parent resource of the Gateway. Must be in the format
+ *  `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Creates a new Gateway in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkServices_Gateway to include in the query.
+ *  @param parent Required. The parent resource of the Gateway. Must be in the
+ *    format `projects/ * /locations/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsGatewaysCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_Gateway *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single Gateway.
+ *
+ *  Method: networkservices.projects.locations.gateways.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsGatewaysDelete : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the Gateway to delete. Must be in the format `projects/
+ *  * /locations/ * /gateways/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Deletes a single Gateway.
+ *
+ *  @param name Required. A name of the Gateway to delete. Must be in the format
+ *    `projects/ * /locations/ * /gateways/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsGatewaysDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single Gateway.
+ *
+ *  Method: networkservices.projects.locations.gateways.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsGatewaysGet : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the Gateway to get. Must be in the format `projects/ *
+ *  /locations/ * /gateways/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Gateway.
+ *
+ *  Gets details of a single Gateway.
+ *
+ *  @param name Required. A name of the Gateway to get. Must be in the format
+ *    `projects/ * /locations/ * /gateways/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsGatewaysGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: networkservices.projects.locations.gateways.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsGatewaysGetIamPolicy : GTLRNetworkServicesQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsGatewaysGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists Gateways in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.gateways.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsGatewaysList : GTLRNetworkServicesQuery
+
+/** Maximum number of Gateways to return per call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListGatewaysResponse` Indicates that this is
+ *  a continuation of a prior `ListGateways` call, and that the system should
+ *  return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the Gateways should be listed,
+ *  specified in the format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ListGatewaysResponse.
+ *
+ *  Lists Gateways in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the Gateways
+ *    should be listed, specified in the format `projects/ * /locations/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsGatewaysList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single Gateway.
+ *
+ *  Method: networkservices.projects.locations.gateways.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsGatewaysPatch : GTLRNetworkServicesQuery
+
+/**
+ *  Required. Name of the Gateway resource. It matches pattern `projects/ *
+ *  /locations/ * /gateways/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  Gateway resource by the update. The fields specified in the update_mask are
+ *  relative to the resource, not the full request. A field will be overwritten
+ *  if it is in the mask. If the user does not provide a mask then all fields
+ *  will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Updates the parameters of a single Gateway.
+ *
+ *  @param object The @c GTLRNetworkServices_Gateway to include in the query.
+ *  @param name Required. Name of the Gateway resource. It matches pattern
+ *    `projects/ * /locations/ * /gateways/`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsGatewaysPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_Gateway *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: networkservices.projects.locations.gateways.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsGatewaysSetIamPolicy : GTLRNetworkServicesQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRNetworkServices_SetIamPolicyRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsGatewaysSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: networkservices.projects.locations.gateways.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsGatewaysTestIamPermissions : GTLRNetworkServicesQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRNetworkServices_TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsGatewaysTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: networkservices.projects.locations.get
@@ -775,6 +1090,370 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new GrpcRoute in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.grpcRoutes.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsGrpcRoutesCreate : GTLRNetworkServicesQuery
+
+/** Required. Short name of the GrpcRoute resource to be created. */
+@property(nonatomic, copy, nullable) NSString *grpcRouteId;
+
+/**
+ *  Required. The parent resource of the GrpcRoute. Must be in the format
+ *  `projects/ * /locations/global`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Creates a new GrpcRoute in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkServices_GrpcRoute to include in the query.
+ *  @param parent Required. The parent resource of the GrpcRoute. Must be in the
+ *    format `projects/ * /locations/global`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsGrpcRoutesCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_GrpcRoute *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single GrpcRoute.
+ *
+ *  Method: networkservices.projects.locations.grpcRoutes.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsGrpcRoutesDelete : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the GrpcRoute to delete. Must be in the format
+ *  `projects/ * /locations/global/grpcRoutes/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Deletes a single GrpcRoute.
+ *
+ *  @param name Required. A name of the GrpcRoute to delete. Must be in the
+ *    format `projects/ * /locations/global/grpcRoutes/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsGrpcRoutesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single GrpcRoute.
+ *
+ *  Method: networkservices.projects.locations.grpcRoutes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsGrpcRoutesGet : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the GrpcRoute to get. Must be in the format `projects/ *
+ *  /locations/global/grpcRoutes/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_GrpcRoute.
+ *
+ *  Gets details of a single GrpcRoute.
+ *
+ *  @param name Required. A name of the GrpcRoute to get. Must be in the format
+ *    `projects/ * /locations/global/grpcRoutes/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsGrpcRoutesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists GrpcRoutes in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.grpcRoutes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsGrpcRoutesList : GTLRNetworkServicesQuery
+
+/** Maximum number of GrpcRoutes to return per call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListGrpcRoutesResponse` Indicates that this
+ *  is a continuation of a prior `ListGrpcRoutes` call, and that the system
+ *  should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the GrpcRoutes should be
+ *  listed, specified in the format `projects/ * /locations/global`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ListGrpcRoutesResponse.
+ *
+ *  Lists GrpcRoutes in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the GrpcRoutes
+ *    should be listed, specified in the format `projects/ * /locations/global`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsGrpcRoutesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single GrpcRoute.
+ *
+ *  Method: networkservices.projects.locations.grpcRoutes.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsGrpcRoutesPatch : GTLRNetworkServicesQuery
+
+/**
+ *  Required. Name of the GrpcRoute resource. It matches pattern `projects/ *
+ *  /locations/global/grpcRoutes/`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  GrpcRoute resource by the update. The fields specified in the update_mask
+ *  are relative to the resource, not the full request. A field will be
+ *  overwritten if it is in the mask. If the user does not provide a mask then
+ *  all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Updates the parameters of a single GrpcRoute.
+ *
+ *  @param object The @c GTLRNetworkServices_GrpcRoute to include in the query.
+ *  @param name Required. Name of the GrpcRoute resource. It matches pattern
+ *    `projects/ * /locations/global/grpcRoutes/`
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsGrpcRoutesPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_GrpcRoute *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new HttpRoute in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.httpRoutes.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsHttpRoutesCreate : GTLRNetworkServicesQuery
+
+/** Required. Short name of the HttpRoute resource to be created. */
+@property(nonatomic, copy, nullable) NSString *httpRouteId;
+
+/**
+ *  Required. The parent resource of the HttpRoute. Must be in the format
+ *  `projects/ * /locations/global`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Creates a new HttpRoute in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkServices_HttpRoute to include in the query.
+ *  @param parent Required. The parent resource of the HttpRoute. Must be in the
+ *    format `projects/ * /locations/global`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsHttpRoutesCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_HttpRoute *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single HttpRoute.
+ *
+ *  Method: networkservices.projects.locations.httpRoutes.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsHttpRoutesDelete : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the HttpRoute to delete. Must be in the format
+ *  `projects/ * /locations/global/httpRoutes/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Deletes a single HttpRoute.
+ *
+ *  @param name Required. A name of the HttpRoute to delete. Must be in the
+ *    format `projects/ * /locations/global/httpRoutes/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsHttpRoutesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single HttpRoute.
+ *
+ *  Method: networkservices.projects.locations.httpRoutes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsHttpRoutesGet : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the HttpRoute to get. Must be in the format `projects/ *
+ *  /locations/global/httpRoutes/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_HttpRoute.
+ *
+ *  Gets details of a single HttpRoute.
+ *
+ *  @param name Required. A name of the HttpRoute to get. Must be in the format
+ *    `projects/ * /locations/global/httpRoutes/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsHttpRoutesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists HttpRoute in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.httpRoutes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsHttpRoutesList : GTLRNetworkServicesQuery
+
+/** Maximum number of HttpRoutes to return per call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListHttpRoutesResponse` Indicates that this
+ *  is a continuation of a prior `ListRouters` call, and that the system should
+ *  return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the HttpRoutes should be
+ *  listed, specified in the format `projects/ * /locations/global`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ListHttpRoutesResponse.
+ *
+ *  Lists HttpRoute in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the HttpRoutes
+ *    should be listed, specified in the format `projects/ * /locations/global`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsHttpRoutesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single HttpRoute.
+ *
+ *  Method: networkservices.projects.locations.httpRoutes.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsHttpRoutesPatch : GTLRNetworkServicesQuery
+
+/**
+ *  Required. Name of the HttpRoute resource. It matches pattern `projects/ *
+ *  /locations/global/httpRoutes/http_route_name>`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  HttpRoute resource by the update. The fields specified in the update_mask
+ *  are relative to the resource, not the full request. A field will be
+ *  overwritten if it is in the mask. If the user does not provide a mask then
+ *  all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Updates the parameters of a single HttpRoute.
+ *
+ *  @param object The @c GTLRNetworkServices_HttpRoute to include in the query.
+ *  @param name Required. Name of the HttpRoute resource. It matches pattern
+ *    `projects/ * /locations/global/httpRoutes/http_route_name>`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsHttpRoutesPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_HttpRoute *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -824,6 +1503,321 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new Mesh in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.meshes.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsMeshesCreate : GTLRNetworkServicesQuery
+
+/** Required. Short name of the Mesh resource to be created. */
+@property(nonatomic, copy, nullable) NSString *meshId;
+
+/**
+ *  Required. The parent resource of the Mesh. Must be in the format `projects/
+ *  * /locations/global`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Creates a new Mesh in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkServices_Mesh to include in the query.
+ *  @param parent Required. The parent resource of the Mesh. Must be in the
+ *    format `projects/ * /locations/global`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsMeshesCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_Mesh *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single Mesh.
+ *
+ *  Method: networkservices.projects.locations.meshes.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsMeshesDelete : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the Mesh to delete. Must be in the format `projects/ *
+ *  /locations/global/meshes/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Deletes a single Mesh.
+ *
+ *  @param name Required. A name of the Mesh to delete. Must be in the format
+ *    `projects/ * /locations/global/meshes/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsMeshesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single Mesh.
+ *
+ *  Method: networkservices.projects.locations.meshes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsMeshesGet : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the Mesh to get. Must be in the format `projects/ *
+ *  /locations/global/meshes/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Mesh.
+ *
+ *  Gets details of a single Mesh.
+ *
+ *  @param name Required. A name of the Mesh to get. Must be in the format
+ *    `projects/ * /locations/global/meshes/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsMeshesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: networkservices.projects.locations.meshes.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsMeshesGetIamPolicy : GTLRNetworkServicesQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsMeshesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists Meshes in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.meshes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsMeshesList : GTLRNetworkServicesQuery
+
+/** Maximum number of Meshes to return per call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListMeshesResponse` Indicates that this is a
+ *  continuation of a prior `ListMeshes` call, and that the system should return
+ *  the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the Meshes should be listed,
+ *  specified in the format `projects/ * /locations/global`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ListMeshesResponse.
+ *
+ *  Lists Meshes in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the Meshes
+ *    should be listed, specified in the format `projects/ * /locations/global`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsMeshesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single Mesh.
+ *
+ *  Method: networkservices.projects.locations.meshes.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsMeshesPatch : GTLRNetworkServicesQuery
+
+/**
+ *  Required. Name of the Mesh resource. It matches pattern `projects/ *
+ *  /locations/global/meshes/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  Mesh resource by the update. The fields specified in the update_mask are
+ *  relative to the resource, not the full request. A field will be overwritten
+ *  if it is in the mask. If the user does not provide a mask then all fields
+ *  will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Updates the parameters of a single Mesh.
+ *
+ *  @param object The @c GTLRNetworkServices_Mesh to include in the query.
+ *  @param name Required. Name of the Mesh resource. It matches pattern
+ *    `projects/ * /locations/global/meshes/`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsMeshesPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_Mesh *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: networkservices.projects.locations.meshes.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsMeshesSetIamPolicy : GTLRNetworkServicesQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRNetworkServices_SetIamPolicyRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsMeshesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: networkservices.projects.locations.meshes.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsMeshesTestIamPermissions : GTLRNetworkServicesQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRNetworkServices_TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsMeshesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 
@@ -1260,6 +2254,376 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRNetworkServices_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a new TcpRoute in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.tcpRoutes.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsTcpRoutesCreate : GTLRNetworkServicesQuery
+
+/**
+ *  Required. The parent resource of the TcpRoute. Must be in the format
+ *  `projects/ * /locations/global`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. Short name of the TcpRoute resource to be created. E.g. TODO(Add
+ *  an example).
+ */
+@property(nonatomic, copy, nullable) NSString *tcpRouteId;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Creates a new TcpRoute in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkServices_TcpRoute to include in the query.
+ *  @param parent Required. The parent resource of the TcpRoute. Must be in the
+ *    format `projects/ * /locations/global`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsTcpRoutesCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_TcpRoute *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single TcpRoute.
+ *
+ *  Method: networkservices.projects.locations.tcpRoutes.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsTcpRoutesDelete : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the TcpRoute to delete. Must be in the format `projects/
+ *  * /locations/global/tcpRoutes/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Deletes a single TcpRoute.
+ *
+ *  @param name Required. A name of the TcpRoute to delete. Must be in the
+ *    format `projects/ * /locations/global/tcpRoutes/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsTcpRoutesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single TcpRoute.
+ *
+ *  Method: networkservices.projects.locations.tcpRoutes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsTcpRoutesGet : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the TcpRoute to get. Must be in the format `projects/ *
+ *  /locations/global/tcpRoutes/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_TcpRoute.
+ *
+ *  Gets details of a single TcpRoute.
+ *
+ *  @param name Required. A name of the TcpRoute to get. Must be in the format
+ *    `projects/ * /locations/global/tcpRoutes/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsTcpRoutesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists TcpRoute in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.tcpRoutes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsTcpRoutesList : GTLRNetworkServicesQuery
+
+/** Maximum number of TcpRoutes to return per call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListTcpRoutesResponse` Indicates that this
+ *  is a continuation of a prior `ListRouters` call, and that the system should
+ *  return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the TcpRoutes should be
+ *  listed, specified in the format `projects/ * /locations/global`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ListTcpRoutesResponse.
+ *
+ *  Lists TcpRoute in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the TcpRoutes
+ *    should be listed, specified in the format `projects/ * /locations/global`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsTcpRoutesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single TcpRoute.
+ *
+ *  Method: networkservices.projects.locations.tcpRoutes.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsTcpRoutesPatch : GTLRNetworkServicesQuery
+
+/**
+ *  Required. Name of the TcpRoute resource. It matches pattern `projects/ *
+ *  /locations/global/tcpRoutes/tcp_route_name>`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  TcpRoute resource by the update. The fields specified in the update_mask are
+ *  relative to the resource, not the full request. A field will be overwritten
+ *  if it is in the mask. If the user does not provide a mask then all fields
+ *  will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Updates the parameters of a single TcpRoute.
+ *
+ *  @param object The @c GTLRNetworkServices_TcpRoute to include in the query.
+ *  @param name Required. Name of the TcpRoute resource. It matches pattern
+ *    `projects/ * /locations/global/tcpRoutes/tcp_route_name>`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsTcpRoutesPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_TcpRoute *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new TlsRoute in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.tlsRoutes.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsTlsRoutesCreate : GTLRNetworkServicesQuery
+
+/**
+ *  Required. The parent resource of the TlsRoute. Must be in the format
+ *  `projects/ * /locations/global`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. Short name of the TlsRoute resource to be created. E.g. TODO(Add
+ *  an example).
+ */
+@property(nonatomic, copy, nullable) NSString *tlsRouteId;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Creates a new TlsRoute in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkServices_TlsRoute to include in the query.
+ *  @param parent Required. The parent resource of the TlsRoute. Must be in the
+ *    format `projects/ * /locations/global`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsTlsRoutesCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_TlsRoute *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single TlsRoute.
+ *
+ *  Method: networkservices.projects.locations.tlsRoutes.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsTlsRoutesDelete : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the TlsRoute to delete. Must be in the format `projects/
+ *  * /locations/global/tlsRoutes/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Deletes a single TlsRoute.
+ *
+ *  @param name Required. A name of the TlsRoute to delete. Must be in the
+ *    format `projects/ * /locations/global/tlsRoutes/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsTlsRoutesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single TlsRoute.
+ *
+ *  Method: networkservices.projects.locations.tlsRoutes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsTlsRoutesGet : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the TlsRoute to get. Must be in the format `projects/ *
+ *  /locations/global/tlsRoutes/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_TlsRoute.
+ *
+ *  Gets details of a single TlsRoute.
+ *
+ *  @param name Required. A name of the TlsRoute to get. Must be in the format
+ *    `projects/ * /locations/global/tlsRoutes/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsTlsRoutesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists TlsRoute in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.tlsRoutes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsTlsRoutesList : GTLRNetworkServicesQuery
+
+/** Maximum number of TlsRoutes to return per call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListTlsRoutesResponse` Indicates that this
+ *  is a continuation of a prior `ListRouters` call, and that the system should
+ *  return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the TlsRoutes should be
+ *  listed, specified in the format `projects/ * /locations/global`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ListTlsRoutesResponse.
+ *
+ *  Lists TlsRoute in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the TlsRoutes
+ *    should be listed, specified in the format `projects/ * /locations/global`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsTlsRoutesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single TlsRoute.
+ *
+ *  Method: networkservices.projects.locations.tlsRoutes.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsTlsRoutesPatch : GTLRNetworkServicesQuery
+
+/**
+ *  Required. Name of the TlsRoute resource. It matches pattern `projects/ *
+ *  /locations/global/tlsRoutes/tls_route_name>`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  TlsRoute resource by the update. The fields specified in the update_mask are
+ *  relative to the resource, not the full request. A field will be overwritten
+ *  if it is in the mask. If the user does not provide a mask then all fields
+ *  will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Updates the parameters of a single TlsRoute.
+ *
+ *  @param object The @c GTLRNetworkServices_TlsRoute to include in the query.
+ *  @param name Required. Name of the TlsRoute resource. It matches pattern
+ *    `projects/ * /locations/global/tlsRoutes/tls_route_name>`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsTlsRoutesPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_TlsRoute *)object
+                           name:(NSString *)name;
 
 @end
 

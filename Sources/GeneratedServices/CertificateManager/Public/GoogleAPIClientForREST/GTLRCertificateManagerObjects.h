@@ -577,14 +577,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateManager_IpConfig *> *ipConfigs;
 
 /**
- *  A name must be in the format `projects/ * /locations/ * /targetHttpsProxies/
- *  *`.
+ *  This field returns the resource name in the following format:
+ *  `//compute.googleapis.com/projects/ * /global/targetHttpsProxies/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *targetHttpsProxy;
 
 /**
- *  A name must be in the format `projects/ * /locations/ * /targetSslProxies/
- *  *`.
+ *  This field returns the resource name in the following format:
+ *  `//compute.googleapis.com/projects/ * /global/targetSslProxies/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *targetSslProxy;
 
@@ -1044,7 +1044,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 
 
 /**
- *  GTLRCertificateManager_ResourcesCount
+ *  ResourcesCount represents the resource that stores aggregated project's info
+ *  in the given location, e.g.: total number of certificates assigned to the
+ *  project.
  */
 @interface GTLRCertificateManager_ResourcesCount : GTLRObject
 

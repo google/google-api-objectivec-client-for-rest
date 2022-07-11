@@ -603,7 +603,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 @property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Expr *condition;
 
 /**
- *  Specifies the principals requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Google Cloud resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -1067,7 +1067,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 /**
  *  Optional. The instance_type of this instance of format:
- *  projects/{project_id}/locations/{location_id}/instanceTypes/{instance_type_id}.
+ *  projects/{project_number}/locations/{location_id}/instanceTypes/{instance_type_id}.
  *  Instance Type represents a high-level tier or SKU of the service that this
  *  instance belong to. When enabled(eg: Maintenance Rollout), Rollout uses
  *  'instance_type' along with 'software_versions' to determine whether instance
@@ -1102,9 +1102,11 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 /**
  *  Unique name of the resource. It uses the form:
- *  `projects/{project_id|project_number}/locations/{location_id}/instances/{instance_id}`
- *  Note: Either project_id or project_number can be used, but keep it
- *  consistent with other APIs (e.g. RescheduleUpdate)
+ *  `projects/{project_number}/locations/{location_id}/instances/{instance_id}`
+ *  Note: This name is passed, stored and logged across the rollout system. So
+ *  use of consumer project_id or any other consumer PII in the name is strongly
+ *  discouraged for wipeout (go/wipeout) compliance. See
+ *  go/elysium/project_ids#storage-guidance for more details.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2281,7 +2283,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
  *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
- *  but certain Cloud Platform services (such as Projects) might reject them.
+ *  but certain Google Cloud services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Policy *policy;
 
@@ -2378,7 +2380,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
  *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;

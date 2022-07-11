@@ -1239,15 +1239,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  compared against each Cloud IAM policy binding, including its principals,
  *  roles, and Cloud IAM conditions. The returned Cloud IAM policies will only
  *  contain the bindings that match your query. To learn more about the IAM
- *  policy structure, see [IAM policy
- *  doc](https://cloud.google.com/iam/docs/policies#structure). Examples: *
- *  `policy:amy\@gmail.com` to find IAM policy bindings that specify user
- *  "amy\@gmail.com". * `policy:roles/compute.admin` to find IAM policy bindings
- *  that specify the Compute Admin role. * `policy:comp*` to find IAM policy
- *  bindings that contain "comp" as a prefix of any word in the binding. *
- *  `policy.role.permissions:storage.buckets.update` to find IAM policy bindings
- *  that specify a role containing "storage.buckets.update" permission. Note
- *  that if callers don't have `iam.roles.get` access to a role's included
+ *  policy structure, see the [IAM policy
+ *  documentation](https://cloud.google.com/iam/help/allow-policies/structure).
+ *  Examples: * `policy:amy\@gmail.com` to find IAM policy bindings that specify
+ *  user "amy\@gmail.com". * `policy:roles/compute.admin` to find IAM policy
+ *  bindings that specify the Compute Admin role. * `policy:comp*` to find IAM
+ *  policy bindings that contain "comp" as a prefix of any word in the binding.
+ *  * `policy.role.permissions:storage.buckets.update` to find IAM policy
+ *  bindings that specify a role containing "storage.buckets.update" permission.
+ *  Note that if callers don't have `iam.roles.get` access to a role's included
  *  permissions, policy bindings that specify this role will be dropped from the
  *  search results. * `policy.role.permissions:upd*` to find IAM policy bindings
  *  that specify a role containing "upd" as a prefix of any word in the role
@@ -1381,7 +1381,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  resources that have a label "env" and its value is "prod". * `labels.env:*`
  *  to find Cloud resources that have a label "env". * `kmsKey:key` to find
  *  Cloud resources encrypted with a customer-managed encryption key whose name
- *  contains the word "key". * `state:ACTIVE` to find Cloud resources whose
+ *  contains the word "key". * `relationships:instance-group-1` to find Cloud
+ *  resources that have relationships with "instance-group-1" in the related
+ *  resource name. * `relationships:INSTANCE_TO_INSTANCEGROUP` to find compute
+ *  instances that have relationships of type "INSTANCE_TO_INSTANCEGROUP". *
+ *  `relationships.INSTANCE_TO_INSTANCEGROUP:instance-group-1` to find compute
+ *  instances that have relationships with "instance-group-1" in the compute
+ *  instance group resource name, for relationship type
+ *  "INSTANCE_TO_INSTANCEGROUP". * `state:ACTIVE` to find Cloud resources whose
  *  state contains "ACTIVE" as a word. * `NOT state:ACTIVE` to find Cloud
  *  resources whose state doesn't contain "ACTIVE" as a word. *
  *  `createTime<1609459200` to find Cloud resources that were created before

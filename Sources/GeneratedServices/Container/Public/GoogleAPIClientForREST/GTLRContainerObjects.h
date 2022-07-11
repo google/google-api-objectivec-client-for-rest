@@ -24,6 +24,8 @@
 @class GTLRContainer_AutoUpgradeOptions;
 @class GTLRContainer_BigQueryDestination;
 @class GTLRContainer_BinaryAuthorization;
+@class GTLRContainer_BlueGreenInfo;
+@class GTLRContainer_BlueGreenSettings;
 @class GTLRContainer_CidrBlock;
 @class GTLRContainer_ClientCertificateConfig;
 @class GTLRContainer_CloudRunConfig;
@@ -43,6 +45,7 @@
 @class GTLRContainer_GcePersistentDiskCsiDriverConfig;
 @class GTLRContainer_GcfsConfig;
 @class GTLRContainer_GcpFilestoreCsiDriverConfig;
+@class GTLRContainer_GPUSharingConfig;
 @class GTLRContainer_HorizontalPodAutoscaling;
 @class GTLRContainer_HttpCacheControlResponseHeader;
 @class GTLRContainer_HttpLoadBalancing;
@@ -106,10 +109,12 @@
 @class GTLRContainer_SetLabelsRequest_ResourceLabels;
 @class GTLRContainer_ShieldedInstanceConfig;
 @class GTLRContainer_ShieldedNodes;
+@class GTLRContainer_StandardRolloutPolicy;
 @class GTLRContainer_Status;
 @class GTLRContainer_Status_Details_Item;
 @class GTLRContainer_StatusCondition;
 @class GTLRContainer_TimeWindow;
+@class GTLRContainer_UpdateInfo;
 @class GTLRContainer_UpgradeSettings;
 @class GTLRContainer_UsableSubnetwork;
 @class GTLRContainer_UsableSubnetworkSecondaryRange;
@@ -138,18 +143,71 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_BinaryAuthorization_EvaluationMode_Disabled;
 /**
- *  Default value, equivalent to DISABLED.
+ *  Default value
  *
  *  Value: "EVALUATION_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_BinaryAuthorization_EvaluationMode_EvaluationModeUnspecified;
 /**
- *  If enabled, enforce Kubernetes admission requests with BinAuthz using the
- *  project's singleton policy. Equivalent to bool enabled=true.
+ *  Enforce Kubernetes admission requests with BinaryAuthorization using the
+ *  project's singleton policy. This is equivalent to setting the enabled
+ *  boolean to true.
  *
  *  Value: "PROJECT_SINGLETON_POLICY_ENFORCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_BinaryAuthorization_EvaluationMode_ProjectSingletonPolicyEnforce;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_BlueGreenInfo.phase
+
+/**
+ *  Start cordoning blue pool nodes.
+ *
+ *  Value: "CORDONING_BLUE_POOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_BlueGreenInfo_Phase_CordoningBluePool;
+/**
+ *  Start creating green pool nodes.
+ *
+ *  Value: "CREATING_GREEN_POOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_BlueGreenInfo_Phase_CreatingGreenPool;
+/**
+ *  Start deleting blue nodes.
+ *
+ *  Value: "DELETING_BLUE_POOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_BlueGreenInfo_Phase_DeletingBluePool;
+/**
+ *  Start draining blue pool nodes.
+ *
+ *  Value: "DRAINING_BLUE_POOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_BlueGreenInfo_Phase_DrainingBluePool;
+/**
+ *  Start soaking time after draining entire blue pool.
+ *
+ *  Value: "NODE_POOL_SOAKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_BlueGreenInfo_Phase_NodePoolSoaking;
+/**
+ *  Unspecified phase.
+ *
+ *  Value: "PHASE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_BlueGreenInfo_Phase_PhaseUnspecified;
+/**
+ *  Rollback has been initiated.
+ *
+ *  Value: "ROLLBACK_STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_BlueGreenInfo_Phase_RollbackStarted;
+/**
+ *  blue-green upgrade has been initiated.
+ *
+ *  Value: "UPDATE_STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_BlueGreenInfo_Phase_UpdateStarted;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_CloudRunConfig.loadBalancerType
@@ -389,6 +447,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Filter_EventType_UpgradeAvaila
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Filter_EventType_UpgradeEvent;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_GPUSharingConfig.gpuSharingStrategy
+
+/**
+ *  Default value.
+ *
+ *  Value: "GPU_SHARING_STRATEGY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_GPUSharingConfig_GpuSharingStrategy_GpuSharingStrategyUnspecified;
+/**
+ *  GPUs are time-shared between containers.
+ *
+ *  Value: "TIME_SHARING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_GPUSharingConfig_GpuSharingStrategy_TimeSharing;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_LoggingComponentConfig.enableComponents
 
 /**
@@ -440,11 +514,29 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_MaintenanceExclusionOptions_Sc
 // GTLRContainer_MonitoringComponentConfig.enableComponents
 
 /**
+ *  kube-apiserver
+ *
+ *  Value: "APISERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Apiserver;
+/**
  *  Default value. This shouldn't be used.
  *
  *  Value: "COMPONENT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_ComponentUnspecified;
+/**
+ *  kube-controller-manager
+ *
+ *  Value: "CONTROLLER_MANAGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_ControllerManager;
+/**
+ *  kube-scheduler
+ *
+ *  Value: "SCHEDULER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Scheduler;
 /**
  *  system components
  *
@@ -588,6 +680,29 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePool_Status_StatusUnspecif
  *  Value: "STOPPING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePool_Status_Stopping;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_NodePoolAutoscaling.locationPolicy
+
+/**
+ *  ANY policy picks zones that have the highest capacity available.
+ *
+ *  Value: "ANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolAutoscaling_LocationPolicy_Any;
+/**
+ *  BALANCED is a best effort policy that aims to balance the sizes of different
+ *  zones.
+ *
+ *  Value: "BALANCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolAutoscaling_LocationPolicy_Balanced;
+/**
+ *  Not set.
+ *
+ *  Value: "LOCATION_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolAutoscaling_LocationPolicy_LocationPolicyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_NodeTaint.effect
@@ -1193,6 +1308,29 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeEvent_ResourceType_Node
 FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeEvent_ResourceType_UpgradeResourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_UpgradeSettings.strategy
+
+/**
+ *  blue-green upgrade.
+ *
+ *  Value: "BLUE_GREEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeSettings_Strategy_BlueGreen;
+/**
+ *  Default value.
+ *
+ *  Value: "NODE_POOL_UPDATE_STRATEGY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeSettings_Strategy_NodePoolUpdateStrategyUnspecified;
+/**
+ *  SURGE is the traditional way of upgrade a node pool. max_surge and
+ *  max_unavailable determines the level of upgrade parallelism.
+ *
+ *  Value: "SURGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeSettings_Strategy_Surge;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_UsableSubnetworkSecondaryRange.status
 
 /**
@@ -1280,6 +1418,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  guide](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/#partitioning).
  */
 @property(nonatomic, copy, nullable) NSString *gpuPartitionSize;
+
+/** The configuration for GPU sharing options. */
+@property(nonatomic, strong, nullable) GTLRContainer_GPUSharingConfig *gpuSharingConfig;
 
 @end
 
@@ -1516,14 +1657,84 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *    @arg @c kGTLRContainer_BinaryAuthorization_EvaluationMode_Disabled Disable
  *        BinaryAuthorization (Value: "DISABLED")
  *    @arg @c kGTLRContainer_BinaryAuthorization_EvaluationMode_EvaluationModeUnspecified
- *        Default value, equivalent to DISABLED. (Value:
- *        "EVALUATION_MODE_UNSPECIFIED")
+ *        Default value (Value: "EVALUATION_MODE_UNSPECIFIED")
  *    @arg @c kGTLRContainer_BinaryAuthorization_EvaluationMode_ProjectSingletonPolicyEnforce
- *        If enabled, enforce Kubernetes admission requests with BinAuthz using
- *        the project's singleton policy. Equivalent to bool enabled=true.
- *        (Value: "PROJECT_SINGLETON_POLICY_ENFORCE")
+ *        Enforce Kubernetes admission requests with BinaryAuthorization using
+ *        the project's singleton policy. This is equivalent to setting the
+ *        enabled boolean to true. (Value: "PROJECT_SINGLETON_POLICY_ENFORCE")
  */
 @property(nonatomic, copy, nullable) NSString *evaluationMode;
+
+@end
+
+
+/**
+ *  Information relevant to blue-green upgrade.
+ */
+@interface GTLRContainer_BlueGreenInfo : GTLRObject
+
+/**
+ *  The resource URLs of the [managed instance groups]
+ *  (/compute/docs/instance-groups/creating-groups-of-managed-instances)
+ *  associated with blue pool.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *blueInstanceGroupUrls;
+
+/**
+ *  Time to start deleting blue pool to complete blue-green upgrade, in
+ *  [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+ */
+@property(nonatomic, copy, nullable) NSString *bluePoolDeletionStartTime;
+
+/**
+ *  The resource URLs of the [managed instance groups]
+ *  (/compute/docs/instance-groups/creating-groups-of-managed-instances)
+ *  associated with green pool.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *greenInstanceGroupUrls;
+
+/** Version of green pool. */
+@property(nonatomic, copy, nullable) NSString *greenPoolVersion;
+
+/**
+ *  Current blue-green upgrade phase.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_BlueGreenInfo_Phase_CordoningBluePool Start
+ *        cordoning blue pool nodes. (Value: "CORDONING_BLUE_POOL")
+ *    @arg @c kGTLRContainer_BlueGreenInfo_Phase_CreatingGreenPool Start
+ *        creating green pool nodes. (Value: "CREATING_GREEN_POOL")
+ *    @arg @c kGTLRContainer_BlueGreenInfo_Phase_DeletingBluePool Start deleting
+ *        blue nodes. (Value: "DELETING_BLUE_POOL")
+ *    @arg @c kGTLRContainer_BlueGreenInfo_Phase_DrainingBluePool Start draining
+ *        blue pool nodes. (Value: "DRAINING_BLUE_POOL")
+ *    @arg @c kGTLRContainer_BlueGreenInfo_Phase_NodePoolSoaking Start soaking
+ *        time after draining entire blue pool. (Value: "NODE_POOL_SOAKING")
+ *    @arg @c kGTLRContainer_BlueGreenInfo_Phase_PhaseUnspecified Unspecified
+ *        phase. (Value: "PHASE_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_BlueGreenInfo_Phase_RollbackStarted Rollback has
+ *        been initiated. (Value: "ROLLBACK_STARTED")
+ *    @arg @c kGTLRContainer_BlueGreenInfo_Phase_UpdateStarted blue-green
+ *        upgrade has been initiated. (Value: "UPDATE_STARTED")
+ */
+@property(nonatomic, copy, nullable) NSString *phase;
+
+@end
+
+
+/**
+ *  Settings for blue-green upgrade.
+ */
+@interface GTLRContainer_BlueGreenSettings : GTLRObject
+
+/**
+ *  Time needed after draining entire blue pool. After this period, blue pool
+ *  will be cleaned up.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *nodePoolSoakDuration;
+
+/** Standard policy for the blue-green upgrade. */
+@property(nonatomic, strong, nullable) GTLRContainer_StandardRolloutPolicy *standardRolloutPolicy;
 
 @end
 
@@ -2325,6 +2536,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  CompleteNodePoolUpgradeRequest sets the name of target node pool to complete
+ *  upgrade.
+ */
+@interface GTLRContainer_CompleteNodePoolUpgradeRequest : GTLRObject
+@end
+
+
+/**
  *  ConfidentialNodes is configuration for the confidential nodes feature, which
  *  makes nodes run on confidential VMs.
  */
@@ -2687,6 +2906,33 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Supported subject types. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *subjectTypesSupported;
+
+@end
+
+
+/**
+ *  GPUSharingConfig represents the GPU sharing configuration for Hardware
+ *  Accelerators.
+ */
+@interface GTLRContainer_GPUSharingConfig : GTLRObject
+
+/**
+ *  The type of GPU sharing strategy to enable on the GPU node.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_GPUSharingConfig_GpuSharingStrategy_GpuSharingStrategyUnspecified
+ *        Default value. (Value: "GPU_SHARING_STRATEGY_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_GPUSharingConfig_GpuSharingStrategy_TimeSharing
+ *        GPUs are time-shared between containers. (Value: "TIME_SHARING")
+ */
+@property(nonatomic, copy, nullable) NSString *gpuSharingStrategy;
+
+/**
+ *  The max number of containers that can share a physical GPU.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSharedClientsPerGpu;
 
 @end
 
@@ -3556,8 +3802,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
- *  Parameters that describe the nodes in a cluster. *Note: *GKE Autopilot
- *  clusters do not recognize parameters in `NodeConfig`. Use
+ *  Parameters that describe the nodes in a cluster. GKE Autopilot clusters do
+ *  not recognize parameters in `NodeConfig`. Use
  *  AutoprovisioningNodePoolDefaults instead.
  */
 @interface GTLRContainer_NodeConfig : GTLRObject
@@ -3580,6 +3826,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  see: https://cloud.google.com/compute/docs/disks/customer-managed-encryption
  */
 @property(nonatomic, copy, nullable) NSString *bootDiskKmsKey;
+
+/**
+ *  Confidential nodes config. All the nodes in the node pool will be
+ *  Confidential VM once enabled.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_ConfidentialNodes *confidentialNodes;
 
 /**
  *  Size of the disk attached to each node, specified in GB. The smallest
@@ -3797,7 +4049,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @interface GTLRContainer_NodeConfigDefaults : GTLRObject
 
-/** GCFS (Google Container File System, a.k.a Riptide) options. */
+/** GCFS (Google Container File System, a.k.a. Riptide) options. */
 @property(nonatomic, strong, nullable) GTLRContainer_GcfsConfig *gcfsConfig;
 
 @end
@@ -3986,7 +4238,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /**
  *  [Output only] The resource URLs of the [managed instance
  *  groups](https://cloud.google.com/compute/docs/instance-groups/creating-groups-of-managed-instances)
- *  associated with this node pool.
+ *  associated with this node pool. During the node pool blue-green upgrade
+ *  operation, the URLs contain both blue and green resources.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instanceGroupUrls;
 
@@ -4062,6 +4315,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *statusMessage;
 
+/**
+ *  Output only. [Output only] Update info contains relevant information during
+ *  a node pool update.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_UpdateInfo *updateInfo;
+
 /** Upgrade settings control disruption and speed of the upgrade. */
 @property(nonatomic, strong, nullable) GTLRContainer_UpgradeSettings *upgradeSettings;
 
@@ -4109,6 +4368,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
 /**
+ *  Location policy used when scaling up a nodepool.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_NodePoolAutoscaling_LocationPolicy_Any ANY policy
+ *        picks zones that have the highest capacity available. (Value: "ANY")
+ *    @arg @c kGTLRContainer_NodePoolAutoscaling_LocationPolicy_Balanced
+ *        BALANCED is a best effort policy that aims to balance the sizes of
+ *        different zones. (Value: "BALANCED")
+ *    @arg @c kGTLRContainer_NodePoolAutoscaling_LocationPolicy_LocationPolicyUnspecified
+ *        Not set. (Value: "LOCATION_POLICY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *locationPolicy;
+
+/**
  *  Maximum number of nodes for one location in the NodePool. Must be >=
  *  min_node_count. There has to be enough quota to scale up the cluster.
  *
@@ -4123,6 +4396,25 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minNodeCount;
+
+/**
+ *  Maximum number of nodes in the node pool. Must be greater than
+ *  total_min_node_count. There has to be enough quota to scale up the cluster.
+ *  The total_*_node_count fields are mutually exclusive with the *_node_count
+ *  fields.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalMaxNodeCount;
+
+/**
+ *  Minimum number of nodes in the node pool. Must be greater than 1 less than
+ *  total_max_node_count. The total_*_node_count fields are mutually exclusive
+ *  with the *_node_count fields.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalMinNodeCount;
 
 @end
 
@@ -4671,6 +4963,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Option for rollback to ignore the PodDisruptionBudget. Default value is
+ *  false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *respectPdb;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
@@ -5426,6 +5726,32 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  Standard rollout policy is the default policy for blue-green.
+ */
+@interface GTLRContainer_StandardRolloutPolicy : GTLRObject
+
+/**
+ *  Number of blue nodes to drain in a batch.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *batchNodeCount;
+
+/**
+ *  Percentage of the bool pool nodes to drain in a batch. The range of this
+ *  field should be (0.0, 1.0].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *batchPercentage;
+
+/** Soak time after each batch gets drained. Default to zero. */
+@property(nonatomic, strong, nullable) GTLRDuration *batchSoakDuration;
+
+@end
+
+
+/**
  *  StartIPRotationRequest creates a new IP for the cluster and then performs a
  *  node upgrade on each node pool to point to the new IP.
  */
@@ -5723,6 +6049,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  UpdateInfo contains resource (instance groups, etc), status and other
+ *  intermediate information relevant to a node pool upgrade.
+ */
+@interface GTLRContainer_UpdateInfo : GTLRObject
+
+/** Information of a blue-green upgrade. */
+@property(nonatomic, strong, nullable) GTLRContainer_BlueGreenInfo *blueGreenInfo;
+
+@end
+
+
+/**
  *  UpdateMasterRequest updates the master of the cluster.
  */
 @interface GTLRContainer_UpdateMasterRequest : GTLRObject
@@ -5781,6 +6119,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
+/**
+ *  Confidential nodes config. All the nodes in the node pool will be
+ *  Confidential VM once enabled.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_ConfidentialNodes *confidentialNodes;
+
 /** GCFS config. */
 @property(nonatomic, strong, nullable) GTLRContainer_GcfsConfig *gcfsConfig;
 
@@ -5818,6 +6162,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Node network config. */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeNetworkConfig *nodeNetworkConfig;
 
 /**
  *  Deprecated. The name of the node pool to upgrade. This field has been
@@ -5970,9 +6317,29 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  This means the upgrade process upgrades 3 nodes simultaneously. It creates 2
  *  additional (upgraded) nodes, then it brings down 3 old (not yet upgraded)
  *  nodes at the same time. This ensures that there are always at least 4 nodes
- *  available.
+ *  available. These upgrade settings configure the upgrade strategy for the
+ *  node pool. Use strategy to switch between the strategies applied to the node
+ *  pool. If the strategy is ROLLING, use max_surge and max_unavailable to
+ *  control the level of parallelism and the level of disruption caused by
+ *  upgrade. 1. maxSurge controls the number of additional nodes that can be
+ *  added to the node pool temporarily for the time of the upgrade to increase
+ *  the number of available nodes. 2. maxUnavailable controls the number of
+ *  nodes that can be simultaneously unavailable. 3. (maxUnavailable + maxSurge)
+ *  determines the level of parallelism (how many nodes are being upgraded at
+ *  the same time). If the strategy is BLUE_GREEN, use blue_green_settings to
+ *  configure the blue-green upgrade related settings. 1.
+ *  standard_rollout_policy is the default policy. The policy is used to control
+ *  the way blue pool gets drained. The draining is executed in the batch mode.
+ *  The batch size could be specified as either percentage of the node pool size
+ *  or the number of nodes. batch_soak_duration is the soak time after each
+ *  batch gets drained. 2. node_pool_soak_duration is the soak time after all
+ *  blue nodes are drained. After this period, the blue pool nodes will be
+ *  deleted.
  */
 @interface GTLRContainer_UpgradeSettings : GTLRObject
+
+/** Settings for blue-green upgrade strategy. */
+@property(nonatomic, strong, nullable) GTLRContainer_BlueGreenSettings *blueGreenSettings;
 
 /**
  *  The maximum number of nodes that can be created beyond the current size of
@@ -5989,6 +6356,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxUnavailable;
+
+/**
+ *  Update strategy of the node pool.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_UpgradeSettings_Strategy_BlueGreen blue-green
+ *        upgrade. (Value: "BLUE_GREEN")
+ *    @arg @c kGTLRContainer_UpgradeSettings_Strategy_NodePoolUpdateStrategyUnspecified
+ *        Default value. (Value: "NODE_POOL_UPDATE_STRATEGY_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_UpgradeSettings_Strategy_Surge SURGE is the
+ *        traditional way of upgrade a node pool. max_surge and max_unavailable
+ *        determines the level of upgrade parallelism. (Value: "SURGE")
+ */
+@property(nonatomic, copy, nullable) NSString *strategy;
 
 @end
 

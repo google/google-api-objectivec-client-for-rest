@@ -2046,26 +2046,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 
 
 /**
- *  Metadata for `CreateGitLabConfig` operation.
- */
-@interface GTLRCloudBuild_CreateGitLabConfigOperationMetadata : GTLRObject
-
-/** Time the operation was completed. */
-@property(nonatomic, strong, nullable) GTLRDateTime *completeTime;
-
-/** Time the operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  The resource name of the GitLabConfig to be created. Format:
- *  `projects/{project}/locations/{location}/gitlabConfigs/{id}`.
- */
-@property(nonatomic, copy, nullable) NSString *gitlabConfig;
-
-@end
-
-
-/**
  *  Metadata for the `CreateWorkerPool` operation.
  */
 @interface GTLRCloudBuild_CreateWorkerPoolOperationMetadata : GTLRObject
@@ -2121,26 +2101,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  `projects/{project}/locations/{location}/githubEnterpriseConfigs/{id}`.
  */
 @property(nonatomic, copy, nullable) NSString *githubEnterpriseConfig;
-
-@end
-
-
-/**
- *  Metadata for `DeleteGitLabConfig` operation.
- */
-@interface GTLRCloudBuild_DeleteGitLabConfigOperationMetadata : GTLRObject
-
-/** Time the operation was completed. */
-@property(nonatomic, strong, nullable) GTLRDateTime *completeTime;
-
-/** Time the operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  The resource name of the GitLabConfig to be created. Format:
- *  `projects/{project}/locations/{location}/gitlabConfigs/{id}`.
- */
-@property(nonatomic, copy, nullable) NSString *gitlabConfig;
 
 @end
 
@@ -3807,26 +3767,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  `projects/{project}/locations/{location}/githubEnterpriseConfigs/{id}`.
  */
 @property(nonatomic, copy, nullable) NSString *githubEnterpriseConfig;
-
-@end
-
-
-/**
- *  Metadata for `UpdateGitLabConfig` operation.
- */
-@interface GTLRCloudBuild_UpdateGitLabConfigOperationMetadata : GTLRObject
-
-/** Time the operation was completed. */
-@property(nonatomic, strong, nullable) GTLRDateTime *completeTime;
-
-/** Time the operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  The resource name of the GitLabConfig to be created. Format:
- *  `projects/{project}/locations/{location}/gitlabConfigs/{id}`.
- */
-@property(nonatomic, copy, nullable) NSString *gitlabConfig;
 
 @end
 

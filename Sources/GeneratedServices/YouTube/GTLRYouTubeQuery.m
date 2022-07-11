@@ -81,6 +81,10 @@ NSString * const kGTLRYouTubeRatingDislike = @"dislike";
 NSString * const kGTLRYouTubeRatingLike    = @"like";
 NSString * const kGTLRYouTubeRatingNone    = @"none";
 
+// resourceCueType
+NSString * const kGTLRYouTubeResourceCueTypeCueTypeAd          = @"cueTypeAd";
+NSString * const kGTLRYouTubeResourceCueTypeCueTypeUnspecified = @"cueTypeUnspecified";
+
 // safeSearch
 NSString * const kGTLRYouTubeSafeSearchModerate                = @"moderate";
 NSString * const kGTLRYouTubeSafeSearchNone                    = @"none";
@@ -941,6 +945,45 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
   query.part = part;
   query.expectedObjectClass = [GTLRYouTube_LiveBroadcast class];
   query.loggingName = @"youtube.liveBroadcasts.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRYouTubeQuery_LiveBroadcastsInsertCuepoint
+
+@dynamic identifier, onBehalfOfContentOwner, onBehalfOfContentOwnerChannel,
+         part, resourceCueType, resourceDurationSecs, resourceEtag, resourceId,
+         resourceInsertionOffsetTimeMs, resourceWalltimeMs;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"identifier" : @"id",
+    @"resourceCueType" : @"resource.cueType",
+    @"resourceDurationSecs" : @"resource.durationSecs",
+    @"resourceEtag" : @"resource.etag",
+    @"resourceId" : @"resource.id",
+    @"resourceInsertionOffsetTimeMs" : @"resource.insertionOffsetTimeMs",
+    @"resourceWalltimeMs" : @"resource.walltimeMs"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"youtube/v3/liveBroadcasts/cuepoint";
+  GTLRYouTubeQuery_LiveBroadcastsInsertCuepoint *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRYouTube_Cuepoint class];
+  query.loggingName = @"youtube.liveBroadcasts.insertCuepoint";
   return query;
 }
 
@@ -1918,7 +1961,7 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
                                HTTPMethod:nil
                        pathParameterNames:nil];
   query.part = part;
-  query.expectedObjectClass = [GTLRYouTube_ThirdPartyLink class];
+  query.expectedObjectClass = [GTLRYouTube_ThirdPartyLinkListResponse class];
   query.loggingName = @"youtube.thirdPartyLinks.list";
   return query;
 }

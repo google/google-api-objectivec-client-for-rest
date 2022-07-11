@@ -34,8 +34,10 @@
 @class GTLRTranscoder_Image;
 @class GTLRTranscoder_Input;
 @class GTLRTranscoder_Job;
+@class GTLRTranscoder_Job_Labels;
 @class GTLRTranscoder_JobConfig;
 @class GTLRTranscoder_JobTemplate;
+@class GTLRTranscoder_JobTemplate_Labels;
 @class GTLRTranscoder_Manifest;
 @class GTLRTranscoder_MuxStream;
 @class GTLRTranscoder_NormalizedCoordinate;
@@ -996,6 +998,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, copy, nullable) NSString *inputUri;
 
 /**
+ *  The labels associated with this job. You can use these to organize and group
+ *  your jobs.
+ */
+@property(nonatomic, strong, nullable) GTLRTranscoder_Job_Labels *labels;
+
+/**
  *  The resource name of the job. Format:
  *  `projects/{project_number}/locations/{location}/jobs/{job}`
  */
@@ -1052,6 +1060,19 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 
 /**
+ *  The labels associated with this job. You can use these to organize and group
+ *  your jobs.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRTranscoder_Job_Labels : GTLRObject
+@end
+
+
+/**
  *  Job configuration
  */
 @interface GTLRTranscoder_JobConfig : GTLRObject
@@ -1089,7 +1110,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 /** Destination on Pub/Sub. */
 @property(nonatomic, strong, nullable) GTLRTranscoder_PubsubDestination *pubsubDestination;
 
-/** List of output sprite sheets. */
+/**
+ *  List of output sprite sheets. Spritesheets require at least one VideoStream
+ *  in the Jobconfig.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRTranscoder_SpriteSheet *> *spriteSheets;
 
 @end
@@ -1104,11 +1128,30 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, strong, nullable) GTLRTranscoder_JobConfig *config;
 
 /**
+ *  The labels associated with this job template. You can use these to organize
+ *  and group your job templates.
+ */
+@property(nonatomic, strong, nullable) GTLRTranscoder_JobTemplate_Labels *labels;
+
+/**
  *  The resource name of the job template. Format:
  *  `projects/{project_number}/locations/{location}/jobTemplates/{job_template}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+@end
+
+
+/**
+ *  The labels associated with this job template. You can use these to organize
+ *  and group your job templates.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRTranscoder_JobTemplate_Labels : GTLRObject
 @end
 
 

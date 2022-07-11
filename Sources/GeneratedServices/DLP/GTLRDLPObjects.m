@@ -146,6 +146,65 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_Unlikely = @"UNLI
 NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_VeryLikely = @"VERY_LIKELY";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_VeryUnlikely = @"VERY_UNLIKELY";
 
+// GTLRDLP_GooglePrivacyDlpV2InfoTypeCategory.industryCategory
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_IndustryCategory_Finance = @"FINANCE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_IndustryCategory_Health = @"HEALTH";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_IndustryCategory_IndustryUnspecified = @"INDUSTRY_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_IndustryCategory_Telecommunications = @"TELECOMMUNICATIONS";
+
+// GTLRDLP_GooglePrivacyDlpV2InfoTypeCategory.locationCategory
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Argentina = @"ARGENTINA";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Australia = @"AUSTRALIA";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Belgium = @"BELGIUM";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Brazil = @"BRAZIL";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Canada = @"CANADA";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Chile = @"CHILE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_China = @"CHINA";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Colombia = @"COLOMBIA";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Denmark = @"DENMARK";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Finland = @"FINLAND";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_France = @"FRANCE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Germany = @"GERMANY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Global = @"GLOBAL";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_HongKong = @"HONG_KONG";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_India = @"INDIA";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Indonesia = @"INDONESIA";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Internal = @"INTERNAL";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Ireland = @"IRELAND";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Israel = @"ISRAEL";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Italy = @"ITALY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Japan = @"JAPAN";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Korea = @"KOREA";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_LocationUnspecified = @"LOCATION_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Mexico = @"MEXICO";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Norway = @"NORWAY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Paraguay = @"PARAGUAY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Peru = @"PERU";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Poland = @"POLAND";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Portugal = @"PORTUGAL";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Singapore = @"SINGAPORE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_SouthAfrica = @"SOUTH_AFRICA";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Spain = @"SPAIN";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Sweden = @"SWEDEN";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Taiwan = @"TAIWAN";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Thailand = @"THAILAND";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_TheNetherlands = @"THE_NETHERLANDS";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Turkey = @"TURKEY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_UnitedKingdom = @"UNITED_KINGDOM";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_UnitedStates = @"UNITED_STATES";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Uruguay = @"URUGUAY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_LocationCategory_Venezuela = @"VENEZUELA";
+
+// GTLRDLP_GooglePrivacyDlpV2InfoTypeCategory.typeCategory
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_ContextualInformation = @"CONTEXTUAL_INFORMATION";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Credential = @"CREDENTIAL";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Demographic = @"DEMOGRAPHIC";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Document = @"DOCUMENT";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_GovernmentId = @"GOVERNMENT_ID";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Pii = @"PII";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Spii = @"SPII";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription.supportedBy
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_SupportedBy_EnumTypeUnspecified = @"ENUM_TYPE_UNSPECIFIED";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_SupportedBy_Inspect = @"INSPECT";
@@ -1371,11 +1430,21 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2InfoTypeCategory
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2InfoTypeCategory
+@dynamic industryCategory, locationCategory, typeCategory;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription
-@dynamic descriptionProperty, displayName, name, supportedBy;
+@dynamic categories, descriptionProperty, displayName, name, supportedBy;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1383,6 +1452,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"categories" : [GTLRDLP_GooglePrivacyDlpV2InfoTypeCategory class],
     @"supportedBy" : [NSString class]
   };
   return map;

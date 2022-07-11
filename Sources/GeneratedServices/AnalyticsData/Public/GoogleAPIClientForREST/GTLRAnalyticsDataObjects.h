@@ -1185,8 +1185,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_BetweenFilter *betweenFilter;
 
 /**
- *  The dimension name or metric name. Must be a name defined in dimensions or
- *  metrics.
+ *  The dimension name or metric name. In most methods, dimensions & metrics can
+ *  be used for the first time in this field. However in a
+ *  RunPivotReportRequest, this field must be additionally specified by name in
+ *  the RunPivotReportRequest's dimensions or metrics.
  */
 @property(nonatomic, copy, nullable) NSString *fieldName;
 
@@ -2067,10 +2069,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  */
 @interface GTLRAnalyticsData_RunRealtimeReportRequest : GTLRObject
 
-/**
- *  The filter clause of dimensions. Dimensions must be requested to be used in
- *  this filter. Metrics cannot be used in this filter.
- */
+/** The filter clause of dimensions. Metrics cannot be used in this filter. */
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_FilterExpression *dimensionFilter;
 
 /** The dimensions requested and displayed. */
@@ -2097,8 +2096,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 /**
  *  The filter clause of metrics. Applied at post aggregation phase, similar to
- *  SQL having-clause. Metrics must be requested to be used in this filter.
- *  Dimensions cannot be used in this filter.
+ *  SQL having-clause. Dimensions cannot be used in this filter.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_FilterExpression *metricFilter;
 

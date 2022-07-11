@@ -97,6 +97,7 @@
 @class GTLRCloudSearch_Operation_Response;
 @class GTLRCloudSearch_PeopleSuggestion;
 @class GTLRCloudSearch_Person;
+@class GTLRCloudSearch_PhoneNumber;
 @class GTLRCloudSearch_Photo;
 @class GTLRCloudSearch_Principal;
 @class GTLRCloudSearch_ProcessingError;
@@ -506,7 +507,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_IndexItemRequest_Mode_Asynch
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_IndexItemRequest_Mode_Synchronous;
 /**
- *  Priority is not specified in the update request. Leaving priority
+ *  The priority is not specified in the update request. Leaving priority
  *  unspecified results in an update failure.
  *
  *  Value: "UNSPECIFIED"
@@ -725,6 +726,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemStatus_Code_Modified;
  *  Value: "NEW_ITEM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemStatus_Code_NewItem;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_PhoneNumber.type
+
+/** Value: "MOBILE" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_PhoneNumber_Type_Mobile;
+/** Value: "OFFICE" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_PhoneNumber_Type_Office;
+/** Value: "OTHER" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_PhoneNumber_Type_Other;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_PollItemsRequest.statusCodes
@@ -1367,7 +1378,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 
 
 /**
- *  Options for boolean properties.
+ *  The options for boolean properties.
  */
 @interface GTLRCloudSearch_BooleanPropertyOptions : GTLRObject
 
@@ -1442,7 +1453,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 /**
  *  Proto representation of a custom emoji. May be used in both APIs and in
  *  Spanner, but certain fields should be restricted to one or the other. See
- *  the per-field documentation for details. NEXT_TAG: 13
+ *  the per-field documentation for details. NEXT_TAG: 14
  */
 @interface GTLRCloudSearch_CustomEmoji : GTLRObject
 
@@ -1469,6 +1480,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 
 /** This field should *never* be persisted to Spanner. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_UserId *creatorUserId;
+
+/**
+ *  Time when the emoji was deleted, in microseconds. This field may be present
+ *  in Spanner, within the server, or in public APIs. Only present if the emoji
+ *  has been deleted.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deleteTimeMicros;
 
 /**
  *  Output only. A short-lived URL clients can use for directly accessing a
@@ -1548,7 +1568,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
  */
 @interface GTLRCloudSearch_CustomerIndexStats : GTLRObject
 
-/** Date for which statistics were calculated. */
+/** The date for which statistics were calculated. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Date *date;
 
 /** Number of items aggregrated by status code. */
@@ -1563,8 +1583,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @interface GTLRCloudSearch_CustomerQueryStats : GTLRObject
 
 /**
- *  Date for which query stats were calculated. Stats calculated on the next day
- *  close to midnight are returned.
+ *  The date for which query stats were calculated. Stats calculated on the next
+ *  day close to midnight are returned.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Date *date;
 
@@ -1585,7 +1605,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
  */
 @property(nonatomic, strong, nullable) NSNumber *count;
 
-/** Date for which search application stats were calculated. */
+/** The date for which search application stats were calculated. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Date *date;
 
 @end
@@ -1597,8 +1617,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @interface GTLRCloudSearch_CustomerSessionStats : GTLRObject
 
 /**
- *  Date for which session stats were calculated. Stats are calculated on the
- *  following day, close to midnight PST, and then returned.
+ *  The date for which session stats were calculated. Stats are calculated on
+ *  the following day, close to midnight PST, and then returned.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Date *date;
 
@@ -1638,8 +1658,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @interface GTLRCloudSearch_CustomerUserStats : GTLRObject
 
 /**
- *  Date for which session stats were calculated. Stats calculated on the next
- *  day close to midnight are returned.
+ *  The date for which session stats were calculated. Stats calculated on the
+ *  next day close to midnight are returned.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Date *date;
 
@@ -1711,8 +1731,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_GSuitePrincipal *> *itemsVisibility;
 
 /**
- *  Name of the datasource resource. Format: datasources/{source_id}. The name
- *  is ignored when creating a datasource.
+ *  The name of the datasource resource. Format: datasources/{source_id}. The
+ *  name is ignored when creating a datasource.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1750,9 +1770,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @interface GTLRCloudSearch_DataSourceIndexStats : GTLRObject
 
 /**
- *  Date for which index stats were calculated. If the date of request is not
- *  the current date then stats calculated on the next day are returned. Stats
- *  are calculated close to mid night in this case. If date of request is
+ *  The date for which index stats were calculated. If the date of request is
+ *  not the current date then stats calculated on the next day are returned.
+ *  Stats are calculated close to mid night in this case. If date of request is
  *  current date, then real time stats are returned.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Date *date;
@@ -1865,7 +1885,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 
 
 /**
- *  Options for date properties.
+ *  The options for date properties.
  */
 @interface GTLRCloudSearch_DatePropertyOptions : GTLRObject
 
@@ -1907,7 +1927,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @interface GTLRCloudSearch_DeleteQueueItemsRequest : GTLRObject
 
 /**
- *  Name of connector making this call. Format:
+ *  The name of connector making this call. Format:
  *  datasources/{source_id}/connectors/{ID}
  */
 @property(nonatomic, copy, nullable) NSString *connectorName;
@@ -1915,7 +1935,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 /** Common debug options. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_DebugOptions *debugOptions;
 
-/** Name of a queue to delete items from. */
+/** The name of a queue to delete items from. */
 @property(nonatomic, copy, nullable) NSString *queue;
 
 @end
@@ -1969,7 +1989,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 
 
 /**
- *  Options for double properties.
+ *  The options for double properties.
  */
 @interface GTLRCloudSearch_DoublePropertyOptions : GTLRObject
 
@@ -2274,8 +2294,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 
 
 /**
- *  Options for enum properties, which allow you to define a restricted set of
- *  strings to match user queries, set rankings for those string values, and
+ *  The options for enum properties, which allow you to define a restricted set
+ *  of strings to match user queries, set rankings for those string values, and
  *  define an operator name to be paired with those strings so that users can
  *  narrow results to only items with a specific value. For example, for items
  *  in a request tracking system with priority information, you could define
@@ -2445,7 +2465,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @property(nonatomic, copy, nullable) NSString *objectType;
 
 /**
- *  Name of the operator chosen for faceting. \@see
+ *  The name of the operator chosen for faceting. \@see
  *  cloudsearch.SchemaPropertyOptions
  */
 @property(nonatomic, copy, nullable) NSString *operatorName;
@@ -2465,7 +2485,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @interface GTLRCloudSearch_FacetResult : GTLRObject
 
 /**
- *  FacetBuckets for values in response containing at least a single result.
+ *  FacetBuckets for values in response containing at least a single result with
+ *  the corresponding filter.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_FacetBucket *> *buckets;
 
@@ -2473,7 +2494,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @property(nonatomic, copy, nullable) NSString *objectType;
 
 /**
- *  Name of the operator chosen for faceting. \@see
+ *  The name of the operator chosen for faceting. \@see
  *  cloudsearch.SchemaPropertyOptions
  */
 @property(nonatomic, copy, nullable) NSString *operatorName;
@@ -2490,7 +2511,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @interface GTLRCloudSearch_FieldViolation : GTLRObject
 
 /**
- *  Description of the error.
+ *  The description of the error.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -2880,7 +2901,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 
 
 /**
- *  Options for html properties.
+ *  The options for html properties.
  */
 @interface GTLRCloudSearch_HtmlPropertyOptions : GTLRObject
 
@@ -2968,7 +2989,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @interface GTLRCloudSearch_IndexItemRequest : GTLRObject
 
 /**
- *  Name of connector making this call. Format:
+ *  The name of connector making this call. Format:
  *  datasources/{source_id}/connectors/{ID}
  */
 @property(nonatomic, copy, nullable) NSString *connectorName;
@@ -2978,7 +2999,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 
 @property(nonatomic, strong, nullable) GTLRCloudSearch_IndexItemOptions *indexItemOptions;
 
-/** Name of the item. Format: datasources/{source_id}/items/{item_id} */
+/** The name of the item. Format: datasources/{source_id}/items/{item_id} */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Item *item;
 
 /**
@@ -2990,9 +3011,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
  *        (Value: "ASYNCHRONOUS")
  *    @arg @c kGTLRCloudSearch_IndexItemRequest_Mode_Synchronous For real-time
  *        updates. (Value: "SYNCHRONOUS")
- *    @arg @c kGTLRCloudSearch_IndexItemRequest_Mode_Unspecified Priority is not
- *        specified in the update request. Leaving priority unspecified results
- *        in an update failure. (Value: "UNSPECIFIED")
+ *    @arg @c kGTLRCloudSearch_IndexItemRequest_Mode_Unspecified The priority is
+ *        not specified in the update request. Leaving priority unspecified
+ *        results in an update failure. (Value: "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *mode;
 
@@ -3052,7 +3073,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 
 
 /**
- *  Options for integer properties.
+ *  The options for integer properties.
  */
 @interface GTLRCloudSearch_IntegerPropertyOptions : GTLRObject
 
@@ -3157,7 +3178,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @property(nonatomic, strong, nullable) GTLRCloudSearch_ItemContent *content;
 
 /**
- *  Type for this item.
+ *  The type for this item.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_Item_ItemType_ContainerItem An item that gets
@@ -3174,12 +3195,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
  */
 @property(nonatomic, copy, nullable) NSString *itemType;
 
-/** Metadata information. */
+/** The metadata information. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_ItemMetadata *metadata;
 
 /**
- *  Name of the Item. Format: datasources/{source_id}/items/{item_id} This is a
- *  required field. The maximum length is 1536 characters.
+ *  The name of the Item. Format: datasources/{source_id}/items/{item_id} This
+ *  is a required field. The maximum length is 1536 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3224,7 +3245,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 
 /**
  *  Access control list information for the item. For more information see [Map
- *  ACLs](/cloud-search/docs/guides/acls).
+ *  ACLs](https://developers.google.com/cloud-search/docs/guides/acls).
  */
 @interface GTLRCloudSearch_ItemAcl : GTLRObject
 
@@ -3262,9 +3283,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_Principal *> *deniedReaders;
 
 /**
- *  Name of the item to inherit the Access Permission List (ACL) from. Note: ACL
- *  inheritance *only* provides access permissions to child items and does not
- *  define structural relationships, nor does it provide convenient ways to
+ *  The name of the item to inherit the Access Permission List (ACL) from. Note:
+ *  ACL inheritance *only* provides access permissions to child items and does
+ *  not define structural relationships, nor does it provide convenient ways to
  *  delete large groups of items. Deleting an ACL parent from the index only
  *  alters the access permissions of child items that reference the parent in
  *  the inheritAclFrom field. The item is still in the index, but may not
@@ -3804,7 +3825,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 
 /**
  *  The read-only display name formatted according to the locale specified by
- *  the viewer's account or the Accept-Language HTTP header.
+ *  the viewer's account or the `Accept-Language` HTTP header.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -3851,7 +3872,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @interface GTLRCloudSearch_ObjectDefinition : GTLRObject
 
 /**
- *  Name for the object, which then defines its type. Item indexing requests
+ *  The name for the object, which then defines its type. Item indexing requests
  *  should set the objectType field equal to this value. For example, if *name*
  *  is *Document*, then indexing requests for items of type Document should set
  *  objectType equal to *Document*. Each object definition must be uniquely
@@ -3905,7 +3926,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @interface GTLRCloudSearch_ObjectOptions : GTLRObject
 
 /**
- *  Options that determine how the object is displayed in the Cloud Search
+ *  The options that determine how the object is displayed in the Cloud Search
  *  results page.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_ObjectDisplayOptions *displayOptions;
@@ -3917,7 +3938,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 
 
 /**
- *  Options for object properties.
+ *  The options for object properties.
  */
 @interface GTLRCloudSearch_ObjectPropertyOptions : GTLRObject
 
@@ -4044,8 +4065,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_EmailAddress *> *emailAddresses;
 
 /**
- *  The resource name of the person to provide information about. See People.get
- *  from Google People API.
+ *  The resource name of the person to provide information about. See
+ *  [`People.get`](https://developers.google.com/people/api/rest/v1/people/get)
+ *  from the Google People API.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4055,11 +4077,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 /** The person's name */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_Name *> *personNames;
 
+/** The person's phone numbers */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_PhoneNumber *> *phoneNumbers;
+
 /**
  *  A person's read-only photo. A picture shown next to the person's name to
  *  help others recognize the person in search results.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_Photo *> *photos;
+
+@end
+
+
+/**
+ *  A person's Phone Number
+ */
+@interface GTLRCloudSearch_PhoneNumber : GTLRObject
+
+/** The phone number of the person. */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
+
+/**
+ *  type
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_PhoneNumber_Type_Mobile Value "MOBILE"
+ *    @arg @c kGTLRCloudSearch_PhoneNumber_Type_Office Value "OFFICE"
+ *    @arg @c kGTLRCloudSearch_PhoneNumber_Type_Other Value "OTHER"
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -4081,7 +4127,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @interface GTLRCloudSearch_PollItemsRequest : GTLRObject
 
 /**
- *  Name of connector making this call. Format:
+ *  The name of connector making this call. Format:
  *  datasources/{source_id}/connectors/{ID}
  */
 @property(nonatomic, copy, nullable) NSString *connectorName;
@@ -4182,7 +4228,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
  */
 @property(nonatomic, copy, nullable) NSString *code;
 
-/** Description of the error. */
+/** The description of the error. */
 @property(nonatomic, copy, nullable) NSString *errorMessage;
 
 /**
@@ -4203,9 +4249,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @property(nonatomic, strong, nullable) GTLRCloudSearch_DatePropertyOptions *datePropertyOptions;
 
 /**
- *  Options that determine how the property is displayed in the Cloud Search
- *  results page if it is specified to be displayed in the object's display
- *  options .
+ *  The options that determine how the property is displayed in the Cloud Search
+ *  results page if it's specified to be displayed in the object's display
+ *  options.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_PropertyDisplayOptions *displayOptions;
 
@@ -4217,7 +4263,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 /**
  *  Indicates that the property can be used for generating facets. Cannot be
  *  true for properties whose type is object. IsReturnable must be true to set
- *  this option. Only supported for Boolean, Enum, and Text properties.
+ *  this option. Only supported for boolean, enum, and text properties.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4251,7 +4297,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
  *  Indicates that the property can be used for sorting. Cannot be true for
  *  properties that are repeatable. Cannot be true for properties whose type is
  *  object. IsReturnable must be true to set this option. Only supported for
- *  Boolean, Date, Double, Integer, and Timestamp properties.
+ *  boolean, date, double, integer, and timestamp properties.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4328,10 +4374,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @property(nonatomic, copy, nullable) NSString *contentHash;
 
 /**
- *  Metadata hash of the item according to the repository. If specified, this is
- *  used to determine how to modify this item's status. Setting this field and
- *  the type field results in argument error. The maximum length is 2048
- *  characters.
+ *  The metadata hash of the item according to the repository. If specified,
+ *  this is used to determine how to modify this item's status. Setting this
+ *  field and the type field results in argument error. The maximum length is
+ *  2048 characters.
  */
 @property(nonatomic, copy, nullable) NSString *metadataHash;
 
@@ -4346,7 +4392,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @property(nonatomic, copy, nullable) NSString *payload;
 
 /**
- *  Queue to which this item belongs to. The default queue is chosen if this
+ *  Queue to which this item belongs. The `default` queue is chosen if this
  *  field is not specified. The maximum length is 512 characters.
  */
 @property(nonatomic, copy, nullable) NSString *queue;
@@ -4400,7 +4446,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @interface GTLRCloudSearch_PushItemRequest : GTLRObject
 
 /**
- *  Name of connector making this call. Format:
+ *  The name of connector making this call. Format:
  *  datasources/{source_id}/connectors/{ID}
  */
 @property(nonatomic, copy, nullable) NSString *connectorName;
@@ -4633,8 +4679,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @property(nonatomic, copy, nullable) NSString *lessThanOperatorName;
 
 /**
- *  Name of the object corresponding to the operator. This field is only filled
- *  for schema-specific operators, and is unset for common operators.
+ *  The name of the object corresponding to the operator. This field is only
+ *  filled for schema-specific operators, and is unset for common operators.
  */
 @property(nonatomic, copy, nullable) NSString *objectType;
 
@@ -4642,7 +4688,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @property(nonatomic, copy, nullable) NSString *operatorName;
 
 /**
- *  Type of the operator.
+ *  The type of the operator.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_QueryOperator_Type_Boolean Value "BOOLEAN"
@@ -4678,7 +4724,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
  */
 @property(nonatomic, copy, nullable) NSString *shortName;
 
-/** Name of the source */
+/** The name of the source */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Source *source;
 
 @end
@@ -4711,7 +4757,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @property(nonatomic, strong, nullable) NSNumber *httpStatusCode;
 
 /**
- *  Type of error.
+ *  The type of error.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_RepositoryError_Type_AuthenticationError Failed
@@ -4998,7 +5044,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @property(nonatomic, strong, nullable) NSNumber *enableAuditLog;
 
 /**
- *  Name of the Search Application. Format: searchapplications/{application_id}.
+ *  The name of the Search Application. Format:
+ *  searchapplications/{application_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5034,8 +5081,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @interface GTLRCloudSearch_SearchApplicationQueryStats : GTLRObject
 
 /**
- *  Date for which query stats were calculated. Stats calculated on the next day
- *  close to midnight are returned.
+ *  The date for which query stats were calculated. Stats calculated on the next
+ *  day close to midnight are returned.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Date *date;
 
@@ -5050,8 +5097,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @interface GTLRCloudSearch_SearchApplicationSessionStats : GTLRObject
 
 /**
- *  Date for which session stats were calculated. Stats are calculated on the
- *  following day, close to midnight PST, and then returned.
+ *  The date for which session stats were calculated. Stats are calculated on
+ *  the following day, close to midnight PST, and then returned.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Date *date;
 
@@ -5071,8 +5118,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @interface GTLRCloudSearch_SearchApplicationUserStats : GTLRObject
 
 /**
- *  Date for which session stats were calculated. Stats calculated on the next
- *  day close to midnight are returned.
+ *  The date for which session stats were calculated. Stats calculated on the
+ *  next day close to midnight are returned.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Date *date;
 
@@ -5367,7 +5414,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @interface GTLRCloudSearch_SortOptions : GTLRObject
 
 /**
- *  Name of the operator corresponding to the field to sort on. The
+ *  The name of the operator corresponding to the field to sort on. The
  *  corresponding property must be marked as sortable.
  */
 @property(nonatomic, copy, nullable) NSString *operatorName;
@@ -5614,7 +5661,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @interface GTLRCloudSearch_StartUploadItemRequest : GTLRObject
 
 /**
- *  Name of connector making this call. Format:
+ *  The name of connector making this call. Format:
  *  datasources/{source_id}/connectors/{ID}
  */
 @property(nonatomic, copy, nullable) NSString *connectorName;
@@ -5769,10 +5816,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
  *  If true, the text value is tokenized as one atomic value in operator
  *  searches and facet matches. For example, if the operator name is "genre" and
  *  the value is "science-fiction" the query restrictions "genre:science" and
- *  "genre:fiction" doesn't match the item; "genre:science-fiction" does. Value
- *  matching is case-sensitive and does not remove special characters. If false,
- *  the text is tokenized. For example, if the value is "science-fiction" the
- *  queries "genre:science" and "genre:fiction" matches the item.
+ *  "genre:fiction" doesn't match the item; "genre:science-fiction" does. Text
+ *  value matching is case-sensitive and does not remove special characters. If
+ *  false, the text is tokenized. For example, if the value is "science-fiction"
+ *  the queries "genre:science" and "genre:fiction" matches the item.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5794,7 +5841,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 
 
 /**
- *  Options for text properties.
+ *  The options for text properties.
  */
 @interface GTLRCloudSearch_TextPropertyOptions : GTLRObject
 
@@ -5867,7 +5914,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 
 
 /**
- *  Options for timestamp properties.
+ *  The options for timestamp properties.
  */
 @interface GTLRCloudSearch_TimestampPropertyOptions : GTLRObject
 
@@ -5942,7 +5989,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 @interface GTLRCloudSearch_UnreserveItemsRequest : GTLRObject
 
 /**
- *  Name of connector making this call. Format:
+ *  The name of connector making this call. Format:
  *  datasources/{source_id}/connectors/{ID}
  */
 @property(nonatomic, copy, nullable) NSString *connectorName;
@@ -5950,7 +5997,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 /** Common debug options. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_DebugOptions *debugOptions;
 
-/** Name of a queue to unreserve items from. */
+/** The name of a queue to unreserve items from. */
 @property(nonatomic, copy, nullable) NSString *queue;
 
 @end
@@ -5998,7 +6045,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
  */
 @interface GTLRCloudSearch_UploadItemRef : GTLRObject
 
-/** Name of the content reference. The maximum length is 2048 characters. */
+/**
+ *  The name of the content reference. The maximum length is 2048 characters.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end

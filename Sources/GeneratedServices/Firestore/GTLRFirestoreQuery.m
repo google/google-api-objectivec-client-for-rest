@@ -166,6 +166,33 @@
 
 @end
 
+@implementation GTLRFirestoreQuery_ProjectsDatabasesCreate
+
+@dynamic databaseId, parent;
+
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1Database *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/databases";
+  GTLRFirestoreQuery_ProjectsDatabasesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirestore_GoogleLongrunningOperation class];
+  query.loggingName = @"firestore.projects.databases.create";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirestoreQuery_ProjectsDatabasesDocumentsBatchGet
 
 @dynamic database;

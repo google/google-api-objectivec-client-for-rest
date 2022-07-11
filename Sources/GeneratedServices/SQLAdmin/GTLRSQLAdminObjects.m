@@ -14,6 +14,7 @@
 // Constants
 
 // GTLRSQLAdmin_ApiWarning.code
+NSString * const kGTLRSQLAdmin_ApiWarning_Code_MaxResultsExceedsLimit = @"MAX_RESULTS_EXCEEDS_LIMIT";
 NSString * const kGTLRSQLAdmin_ApiWarning_Code_RegionUnreachable = @"REGION_UNREACHABLE";
 NSString * const kGTLRSQLAdmin_ApiWarning_Code_SqlApiWarningCodeUnspecified = @"SQL_API_WARNING_CODE_UNSPECIFIED";
 
@@ -59,6 +60,7 @@ NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8018 = @"MYS
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8026 = @"MYSQL_8_0_26";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8027 = @"MYSQL_8_0_27";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8028 = @"MYSQL_8_0_28";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8029 = @"MYSQL_8_0_29";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres12 = @"POSTGRES_12";
@@ -91,6 +93,7 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8018 = @"MY
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8026 = @"MYSQL_8_0_26";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8027 = @"MYSQL_8_0_27";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8028 = @"MYSQL_8_0_28";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8029 = @"MYSQL_8_0_29";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres12 = @"POSTGRES_12";
@@ -146,6 +149,7 @@ NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8018        = @"MYSQL_8_0_18"
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8026        = @"MYSQL_8_0_26";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8027        = @"MYSQL_8_0_27";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8028        = @"MYSQL_8_0_28";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8029        = @"MYSQL_8_0_29";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres10       = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres11       = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres12       = @"POSTGRES_12";
@@ -191,6 +195,7 @@ NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_SqlUpdateTrackUnspe
 NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_Stable = @"stable";
 
 // GTLRSQLAdmin_Operation.operationType
+NSString * const kGTLRSQLAdmin_Operation_OperationType_AutoRestart = @"AUTO_RESTART";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Backup  = @"BACKUP";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_BackupVolume = @"BACKUP_VOLUME";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Clone   = @"CLONE";
@@ -211,6 +216,7 @@ NSString * const kGTLRSQLAdmin_Operation_OperationType_Export  = @"EXPORT";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Failover = @"FAILOVER";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Import  = @"IMPORT";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_InjectUser = @"INJECT_USER";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_LogCleanup = @"LOG_CLEANUP";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Maintenance = @"MAINTENANCE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_PromoteReplica = @"PROMOTE_REPLICA";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_RecreateReplica = @"RECREATE_REPLICA";
@@ -284,6 +290,7 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidLoggingSe
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidRdsLogicalReplication = @"INVALID_RDS_LOGICAL_REPLICATION";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidSharedPreloadLibrary = @"INVALID_SHARED_PRELOAD_LIBRARY";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidWalLevel = @"INVALID_WAL_LEVEL";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_LimitedSupportTables = @"LIMITED_SUPPORT_TABLES";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_NoPglogicalInstalled = @"NO_PGLOGICAL_INSTALLED";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PglogicalNodeAlreadyExists = @"PGLOGICAL_NODE_ALREADY_EXISTS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PrimaryAlreadySetup = @"PRIMARY_ALREADY_SETUP";
@@ -313,6 +320,12 @@ NSString * const kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_Syn
 NSString * const kGTLRSQLAdmin_SqlOutOfDiskReport_SqlOutOfDiskState_Normal = @"NORMAL";
 NSString * const kGTLRSQLAdmin_SqlOutOfDiskReport_SqlOutOfDiskState_SoftShutdown = @"SOFT_SHUTDOWN";
 NSString * const kGTLRSQLAdmin_SqlOutOfDiskReport_SqlOutOfDiskState_SqlOutOfDiskStateUnspecified = @"SQL_OUT_OF_DISK_STATE_UNSPECIFIED";
+
+// GTLRSQLAdmin_User.dualPasswordType
+NSString * const kGTLRSQLAdmin_User_DualPasswordType_DualPassword = @"DUAL_PASSWORD";
+NSString * const kGTLRSQLAdmin_User_DualPasswordType_DualPasswordTypeUnspecified = @"DUAL_PASSWORD_TYPE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_User_DualPasswordType_NoDualPassword = @"NO_DUAL_PASSWORD";
+NSString * const kGTLRSQLAdmin_User_DualPasswordType_NoModifyDualPassword = @"NO_MODIFY_DUAL_PASSWORD";
 
 // GTLRSQLAdmin_User.type
 NSString * const kGTLRSQLAdmin_User_Type_BuiltIn               = @"BUILT_IN";
@@ -1740,8 +1753,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_User
-@dynamic ETag, host, instance, kind, name, password, passwordPolicy, project,
-         sqlserverUserDetails, type;
+@dynamic dualPasswordType, ETag, host, instance, kind, name, password,
+         passwordPolicy, project, sqlserverUserDetails, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1763,7 +1776,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 @implementation GTLRSQLAdmin_UserPasswordValidationPolicy
 @dynamic allowedFailedAttempts, enableFailedAttemptsCheck,
-         passwordExpirationDuration, status;
+         enablePasswordVerification, passwordExpirationDuration, status;
 @end
 
 

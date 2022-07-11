@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Campaign Manager 360 API (dfareporting/v3.5)
+//   Campaign Manager 360 API (dfareporting/v4)
 // Description:
 //   Build applications to efficiently manage large or complex trafficking,
 //   reporting, and attribution workflows for Campaign Manager 360.

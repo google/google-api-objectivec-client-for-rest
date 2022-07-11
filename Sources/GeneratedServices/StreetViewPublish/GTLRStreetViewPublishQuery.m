@@ -15,6 +15,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// inputType
+NSString * const kGTLRStreetViewPublishInputTypeInputTypeUnspecified = @"INPUT_TYPE_UNSPECIFIED";
+NSString * const kGTLRStreetViewPublishInputTypeVideo          = @"VIDEO";
+NSString * const kGTLRStreetViewPublishInputTypeXdm            = @"XDM";
+
 // view
 NSString * const kGTLRStreetViewPublishViewBasic              = @"BASIC";
 NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl = @"INCLUDE_DOWNLOAD_URL";
@@ -152,6 +157,107 @@ NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl = @"INCLUDE_DOWNLO
   query.bodyObject = object;
   query.expectedObjectClass = [GTLRStreetViewPublish_BatchUpdatePhotosResponse class];
   query.loggingName = @"streetviewpublish.photos.batchUpdate";
+  return query;
+}
+
+@end
+
+@implementation GTLRStreetViewPublishQuery_PhotoSequenceCreate
+
+@dynamic inputType;
+
++ (instancetype)queryWithObject:(GTLRStreetViewPublish_PhotoSequence *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/photoSequence";
+  GTLRStreetViewPublishQuery_PhotoSequenceCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRStreetViewPublish_Operation class];
+  query.loggingName = @"streetviewpublish.photoSequence.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRStreetViewPublishQuery_PhotoSequenceDelete
+
+@dynamic sequenceId;
+
++ (instancetype)queryWithSequenceId:(NSString *)sequenceId {
+  NSArray *pathParams = @[ @"sequenceId" ];
+  NSString *pathURITemplate = @"v1/photoSequence/{sequenceId}";
+  GTLRStreetViewPublishQuery_PhotoSequenceDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.sequenceId = sequenceId;
+  query.expectedObjectClass = [GTLRStreetViewPublish_Empty class];
+  query.loggingName = @"streetviewpublish.photoSequence.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRStreetViewPublishQuery_PhotoSequenceGet
+
+@dynamic filter, sequenceId, view;
+
++ (instancetype)queryWithSequenceId:(NSString *)sequenceId {
+  NSArray *pathParams = @[ @"sequenceId" ];
+  NSString *pathURITemplate = @"v1/photoSequence/{sequenceId}";
+  GTLRStreetViewPublishQuery_PhotoSequenceGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.sequenceId = sequenceId;
+  query.expectedObjectClass = [GTLRStreetViewPublish_Operation class];
+  query.loggingName = @"streetviewpublish.photoSequence.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRStreetViewPublishQuery_PhotoSequencesList
+
+@dynamic filter, pageSize, pageToken;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/photoSequences";
+  GTLRStreetViewPublishQuery_PhotoSequencesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRStreetViewPublish_ListPhotoSequencesResponse class];
+  query.loggingName = @"streetviewpublish.photoSequences.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRStreetViewPublishQuery_PhotoSequenceStartUpload
+
++ (instancetype)queryWithObject:(GTLRStreetViewPublish_Empty *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/photoSequence:startUpload";
+  GTLRStreetViewPublishQuery_PhotoSequenceStartUpload *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRStreetViewPublish_UploadRef class];
+  query.loggingName = @"streetviewpublish.photoSequence.startUpload";
   return query;
 }
 

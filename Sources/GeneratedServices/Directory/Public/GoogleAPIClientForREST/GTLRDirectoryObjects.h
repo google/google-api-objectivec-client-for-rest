@@ -2178,14 +2178,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
 @interface GTLRDirectory_Group : GTLRObject
 
 /**
- *  Value is `true` if this group was created by an administrator rather than a
- *  user.
+ *  Read-only. Value is `true` if this group was created by an administrator
+ *  rather than a user.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *adminCreated;
 
-/** List of a group's alias email addresses. */
+/** Read-only. A list of a group's alias email addresses. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
 
 /**
@@ -2220,8 +2220,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  The unique ID of a group. A group `id` can be used as a group request URI's
- *  `groupKey`.
+ *  Read-only. The unique ID of a group. A group `id` can be used as a group
+ *  request URI's `groupKey`.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -2237,11 +2237,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  List of the group's non-editable alias email addresses that are outside of
- *  the account's primary domain or subdomains. These are functioning email
- *  addresses used by the group. This is a read-only property returned in the
- *  API's response for a group. If edited in a group's POST or PUT request, the
- *  edit is ignored by the API service.
+ *  Read-only. A list of the group's non-editable alias email addresses that are
+ *  outside of the account's primary domain or subdomains. These are functioning
+ *  email addresses used by the group. This is a read-only property returned in
+ *  the API's response for a group. If edited in a group's POST or PUT request,
+ *  the edit is ignored by the API service.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *nonEditableAliases;
 
@@ -3041,7 +3041,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
  */
 @interface GTLRDirectory_RoleAssignment : GTLRObject
 
-/** The unique ID of the user this role is assigned to. */
+/**
+ *  The unique ID of the entity this role is assigned to—either the `user_id` of
+ *  a user or the `uniqueId` of a service account, as defined in [Identity and
+ *  Access Management
+ *  (IAM)](https://cloud.google.com/iam/docs/reference/rest/v1/projects.serviceAccounts).
+ */
 @property(nonatomic, copy, nullable) NSString *assignedTo;
 
 /** ETag of the resource. */
@@ -3441,12 +3446,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
 @property(nonatomic, strong, nullable) id gender;
 
 /**
- *  Stores the hash format of the password property. We recommend sending the
- *  `password` property value as a base 16 bit hexadecimal-encoded hash value.
- *  The following `hashFunction` values are allowed: * `DES` * `MD5` - hash
- *  prefix is `$1$` * `SHA2-256` - hash prefix is `$5$` * `SHA2-512` - hash
- *  prefix is `$6$` If rounds are specified as part of the prefix, they must be
- *  10,000 or fewer.
+ *  Stores the hash format of the `password` property. The following
+ *  `hashFunction` values are allowed: * `MD5` - Accepts simple hex-encoded
+ *  values. * `SHA1` - Accepts simple hex-encoded values. * `crypt` - Compliant
+ *  with the [C crypt library](https://en.wikipedia.org/wiki/Crypt_%28C%29).
+ *  Supports the DES, MD5 (hash prefix `$1$`), SHA-256 (hash prefix `$5$`), and
+ *  SHA-512 (hash prefix `$6$`) hash algorithms. If rounds are specified as part
+ *  of the prefix, they must be 10,000 or fewer.
  */
 @property(nonatomic, copy, nullable) NSString *hashFunction;
 

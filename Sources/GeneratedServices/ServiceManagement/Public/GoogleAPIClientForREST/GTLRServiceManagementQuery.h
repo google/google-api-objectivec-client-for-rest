@@ -745,7 +745,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  The max number of items to include in the response list. Page size is 50 if
- *  not specified. Maximum value is 100.
+ *  not specified. Maximum value is 500.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

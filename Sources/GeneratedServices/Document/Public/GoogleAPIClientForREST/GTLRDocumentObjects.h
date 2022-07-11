@@ -143,6 +143,11 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenanceParent;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentRevision;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentRevisionHumanReview;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentSchema;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityType;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeEnumValues;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaMetadata;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentShardInfo;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentStyle;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentStyleFontSize;
@@ -978,6 +983,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3Rev
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentOperationMetadata_State_Succeeded;
 
 // ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentResponse.state
+
+/**
+ *  The review operation is rejected by the reviewer.
+ *
+ *  Value: "REJECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentResponse_State_Rejected;
+/**
+ *  The default value. This value is used if the state is omitted.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentResponse_State_StateUnspecified;
+/**
+ *  The review operation is succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentResponse_State_Succeeded;
+
+// ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata.state
 
 /**
@@ -1181,6 +1208,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Document
  *  Value: "REPLACE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Replace;
+
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty.occurrenceType
+
+/**
+ *  Unspecified occurrence type.
+ *
+ *  Value: "OCCURRENCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_OccurrenceTypeUnspecified;
+/**
+ *  The entity type will appear zero or multiple times.
+ *
+ *  Value: "OPTIONAL_MULTIPLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_OptionalMultiple;
+/**
+ *  There will be zero or one instance of this entity type.
+ *
+ *  Value: "OPTIONAL_ONCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_OptionalOnce;
+/**
+ *  The entity type will appear once or more times.
+ *
+ *  Value: "REQUIRED_MULTIPLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_RequiredMultiple;
+/**
+ *  The entity type will only appear exactly once.
+ *
+ *  Value: "REQUIRED_ONCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_RequiredOnce;
 
 // ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus.state
@@ -1418,6 +1479,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  Value: "URGENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Priority_Urgent;
+
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse.state
+
+/**
+ *  The review operation is rejected by the reviewer.
+ *
+ *  Value: "REJECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_State_Rejected;
+/**
+ *  The default value. This value is used if the state is omitted.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_State_StateUnspecified;
+/**
+ *  The review operation is succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_State_Succeeded;
 
 /**
  *  GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchDeleteDocumentsMetadata
@@ -2503,8 +2586,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageToken *> *tokens;
 
 /**
- *  Transformation matrices (both already applied and not) to the original
- *  document image to produce Page.image.
+ *  Transformation matrices that were applied to the original document image to
+ *  produce Page.image.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageMatrix *> *transforms;
 
@@ -2797,15 +2880,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  with OpenCV format for image manipulation.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageMatrix : GTLRObject
-
-/**
- *  Has the transformation already been applied to the current Document? Needed
- *  to disambiguate pre-processing transformations already applied vs
- *  transformations added at annotation time by HITL operators.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *applied;
 
 /**
  *  Number of columns in the matrix.
@@ -3833,8 +3907,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageToken *> *tokens;
 
 /**
- *  Transformation matrices (both already applied and not) to the original
- *  document image to produce Page.image.
+ *  Transformation matrices that were applied to the original document image to
+ *  produce Page.image.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageMatrix *> *transforms;
 
@@ -4127,15 +4201,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  with OpenCV format for image manipulation.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageMatrix : GTLRObject
-
-/**
- *  Has the transformation already been applied to the current Document? Needed
- *  to disambiguate pre-processing transformations already applied vs
- *  transformations added at annotation time by HITL operators.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *applied;
 
 /**
  *  Number of columns in the matrix.
@@ -5107,8 +5172,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentResponse : GTLRObject
 
-/** The Cloud Storage uri for the human reviewed document. */
+/**
+ *  The Cloud Storage uri for the human reviewed document if the review is
+ *  succeeded.
+ */
 @property(nonatomic, copy, nullable) NSString *gcsDestination;
+
+/** The reason why the review is rejected by reviewer. */
+@property(nonatomic, copy, nullable) NSString *rejectionReason;
+
+/**
+ *  The state of the review operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentResponse_State_Rejected
+ *        The review operation is rejected by the reviewer. (Value: "REJECTED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentResponse_State_StateUnspecified
+ *        The default value. This value is used if the state is omitted. (Value:
+ *        "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentResponse_State_Succeeded
+ *        The review operation is succeeded. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -5604,8 +5689,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageToken *> *tokens;
 
 /**
- *  Transformation matrices (both already applied and not) to the original
- *  document image to produce Page.image.
+ *  Transformation matrices that were applied to the original document image to
+ *  produce Page.image.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageMatrix *> *transforms;
 
@@ -5898,15 +5983,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  with OpenCV format for image manipulation.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageMatrix : GTLRObject
-
-/**
- *  Has the transformation already been applied to the current Document? Needed
- *  to disambiguate pre-processing transformations already applied vs
- *  transformations added at annotation time by HITL operators.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *applied;
 
 /**
  *  Number of columns in the matrix.
@@ -6242,6 +6318,150 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  example, the rejection reason when the state is `rejected`.
  */
 @property(nonatomic, copy, nullable) NSString *stateMessage;
+
+@end
+
+
+/**
+ *  The schema defines the output of the processed document by a processor.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentSchema : GTLRObject
+
+/**
+ *  Description of the schema.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Display name to show to users. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Entity types of the schema. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityType *> *entityTypes;
+
+/** Metadata of the schema. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaMetadata *metadata;
+
+@end
+
+
+/**
+ *  EntityType is the wrapper of a label of the corresponding model with
+ *  detailed attributes and limitations for entity-based processors. Multiple
+ *  types can also compose a dependency tree to represent nested types.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityType : GTLRObject
+
+/**
+ *  The entity type that this type is derived from. For now, one and only one
+ *  should be set.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *baseTypes;
+
+/** User defined name for the type. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  If specified, lists all the possible values for this entity. This should not
+ *  be more than a handful of values. If the number of values is >10 or could
+ *  change frequently use the `EntityType.value_ontology` field and specify a
+ *  list of all possible values in a value ontology file.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeEnumValues *enumValues;
+
+/**
+ *  Name of the type. It must be unique within the schema file and cannot be a
+ *  'Common Type'. Besides that we use the following naming conventions: - *use
+ *  snake_casing* - name matching is case-insensitive - Maximum 64 characters. -
+ *  Must start with a letter. - Allowed characters: ASCII letters [a-z0-9_-].
+ *  (For backward compatibility internal infrastructure and tooling can handle
+ *  any ascii character) - The '/' is sometimes used to denote a property of a
+ *  type. For example line_item/amount. This convention is deprecated, but will
+ *  still be honored for backward compatibility.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Describing the nested structure, or composition of an entity. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty *> *properties;
+
+@end
+
+
+/**
+ *  Defines the a list of enum values.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeEnumValues : GTLRObject
+
+/** The individual values that this enum values type can include. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  Defines properties that can be part of the entity type.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty : GTLRObject
+
+/**
+ *  The name of the property. Follows the same guidelines as the EntityType
+ *  name.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Occurrence type limits the number of instances an entity type appears in the
+ *  document.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_OccurrenceTypeUnspecified
+ *        Unspecified occurrence type. (Value: "OCCURRENCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_OptionalMultiple
+ *        The entity type will appear zero or multiple times. (Value:
+ *        "OPTIONAL_MULTIPLE")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_OptionalOnce
+ *        There will be zero or one instance of this entity type. (Value:
+ *        "OPTIONAL_ONCE")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_RequiredMultiple
+ *        The entity type will appear once or more times. (Value:
+ *        "REQUIRED_MULTIPLE")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_RequiredOnce
+ *        The entity type will only appear exactly once. (Value:
+ *        "REQUIRED_ONCE")
+ */
+@property(nonatomic, copy, nullable) NSString *occurrenceType;
+
+/**
+ *  A reference to the value type of the property. This type is subject to the
+ *  same conventions as the `Entity.base_types` field.
+ */
+@property(nonatomic, copy, nullable) NSString *valueType;
+
+@end
+
+
+/**
+ *  Metadata for global schema behavior.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaMetadata : GTLRObject
+
+/**
+ *  If true, on a given page, there can be multiple `document` annotations
+ *  covering it.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *documentAllowMultipleLabels;
+
+/**
+ *  If true, a `document` entity type can be applied to subdocument (
+ *  splitting). Otherwise, it can only be applied to the entire document
+ *  (classification).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *documentSplitter;
 
 @end
 
@@ -6918,6 +7138,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest : GTLRObject
 
+/** The document schema of the human review task. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentSchema *documentSchema;
+
 /**
  *  Whether the validation should be performed on the ad-hoc review request.
  *
@@ -6949,8 +7172,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse : GTLRObject
 
-/** The Cloud Storage uri for the human reviewed document. */
+/**
+ *  The Cloud Storage uri for the human reviewed document if the review is
+ *  succeeded.
+ */
 @property(nonatomic, copy, nullable) NSString *gcsDestination;
+
+/** The reason why the review is rejected by reviewer. */
+@property(nonatomic, copy, nullable) NSString *rejectionReason;
+
+/**
+ *  The state of the review operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_State_Rejected
+ *        The review operation is rejected by the reviewer. (Value: "REJECTED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_State_StateUnspecified
+ *        The default value. This value is used if the state is omitted. (Value:
+ *        "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_State_Succeeded
+ *        The review operation is succeeded. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -6974,6 +7217,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  Required. The resource name of child ProcessorVersion to use as default.
+ *  Format:
+ *  `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{version}`
  */
 @property(nonatomic, copy, nullable) NSString *defaultProcessorVersion;
 

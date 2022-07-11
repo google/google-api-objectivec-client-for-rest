@@ -236,6 +236,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProper
 @property(nonatomic, copy, nullable) NSString *instanceId;
 
 /**
+ *  Output only. The account ID of the service used for the purpose of this
+ *  connection. When the connection is used in the context of an operation in
+ *  BigQuery, this service account will serve as identity being used for
+ *  connecting to the CloudSQL instance specified in this connection.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountId;
+
+/**
  *  Type of the Cloud SQL database.
  *
  *  Likely values:

@@ -939,6 +939,15 @@ NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_StateUnspecified = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRIam_WorkloadIdentityPoolOperationMetadata
+//
+
+@implementation GTLRIam_WorkloadIdentityPoolOperationMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRIam_WorkloadIdentityPoolProvider
 //
 

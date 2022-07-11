@@ -564,6 +564,128 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaBuilder
+//
+
+@implementation GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaBuilder
+@dynamic identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaCompleteness
+//
+
+@implementation GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaCompleteness
+@dynamic environment, materials, parameters;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource
+//
+
+@implementation GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource
+@dynamic digest, entryPoint, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource_Digest
+//
+
+@implementation GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource_Digest
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation
+//
+
+@implementation GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation
+@dynamic configSource, environment, parameters;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation_Environment
+//
+
+@implementation GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation_Environment
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation_Parameters
+//
+
+@implementation GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaInvocation_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial
+//
+
+@implementation GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial
+@dynamic digest, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial_Digest
+//
+
+@implementation GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial_Digest
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaMetadata
+//
+
+@implementation GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaMetadata
+@dynamic buildFinishedOn, buildInvocationId, buildStartedOn, completeness,
+         reproducible;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROnDemandScanning_Hash
 //
 
@@ -624,7 +746,8 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_InTotoStatement
-@dynamic xType, predicateType, provenance, slsaProvenance, subject;
+@dynamic xType, predicateType, provenance, slsaProvenance,
+         slsaProvenanceZeroTwo, subject;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"xType" : @"_type" };
@@ -647,6 +770,16 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 @implementation GTLROnDemandScanning_Jwt
 @dynamic compactJwt;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_LanguagePackageDependency
+//
+
+@implementation GTLROnDemandScanning_LanguagePackageDependency
+@dynamic package, version;
 @end
 
 
@@ -832,12 +965,14 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_PackageData
-@dynamic cpeUri, fileLocation, hashDigest, os, osVersion, package, packageType,
-         unused, version;
+@dynamic cpeUri, dependencyChain, fileLocation, hashDigest, os, osVersion,
+         package, packageType, patchedCve, unused, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"fileLocation" : [GTLROnDemandScanning_FileLocation class]
+    @"dependencyChain" : [GTLROnDemandScanning_LanguagePackageDependency class],
+    @"fileLocation" : [GTLROnDemandScanning_FileLocation class],
+    @"patchedCve" : [NSString class]
   };
   return map;
 }
@@ -1019,6 +1154,38 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
     @"materials" : [GTLROnDemandScanning_Material class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_SlsaProvenanceZeroTwo
+//
+
+@implementation GTLROnDemandScanning_SlsaProvenanceZeroTwo
+@dynamic buildConfig, builder, buildType, invocation, materials, metadata;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"materials" : [GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaMaterial class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_SlsaProvenanceZeroTwo_BuildConfig
+//
+
+@implementation GTLROnDemandScanning_SlsaProvenanceZeroTwo_BuildConfig
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

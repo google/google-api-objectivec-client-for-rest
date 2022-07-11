@@ -545,6 +545,25 @@ NSString * const kGTLRSpannerViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @end
 
+@implementation GTLRSpannerQuery_ProjectsInstancesDatabasesDatabaseRolesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/databaseRoles";
+  GTLRSpannerQuery_ProjectsInstancesDatabasesDatabaseRolesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSpanner_ListDatabaseRolesResponse class];
+  query.loggingName = @"spanner.projects.instances.databases.databaseRoles.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRSpannerQuery_ProjectsInstancesDatabasesDropDatabase
 
 @dynamic database;

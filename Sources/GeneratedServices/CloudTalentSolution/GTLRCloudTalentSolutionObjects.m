@@ -279,7 +279,13 @@ NSString * const kGTLRCloudTalentSolution_Location_LocationType_SubLocality2 = @
 // GTLRCloudTalentSolution_LocationFilter.telecommutePreference
 NSString * const kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommuteAllowed = @"TELECOMMUTE_ALLOWED";
 NSString * const kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommuteExcluded = @"TELECOMMUTE_EXCLUDED";
+NSString * const kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommuteJobsExcluded = @"TELECOMMUTE_JOBS_EXCLUDED";
 NSString * const kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommutePreferenceUnspecified = @"TELECOMMUTE_PREFERENCE_UNSPECIFIED";
+
+// GTLRCloudTalentSolution_NamespacedDebugInput.testingMode
+NSString * const kGTLRCloudTalentSolution_NamespacedDebugInput_TestingMode_TestingModeAllOff = @"TESTING_MODE_ALL_OFF";
+NSString * const kGTLRCloudTalentSolution_NamespacedDebugInput_TestingMode_TestingModeAllOn = @"TESTING_MODE_ALL_ON";
+NSString * const kGTLRCloudTalentSolution_NamespacedDebugInput_TestingMode_TestingModeUnspecified = @"TESTING_MODE_UNSPECIFIED";
 
 // GTLRCloudTalentSolution_ProcessingOptions.htmlSanitization
 NSString * const kGTLRCloudTalentSolution_ProcessingOptions_HtmlSanitization_HtmlSanitizationDisabled = @"HTML_SANITIZATION_DISABLED";
@@ -959,7 +965,7 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
          conditionallyForcedExps, conditionallyForcedExpTags,
          disableAutomaticEnrollmentSelection, disableExpNames, disableExps,
          disableExpTags, disableManualEnrollmentSelection,
-         disableOrganicSelection, forcedFlags, forcedRollouts;
+         disableOrganicSelection, forcedFlags, forcedRollouts, testingMode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

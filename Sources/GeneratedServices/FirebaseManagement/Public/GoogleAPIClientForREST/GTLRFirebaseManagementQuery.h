@@ -486,6 +486,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Controls whether Apps in the DELETED state should be returned. Defaults to
+ *  false.
+ */
+@property(nonatomic, assign) BOOL showDeleted;
+
+/**
  *  Fetches a @c GTLRFirebaseManagement_ListAndroidAppsResponse.
  *
  *  Lists each AndroidApp associated with the specified FirebaseProject. The
@@ -536,7 +542,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Specifies which fields to update. Note that the fields `name`, `app_id`,
- *  `project_id`, and `package_name` are all immutable.
+ *  `project_id`, `package_name`, and `state` are all immutable.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -564,6 +570,47 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRFirebaseManagementQuery_ProjectsAndroidAppsPatch
  */
 + (instancetype)queryWithObject:(GTLRFirebaseManagement_AndroidApp *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Removes the specified AndroidApp from the project.
+ *
+ *  Method: firebase.projects.androidApps.remove
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
+ */
+@interface GTLRFirebaseManagementQuery_ProjectsAndroidAppsRemove : GTLRFirebaseManagementQuery
+
+/**
+ *  Required. The resource name of the AndroidApp, in the format: projects/
+ *  PROJECT_IDENTIFIER/androidApps/APP_ID Since an APP_ID is a unique
+ *  identifier, the Unique Resource from Sub-Collection access pattern may be
+ *  used here, in the format: projects/-/androidApps/APP_ID Refer to the
+ *  AndroidApp [name](../projects.androidApps#AndroidApp.FIELDS.name) field for
+ *  details about PROJECT_IDENTIFIER and APP_ID values.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseManagement_Operation.
+ *
+ *  Removes the specified AndroidApp from the project.
+ *
+ *  @param object The @c GTLRFirebaseManagement_RemoveAndroidAppRequest to
+ *    include in the query.
+ *  @param name Required. The resource name of the AndroidApp, in the format:
+ *    projects/ PROJECT_IDENTIFIER/androidApps/APP_ID Since an APP_ID is a
+ *    unique identifier, the Unique Resource from Sub-Collection access pattern
+ *    may be used here, in the format: projects/-/androidApps/APP_ID Refer to
+ *    the AndroidApp [name](../projects.androidApps#AndroidApp.FIELDS.name)
+ *    field for details about PROJECT_IDENTIFIER and APP_ID values.
+ *
+ *  @return GTLRFirebaseManagementQuery_ProjectsAndroidAppsRemove
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseManagement_RemoveAndroidAppRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -1166,6 +1213,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Controls whether Apps in the DELETED state should be returned. Defaults to
+ *  false.
+ */
+@property(nonatomic, assign) BOOL showDeleted;
+
+/**
  *  Fetches a @c GTLRFirebaseManagement_ListIosAppsResponse.
  *
  *  Lists each IosApp associated with the specified FirebaseProject. The
@@ -1215,7 +1268,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Specifies which fields to update. Note that the fields `name`, `appId`,
- *  `projectId`, and `bundleId` are all immutable.
+ *  `projectId`, `bundleId`, and `state` are all immutable
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1242,6 +1295,47 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRFirebaseManagementQuery_ProjectsIosAppsPatch
  */
 + (instancetype)queryWithObject:(GTLRFirebaseManagement_IosApp *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Removes the specified IosApp from the project.
+ *
+ *  Method: firebase.projects.iosApps.remove
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
+ */
+@interface GTLRFirebaseManagementQuery_ProjectsIosAppsRemove : GTLRFirebaseManagementQuery
+
+/**
+ *  Required. The resource name of the IosApp, in the format: projects/
+ *  PROJECT_IDENTIFIER/iosApps/APP_ID Since an APP_ID is a unique identifier,
+ *  the Unique Resource from Sub-Collection access pattern may be used here, in
+ *  the format: projects/-/iosApps/APP_ID Refer to the IosApp
+ *  [name](../projects.iosApps#IosApp.FIELDS.name) field for details about
+ *  PROJECT_IDENTIFIER and APP_ID values.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseManagement_Operation.
+ *
+ *  Removes the specified IosApp from the project.
+ *
+ *  @param object The @c GTLRFirebaseManagement_RemoveIosAppRequest to include
+ *    in the query.
+ *  @param name Required. The resource name of the IosApp, in the format:
+ *    projects/ PROJECT_IDENTIFIER/iosApps/APP_ID Since an APP_ID is a unique
+ *    identifier, the Unique Resource from Sub-Collection access pattern may be
+ *    used here, in the format: projects/-/iosApps/APP_ID Refer to the IosApp
+ *    [name](../projects.iosApps#IosApp.FIELDS.name) field for details about
+ *    PROJECT_IDENTIFIER and APP_ID values.
+ *
+ *  @return GTLRFirebaseManagementQuery_ProjectsIosAppsRemove
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseManagement_RemoveIosAppRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -1482,6 +1576,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Controls whether Apps in the DELETED state should be returned. Defaults to
+ *  false.
+ */
+@property(nonatomic, assign) BOOL showDeleted;
+
+/**
  *  Fetches a @c GTLRFirebaseManagement_SearchFirebaseAppsResponse.
  *
  *  Lists all available Apps for the specified FirebaseProject. This is a
@@ -1666,6 +1766,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Controls whether Apps in the DELETED state should be returned. Defaults to
+ *  false.
+ */
+@property(nonatomic, assign) BOOL showDeleted;
+
+/**
  *  Fetches a @c GTLRFirebaseManagement_ListWebAppsResponse.
  *
  *  Lists each WebApp associated with the specified FirebaseProject. The
@@ -1714,8 +1820,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Specifies which fields to update. Note that the fields `name`, `appId`, and
- *  `projectId` are all immutable.
+ *  Specifies which fields to update. Note that the fields `name`, `appId`,
+ *  `projectId` and `state` are all immutable
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1742,6 +1848,47 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRFirebaseManagementQuery_ProjectsWebAppsPatch
  */
 + (instancetype)queryWithObject:(GTLRFirebaseManagement_WebApp *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Removes the specified WebApp from the project.
+ *
+ *  Method: firebase.projects.webApps.remove
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
+ */
+@interface GTLRFirebaseManagementQuery_ProjectsWebAppsRemove : GTLRFirebaseManagementQuery
+
+/**
+ *  Required. The resource name of the WebApp, in the format: projects/
+ *  PROJECT_IDENTIFIER/webApps/APP_ID Since an APP_ID is a unique identifier,
+ *  the Unique Resource from Sub-Collection access pattern may be used here, in
+ *  the format: projects/-/webApps/APP_ID Refer to the WebApp
+ *  [name](../projects.webApps#WebApp.FIELDS.name) field for details about
+ *  PROJECT_IDENTIFIER and APP_ID values.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseManagement_Operation.
+ *
+ *  Removes the specified WebApp from the project.
+ *
+ *  @param object The @c GTLRFirebaseManagement_RemoveWebAppRequest to include
+ *    in the query.
+ *  @param name Required. The resource name of the WebApp, in the format:
+ *    projects/ PROJECT_IDENTIFIER/webApps/APP_ID Since an APP_ID is a unique
+ *    identifier, the Unique Resource from Sub-Collection access pattern may be
+ *    used here, in the format: projects/-/webApps/APP_ID Refer to the WebApp
+ *    [name](../projects.webApps#WebApp.FIELDS.name) field for details about
+ *    PROJECT_IDENTIFIER and APP_ID values.
+ *
+ *  @return GTLRFirebaseManagementQuery_ProjectsWebAppsRemove
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseManagement_RemoveWebAppRequest *)object
                            name:(NSString *)name;
 
 @end

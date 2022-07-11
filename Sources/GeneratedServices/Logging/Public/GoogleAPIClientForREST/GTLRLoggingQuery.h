@@ -34,84 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a log bucket.
- *
- *  Method: logging.billingAccounts.buckets.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeLoggingAdmin
- *    @c kGTLRAuthScopeLoggingCloudPlatform
- *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
- *    @c kGTLRAuthScopeLoggingRead
- */
-@interface GTLRLoggingQuery_BillingAccountsBucketsGet : GTLRLoggingQuery
-
-/**
- *  Required. The resource name of the bucket:
- *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" For
- *  example:"projects/my-project/locations/global/buckets/my-bucket"
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRLogging_LogBucket.
- *
- *  Gets a log bucket.
- *
- *  @param name Required. The resource name of the bucket:
- *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" For
- *    example:"projects/my-project/locations/global/buckets/my-bucket"
- *
- *  @return GTLRLoggingQuery_BillingAccountsBucketsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Gets a view on a log bucket..
- *
- *  Method: logging.billingAccounts.buckets.views.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeLoggingAdmin
- *    @c kGTLRAuthScopeLoggingCloudPlatform
- *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
- *    @c kGTLRAuthScopeLoggingRead
- */
-@interface GTLRLoggingQuery_BillingAccountsBucketsViewsGet : GTLRLoggingQuery
-
-/**
- *  Required. The resource name of the policy:
- *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
- *  For
- *  example:"projects/my-project/locations/global/buckets/my-bucket/views/my-view"
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRLogging_LogView.
- *
- *  Gets a view on a log bucket..
- *
- *  @param name Required. The resource name of the policy:
- *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
- *    For
- *    example:"projects/my-project/locations/global/buckets/my-bucket/views/my-view"
- *
- *  @return GTLRLoggingQuery_BillingAccountsBucketsViewsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
  *  Creates a new exclusion in the _Default sink in a specified parent resource.
  *  Only log entries belonging to that resource can be excluded. You can have up
  *  to 10 exclusions in a resource.
@@ -548,6 +470,47 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets a log bucket.
+ *
+ *  Method: logging.billingAccounts.locations.buckets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_BillingAccountsLocationsBucketsGet : GTLRLoggingQuery
+
+/**
+ *  Required. The resource name of the bucket:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" For
+ *  example:"projects/my-project/locations/global/buckets/my-bucket"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_LogBucket.
+ *
+ *  Gets a log bucket.
+ *
+ *  @param name Required. The resource name of the bucket:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" For
+ *    example:"projects/my-project/locations/global/buckets/my-bucket"
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsLocationsBucketsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists log buckets.
  *
  *  Method: logging.billingAccounts.locations.buckets.list
@@ -790,6 +753,43 @@ NS_ASSUME_NONNULL_BEGIN
  *    example:"projects/my-project/locations/global/buckets/my-bucket/views/my-view"
  *
  *  @return GTLRLoggingQuery_BillingAccountsLocationsBucketsViewsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a view on a log bucket..
+ *
+ *  Method: logging.billingAccounts.locations.buckets.views.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_BillingAccountsLocationsBucketsViewsGet : GTLRLoggingQuery
+
+/**
+ *  Required. The resource name of the policy:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *  For
+ *  example:"projects/my-project/locations/global/buckets/my-bucket/views/my-view"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_LogView.
+ *
+ *  Gets a view on a log bucket..
+ *
+ *  @param name Required. The resource name of the policy:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *    For
+ *    example:"projects/my-project/locations/global/buckets/my-bucket/views/my-view"
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsLocationsBucketsViewsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1094,6 +1094,39 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: logging.billingAccounts.locations.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_BillingAccountsLocationsOperationsGet : GTLRLoggingQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsLocationsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists operations that match the specified filter in the request. If the
  *  server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
  *  binding allows API services to override the binding to use different
@@ -1261,39 +1294,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRLoggingQuery_BillingAccountsLogsList
  */
 + (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Gets the latest state of a long-running operation. Clients can use this
- *  method to poll the operation result at intervals as recommended by the API
- *  service.
- *
- *  Method: logging.billingAccounts.operations.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeLoggingAdmin
- *    @c kGTLRAuthScopeLoggingCloudPlatform
- *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
- *    @c kGTLRAuthScopeLoggingRead
- */
-@interface GTLRLoggingQuery_BillingAccountsOperationsGet : GTLRLoggingQuery
-
-/** The name of the operation resource. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRLogging_Operation.
- *
- *  Gets the latest state of a long-running operation. Clients can use this
- *  method to poll the operation result at intervals as recommended by the API
- *  service.
- *
- *  @param name The name of the operation resource.
- *
- *  @return GTLRLoggingQuery_BillingAccountsOperationsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

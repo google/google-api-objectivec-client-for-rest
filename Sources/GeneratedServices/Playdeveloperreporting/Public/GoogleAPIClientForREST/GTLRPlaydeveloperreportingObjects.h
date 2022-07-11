@@ -242,6 +242,15 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 /** Actual value, represented as a string. */
 @property(nonatomic, copy, nullable) NSString *stringValue;
 
+/**
+ *  Optional. Human-friendly label for the value, always in English. For
+ *  example, 'Spain' for the 'ES' country code. Whereas the dimension value is
+ *  stable, this value label is subject to change. Do not assume that the
+ *  (value, value_label) relationship is stable. For example, the ISO country
+ *  code 'MK' changed its name recently to 'North Macedonia'.
+ */
+@property(nonatomic, copy, nullable) NSString *valueLabel;
+
 @end
 
 

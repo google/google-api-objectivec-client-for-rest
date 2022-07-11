@@ -941,6 +941,27 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @end
 
 /**
+ *  Retrieves scoped player identifiers for currently authenticated user.
+ *
+ *  Method: games.players.getScopedPlayerIds
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGames
+ */
+@interface GTLRGamesQuery_PlayersGetScopedPlayerIds : GTLRGamesQuery
+
+/**
+ *  Fetches a @c GTLRGames_ScopedPlayerIds.
+ *
+ *  Retrieves scoped player identifiers for currently authenticated user.
+ *
+ *  @return GTLRGamesQuery_PlayersGetScopedPlayerIds
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Get the collection of players for the currently authenticated user.
  *
  *  Method: games.players.list

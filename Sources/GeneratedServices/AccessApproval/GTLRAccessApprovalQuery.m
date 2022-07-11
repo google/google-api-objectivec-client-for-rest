@@ -89,6 +89,33 @@
 
 @end
 
+@implementation GTLRAccessApprovalQuery_FoldersApprovalRequestsInvalidate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAccessApproval_InvalidateApprovalRequestMessage *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:invalidate";
+  GTLRAccessApprovalQuery_FoldersApprovalRequestsInvalidate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAccessApproval_ApprovalRequest class];
+  query.loggingName = @"accessapproval.folders.approvalRequests.invalidate";
+  return query;
+}
+
+@end
+
 @implementation GTLRAccessApprovalQuery_FoldersApprovalRequestsList
 
 @dynamic filter, pageSize, pageToken, parent;
@@ -265,6 +292,33 @@
 
 @end
 
+@implementation GTLRAccessApprovalQuery_OrganizationsApprovalRequestsInvalidate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAccessApproval_InvalidateApprovalRequestMessage *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:invalidate";
+  GTLRAccessApprovalQuery_OrganizationsApprovalRequestsInvalidate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAccessApproval_ApprovalRequest class];
+  query.loggingName = @"accessapproval.organizations.approvalRequests.invalidate";
+  return query;
+}
+
+@end
+
 @implementation GTLRAccessApprovalQuery_OrganizationsApprovalRequestsList
 
 @dynamic filter, pageSize, pageToken, parent;
@@ -436,6 +490,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRAccessApproval_ApprovalRequest class];
   query.loggingName = @"accessapproval.projects.approvalRequests.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAccessApprovalQuery_ProjectsApprovalRequestsInvalidate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAccessApproval_InvalidateApprovalRequestMessage *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:invalidate";
+  GTLRAccessApprovalQuery_ProjectsApprovalRequestsInvalidate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAccessApproval_ApprovalRequest class];
+  query.loggingName = @"accessapproval.projects.approvalRequests.invalidate";
   return query;
 }
 

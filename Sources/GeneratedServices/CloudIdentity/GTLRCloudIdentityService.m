@@ -13,6 +13,7 @@
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
+NSString * const kGTLRAuthScopeCloudIdentityCloudIdentity      = @"https://www.googleapis.com/auth/cloud-identity";
 NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityDevices = @"https://www.googleapis.com/auth/cloud-identity.devices";
 NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityDevicesLookup = @"https://www.googleapis.com/auth/cloud-identity.devices.lookup";
 NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityDevicesReadonly = @"https://www.googleapis.com/auth/cloud-identity.devices.readonly";

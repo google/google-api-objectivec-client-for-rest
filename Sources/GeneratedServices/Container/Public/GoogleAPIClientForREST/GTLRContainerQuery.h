@@ -371,6 +371,43 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  CompleteNodePoolUpgrade will signal an on-going node pool upgrade to
+ *  complete.
+ *
+ *  Method: container.projects.locations.clusters.nodePools.completeUpgrade
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerCloudPlatform
+ */
+@interface GTLRContainerQuery_ProjectsLocationsClustersNodePoolsCompleteUpgrade : GTLRContainerQuery
+
+/**
+ *  The name (project, location, cluster, node pool id) of the node pool to
+ *  complete upgrade. Specified in the format 'projects/ * /locations/ *
+ *  /clusters/ * /nodePools/ *'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContainer_Empty.
+ *
+ *  CompleteNodePoolUpgrade will signal an on-going node pool upgrade to
+ *  complete.
+ *
+ *  @param object The @c GTLRContainer_CompleteNodePoolUpgradeRequest to include
+ *    in the query.
+ *  @param name The name (project, location, cluster, node pool id) of the node
+ *    pool to complete upgrade. Specified in the format 'projects/ * /locations/
+ *    * /clusters/ * /nodePools/ *'.
+ *
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsCompleteUpgrade
+ */
++ (instancetype)queryWithObject:(GTLRContainer_CompleteNodePoolUpgradeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a node pool for a cluster.
  *
  *  Method: container.projects.locations.clusters.nodePools.create
