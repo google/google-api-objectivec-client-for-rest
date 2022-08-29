@@ -36,6 +36,7 @@ jobs:
     - name: Pod lib lint
       run:  |
         pod lib lint --verbose \
+          --fail-fast \
           --configuration=${{ matrix.CONFIGURATION }} \
           --platforms=${{ matrix.PLATFORM }} \
           GoogleAPIClientForREST.podspec
@@ -55,6 +56,7 @@ jobs:
     - name: Pod lib lint - Use Static Frameworks
       run:  |
         pod lib lint --verbose --use-static-frameworks \
+          --fail-fast \
           --configuration=${{ matrix.CONFIGURATION }} \
           --platforms=${{ matrix.PLATFORM }} \
           GoogleAPIClientForREST.podspec
