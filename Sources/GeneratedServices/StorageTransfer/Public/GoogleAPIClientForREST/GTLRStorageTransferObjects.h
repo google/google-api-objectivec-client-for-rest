@@ -17,6 +17,7 @@
 
 @class GTLRStorageTransfer_AgentPool;
 @class GTLRStorageTransfer_AwsAccessKey;
+@class GTLRStorageTransfer_AwsS3CompatibleData;
 @class GTLRStorageTransfer_AwsS3Data;
 @class GTLRStorageTransfer_AzureBlobStorageData;
 @class GTLRStorageTransfer_AzureCredentials;
@@ -34,6 +35,7 @@
 @class GTLRStorageTransfer_Operation_Metadata;
 @class GTLRStorageTransfer_Operation_Response;
 @class GTLRStorageTransfer_PosixFilesystem;
+@class GTLRStorageTransfer_S3CompatibleMetadata;
 @class GTLRStorageTransfer_Schedule;
 @class GTLRStorageTransfer_Status;
 @class GTLRStorageTransfer_Status_Details_Item;
@@ -586,6 +588,98 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_Paylo
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_PayloadFormat_PayloadFormatUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRStorageTransfer_S3CompatibleMetadata.authMethod
+
+/**
+ *  Auth requests with AWS SigV2.
+ *
+ *  Value: "AUTH_METHOD_AWS_SIGNATURE_V2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_S3CompatibleMetadata_AuthMethod_AuthMethodAwsSignatureV2;
+/**
+ *  Auth requests with AWS SigV4.
+ *
+ *  Value: "AUTH_METHOD_AWS_SIGNATURE_V4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_S3CompatibleMetadata_AuthMethod_AuthMethodAwsSignatureV4;
+/**
+ *  AuthMethod is not specified.
+ *
+ *  Value: "AUTH_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_S3CompatibleMetadata_AuthMethod_AuthMethodUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRStorageTransfer_S3CompatibleMetadata.listApi
+
+/**
+ *  ListApi is not specified.
+ *
+ *  Value: "LIST_API_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_S3CompatibleMetadata_ListApi_ListApiUnspecified;
+/**
+ *  Legacy ListObjects API.
+ *
+ *  Value: "LIST_OBJECTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_S3CompatibleMetadata_ListApi_ListObjects;
+/**
+ *  Perform listing using ListObjectsV2 API.
+ *
+ *  Value: "LIST_OBJECTS_V2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_S3CompatibleMetadata_ListApi_ListObjectsV2;
+
+// ----------------------------------------------------------------------------
+// GTLRStorageTransfer_S3CompatibleMetadata.protocol
+
+/**
+ *  Not recommended: This sends data in clear-text. This is only appropriate
+ *  within a closed network or for publicly available data. Perform requests
+ *  using HTTP.
+ *
+ *  Value: "NETWORK_PROTOCOL_HTTP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_S3CompatibleMetadata_Protocol_NetworkProtocolHttp;
+/**
+ *  Perform requests using HTTPS.
+ *
+ *  Value: "NETWORK_PROTOCOL_HTTPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_S3CompatibleMetadata_Protocol_NetworkProtocolHttps;
+/**
+ *  NetworkProtocol is not specified.
+ *
+ *  Value: "NETWORK_PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_S3CompatibleMetadata_Protocol_NetworkProtocolUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRStorageTransfer_S3CompatibleMetadata.requestModel
+
+/**
+ *  Perform requests using Path Style. Example:
+ *  https://s3.region.amazonaws.com/bucket-name/key-name
+ *
+ *  Value: "REQUEST_MODEL_PATH_STYLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_S3CompatibleMetadata_RequestModel_RequestModelPathStyle;
+/**
+ *  RequestModel is not specified.
+ *
+ *  Value: "REQUEST_MODEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_S3CompatibleMetadata_RequestModel_RequestModelUnspecified;
+/**
+ *  Perform requests using Virtual Hosted Style. Example:
+ *  https://bucket-name.s3.region.amazonaws.com/key-name
+ *
+ *  Value: "REQUEST_MODEL_VIRTUAL_HOSTED_STYLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_S3CompatibleMetadata_RequestModel_RequestModelVirtualHostedStyle;
+
+// ----------------------------------------------------------------------------
 // GTLRStorageTransfer_TransferJob.status
 
 /**
@@ -751,6 +845,36 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
  *  responses.
  */
 @property(nonatomic, copy, nullable) NSString *secretAccessKey;
+
+@end
+
+
+/**
+ *  An AwsS3CompatibleData resource.
+ */
+@interface GTLRStorageTransfer_AwsS3CompatibleData : GTLRObject
+
+/** Required. Specifies the name of the bucket. */
+@property(nonatomic, copy, nullable) NSString *bucketName;
+
+/** Required. Specifies the endpoint of the storage service. */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Specifies the root path to transfer objects. Must be an empty string or full
+ *  path name that ends with a '/'. This field is treated as an object prefix.
+ *  As such, it should generally not begin with a '/'.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Specifies the region to sign requests with. This can be left blank if
+ *  requests should be signed with an empty region.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** A S3 compatible metadata. */
+@property(nonatomic, strong, nullable) GTLRStorageTransfer_S3CompatibleMetadata *s3Metadata;
 
 @end
 
@@ -1683,6 +1807,80 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
 
 
 /**
+ *  S3CompatibleMetadata contains the metadata fields that apply to the basic
+ *  types of S3-compatible data providers.
+ */
+@interface GTLRStorageTransfer_S3CompatibleMetadata : GTLRObject
+
+/**
+ *  Specifies the authentication and authorization method used by the storage
+ *  service. When not specified, Transfer Service will attempt to determine
+ *  right auth method to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorageTransfer_S3CompatibleMetadata_AuthMethod_AuthMethodAwsSignatureV2
+ *        Auth requests with AWS SigV2. (Value: "AUTH_METHOD_AWS_SIGNATURE_V2")
+ *    @arg @c kGTLRStorageTransfer_S3CompatibleMetadata_AuthMethod_AuthMethodAwsSignatureV4
+ *        Auth requests with AWS SigV4. (Value: "AUTH_METHOD_AWS_SIGNATURE_V4")
+ *    @arg @c kGTLRStorageTransfer_S3CompatibleMetadata_AuthMethod_AuthMethodUnspecified
+ *        AuthMethod is not specified. (Value: "AUTH_METHOD_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *authMethod;
+
+/**
+ *  The Listing API to use for discovering objects. When not specified, Transfer
+ *  Service will attempt to determine the right API to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorageTransfer_S3CompatibleMetadata_ListApi_ListApiUnspecified
+ *        ListApi is not specified. (Value: "LIST_API_UNSPECIFIED")
+ *    @arg @c kGTLRStorageTransfer_S3CompatibleMetadata_ListApi_ListObjects
+ *        Legacy ListObjects API. (Value: "LIST_OBJECTS")
+ *    @arg @c kGTLRStorageTransfer_S3CompatibleMetadata_ListApi_ListObjectsV2
+ *        Perform listing using ListObjectsV2 API. (Value: "LIST_OBJECTS_V2")
+ */
+@property(nonatomic, copy, nullable) NSString *listApi;
+
+/**
+ *  Specifies the network protocol of the agent. When not specified, the default
+ *  value of NetworkProtocol NETWORK_PROTOCOL_HTTPS is used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorageTransfer_S3CompatibleMetadata_Protocol_NetworkProtocolHttp
+ *        Not recommended: This sends data in clear-text. This is only
+ *        appropriate within a closed network or for publicly available data.
+ *        Perform requests using HTTP. (Value: "NETWORK_PROTOCOL_HTTP")
+ *    @arg @c kGTLRStorageTransfer_S3CompatibleMetadata_Protocol_NetworkProtocolHttps
+ *        Perform requests using HTTPS. (Value: "NETWORK_PROTOCOL_HTTPS")
+ *    @arg @c kGTLRStorageTransfer_S3CompatibleMetadata_Protocol_NetworkProtocolUnspecified
+ *        NetworkProtocol is not specified. (Value:
+ *        "NETWORK_PROTOCOL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *protocol;
+
+/**
+ *  Specifies the API request model used to call the storage service. When not
+ *  specified, the default value of RequestModel
+ *  REQUEST_MODEL_VIRTUAL_HOSTED_STYLE is used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorageTransfer_S3CompatibleMetadata_RequestModel_RequestModelPathStyle
+ *        Perform requests using Path Style. Example:
+ *        https://s3.region.amazonaws.com/bucket-name/key-name (Value:
+ *        "REQUEST_MODEL_PATH_STYLE")
+ *    @arg @c kGTLRStorageTransfer_S3CompatibleMetadata_RequestModel_RequestModelUnspecified
+ *        RequestModel is not specified. (Value: "REQUEST_MODEL_UNSPECIFIED")
+ *    @arg @c kGTLRStorageTransfer_S3CompatibleMetadata_RequestModel_RequestModelVirtualHostedStyle
+ *        Perform requests using Virtual Hosted Style. Example:
+ *        https://bucket-name.s3.region.amazonaws.com/key-name (Value:
+ *        "REQUEST_MODEL_VIRTUAL_HOSTED_STYLE")
+ */
+@property(nonatomic, copy, nullable) NSString *requestModel;
+
+@end
+
+
+/**
  *  Transfers can be scheduled to recur or to run just once.
  */
 @interface GTLRStorageTransfer_Schedule : GTLRObject
@@ -2188,10 +2386,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
  */
 @property(nonatomic, strong, nullable) NSNumber *deleteObjectsUniqueInSink;
 
-/**
- *  Represents the selected metadata options for a transfer job. This feature is
- *  in Preview.
- */
+/** Represents the selected metadata options for a transfer job. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_MetadataOptions *metadataOptions;
 
 /**
@@ -2233,6 +2428,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
  *  Configuration for running a transfer.
  */
 @interface GTLRStorageTransfer_TransferSpec : GTLRObject
+
+/** An AWS S3 compatible data source. */
+@property(nonatomic, strong, nullable) GTLRStorageTransfer_AwsS3CompatibleData *awsS3CompatibleDataSource;
 
 /** An AWS S3 data source. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_AwsS3Data *awsS3DataSource;

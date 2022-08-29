@@ -982,7 +982,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 /** Output only. Region in which BigQuery dataset is located. */
 @property(nonatomic, copy, nullable) NSString *datasetRegion;
 
-/** Data source id. Cannot be changed once data transfer is created. */
+/**
+ *  Data source ID. This cannot be changed once data transfer is created. The
+ *  full list of available data source IDs can be returned through an API call:
+ *  https://cloud.google.com/bigquery-transfer/docs/reference/datatransfer/rest/v1/projects.locations.dataSources/list
+ */
 @property(nonatomic, copy, nullable) NSString *dataSourceId;
 
 /** The BigQuery target dataset id. */

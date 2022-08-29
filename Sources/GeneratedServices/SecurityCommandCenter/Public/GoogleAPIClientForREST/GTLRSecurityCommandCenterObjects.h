@@ -16,6 +16,7 @@
 #endif
 
 @class GTLRSecurityCommandCenter_Access;
+@class GTLRSecurityCommandCenter_AccessReview;
 @class GTLRSecurityCommandCenter_Asset;
 @class GTLRSecurityCommandCenter_Asset_ResourceProperties;
 @class GTLRSecurityCommandCenter_AssetDiscoveryConfig;
@@ -26,8 +27,10 @@
 @class GTLRSecurityCommandCenter_Connection;
 @class GTLRSecurityCommandCenter_Contact;
 @class GTLRSecurityCommandCenter_ContactDetails;
+@class GTLRSecurityCommandCenter_Container;
 @class GTLRSecurityCommandCenter_Cve;
 @class GTLRSecurityCommandCenter_Cvssv3;
+@class GTLRSecurityCommandCenter_Database;
 @class GTLRSecurityCommandCenter_Detection;
 @class GTLRSecurityCommandCenter_EnvironmentVariable;
 @class GTLRSecurityCommandCenter_ExfilResource;
@@ -42,6 +45,7 @@
 @class GTLRSecurityCommandCenter_Geolocation;
 @class GTLRSecurityCommandCenter_GetPolicyOptions;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Binding;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExternalSystem;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding;
@@ -56,26 +60,34 @@
 @class GTLRSecurityCommandCenter_IamBinding;
 @class GTLRSecurityCommandCenter_IamPolicy;
 @class GTLRSecurityCommandCenter_Indicator;
+@class GTLRSecurityCommandCenter_Kubernetes;
+@class GTLRSecurityCommandCenter_Label;
 @class GTLRSecurityCommandCenter_ListAssetsResult;
 @class GTLRSecurityCommandCenter_ListFindingsResult;
 @class GTLRSecurityCommandCenter_MemoryHashSignature;
 @class GTLRSecurityCommandCenter_MitreAttack;
+@class GTLRSecurityCommandCenter_Node;
+@class GTLRSecurityCommandCenter_NodePool;
 @class GTLRSecurityCommandCenter_NotificationConfig;
 @class GTLRSecurityCommandCenter_Operation;
 @class GTLRSecurityCommandCenter_Operation_Metadata;
 @class GTLRSecurityCommandCenter_Operation_Response;
+@class GTLRSecurityCommandCenter_Pod;
 @class GTLRSecurityCommandCenter_Policy;
 @class GTLRSecurityCommandCenter_Process;
 @class GTLRSecurityCommandCenter_ProcessSignature;
 @class GTLRSecurityCommandCenter_Reference;
 @class GTLRSecurityCommandCenter_Resource;
+@class GTLRSecurityCommandCenter_Role;
 @class GTLRSecurityCommandCenter_SecurityCenterProperties;
 @class GTLRSecurityCommandCenter_SecurityMarks;
 @class GTLRSecurityCommandCenter_SecurityMarks_Marks;
+@class GTLRSecurityCommandCenter_ServiceAccountDelegationInfo;
 @class GTLRSecurityCommandCenter_Source;
 @class GTLRSecurityCommandCenter_Status;
 @class GTLRSecurityCommandCenter_Status_Details_Item;
 @class GTLRSecurityCommandCenter_StreamingConfig;
+@class GTLRSecurityCommandCenter_Subject;
 @class GTLRSecurityCommandCenter_Vulnerability;
 @class GTLRSecurityCommandCenter_YaraRuleSignature;
 
@@ -900,6 +912,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
 // GTLRSecurityCommandCenter_MitreAttack.additionalTechniques
 
 /**
+ *  T1548
+ *
+ *  Value: "ABUSE_ELEVATION_CONTROL_MECHANISM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_AbuseElevationControlMechanism;
+/**
+ *  T1134
+ *
+ *  Value: "ACCESS_TOKEN_MANIPULATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_AccessTokenManipulation;
+/**
  *  T1098
  *
  *  Value: "ACCOUNT_MANIPULATION"
@@ -1025,6 +1049,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  *  Value: "NETWORK_DENIAL_OF_SERVICE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_NetworkDenialOfService;
+/**
+ *  T1046
+ *
+ *  Value: "NETWORK_SERVICE_DISCOVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_NetworkServiceDiscovery;
 /**
  *  T1069
  *
@@ -1190,6 +1220,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
 // GTLRSecurityCommandCenter_MitreAttack.primaryTechniques
 
 /**
+ *  T1548
+ *
+ *  Value: "ABUSE_ELEVATION_CONTROL_MECHANISM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_AbuseElevationControlMechanism;
+/**
+ *  T1134
+ *
+ *  Value: "ACCESS_TOKEN_MANIPULATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_AccessTokenManipulation;
+/**
  *  T1098
  *
  *  Value: "ACCOUNT_MANIPULATION"
@@ -1316,6 +1358,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_NetworkDenialOfService;
 /**
+ *  T1046
+ *
+ *  Value: "NETWORK_SERVICE_DISCOVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_NetworkServiceDiscovery;
+/**
  *  T1069
  *
  *  Value: "PERMISSION_GROUPS_DISCOVERY"
@@ -1383,6 +1431,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ValidAccounts;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Role.kind
+
+/**
+ *  Kubernetes ClusterRole.
+ *
+ *  Value: "CLUSTER_ROLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Role_Kind_ClusterRole;
+/**
+ *  Role type is not specified.
+ *
+ *  Value: "KIND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Role_Kind_KindUnspecified;
+/**
+ *  Kubernetes Role.
+ *
+ *  Value: "ROLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Role_Kind_Role;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_SetFindingStateRequest.state
 
 /**
@@ -1433,6 +1503,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted;
 
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Subject.kind
+
+/**
+ *  Authentication is not specified.
+ *
+ *  Value: "AUTH_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_AuthTypeUnspecified;
+/**
+ *  Collection of users.
+ *
+ *  Value: "GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_Group;
+/**
+ *  Users managed by Kubernetes API with credentials stored as Secrets.
+ *
+ *  Value: "SERVICEACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_Serviceaccount;
+/**
+ *  User with valid certificate.
+ *
+ *  Value: "USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
+
 /**
  *  Represents an access event.
  */
@@ -1447,8 +1545,44 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 /** The method that the service account called, e.g. "SetIamPolicy". */
 @property(nonatomic, copy, nullable) NSString *methodName;
 
-/** Associated email, such as "foo\@google.com". */
+/**
+ *  Associated email, such as "foo\@google.com". The email address of the
+ *  authenticated user (or service account on behalf of third party principal)
+ *  making the request. For third party identity callers, the
+ *  `principal_subject` field is populated instead of this field. For privacy
+ *  reasons, the principal email address is sometimes redacted. For more
+ *  information, see [Caller identities in audit
+ *  logs](https://cloud.google.com/logging/docs/audit#user-id).
+ */
 @property(nonatomic, copy, nullable) NSString *principalEmail;
+
+/**
+ *  A string representing the principal_subject associated with the identity. As
+ *  compared to `principal_email`, supports principals that aren't associated
+ *  with email addresses, such as third party principals. For most identities,
+ *  the format will be `principal://iam.googleapis.com/{identity pool
+ *  name}/subject/{subject)` except for some GKE identities (GKE_WORKLOAD,
+ *  FREEFORM, GKE_HUB_WORKLOAD) that are still in the legacy format
+ *  `serviceAccount:{identity pool name}[{subject}]`
+ */
+@property(nonatomic, copy, nullable) NSString *principalSubject;
+
+/**
+ *  Identity delegation history of an authenticated service account that makes
+ *  the request. It contains information on the real authorities that try to
+ *  access GCP resources by delegating on a service account. When multiple
+ *  authorities are present, they are guaranteed to be sorted based on the
+ *  original ordering of the identity delegation events.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_ServiceAccountDelegationInfo *> *serviceAccountDelegationInfo;
+
+/**
+ *  The name of the service account key used to create or exchange credentials
+ *  for authenticating the service account making the request. This is a
+ *  scheme-less URI full resource name. For example:
+ *  "//iam.googleapis.com/projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}"
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountKeyName;
 
 /**
  *  This is the API service that the service account made a call to, e.g.
@@ -1461,6 +1595,42 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  *  embedded or stand-alone applications, etc.
  */
 @property(nonatomic, copy, nullable) NSString *userAgentFamily;
+
+@end
+
+
+/**
+ *  Conveys information about a Kubernetes access review (e.g. kubectl auth
+ *  can-i ...) that was involved in a finding.
+ */
+@interface GTLRSecurityCommandCenter_AccessReview : GTLRObject
+
+/** Group is the API Group of the Resource. "*" means all. */
+@property(nonatomic, copy, nullable) NSString *group;
+
+/** Name is the name of the resource being requested. Empty means all. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Namespace of the action being requested. Currently, there is no distinction
+ *  between no namespace and all namespaces. Both are represented by "" (empty).
+ */
+@property(nonatomic, copy, nullable) NSString *ns;
+
+/** Resource is the optional resource type requested. "*" means all. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/** Subresource is the optional subresource type. */
+@property(nonatomic, copy, nullable) NSString *subresource;
+
+/**
+ *  Verb is a Kubernetes resource API verb, like: get, list, watch, create,
+ *  update, delete, proxy. "*" means all.
+ */
+@property(nonatomic, copy, nullable) NSString *verb;
+
+/** Version is the API Version of the Resource. "*" means all. */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -1662,11 +1832,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  *  anyone who is authenticated with a Google account or a service account. *
  *  `user:{emailid}`: An email address that represents a specific Google
  *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
- *  address that represents a Google group. For example, `admins\@example.com`.
- *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
+ *  An email address that represents a Google service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
+ *  identifier for a [Kubernetes service
+ *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
+ *  `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
+ *  An email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -1816,6 +1991,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 
 /** A list of contacts */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Contact *> *contacts;
+
+@end
+
+
+/**
+ *  Container associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_Container : GTLRObject
+
+/**
+ *  Optional container image id, when provided by the container runtime.
+ *  Uniquely identifies the container image launched using a container image
+ *  digest.
+ */
+@property(nonatomic, copy, nullable) NSString *imageId;
+
+/** Container labels, as provided by the container runtime. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Label *> *labels;
+
+/** Container name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Container image URI provided when configuring a pod/container. May identify
+ *  a container image version using mutable tags.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -2022,6 +2224,43 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  *        Invalid value. (Value: "USER_INTERACTION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *userInteraction;
+
+@end
+
+
+/**
+ *  Represents database access information, such as queries. A database may be a
+ *  sub-resource of an instance (as in the case of CloudSQL instances or Cloud
+ *  Spanner instances), or the database instance itself. Some database resources
+ *  may not have the full resource name populated because these resource types
+ *  are not yet supported by Cloud Asset Inventory (e.g. CloudSQL databases). In
+ *  these cases only the display name will be provided.
+ */
+@interface GTLRSecurityCommandCenter_Database : GTLRObject
+
+/** The human readable name of the database the user connected to. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The target usernames/roles/groups of a SQL privilege grant (not an IAM
+ *  policy change).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *grantees;
+
+/**
+ *  The full resource name of the database the user connected to, if it is
+ *  supported by CAI. (https://google.aip.dev/122#full-resource-names)
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The SQL statement associated with the relevant access. */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  The username used to connect to the DB. This may not necessarily be an IAM
+ *  principal, and has no required format.
+ */
+@property(nonatomic, copy, nullable) NSString *userName;
 
 @end
 
@@ -2256,13 +2495,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  *  key represents the type of contact, while the value contains a list of all
  *  the contacts that pertain. Please refer to:
  *  https://cloud.google.com/resource-manager/docs/managing-notification-contacts#notification-categories
- *  { “security”: {contact: {email: “person1\@company.com”} contact: {email:
- *  “person2\@company.com”} }
+ *  { "security": { "contacts": [ { "email": "person1\@company.com" }, {
+ *  "email": "person2\@company.com" } ] } }
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Finding_Contacts *contacts;
 
+/**
+ *  Containers associated with the finding. containers provides information for
+ *  both Kubernetes and non-Kubernetes containers.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Container *> *containers;
+
 /** The time at which the finding was created in Security Command Center. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Database associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Database *database;
 
 /**
  *  Contains more detail about the finding.
@@ -2330,6 +2578,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  *  Reference: https://en.wikipedia.org/wiki/Indicator_of_compromise
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Indicator *indicator;
+
+/** Kubernetes resources associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Kubernetes *kubernetes;
 
 /**
  *  MITRE ATT&CK tactics and techniques related to this finding. See:
@@ -2491,8 +2742,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  *  key represents the type of contact, while the value contains a list of all
  *  the contacts that pertain. Please refer to:
  *  https://cloud.google.com/resource-manager/docs/managing-notification-contacts#notification-categories
- *  { “security”: {contact: {email: “person1\@company.com”} contact: {email:
- *  “person2\@company.com”} }
+ *  { "security": { "contacts": [ { "email": "person1\@company.com" }, {
+ *  "email": "person2\@company.com" } ] } }
  *
  *  @note This class is documented as having more properties of
  *        GTLRSecurityCommandCenter_ContactDetails. Use @c -additionalJSONKeys
@@ -2699,6 +2950,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  *  creation or update.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Represents a Kubernetes RoleBinding or ClusterRoleBinding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Binding : GTLRObject
+
+/** Name for binding. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Namespace for binding. */
+@property(nonatomic, copy, nullable) NSString *ns;
+
+/** The Role or ClusterRole referenced by the binding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Role *role;
+
+/**
+ *  Represents the subjects(s) bound to the role. Not always available for PATCH
+ *  requests.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Subject *> *subjects;
 
 @end
 
@@ -3568,6 +3842,65 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_ProcessSignature *> *signatures;
 
+/** The list of URIs associated to the Findings. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *uris;
+
+@end
+
+
+/**
+ *  Kubernetes related attributes.
+ */
+@interface GTLRSecurityCommandCenter_Kubernetes : GTLRObject
+
+/**
+ *  Provides information on any Kubernetes access reviews (i.e. privilege
+ *  checks) relevant to the finding.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_AccessReview *> *accessReviews;
+
+/**
+ *  Provides Kubernetes role binding information for findings that involve
+ *  RoleBindings or ClusterRoleBindings.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Binding *> *bindings;
+
+/**
+ *  GKE Node Pools associated with the finding. This field will contain NodePool
+ *  information for each Node, when it is available.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_NodePool *> *nodePools;
+
+/** Provides Kubernetes Node information. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Node *> *nodes;
+
+/**
+ *  Kubernetes Pods associated with the finding. This field will contain Pod
+ *  records for each container that is owned by a Pod.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Pod *> *pods;
+
+/**
+ *  Provides Kubernetes role information for findings that involve Roles or
+ *  ClusterRoles.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Role *> *roles;
+
+@end
+
+
+/**
+ *  Label represents a generic name=value label. Label has separate name and
+ *  value fields to support filtering with contains().
+ */
+@interface GTLRSecurityCommandCenter_Label : GTLRObject
+
+/** Label name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Label value. */
+@property(nonatomic, copy, nullable) NSString *value;
+
 @end
 
 
@@ -3924,6 +4257,31 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 
 
 /**
+ *  Kubernetes Nodes associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_Node : GTLRObject
+
+/** Full Resource name of the Compute Engine VM running the cluster node. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Provides GKE Node Pool information.
+ */
+@interface GTLRSecurityCommandCenter_NodePool : GTLRObject
+
+/** Kubernetes Node pool name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Nodes associated with the finding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Node *> *nodes;
+
+@end
+
+
+/**
  *  Cloud Security Command Center (Cloud SCC) notification configs. A
  *  notification config is a Cloud SCC resource that contains the configuration
  *  to send notifications for create/update events of findings, assets and etc.
@@ -4073,6 +4431,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 
 
 /**
+ *  Kubernetes Pod.
+ */
+@interface GTLRSecurityCommandCenter_Pod : GTLRObject
+
+/** Pod containers associated with this finding, if any. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Container *> *containers;
+
+/**
+ *  Pod labels. For Kubernetes containers, these are applied to the container.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Label *> *labels;
+
+/** Kubernetes Pod name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Kubernetes Pod namespace. */
+@property(nonatomic, copy, nullable) NSString *ns;
+
+@end
+
+
+/**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
  *  `bindings`. A `binding` binds one or more `members`, or principals, to a
@@ -4194,8 +4574,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_File *> *libraries;
 
 /**
- *  The process name visible in utilities like top and ps; it can be accessed
- *  via /proc/[pid]/comm and changed with prctl(PR_SET_NAME).
+ *  The process name visible in utilities like `top` and `ps`; it can be
+ *  accessed via `/proc/[pid]/comm` and changed with `prctl(PR_SET_NAME)`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4290,6 +4670,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
 
 /** The full resource type of the resource. */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Kubernetes Role or ClusterRole.
+ */
+@interface GTLRSecurityCommandCenter_Role : GTLRObject
+
+/**
+ *  Role type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Role_Kind_ClusterRole Kubernetes
+ *        ClusterRole. (Value: "CLUSTER_ROLE")
+ *    @arg @c kGTLRSecurityCommandCenter_Role_Kind_KindUnspecified Role type is
+ *        not specified. (Value: "KIND_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_Role_Kind_Role Kubernetes Role. (Value:
+ *        "ROLE")
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Role name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Role namespace. */
+@property(nonatomic, copy, nullable) NSString *ns;
 
 @end
 
@@ -4410,6 +4817,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  *        fetch them all at once.
  */
 @interface GTLRSecurityCommandCenter_SecurityMarks_Marks : GTLRObject
+@end
+
+
+/**
+ *  Identity delegation history of an authenticated service account.
+ */
+@interface GTLRSecurityCommandCenter_ServiceAccountDelegationInfo : GTLRObject
+
+/** The email address of a Google account. . */
+@property(nonatomic, copy, nullable) NSString *principalEmail;
+
+/**
+ *  A string representing the principal_subject associated with the identity. As
+ *  compared to `principal_email`, supports principals that aren't associated
+ *  with email addresses, such as third party principals. For most identities,
+ *  the format will be `principal://iam.googleapis.com/{identity pool
+ *  name}/subject/{subject)` except for some GKE identities (GKE_WORKLOAD,
+ *  FREEFORM, GKE_HUB_WORKLOAD) that are still in the legacy format
+ *  `serviceAccount:{identity pool name}[{subject}]`
+ */
+@property(nonatomic, copy, nullable) NSString *principalSubject;
+
 @end
 
 
@@ -4596,6 +5025,36 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mut
  *  without quotes.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+@end
+
+
+/**
+ *  Represents a Kubernetes Subject.
+ */
+@interface GTLRSecurityCommandCenter_Subject : GTLRObject
+
+/**
+ *  Authentication type for subject.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Subject_Kind_AuthTypeUnspecified
+ *        Authentication is not specified. (Value: "AUTH_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_Subject_Kind_Group Collection of users.
+ *        (Value: "GROUP")
+ *    @arg @c kGTLRSecurityCommandCenter_Subject_Kind_Serviceaccount Users
+ *        managed by Kubernetes API with credentials stored as Secrets. (Value:
+ *        "SERVICEACCOUNT")
+ *    @arg @c kGTLRSecurityCommandCenter_Subject_Kind_User User with valid
+ *        certificate. (Value: "USER")
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Name for subject. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Namespace for subject. */
+@property(nonatomic, copy, nullable) NSString *ns;
 
 @end
 

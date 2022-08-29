@@ -504,7 +504,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
 
 /**
  *  Required. Name of the `Ruleset` referred to by this `Release`. The `Ruleset`
- *  must exist the `Release` to be created.
+ *  must exist for the `Release` to be created.
  */
 @property(nonatomic, copy, nullable) NSString *rulesetName;
 

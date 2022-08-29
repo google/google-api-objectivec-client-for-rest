@@ -38,10 +38,16 @@
 @class GTLRDrive_File_ExportLinks;
 @class GTLRDrive_File_ImageMediaMetadata;
 @class GTLRDrive_File_ImageMediaMetadata_Location;
+@class GTLRDrive_File_LabelInfo;
 @class GTLRDrive_File_LinkShareMetadata;
 @class GTLRDrive_File_Properties;
 @class GTLRDrive_File_ShortcutDetails;
 @class GTLRDrive_File_VideoMediaMetadata;
+@class GTLRDrive_Label;
+@class GTLRDrive_Label_Fields;
+@class GTLRDrive_LabelField;
+@class GTLRDrive_LabelFieldModification;
+@class GTLRDrive_LabelModification;
 @class GTLRDrive_Permission;
 @class GTLRDrive_Permission_PermissionDetails_Item;
 @class GTLRDrive_Permission_TeamDrivePermissionDetails_Item;
@@ -1094,6 +1100,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** An overview of the labels on the file. */
+@property(nonatomic, strong, nullable) GTLRDrive_File_LabelInfo *labelInfo;
+
 /** The last user to modify the file. */
 @property(nonatomic, strong, nullable) GTLRDrive_User *lastModifyingUser;
 
@@ -1200,6 +1209,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** A key needed to access the item via a shared link. */
 @property(nonatomic, copy, nullable) NSString *resourceKey;
+
+/**
+ *  The SHA1 checksum associated with this file, if available. This field is
+ *  only populated for files with content stored in Google Drive; it is not
+ *  populated for Docs Editors or shortcut files.
+ */
+@property(nonatomic, copy, nullable) NSString *sha1Checksum;
+
+/**
+ *  The SHA256 checksum associated with this file, if available. This field is
+ *  only populated for files with content stored in Google Drive; it is not
+ *  populated for Docs Editors or shortcut files.
+ */
+@property(nonatomic, copy, nullable) NSString *sha256Checksum;
 
 /**
  *  Whether the file has been shared. Not populated for items in shared drives.
@@ -1489,6 +1512,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *canModifyContentRestriction;
 
 /**
+ *  Whether the current user can modify the labels on this file.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canModifyLabels;
+
+/**
  *  Whether the current user can move children of this folder outside of the
  *  shared drive. This is false when the item is not a folder. Only populated
  *  for items in shared drives.
@@ -1574,6 +1604,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canReadDrive;
+
+/**
+ *  Whether the current user can read the labels on this file.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canReadLabels;
 
 /**
  *  Whether the current user can read the revisions resource of this file. For a
@@ -1798,6 +1835,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  An overview of the labels on the file.
+ */
+@interface GTLRDrive_File_LabelInfo : GTLRObject
+
+/**
+ *  The set of labels on the file as requested by the label IDs in the
+ *  includeLabels parameter. By default, no labels are returned.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_Label *> *labels;
+
+@end
+
+
+/**
  *  Contains details about the link URLs that clients are using to refer to this
  *  item.
  */
@@ -1997,6 +2048,231 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The type of file that can be created with these IDs. */
 @property(nonatomic, copy, nullable) NSString *space;
+
+@end
+
+
+/**
+ *  Representation of a label and its fields.
+ */
+@interface GTLRDrive_Label : GTLRObject
+
+/** A map of the label's fields keyed by the field ID. */
+@property(nonatomic, strong, nullable) GTLRDrive_Label_Fields *fields;
+
+/**
+ *  The ID of the label.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** This is always drive#label */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The revision ID of the label. */
+@property(nonatomic, copy, nullable) NSString *revisionId;
+
+@end
+
+
+/**
+ *  A map of the label's fields keyed by the field ID.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDrive_LabelField. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDrive_Label_Fields : GTLRObject
+@end
+
+
+/**
+ *  Representation of a label field.
+ */
+@interface GTLRDrive_LabelField : GTLRObject
+
+/**
+ *  Only present if valueType is dateString. RFC 3339 formatted date:
+ *  YYYY-MM-DD.
+ *
+ *  Date only (yyyy-mm-dd).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDateTime *> *dateString;
+
+/**
+ *  The identifier of this field.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Only present if valueType is integer.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *integer;
+
+/** This is always drive#labelField. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Only present if valueType is selection. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *selection;
+
+/** Only present if valueType is text. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *text;
+
+/** Only present if valueType is user. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_User *> *user;
+
+/**
+ *  The field type. While new values may be supported in the future, the
+ *  following are currently allowed:
+ *  - dateString
+ *  - integer
+ *  - selection
+ *  - text
+ *  - user
+ */
+@property(nonatomic, copy, nullable) NSString *valueType;
+
+@end
+
+
+/**
+ *  A modification to a label's field.
+ */
+@interface GTLRDrive_LabelFieldModification : GTLRObject
+
+/** The ID of the Field to be modified. */
+@property(nonatomic, copy, nullable) NSString *fieldId;
+
+/** This is always drive#labelFieldModification. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Replaces a dateString field with these new values. The values must be
+ *  strings in the RFC 3339 full-date format: YYYY-MM-DD.
+ *
+ *  Date only (yyyy-mm-dd).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDateTime *> *setDateValues;
+
+/**
+ *  Replaces an integer field with these new values.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *setIntegerValues;
+
+/** Replaces a selection field with these new values. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *setSelectionValues;
+
+/** Replaces a text field with these new values. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *setTextValues;
+
+/**
+ *  Replaces a user field with these new values. The values must be valid email
+ *  addresses.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *setUserValues;
+
+/**
+ *  Unsets the values for this field.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unsetValues;
+
+@end
+
+
+/**
+ *  A list of labels.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "labels" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDrive_LabelList : GTLRCollectionObject
+
+/** This is always drive#labelList */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The list of labels.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_Label *> *labels;
+
+/**
+ *  The page token for the next page of labels. This field will be absent if the
+ *  end of the list has been reached. If the token is rejected for any reason,
+ *  it should be discarded, and pagination should be restarted from the first
+ *  page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  A modification to a label on a file. A LabelModification can be used to
+ *  apply a label to a file, update an existing label on a file, or remove a
+ *  label from a file.
+ */
+@interface GTLRDrive_LabelModification : GTLRObject
+
+/** The list of modifications to this label's fields. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_LabelFieldModification *> *fieldModifications;
+
+/** This is always drive#labelModification. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The ID of the label to modify. */
+@property(nonatomic, copy, nullable) NSString *labelId;
+
+/**
+ *  If true, the label will be removed from the file.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *removeLabel;
+
+@end
+
+
+/**
+ *  A request to modify the set of labels on a file. This request may contain
+ *  many modifications that will either all succeed or all fail transactionally.
+ */
+@interface GTLRDrive_ModifyLabelsRequest : GTLRObject
+
+/** This is always drive#modifyLabelsRequest */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The list of modifications to apply to the labels on the file. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_LabelModification *> *labelModifications;
+
+@end
+
+
+/**
+ *  Response to a ModifyLabels request. This contains only those labels which
+ *  were added or updated by the request.
+ */
+@interface GTLRDrive_ModifyLabelsResponse : GTLRObject
+
+/** This is always drive#modifyLabelsResponse */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The list of labels which were added or updated by the request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_Label *> *modifiedLabels;
 
 @end
 

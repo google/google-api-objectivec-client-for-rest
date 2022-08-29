@@ -35,6 +35,7 @@ NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_Experimenta
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
@@ -63,6 +64,7 @@ NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_Experimental
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
@@ -106,6 +108,7 @@ NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_Experi
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";

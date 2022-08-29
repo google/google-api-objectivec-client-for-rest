@@ -795,9 +795,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges;
 
 /**
- *  Google Cloud Endpoints
- *  (https://cloud.google.com/appengine/docs/python/endpoints/) configuration
- *  for API handlers.
+ *  Cloud Endpoints (https://cloud.google.com/endpoints/) configuration for API
+ *  handlers.
  */
 @interface GTLRAppengine_ApiConfigHandler : GTLRObject
 
@@ -3382,9 +3381,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @interface GTLRAppengine_Version : GTLRObject
 
 /**
- *  Serving configuration for Google Cloud Endpoints
- *  (https://cloud.google.com/appengine/docs/python/endpoints/).Only returned in
- *  GET requests if view=FULL is set.
+ *  Serving configuration for Cloud Endpoints
+ *  (https://cloud.google.com/endpoints/).Only returned in GET requests if
+ *  view=FULL is set.
  */
 @property(nonatomic, strong, nullable) GTLRAppengine_ApiConfigHandler *apiConfig;
 

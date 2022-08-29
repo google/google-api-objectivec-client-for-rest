@@ -383,7 +383,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRe
  */
 @interface GTLRMyBusinessVerifications_GenerateVerificationTokenRequest : GTLRObject
 
-/** Required. The target location. */
+/**
+ *  Required. The target location. Note: The location information should exactly
+ *  match the target Location, otherwise the generated verification token won't
+ *  be able to verify the target Location.
+ */
 @property(nonatomic, strong, nullable) GTLRMyBusinessVerifications_Location *location;
 
 @end

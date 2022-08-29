@@ -371,11 +371,6 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/CloudIdentity/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/CloudIdentity/Public/GoogleAPIClientForREST/*.h'
   end
-  s.subspec 'CloudIot' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Sources/GeneratedServices/CloudIot/**/*.{h,m}'
-    sp.public_header_files = 'Sources/GeneratedServices/CloudIot/Public/GoogleAPIClientForREST/*.h'
-  end
   s.subspec 'CloudKMS' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/CloudKMS/**/*.{h,m}'
@@ -650,6 +645,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/DriveActivity/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/DriveActivity/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'DriveLabels' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/DriveLabels/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/DriveLabels/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'Essentialcontacts' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

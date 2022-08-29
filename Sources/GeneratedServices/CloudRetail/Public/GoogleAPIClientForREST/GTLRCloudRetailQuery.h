@@ -36,6 +36,119 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Adds the specified CatalogAttribute to the AttributesConfig. If the
+ *  CatalogAttribute to add already exists, an ALREADY_EXISTS error is returned.
+ *
+ *  Method: retail.projects.locations.catalogs.attributesConfig.addCatalogAttribute
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsAttributesConfigAddCatalogAttribute : GTLRCloudRetailQuery
+
+/**
+ *  Required. Full AttributesConfig resource name. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *attributesConfig;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2AttributesConfig.
+ *
+ *  Adds the specified CatalogAttribute to the AttributesConfig. If the
+ *  CatalogAttribute to add already exists, an ALREADY_EXISTS error is returned.
+ *
+ *  @param object The @c
+ *    GTLRCloudRetail_GoogleCloudRetailV2AddCatalogAttributeRequest to include
+ *    in the query.
+ *  @param attributesConfig Required. Full AttributesConfig resource name.
+ *    Format:
+ *    `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsAttributesConfigAddCatalogAttribute
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2AddCatalogAttributeRequest *)object
+               attributesConfig:(NSString *)attributesConfig;
+
+@end
+
+/**
+ *  Removes the specified CatalogAttribute from the AttributesConfig. If the
+ *  CatalogAttribute to remove does not exist, a NOT_FOUND error is returned.
+ *
+ *  Method: retail.projects.locations.catalogs.attributesConfig.removeCatalogAttribute
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsAttributesConfigRemoveCatalogAttribute : GTLRCloudRetailQuery
+
+/**
+ *  Required. Full AttributesConfig resource name. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *attributesConfig;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2AttributesConfig.
+ *
+ *  Removes the specified CatalogAttribute from the AttributesConfig. If the
+ *  CatalogAttribute to remove does not exist, a NOT_FOUND error is returned.
+ *
+ *  @param object The @c
+ *    GTLRCloudRetail_GoogleCloudRetailV2RemoveCatalogAttributeRequest to
+ *    include in the query.
+ *  @param attributesConfig Required. Full AttributesConfig resource name.
+ *    Format:
+ *    `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsAttributesConfigRemoveCatalogAttribute
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2RemoveCatalogAttributeRequest *)object
+               attributesConfig:(NSString *)attributesConfig;
+
+@end
+
+/**
+ *  Replaces the specified CatalogAttribute in the AttributesConfig by updating
+ *  the catalog attribute with the same CatalogAttribute.key. If the
+ *  CatalogAttribute to replace does not exist, a NOT_FOUND error is returned.
+ *
+ *  Method: retail.projects.locations.catalogs.attributesConfig.replaceCatalogAttribute
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsAttributesConfigReplaceCatalogAttribute : GTLRCloudRetailQuery
+
+/**
+ *  Required. Full AttributesConfig resource name. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *attributesConfig;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2AttributesConfig.
+ *
+ *  Replaces the specified CatalogAttribute in the AttributesConfig by updating
+ *  the catalog attribute with the same CatalogAttribute.key. If the
+ *  CatalogAttribute to replace does not exist, a NOT_FOUND error is returned.
+ *
+ *  @param object The @c
+ *    GTLRCloudRetail_GoogleCloudRetailV2ReplaceCatalogAttributeRequest to
+ *    include in the query.
+ *  @param attributesConfig Required. Full AttributesConfig resource name.
+ *    Format:
+ *    `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsAttributesConfigReplaceCatalogAttribute
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2ReplaceCatalogAttributeRequest *)object
+               attributesConfig:(NSString *)attributesConfig;
+
+@end
+
+/**
  *  Gets the latest state of a long-running operation. Clients can use this
  *  method to poll the operation result at intervals as recommended by the API
  *  service.
@@ -71,9 +184,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  updating fulfillment information. If the request is valid, the update will
  *  be enqueued and processed downstream. As a consequence, when a response is
  *  returned, the added place IDs are not immediately manifested in the Product
- *  queried by ProductService.GetProduct or ProductService.ListProducts. This
- *  feature is only available for users who have Retail Search enabled. Please
- *  enable Retail Search on Cloud Console before using this feature.
+ *  queried by ProductService.GetProduct or ProductService.ListProducts. The
+ *  returned Operations will be obsolete after 1 day, and GetOperation API will
+ *  return NOT_FOUND afterwards. If conflicting updates are issued, the
+ *  Operations associated with the stale updates will not be marked as done
+ *  until being obsolete. This feature is only available for users who have
+ *  Retail Search enabled. Enable Retail Search on Cloud Console before using
+ *  this feature.
  *
  *  Method: retail.projects.locations.catalogs.branches.products.addFulfillmentPlaces
  *
@@ -98,9 +215,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  updating fulfillment information. If the request is valid, the update will
  *  be enqueued and processed downstream. As a consequence, when a response is
  *  returned, the added place IDs are not immediately manifested in the Product
- *  queried by ProductService.GetProduct or ProductService.ListProducts. This
- *  feature is only available for users who have Retail Search enabled. Please
- *  enable Retail Search on Cloud Console before using this feature.
+ *  queried by ProductService.GetProduct or ProductService.ListProducts. The
+ *  returned Operations will be obsolete after 1 day, and GetOperation API will
+ *  return NOT_FOUND afterwards. If conflicting updates are issued, the
+ *  Operations associated with the stale updates will not be marked as done
+ *  until being obsolete. This feature is only available for users who have
+ *  Retail Search enabled. Enable Retail Search on Cloud Console before using
+ *  this feature.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2AddFulfillmentPlacesRequest to include
@@ -127,9 +248,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  ProductService.GetProduct or ProductService.ListProducts. Local inventory
  *  information can only be modified using this method.
  *  ProductService.CreateProduct and ProductService.UpdateProduct has no effect
- *  on local inventories. This feature is only available for users who have
- *  Retail Search enabled. Please enable Retail Search on Cloud Console before
- *  using this feature.
+ *  on local inventories. The returned Operations will be obsolete after 1 day,
+ *  and GetOperation API will return NOT_FOUND afterwards. If conflicting
+ *  updates are issued, the Operations associated with the stale updates will
+ *  not be marked as done until being obsolete. This feature is only available
+ *  for users who have Retail Search enabled. Enable Retail Search on Cloud
+ *  Console before using this feature.
  *
  *  Method: retail.projects.locations.catalogs.branches.products.addLocalInventories
  *
@@ -158,9 +282,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  ProductService.GetProduct or ProductService.ListProducts. Local inventory
  *  information can only be modified using this method.
  *  ProductService.CreateProduct and ProductService.UpdateProduct has no effect
- *  on local inventories. This feature is only available for users who have
- *  Retail Search enabled. Please enable Retail Search on Cloud Console before
- *  using this feature.
+ *  on local inventories. The returned Operations will be obsolete after 1 day,
+ *  and GetOperation API will return NOT_FOUND afterwards. If conflicting
+ *  updates are issued, the Operations associated with the stale updates will
+ *  not be marked as done until being obsolete. This feature is only available
+ *  for users who have Retail Search enabled. Enable Retail Search on Cloud
+ *  Console before using this feature.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2AddLocalInventoriesRequest to include
@@ -488,8 +615,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  will be enqueued and processed downstream. As a consequence, when a response
  *  is returned, the removed place IDs are not immediately manifested in the
  *  Product queried by ProductService.GetProduct or ProductService.ListProducts.
- *  This feature is only available for users who have Retail Search enabled.
- *  Please enable Retail Search on Cloud Console before using this feature.
+ *  The returned Operations will be obsolete after 1 day, and GetOperation API
+ *  will return NOT_FOUND afterwards. If conflicting updates are issued, the
+ *  Operations associated with the stale updates will not be marked as done
+ *  until being obsolete. This feature is only available for users who have
+ *  Retail Search enabled. Enable Retail Search on Cloud Console before using
+ *  this feature.
  *
  *  Method: retail.projects.locations.catalogs.branches.products.removeFulfillmentPlaces
  *
@@ -515,8 +646,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  will be enqueued and processed downstream. As a consequence, when a response
  *  is returned, the removed place IDs are not immediately manifested in the
  *  Product queried by ProductService.GetProduct or ProductService.ListProducts.
- *  This feature is only available for users who have Retail Search enabled.
- *  Please enable Retail Search on Cloud Console before using this feature.
+ *  The returned Operations will be obsolete after 1 day, and GetOperation API
+ *  will return NOT_FOUND afterwards. If conflicting updates are issued, the
+ *  Operations associated with the stale updates will not be marked as done
+ *  until being obsolete. This feature is only available for users who have
+ *  Retail Search enabled. Enable Retail Search on Cloud Console before using
+ *  this feature.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2RemoveFulfillmentPlacesRequest to
@@ -541,9 +676,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Product queried by ProductService.GetProduct or ProductService.ListProducts.
  *  Local inventory information can only be removed using this method.
  *  ProductService.CreateProduct and ProductService.UpdateProduct has no effect
- *  on local inventories. This feature is only available for users who have
- *  Retail Search enabled. Please enable Retail Search on Cloud Console before
- *  using this feature.
+ *  on local inventories. The returned Operations will be obsolete after 1 day,
+ *  and GetOperation API will return NOT_FOUND afterwards. If conflicting
+ *  updates are issued, the Operations associated with the stale updates will
+ *  not be marked as done until being obsolete. This feature is only available
+ *  for users who have Retail Search enabled. Enable Retail Search on Cloud
+ *  Console before using this feature.
  *
  *  Method: retail.projects.locations.catalogs.branches.products.removeLocalInventories
  *
@@ -570,9 +708,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Product queried by ProductService.GetProduct or ProductService.ListProducts.
  *  Local inventory information can only be removed using this method.
  *  ProductService.CreateProduct and ProductService.UpdateProduct has no effect
- *  on local inventories. This feature is only available for users who have
- *  Retail Search enabled. Please enable Retail Search on Cloud Console before
- *  using this feature.
+ *  on local inventories. The returned Operations will be obsolete after 1 day,
+ *  and GetOperation API will return NOT_FOUND afterwards. If conflicting
+ *  updates are issued, the Operations associated with the stale updates will
+ *  not be marked as done until being obsolete. This feature is only available
+ *  for users who have Retail Search enabled. Enable Retail Search on Cloud
+ *  Console before using this feature.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2RemoveLocalInventoriesRequest to
@@ -593,24 +734,27 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates inventory information for a Product while respecting the last update
  *  timestamps of each inventory field. This process is asynchronous and does
  *  not require the Product to exist before updating fulfillment information. If
- *  the request is valid, the update will be enqueued and processed downstream.
- *  As a consequence, when a response is returned, updates are not immediately
+ *  the request is valid, the update is enqueued and processed downstream. As a
+ *  consequence, when a response is returned, updates are not immediately
  *  manifested in the Product queried by ProductService.GetProduct or
  *  ProductService.ListProducts. When inventory is updated with
  *  ProductService.CreateProduct and ProductService.UpdateProduct, the specified
- *  inventory field value(s) will overwrite any existing value(s) while ignoring
- *  the last update time for this field. Furthermore, the last update time for
- *  the specified inventory fields will be overwritten to the time of the
+ *  inventory field value(s) overwrite any existing value(s) while ignoring the
+ *  last update time for this field. Furthermore, the last update times for the
+ *  specified inventory fields are overwritten by the times of the
  *  ProductService.CreateProduct or ProductService.UpdateProduct request. If no
  *  inventory fields are set in CreateProductRequest.product, then any
- *  pre-existing inventory information for this product will be used. If no
- *  inventory fields are set in SetInventoryRequest.set_mask, then any existing
- *  inventory information will be preserved. Pre-existing inventory information
- *  can only be updated with ProductService.SetInventory,
+ *  pre-existing inventory information for this product is used. If no inventory
+ *  fields are set in SetInventoryRequest.set_mask, then any existing inventory
+ *  information is preserved. Pre-existing inventory information can only be
+ *  updated with ProductService.SetInventory,
  *  ProductService.AddFulfillmentPlaces, and
- *  ProductService.RemoveFulfillmentPlaces. This feature is only available for
- *  users who have Retail Search enabled. Please enable Retail Search on Cloud
- *  Console before using this feature.
+ *  ProductService.RemoveFulfillmentPlaces. The returned Operations is obsolete
+ *  after one day, and the GetOperation API returns `NOT_FOUND` afterwards. If
+ *  conflicting updates are issued, the Operations associated with the stale
+ *  updates are not marked as done until they are obsolete. This feature is only
+ *  available for users who have Retail Search enabled. Enable Retail Search on
+ *  Cloud Console before using this feature.
  *
  *  Method: retail.projects.locations.catalogs.branches.products.setInventory
  *
@@ -631,24 +775,27 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates inventory information for a Product while respecting the last update
  *  timestamps of each inventory field. This process is asynchronous and does
  *  not require the Product to exist before updating fulfillment information. If
- *  the request is valid, the update will be enqueued and processed downstream.
- *  As a consequence, when a response is returned, updates are not immediately
+ *  the request is valid, the update is enqueued and processed downstream. As a
+ *  consequence, when a response is returned, updates are not immediately
  *  manifested in the Product queried by ProductService.GetProduct or
  *  ProductService.ListProducts. When inventory is updated with
  *  ProductService.CreateProduct and ProductService.UpdateProduct, the specified
- *  inventory field value(s) will overwrite any existing value(s) while ignoring
- *  the last update time for this field. Furthermore, the last update time for
- *  the specified inventory fields will be overwritten to the time of the
+ *  inventory field value(s) overwrite any existing value(s) while ignoring the
+ *  last update time for this field. Furthermore, the last update times for the
+ *  specified inventory fields are overwritten by the times of the
  *  ProductService.CreateProduct or ProductService.UpdateProduct request. If no
  *  inventory fields are set in CreateProductRequest.product, then any
- *  pre-existing inventory information for this product will be used. If no
- *  inventory fields are set in SetInventoryRequest.set_mask, then any existing
- *  inventory information will be preserved. Pre-existing inventory information
- *  can only be updated with ProductService.SetInventory,
+ *  pre-existing inventory information for this product is used. If no inventory
+ *  fields are set in SetInventoryRequest.set_mask, then any existing inventory
+ *  information is preserved. Pre-existing inventory information can only be
+ *  updated with ProductService.SetInventory,
  *  ProductService.AddFulfillmentPlaces, and
- *  ProductService.RemoveFulfillmentPlaces. This feature is only available for
- *  users who have Retail Search enabled. Please enable Retail Search on Cloud
- *  Console before using this feature.
+ *  ProductService.RemoveFulfillmentPlaces. The returned Operations is obsolete
+ *  after one day, and the GetOperation API returns `NOT_FOUND` afterwards. If
+ *  conflicting updates are issued, the Operations associated with the stale
+ *  updates are not marked as done until they are obsolete. This feature is only
+ *  available for users who have Retail Search enabled. Enable Retail Search on
+ *  Cloud Console before using this feature.
  *
  *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2SetInventoryRequest
  *    to include in the query.
@@ -665,8 +812,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Completes the specified prefix with keyword suggestions. This feature is
- *  only available for users who have Retail Search enabled. Please enable
- *  Retail Search on Cloud Console before using this feature.
+ *  only available for users who have Retail Search enabled. Enable Retail
+ *  Search on Cloud Console before using this feature.
  *
  *  Method: retail.projects.locations.catalogs.completeQuery
  *
@@ -741,8 +888,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponse.
  *
  *  Completes the specified prefix with keyword suggestions. This feature is
- *  only available for users who have Retail Search enabled. Please enable
- *  Retail Search on Cloud Console before using this feature.
+ *  only available for users who have Retail Search enabled. Enable Retail
+ *  Search on Cloud Console before using this feature.
  *
  *  @param catalog Required. Catalog for which the completion is performed. Full
  *    resource name of catalog, such as `projects/ *
@@ -759,8 +906,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  asynchronous. Partial updating is not supported. The operation is
  *  successfully finished only after the imported suggestions are indexed
  *  successfully and ready for serving. The process takes hours. This feature is
- *  only available for users who have Retail Search enabled. Please enable
- *  Retail Search on Cloud Console before using this feature.
+ *  only available for users who have Retail Search enabled. Enable Retail
+ *  Search on Cloud Console before using this feature.
  *
  *  Method: retail.projects.locations.catalogs.completionData.import
  *
@@ -782,8 +929,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  asynchronous. Partial updating is not supported. The operation is
  *  successfully finished only after the imported suggestions are indexed
  *  successfully and ready for serving. The process takes hours. This feature is
- *  only available for users who have Retail Search enabled. Please enable
- *  Retail Search on Cloud Console before using this feature.
+ *  only available for users who have Retail Search enabled. Enable Retail
+ *  Search on Cloud Console before using this feature.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2ImportCompletionDataRequest to include
@@ -795,6 +942,270 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2ImportCompletionDataRequest *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a Control. If the Control to create already exists, an
+ *  ALREADY_EXISTS error is returned.
+ *
+ *  Method: retail.projects.locations.catalogs.controls.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsControlsCreate : GTLRCloudRetailQuery
+
+/**
+ *  Required. The ID to use for the Control, which will become the final
+ *  component of the Control's resource name. This value should be 4-63
+ *  characters, and valid characters are /a-z-_/.
+ */
+@property(nonatomic, copy, nullable) NSString *controlId;
+
+/**
+ *  Required. Full resource name of parent catalog. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2Control.
+ *
+ *  Creates a Control. If the Control to create already exists, an
+ *  ALREADY_EXISTS error is returned.
+ *
+ *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2Control to include
+ *    in the query.
+ *  @param parent Required. Full resource name of parent catalog. Format:
+ *    `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsControlsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2Control *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Control. If the Control to delete does not exist, a NOT_FOUND
+ *  error is returned.
+ *
+ *  Method: retail.projects.locations.catalogs.controls.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsControlsDelete : GTLRCloudRetailQuery
+
+/**
+ *  Required. The resource name of the Control to delete. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/controls/{control_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleProtobufEmpty.
+ *
+ *  Deletes a Control. If the Control to delete does not exist, a NOT_FOUND
+ *  error is returned.
+ *
+ *  @param name Required. The resource name of the Control to delete. Format:
+ *    `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/controls/{control_id}`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsControlsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a Control.
+ *
+ *  Method: retail.projects.locations.catalogs.controls.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsControlsGet : GTLRCloudRetailQuery
+
+/**
+ *  Required. The resource name of the Control to get. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/controls/{control_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2Control.
+ *
+ *  Gets a Control.
+ *
+ *  @param name Required. The resource name of the Control to get. Format:
+ *    `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/controls/{control_id}`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsControlsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all Controls by their parent Catalog.
+ *
+ *  Method: retail.projects.locations.catalogs.controls.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsControlsList : GTLRCloudRetailQuery
+
+/**
+ *  Optional. A filter to apply on the list results. Supported features: * List
+ *  all the products under the parent branch if filter is unset. * List controls
+ *  that are used in a single ServingConfig: 'serving_config =
+ *  "boosted_home_page_cvr"'
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Maximum number of results to return. If unspecified, defaults to
+ *  50. Max allowed value is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListControls` call.
+ *  Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The catalog resource name. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2ListControlsResponse.
+ *
+ *  Lists all Controls by their parent Catalog.
+ *
+ *  @param parent Required. The catalog resource name. Format:
+ *    `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsControlsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a Control. Control cannot be set to a different oneof field, if so
+ *  an INVALID_ARGUMENT is returned. If the Control to update does not exist, a
+ *  NOT_FOUND error is returned.
+ *
+ *  Method: retail.projects.locations.catalogs.controls.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsControlsPatch : GTLRCloudRetailQuery
+
+/**
+ *  Immutable. Fully qualified name `projects/ * /locations/global/catalogs/ *
+ *  /controls/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Indicates which fields in the provided Control to update. The following are
+ *  NOT supported: * Control.name If not set or empty, all supported fields are
+ *  updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2Control.
+ *
+ *  Updates a Control. Control cannot be set to a different oneof field, if so
+ *  an INVALID_ARGUMENT is returned. If the Control to update does not exist, a
+ *  NOT_FOUND error is returned.
+ *
+ *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2Control to include
+ *    in the query.
+ *  @param name Immutable. Fully qualified name `projects/ *
+ *    /locations/global/catalogs/ * /controls/ *`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsControlsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2Control *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an AttributesConfig.
+ *
+ *  Method: retail.projects.locations.catalogs.getAttributesConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsGetAttributesConfig : GTLRCloudRetailQuery
+
+/**
+ *  Required. Full AttributesConfig resource name. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2AttributesConfig.
+ *
+ *  Gets an AttributesConfig.
+ *
+ *  @param name Required. Full AttributesConfig resource name. Format:
+ *    `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsGetAttributesConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a CompletionConfig.
+ *
+ *  Method: retail.projects.locations.catalogs.getCompletionConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsGetCompletionConfig : GTLRCloudRetailQuery
+
+/**
+ *  Required. Full CompletionConfig resource name. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/completionConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2CompletionConfig.
+ *
+ *  Gets a CompletionConfig.
+ *
+ *  @param name Required. Full CompletionConfig resource name. Format:
+ *    `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/completionConfig`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsGetCompletionConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -1018,10 +1429,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsPlacementsPredict : GTLRCloudRetailQuery
 
 /**
- *  Required. Full resource name of the format: {placement=projects/ *
- *  /locations/global/catalogs/default_catalog/servingConfigs/ *} or
- *  {placement=projects/ *
- *  /locations/global/catalogs/default_catalog/placements/ *}. We recommend
+ *  Required. Full resource name of the format: `{placement=projects/ *
+ *  /locations/global/catalogs/default_catalog/servingConfigs/ *}` or
+ *  `{placement=projects/ *
+ *  /locations/global/catalogs/default_catalog/placements/ *}`. We recommend
  *  using the `servingConfigs` resource. `placements` is a legacy resource. The
  *  ID of the Recommendations AI serving config or placement. Before you can
  *  request predictions from your model, you must create at least one serving
@@ -1040,10 +1451,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2PredictRequest to
  *    include in the query.
  *  @param placement Required. Full resource name of the format:
- *    {placement=projects/ *
- *    /locations/global/catalogs/default_catalog/servingConfigs/ *} or
- *    {placement=projects/ *
- *    /locations/global/catalogs/default_catalog/placements/ *}. We recommend
+ *    `{placement=projects/ *
+ *    /locations/global/catalogs/default_catalog/servingConfigs/ *}` or
+ *    `{placement=projects/ *
+ *    /locations/global/catalogs/default_catalog/placements/ *}`. We recommend
  *    using the `servingConfigs` resource. `placements` is a legacy resource.
  *    The ID of the Recommendations AI serving config or placement. Before you
  *    can request predictions from your model, you must create at least one
@@ -1062,8 +1473,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Performs a search. This feature is only available for users who have Retail
- *  Search enabled. Please enable Retail Search on Cloud Console before using
- *  this feature.
+ *  Search enabled. Enable Retail Search on Cloud Console before using this
+ *  feature.
  *
  *  Method: retail.projects.locations.catalogs.placements.search
  *
@@ -1087,8 +1498,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2SearchResponse.
  *
  *  Performs a search. This feature is only available for users who have Retail
- *  Search enabled. Please enable Retail Search on Cloud Console before using
- *  this feature.
+ *  Search enabled. Enable Retail Search on Cloud Console before using this
+ *  feature.
  *
  *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2SearchRequest to
  *    include in the query.
@@ -1108,6 +1519,248 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Enables a Control on the specified ServingConfig. The control is added in
+ *  the last position of the list of controls it belongs to (e.g. if it's a
+ *  facet spec control it will be applied in the last position of
+ *  servingConfig.facetSpecIds) Returns a ALREADY_EXISTS error if the control
+ *  has already been applied. Returns a FAILED_PRECONDITION error if the
+ *  addition could exceed maximum number of control allowed for that type of
+ *  control.
+ *
+ *  Method: retail.projects.locations.catalogs.servingConfigs.addControl
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsAddControl : GTLRCloudRetailQuery
+
+/**
+ *  Required. The source ServingConfig resource name . Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/servingConfigs/{serving_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *servingConfig;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2ServingConfig.
+ *
+ *  Enables a Control on the specified ServingConfig. The control is added in
+ *  the last position of the list of controls it belongs to (e.g. if it's a
+ *  facet spec control it will be applied in the last position of
+ *  servingConfig.facetSpecIds) Returns a ALREADY_EXISTS error if the control
+ *  has already been applied. Returns a FAILED_PRECONDITION error if the
+ *  addition could exceed maximum number of control allowed for that type of
+ *  control.
+ *
+ *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2AddControlRequest to
+ *    include in the query.
+ *  @param servingConfig Required. The source ServingConfig resource name .
+ *    Format:
+ *    `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/servingConfigs/{serving_config_id}`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsAddControl
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2AddControlRequest *)object
+                  servingConfig:(NSString *)servingConfig;
+
+@end
+
+/**
+ *  Creates a ServingConfig. A maximum of 100 ServingConfigs are allowed in a
+ *  Catalog, otherwise a FAILED_PRECONDITION error is returned.
+ *
+ *  Method: retail.projects.locations.catalogs.servingConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsCreate : GTLRCloudRetailQuery
+
+/**
+ *  Required. Full resource name of parent. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The ID to use for the ServingConfig, which will become the final
+ *  component of the ServingConfig's resource name. This value should be 4-63
+ *  characters, and valid characters are /a-z-_/.
+ */
+@property(nonatomic, copy, nullable) NSString *servingConfigId;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2ServingConfig.
+ *
+ *  Creates a ServingConfig. A maximum of 100 ServingConfigs are allowed in a
+ *  Catalog, otherwise a FAILED_PRECONDITION error is returned.
+ *
+ *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2ServingConfig to
+ *    include in the query.
+ *  @param parent Required. Full resource name of parent. Format:
+ *    `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2ServingConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a ServingConfig. Returns a NotFound error if the ServingConfig does
+ *  not exist.
+ *
+ *  Method: retail.projects.locations.catalogs.servingConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsDelete : GTLRCloudRetailQuery
+
+/**
+ *  Required. The resource name of the ServingConfig to delete. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/servingConfigs/{serving_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleProtobufEmpty.
+ *
+ *  Deletes a ServingConfig. Returns a NotFound error if the ServingConfig does
+ *  not exist.
+ *
+ *  @param name Required. The resource name of the ServingConfig to delete.
+ *    Format:
+ *    `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/servingConfigs/{serving_config_id}`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not
+ *  exist.
+ *
+ *  Method: retail.projects.locations.catalogs.servingConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsGet : GTLRCloudRetailQuery
+
+/**
+ *  Required. The resource name of the ServingConfig to get. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/servingConfigs/{serving_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2ServingConfig.
+ *
+ *  Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not
+ *  exist.
+ *
+ *  @param name Required. The resource name of the ServingConfig to get. Format:
+ *    `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/servingConfigs/{serving_config_id}`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all ServingConfigs linked to this catalog.
+ *
+ *  Method: retail.projects.locations.catalogs.servingConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsList : GTLRCloudRetailQuery
+
+/**
+ *  Optional. Maximum number of results to return. If unspecified, defaults to
+ *  100. If a value greater than 100 is provided, at most 100 results are
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListServingConfigs` call.
+ *  Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The catalog resource name. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2ListServingConfigsResponse.
+ *
+ *  Lists all ServingConfigs linked to this catalog.
+ *
+ *  @param parent Required. The catalog resource name. Format:
+ *    `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a ServingConfig.
+ *
+ *  Method: retail.projects.locations.catalogs.servingConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsPatch : GTLRCloudRetailQuery
+
+/**
+ *  Immutable. Fully qualified name `projects/ * /locations/global/catalogs/ *
+ *  /servingConfig/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Indicates which fields in the provided ServingConfig to update. The
+ *  following are NOT supported: * ServingConfig.name If not set, all supported
+ *  fields are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2ServingConfig.
+ *
+ *  Updates a ServingConfig.
+ *
+ *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2ServingConfig to
+ *    include in the query.
+ *  @param name Immutable. Fully qualified name `projects/ *
+ *    /locations/global/catalogs/ * /servingConfig/ *`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2ServingConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Makes a recommendation prediction.
  *
  *  Method: retail.projects.locations.catalogs.servingConfigs.predict
@@ -1118,10 +1771,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsPredict : GTLRCloudRetailQuery
 
 /**
- *  Required. Full resource name of the format: {placement=projects/ *
- *  /locations/global/catalogs/default_catalog/servingConfigs/ *} or
- *  {placement=projects/ *
- *  /locations/global/catalogs/default_catalog/placements/ *}. We recommend
+ *  Required. Full resource name of the format: `{placement=projects/ *
+ *  /locations/global/catalogs/default_catalog/servingConfigs/ *}` or
+ *  `{placement=projects/ *
+ *  /locations/global/catalogs/default_catalog/placements/ *}`. We recommend
  *  using the `servingConfigs` resource. `placements` is a legacy resource. The
  *  ID of the Recommendations AI serving config or placement. Before you can
  *  request predictions from your model, you must create at least one serving
@@ -1140,10 +1793,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2PredictRequest to
  *    include in the query.
  *  @param placement Required. Full resource name of the format:
- *    {placement=projects/ *
- *    /locations/global/catalogs/default_catalog/servingConfigs/ *} or
- *    {placement=projects/ *
- *    /locations/global/catalogs/default_catalog/placements/ *}. We recommend
+ *    `{placement=projects/ *
+ *    /locations/global/catalogs/default_catalog/servingConfigs/ *}` or
+ *    `{placement=projects/ *
+ *    /locations/global/catalogs/default_catalog/placements/ *}`. We recommend
  *    using the `servingConfigs` resource. `placements` is a legacy resource.
  *    The ID of the Recommendations AI serving config or placement. Before you
  *    can request predictions from your model, you must create at least one
@@ -1161,9 +1814,47 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Disables a Control on the specified ServingConfig. The control is removed
+ *  from the ServingConfig. Returns a NOT_FOUND error if the Control is not
+ *  enabled for the ServingConfig.
+ *
+ *  Method: retail.projects.locations.catalogs.servingConfigs.removeControl
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsRemoveControl : GTLRCloudRetailQuery
+
+/**
+ *  Required. The source ServingConfig resource name . Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/servingConfigs/{serving_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *servingConfig;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2ServingConfig.
+ *
+ *  Disables a Control on the specified ServingConfig. The control is removed
+ *  from the ServingConfig. Returns a NOT_FOUND error if the Control is not
+ *  enabled for the ServingConfig.
+ *
+ *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2RemoveControlRequest
+ *    to include in the query.
+ *  @param servingConfig Required. The source ServingConfig resource name .
+ *    Format:
+ *    `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/servingConfigs/{serving_config_id}`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsRemoveControl
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2RemoveControlRequest *)object
+                  servingConfig:(NSString *)servingConfig;
+
+@end
+
+/**
  *  Performs a search. This feature is only available for users who have Retail
- *  Search enabled. Please enable Retail Search on Cloud Console before using
- *  this feature.
+ *  Search enabled. Enable Retail Search on Cloud Console before using this
+ *  feature.
  *
  *  Method: retail.projects.locations.catalogs.servingConfigs.search
  *
@@ -1187,8 +1878,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2SearchResponse.
  *
  *  Performs a search. This feature is only available for users who have Retail
- *  Search enabled. Please enable Retail Search on Cloud Console before using
- *  this feature.
+ *  Search enabled. Enable Retail Search on Cloud Console before using this
+ *  feature.
  *
  *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2SearchRequest to
  *    include in the query.
@@ -1278,6 +1969,104 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Updates the AttributesConfig. The catalog attributes in the request will be
+ *  updated in the catalog, or inserted if they do not exist. Existing catalog
+ *  attributes not included in the request will remain unchanged. Attributes
+ *  that are assigned to products, but do not exist at the catalog level, are
+ *  always included in the response. The product attribute is assigned default
+ *  values for missing catalog attribute fields, e.g., searchable and dynamic
+ *  facetable options.
+ *
+ *  Method: retail.projects.locations.catalogs.updateAttributesConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsUpdateAttributesConfig : GTLRCloudRetailQuery
+
+/**
+ *  Required. Immutable. The fully qualified resource name of the attribute
+ *  config. Format: `projects/ * /locations/ * /catalogs/ * /attributesConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Indicates which fields in the provided AttributesConfig to update. The
+ *  following is the only supported field: * AttributesConfig.catalog_attributes
+ *  If not set, all supported fields are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2AttributesConfig.
+ *
+ *  Updates the AttributesConfig. The catalog attributes in the request will be
+ *  updated in the catalog, or inserted if they do not exist. Existing catalog
+ *  attributes not included in the request will remain unchanged. Attributes
+ *  that are assigned to products, but do not exist at the catalog level, are
+ *  always included in the response. The product attribute is assigned default
+ *  values for missing catalog attribute fields, e.g., searchable and dynamic
+ *  facetable options.
+ *
+ *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2AttributesConfig to
+ *    include in the query.
+ *  @param name Required. Immutable. The fully qualified resource name of the
+ *    attribute config. Format: `projects/ * /locations/ * /catalogs/ *
+ *    /attributesConfig`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsUpdateAttributesConfig
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2AttributesConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the CompletionConfigs.
+ *
+ *  Method: retail.projects.locations.catalogs.updateCompletionConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsUpdateCompletionConfig : GTLRCloudRetailQuery
+
+/**
+ *  Required. Immutable. Fully qualified name `projects/ * /locations/ *
+ *  /catalogs/ * /completionConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Indicates which fields in the provided CompletionConfig to update. The
+ *  following are the only supported fields: * CompletionConfig.matching_order *
+ *  CompletionConfig.max_suggestions * CompletionConfig.min_prefix_length *
+ *  CompletionConfig.auto_learning If not set, all supported fields are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2CompletionConfig.
+ *
+ *  Updates the CompletionConfigs.
+ *
+ *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2CompletionConfig to
+ *    include in the query.
+ *  @param name Required. Immutable. Fully qualified name `projects/ *
+ *    /locations/ * /catalogs/ * /completionConfig`
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsUpdateCompletionConfig
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2CompletionConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Writes a single user event from the browser. This uses a GET request to due
  *  to browser restriction of POST-ing to a 3rd party domain. This method is
  *  used only by the Retail API JavaScript pixel and Google Tag Manager. Users
@@ -1336,9 +2125,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Bulk import of User events. Request processing might be synchronous. Events
  *  that already exist are skipped. Use this method for backfilling historical
- *  user events. Operation.response is of type ImportResponse. Note that it is
- *  possible for a subset of the items to be successfully inserted.
- *  Operation.metadata is of type ImportMetadata.
+ *  user events. `Operation.response` is of type `ImportResponse`. Note that it
+ *  is possible for a subset of the items to be successfully inserted.
+ *  `Operation.metadata` is of type `ImportMetadata`.
  *
  *  Method: retail.projects.locations.catalogs.userEvents.import
  *
@@ -1355,9 +2144,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Bulk import of User events. Request processing might be synchronous. Events
  *  that already exist are skipped. Use this method for backfilling historical
- *  user events. Operation.response is of type ImportResponse. Note that it is
- *  possible for a subset of the items to be successfully inserted.
- *  Operation.metadata is of type ImportMetadata.
+ *  user events. `Operation.response` is of type `ImportResponse`. Note that it
+ *  is possible for a subset of the items to be successfully inserted.
+ *  `Operation.metadata` is of type `ImportMetadata`.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2ImportUserEventsRequest to include in
@@ -1415,14 +2204,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Starts a user event rejoin operation with latest product catalog. Events
- *  will not be annotated with detailed product information if product is
- *  missing from the catalog at the time the user event is ingested, and these
- *  events are stored as unjoined events with a limited usage on training and
- *  serving. This method can be used to start a join operation on specified
- *  events with latest version of product catalog. It can also be used to
- *  correct events joined with the wrong product catalog. A rejoin operation can
- *  take hours or days to complete.
+ *  Starts a user-event rejoin operation with latest product catalog. Events are
+ *  not annotated with detailed product information for products that are
+ *  missing from the catalog when the user event is ingested. These events are
+ *  stored as unjoined events with limited usage on training and serving. You
+ *  can use this method to start a join operation on specified events with the
+ *  latest version of product catalog. You can also use this method to correct
+ *  events joined with the wrong product catalog. A rejoin operation can take
+ *  hours or days to complete.
  *
  *  Method: retail.projects.locations.catalogs.userEvents.rejoin
  *
@@ -1440,14 +2229,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRetail_GoogleLongrunningOperation.
  *
- *  Starts a user event rejoin operation with latest product catalog. Events
- *  will not be annotated with detailed product information if product is
- *  missing from the catalog at the time the user event is ingested, and these
- *  events are stored as unjoined events with a limited usage on training and
- *  serving. This method can be used to start a join operation on specified
- *  events with latest version of product catalog. It can also be used to
- *  correct events joined with the wrong product catalog. A rejoin operation can
- *  take hours or days to complete.
+ *  Starts a user-event rejoin operation with latest product catalog. Events are
+ *  not annotated with detailed product information for products that are
+ *  missing from the catalog when the user event is ingested. These events are
+ *  stored as unjoined events with limited usage on training and serving. You
+ *  can use this method to start a join operation on specified events with the
+ *  latest version of product catalog. You can also use this method to correct
+ *  events joined with the wrong product catalog. A rejoin operation can take
+ *  hours or days to complete.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest to include in

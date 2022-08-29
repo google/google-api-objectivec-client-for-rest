@@ -1173,7 +1173,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_OAuthRequirements
-@dynamic canonicalScopes;
+@dynamic allowAnyScope, canonicalScopes;
 @end
 
 

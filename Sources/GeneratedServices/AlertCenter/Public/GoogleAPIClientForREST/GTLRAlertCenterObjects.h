@@ -745,6 +745,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 
 
 /**
+ *  The explanation message associated with ApnsCertificationExpiring and
+ *  ApnsCertificationExpired alerts.
+ */
+@interface GTLRAlertCenter_ApnsCertificateExpirationInfo : GTLRObject
+
+/**
+ *  The Apple ID used for the certificate, may be blank if admins did not enter
+ *  it.
+ */
+@property(nonatomic, copy, nullable) NSString *appleId;
+
+/** The expiration date of the APNS Certificate. */
+@property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
+
+/** The UID for the certificate. */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+@end
+
+
+/**
  *  Alerts from App Maker to notify admins to set up default SQL instance.
  */
 @interface GTLRAlertCenter_AppMakerSqlSetupNotification : GTLRObject

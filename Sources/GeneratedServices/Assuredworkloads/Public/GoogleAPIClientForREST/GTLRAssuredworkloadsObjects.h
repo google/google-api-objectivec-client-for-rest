@@ -57,6 +57,12 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata.complianceRegime
 
 /**
+ *  Assured Workloads for Australia Regions and Support controls
+ *
+ *  Value: "AU_REGIONS_AND_US_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_AuRegionsAndUsSupport;
+/**
  *  Assured Workloads For Canada Regions and Support controls
  *
  *  Value: "CA_REGIONS_AND_SUPPORT"
@@ -126,6 +132,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 // ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload.complianceRegime
 
+/**
+ *  Assured Workloads for Australia Regions and Support controls
+ *
+ *  Value: "AU_REGIONS_AND_US_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_AuRegionsAndUsSupport;
 /**
  *  Assured Workloads For Canada Regions and Support controls
  *
@@ -347,6 +359,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata.complianceRegime
 
 /**
+ *  Assured Workloads for Australia Regions and Support controls
+ *
+ *  Value: "AU_REGIONS_AND_US_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AuRegionsAndUsSupport;
+/**
  *  Assured Workloads For Canada Regions and Support controls
  *
  *  Value: "CA_REGIONS_AND_SUPPORT"
@@ -442,6 +460,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 // ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload.complianceRegime
 
+/**
+ *  Assured Workloads for Australia Regions and Support controls
+ *
+ *  Value: "AU_REGIONS_AND_US_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AuRegionsAndUsSupport;
 /**
  *  Assured Workloads For Canada Regions and Support controls
  *
@@ -667,6 +691,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainCreateWorkloadOperationMetadata.complianceRegime
 
 /**
+ *  Assured Workloads for Australia Regions and Support controls
+ *
+ *  Value: "AU_REGIONS_AND_US_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainCreateWorkloadOperationMetadata_ComplianceRegime_AuRegionsAndUsSupport;
+/**
  *  Assured Workloads For Canada Regions and Support controls
  *
  *  Value: "CA_REGIONS_AND_SUPPORT"
@@ -736,6 +766,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 // ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload.complianceRegime
 
+/**
+ *  Assured Workloads for Australia Regions and Support controls
+ *
+ *  Value: "AU_REGIONS_AND_US_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_ComplianceRegime_AuRegionsAndUsSupport;
 /**
  *  Assured Workloads For Canada Regions and Support controls
  *
@@ -963,6 +999,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  managed by the workload.
  *
  *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_AuRegionsAndUsSupport
+ *        Assured Workloads for Australia Regions and Support controls (Value:
+ *        "AU_REGIONS_AND_US_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_CaRegionsAndSupport
  *        Assured Workloads For Canada Regions and Support controls (Value:
  *        "CA_REGIONS_AND_SUPPORT")
@@ -1018,7 +1057,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload : GTLRObject
 
 /**
- *  Input only. The billing account used for the resources which are direct
+ *  Output only. The billing account used for the resources which are direct
  *  children of workload. This billing account is initially associated with the
  *  resources created as part of Workload creation. After the initial creation
  *  of these resources, the customer can change the assigned billing account.
@@ -1034,6 +1073,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Required. Immutable. Compliance Regime associated with this workload.
  *
  *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_AuRegionsAndUsSupport
+ *        Assured Workloads for Australia Regions and Support controls (Value:
+ *        "AU_REGIONS_AND_US_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_CaRegionsAndSupport
  *        Assured Workloads For Canada Regions and Support controls (Value:
  *        "CA_REGIONS_AND_SUPPORT")
@@ -1360,6 +1402,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  managed by the workload.
  *
  *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AuRegionsAndUsSupport
+ *        Assured Workloads for Australia Regions and Support controls (Value:
+ *        "AU_REGIONS_AND_US_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CaRegionsAndSupport
  *        Assured Workloads For Canada Regions and Support controls (Value:
  *        "CA_REGIONS_AND_SUPPORT")
@@ -1479,6 +1524,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Required. Immutable. Compliance Regime associated with this workload.
  *
  *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AuRegionsAndUsSupport
+ *        Assured Workloads for Australia Regions and Support controls (Value:
+ *        "AU_REGIONS_AND_US_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CaRegionsAndSupport
  *        Assured Workloads For Canada Regions and Support controls (Value:
  *        "CA_REGIONS_AND_SUPPORT")
@@ -1748,6 +1796,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  managed by the workload.
  *
  *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainCreateWorkloadOperationMetadata_ComplianceRegime_AuRegionsAndUsSupport
+ *        Assured Workloads for Australia Regions and Support controls (Value:
+ *        "AU_REGIONS_AND_US_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainCreateWorkloadOperationMetadata_ComplianceRegime_CaRegionsAndSupport
  *        Assured Workloads For Canada Regions and Support controls (Value:
  *        "CA_REGIONS_AND_SUPPORT")
@@ -1822,6 +1873,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Required. Immutable. Compliance Regime associated with this workload.
  *
  *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_ComplianceRegime_AuRegionsAndUsSupport
+ *        Assured Workloads for Australia Regions and Support controls (Value:
+ *        "AU_REGIONS_AND_US_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_ComplianceRegime_CaRegionsAndSupport
  *        Assured Workloads For Canada Regions and Support controls (Value:
  *        "CA_REGIONS_AND_SUPPORT")
@@ -1992,7 +2046,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadComplianceStatus : GTLRObject
 
 /**
- *  Optional. Count of active Violations in the Workload.
+ *  Count of active Violations which are acknowledged in the Workload.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *acknowledgedViolationCount;
+
+/**
+ *  Count of active Violations which haven't been acknowledged.
  *
  *  Uses NSNumber of intValue.
  */

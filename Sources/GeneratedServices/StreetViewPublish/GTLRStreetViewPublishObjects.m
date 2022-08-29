@@ -37,6 +37,9 @@ NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_FailedToRefi
 NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_GpsDataGap = @"GPS_DATA_GAP";
 NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_ImuDataGap = @"IMU_DATA_GAP";
 NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientGps = @"INSUFFICIENT_GPS";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientImu = @"INSUFFICIENT_IMU";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientOverlapTimeSeries = @"INSUFFICIENT_OVERLAP_TIME_SERIES";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientVideoFrames = @"INSUFFICIENT_VIDEO_FRAMES";
 NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_Internal = @"INTERNAL";
 NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InvalidCaptureTime = @"INVALID_CAPTURE_TIME";
 NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InvalidGps = @"INVALID_GPS";
@@ -177,7 +180,7 @@ NSString * const kGTLRStreetViewPublish_PhotoSequence_ProcessingState_Processing
 //
 
 @implementation GTLRStreetViewPublish_GpsDataGapFailureDetails
-@dynamic gapDuration, gapTime;
+@dynamic gapDuration, gapStartTime;
 @end
 
 
@@ -207,7 +210,7 @@ NSString * const kGTLRStreetViewPublish_PhotoSequence_ProcessingState_Processing
 //
 
 @implementation GTLRStreetViewPublish_ImuDataGapFailureDetails
-@dynamic gapDuration, gapTime;
+@dynamic gapDuration, gapStartTime;
 @end
 
 
@@ -311,7 +314,7 @@ NSString * const kGTLRStreetViewPublish_PhotoSequence_ProcessingState_Processing
 //
 
 @implementation GTLRStreetViewPublish_NotOutdoorsFailureDetails
-@dynamic time;
+@dynamic startTime;
 @end
 
 

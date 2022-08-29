@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The backup's project and location, in the format
- *  `projects/{project_number}/locations/{location}`. In Cloud Filestore, backup
+ *  `projects/{project_number}/locations/{location}`. In Filestore, backup
  *  locations map to GCP regions, for example **us-west1**.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -67,8 +67,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudFilestore_Backup to include in the query.
  *  @param parent Required. The backup's project and location, in the format
- *    `projects/{project_number}/locations/{location}`. In Cloud Filestore,
- *    backup locations map to GCP regions, for example **us-west1**.
+ *    `projects/{project_number}/locations/{location}`. In Filestore, backup
+ *    locations map to GCP regions, for example **us-west1**.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsBackupsCreate
  */
@@ -167,7 +167,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The project and location for which to retrieve backup information,
- *  in the format `projects/{project_number}/locations/{location}`. In Cloud
+ *  in the format `projects/{project_number}/locations/{location}`. In
  *  Filestore, backup locations map to GCP regions, for example **us-west1**. To
  *  retrieve backup information for all locations, use "-" for the `{location}`
  *  value.
@@ -182,9 +182,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent Required. The project and location for which to retrieve
  *    backup information, in the format
- *    `projects/{project_number}/locations/{location}`. In Cloud Filestore,
- *    backup locations map to GCP regions, for example **us-west1**. To retrieve
- *    backup information for all locations, use "-" for the `{location}` value.
+ *    `projects/{project_number}/locations/{location}`. In Filestore, backup
+ *    locations map to GCP regions, for example **us-west1**. To retrieve backup
+ *    information for all locations, use "-" for the `{location}` value.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsBackupsList
  *
@@ -282,8 +282,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The instance's project and location, in the format
- *  `projects/{project_id}/locations/{location}`. In Cloud Filestore, locations
- *  map to GCP zones, for example **us-west1-b**.
+ *  `projects/{project_id}/locations/{location}`. In Filestore, locations map to
+ *  GCP zones, for example **us-west1-b**.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -296,8 +296,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudFilestore_Instance to include in the query.
  *  @param parent Required. The instance's project and location, in the format
- *    `projects/{project_id}/locations/{location}`. In Cloud Filestore,
- *    locations map to GCP zones, for example **us-west1-b**.
+ *    `projects/{project_id}/locations/{location}`. In Filestore, locations map
+ *    to GCP zones, for example **us-west1-b**.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesCreate
  */

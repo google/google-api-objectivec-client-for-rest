@@ -13543,6 +13543,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  */
 @interface GTLRVision_TextDetectionParams : GTLRObject
 
+/** A list of advanced OCR options to fine-tune OCR behavior. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *advancedOcrOptions;
+
 /**
  *  By default, Cloud Vision API only includes confidence score for
  *  DOCUMENT_TEXT_DETECTION result. Set the flag to true to include confidence

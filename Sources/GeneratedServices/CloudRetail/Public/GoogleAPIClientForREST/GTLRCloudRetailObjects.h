@@ -24,21 +24,36 @@
 @class GTLRCloudRetail_GoogleCloudRetailLoggingImportErrorContext;
 @class GTLRCloudRetail_GoogleCloudRetailLoggingServiceContext;
 @class GTLRCloudRetail_GoogleCloudRetailLoggingSourceLocation;
+@class GTLRCloudRetail_GoogleCloudRetailV2alphaBigQueryOutputResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2alphaExportErrorsConfig;
 @class GTLRCloudRetail_GoogleCloudRetailV2alphaImportErrorsConfig;
+@class GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig;
+@class GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfigCandidate;
+@class GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfigPanel;
+@class GTLRCloudRetail_GoogleCloudRetailV2alphaModelServingConfigList;
+@class GTLRCloudRetail_GoogleCloudRetailV2alphaOutputResult;
+@class GTLRCloudRetail_GoogleCloudRetailV2alphaTransformedUserEventsMetadata;
 @class GTLRCloudRetail_GoogleCloudRetailV2alphaUserEventImportSummary;
+@class GTLRCloudRetail_GoogleCloudRetailV2AttributesConfig_CatalogAttributes;
 @class GTLRCloudRetail_GoogleCloudRetailV2Audience;
+@class GTLRCloudRetail_GoogleCloudRetailV2betaBigQueryOutputResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2betaExportErrorsConfig;
 @class GTLRCloudRetail_GoogleCloudRetailV2betaImportErrorsConfig;
+@class GTLRCloudRetail_GoogleCloudRetailV2betaOutputResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2betaUserEventImportSummary;
 @class GTLRCloudRetail_GoogleCloudRetailV2BigQuerySource;
 @class GTLRCloudRetail_GoogleCloudRetailV2Catalog;
+@class GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute;
 @class GTLRCloudRetail_GoogleCloudRetailV2ColorInfo;
 @class GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseCompletionResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseCompletionResult_Attributes;
 @class GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseRecentSearchResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2CompletionDataInputConfig;
 @class GTLRCloudRetail_GoogleCloudRetailV2CompletionDetail;
+@class GTLRCloudRetail_GoogleCloudRetailV2Condition;
+@class GTLRCloudRetail_GoogleCloudRetailV2ConditionQueryTerm;
+@class GTLRCloudRetail_GoogleCloudRetailV2ConditionTimeRange;
+@class GTLRCloudRetail_GoogleCloudRetailV2Control;
 @class GTLRCloudRetail_GoogleCloudRetailV2CustomAttribute;
 @class GTLRCloudRetail_GoogleCloudRetailV2FulfillmentInfo;
 @class GTLRCloudRetail_GoogleCloudRetailV2GcsSource;
@@ -62,6 +77,15 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2Promotion;
 @class GTLRCloudRetail_GoogleCloudRetailV2PurchaseTransaction;
 @class GTLRCloudRetail_GoogleCloudRetailV2Rating;
+@class GTLRCloudRetail_GoogleCloudRetailV2Rule;
+@class GTLRCloudRetail_GoogleCloudRetailV2RuleBoostAction;
+@class GTLRCloudRetail_GoogleCloudRetailV2RuleDoNotAssociateAction;
+@class GTLRCloudRetail_GoogleCloudRetailV2RuleFilterAction;
+@class GTLRCloudRetail_GoogleCloudRetailV2RuleIgnoreAction;
+@class GTLRCloudRetail_GoogleCloudRetailV2RuleOnewaySynonymsAction;
+@class GTLRCloudRetail_GoogleCloudRetailV2RuleRedirectAction;
+@class GTLRCloudRetail_GoogleCloudRetailV2RuleReplacementAction;
+@class GTLRCloudRetail_GoogleCloudRetailV2RuleTwowaySynonymsAction;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchRequest_Labels;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchRequestBoostSpec;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchRequestBoostSpecConditionBoostSpec;
@@ -77,6 +101,7 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult_MatchingVariantFields;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult_VariantRollupValues;
+@class GTLRCloudRetail_GoogleCloudRetailV2ServingConfig;
 @class GTLRCloudRetail_GoogleCloudRetailV2UserEvent;
 @class GTLRCloudRetail_GoogleCloudRetailV2UserEvent_Attributes;
 @class GTLRCloudRetail_GoogleCloudRetailV2UserEventImportSummary;
@@ -101,16 +126,376 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2alphaModel.dataState
+
+/**
+ *  The model does not have sufficient training data. Error messages can be
+ *  queried via Stackdriver.
+ *
+ *  Value: "DATA_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_DataState_DataError;
+/**
+ *  The model has sufficient training data.
+ *
+ *  Value: "DATA_OK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_DataState_DataOk;
+/**
+ *  Unspecified default value, should never be explicitly set.
+ *
+ *  Value: "DATA_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_DataState_DataStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2alphaModel.filteringOption
+
+/**
+ *  Recommendation filtering is disabled.
+ *
+ *  Value: "RECOMMENDATIONS_FILTERING_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_FilteringOption_RecommendationsFilteringDisabled;
+/**
+ *  Recommendation filtering is enabled.
+ *
+ *  Value: "RECOMMENDATIONS_FILTERING_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_FilteringOption_RecommendationsFilteringEnabled;
+/**
+ *  Value used when unset. In this case, server behavior defaults to
+ *  RECOMMENDATIONS_FILTERING_DISABLED.
+ *
+ *  Value: "RECOMMENDATIONS_FILTERING_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_FilteringOption_RecommendationsFilteringOptionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2alphaModel.periodicTuningState
+
+/**
+ *  The model cannot be tuned with periodic tuning OR the `TuneModel` method.
+ *  Hide the options in customer UI and reject any requests through the backend
+ *  self serve API.
+ *
+ *  Value: "ALL_TUNING_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_PeriodicTuningState_AllTuningDisabled;
+/**
+ *  The model has periodic tuning disabled. Tuning can be reenabled by calling
+ *  the `EnableModelPeriodicTuning` method or by calling the `TuneModel` method.
+ *
+ *  Value: "PERIODIC_TUNING_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_PeriodicTuningState_PeriodicTuningDisabled;
+/**
+ *  The model has periodic tuning enabled. Tuning can be disabled by calling the
+ *  `DisableModelPeriodicTuning` method.
+ *
+ *  Value: "PERIODIC_TUNING_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_PeriodicTuningState_PeriodicTuningEnabled;
+/**
+ *  Unspecified default value, should never be explicitly set.
+ *
+ *  Value: "PERIODIC_TUNING_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_PeriodicTuningState_PeriodicTuningStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2alphaModel.servingState
+
+/**
+ *  The model is serving and can be queried.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_ServingState_Active;
+/**
+ *  The model is not serving.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_ServingState_Inactive;
+/**
+ *  Unspecified serving state.
+ *
+ *  Value: "SERVING_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_ServingState_ServingStateUnspecified;
+/**
+ *  The model is trained on tuned hyperparameters and can be queried.
+ *
+ *  Value: "TUNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_ServingState_Tuned;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2alphaModel.trainingState
+
+/**
+ *  The model training is paused.
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_TrainingState_Paused;
+/**
+ *  The model is training.
+ *
+ *  Value: "TRAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_TrainingState_Training;
+/**
+ *  Unspecified training state.
+ *
+ *  Value: "TRAINING_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_TrainingState_TrainingStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig.restriction
+
+/**
+ *  Allow any ServingConfig to be show on any number of panels. Example: `Panel1
+ *  candidates`: pdp_ctr, pdp_cvr, home_page_ctr_no_diversity `Panel2
+ *  candidates`: home_page_ctr_no_diversity, home_page_ctr_diversity,
+ *  pdp_cvr_no_diversity `Restriction` = NO_RESTRICTION `Valid combinations`: *
+ *  * (pdp_ctr, home_page_ctr_no_diversity) * (pdp_ctr, home_page_ctr_diversity)
+ *  * (pdp_ctr, pdp_cvr_no_diversity) * (pdp_cvr, home_page_ctr_no_diversity) *
+ *  (pdp_cvr, home_page_ctr_diversity) * (pdp_cvr, pdp_cvr_no_diversity) *
+ *  (home_page_ctr_no_diversity, home_page_ctr_no_diversity) *
+ *  (home_page_ctr_no_diversity, home_page_ctr_diversity) *
+ *  (home_page_ctr_no_diversity, pdp_cvr_no_diversity) * `Invalid combinations`:
+ *  []
+ *
+ *  Value: "NO_RESTRICTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig_Restriction_NoRestriction;
+/**
+ *  Unspecified value for restriction.
+ *
+ *  Value: "RESTRICTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig_Restriction_RestrictionUnspecified;
+/**
+ *  Do not allow multiple ServingConfigs with same Model.name to be show on on
+ *  different panels. Example: `Panel1 candidates`: * pdp_ctr, pdp_cvr,
+ *  home_page_ctr_no_diversity * `Panel2 candidates`: *
+ *  home_page_ctr_no_diversity, home_page_ctr_diversity_low,
+ *  pdp_cvr_no_diversity * `Restriction` = `UNIQUE_MODEL_RESTRICTION` `Valid
+ *  combinations`: * * (pdp_ctr, home_page_ctr_no_diversity) * (pdp_ctr,
+ *  home_page_ctr_diversity) * (pdp_ctr, pdp_cvr_no_diversity) * (pdp_ctr,
+ *  pdp_cvr_no_diversity) * (pdp_cvr, home_page_ctr_no_diversity) * (pdp_cvr,
+ *  home_page_ctr_diversity_low) * (home_page_ctr_no_diversity,
+ *  pdp_cvr_no_diversity) * `Invalid combinations`: * *
+ *  (home_page_ctr_no_diversity, home_page_ctr_no_diversity) * (pdp_cvr,
+ *  pdp_cvr_no_diversity) *
+ *
+ *  Value: "UNIQUE_MODEL_RESTRICTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig_Restriction_UniqueModelRestriction;
+/**
+ *  Do not allow multiple ServingConfigs with same Model.type to be shown on
+ *  different panels. Example: `Panel1 candidates`: * pdp_ctr, pdp_cvr,
+ *  home_page_ctr_no_diversity * `Panel2 candidates`: *
+ *  home_page_ctr_no_diversity, home_page_ctr_diversity_low,
+ *  pdp_cvr_no_diversity * `Restriction` = `UNIQUE_MODEL_RESTRICTION` `Valid
+ *  combinations`: * * (pdp_ctr, home_page_ctr_no_diversity) * (pdp_ctr,
+ *  home_page_ctr_diversity) * (pdp_cvr, home_page_ctr_no_diversity) * (pdp_cvr,
+ *  home_page_ctr_diversity_low) * (home_page_ctr_no_diversity,
+ *  pdp_cvr_no_diversity) * `Invalid combinations`: * * (pdp_ctr,
+ *  pdp_cvr_no_diversity) * (pdp_ctr, pdp_cvr_no_diversity) * (pdp_cvr,
+ *  pdp_cvr_no_diversity) * (home_page_ctr_no_diversity,
+ *  home_page_ctr_no_diversity) * (home_page_ctr_no_diversity,
+ *  home_page_ctr_diversity) *
+ *
+ *  Value: "UNIQUE_MODEL_TYPE_RESTRICTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig_Restriction_UniqueModelTypeRestriction;
+/**
+ *  Do not allow the same ServingConfig.name to be shown on multiple panels.
+ *  Example: `Panel1 candidates`: * pdp_ctr, pdp_cvr, home_page_ctr_no_diversity
+ *  * `Panel2 candidates`: * home_page_ctr_no_diversity,
+ *  home_page_ctr_diversity_low, pdp_cvr_no_diversity * `Restriction` =
+ *  `UNIQUE_SERVING_CONFIG_RESTRICTION` `Valid combinations`: * * (pdp_ctr,
+ *  home_page_ctr_no_diversity) * (pdp_ctr, home_page_ctr_diversity_low) *
+ *  (pdp_ctr, pdp_cvr_no_diversity) * (pdp_ctr, pdp_cvr_no_diversity) *
+ *  (pdp_cvr, home_page_ctr_no_diversity) * (pdp_cvr,
+ *  home_page_ctr_diversity_low) * (pdp_cvr, pdp_cvr_no_diversity) *
+ *  (home_page_ctr_no_diversity, home_page_ctr_diversity_low) *
+ *  (home_page_ctr_no_diversity, pdp_cvr_no_diversity) * `Invalid combinations`:
+ *  * * (home_page_ctr_no_diversity, home_page_ctr_no_diversity) *
+ *
+ *  Value: "UNIQUE_SERVING_CONFIG_RESTRICTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig_Restriction_UniqueServingConfigRestriction;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2AttributesConfig.attributeConfigLevel
+
+/**
+ *  Value used when unset. In this case, server behavior defaults to
+ *  CATALOG_LEVEL_ATTRIBUTE_CONFIG.
+ *
+ *  Value: "ATTRIBUTE_CONFIG_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2AttributesConfig_AttributeConfigLevel_AttributeConfigLevelUnspecified;
+/**
+ *  At this level, we honor the attribute configurations set in
+ *  CatalogConfig.attribute_configs.
+ *
+ *  Value: "CATALOG_LEVEL_ATTRIBUTE_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2AttributesConfig_AttributeConfigLevel_CatalogLevelAttributeConfig;
+/**
+ *  At this level, we honor the attribute configurations set in
+ *  Product.attributes.
+ *
+ *  Value: "PRODUCT_LEVEL_ATTRIBUTE_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2AttributesConfig_AttributeConfigLevel_ProductLevelAttributeConfig;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute.dynamicFacetableOption
+
+/**
+ *  Dynamic facetable option disabled for an attribute.
+ *
+ *  Value: "DYNAMIC_FACETABLE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_DynamicFacetableOption_DynamicFacetableDisabled;
+/**
+ *  Dynamic facetable option enabled for an attribute.
+ *
+ *  Value: "DYNAMIC_FACETABLE_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_DynamicFacetableOption_DynamicFacetableEnabled;
+/**
+ *  Value used when unset. Defaults to DYNAMIC_FACETABLE_ENABLED.
+ *
+ *  Value: "DYNAMIC_FACETABLE_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_DynamicFacetableOption_DynamicFacetableOptionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute.indexableOption
+
+/**
+ *  Indexable option disabled for an attribute.
+ *
+ *  Value: "INDEXABLE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_IndexableOption_IndexableDisabled;
+/**
+ *  Indexable option enabled for an attribute.
+ *
+ *  Value: "INDEXABLE_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_IndexableOption_IndexableEnabled;
+/**
+ *  Value used when unset. Defaults to INDEXABLE_ENABLED.
+ *
+ *  Value: "INDEXABLE_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_IndexableOption_IndexableOptionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute.searchableOption
+
+/**
+ *  Searchable option disabled for an attribute.
+ *
+ *  Value: "SEARCHABLE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_SearchableOption_SearchableDisabled;
+/**
+ *  Searchable option enabled for an attribute.
+ *
+ *  Value: "SEARCHABLE_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_SearchableOption_SearchableEnabled;
+/**
+ *  Value used when unset. Defaults to SEARCHABLE_DISABLED.
+ *
+ *  Value: "SEARCHABLE_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_SearchableOption_SearchableOptionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute.type
+
+/**
+ *  Numerical attribute.
+ *
+ *  Value: "NUMERICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_Type_Numerical;
+/**
+ *  Textual attribute.
+ *
+ *  Value: "TEXTUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_Type_Textual;
+/**
+ *  The type of the attribute is unknown. Used when type cannot be derived from
+ *  attribute that is not in_use.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_Type_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2Control.searchSolutionUseCase
+
+/**
+ *  Browse use case. Expects the traffic has an empty query.
+ *
+ *  Value: "SEARCH_SOLUTION_USE_CASE_BROWSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Control_SearchSolutionUseCase_SearchSolutionUseCaseBrowse;
+/**
+ *  Search use case. Expects the traffic has a non-empty query.
+ *
+ *  Value: "SEARCH_SOLUTION_USE_CASE_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Control_SearchSolutionUseCase_SearchSolutionUseCaseSearch;
+/**
+ *  The value when it's unspecified. In this case, server behavior defaults to
+ *  SEARCH_SOLUTION_USE_CASE_SEARCH.
+ *
+ *  Value: "SEARCH_SOLUTION_USE_CASE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Control_SearchSolutionUseCase_SearchSolutionUseCaseUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2Control.solutionTypes
+
+/**
+ *  Used for Recommendations AI.
+ *
+ *  Value: "SOLUTION_TYPE_RECOMMENDATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Control_SolutionTypes_SolutionTypeRecommendation;
+/**
+ *  Used for Retail Search.
+ *
+ *  Value: "SOLUTION_TYPE_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Control_SolutionTypes_SolutionTypeSearch;
+/**
+ *  Default value.
+ *
+ *  Value: "SOLUTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Control_SolutionTypes_SolutionTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest.reconciliationMode
 
 /**
  *  Calculates diff and replaces the entire product dataset. Existing products
- *  may be deleted if they are not present in the source location. Can only be
- *  set while using BigQuerySource. And the BigQuery dataset must be created in
- *  the data location "us (multiple regions in United States)", otherwise a
- *  PERMISSION_DENIED error is thrown. Add the IAM permission "BigQuery Data
- *  Viewer" for cloud-retail-customer-data-access\@system.gserviceaccount.com
- *  before using this feature otherwise an error is thrown.
+ *  may be deleted if they are not present in the source location.
  *
  *  Value: "FULL"
  */
@@ -227,16 +612,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
  *  Only faceted search will be performed. The product search will be disabled.
  *  When in this mode, one or both of SearchRequest.facet_specs and
  *  SearchRequest.dynamic_facet_spec should be set. Otherwise, an
- *  INVALID_ARGUMENT error is returned. Only [SearchResponse.Facet] will be
- *  returned. [SearchResponse.SearchResult] will not be returned.
+ *  INVALID_ARGUMENT error is returned. Only SearchResponse.Facet will be
+ *  returned. SearchResponse.SearchResult will not be returned.
  *
  *  Value: "FACETED_SEARCH_ONLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequest_SearchMode_FacetedSearchOnly;
 /**
  *  Only product search will be performed. The faceted search will be disabled.
- *  Only [SearchResponse.SearchResult] will be returned. [SearchResponse.Facet]
- *  will not be returned, even if SearchRequest.facet_specs or
+ *  Only SearchResponse.SearchResult will be returned. SearchResponse.Facet will
+ *  not be returned, even if SearchRequest.facet_specs or
  *  SearchRequest.dynamic_facet_spec is set.
  *
  *  Value: "PRODUCT_SEARCH_ONLY"
@@ -244,8 +629,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequest_SearchMode_ProductSearchOnly;
 /**
  *  Default value. In this case both product search and faceted search will be
- *  performed. Both [SearchResponse.SearchResult] and [SearchResponse.Facet]
- *  will be returned.
+ *  performed. Both SearchResponse.SearchResult and SearchResponse.Facet will be
+ *  returned.
  *
  *  Value: "SEARCH_MODE_UNSPECIFIED"
  */
@@ -277,7 +662,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 // GTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec.mode
 
 /**
- *  Let CRS decide whether to use personalization.
+ *  Let CRS decide whether to use personalization based on quality of user event
+ *  data.
  *
  *  Value: "AUTO"
  */
@@ -289,7 +675,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec_Mode_Disabled;
 /**
- *  Default value. Defaults to Mode.AUTO.
+ *  Default value. In this case, server behavior defaults to Mode.AUTO.
  *
  *  Value: "MODE_UNSPECIFIED"
  */
@@ -305,7 +691,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansionSpec_Condition_Auto;
 /**
- *  Unspecified query expansion condition. This defaults to Condition.DISABLED.
+ *  Unspecified query expansion condition. In this case, server behavior
+ *  defaults to Condition.DISABLED.
  *
  *  Value: "CONDITION_UNSPECIFIED"
  */
@@ -329,7 +716,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectionSpec_Mode_Auto;
 /**
- *  Unspecified spell correction mode. This defaults to Mode.AUTO.
+ *  Unspecified spell correction mode. In this case, server behavior defaults to
+ *  Mode.AUTO.
  *
  *  Value: "MODE_UNSPECIFIED"
  */
@@ -342,6 +730,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  Value: "SUGGESTION_ONLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectionSpec_Mode_SuggestionOnly;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2ServingConfig.diversityType
+
+/**
+ *  Data driven diversity.
+ *
+ *  Value: "DATA_DRIVEN_DIVERSITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_DiversityType_DataDrivenDiversity;
+/**
+ *  Default value.
+ *
+ *  Value: "DIVERSITY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_DiversityType_DiversityTypeUnspecified;
+/**
+ *  Rule based diversity.
+ *
+ *  Value: "RULE_BASED_DIVERSITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_DiversityType_RuleBasedDiversity;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2ServingConfig.solutionTypes
+
+/**
+ *  Used for Recommendations AI.
+ *
+ *  Value: "SOLUTION_TYPE_RECOMMENDATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes_SolutionTypeRecommendation;
+/**
+ *  Used for Retail Search.
+ *
+ *  Value: "SOLUTION_TYPE_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes_SolutionTypeSearch;
+/**
+ *  Default value.
+ *
+ *  Value: "SOLUTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes_SolutionTypeUnspecified;
 
 /**
  *  Message that represents an arbitrary HTTP body. It should only be used for
@@ -569,6 +1001,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
+ *  Request for CatalogService.AddCatalogAttribute method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2AddCatalogAttributeRequest : GTLRObject
+
+/** Required. The CatalogAttribute to add. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute *catalogAttribute;
+
+@end
+
+
+/**
+ *  Request for AddControl method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2AddControlRequest : GTLRObject
+
+/**
+ *  Required. The id of the control to apply. Assumed to be in the same catalog
+ *  as the serving config - if id is not found a NOT_FOUND error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *controlId;
+
+@end
+
+
+/**
  *  Metadata related to the progress of the AddFulfillmentPlaces operation.
  *  Currently empty because there is no meaningful metadata populated from the
  *  ProductService.AddFulfillmentPlaces method.
@@ -735,6 +1192,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
+ *  A BigQuery output result.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2alphaBigQueryOutputResult : GTLRObject
+
+/** The ID of a BigQuery Dataset. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** The ID of a BigQuery Table. */
+@property(nonatomic, copy, nullable) NSString *tableId;
+
+@end
+
+
+/**
+ *  Metadata associated with a create operation.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2alphaCreateModelMetadata : GTLRObject
+
+/**
+ *  The resource name of the model that this create applies to. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+@end
+
+
+/**
  *  Configuration of destination for Export related errors.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2alphaExportErrorsConfig : GTLRObject
@@ -750,8 +1235,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
- *  Metadata related to the progress of the Export operation. This will be
- *  returned by the google.longrunning.Operation.metadata field.
+ *  Metadata related to the progress of the Export operation. This is returned
+ *  by the google.longrunning.Operation.metadata field.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2alphaExportMetadata : GTLRObject
 
@@ -781,6 +1266,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /** This field is never set. */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2alphaExportErrorsConfig *errorsConfig;
 
+/** Output result indicating where the data were exported to. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2alphaOutputResult *outputResult;
+
 @end
 
 
@@ -797,6 +1285,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /** This field is never set. */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2alphaExportErrorsConfig *errorsConfig;
+
+/** Output result indicating where the data were exported to. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2alphaOutputResult *outputResult;
 
 @end
 
@@ -821,8 +1312,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  Google Cloud Storage prefix for import errors. This must be an empty,
- *  existing Cloud Storage directory. Import errors will be written to sharded
- *  files in this directory, one per line, as a JSON-encoded `google.rpc.Status`
+ *  existing Cloud Storage directory. Import errors are written to sharded files
+ *  in this directory, one per line, as a JSON-encoded `google.rpc.Status`
  *  message.
  */
 @property(nonatomic, copy, nullable) NSString *gcsPrefix;
@@ -831,8 +1322,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
- *  Metadata related to the progress of the Import operation. This will be
- *  returned by the google.longrunning.Operation.metadata field.
+ *  Metadata related to the progress of the Import operation. This is returned
+ *  by the google.longrunning.Operation.metadata field.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2alphaImportMetadata : GTLRObject
 
@@ -848,9 +1339,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  Pub/Sub topic for receiving notification. If this field is set, when the
- *  import is finished, a notification will be sent to specified Pub/Sub topic.
- *  The message data will be JSON string of a Operation. Format of the Pub/Sub
- *  topic is `projects/{project}/topics/{topic}`.
+ *  import is finished, a notification is sent to specified Pub/Sub topic. The
+ *  message data is JSON string of a Operation. Format of the Pub/Sub topic is
+ *  `projects/{project}/topics/{topic}`.
  */
 @property(nonatomic, copy, nullable) NSString *notificationPubsubTopic;
 
@@ -863,6 +1354,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *successCount;
+
+/** Metadata related to transform user events. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2alphaTransformedUserEventsMetadata *transformedUserEventsMetadata;
 
 /**
  *  Operation last update time. If the operation is done, this is also the
@@ -909,6 +1403,333 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /** Aggregated statistics of user event import status. */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2alphaUserEventImportSummary *importSummary;
+
+@end
+
+
+/**
+ *  Metadata that describes the training and serving parameters of a Model. A
+ *  Model can be associated with a ServingConfig and then queried through the
+ *  Predict API.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2alphaModel : GTLRObject
+
+/** Output only. Timestamp the Recommendation Model was created at. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The state of data requirements for this model: `DATA_OK` and
+ *  `DATA_ERROR`. Recommendation model cannot be trained if the data is in
+ *  `DATA_ERROR` state. Recommendation model can have `DATA_ERROR` state even if
+ *  serving state is `ACTIVE`: models were trained successfully before, but
+ *  cannot be refreshed because model no longer has sufficient data for
+ *  training.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_DataState_DataError
+ *        The model does not have sufficient training data. Error messages can
+ *        be queried via Stackdriver. (Value: "DATA_ERROR")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_DataState_DataOk
+ *        The model has sufficient training data. (Value: "DATA_OK")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_DataState_DataStateUnspecified
+ *        Unspecified default value, should never be explicitly set. (Value:
+ *        "DATA_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *dataState;
+
+/**
+ *  Required. The display name of the model. Should be human readable, used to
+ *  display Recommendation Models in the Retail Cloud Console Dashboard. UTF-8
+ *  encoded string with limit of 1024 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. If `RECOMMENDATIONS_FILTERING_ENABLED`, recommendation filtering
+ *  by attributes is enabled for the model.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_FilteringOption_RecommendationsFilteringDisabled
+ *        Recommendation filtering is disabled. (Value:
+ *        "RECOMMENDATIONS_FILTERING_DISABLED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_FilteringOption_RecommendationsFilteringEnabled
+ *        Recommendation filtering is enabled. (Value:
+ *        "RECOMMENDATIONS_FILTERING_ENABLED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_FilteringOption_RecommendationsFilteringOptionUnspecified
+ *        Value used when unset. In this case, server behavior defaults to
+ *        RECOMMENDATIONS_FILTERING_DISABLED. (Value:
+ *        "RECOMMENDATIONS_FILTERING_OPTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *filteringOption;
+
+/** Output only. The timestamp when the latest successful tune finished. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastTuneTime;
+
+/**
+ *  Required. The fully qualified resource name of the model. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
+ *  catalog_id has char limit of 50. recommendation_model_id has char limit of
+ *  40.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The optimization objective e.g. `cvr`. Currently supported values:
+ *  `ctr`, `cvr`, `revenue-per-order`. If not specified, we choose default based
+ *  on model type. Default depends on type of recommendation:
+ *  `recommended-for-you` => `ctr` `others-you-may-like` => `ctr`
+ *  `frequently-bought-together` => `revenue_per_order`
+ */
+@property(nonatomic, copy, nullable) NSString *optimizationObjective;
+
+/** Optional. The page optimization config. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig *pageOptimizationConfig;
+
+/**
+ *  Optional. The state of periodic tuning. The period we use is 3 months - to
+ *  do a one-off tune earlier use the `TuneModel` method. Default value is
+ *  `PERIODIC_TUNING_ENABLED`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_PeriodicTuningState_AllTuningDisabled
+ *        The model cannot be tuned with periodic tuning OR the `TuneModel`
+ *        method. Hide the options in customer UI and reject any requests
+ *        through the backend self serve API. (Value: "ALL_TUNING_DISABLED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_PeriodicTuningState_PeriodicTuningDisabled
+ *        The model has periodic tuning disabled. Tuning can be reenabled by
+ *        calling the `EnableModelPeriodicTuning` method or by calling the
+ *        `TuneModel` method. (Value: "PERIODIC_TUNING_DISABLED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_PeriodicTuningState_PeriodicTuningEnabled
+ *        The model has periodic tuning enabled. Tuning can be disabled by
+ *        calling the `DisableModelPeriodicTuning` method. (Value:
+ *        "PERIODIC_TUNING_ENABLED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_PeriodicTuningState_PeriodicTuningStateUnspecified
+ *        Unspecified default value, should never be explicitly set. (Value:
+ *        "PERIODIC_TUNING_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *periodicTuningState;
+
+/**
+ *  Output only. The list of valid serving configs associated with the
+ *  PageOptimizationConfig.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2alphaModelServingConfigList *> *servingConfigLists;
+
+/**
+ *  Output only. The serving state of the model: `ACTIVE`, `NOT_ACTIVE`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_ServingState_Active
+ *        The model is serving and can be queried. (Value: "ACTIVE")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_ServingState_Inactive
+ *        The model is not serving. (Value: "INACTIVE")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_ServingState_ServingStateUnspecified
+ *        Unspecified serving state. (Value: "SERVING_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_ServingState_Tuned
+ *        The model is trained on tuned hyperparameters and can be queried.
+ *        (Value: "TUNED")
+ */
+@property(nonatomic, copy, nullable) NSString *servingState;
+
+/**
+ *  Optional. The training state that the model is in (e.g. `TRAINING` or
+ *  `PAUSED`). Since part of the cost of running the service is frequency of
+ *  training - this can be used to determine when to train model in order to
+ *  control cost. If not specified: the default value for `CreateModel` method
+ *  is `TRAINING`. The default value for `UpdateModel` method is to keep the
+ *  state the same as before.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_TrainingState_Paused
+ *        The model training is paused. (Value: "PAUSED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_TrainingState_Training
+ *        The model is training. (Value: "TRAINING")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_TrainingState_TrainingStateUnspecified
+ *        Unspecified training state. (Value: "TRAINING_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *trainingState;
+
+/**
+ *  Output only. The tune operation associated with the model. Can be used to
+ *  determine if there is an ongoing tune for this recommendation. Empty field
+ *  implies no tune is goig on.
+ */
+@property(nonatomic, copy, nullable) NSString *tuningOperation;
+
+/**
+ *  Required. The type of model e.g. `home-page`. Currently supported values:
+ *  `recommended-for-you`, `others-you-may-like`, `frequently-bought-together`,
+ *  `page-optimization`, `similar-items`, `buy-it-again`, and
+ *  `recently-viewed`(readonly value).
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Output only. Timestamp the Recommendation Model was last updated. E.g. if a
+ *  Recommendation Model was paused - this would be the time the pause was
+ *  initiated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The PageOptimizationConfig for model training. This determines how many
+ *  panels to optimize for, and which serving configurations to consider for
+ *  each panel. The purpose of this model is to optimize which ServingConfig to
+ *  show on which panels in way that optimizes the visitors shopping journey.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig : GTLRObject
+
+/**
+ *  Required. The type of UserEvent this page optimization is shown for. Each
+ *  page has an associated event type - this will be the corresponding event
+ *  type for the page that the page optimization model is used on. Supported
+ *  types: * `add-to-cart`: Products being added to cart. * `detail-page-view`:
+ *  Products detail page viewed. * `home-page-view`: Homepage viewed *
+ *  `category-page-view`: Homepage viewed * `shopping-cart-page-view`: User
+ *  viewing a shopping cart. `home-page-view` only allows models with type
+ *  `recommended-for-you`. All other page_optimization_event_type allow all
+ *  Model.types.
+ */
+@property(nonatomic, copy, nullable) NSString *pageOptimizationEventType;
+
+/** Required. A list of panel configurations. Limit = 5. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfigPanel *> *panels;
+
+/**
+ *  Optional. How to restrict results across panels e.g. can the same
+ *  ServingConfig be shown on multiple panels at once. If unspecified, default
+ *  to `UNIQUE_MODEL_RESTRICTION`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig_Restriction_NoRestriction
+ *        Allow any ServingConfig to be show on any number of panels. Example:
+ *        `Panel1 candidates`: pdp_ctr, pdp_cvr, home_page_ctr_no_diversity
+ *        `Panel2 candidates`: home_page_ctr_no_diversity,
+ *        home_page_ctr_diversity, pdp_cvr_no_diversity `Restriction` =
+ *        NO_RESTRICTION `Valid combinations`: * * (pdp_ctr,
+ *        home_page_ctr_no_diversity) * (pdp_ctr, home_page_ctr_diversity) *
+ *        (pdp_ctr, pdp_cvr_no_diversity) * (pdp_cvr,
+ *        home_page_ctr_no_diversity) * (pdp_cvr, home_page_ctr_diversity) *
+ *        (pdp_cvr, pdp_cvr_no_diversity) * (home_page_ctr_no_diversity,
+ *        home_page_ctr_no_diversity) * (home_page_ctr_no_diversity,
+ *        home_page_ctr_diversity) * (home_page_ctr_no_diversity,
+ *        pdp_cvr_no_diversity) * `Invalid combinations`: [] (Value:
+ *        "NO_RESTRICTION")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig_Restriction_RestrictionUnspecified
+ *        Unspecified value for restriction. (Value: "RESTRICTION_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig_Restriction_UniqueModelRestriction
+ *        Do not allow multiple ServingConfigs with same Model.name to be show
+ *        on on different panels. Example: `Panel1 candidates`: * pdp_ctr,
+ *        pdp_cvr, home_page_ctr_no_diversity * `Panel2 candidates`: *
+ *        home_page_ctr_no_diversity, home_page_ctr_diversity_low,
+ *        pdp_cvr_no_diversity * `Restriction` = `UNIQUE_MODEL_RESTRICTION`
+ *        `Valid combinations`: * * (pdp_ctr, home_page_ctr_no_diversity) *
+ *        (pdp_ctr, home_page_ctr_diversity) * (pdp_ctr, pdp_cvr_no_diversity) *
+ *        (pdp_ctr, pdp_cvr_no_diversity) * (pdp_cvr,
+ *        home_page_ctr_no_diversity) * (pdp_cvr, home_page_ctr_diversity_low) *
+ *        (home_page_ctr_no_diversity, pdp_cvr_no_diversity) * `Invalid
+ *        combinations`: * * (home_page_ctr_no_diversity,
+ *        home_page_ctr_no_diversity) * (pdp_cvr, pdp_cvr_no_diversity) *
+ *        (Value: "UNIQUE_MODEL_RESTRICTION")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig_Restriction_UniqueModelTypeRestriction
+ *        Do not allow multiple ServingConfigs with same Model.type to be shown
+ *        on different panels. Example: `Panel1 candidates`: * pdp_ctr, pdp_cvr,
+ *        home_page_ctr_no_diversity * `Panel2 candidates`: *
+ *        home_page_ctr_no_diversity, home_page_ctr_diversity_low,
+ *        pdp_cvr_no_diversity * `Restriction` = `UNIQUE_MODEL_RESTRICTION`
+ *        `Valid combinations`: * * (pdp_ctr, home_page_ctr_no_diversity) *
+ *        (pdp_ctr, home_page_ctr_diversity) * (pdp_cvr,
+ *        home_page_ctr_no_diversity) * (pdp_cvr, home_page_ctr_diversity_low) *
+ *        (home_page_ctr_no_diversity, pdp_cvr_no_diversity) * `Invalid
+ *        combinations`: * * (pdp_ctr, pdp_cvr_no_diversity) * (pdp_ctr,
+ *        pdp_cvr_no_diversity) * (pdp_cvr, pdp_cvr_no_diversity) *
+ *        (home_page_ctr_no_diversity, home_page_ctr_no_diversity) *
+ *        (home_page_ctr_no_diversity, home_page_ctr_diversity) * (Value:
+ *        "UNIQUE_MODEL_TYPE_RESTRICTION")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig_Restriction_UniqueServingConfigRestriction
+ *        Do not allow the same ServingConfig.name to be shown on multiple
+ *        panels. Example: `Panel1 candidates`: * pdp_ctr, pdp_cvr,
+ *        home_page_ctr_no_diversity * `Panel2 candidates`: *
+ *        home_page_ctr_no_diversity, home_page_ctr_diversity_low,
+ *        pdp_cvr_no_diversity * `Restriction` =
+ *        `UNIQUE_SERVING_CONFIG_RESTRICTION` `Valid combinations`: * *
+ *        (pdp_ctr, home_page_ctr_no_diversity) * (pdp_ctr,
+ *        home_page_ctr_diversity_low) * (pdp_ctr, pdp_cvr_no_diversity) *
+ *        (pdp_ctr, pdp_cvr_no_diversity) * (pdp_cvr,
+ *        home_page_ctr_no_diversity) * (pdp_cvr, home_page_ctr_diversity_low) *
+ *        (pdp_cvr, pdp_cvr_no_diversity) * (home_page_ctr_no_diversity,
+ *        home_page_ctr_diversity_low) * (home_page_ctr_no_diversity,
+ *        pdp_cvr_no_diversity) * `Invalid combinations`: * *
+ *        (home_page_ctr_no_diversity, home_page_ctr_no_diversity) * (Value:
+ *        "UNIQUE_SERVING_CONFIG_RESTRICTION")
+ */
+@property(nonatomic, copy, nullable) NSString *restriction;
+
+@end
+
+
+/**
+ *  A candidate to consider for a given panel. Currently only ServingConfig are
+ *  valid candidates.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfigCandidate : GTLRObject
+
+/**
+ *  This has to be a valid ServingConfig identifier. For example, for a
+ *  ServingConfig with full name: `projects/ *
+ *  /locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`,
+ *  this would be `my_candidate_config`.
+ */
+@property(nonatomic, copy, nullable) NSString *servingConfigId;
+
+@end
+
+
+/**
+ *  An individual panel with a list of ServingConfigs to consider for it.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfigPanel : GTLRObject
+
+/** Required. The candidates to consider on the panel. Limit = 10. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfigCandidate *> *candidates;
+
+/**
+ *  Required. The default candidate. If the model fails at serving time, we fall
+ *  back to the default.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfigCandidate *defaultCandidate;
+
+/** Optional. The name to display for the panel. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+@end
+
+
+/**
+ *  Represents an ordered combination of valid serving configs, which can be
+ *  used for `PAGE_OPTIMIZATION` recommendations.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2alphaModelServingConfigList : GTLRObject
+
+/**
+ *  Optional. A set of valid serving configs that may be used for
+ *  `PAGE_OPTIMIZATION`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *servingConfigIds;
+
+@end
+
+
+/**
+ *  Output result.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2alphaOutputResult : GTLRObject
+
+/** Export result in BigQuery. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2alphaBigQueryOutputResult *> *bigqueryResult;
 
 @end
 
@@ -995,14 +1816,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
- *  Metadata for RejoinUserEvents method.
+ *  Metadata for `RejoinUserEvents` method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2alphaRejoinUserEventsMetadata : GTLRObject
 @end
 
 
 /**
- *  Response message for RejoinUserEvents method.
+ *  Response message for `RejoinUserEvents` method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2alphaRejoinUserEventsResponse : GTLRObject
 
@@ -1070,6 +1891,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
+ *  Metadata related to transform user events operation.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2alphaTransformedUserEventsMetadata : GTLRObject
+
+/**
+ *  Count of entries in the source user events BigQuery table.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sourceEventsCount;
+
+/**
+ *  Count of entries in the transformed user events BigQuery table, which could
+ *  be different from the actually imported number of user events.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *transformedEventsCount;
+
+@end
+
+
+/**
+ *  Metadata associated with a tune operation.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2alphaTuneModelMetadata : GTLRObject
+
+/**
+ *  The resource name of the model that this tune applies to. Format:
+ *  `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+@end
+
+
+/**
+ *  Response associated with a tune operation.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2alphaTuneModelResponse : GTLRObject
+@end
+
+
+/**
  *  A summary of import result. The UserEventImportSummary summarizes the import
  *  status for user events.
  */
@@ -1090,6 +1955,64 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  */
 @property(nonatomic, strong, nullable) NSNumber *unjoinedEventsCount;
 
+@end
+
+
+/**
+ *  Catalog level attribute config.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2AttributesConfig : GTLRObject
+
+/**
+ *  Output only. The AttributeConfigLevel used for this catalog.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2AttributesConfig_AttributeConfigLevel_AttributeConfigLevelUnspecified
+ *        Value used when unset. In this case, server behavior defaults to
+ *        CATALOG_LEVEL_ATTRIBUTE_CONFIG. (Value:
+ *        "ATTRIBUTE_CONFIG_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2AttributesConfig_AttributeConfigLevel_CatalogLevelAttributeConfig
+ *        At this level, we honor the attribute configurations set in
+ *        CatalogConfig.attribute_configs. (Value:
+ *        "CATALOG_LEVEL_ATTRIBUTE_CONFIG")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2AttributesConfig_AttributeConfigLevel_ProductLevelAttributeConfig
+ *        At this level, we honor the attribute configurations set in
+ *        Product.attributes. (Value: "PRODUCT_LEVEL_ATTRIBUTE_CONFIG")
+ */
+@property(nonatomic, copy, nullable) NSString *attributeConfigLevel;
+
+/**
+ *  Enable attribute(s) config at catalog level. For example, indexable,
+ *  dynamic_facetable, or searchable for each attribute. The key is catalog
+ *  attribute's name. For example: `color`, `brands`,
+ *  `attributes.custom_attribute`, such as `attributes.xyz`. The maximum number
+ *  of catalog attributes allowed in a request is 1000.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2AttributesConfig_CatalogAttributes *catalogAttributes;
+
+/**
+ *  Required. Immutable. The fully qualified resource name of the attribute
+ *  config. Format: `projects/ * /locations/ * /catalogs/ * /attributesConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Enable attribute(s) config at catalog level. For example, indexable,
+ *  dynamic_facetable, or searchable for each attribute. The key is catalog
+ *  attribute's name. For example: `color`, `brands`,
+ *  `attributes.custom_attribute`, such as `attributes.xyz`. The maximum number
+ *  of catalog attributes allowed in a request is 1000.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2AttributesConfig_CatalogAttributes : GTLRObject
 @end
 
 
@@ -1163,6 +2086,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
+ *  A BigQuery output result.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2betaBigQueryOutputResult : GTLRObject
+
+/** The ID of a BigQuery Dataset. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** The ID of a BigQuery Table. */
+@property(nonatomic, copy, nullable) NSString *tableId;
+
+@end
+
+
+/**
  *  Configuration of destination for Export related errors.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2betaExportErrorsConfig : GTLRObject
@@ -1178,8 +2115,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
- *  Metadata related to the progress of the Export operation. This will be
- *  returned by the google.longrunning.Operation.metadata field.
+ *  Metadata related to the progress of the Export operation. This is returned
+ *  by the google.longrunning.Operation.metadata field.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2betaExportMetadata : GTLRObject
 
@@ -1209,6 +2146,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /** This field is never set. */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2betaExportErrorsConfig *errorsConfig;
 
+/** Output result indicating where the data were exported to. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2betaOutputResult *outputResult;
+
 @end
 
 
@@ -1225,6 +2165,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /** This field is never set. */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2betaExportErrorsConfig *errorsConfig;
+
+/** Output result indicating where the data were exported to. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2betaOutputResult *outputResult;
 
 @end
 
@@ -1249,8 +2192,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  Google Cloud Storage prefix for import errors. This must be an empty,
- *  existing Cloud Storage directory. Import errors will be written to sharded
- *  files in this directory, one per line, as a JSON-encoded `google.rpc.Status`
+ *  existing Cloud Storage directory. Import errors are written to sharded files
+ *  in this directory, one per line, as a JSON-encoded `google.rpc.Status`
  *  message.
  */
 @property(nonatomic, copy, nullable) NSString *gcsPrefix;
@@ -1259,8 +2202,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
- *  Metadata related to the progress of the Import operation. This will be
- *  returned by the google.longrunning.Operation.metadata field.
+ *  Metadata related to the progress of the Import operation. This is returned
+ *  by the google.longrunning.Operation.metadata field.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2betaImportMetadata : GTLRObject
 
@@ -1276,9 +2219,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  Pub/Sub topic for receiving notification. If this field is set, when the
- *  import is finished, a notification will be sent to specified Pub/Sub topic.
- *  The message data will be JSON string of a Operation. Format of the Pub/Sub
- *  topic is `projects/{project}/topics/{topic}`.
+ *  import is finished, a notification is sent to specified Pub/Sub topic. The
+ *  message data is JSON string of a Operation. Format of the Pub/Sub topic is
+ *  `projects/{project}/topics/{topic}`.
  */
 @property(nonatomic, copy, nullable) NSString *notificationPubsubTopic;
 
@@ -1342,6 +2285,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
+ *  Output result.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2betaOutputResult : GTLRObject
+
+/** Export result in BigQuery. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2betaBigQueryOutputResult *> *bigqueryResult;
+
+@end
+
+
+/**
  *  Metadata related to the progress of the Purge operation. This will be
  *  returned by the google.longrunning.Operation.metadata field.
  */
@@ -1367,14 +2321,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
- *  Metadata for RejoinUserEvents method.
+ *  Metadata for `RejoinUserEvents` method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2betaRejoinUserEventsMetadata : GTLRObject
 @end
 
 
 /**
- *  Response message for RejoinUserEvents method.
+ *  Response message for `RejoinUserEvents` method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2betaRejoinUserEventsResponse : GTLRObject
 
@@ -1478,9 +2432,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  Center](https://cloud.google.com/retail/recommendations-ai/docs/upload-catalog#mc).
  *  Supported values for user events imports: * `user_event` (default): One JSON
  *  UserEvent per line. * `user_event_ga360`: The schema is available here:
- *  https://support.google.com/analytics/answer/3437719. * `user_event_ga4`:
- *  This feature is in private preview. Please contact the support team for
- *  importing Google Analytics 4 events. The schema is available here:
+ *  https://support.google.com/analytics/answer/3437719. * `user_event_ga4`: The
+ *  schema is available here:
  *  https://support.google.com/analytics/answer/7029846. Supported values for
  *  auto-completion imports: * `suggestions` (default): One JSON completion
  *  suggestion per line. * `denylist`: One JSON deny suggestion per line. *
@@ -1503,7 +2456,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  BigQuery time partitioned table's _PARTITIONDATE in YYYY-MM-DD format. Only
- *  supported when ImportProductsRequest.reconciliation_mode is set to `FULL`.
+ *  supported in ImportProductsRequest.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleTypeDate *partitionDate;
 
@@ -1540,6 +2493,116 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /** Required. The product level configuration. */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2ProductLevelConfig *productLevelConfig;
+
+@end
+
+
+/**
+ *  Catalog level attribute config for an attribute. For example, if customers
+ *  want to enable/disable facet for a specific attribute.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute : GTLRObject
+
+/**
+ *  If DYNAMIC_FACETABLE_ENABLED, attribute values are available for dynamic
+ *  facet. Could only be DYNAMIC_FACETABLE_DISABLED if
+ *  CatalogAttribute.indexable_option is INDEXABLE_DISABLED. Otherwise, an
+ *  INVALID_ARGUMENT error is returned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_DynamicFacetableOption_DynamicFacetableDisabled
+ *        Dynamic facetable option disabled for an attribute. (Value:
+ *        "DYNAMIC_FACETABLE_DISABLED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_DynamicFacetableOption_DynamicFacetableEnabled
+ *        Dynamic facetable option enabled for an attribute. (Value:
+ *        "DYNAMIC_FACETABLE_ENABLED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_DynamicFacetableOption_DynamicFacetableOptionUnspecified
+ *        Value used when unset. Defaults to DYNAMIC_FACETABLE_ENABLED. (Value:
+ *        "DYNAMIC_FACETABLE_OPTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *dynamicFacetableOption;
+
+/**
+ *  When AttributesConfig.attribute_config_level is
+ *  CATALOG_LEVEL_ATTRIBUTE_CONFIG, if INDEXABLE_ENABLED attribute values are
+ *  indexed so that it can be filtered, faceted, or boosted in
+ *  SearchService.Search.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_IndexableOption_IndexableDisabled
+ *        Indexable option disabled for an attribute. (Value:
+ *        "INDEXABLE_DISABLED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_IndexableOption_IndexableEnabled
+ *        Indexable option enabled for an attribute. (Value:
+ *        "INDEXABLE_ENABLED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_IndexableOption_IndexableOptionUnspecified
+ *        Value used when unset. Defaults to INDEXABLE_ENABLED. (Value:
+ *        "INDEXABLE_OPTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *indexableOption;
+
+/**
+ *  Output only. Indicates whether this attribute has been used by any products.
+ *  `True` if at least one Product is using this attribute in
+ *  Product.attributes. Otherwise, this field is `False`. CatalogAttribute can
+ *  be pre-loaded by using CatalogService.AddCatalogAttribute,
+ *  CatalogService.ImportCatalogAttributes, or
+ *  CatalogService.UpdateAttributesConfig APIs. This field is `False` for
+ *  pre-loaded CatalogAttributes. Only pre-loaded CatalogAttributes that are
+ *  neither in use by products nor predefined can be deleted. CatalogAttributes
+ *  that are either in use by products or are predefined cannot be deleted;
+ *  however, their configuration properties will reset to default values upon
+ *  removal request. After catalog changes, it takes about 10 minutes for this
+ *  field to update.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inUse;
+
+/**
+ *  Required. Attribute name. For example: `color`, `brands`,
+ *  `attributes.custom_attribute`, such as `attributes.xyz`. To be indexable,
+ *  the attribute name can contain only alpha-numeric characters and
+ *  underscores. For example, an attribute named `attributes.abc_xyz` can be
+ *  indexed, but an attribute named `attributes.abc-xyz` cannot be indexed.
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  When AttributesConfig.attribute_config_level is
+ *  CATALOG_LEVEL_ATTRIBUTE_CONFIG, if SEARCHABLE_ENABLED, attribute values are
+ *  searchable by text queries in SearchService.Search. If SEARCHABLE_ENABLED
+ *  but attribute type is numerical, attribute values will not be searchable by
+ *  text queries in SearchService.Search, as there are no text values associated
+ *  to numerical attributes.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_SearchableOption_SearchableDisabled
+ *        Searchable option disabled for an attribute. (Value:
+ *        "SEARCHABLE_DISABLED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_SearchableOption_SearchableEnabled
+ *        Searchable option enabled for an attribute. (Value:
+ *        "SEARCHABLE_ENABLED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_SearchableOption_SearchableOptionUnspecified
+ *        Value used when unset. Defaults to SEARCHABLE_DISABLED. (Value:
+ *        "SEARCHABLE_OPTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *searchableOption;
+
+/**
+ *  Output only. The type of this attribute. This is derived from the attribute
+ *  in Product.attributes.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_Type_Numerical
+ *        Numerical attribute. (Value: "NUMERICAL")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_Type_Textual
+ *        Textual attribute. (Value: "TEXTUAL")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_Type_Unknown
+ *        The type of the attribute is unknown. Used when type cannot be derived
+ *        from attribute that is not in_use. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1603,7 +2666,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  when CompleteQueryRequest.visitor_id field is set and UserEvent is imported.
  *  The recent searches satisfy the follow rules: * They are ordered from latest
  *  to oldest. * They are matched with CompleteQueryRequest.query case
- *  insensitively. * They are transformed to lower cases. * They are UTF-8 safe.
+ *  insensitively. * They are transformed to lower case. * They are UTF-8 safe.
  *  Recent searches are deduplicated. More recent searches will be reserved when
  *  duplication happens.
  */
@@ -1621,8 +2684,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  Custom attributes for the suggestion term. * For "user-data", the attributes
  *  are additional custom attributes ingested through BigQuery. * For
  *  "cloud-retail", the attributes are product attributes generated by Cloud
- *  Retail. This is an experimental feature. Contact Retail Search support team
- *  if you are interested in enabling it.
+ *  Retail. It requires UserEvent.product_details is imported properly.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseCompletionResult_Attributes *attributes;
 
@@ -1636,8 +2698,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  Custom attributes for the suggestion term. * For "user-data", the attributes
  *  are additional custom attributes ingested through BigQuery. * For
  *  "cloud-retail", the attributes are product attributes generated by Cloud
- *  Retail. This is an experimental feature. Contact Retail Search support team
- *  if you are interested in enabling it.
+ *  Retail. It requires UserEvent.product_details is imported properly.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCloudRetail_GoogleCloudRetailV2CustomAttribute. Use @c
@@ -1656,6 +2717,97 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /** The recent search query. */
 @property(nonatomic, copy, nullable) NSString *recentSearch;
+
+@end
+
+
+/**
+ *  Catalog level autocomplete config for customers to customize autocomplete
+ *  feature's settings.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2CompletionConfig : GTLRObject
+
+/**
+ *  Output only. The source data for the latest import of the autocomplete
+ *  allowlist phrases.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2CompletionDataInputConfig *allowlistInputConfig;
+
+/**
+ *  If set to true, the auto learning function is enabled. Auto learning uses
+ *  user data to generate suggestions using ML techniques. Default value is
+ *  false. Only after enabling auto learning can users use `cloud-retail` data
+ *  in CompleteQueryRequest.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoLearning;
+
+/**
+ *  Output only. The source data for the latest import of the autocomplete
+ *  denylist phrases.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2CompletionDataInputConfig *denylistInputConfig;
+
+/**
+ *  Output only. Name of the LRO corresponding to the latest allowlist import.
+ *  Can use GetOperation API to retrieve the latest state of the Long Running
+ *  Operation.
+ */
+@property(nonatomic, copy, nullable) NSString *lastAllowlistImportOperation;
+
+/**
+ *  Output only. Name of the LRO corresponding to the latest denylist import.
+ *  Can use GetOperation API to retrieve the latest state of the Long Running
+ *  Operation.
+ */
+@property(nonatomic, copy, nullable) NSString *lastDenylistImportOperation;
+
+/**
+ *  Output only. Name of the LRO corresponding to the latest suggestion terms
+ *  list import. Can use GetOperation API to retrieve the latest state of the
+ *  Long Running Operation.
+ */
+@property(nonatomic, copy, nullable) NSString *lastSuggestionsImportOperation;
+
+/**
+ *  Specifies the matching order for autocomplete suggestions, e.g., a query
+ *  consisting of 'sh' with 'out-of-order' specified would suggest "women's
+ *  shoes", whereas a query of 'red s' with 'exact-prefix' specified would
+ *  suggest "red shoes". Currently supported values: * 'out-of-order' *
+ *  'exact-prefix' Default value: 'exact-prefix'.
+ */
+@property(nonatomic, copy, nullable) NSString *matchingOrder;
+
+/**
+ *  The maximum number of autocomplete suggestions returned per term. Default
+ *  value is 20. If left unset or set to 0, then will fallback to default value.
+ *  Value range is 1 to 20.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSuggestions;
+
+/**
+ *  The minimum number of characters needed to be typed in order to get
+ *  suggestions. Default value is 2. If left unset or set to 0, then will
+ *  fallback to default value. Value range is 1 to 20.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minPrefixLength;
+
+/**
+ *  Required. Immutable. Fully qualified name `projects/ * /locations/ *
+ *  /catalogs/ * /completionConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The source data for the latest import of the autocomplete
+ *  suggestion phrases.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2CompletionDataInputConfig *suggestionsInputConfig;
 
 @end
 
@@ -1696,6 +2848,122 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /** End user selected CompleteQueryResponse.CompletionResult.suggestion. */
 @property(nonatomic, copy, nullable) NSString *selectedSuggestion;
+
+@end
+
+
+/**
+ *  Metadata that is used to define a condition that triggers an action. A valid
+ *  condition must specify at least one of 'query_terms' or 'products_filter'.
+ *  If multiple fields are specified, the condition is met if all the fields are
+ *  satisfied e.g. if a set of query terms and product_filter are set, then only
+ *  items matching the product_filter for requests with a query matching the
+ *  query terms wil get boosted.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2Condition : GTLRObject
+
+/**
+ *  Range of time(s) specifying when Condition is active. Condition true if any
+ *  time range matches.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2ConditionTimeRange *> *activeTimeRange;
+
+/**
+ *  A list (up to 10 entries) of terms to match the query on. If not specified,
+ *  match all queries. If many query terms are specified, the condition is
+ *  matched if any of the terms is a match (i.e. using the OR operator).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2ConditionQueryTerm *> *queryTerms;
+
+@end
+
+
+/**
+ *  Query terms that we want to match on.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ConditionQueryTerm : GTLRObject
+
+/**
+ *  Whether this is supposed to be a full or partial match.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fullMatch;
+
+/**
+ *  The value of the term to match on. Value cannot be empty. Value can have at
+ *  most 3 terms if specified as a partial match. Each space separated string is
+ *  considered as one term. For example, "a b c" is 3 terms and allowed, but " a
+ *  b c d" is 4 terms and not allowed for a partial match.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Used for time-dependent conditions. Example: Want to have rule applied for
+ *  week long sale.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ConditionTimeRange : GTLRObject
+
+/** End of time range. Range is inclusive. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Start of time range. Range is inclusive. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Configures dynamic metadata that can be linked to a ServingConfig and affect
+ *  search or recommendation results at serving time.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2Control : GTLRObject
+
+/**
+ *  Output only. List of serving configuration ids that are associated with this
+ *  control in the same Catalog. Note the association is managed via the
+ *  ServingConfig, this is an output only denormalized view.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *associatedServingConfigIds;
+
+/**
+ *  Required. The human readable control display name. Used in Retail UI. This
+ *  field must be a UTF-8 encoded string with a length limit of 128 characters.
+ *  Otherwise, an INVALID_ARGUMENT error is thrown.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Immutable. Fully qualified name `projects/ * /locations/global/catalogs/ *
+ *  /controls/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  A rule control - a condition-action pair. Enacts a set action when the
+ *  condition is triggered. For example: Boost "gShoe" when query full matches
+ *  "Running Shoes".
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2Rule *rule;
+
+/**
+ *  Specifies the use case for the control. Affects what condition fields can be
+ *  set. Only settable by search controls. Will default to
+ *  SEARCH_SOLUTION_USE_CASE_SEARCH if not specified. Currently only allow one
+ *  search_solution_use_case per control.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *searchSolutionUseCase;
+
+/**
+ *  Required. Immutable. The solution types that the control is used for.
+ *  Currently we support setting only one type of solution at creation time.
+ *  Only `SOLUTION_TYPE_SEARCH` value is supported at the moment. If no solution
+ *  type is provided at creation time, will default to SOLUTION_TYPE_SEARCH.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *solutionTypes;
 
 @end
 
@@ -1785,7 +3053,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
- *  Google Cloud Storage location for input content. format.
+ *  Google Cloud Storage location for input content.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2GcsSource : GTLRObject
 
@@ -1798,8 +3066,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  Supported values for user events imports: * `user_event` (default): One JSON
  *  UserEvent per line. * `user_event_ga360`: Using
  *  https://support.google.com/analytics/answer/3437719. Supported values for
- *  control imports: * 'control' (default): One JSON Control per line. Supported
- *  values for catalog attribute imports: * 'catalog_attribute' (default): One
+ *  control imports: * `control` (default): One JSON Control per line. Supported
+ *  values for catalog attribute imports: * `catalog_attribute` (default): One
  *  CSV CatalogAttribute per line.
  */
 @property(nonatomic, copy, nullable) NSString *dataSchema;
@@ -1884,9 +3152,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  Pub/Sub topic for receiving notification. If this field is set, when the
- *  import is finished, a notification will be sent to specified Pub/Sub topic.
- *  The message data will be JSON string of a Operation. Format of the Pub/Sub
- *  topic is `projects/{project}/topics/{topic}`.
+ *  import is finished, a notification is sent to specified Pub/Sub topic. The
+ *  message data is JSON string of a Operation. Format of the Pub/Sub topic is
+ *  `projects/{project}/topics/{topic}`.
  */
 @property(nonatomic, copy, nullable) NSString *notificationPubsubTopic;
 
@@ -1913,8 +3181,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  Google Cloud Storage prefix for import errors. This must be an empty,
- *  existing Cloud Storage directory. Import errors will be written to sharded
- *  files in this directory, one per line, as a JSON-encoded `google.rpc.Status`
+ *  existing Cloud Storage directory. Import errors are written to sharded files
+ *  in this directory, one per line, as a JSON-encoded `google.rpc.Status`
  *  message.
  */
 @property(nonatomic, copy, nullable) NSString *gcsPrefix;
@@ -1923,8 +3191,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
- *  Metadata related to the progress of the Import operation. This will be
- *  returned by the google.longrunning.Operation.metadata field.
+ *  Metadata related to the progress of the Import operation. This is returned
+ *  by the google.longrunning.Operation.metadata field.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2ImportMetadata : GTLRObject
 
@@ -1940,9 +3208,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  Pub/Sub topic for receiving notification. If this field is set, when the
- *  import is finished, a notification will be sent to specified Pub/Sub topic.
- *  The message data will be JSON string of a Operation. Format of the Pub/Sub
- *  topic is `projects/{project}/topics/{topic}`.
+ *  import is finished, a notification is sent to specified Pub/Sub topic. The
+ *  message data is JSON string of a Operation. Format of the Pub/Sub topic is
+ *  `projects/{project}/topics/{topic}`.
  */
 @property(nonatomic, copy, nullable) NSString *notificationPubsubTopic;
 
@@ -1978,14 +3246,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  Full Pub/Sub topic name for receiving notification. If this field is set,
- *  when the import is finished, a notification will be sent to specified
- *  Pub/Sub topic. The message data will be JSON string of a Operation. Format
- *  of the Pub/Sub topic is `projects/{project}/topics/{topic}`. It has to be
- *  within the same project as ImportProductsRequest.parent. Make sure that both
- *  `cloud-retail-customer-data-access\@system.gserviceaccount.com` and
- *  `service-\@gcp-sa-retail.iam.gserviceaccount.com` have the
- *  `pubsub.topics.publish` IAM permission on the topic. Only supported when
- *  ImportProductsRequest.reconciliation_mode is set to `FULL`.
+ *  when the import is finished, a notification is sent to specified Pub/Sub
+ *  topic. The message data is JSON string of a Operation. Format of the Pub/Sub
+ *  topic is `projects/{project}/topics/{topic}`. It has to be within the same
+ *  project as ImportProductsRequest.parent. Make sure that
+ *  `service-\@gcp-sa-retail.iam.gserviceaccount.com` has the
+ *  `pubsub.topics.publish` IAM permission on the topic.
  */
 @property(nonatomic, copy, nullable) NSString *notificationPubsubTopic;
 
@@ -1997,12 +3263,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest_ReconciliationMode_Full
  *        Calculates diff and replaces the entire product dataset. Existing
  *        products may be deleted if they are not present in the source
- *        location. Can only be set while using BigQuerySource. And the BigQuery
- *        dataset must be created in the data location "us (multiple regions in
- *        United States)", otherwise a PERMISSION_DENIED error is thrown. Add
- *        the IAM permission "BigQuery Data Viewer" for
- *        cloud-retail-customer-data-access\@system.gserviceaccount.com before
- *        using this feature otherwise an error is thrown. (Value: "FULL")
+ *        location. (Value: "FULL")
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest_ReconciliationMode_Incremental
  *        Inserts new products or updates existing products. (Value:
  *        "INCREMENTAL")
@@ -2015,8 +3276,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Indicates which fields in the provided imported 'products' to update. If not
- *  set, will by default update all fields.
+ *  Indicates which fields in the provided imported `products` to update. If not
+ *  set, all fields are updated.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2146,6 +3407,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
+ *  Response for ListControls method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "controls" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ListControlsResponse : GTLRCollectionObject
+
+/**
+ *  All the Controls for a given catalog.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2Control *> *controls;
+
+/** Pagination token, if not returned indicates the last page. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for ProductService.ListProducts method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2168,6 +3453,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2Product *> *products;
+
+@end
+
+
+/**
+ *  Response for ListServingConfigs method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "servingConfigs" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ListServingConfigsResponse : GTLRCollectionObject
+
+/** Pagination token, if not returned indicates the last page. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  All the ServingConfigs for a given catalog.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2ServingConfig *> *servingConfigs;
 
 @end
 
@@ -2262,11 +3571,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  the filters, set `strictFiltering` to True in `PredictRequest.params` to
  *  receive empty results instead. Note that the API will never return items
  *  with storageStatus of "EXPIRED" or "DELETED" regardless of filter choices.
- *  If `filterSyntaxV2` is set to true under the `params` field, then attribute
- *  based expressions are expected instead of the above described tag-based
- *  syntax. Examples: * (colors: ANY("Red", "Blue")) AND NOT (categories:
- *  ANY("Phones")) * (availability: ANY("IN_STOCK")) AND (colors: ANY("Red") OR
- *  categories: ANY("Phones"))
+ *  If `filterSyntaxV2` is set to true under the `params` field, then
+ *  attribute-based expressions are expected instead of the above described
+ *  tag-based syntax. Examples: * (colors: ANY("Red", "Blue")) AND NOT
+ *  (categories: ANY("Phones")) * (availability: ANY("IN_STOCK")) AND (colors:
+ *  ANY("Red") OR categories: ANY("Phones"))
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2287,16 +3596,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2PredictRequest_Labels *labels;
 
 /**
- *  Maximum number of results to return per page. Set this property to the
- *  number of prediction results needed. If zero, the service will choose a
- *  reasonable default. The maximum allowed value is 100. Values above 100 will
- *  be coerced to 100.
+ *  Maximum number of results to return. Set this property to the number of
+ *  prediction results needed. If zero, the service will choose a reasonable
+ *  default. The maximum allowed value is 100. Values above 100 will be coerced
+ *  to 100.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pageSize;
 
-/** The previous PredictResponse.next_page_token. */
+/** This field is not used; leave it unset. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -2318,8 +3627,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  {'no-diversity', 'low-diversity', 'medium-diversity', 'high-diversity',
  *  'auto-diversity'}. This gives request-level control and adjusts prediction
  *  results based on product category. * `filterSyntaxV2`: Boolean. False by
- *  default. If set to true, the `filter` field will be interpreteted according
- *  to the new, attribute-based syntax.
+ *  default. If set to true, the `filter` field is interpreteted according to
+ *  the new, attribute-based syntax.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2PredictRequest_Params *params;
 
@@ -2390,8 +3699,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  {'no-diversity', 'low-diversity', 'medium-diversity', 'high-diversity',
  *  'auto-diversity'}. This gives request-level control and adjusts prediction
  *  results based on product category. * `filterSyntaxV2`: Boolean. False by
- *  default. If set to true, the `filter` field will be interpreteted according
- *  to the new, attribute-based syntax.
+ *  default. If set to true, the `filter` field is interpreteted according to
+ *  the new, attribute-based syntax.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2645,17 +3954,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  belonging to several parallel categories. Strongly recommended using the
  *  full path for better search / recommendation quality. To represent full path
  *  of category, use '>' sign to separate different hierarchies. If '>' is part
- *  of the category name, please replace it with other character(s). For
- *  example, if a shoes product belongs to both ["Shoes & Accessories" ->
- *  "Shoes"] and ["Sports & Fitness" -> "Athletic Clothing" -> "Shoes"], it
- *  could be represented as: "categories": [ "Shoes & Accessories > Shoes",
- *  "Sports & Fitness > Athletic Clothing > Shoes" ] Must be set for
- *  Type.PRIMARY Product otherwise an INVALID_ARGUMENT error is returned. At
- *  most 250 values are allowed per Product. Empty values are not allowed. Each
- *  value must be a UTF-8 encoded string with a length limit of 5,000
- *  characters. Otherwise, an INVALID_ARGUMENT error is returned. Corresponding
- *  properties: Google Merchant Center property google_product_category.
- *  Schema.org property [Product.category] (https://schema.org/category).
+ *  of the category name, replace it with other character(s). For example, if a
+ *  shoes product belongs to both ["Shoes & Accessories" -> "Shoes"] and
+ *  ["Sports & Fitness" -> "Athletic Clothing" -> "Shoes"], it could be
+ *  represented as: "categories": [ "Shoes & Accessories > Shoes", "Sports &
+ *  Fitness > Athletic Clothing > Shoes" ] Must be set for Type.PRIMARY Product
+ *  otherwise an INVALID_ARGUMENT error is returned. At most 250 values are
+ *  allowed per Product. Empty values are not allowed. Each value must be a
+ *  UTF-8 encoded string with a length limit of 5,000 characters. Otherwise, an
+ *  INVALID_ARGUMENT error is returned. Corresponding properties: Google
+ *  Merchant Center property google_product_category. Schema.org property
+ *  [Product.category] (https://schema.org/category).
  *  [mc_google_product_category]:
  *  https://support.google.com/merchants/answer/6324436
  */
@@ -2664,7 +3973,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  The id of the collection members when type is Type.COLLECTION. Non-existent
  *  product ids are allowed. The type of the members must be either Type.PRIMARY
- *  or Type.VARIANT otherwise and INVALID_ARGUMENT error is thrown. Should not
+ *  or Type.VARIANT otherwise an INVALID_ARGUMENT error is thrown. Should not
  *  set it for other types. A maximum of 1000 values are allowed. Otherwise, an
  *  INVALID_ARGUMENT error is return.
  */
@@ -2767,6 +4076,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  in use. It defaults to "en-US" if unset.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Output only. A list of local inventories specific to different places. This
+ *  is only available for users who have Retail Search enabled, and it can be
+ *  managed by AddLocalInventories and RemoveLocalInventories APIs.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2LocalInventory *> *localInventories;
 
 /**
  *  The material of the product. For example, "leather", "wooden". A maximum of
@@ -3236,7 +4552,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
- *  Metadata for RejoinUserEvents method.
+ *  Metadata for `RejoinUserEvents` method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsMetadata : GTLRObject
 @end
@@ -3250,7 +4566,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  The type of the user event rejoin to define the scope and range of the user
  *  events to be rejoined with the latest product catalog. Defaults to
- *  USER_EVENT_REJOIN_SCOPE_UNSPECIFIED if this field is not set, or set to an
+ *  `USER_EVENT_REJOIN_SCOPE_UNSPECIFIED` if this field is not set, or set to an
  *  invalid integer value.
  *
  *  Likely values:
@@ -3271,7 +4587,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
- *  Response message for RejoinUserEvents method.
+ *  Response message for `RejoinUserEvents` method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsResponse : GTLRObject
 
@@ -3281,6 +4597,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *rejoinedUserEventsCount;
+
+@end
+
+
+/**
+ *  Request for CatalogService.RemoveCatalogAttribute method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2RemoveCatalogAttributeRequest : GTLRObject
+
+/** Required. The attribute name key of the CatalogAttribute to remove. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+@end
+
+
+/**
+ *  Request for RemoveControl method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2RemoveControlRequest : GTLRObject
+
+/**
+ *  Required. The id of the control to apply. Assumed to be in the same catalog
+ *  as the serving config.
+ */
+@property(nonatomic, copy, nullable) NSString *controlId;
 
 @end
 
@@ -3399,6 +4740,243 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
+ *  Request for CatalogService.ReplaceCatalogAttribute method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ReplaceCatalogAttributeRequest : GTLRObject
+
+/** Required. The updated CatalogAttribute. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute *catalogAttribute;
+
+/**
+ *  Indicates which fields in the provided CatalogAttribute to update. The
+ *  following are NOT supported: * CatalogAttribute.key If not set, all
+ *  supported fields are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  A rule is a condition-action pair * A condition defines when a rule is to be
+ *  triggered. * An action specifies what occurs on that trigger. Currently
+ *  rules only work for controls with SOLUTION_TYPE_SEARCH.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2Rule : GTLRObject
+
+/** A boost action. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2RuleBoostAction *boostAction;
+
+/**
+ *  Required. The condition that triggers the rule. If the condition is empty,
+ *  the rule will always apply.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2Condition *condition;
+
+/** Prevents term from being associated with other terms. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2RuleDoNotAssociateAction *doNotAssociateAction;
+
+/** Filters results. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2RuleFilterAction *filterAction;
+
+/** Ignores specific terms from query during search. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2RuleIgnoreAction *ignoreAction;
+
+/**
+ *  Treats specific term as a synonym with a group of terms. Group of terms will
+ *  not be treated as synonyms with the specific term.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2RuleOnewaySynonymsAction *onewaySynonymsAction;
+
+/** Redirects a shopper to a specific page. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2RuleRedirectAction *redirectAction;
+
+/** Replaces specific terms in the query. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2RuleReplacementAction *replacementAction;
+
+/** Treats a set of terms as synonyms of one another. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2RuleTwowaySynonymsAction *twowaySynonymsAction;
+
+@end
+
+
+/**
+ *  A boost action to apply to results matching condition specified above.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2RuleBoostAction : GTLRObject
+
+/**
+ *  Strength of the condition boost, which must be in [-1, 1]. Negative boost
+ *  means demotion. Default is 0.0. Setting to 1.0 gives the item a big
+ *  promotion. However, it does not necessarily mean that the boosted item will
+ *  be the top result at all times, nor that other items will be excluded.
+ *  Results could still be shown even when none of them matches the condition.
+ *  And results that are significantly more relevant to the search query can
+ *  still trump your heavily favored but irrelevant items. Setting to -1.0 gives
+ *  the item a big demotion. However, results that are deeply relevant might
+ *  still be shown. The item will have an upstream battle to get a fairly high
+ *  ranking, but it is not blocked out completely. Setting to 0.0 means no boost
+ *  applied. The boosting condition is ignored.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boost;
+
+/**
+ *  The filter can have a max size of 5000 characters. An expression which
+ *  specifies which products to apply an action to. The syntax and supported
+ *  fields are the same as a filter expression. See SearchRequest.filter for
+ *  detail syntax and limitations. Examples: * To boost products with product ID
+ *  "product_1" or "product_2", and color "Red" or "Blue": *(id:
+ *  ANY("product_1", "product_2")) * *AND * *(colorFamilies: ANY("Red", "Blue"))
+ *  *
+ */
+@property(nonatomic, copy, nullable) NSString *productsFilter;
+
+@end
+
+
+/**
+ *  Prevents `query_term` from being associated with specified terms during
+ *  search. Example: Don't associate "gShoe" and "cheap".
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2RuleDoNotAssociateAction : GTLRObject
+
+/**
+ *  Cannot contain duplicates or the query term. Can specify up to 100 terms.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *doNotAssociateTerms;
+
+/**
+ *  Terms from the search query. Will not consider do_not_associate_terms for
+ *  search if in search query. Can specify up to 100 terms.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *queryTerms;
+
+/** Will be [deprecated = true] post migration; */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *terms;
+
+@end
+
+
+/**
+ *  * Rule Condition: - No Condition.query_terms provided is a global match. - 1
+ *  or more Condition.query_terms provided are combined with OR operator. *
+ *  Action Input: The request query and filter that are applied to the retrieved
+ *  products, in addition to any filters already provided with the
+ *  SearchRequest. The AND operator is used to combine the query's existing
+ *  filters with the filter rule(s). NOTE: May result in 0 results when filters
+ *  conflict. * Action Result: Filters the returned objects to be ONLY those
+ *  that passed the filter.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2RuleFilterAction : GTLRObject
+
+/**
+ *  A filter to apply on the matching condition results. Supported features: *
+ *  filter must be set. * Filter syntax is identical to SearchRequest.filter.
+ *  See more details at the Retail Search [user
+ *  guide](/retail/search/docs/filter-and-order#filter). * To filter products
+ *  with product ID "product_1" or "product_2", and color "Red" or "Blue": *(id:
+ *  ANY("product_1", "product_2")) * *AND * *(colorFamilies: ANY("Red", "Blue"))
+ *  *
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+@end
+
+
+/**
+ *  Prevents a term in the query from being used in search. Example: Don't
+ *  search for "shoddy".
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2RuleIgnoreAction : GTLRObject
+
+/** Terms to ignore in the search query. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ignoreTerms;
+
+@end
+
+
+/**
+ *  Maps a set of terms to a set of synonyms. Set of synonyms will be treated as
+ *  synonyms of each query term only. `query_terms` will not be treated as
+ *  synonyms of each other. Example: "sneakers" will use a synonym of "shoes".
+ *  "shoes" will not use a synonym of "sneakers".
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2RuleOnewaySynonymsAction : GTLRObject
+
+/** Will be [deprecated = true] post migration; */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *onewayTerms;
+
+/**
+ *  Terms from the search query. Will treat synonyms as their synonyms. Not
+ *  themselves synonyms of the synonyms. Can specify up to 100 terms.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *queryTerms;
+
+/**
+ *  Defines a set of synonyms. Cannot contain duplicates. Can specify up to 100
+ *  synonyms.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *synonyms;
+
+@end
+
+
+/**
+ *  Redirects a shopper to a specific page. * Rule Condition: - Must specify
+ *  Condition.query_terms. * Action Input: Request Query * Action Result:
+ *  Redirects shopper to provided uri.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2RuleRedirectAction : GTLRObject
+
+/** URL must have length equal or less than 2000 characters. */
+@property(nonatomic, copy, nullable) NSString *redirectUri;
+
+@end
+
+
+/**
+ *  Replaces a term in the query. Multiple replacement candidates can be
+ *  specified. All `query_terms` will be replaced with the replacement term.
+ *  Example: Replace "gShoe" with "google shoe".
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2RuleReplacementAction : GTLRObject
+
+/**
+ *  Terms from the search query. Will be replaced by replacement term. Can
+ *  specify up to 100 terms.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *queryTerms;
+
+/** Term that will be used for replacement. */
+@property(nonatomic, copy, nullable) NSString *replacementTerm;
+
+/** Will be [deprecated = true] post migration; */
+@property(nonatomic, copy, nullable) NSString *term;
+
+@end
+
+
+/**
+ *  Creates a set of terms that will be treated as synonyms of each other.
+ *  Example: synonyms of "sneakers" and "shoes". * "sneakers" will use a synonym
+ *  of "shoes". * "shoes" will use a synonym of "sneakers".
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2RuleTwowaySynonymsAction : GTLRObject
+
+/**
+ *  Defines a set of synonyms. Can specify up to 100 synonyms. Must specify at
+ *  least 2 synonyms.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *synonyms;
+
+@end
+
+
+/**
  *  Request message for SearchService.Search method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2SearchRequest : GTLRObject
@@ -3496,10 +5074,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  navigation queries to achieve good search quality. The format should be the
  *  same as UserEvent.page_categories; To represent full path of category, use
  *  '>' sign to separate different hierarchies. If '>' is part of the category
- *  name, please replace it with other character(s). Category pages include
- *  special pages such as sales or promotions. For instance, a special sale page
- *  may have the category hierarchy: "pageCategories" : ["Sales > 2017 Black
- *  Friday Deals"].
+ *  name, replace it with other character(s). Category pages include special
+ *  pages such as sales or promotions. For instance, a special sale page may
+ *  have the category hierarchy: "pageCategories" : ["Sales > 2017 Black Friday
+ *  Deals"].
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *pageCategories;
 
@@ -3521,7 +5099,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** The specification for personalization. */
+/**
+ *  The specification for personalization. Notice that if both
+ *  ServingConfig.personalization_spec and SearchRequest.personalization_spec
+ *  are set. SearchRequest.personalization_spec will override
+ *  ServingConfig.personalization_spec.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec *personalizationSpec;
 
 /**
@@ -3547,19 +5130,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *        Only faceted search will be performed. The product search will be
  *        disabled. When in this mode, one or both of SearchRequest.facet_specs
  *        and SearchRequest.dynamic_facet_spec should be set. Otherwise, an
- *        INVALID_ARGUMENT error is returned. Only [SearchResponse.Facet] will
- *        be returned. [SearchResponse.SearchResult] will not be returned.
- *        (Value: "FACETED_SEARCH_ONLY")
+ *        INVALID_ARGUMENT error is returned. Only SearchResponse.Facet will be
+ *        returned. SearchResponse.SearchResult will not be returned. (Value:
+ *        "FACETED_SEARCH_ONLY")
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SearchRequest_SearchMode_ProductSearchOnly
  *        Only product search will be performed. The faceted search will be
- *        disabled. Only [SearchResponse.SearchResult] will be returned.
- *        [SearchResponse.Facet] will not be returned, even if
+ *        disabled. Only SearchResponse.SearchResult will be returned.
+ *        SearchResponse.Facet will not be returned, even if
  *        SearchRequest.facet_specs or SearchRequest.dynamic_facet_spec is set.
  *        (Value: "PRODUCT_SEARCH_ONLY")
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SearchRequest_SearchMode_SearchModeUnspecified
  *        Default value. In this case both product search and faceted search
- *        will be performed. Both [SearchResponse.SearchResult] and
- *        [SearchResponse.Facet] will be returned. (Value:
+ *        will be performed. Both SearchResponse.SearchResult and
+ *        SearchResponse.Facet will be returned. (Value:
  *        "SEARCH_MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *searchMode;
@@ -3883,6 +5466,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedValues;
 
+/**
+ *  Returns the min and max value for each numerical facet intervals. Ignored
+ *  for textual facets.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *returnMinMax;
+
 @end
 
 
@@ -3896,11 +5487,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec_Mode_Auto
- *        Let CRS decide whether to use personalization. (Value: "AUTO")
+ *        Let CRS decide whether to use personalization based on quality of user
+ *        event data. (Value: "AUTO")
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec_Mode_Disabled
  *        Disable personalization. (Value: "DISABLED")
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec_Mode_ModeUnspecified
- *        Default value. Defaults to Mode.AUTO. (Value: "MODE_UNSPECIFIED")
+ *        Default value. In this case, server behavior defaults to Mode.AUTO.
+ *        (Value: "MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *mode;
 
@@ -3922,8 +5515,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *        Automatic query expansion built by Google Retail Search. (Value:
  *        "AUTO")
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansionSpec_Condition_ConditionUnspecified
- *        Unspecified query expansion condition. This defaults to
- *        Condition.DISABLED. (Value: "CONDITION_UNSPECIFIED")
+ *        Unspecified query expansion condition. In this case, server behavior
+ *        defaults to Condition.DISABLED. (Value: "CONDITION_UNSPECIFIED")
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansionSpec_Condition_Disabled
  *        Disabled query expansion. Only the exact search query is used, even if
  *        SearchResponse.total_size is zero. (Value: "DISABLED")
@@ -3956,8 +5549,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *        Automatic spell correction built by Google Retail Search. Search will
  *        be based on the corrected query if found. (Value: "AUTO")
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectionSpec_Mode_ModeUnspecified
- *        Unspecified spell correction mode. This defaults to Mode.AUTO. (Value:
- *        "MODE_UNSPECIFIED")
+ *        Unspecified spell correction mode. In this case, server behavior
+ *        defaults to Mode.AUTO. (Value: "MODE_UNSPECIFIED")
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectionSpec_Mode_SuggestionOnly
  *        Google Retail Search will try to find a spell suggestion if there is
  *        any and put in the SearchResponse.corrected_query. The spell
@@ -3990,7 +5583,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  Contains the spell corrected query, if found. If the spell correction type
  *  is AUTOMATIC, then the search results are based on corrected_query.
- *  Otherwise the original query will be used for search.
+ *  Otherwise the original query is used for search.
  */
 @property(nonatomic, copy, nullable) NSString *correctedQuery;
 
@@ -4073,6 +5666,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /** Interval value for a facet, such as [10, 20) for facet "price". */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2Interval *interval;
 
+/**
+ *  The maximum value in the FacetValue.interval. Only supported on numerical
+ *  facets and returned if SearchRequest.FacetSpec.FacetKey.return_min_max is
+ *  true.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxValue;
+
+/**
+ *  The minimum value in the FacetValue.interval. Only supported on numerical
+ *  facets and returned if SearchRequest.FacetSpec.FacetKey.return_min_max is
+ *  true.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minValue;
+
 /** Text value of a facet, such as "Black" for facet "colorFamilies". */
 @property(nonatomic, copy, nullable) NSString *value;
 
@@ -4131,6 +5742,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  ColorInfo and the query.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult_MatchingVariantFields *matchingVariantFields;
+
+/**
+ *  Specifies previous events related to this product for this user based on
+ *  UserEvent with same SearchRequest.visitor_id or UserInfo.user_id. This is
+ *  set only when SearchRequest.PersonalizationSpec.mode is
+ *  SearchRequest.PersonalizationSpec.Mode.AUTO. Possible values: * `purchased`:
+ *  Indicates that this product has been purchased before.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *personalLabels;
 
 /**
  *  The product data snippet in the search response. Only Product.name is
@@ -4203,6 +5823,186 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult_VariantRollupValues : GTLRObject
+@end
+
+
+/**
+ *  Configures metadata that is used to generate serving time results (e.g.
+ *  search results or recommendation predictions).
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ServingConfig : GTLRObject
+
+/**
+ *  Condition boost specifications. If a product matches multiple conditions in
+ *  the specifications, boost scores from these specifications are all applied
+ *  and combined in a non-linear way. Maximum number of specifications is 100.
+ *  Notice that if both ServingConfig.boost_control_ids and
+ *  SearchRequest.boost_spec are set, the boost conditions from both places are
+ *  evaluated. If a search request matches multiple boost conditions, the final
+ *  boost score is equal to the sum of the boost scores from all matched boost
+ *  conditions. Can only be set if solution_types is SOLUTION_TYPE_SEARCH.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *boostControlIds;
+
+/**
+ *  Required. The human readable serving config display name. Used in Retail UI.
+ *  This field must be a UTF-8 encoded string with a length limit of 128
+ *  characters. Otherwise, an INVALID_ARGUMENT error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  How much diversity to use in recommendation model results e.g.
+ *  `medium-diversity` or `high-diversity`. Currently supported values: *
+ *  `no-diversity` * `low-diversity` * `medium-diversity` * `high-diversity` *
+ *  `auto-diversity` If not specified, we choose default based on recommendation
+ *  model type. Default value: `no-diversity`. Can only be set if solution_types
+ *  is SOLUTION_TYPE_RECOMMENDATION.
+ */
+@property(nonatomic, copy, nullable) NSString *diversityLevel;
+
+/**
+ *  What kind of diversity to use - data driven or rule based.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_DiversityType_DataDrivenDiversity
+ *        Data driven diversity. (Value: "DATA_DRIVEN_DIVERSITY")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_DiversityType_DiversityTypeUnspecified
+ *        Default value. (Value: "DIVERSITY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_DiversityType_RuleBasedDiversity
+ *        Rule based diversity. (Value: "RULE_BASED_DIVERSITY")
+ */
+@property(nonatomic, copy, nullable) NSString *diversityType;
+
+/**
+ *  Condition do not associate specifications. If multiple do not associate
+ *  conditions match, all matching do not associate controls in the list will
+ *  execute. - Order does not matter. - Maximum number of specifications is 100.
+ *  Can only be set if solution_types is SOLUTION_TYPE_SEARCH.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *doNotAssociateControlIds;
+
+/**
+ *  The specification for dynamically generated facets. Notice that only textual
+ *  facets can be dynamically generated. Can only be set if solution_types is
+ *  SOLUTION_TYPE_SEARCH.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchRequestDynamicFacetSpec *dynamicFacetSpec;
+
+/**
+ *  Whether to add additional category filters on the `similar-items` model. If
+ *  not specified, we enable it by default. Allowed values are: *
+ *  `no-category-match`: No additional filtering of original results from the
+ *  model and the customer's filters. * `relaxed-category-match`: Only keep
+ *  results with categories that match at least one item categories in the
+ *  PredictRequests's context item. * If customer also sends filters in the
+ *  PredictRequest, then the results will satisfy both conditions (user given
+ *  and category match). Can only be set if solution_types is
+ *  SOLUTION_TYPE_RECOMMENDATION.
+ */
+@property(nonatomic, copy, nullable) NSString *enableCategoryFilterLevel;
+
+/**
+ *  Facet specifications for faceted search. If empty, no facets are returned.
+ *  The ids refer to the ids of Control resources with only the Facet control
+ *  set. These controls are assumed to be in the same Catalog as the
+ *  ServingConfig. A maximum of 100 values are allowed. Otherwise, an
+ *  INVALID_ARGUMENT error is returned. Can only be set if solution_types is
+ *  SOLUTION_TYPE_SEARCH.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *facetControlIds;
+
+/**
+ *  Condition filter specifications. If a product matches multiple conditions in
+ *  the specifications, filters from these specifications are all applied and
+ *  combined via the AND operator. Maximum number of specifications is 100. Can
+ *  only be set if solution_types is SOLUTION_TYPE_SEARCH.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *filterControlIds;
+
+/**
+ *  Condition ignore specifications. If multiple ignore conditions match, all
+ *  matching ignore controls in the list will execute. - Order does not matter.
+ *  - Maximum number of specifications is 100. Can only be set if solution_types
+ *  is SOLUTION_TYPE_SEARCH.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ignoreControlIds;
+
+/**
+ *  The id of the model in the same Catalog to use at serving time. Currently
+ *  only RecommendationModels are supported:
+ *  https://cloud.google.com/retail/recommendations-ai/docs/create-models Can be
+ *  changed but only to a compatible model (e.g. others-you-may-like CTR to
+ *  others-you-may-like CVR). Required when solution_types is
+ *  SOLUTION_TYPE_RECOMMENDATION.
+ */
+@property(nonatomic, copy, nullable) NSString *modelId;
+
+/**
+ *  Immutable. Fully qualified name `projects/ * /locations/global/catalogs/ *
+ *  /servingConfig/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Condition oneway synonyms specifications. If multiple oneway synonyms
+ *  conditions match, all matching oneway synonyms controls in the list will
+ *  execute. Order of controls in the list will not matter. Maximum number of
+ *  specifications is 100. Can only be set if solution_types is
+ *  SOLUTION_TYPE_SEARCH.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *onewaySynonymsControlIds;
+
+/**
+ *  The specification for personalization spec. Can only be set if
+ *  solution_types is SOLUTION_TYPE_SEARCH. Notice that if both
+ *  ServingConfig.personalization_spec and SearchRequest.personalization_spec
+ *  are set. SearchRequest.personalization_spec will override
+ *  ServingConfig.personalization_spec.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec *personalizationSpec;
+
+/**
+ *  How much price ranking we want in serving results. Price reranking causes
+ *  product items with a similar recommendation probability to be ordered by
+ *  price, with the highest-priced items first. This setting could result in a
+ *  decrease in click-through and conversion rates. Allowed values are: *
+ *  `no-price-reranking` * `low-price-raranking` * `medium-price-reranking` *
+ *  `high-price-reranking` If not specified, we choose default based on model
+ *  type. Default value: `no-price-reranking`. Can only be set if solution_types
+ *  is SOLUTION_TYPE_RECOMMENDATION.
+ */
+@property(nonatomic, copy, nullable) NSString *priceRerankingLevel;
+
+/**
+ *  Condition redirect specifications. Only the first triggered redirect action
+ *  is applied, even if multiple apply. Maximum number of specifications is
+ *  1000. Can only be set if solution_types is SOLUTION_TYPE_SEARCH.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *redirectControlIds;
+
+/**
+ *  Condition replacement specifications. - Applied according to the order in
+ *  the list. - A previously replaced term can not be re-replaced. - Maximum
+ *  number of specifications is 100. Can only be set if solution_types is
+ *  SOLUTION_TYPE_SEARCH.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *replacementControlIds;
+
+/**
+ *  Required. Immutable. Specifies the solution types that a serving config can
+ *  be associated with. Currently we support setting only one type of solution.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *solutionTypes;
+
+/**
+ *  Condition synonyms specifications. If multiple syonyms conditions match, all
+ *  matching synonyms control in the list will execute. Order of controls in the
+ *  list will not matter. Maximum number of specifications is 100. Can only be
+ *  set if solution_types is SOLUTION_TYPE_SEARCH.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *twowaySynonymsControlIds;
+
 @end
 
 
@@ -4435,7 +6235,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  The categories associated with a category page. To represent full path of
  *  category, use '>' sign to separate different hierarchies. If '>' is part of
- *  the category name, please replace it with other character(s). Category pages
+ *  the category name, replace it with other character(s). Category pages
  *  include special pages such as sales or promotions. For instance, a special
  *  sale page may have the category hierarchy: "pageCategories" : ["Sales > 2017
  *  Black Friday Deals"]. Required for `category-page-view` events. At least one

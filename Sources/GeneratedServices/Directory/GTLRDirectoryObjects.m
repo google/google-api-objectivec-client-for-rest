@@ -71,6 +71,12 @@ NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unavailable = @"UNAVAILABL
 NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unimplemented = @"UNIMPLEMENTED";
 NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown  = @"UNKNOWN";
 
+// GTLRDirectory_OsUpdateStatus.state
+NSString * const kGTLRDirectory_OsUpdateStatus_State_UpdateStateDownloadInProgress = @"updateStateDownloadInProgress";
+NSString * const kGTLRDirectory_OsUpdateStatus_State_UpdateStateNeedReboot = @"updateStateNeedReboot";
+NSString * const kGTLRDirectory_OsUpdateStatus_State_UpdateStateNotStarted = @"updateStateNotStarted";
+NSString * const kGTLRDirectory_OsUpdateStatus_State_UpdateStateUnspecified = @"updateStateUnspecified";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRDirectory_Alias
@@ -385,10 +391,11 @@ NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown  = @"UNKNOWN";
 @dynamic activeTimeRanges, annotatedAssetId, annotatedLocation, annotatedUser,
          autoUpdateExpiration, bootMode, cpuInfo, cpuStatusReports, deviceFiles,
          deviceId, diskVolumeReports, dockMacAddress, ETag, ethernetMacAddress,
-         ethernetMacAddress0, firmwareVersion, kind, lastEnrollmentTime,
-         lastKnownNetwork, lastSync, macAddress, manufactureDate, meid, model,
-         notes, orderNumber, orgUnitId, orgUnitPath, osVersion, platformVersion,
-         recentUsers, screenshotFiles, serialNumber, status, supportEndDate,
+         ethernetMacAddress0, firmwareVersion, firstEnrollmentTime, kind,
+         lastEnrollmentTime, lastKnownNetwork, lastSync, macAddress,
+         manufactureDate, meid, model, notes, orderNumber, orgUnitId,
+         orgUnitPath, osUpdateStatus, osVersion, platformVersion, recentUsers,
+         screenshotFiles, serialNumber, status, supportEndDate,
          systemRamFreeReports, systemRamTotal, tpmVersionInfo, willAutoRenew;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -920,6 +927,31 @@ NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown  = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_GroupAlias
+//
+
+@implementation GTLRDirectory_GroupAlias
+@dynamic alias, ETag, identifier, kind, primaryEmail;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"ETag" : @"etag",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_Groups
 //
 
@@ -1170,6 +1202,17 @@ NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown  = @"UNKNOWN";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_OsUpdateStatus
+//
+
+@implementation GTLRDirectory_OsUpdateStatus
+@dynamic rebootTime, state, targetKioskAppVersion, targetOsVersion,
+         updateCheckTime, updateTime;
 @end
 
 
@@ -1531,6 +1574,31 @@ NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown  = @"UNKNOWN";
 @dynamic country, countryCode, customType, extendedAddress, formatted, locality,
          poBox, postalCode, primary, region, sourceIsStructured, streetAddress,
          type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_UserAlias
+//
+
+@implementation GTLRDirectory_UserAlias
+@dynamic alias, ETag, identifier, kind, primaryEmail;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"ETag" : @"etag",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 

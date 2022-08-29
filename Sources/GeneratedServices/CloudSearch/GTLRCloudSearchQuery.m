@@ -701,6 +701,37 @@ NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound = @"TO
 
 @end
 
+@implementation GTLRCloudSearchQuery_SettingsDatasourcesPatch
+
+@dynamic debugOptionsEnableDebugging, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"debugOptionsEnableDebugging" : @"debugOptions.enableDebugging" };
+}
+
++ (instancetype)queryWithObject:(GTLRCloudSearch_DataSource *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/settings/{+name}";
+  GTLRCloudSearchQuery_SettingsDatasourcesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudSearch_Operation class];
+  query.loggingName = @"cloudsearch.settings.datasources.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudSearchQuery_SettingsDatasourcesUpdate
 
 @dynamic name;
@@ -827,6 +858,33 @@ NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound = @"TO
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRCloudSearch_ListSearchApplicationsResponse class];
   query.loggingName = @"cloudsearch.settings.searchapplications.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudSearchQuery_SettingsSearchapplicationsPatch
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudSearch_SearchApplication *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/settings/{+name}";
+  GTLRCloudSearchQuery_SettingsSearchapplicationsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudSearch_Operation class];
+  query.loggingName = @"cloudsearch.settings.searchapplications.patch";
   return query;
 }
 

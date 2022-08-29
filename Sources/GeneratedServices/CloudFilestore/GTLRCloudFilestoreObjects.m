@@ -106,6 +106,9 @@ NSString * const kGTLRCloudFilestore_Snapshot_State_StateUnspecified = @"STATE_U
 NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Earlier = @"EARLIER";
 NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Later = @"LATER";
 NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_UpdateChannelUnspecified = @"UPDATE_CHANNEL_UNSPECIFIED";
+NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week1 = @"WEEK1";
+NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week2 = @"WEEK2";
+NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 
 // ----------------------------------------------------------------------------
 //

@@ -98,6 +98,11 @@ NSString * const kGTLRBareMetalSolution_NfsShare_State_Provisioned = @"PROVISION
 NSString * const kGTLRBareMetalSolution_NfsShare_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRBareMetalSolution_NfsShare_State_Updating = @"UPDATING";
 
+// GTLRBareMetalSolution_NfsShare.storageType
+NSString * const kGTLRBareMetalSolution_NfsShare_StorageType_Hdd = @"HDD";
+NSString * const kGTLRBareMetalSolution_NfsShare_StorageType_Ssd = @"SSD";
+NSString * const kGTLRBareMetalSolution_NfsShare_StorageType_StorageTypeUnspecified = @"STORAGE_TYPE_UNSPECIFIED";
+
 // GTLRBareMetalSolution_ProvisioningConfig.state
 NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Cancelled = @"CANCELLED";
 NSString * const kGTLRBareMetalSolution_ProvisioningConfig_State_Draft = @"DRAFT";
@@ -113,6 +118,11 @@ NSString * const kGTLRBareMetalSolution_ProvisioningQuota_AssetType_AssetTypeNet
 NSString * const kGTLRBareMetalSolution_ProvisioningQuota_AssetType_AssetTypeServer = @"ASSET_TYPE_SERVER";
 NSString * const kGTLRBareMetalSolution_ProvisioningQuota_AssetType_AssetTypeStorage = @"ASSET_TYPE_STORAGE";
 NSString * const kGTLRBareMetalSolution_ProvisioningQuota_AssetType_AssetTypeUnspecified = @"ASSET_TYPE_UNSPECIFIED";
+
+// GTLRBareMetalSolution_Volume.protocol
+NSString * const kGTLRBareMetalSolution_Volume_Protocol_FibreChannel = @"FIBRE_CHANNEL";
+NSString * const kGTLRBareMetalSolution_Volume_Protocol_Nfs    = @"NFS";
+NSString * const kGTLRBareMetalSolution_Volume_Protocol_ProtocolUnspecified = @"PROTOCOL_UNSPECIFIED";
 
 // GTLRBareMetalSolution_Volume.snapshotAutoDeleteBehavior
 NSString * const kGTLRBareMetalSolution_Volume_SnapshotAutoDeleteBehavior_Disabled = @"DISABLED";
@@ -153,7 +163,7 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 @implementation GTLRBareMetalSolution_AllowedClient
 @dynamic allowDev, allowedClientsCidr, allowSuid, mountPermissions, network,
-         noRootSquash, shareIp;
+         nfsPath, noRootSquash, shareIp;
 @end
 
 
@@ -220,9 +230,9 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 @implementation GTLRBareMetalSolution_Instance
 @dynamic createTime, hyperthreadingEnabled, identifier,
-         interactiveSerialConsoleEnabled, labels, logicalInterfaces, luns,
-         machineType, name, networks, networkTemplate, osImage, pod, state,
-         updateTime;
+         interactiveSerialConsoleEnabled, labels, logicalInterfaces, loginInfo,
+         luns, machineType, name, networks, networkTemplate, osImage, pod,
+         state, updateTime, volumes;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -232,7 +242,8 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
   NSDictionary<NSString *, Class> *map = @{
     @"logicalInterfaces" : [GTLRBareMetalSolution_GoogleCloudBaremetalsolutionV2LogicalInterface class],
     @"luns" : [GTLRBareMetalSolution_Lun class],
-    @"networks" : [GTLRBareMetalSolution_Network class]
+    @"networks" : [GTLRBareMetalSolution_Network class],
+    @"volumes" : [GTLRBareMetalSolution_Volume class]
   };
   return map;
 }
@@ -284,7 +295,7 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_InstanceQuota
-@dynamic availableMachineCount, instanceType, location, name;
+@dynamic availableMachineCount, gcpService, instanceType, location, name;
 @end
 
 
@@ -565,8 +576,9 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_Network
-@dynamic cidr, identifier, ipAddress, labels, macAddress, name, reservations,
-         servicesCidr, state, type, vlanId, vrf;
+@dynamic cidr, identifier, ipAddress, jumboFramesEnabled, labels, macAddress,
+         mountPoints, name, pod, reservations, servicesCidr, state, type,
+         vlanId, vrf;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -575,6 +587,7 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"macAddress" : [NSString class],
+    @"mountPoints" : [GTLRBareMetalSolution_NetworkMountPoint class],
     @"reservations" : [GTLRBareMetalSolution_NetworkAddressReservation class]
   };
   return map;
@@ -642,6 +655,16 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBareMetalSolution_NetworkMountPoint
+//
+
+@implementation GTLRBareMetalSolution_NetworkMountPoint
+@dynamic defaultGateway, instance, ipAddress, logicalInterface;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBareMetalSolution_NetworkUsage
 //
 
@@ -676,7 +699,7 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 
 @implementation GTLRBareMetalSolution_NfsShare
 @dynamic allowedClients, identifier, labels, name, nfsShareId, requestedSizeGib,
-         state, volume;
+         state, storageType, volume;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -947,7 +970,7 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_VlanAttachment
-@dynamic peerIp, peerVlanId, routerIp;
+@dynamic pairingKey, peerIp, peerVlanId, qosPolicy, routerIp;
 @end
 
 
@@ -957,10 +980,11 @@ NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRBareMetalSolution_Volume
-@dynamic autoGrownSizeGib, currentSizeGib, emergencySizeGib, identifier, labels,
-         maxSizeGib, name, originallyRequestedSizeGib, pod, remainingSpaceGib,
-         requestedSizeGib, snapshotAutoDeleteBehavior, snapshotEnabled,
-         snapshotReservationDetail, snapshotSchedulePolicy, state, storageType;
+@dynamic autoGrownSizeGib, bootVolume, currentSizeGib, emergencySizeGib,
+         identifier, labels, maxSizeGib, name, originallyRequestedSizeGib, pod,
+         protocol, remainingSpaceGib, requestedSizeGib,
+         snapshotAutoDeleteBehavior, snapshotEnabled, snapshotReservationDetail,
+         snapshotSchedulePolicy, state, storageType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

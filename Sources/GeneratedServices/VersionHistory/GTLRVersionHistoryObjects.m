@@ -30,6 +30,7 @@ NSString * const kGTLRVersionHistory_Platform_PlatformType_Chromeos = @"CHROMEOS
 NSString * const kGTLRVersionHistory_Platform_PlatformType_Ios = @"IOS";
 NSString * const kGTLRVersionHistory_Platform_PlatformType_Lacros = @"LACROS";
 NSString * const kGTLRVersionHistory_Platform_PlatformType_LacrosArm32 = @"LACROS_ARM32";
+NSString * const kGTLRVersionHistory_Platform_PlatformType_LacrosArm64 = @"LACROS_ARM64";
 NSString * const kGTLRVersionHistory_Platform_PlatformType_Linux = @"LINUX";
 NSString * const kGTLRVersionHistory_Platform_PlatformType_Mac = @"MAC";
 NSString * const kGTLRVersionHistory_Platform_PlatformType_MacArm64 = @"MAC_ARM64";

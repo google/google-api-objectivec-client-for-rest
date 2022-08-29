@@ -994,46 +994,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Gets status of the account with the specified external_seller_id belonging
- *  to the MCA with the specified merchant_id.
- *
- *  Method: content.accountstatusesbyexternalsellerid.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeShoppingContent
- */
-@interface GTLRShoppingContentQuery_AccountstatusesbyexternalselleridGet : GTLRShoppingContentQuery
-
-/**
- *  If set, only issues for the specified destinations are returned, otherwise
- *  only issues for the Shopping destination.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *destinations;
-
-/** Required. The External Seller ID of the seller account to be retrieved. */
-@property(nonatomic, copy, nullable) NSString *externalSellerId;
-
-/** Required. The ID of the MCA containing the seller. */
-@property(nonatomic, assign) long long merchantId;
-
-/**
- *  Fetches a @c GTLRShoppingContent_AccountStatus.
- *
- *  Gets status of the account with the specified external_seller_id belonging
- *  to the MCA with the specified merchant_id.
- *
- *  @param merchantId Required. The ID of the MCA containing the seller.
- *  @param externalSellerId Required. The External Seller ID of the seller
- *    account to be retrieved.
- *
- *  @return GTLRShoppingContentQuery_AccountstatusesbyexternalselleridGet
- */
-+ (instancetype)queryWithMerchantId:(long long)merchantId
-                   externalSellerId:(NSString *)externalSellerId;
-
-@end
-
-/**
  *  Retrieves multiple Merchant Center account statuses in a single request.
  *
  *  Method: content.accountstatuses.custombatch

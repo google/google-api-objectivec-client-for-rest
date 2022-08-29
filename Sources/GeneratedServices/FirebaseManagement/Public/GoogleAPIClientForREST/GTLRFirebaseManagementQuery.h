@@ -580,6 +580,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: firebase.projects.androidApps.remove
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseManagement
  *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
  */
 @interface GTLRFirebaseManagementQuery_ProjectsAndroidAppsRemove : GTLRFirebaseManagementQuery
@@ -743,6 +744,48 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRFirebaseManagementQuery_ProjectsAndroidAppsShaList
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Restores the specified AndroidApp to the project.
+ *
+ *  Method: firebase.projects.androidApps.undelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseManagement
+ *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
+ */
+@interface GTLRFirebaseManagementQuery_ProjectsAndroidAppsUndelete : GTLRFirebaseManagementQuery
+
+/**
+ *  Required. The resource name of the AndroidApp, in the format: projects/
+ *  PROJECT_IDENTIFIER/androidApps/APP_ID Since an APP_ID is a unique
+ *  identifier, the Unique Resource from Sub-Collection access pattern may be
+ *  used here, in the format: projects/-/androidApps/APP_ID Refer to the
+ *  AndroidApp [name](../projects.androidApps#AndroidApp.FIELDS.name) field for
+ *  details about PROJECT_IDENTIFIER and APP_ID values.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseManagement_Operation.
+ *
+ *  Restores the specified AndroidApp to the project.
+ *
+ *  @param object The @c GTLRFirebaseManagement_UndeleteAndroidAppRequest to
+ *    include in the query.
+ *  @param name Required. The resource name of the AndroidApp, in the format:
+ *    projects/ PROJECT_IDENTIFIER/androidApps/APP_ID Since an APP_ID is a
+ *    unique identifier, the Unique Resource from Sub-Collection access pattern
+ *    may be used here, in the format: projects/-/androidApps/APP_ID Refer to
+ *    the AndroidApp [name](../projects.androidApps#AndroidApp.FIELDS.name)
+ *    field for details about PROJECT_IDENTIFIER and APP_ID values.
+ *
+ *  @return GTLRFirebaseManagementQuery_ProjectsAndroidAppsUndelete
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseManagement_UndeleteAndroidAppRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1305,6 +1348,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: firebase.projects.iosApps.remove
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseManagement
  *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
  */
 @interface GTLRFirebaseManagementQuery_ProjectsIosAppsRemove : GTLRFirebaseManagementQuery
@@ -1336,6 +1380,48 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRFirebaseManagementQuery_ProjectsIosAppsRemove
  */
 + (instancetype)queryWithObject:(GTLRFirebaseManagement_RemoveIosAppRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Restores the specified IosApp to the project.
+ *
+ *  Method: firebase.projects.iosApps.undelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseManagement
+ *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
+ */
+@interface GTLRFirebaseManagementQuery_ProjectsIosAppsUndelete : GTLRFirebaseManagementQuery
+
+/**
+ *  Required. The resource name of the IosApp, in the format: projects/
+ *  PROJECT_IDENTIFIER/iosApps/APP_ID Since an APP_ID is a unique identifier,
+ *  the Unique Resource from Sub-Collection access pattern may be used here, in
+ *  the format: projects/-/iosApps/APP_ID Refer to the IosApp
+ *  [name](../projects.iosApps#IosApp.FIELDS.name) field for details about
+ *  PROJECT_IDENTIFIER and APP_ID values.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseManagement_Operation.
+ *
+ *  Restores the specified IosApp to the project.
+ *
+ *  @param object The @c GTLRFirebaseManagement_UndeleteIosAppRequest to include
+ *    in the query.
+ *  @param name Required. The resource name of the IosApp, in the format:
+ *    projects/ PROJECT_IDENTIFIER/iosApps/APP_ID Since an APP_ID is a unique
+ *    identifier, the Unique Resource from Sub-Collection access pattern may be
+ *    used here, in the format: projects/-/iosApps/APP_ID Refer to the IosApp
+ *    [name](../projects.iosApps#IosApp.FIELDS.name) field for details about
+ *    PROJECT_IDENTIFIER and APP_ID values.
+ *
+ *  @return GTLRFirebaseManagementQuery_ProjectsIosAppsUndelete
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseManagement_UndeleteIosAppRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -1373,6 +1459,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  where in the set of Projects to resume listing.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. Controls whether Projects in the DELETING state should be
+ *  returned. Defaults to false.
+ */
+@property(nonatomic, assign) BOOL showDeleted;
 
 /**
  *  Fetches a @c GTLRFirebaseManagement_ListFirebaseProjectsResponse.
@@ -1538,18 +1630,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  [`platform`](../projects.apps#FirebaseAppInfo.FIELDS.platform) We also
  *  support the following "virtual" fields (fields which are not actually part
  *  of the returned resource object, but can be queried as if they are
- *  pre-populated with specific values): * `sha1_hash`: This field is considered
- *  to be a repeated `string` field, populated with the list of all SHA-1
- *  certificate fingerprints registered with the app. This list is empty if the
- *  app is not an Android app. * `sha256_hash`: This field is considered to be a
- *  repeated `string` field, populated with the list of all SHA-256 certificate
- *  fingerprints registered with the app. This list is empty if the app is not
- *  an Android app. * `app_store_id`: This field is considered to be a singular
- *  `string` field, populated with the Apple App Store ID registered with the
- *  app. This field is empty if the app is not an iOS app. * `team_id`: This
- *  field is considered to be a singular `string` field, populated with the
- *  Apple team ID registered with the app. This field is empty if the app is not
- *  an iOS app.
+ *  pre-populated with specific values): * `sha1_hash` or `sha1_hashes`: This
+ *  field is considered to be a repeated `string` field, populated with the list
+ *  of all SHA-1 certificate fingerprints registered with the app. This list is
+ *  empty if the app is not an Android app. * `sha256_hash` or `sha256_hashes`:
+ *  This field is considered to be a repeated `string` field, populated with the
+ *  list of all SHA-256 certificate fingerprints registered with the app. This
+ *  list is empty if the app is not an Android app. * `app_store_id`: This field
+ *  is considered to be a singular `string` field, populated with the Apple App
+ *  Store ID registered with the app. This field is empty if the app is not an
+ *  iOS app. * `team_id`: This field is considered to be a singular `string`
+ *  field, populated with the Apple team ID registered with the app. This field
+ *  is empty if the app is not an iOS app.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1858,6 +1950,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: firebase.projects.webApps.remove
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseManagement
  *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
  */
 @interface GTLRFirebaseManagementQuery_ProjectsWebAppsRemove : GTLRFirebaseManagementQuery
@@ -1889,6 +1982,48 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRFirebaseManagementQuery_ProjectsWebAppsRemove
  */
 + (instancetype)queryWithObject:(GTLRFirebaseManagement_RemoveWebAppRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Restores the specified WebApp to the project.
+ *
+ *  Method: firebase.projects.webApps.undelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseManagement
+ *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
+ */
+@interface GTLRFirebaseManagementQuery_ProjectsWebAppsUndelete : GTLRFirebaseManagementQuery
+
+/**
+ *  Required. The resource name of the WebApp, in the format: projects/
+ *  PROJECT_IDENTIFIER/webApps/APP_ID Since an APP_ID is a unique identifier,
+ *  the Unique Resource from Sub-Collection access pattern may be used here, in
+ *  the format: projects/-/webApps/APP_ID Refer to the WebApp
+ *  [name](../projects.webApps#WebApp.FIELDS.name) field for details about
+ *  PROJECT_IDENTIFIER and APP_ID values.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseManagement_Operation.
+ *
+ *  Restores the specified WebApp to the project.
+ *
+ *  @param object The @c GTLRFirebaseManagement_UndeleteWebAppRequest to include
+ *    in the query.
+ *  @param name Required. The resource name of the WebApp, in the format:
+ *    projects/ PROJECT_IDENTIFIER/webApps/APP_ID Since an APP_ID is a unique
+ *    identifier, the Unique Resource from Sub-Collection access pattern may be
+ *    used here, in the format: projects/-/webApps/APP_ID Refer to the WebApp
+ *    [name](../projects.webApps#WebApp.FIELDS.name) field for details about
+ *    PROJECT_IDENTIFIER and APP_ID values.
+ *
+ *  @return GTLRFirebaseManagementQuery_ProjectsWebAppsUndelete
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseManagement_UndeleteWebAppRequest *)object
                            name:(NSString *)name;
 
 @end

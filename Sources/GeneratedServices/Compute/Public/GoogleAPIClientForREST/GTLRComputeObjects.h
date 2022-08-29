@@ -42,6 +42,7 @@
 @class GTLRCompute_AttachedDisk;
 @class GTLRCompute_AttachedDiskInitializeParams;
 @class GTLRCompute_AttachedDiskInitializeParams_Labels;
+@class GTLRCompute_AttachedDiskInitializeParams_ResourceManagerTags;
 @class GTLRCompute_AuditConfig;
 @class GTLRCompute_AuditLogConfig;
 @class GTLRCompute_AuthorizationLoggingOptions;
@@ -126,6 +127,8 @@
 @class GTLRCompute_DiskInstantiationConfig;
 @class GTLRCompute_DiskList_Warning;
 @class GTLRCompute_DiskList_Warning_Data_Item;
+@class GTLRCompute_DiskParams;
+@class GTLRCompute_DiskParams_ResourceManagerTags;
 @class GTLRCompute_DisksScopedList;
 @class GTLRCompute_DisksScopedList_Warning;
 @class GTLRCompute_DisksScopedList_Warning_Data_Item;
@@ -239,6 +242,8 @@
 @class GTLRCompute_InstanceAggregatedList_Items;
 @class GTLRCompute_InstanceAggregatedList_Warning;
 @class GTLRCompute_InstanceAggregatedList_Warning_Data_Item;
+@class GTLRCompute_InstanceConsumptionData;
+@class GTLRCompute_InstanceConsumptionInfo;
 @class GTLRCompute_InstanceGroup;
 @class GTLRCompute_InstanceGroupAggregatedList_Items;
 @class GTLRCompute_InstanceGroupAggregatedList_Warning;
@@ -586,6 +591,7 @@
 @class GTLRCompute_SecurityPolicyAdaptiveProtectionConfig;
 @class GTLRCompute_SecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfig;
 @class GTLRCompute_SecurityPolicyAdvancedOptionsConfig;
+@class GTLRCompute_SecurityPolicyAdvancedOptionsConfigJsonCustomConfig;
 @class GTLRCompute_SecurityPolicyDdosProtectionConfig;
 @class GTLRCompute_SecurityPolicyList_Warning;
 @class GTLRCompute_SecurityPolicyList_Warning_Data_Item;
@@ -839,6 +845,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Wa
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -1009,6 +1022,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -1178,6 +1198,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warni
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -1529,6 +1556,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Co
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -1699,6 +1733,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -1868,6 +1909,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_FieldVa
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -2238,6 +2286,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -2408,6 +2463,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_Fiel
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -2577,6 +2639,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Co
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -3016,6 +3085,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_F
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -3389,6 +3465,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_War
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -3610,6 +3693,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -3833,6 +3923,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warnin
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -4150,6 +4247,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -4320,6 +4424,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_Fiel
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -4489,6 +4600,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Co
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -4854,6 +4972,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -5084,6 +5209,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_FieldValue
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -5253,6 +5385,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_Fie
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -5424,6 +5563,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -5594,6 +5740,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_FieldV
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -5763,6 +5916,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -5988,6 +6148,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warni
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -6198,6 +6365,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -6394,6 +6568,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_FieldV
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -6571,6 +6752,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallPolicyList_Warning_Code_
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallPolicyList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallPolicyList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -6870,6 +7058,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_War
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -7040,6 +7235,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -7209,6 +7411,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warnin
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -7442,6 +7651,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_Fie
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -7611,6 +7827,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warni
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -7801,6 +8024,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckServicesList_Warning_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckServicesList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckServicesList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -7970,6 +8200,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_C
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -8265,6 +8502,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -8501,6 +8745,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Cod
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -8732,6 +8983,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_FieldValu
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -9018,6 +9276,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -9187,6 +9452,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warn
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -9358,6 +9630,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_F
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -9528,6 +9807,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedLi
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -9697,6 +9983,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -9926,6 +10219,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInst
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -10095,6 +10395,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -10377,6 +10684,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warn
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -10563,6 +10877,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -10733,6 +11054,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_FieldV
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -10902,6 +11230,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Co
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -11229,6 +11564,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -11398,6 +11740,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Cod
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -11920,6 +12269,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregated
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -12090,6 +12446,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warni
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -12259,6 +12622,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedLis
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -12484,6 +12854,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_Fi
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -12693,6 +13070,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -13015,6 +13399,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Cod
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -13290,6 +13681,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineImageList_Warning_Code_Fi
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineImageList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineImageList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -13459,6 +13857,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warnin
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -13630,6 +14035,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_Fie
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -13799,6 +14211,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_C
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -14205,6 +14624,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEdgeSecurityServiceAggreg
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEdgeSecurityServiceAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEdgeSecurityServiceAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -14374,6 +14800,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEdgeSecurityServicesScope
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEdgeSecurityServicesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEdgeSecurityServicesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -14594,6 +15027,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedLi
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -14763,6 +15203,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -14951,6 +15398,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetwork
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -15120,6 +15574,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -15344,6 +15805,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_FieldVa
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -15620,6 +16088,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -15813,6 +16288,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_Field
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -16008,6 +16490,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -16177,6 +16666,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Cod
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -16386,6 +16882,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warni
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -16555,6 +17058,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_Fi
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -16726,6 +17236,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -16895,6 +17412,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_C
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -17066,6 +17590,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_FieldV
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -17236,6 +17767,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -17405,6 +17943,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NotificationEndpointList_Warning
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NotificationEndpointList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NotificationEndpointList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -17586,6 +18131,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_Fie
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -17755,6 +18307,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -17926,6 +18485,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_Field
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -18095,6 +18661,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Cod
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -18315,6 +18888,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Wa
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -18507,6 +19087,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -18676,6 +19263,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warni
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -19033,6 +19627,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicAdvertisedPrefixList_Warni
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicAdvertisedPrefixList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicAdvertisedPrefixList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -19233,6 +19834,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefixAggregatedL
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefixAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefixAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -19403,6 +20011,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefixesScopedLis
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefixesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefixesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -19572,6 +20187,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefixList_Warnin
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefixList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefixList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -20035,6 +20657,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Cod
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -20204,6 +20833,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -20375,6 +21011,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -20544,6 +21187,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_W
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -20773,6 +21423,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListI
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -20942,6 +21599,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstance
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -21128,6 +21792,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_FieldVal
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -21366,6 +22037,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warnin
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -21536,6 +22214,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_Fie
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -21705,6 +22390,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_C
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -21889,6 +22581,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warni
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -22090,6 +22789,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_War
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -22267,6 +22973,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -22511,6 +23224,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_FieldVa
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -22693,6 +23413,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_FieldValu
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -22862,6 +23589,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Cod
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -23128,6 +23862,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_FieldVal
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -23398,6 +24139,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_F
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -23798,6 +24546,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPoliciesAggregatedList_W
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPoliciesAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPoliciesAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -23967,6 +24722,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPoliciesScopedList_Warni
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPoliciesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPoliciesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -24179,6 +24941,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -24411,6 +25180,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ServiceAttachmentAggregatedList_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ServiceAttachmentAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ServiceAttachmentAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -24618,6 +25394,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ServiceAttachmentList_Warning_Co
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ServiceAttachmentList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ServiceAttachmentList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -24788,6 +25571,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ServiceAttachmentsScopedList_War
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ServiceAttachmentsScopedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ServiceAttachmentsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -24913,6 +25703,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ServiceAttachmentsScopedList_War
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ShareSettings_ShareType_Local;
 /**
+ *  Shared-reservation is open to entire Organization
+ *
+ *  Value: "ORGANIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ShareSettings_ShareType_Organization;
+/**
  *  Default value. This value is unused.
  *
  *  Value: "SHARE_TYPE_UNSPECIFIED"
@@ -24946,6 +25742,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Snapshot_Architecture_Arm64;
  *  Value: "X86_64"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Snapshot_Architecture_X8664;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_Snapshot.snapshotType
+
+/** Value: "ARCHIVE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Snapshot_SnapshotType_Archive;
+/** Value: "STANDARD" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Snapshot_SnapshotType_Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Snapshot.status
@@ -25043,6 +25847,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_FieldV
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -25254,6 +26065,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_War
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -25423,6 +26241,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -25685,6 +26510,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warnin
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -25886,6 +26718,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_Fie
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -26110,6 +26949,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_Fie
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -26411,6 +27257,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -26580,6 +27433,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_Fiel
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -26777,6 +27637,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Co
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -26973,6 +27840,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -27142,6 +28016,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warn
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -27313,6 +28194,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -27482,6 +28370,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_War
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -27699,6 +28594,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_W
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -27868,6 +28770,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Cod
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -28049,6 +28958,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_War
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -28219,6 +29135,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -28388,6 +29311,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warnin
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -28626,6 +29556,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -28796,6 +29733,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_Fiel
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -28965,6 +29909,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Co
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -29152,6 +30103,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -29338,6 +30296,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -29520,6 +30485,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_W
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -29690,6 +30662,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Cod
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -29859,6 +30838,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warn
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -30062,6 +31048,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_FieldVal
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -30232,6 +31225,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Co
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -30401,6 +31401,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_F
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -30680,6 +31687,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -30849,6 +31863,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warnin
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -31036,6 +32057,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -31206,6 +32234,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_Fiel
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -31375,6 +32410,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Co
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -31659,6 +32701,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -31828,6 +32877,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_Field
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -31999,6 +33055,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Cod
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -32168,6 +33231,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_FieldVa
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -32354,6 +33424,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_FieldValue
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -32647,6 +33724,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -32824,6 +33905,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_AcceleratorTypeList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_AcceleratorTypeList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_AcceleratorTypeList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -32970,6 +34055,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -33449,6 +34538,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_AddressAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_AddressAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_AddressAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -33595,6 +34688,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -33772,6 +34869,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_AddressList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_AddressList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_AddressList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -34088,6 +35189,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
 
 /**
+ *  [Input Only] Whether to force attach the regional disk even if it's
+ *  currently attached to another instance. If you try to force attach a zonal
+ *  disk to an instance, you will receive an error.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *forceAttach;
+
+/**
  *  A list of features to enable on the guest operating system. Applicable only
  *  for bootable images. Read Enabling guest operating system features to see a
  *  list of available options.
@@ -34275,6 +35385,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *provisionedIops;
 
 /**
+ *  Resource manager tags to be bound to the disk. Tag keys and values have the
+ *  same definition as resource manager tags. Keys must be in the format
+ *  `tagKeys/{tag_key_id}`, and values are in the format `tagValues/456`. The
+ *  field is ignored (both PUT & PATCH) when empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_AttachedDiskInitializeParams_ResourceManagerTags *resourceManagerTags;
+
+/**
  *  Resource policies applied to this disk for automatic snapshot creations.
  *  Specified using the full or partial URL. For instance template, specify only
  *  the resource policy name.
@@ -34334,6 +35452,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        fetch them all at once.
  */
 @interface GTLRCompute_AttachedDiskInitializeParams_Labels : GTLRObject
+@end
+
+
+/**
+ *  Resource manager tags to be bound to the disk. Tag keys and values have the
+ *  same definition as resource manager tags. Keys must be in the format
+ *  `tagKeys/{tag_key_id}`, and values are in the format `tagValues/456`. The
+ *  field is ignored (both PUT & PATCH) when empty.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_AttachedDiskInitializeParams_ResourceManagerTags : GTLRObject
 @end
 
 
@@ -34672,6 +35805,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_AutoscalerAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_AutoscalerAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_AutoscalerAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -34849,6 +35986,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_AutoscalerList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_AutoscalerList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_AutoscalerList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -34994,6 +36135,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -35658,7 +36803,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *maxRatePerInstance;
 
 /**
- *  Optional parameter to define a target capacity for the UTILIZATIONbalancing
+ *  Optional parameter to define a target capacity for the UTILIZATION balancing
  *  mode. The valid range is [0.0, 1.0]. For usage guidelines, see Utilization
  *  balancing mode.
  *
@@ -36049,6 +37194,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_BackendBucketList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_BackendBucketList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_BackendBucketList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -36664,6 +37813,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_BackendServiceAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_BackendServiceAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_BackendServiceAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -37253,6 +38406,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_BackendServiceList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_BackendServiceList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_BackendServiceList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -37520,6 +38677,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -37942,11 +39103,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  anyone who is authenticated with a Google account or a service account. *
  *  `user:{emailid}`: An email address that represents a specific Google
  *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
- *  address that represents a Google group. For example, `admins\@example.com`.
- *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
+ *  An email address that represents a Google service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
+ *  identifier for a [Kubernetes service
+ *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
+ *  `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
+ *  An email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -37995,7 +39161,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, strong, nullable) GTLRCompute_InstanceProperties *instanceProperties;
 
-/** Policy for chosing target zone. */
+/**
+ *  Policy for chosing target zone. For more information, see Create VMs in bulk
+ *  .
+ */
 @property(nonatomic, strong, nullable) GTLRCompute_LocationPolicy *locationPolicy;
 
 /**
@@ -38272,6 +39441,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** The license specification required as part of a license commitment. */
 @property(nonatomic, strong, nullable) GTLRCompute_LicenseResourceCommitment *licenseResource;
 
+/** List of source commitments to be merged into a new commitment. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *mergeSourceCommitments;
+
 /**
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
@@ -38310,6 +39482,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** Source commitment to be splitted into a new commitment. */
+@property(nonatomic, copy, nullable) NSString *splitSourceCommitment;
 
 /** [Output Only] Commitment start time in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *startTimestamp;
@@ -38454,6 +39629,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_CommitmentAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_CommitmentAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_CommitmentAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -38631,6 +39810,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_CommitmentList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_CommitmentList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_CommitmentList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -38776,6 +39959,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -39344,6 +40531,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *options;
 
 /**
+ *  Input only. [Input Only] Additional params passed with the request, but not
+ *  persisted as part of resource payload.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_DiskParams *params;
+
+/**
  *  Physical block size of the persistent disk, in bytes. If not present in a
  *  request, a default value is used. The currently supported size is 4096,
  *  other sizes may be added in the future. If an unsupported value is
@@ -39636,6 +40829,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_DiskAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_DiskAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_DiskAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -39887,6 +41084,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_DiskList_Warning_Code_InjectedKernelsDeprecated The
  *        operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_DiskList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_DiskList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -40003,6 +41204,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  Additional disk params.
+ */
+@interface GTLRCompute_DiskParams : GTLRObject
+
+/**
+ *  Resource manager tags to be bound to the disk. Tag keys and values have the
+ *  same definition as resource manager tags. Keys must be in the format
+ *  `tagKeys/{tag_key_id}`, and values are in the format `tagValues/456`. The
+ *  field is ignored (both PUT & PATCH) when empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_DiskParams_ResourceManagerTags *resourceManagerTags;
+
+@end
+
+
+/**
+ *  Resource manager tags to be bound to the disk. Tag keys and values have the
+ *  same definition as resource manager tags. Keys must be in the format
+ *  `tagKeys/{tag_key_id}`, and values are in the format `tagValues/456`. The
+ *  field is ignored (both PUT & PATCH) when empty.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_DiskParams_ResourceManagerTags : GTLRObject
+@end
+
+
+/**
  *  GTLRCompute_DisksAddResourcePoliciesRequest
  */
 @interface GTLRCompute_DisksAddResourcePoliciesRequest : GTLRObject
@@ -40094,6 +41326,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -40350,6 +41586,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_DiskTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_DiskTypeAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_DiskTypeAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -40526,6 +41766,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_DiskTypeList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_DiskTypeList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_DiskTypeList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -40670,6 +41914,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -41055,6 +42303,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -41445,6 +42697,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -41879,6 +43135,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_FirewallList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_FirewallList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_FirewallList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -42241,6 +43501,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_FirewallPolicyList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_FirewallPolicyList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_FirewallPolicyList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -43033,6 +44297,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -43207,6 +44475,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ForwardingRuleList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_ForwardingRuleList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_ForwardingRuleList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -43391,6 +44663,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -43975,6 +45251,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_HealthCheckList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_HealthCheckList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_HealthCheckList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -44184,6 +45464,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -44493,6 +45777,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_HealthCheckServicesList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_HealthCheckServicesList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_HealthCheckServicesList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -44639,6 +45927,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -45490,6 +46782,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_HttpHealthCheckList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_HttpHealthCheckList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_HttpHealthCheckList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -45899,8 +47195,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  forwarding the request to the selected backend. If routeAction specifies any
  *  weightedBackendServices, service must not be set. Conversely if service is
  *  set, routeAction cannot contain any weightedBackendServices. Only one of
- *  urlRedirect, service or routeAction.weightedBackendService must be set.
- *  UrlMaps for external HTTP(S) load balancers support only the urlRewrite
+ *  urlRedirect, service or routeAction.weightedBackendService must be set. URL
+ *  maps for Classic external HTTP(S) load balancers only support the urlRewrite
  *  action within a route rule's routeAction.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpRouteAction *routeAction;
@@ -46264,6 +47560,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_HttpsHealthCheckList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_HttpsHealthCheckList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_HttpsHealthCheckList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -46753,6 +48053,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ImageList_Warning_Code_InjectedKernelsDeprecated The
  *        operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_ImageList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_ImageList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -47283,6 +48587,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_InstanceAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_InstanceAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -47373,6 +48681,56 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_InstanceConsumptionData
+ */
+@interface GTLRCompute_InstanceConsumptionData : GTLRObject
+
+/** Resources consumed by the instance. */
+@property(nonatomic, strong, nullable) GTLRCompute_InstanceConsumptionInfo *consumptionInfo;
+
+/** Server-defined URL for the instance. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+@end
+
+
+/**
+ *  GTLRCompute_InstanceConsumptionInfo
+ */
+@interface GTLRCompute_InstanceConsumptionInfo : GTLRObject
+
+/**
+ *  The number of virtual CPUs that are available to the instance.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *guestCpus;
+
+/**
+ *  The amount of local SSD storage available to the instance, defined in GiB.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *localSsdGb;
+
+/**
+ *  The amount of physical memory available to the instance, defined in MiB.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryMb;
+
+/**
+ *  The minimal guaranteed number of virtual CPUs that are reserved.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minNodeCpus;
 
 @end
 
@@ -47578,6 +48936,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -47755,6 +49117,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceGroupList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_InstanceGroupList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_InstanceGroupList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -48223,6 +49589,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -48423,6 +49793,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceGroupManagerList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_InstanceGroupManagerList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_InstanceGroupManagerList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -48779,6 +50153,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -48956,6 +50334,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -49467,6 +50849,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceGroupsListInstances_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_InstanceGroupsListInstances_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_InstanceGroupsListInstances_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -49649,6 +51035,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -49851,6 +51241,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_InstanceList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_InstanceList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -50026,6 +51420,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceListReferrers_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_InstanceListReferrers_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_InstanceListReferrers_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -50630,6 +52028,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -50979,6 +52381,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceTemplateList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_InstanceTemplateList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_InstanceTemplateList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -51839,6 +53245,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -52017,6 +53427,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -52210,6 +53624,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -52559,6 +53977,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -52873,6 +54295,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -53414,6 +54840,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -53545,8 +54975,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The locale used following the specification defined at
- *  http://www.rfc-editor.org/rfc/bcp/bcp47.txt. Examples are: "en-US", "fr-CH",
- *  "es-MX"
+ *  https://www.rfc-editor.org/rfc/bcp/bcp47.txt. Examples are: "en-US",
+ *  "fr-CH", "es-MX"
  */
 @property(nonatomic, copy, nullable) NSString *locale;
 
@@ -53621,7 +55051,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) GTLRCompute_LocationPolicyLocationConstraints *constraints;
 
 /**
- *  Preference for a given location.
+ *  Preference for a given location. Set to either ALLOW or DENY.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_LocationPolicyLocation_Preference_Allow Location is
@@ -53971,6 +55401,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_MachineImageList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_MachineImageList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_MachineImageList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -54299,6 +55733,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_MachineTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_MachineTypeAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_MachineTypeAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -54476,6 +55914,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_MachineTypeList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_MachineTypeList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_MachineTypeList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -54621,6 +56063,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -55181,6 +56627,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *enableUlaInternalIpv6;
 
 /**
+ *  [Output Only] URL of the firewall policy the network is associated with.
+ */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/**
  *  [Output Only] The gateway address for default routing out of the network,
  *  selected by GCP.
  */
@@ -55448,6 +56899,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NetworkEdgeSecurityServiceAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_NetworkEdgeSecurityServiceAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_NetworkEdgeSecurityServiceAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -55594,6 +57049,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NetworkEdgeSecurityServicesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_NetworkEdgeSecurityServicesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_NetworkEdgeSecurityServicesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -55999,6 +57458,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -56114,9 +57577,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  multiple Network Endpoint Groups and backend services. For example, the
  *  request URLs "foo1-dot-appname.appspot.com/v1" and
  *  "foo1-dot-appname.appspot.com/v2" can be backed by the same Serverless NEG
- *  with URL mask "-dot-appname.appspot.com/". The URL mask will parse them to {
- *  service = "foo1", version = "v1" } and { service = "foo1", version = "v2" }
- *  respectively.
+ *  with URL mask "<service>-dot-appname.appspot.com/<version>". The URL mask
+ *  will parse them to { service = "foo1", version = "v1" } and { service =
+ *  "foo1", version = "v2" } respectively.
  */
 @property(nonatomic, copy, nullable) NSString *urlMask;
 
@@ -56148,8 +57611,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  routing to multiple Cloud Functions without having to create multiple
  *  Network Endpoint Groups and backend services. For example, request URLs "
  *  mydomain.com/function1" and "mydomain.com/function2" can be backed by the
- *  same Serverless NEG with URL mask "/". The URL mask will parse them to {
- *  function = "function1" } and { function = "function2" } respectively.
+ *  same Serverless NEG with URL mask "/<function>". The URL mask will parse
+ *  them to { function = "function1" } and { function = "function2" }
+ *  respectively.
  */
 @property(nonatomic, copy, nullable) NSString *urlMask;
 
@@ -56275,6 +57739,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NetworkEndpointGroupList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_NetworkEndpointGroupList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_NetworkEndpointGroupList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -56495,6 +57963,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -56644,6 +58116,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -56981,6 +58457,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NetworkList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_NetworkList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_NetworkList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -57451,6 +58931,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** Share-settings for the node group */
+@property(nonatomic, strong, nullable) GTLRCompute_ShareSettings *shareSettings;
+
 /**
  *  [Output Only] The total number of nodes in the node group.
  *
@@ -57568,6 +59051,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NodeGroupAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_NodeGroupAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_NodeGroupAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -57785,6 +59272,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NodeGroupList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_NodeGroupList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_NodeGroupList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -57907,6 +59398,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** Accelerators for this node. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_AcceleratorConfig *> *accelerators;
 
+/** Node resources that are reserved by all instances. */
+@property(nonatomic, strong, nullable) GTLRCompute_InstanceConsumptionInfo *consumedResources;
+
 /**
  *  CPU overcommit.
  *
@@ -57921,6 +59415,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** Local disk configurations. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_LocalDisk *> *disks;
+
+/** Instance data that shows consumed resources on the node. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InstanceConsumptionData *> *instanceConsumptionData;
 
 /** Instances scheduled on this node. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instances;
@@ -57955,6 +59452,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NodeGroupNode_Status_Repairing Value "REPAIRING"
  */
 @property(nonatomic, copy, nullable) NSString *status;
+
+/** Total amount of available resources on the node. */
+@property(nonatomic, strong, nullable) GTLRCompute_InstanceConsumptionInfo *totalResources;
 
 @end
 
@@ -58068,6 +59568,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NodeGroupsListNodes_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_NodeGroupsListNodes_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_NodeGroupsListNodes_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -58214,6 +59718,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NodeGroupsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_NodeGroupsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_NodeGroupsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -58541,6 +60049,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -58718,6 +60230,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NodeTemplateList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_NodeTemplateList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_NodeTemplateList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -58875,6 +60391,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NodeTemplatesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_NodeTemplatesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_NodeTemplatesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -59138,6 +60658,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NodeTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_NodeTypeAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_NodeTypeAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -59315,6 +60839,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NodeTypeList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_NodeTypeList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_NodeTypeList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -59459,6 +60987,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NodeTypesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_NodeTypesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_NodeTypesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -59747,6 +61279,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NotificationEndpointList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_NotificationEndpointList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_NotificationEndpointList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -60066,6 +61602,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -60288,6 +61828,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_OperationAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_OperationAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_OperationAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -60466,6 +62010,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_OperationList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_OperationList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_OperationList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -60610,6 +62158,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -61063,6 +62615,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -61297,6 +62853,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_PacketMirroringList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_PacketMirroringList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_PacketMirroringList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -61522,6 +63082,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_PacketMirroringsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_PacketMirroringsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_PacketMirroringsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -61631,8 +63195,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  weightedBackendServices, defaultService must not be set. Conversely if
  *  defaultService is set, defaultRouteAction cannot contain any
  *  weightedBackendServices. Only one of defaultRouteAction or
- *  defaultUrlRedirect must be set. UrlMaps for external HTTP(S) load balancers
- *  support only the urlRewrite action within a path matcher's
+ *  defaultUrlRedirect must be set. URL maps for Classic external HTTP(S) load
+ *  balancers only support the urlRewrite action within a path matcher's
  *  defaultRouteAction.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpRouteAction *defaultRouteAction;
@@ -61728,9 +63292,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  the request to the selected backend. If routeAction specifies any
  *  weightedBackendServices, service must not be set. Conversely if service is
  *  set, routeAction cannot contain any weightedBackendServices. Only one of
- *  routeAction or urlRedirect must be set. URL maps for external HTTP(S) load
- *  balancers support only the urlRewrite action within a path rule's
- *  routeAction.
+ *  routeAction or urlRedirect must be set. URL maps for Classic external
+ *  HTTP(S) load balancers only support the urlRewrite action within a path
+ *  rule's routeAction.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpRouteAction *routeAction;
 
@@ -62408,6 +63972,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_PublicAdvertisedPrefixList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_PublicAdvertisedPrefixList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_PublicAdvertisedPrefixList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -62743,6 +64311,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_PublicDelegatedPrefixAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_PublicDelegatedPrefixAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_PublicDelegatedPrefixAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -62891,6 +64463,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_PublicDelegatedPrefixesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_PublicDelegatedPrefixesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_PublicDelegatedPrefixesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -63068,6 +64644,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_PublicDelegatedPrefixList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_PublicDelegatedPrefixList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_PublicDelegatedPrefixList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -63631,6 +65211,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_RegionAutoscalerList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_RegionAutoscalerList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_RegionAutoscalerList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -63845,6 +65429,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_RegionDiskTypeList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_RegionDiskTypeList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_RegionDiskTypeList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -64019,6 +65607,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_RegionInstanceGroupList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_RegionInstanceGroupList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_RegionInstanceGroupList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -64211,6 +65803,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -64537,6 +66133,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -64808,6 +66408,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -65037,6 +66641,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_RegionList_Warning_Code_InjectedKernelsDeprecated The
  *        operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_RegionList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_RegionList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -65248,7 +66856,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  New set of SslCertificate resources to associate with this TargetHttpsProxy
- *  resource. Currently exactly one SslCertificate resource must be specified.
+ *  resource.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sslCertificates;
 
@@ -65276,6 +66884,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The full or partial URL to the BackendService resource being mirrored to.
+ *  The backend service configured for a mirroring policy must reference
+ *  backends that are of the same type as the original backend service matched
+ *  in the URL map. Serverless NEG backends are not currently supported as a
+ *  mirrored backend service.
  */
 @property(nonatomic, copy, nullable) NSString *backendService;
 
@@ -65512,6 +67124,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ReservationAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_ReservationAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_ReservationAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -65690,6 +67306,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ReservationList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_ReservationList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_ReservationList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -65851,6 +67471,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ReservationsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_ReservationsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_ReservationsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -66051,6 +67675,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -66312,6 +67940,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -66628,6 +68260,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ResourcePolicyList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_ResourcePolicyList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_ResourcePolicyList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -67117,6 +68753,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -67324,6 +68964,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_RouteList_Warning_Code_InjectedKernelsDeprecated The
  *        operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_RouteList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_RouteList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -67604,6 +69248,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_RouterAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_RouterAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_RouterAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -68124,6 +69772,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_RouterList_Warning_Code_InjectedKernelsDeprecated The
  *        operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_RouterList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_RouterList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -68571,6 +70223,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -69128,7 +70784,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
- *  Sets the scheduling options for an Instance. NextID: 21
+ *  Sets the scheduling options for an Instance.
  */
 @interface GTLRCompute_Scheduling : GTLRObject
 
@@ -69360,6 +71016,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SecurityPoliciesAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_SecurityPoliciesAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_SecurityPoliciesAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -69516,6 +71176,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SecurityPoliciesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_SecurityPoliciesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_SecurityPoliciesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -69773,6 +71437,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_SecurityPolicyAdvancedOptionsConfig : GTLRObject
 
 /**
+ *  Custom configuration to apply the JSON parsing. Only applicable when
+ *  json_parsing is set to STANDARD.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_SecurityPolicyAdvancedOptionsConfigJsonCustomConfig *jsonCustomConfig;
+
+/**
  *  jsonParsing
  *
  *  Likely values:
@@ -69793,6 +71463,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "VERBOSE"
  */
 @property(nonatomic, copy, nullable) NSString *logLevel;
+
+@end
+
+
+/**
+ *  GTLRCompute_SecurityPolicyAdvancedOptionsConfigJsonCustomConfig
+ */
+@interface GTLRCompute_SecurityPolicyAdvancedOptionsConfigJsonCustomConfig : GTLRObject
+
+/**
+ *  A list of custom Content-Type header values to apply the JSON parsing. As
+ *  per RFC 1341, a Content-Type header value has the following format:
+ *  Content-Type := type "/" subtype *[";" parameter] When configuring a custom
+ *  Content-Type header value, only the type/subtype needs to be specified, and
+ *  the parameters should be excluded.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *contentTypes;
 
 @end
 
@@ -69896,6 +71583,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -70644,6 +72335,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ServiceAttachmentAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_ServiceAttachmentAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_ServiceAttachmentAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -70879,6 +72574,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ServiceAttachmentList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_ServiceAttachmentList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_ServiceAttachmentList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -71025,6 +72724,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ServiceAttachmentsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_ServiceAttachmentsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_ServiceAttachmentsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -71136,6 +72839,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Likely values:
  *    @arg @c kGTLRCompute_ShareSettings_ShareType_Local Default value. (Value:
  *        "LOCAL")
+ *    @arg @c kGTLRCompute_ShareSettings_ShareType_Organization
+ *        Shared-reservation is open to entire Organization (Value:
+ *        "ORGANIZATION")
  *    @arg @c kGTLRCompute_ShareSettings_ShareType_ShareTypeUnspecified Default
  *        value. This value is unused. (Value: "SHARE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCompute_ShareSettings_ShareType_SpecificProjects
@@ -71325,6 +73031,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *chainName;
 
+/**
+ *  [Output Only] Size in bytes of the snapshot at creation time.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *creationSizeBytes;
+
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
@@ -71441,6 +73154,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, strong, nullable) GTLRCompute_CustomerEncryptionKey *snapshotEncryptionKey;
 
+/**
+ *  Indicates the type of the snapshot.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Snapshot_SnapshotType_Archive Value "ARCHIVE"
+ *    @arg @c kGTLRCompute_Snapshot_SnapshotType_Standard Value "STANDARD"
+ */
+@property(nonatomic, copy, nullable) NSString *snapshotType;
+
 /** The source disk used to create this snapshot. */
 @property(nonatomic, copy, nullable) NSString *sourceDisk;
 
@@ -71456,6 +73178,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  current or a previous instance of a given disk name.
  */
 @property(nonatomic, copy, nullable) NSString *sourceDiskId;
+
+/**
+ *  [Output Only] URL of the resource policy which created this scheduled
+ *  snapshot.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceSnapshotSchedulePolicy;
+
+/**
+ *  [Output Only] ID of the resource policy which created this scheduled
+ *  snapshot.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceSnapshotSchedulePolicyId;
 
 /**
  *  [Output Only] The status of the snapshot. This can be CREATING, DELETING,
@@ -71598,6 +73332,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SnapshotList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_SnapshotList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_SnapshotList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -72054,6 +73792,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -72228,6 +73970,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SslCertificateList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_SslCertificateList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_SslCertificateList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -72462,6 +74208,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -72710,6 +74460,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -72918,6 +74672,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *profile;
 
+/**
+ *  [Output Only] URL of the region where the regional SSL policy resides. This
+ *  field is not applicable to global SSL policies.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
@@ -72964,6 +74724,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -73467,6 +75231,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SubnetworkAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_SubnetworkAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_SubnetworkAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -73644,6 +75412,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SubnetworkList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_SubnetworkList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_SubnetworkList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -73907,6 +75679,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -74248,6 +76024,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -74394,6 +76174,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -74720,6 +76504,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetHttpProxyList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_TargetHttpProxyList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_TargetHttpProxyList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -74866,6 +76654,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -75264,6 +77056,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -75441,6 +77237,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetHttpsProxyList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_TargetHttpsProxyList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_TargetHttpsProxyList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -75593,8 +77393,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  NAT option controlling how IPs are NAT'ed to the instance. Currently only
- *  NO_NAT (default value) is supported.
+ *  Must have a value of NO_NAT. Protocol forwarding delivers packets while
+ *  preserving the destination IP address of the forwarding rule referencing the
+ *  target instance.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_TargetInstance_NatPolicy_NoNat No NAT performed.
@@ -75709,6 +77510,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -75883,6 +77688,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetInstanceList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_TargetInstanceList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_TargetInstanceList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -76029,6 +77838,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -76356,6 +78169,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetPoolAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_TargetPoolAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_TargetPoolAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -76549,6 +78366,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetPoolList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_TargetPoolList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_TargetPoolList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -76752,6 +78573,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -77080,6 +78905,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetSslProxyList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_TargetSslProxyList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_TargetSslProxyList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -77364,6 +79193,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetTcpProxyList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_TargetTcpProxyList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_TargetTcpProxyList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -77637,6 +79470,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -77814,6 +79651,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetVpnGatewayList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_TargetVpnGatewayList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_TargetVpnGatewayList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -77960,6 +79801,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -78258,8 +80103,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  defaultRouteAction specifies any weightedBackendServices, defaultService
  *  must not be set. Conversely if defaultService is set, defaultRouteAction
  *  cannot contain any weightedBackendServices. Only one of defaultRouteAction
- *  or defaultUrlRedirect must be set. UrlMaps for external HTTP(S) load
- *  balancers support only the urlRewrite action within defaultRouteAction.
+ *  or defaultUrlRedirect must be set. URL maps for Classic external HTTP(S)
+ *  load balancers only support the urlRewrite action within defaultRouteAction.
  *  defaultRouteAction has no effect when the URL map is bound to a target gRPC
  *  proxy that has the validateForProxyless field set to true.
  */
@@ -78452,6 +80297,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_UrlMapList_Warning_Code_InjectedKernelsDeprecated The
  *        operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_UrlMapList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_UrlMapList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -78639,6 +80488,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -78785,6 +80638,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -79234,6 +81091,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -79567,6 +81428,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -79859,6 +81724,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -80035,6 +81904,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -80190,6 +82063,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -80714,6 +82591,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -80890,6 +82771,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_VpnTunnelList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_VpnTunnelList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_VpnTunnelList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -81034,6 +82919,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -81298,6 +83187,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_XpnHostList_Warning_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_XpnHostList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_XpnHostList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -81559,6 +83452,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_ZoneList_Warning_Code_InjectedKernelsDeprecated The
  *        operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_ZoneList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRCompute_ZoneList_Warning_Code_LargeDeploymentWarning When
  *        deploying a deployment with a exceedingly large number of resources
  *        (Value: "LARGE_DEPLOYMENT_WARNING")

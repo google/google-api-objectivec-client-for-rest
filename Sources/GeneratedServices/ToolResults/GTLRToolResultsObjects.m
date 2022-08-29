@@ -146,6 +146,7 @@ NSString * const kGTLRToolResults_TestIssue_Type_BlankScreen   = @"blankScreen";
 NSString * const kGTLRToolResults_TestIssue_Type_CompatibleWithOrchestrator = @"compatibleWithOrchestrator";
 NSString * const kGTLRToolResults_TestIssue_Type_CompleteRoboScriptExecution = @"completeRoboScriptExecution";
 NSString * const kGTLRToolResults_TestIssue_Type_CrashDialogError = @"crashDialogError";
+NSString * const kGTLRToolResults_TestIssue_Type_DetectedAppSplashScreen = @"detectedAppSplashScreen";
 NSString * const kGTLRToolResults_TestIssue_Type_DeviceOutOfMemory = @"deviceOutOfMemory";
 NSString * const kGTLRToolResults_TestIssue_Type_EncounteredLoginScreen = @"encounteredLoginScreen";
 NSString * const kGTLRToolResults_TestIssue_Type_EncounteredNonAndroidUiWidgetScreen = @"encounteredNonAndroidUiWidgetScreen";
@@ -343,6 +344,15 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"use
 
 @implementation GTLRToolResults_CrashDialogError
 @dynamic crashPackage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_DetectedAppSplashScreen
+//
+
+@implementation GTLRToolResults_DetectedAppSplashScreen
 @end
 
 

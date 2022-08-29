@@ -4734,7 +4734,15 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 //
 
 @implementation GTLRVision_TextDetectionParams
-@dynamic enableTextDetectionConfidenceScore;
+@dynamic advancedOcrOptions, enableTextDetectionConfidenceScore;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"advancedOcrOptions" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

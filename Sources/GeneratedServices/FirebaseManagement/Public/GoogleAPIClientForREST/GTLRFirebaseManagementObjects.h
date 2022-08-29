@@ -21,6 +21,7 @@
 @class GTLRFirebaseManagement_DefaultResources;
 @class GTLRFirebaseManagement_FirebaseAppInfo;
 @class GTLRFirebaseManagement_FirebaseProject;
+@class GTLRFirebaseManagement_FirebaseProject_Annotations;
 @class GTLRFirebaseManagement_IosApp;
 @class GTLRFirebaseManagement_Location;
 @class GTLRFirebaseManagement_MessageSet;
@@ -398,11 +399,22 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @interface GTLRFirebaseManagement_AndroidApp : GTLRObject
 
 /**
- *  The key_id of the GCP ApiKey associated with this App. If set must have no
- *  restrictions, or only have restrictions that are valid for the associated
- *  Firebase App. Cannot be set in create requests, instead an existing valid
- *  API Key will be chosen, or if no valid API Keys exist, one will be
- *  provisioned for you. Cannot be set to an empty value in update requests.
+ *  The globally unique, Google-assigned identifier (UID) for the Firebase API
+ *  key associated with the `AndroidApp`. Be aware that this value is the UID of
+ *  the API key, _not_ the
+ *  [`keyString`](https://cloud.google.com/api-keys/docs/reference/rest/v2/projects.locations.keys#Key.FIELDS.key_string)
+ *  of the API key. The `keyString` is the value that can be found in the App's
+ *  [configuration artifact](../../rest/v1beta1/projects.androidApps/getConfig).
+ *  If `api_key_id` is not set in requests to
+ *  [`androidApps.Create`](../../rest/v1beta1/projects.androidApps/create), then
+ *  Firebase automatically associates an `api_key_id` with the `AndroidApp`.
+ *  This auto-associated key may be an existing valid key or, if no valid key
+ *  exists, a new one will be provisioned. In patch requests, `api_key_id`
+ *  cannot be set to an empty value, and the new UID must have no restrictions
+ *  or only have restrictions that are valid for the associated `AndroidApp`. We
+ *  recommend using the [Google Cloud
+ *  Console](https://console.cloud.google.com/apis/credentials) to manage API
+ *  keys.
  */
 @property(nonatomic, copy, nullable) NSString *apiKeyId;
 
@@ -563,11 +575,22 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @interface GTLRFirebaseManagement_FirebaseAppInfo : GTLRObject
 
 /**
- *  The key_id of the GCP ApiKey associated with this App. If set must have no
- *  restrictions, or only have restrictions that are valid for the associated
- *  Firebase App. Cannot be set to an empty value in update requests. If left
- *  unset on create requests, an existing valid API Key will be chosen, or if no
- *  valid API Keys exist, one will be provisioned for you.
+ *  The globally unique, Google-assigned identifier (UID) for the Firebase API
+ *  key associated with the App. Be aware that this value is the UID of the API
+ *  key, _not_ the
+ *  [`keyString`](https://cloud.google.com/api-keys/docs/reference/rest/v2/projects.locations.keys#Key.FIELDS.key_string)
+ *  of the API key. The `keyString` is the value that can be found in the App's
+ *  configuration artifact
+ *  ([`AndroidApp`](../../rest/v1beta1/projects.androidApps/getConfig) |
+ *  [`IosApp`](../../rest/v1beta1/projects.iosApps/getConfig) |
+ *  [`WebApp`](../../rest/v1beta1/projects.webApps/getConfig)). If `api_key_id`
+ *  is not set in requests to create the App
+ *  ([`AndroidApp`](../../rest/v1beta1/projects.androidApps/create) |
+ *  [`IosApp`](../../rest/v1beta1/projects.iosApps/create) |
+ *  [`WebApp`](../../rest/v1beta1/projects.webApps/create)), then Firebase
+ *  automatically associates an `api_key_id` with the App. This auto-associated
+ *  key may be an existing valid key or, if no valid key exists, a new one will
+ *  be provisioned.
  */
 @property(nonatomic, copy, nullable) NSString *apiKeyId;
 
@@ -648,8 +671,25 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
  */
 @interface GTLRFirebaseManagement_FirebaseProject : GTLRObject
 
+/**
+ *  Set of user-defined annotations for the FirebaseProject as per
+ *  [AIP-128](https://google.aip.dev/128#annotations). These annotations are
+ *  intended solely for developers and client-side tools Firebase services will
+ *  not mutate this annotation set.
+ */
+@property(nonatomic, strong, nullable) GTLRFirebaseManagement_FirebaseProject_Annotations *annotations;
+
 /** The user-assigned display name of the Project. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  This checksum is computed by the server based on the value of other fields,
+ *  and may be sent on update requests to ensure the client has an up-to-date
+ *  value before proceeding.
+ *  [AIP-154](https://google.aip.dev/154#declarative-friendly-resources). This
+ *  etag is strongly validated.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The resource name of the Project, in the format: projects/PROJECT_IDENTIFIER
@@ -704,16 +744,42 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 
 
 /**
+ *  Set of user-defined annotations for the FirebaseProject as per
+ *  [AIP-128](https://google.aip.dev/128#annotations). These annotations are
+ *  intended solely for developers and client-side tools Firebase services will
+ *  not mutate this annotation set.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRFirebaseManagement_FirebaseProject_Annotations : GTLRObject
+@end
+
+
+/**
  *  Details of a Firebase App for iOS.
  */
 @interface GTLRFirebaseManagement_IosApp : GTLRObject
 
 /**
- *  The key_id of the GCP ApiKey associated with this App. If set must have no
- *  restrictions, or only have restrictions that are valid for the associated
- *  Firebase App. Cannot be set in create requests, instead an existing valid
- *  API Key will be chosen, or if no valid API Keys exist, one will be
- *  provisioned for you. Cannot be set to an empty value in update requests.
+ *  The globally unique, Google-assigned identifier (UID) for the Firebase API
+ *  key associated with the `IosApp`. Be aware that this value is the UID of the
+ *  API key, _not_ the
+ *  [`keyString`](https://cloud.google.com/api-keys/docs/reference/rest/v2/projects.locations.keys#Key.FIELDS.key_string)
+ *  of the API key. The `keyString` is the value that can be found in the App's
+ *  [configuration artifact](../../rest/v1beta1/projects.iosApps/getConfig). If
+ *  `api_key_id` is not set in requests to
+ *  [`iosApps.Create`](../../rest/v1beta1/projects.iosApps/create), then
+ *  Firebase automatically associates an `api_key_id` with the `IosApp`. This
+ *  auto-associated key may be an existing valid key or, if no valid key exists,
+ *  a new one will be provisioned. In patch requests, `api_key_id` cannot be set
+ *  to an empty value, and the new UID must have no restrictions or only have
+ *  restrictions that are valid for the associated `IosApp`. We recommend using
+ *  the [Google Cloud
+ *  Console](https://console.cloud.google.com/apis/credentials) to manage API
+ *  keys.
  */
 @property(nonatomic, copy, nullable) NSString *apiKeyId;
 
@@ -1443,16 +1509,90 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 
 
 /**
+ *  GTLRFirebaseManagement_UndeleteAndroidAppRequest
+ */
+@interface GTLRFirebaseManagement_UndeleteAndroidAppRequest : GTLRObject
+
+/**
+ *  Checksum provided in the AndroidApp entity, which if provided ensures the
+ *  client has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  If set to true, only validate the request and do not undelete the app.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  GTLRFirebaseManagement_UndeleteIosAppRequest
+ */
+@interface GTLRFirebaseManagement_UndeleteIosAppRequest : GTLRObject
+
+/**
+ *  Checksum provided in the IosApp entity, which if provided ensures the client
+ *  has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  If set to true, only validate the request and do not undelete the app.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  GTLRFirebaseManagement_UndeleteWebAppRequest
+ */
+@interface GTLRFirebaseManagement_UndeleteWebAppRequest : GTLRObject
+
+/**
+ *  Checksum provided in the WebApp entity, which if provided ensures the client
+ *  has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  If set to true, only validate the request and do not undelete the app.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
  *  Details of a Firebase App for the web.
  */
 @interface GTLRFirebaseManagement_WebApp : GTLRObject
 
 /**
- *  The key_id of the GCP ApiKey associated with this App. If set must have no
- *  restrictions, or only have restrictions that are valid for the associated
- *  Firebase App. Cannot be set in create requests, instead an existing valid
- *  API Key will be chosen, or if no valid API Keys exist, one will be
- *  provisioned for you. Cannot be set to an empty value in update requests.
+ *  The globally unique, Google-assigned identifier (UID) for the Firebase API
+ *  key associated with the `WebApp`. Be aware that this value is the UID of the
+ *  API key, _not_ the
+ *  [`keyString`](https://cloud.google.com/api-keys/docs/reference/rest/v2/projects.locations.keys#Key.FIELDS.key_string)
+ *  of the API key. The `keyString` is the value that can be found in the App's
+ *  [configuration artifact](../../rest/v1beta1/projects.webApps/getConfig). If
+ *  `api_key_id` is not set in requests to
+ *  [`webApps.Create`](../../rest/v1beta1/projects.webApps/create), then
+ *  Firebase automatically associates an `api_key_id` with the `WebApp`. This
+ *  auto-associated key may be an existing valid key or, if no valid key exists,
+ *  a new one will be provisioned. In patch requests, `api_key_id` cannot be set
+ *  to an empty value, and the new UID must have no restrictions or only have
+ *  restrictions that are valid for the associated `WebApp`. We recommend using
+ *  the [Google Cloud
+ *  Console](https://console.cloud.google.com/apis/credentials) to manage API
+ *  keys.
  */
 @property(nonatomic, copy, nullable) NSString *apiKeyId;
 
@@ -1519,7 +1659,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
  */
 @interface GTLRFirebaseManagement_WebAppConfig : GTLRObject
 
-/** The API key associated with the `WebApp`. */
+/**
+ *  The
+ *  [`keyString`](https://cloud.google.com/api-keys/docs/reference/rest/v2/projects.locations.keys#Key.FIELDS.key_string)
+ *  of the API key associated with the `WebApp`. Note that this value is _not_
+ *  the [`apiKeyId`](../projects.webApps#WebApp.FIELDS.api_key_id) (the UID) of
+ *  the API key associated with the `WebApp`.
+ */
 @property(nonatomic, copy, nullable) NSString *apiKey;
 
 /**

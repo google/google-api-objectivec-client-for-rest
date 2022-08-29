@@ -564,8 +564,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, strong, nullable) NSNumber *manual;
 
 /**
- *  Output only. The fully qualified name of the Backup. projects/ * /locations/
- *  * /backupPlans/ * /backups/ *
+ *  Output only. The fully qualified name of the Backup. `projects/ *
+ *  /locations/ * /backupPlans/ * /backups/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -587,8 +587,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 /**
  *  The age (in days) after which this Backup will be automatically deleted.
  *  Must be an integer value >= 0: - If 0, no automatic deletion will occur for
- *  this Backup. - If not 0, this must be >= delete_lock_days. Once a Backup is
- *  created, this value may only be increased. Defaults to the parent
+ *  this Backup. - If not 0, this must be >= delete_lock_days and <= 365. Once a
+ *  Backup is created, this value may only be increased. Defaults to the parent
  *  BackupPlan's backup_retain_days value.
  *
  *  Uses NSNumber of intValue.
@@ -742,8 +742,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  Required. Immutable. The source cluster from which Backups will be created
- *  via this BackupPlan. Valid formats: - projects/ * /locations/ * /clusters/ *
- *  - projects/ * /zones/ * /clusters/ *
+ *  via this BackupPlan. Valid formats: - `projects/ * /locations/ * /clusters/
+ *  *` - `projects/ * /zones/ * /clusters/ *`
  */
 @property(nonatomic, copy, nullable) NSString *cluster;
 
@@ -784,8 +784,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, strong, nullable) GTLRBackupforGKE_BackupPlan_Labels *labels;
 
 /**
- *  Output only. The full name of the BackupPlan resource. Format: projects/ *
- *  /locations/ * /backupPlans/ *
+ *  Output only. The full name of the BackupPlan resource. Format: `projects/ *
+ *  /locations/ * /backupPlans/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -850,11 +850,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  anyone who is authenticated with a Google account or a service account. *
  *  `user:{emailid}`: An email address that represents a specific Google
  *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
- *  address that represents a Google group. For example, `admins\@example.com`.
- *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
+ *  An email address that represents a Google service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
+ *  identifier for a [Kubernetes service
+ *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
+ *  `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
+ *  An email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -896,8 +901,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  The source cluster from which this Backup was created. Valid formats: -
- *  projects/ * /locations/ * /clusters/ * - projects/ * /zones/ * /clusters/ *
- *  This is inherited from the parent BackupPlan's cluster field.
+ *  `projects/ * /locations/ * /clusters/ *` - `projects/ * /zones/ * /clusters/
+ *  *` This is inherited from the parent BackupPlan's cluster field.
  */
 @property(nonatomic, copy, nullable) NSString *cluster;
 
@@ -955,8 +960,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @interface GTLRBackupforGKE_EncryptionKey : GTLRObject
 
 /**
- *  Google Cloud KMS encryption key. Format: projects/ * /locations/ *
- *  /keyRings/ * /cryptoKeys/ *
+ *  Google Cloud KMS encryption key. Format: `projects/ * /locations/ *
+ *  /keyRings/ * /cryptoKeys/ *`
  */
 @property(nonatomic, copy, nullable) NSString *gcpKmsEncryptionKey;
 
@@ -1629,15 +1634,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 /**
  *  Required. Immutable. A reference to the Backup used as the source from which
  *  this Restore will restore. Note that this Backup must be a sub-resource of
- *  the RestorePlan's backup_plan. Format: projects/ * /locations/ *
- *  /backupPlans/ * /backups/ *.
+ *  the RestorePlan's backup_plan. Format: `projects/ * /locations/ *
+ *  /backupPlans/ * /backups/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *backup;
 
 /**
  *  Output only. The target cluster into which this Restore will restore data.
- *  Valid formats: - projects/ * /locations/ * /clusters/ * - projects/ *
- *  /zones/ * /clusters/ * Inherited from parent RestorePlan's cluster value.
+ *  Valid formats: - `projects/ * /locations/ * /clusters/ *` - `projects/ *
+ *  /zones/ * /clusters/ *` Inherited from parent RestorePlan's cluster value.
  */
 @property(nonatomic, copy, nullable) NSString *cluster;
 
@@ -1670,8 +1675,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, strong, nullable) GTLRBackupforGKE_Restore_Labels *labels;
 
 /**
- *  Output only. The full name of the Restore resource. Format: projects/ *
- *  /locations/ * /restorePlans/ * /restores/ *
+ *  Output only. The full name of the Restore resource. Format: `projects/ *
+ *  /locations/ * /restorePlans/ * /restores/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1893,15 +1898,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 /**
  *  Required. Immutable. A reference to the BackupPlan from which Backups may be
  *  used as the source for Restores created via this RestorePlan. Format:
- *  projects/ * /locations/ * /backupPlans/ *.
+ *  `projects/ * /locations/ * /backupPlans/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *backupPlan;
 
 /**
  *  Required. Immutable. The target cluster into which Restores created via this
  *  RestorePlan will restore data. NOTE: the cluster's region must be the same
- *  as the RestorePlan. Valid formats: - projects/ * /locations/ * /clusters/ *
- *  - projects/ * /zones/ * /clusters/ *
+ *  as the RestorePlan. Valid formats: - `projects/ * /locations/ * /clusters/
+ *  *` - `projects/ * /zones/ * /clusters/ *`
  */
 @property(nonatomic, copy, nullable) NSString *cluster;
 
@@ -1931,8 +1936,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, strong, nullable) GTLRBackupforGKE_RestorePlan_Labels *labels;
 
 /**
- *  Output only. The full name of the RestorePlan resource. Format: projects/ *
- *  /locations/ * /restorePlans/ *.
+ *  Output only. The full name of the RestorePlan resource. Format: `projects/ *
+ *  /locations/ * /restorePlans/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1984,13 +1989,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  The default maximum age of a Backup created via this BackupPlan. This field
- *  MUST be an integer value >= 0. If specified, a Backup created under this
- *  BackupPlan will be automatically deleted after its age reaches (create_time
- *  + backup_retain_days). If not specified, Backups created under this
- *  BackupPlan will NOT be subject to automatic deletion. Updating this field
- *  does NOT affect existing Backups under it. Backups created AFTER a
+ *  MUST be an integer value >= 0 and <= 365. If specified, a Backup created
+ *  under this BackupPlan will be automatically deleted after its age reaches
+ *  (create_time + backup_retain_days). If not specified, Backups created under
+ *  this BackupPlan will NOT be subject to automatic deletion. Updating this
+ *  field does NOT affect existing Backups under it. Backups created AFTER a
  *  successful update will automatically pick up the new value. NOTE:
- *  backup_retain_days must be >= backup_delete_lock_days. Default: 0 (no
+ *  backup_retain_days must be >= backup_delete_lock_days. If cron_schedule is
+ *  defined, then this must be <= 360 * the creation interval. Default: 0 (no
  *  automatic deletion)
  *
  *  Uses NSNumber of intValue.
@@ -2017,8 +2023,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  A standard [cron](https://wikipedia.com/wiki/cron) string that defines a
- *  repeating schedule for creating Backups via this BackupPlan. Default
- *  (empty): no automatic backup creation will occur.
+ *  repeating schedule for creating Backups via this BackupPlan. If this is
+ *  defined, then backup_retain_days must also be defined. Default (empty): no
+ *  automatic backup creation will occur.
  */
 @property(nonatomic, copy, nullable) NSString *cronSchedule;
 
@@ -2190,8 +2197,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, copy, nullable) NSString *format;
 
 /**
- *  Output only. The full name of the VolumeBackup resource. Format: projects/ *
- *  /locations/ * /backupPlans/ * /backups/ * /volumeBackups/ *.
+ *  Output only. The full name of the VolumeBackup resource. Format: `projects/
+ *  * /locations/ * /backupPlans/ * /backups/ * /volumeBackups/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2293,8 +2300,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Output only. Full name of the VolumeRestore resource. Format: projects/ *
- *  /locations/ * /restorePlans/ * /restores/ * /volumeRestores/ *.
+ *  Output only. Full name of the VolumeRestore resource. Format: `projects/ *
+ *  /locations/ * /restorePlans/ * /restores/ * /volumeRestores/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2342,8 +2349,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  Output only. The full name of the VolumeBackup from which the volume will be
- *  restored. Format: projects/ * /locations/ * /backupPlans/ * /backups/ *
- *  /volumeBackups/ *.
+ *  restored. Format: `projects/ * /locations/ * /backupPlans/ * /backups/ *
+ *  /volumeBackups/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *volumeBackup;
 

@@ -90,7 +90,7 @@ NSString * const kGTLRMyBusinessAccountManagement_Invitation_TargetType_TargetTy
 //
 
 @implementation GTLRMyBusinessAccountManagement_Admin
-@dynamic admin, name, pendingInvitation, role;
+@dynamic account, admin, name, pendingInvitation, role;
 @end
 
 

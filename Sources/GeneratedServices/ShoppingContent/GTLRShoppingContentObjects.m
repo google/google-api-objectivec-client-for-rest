@@ -103,6 +103,29 @@ NSString * const kGTLRShoppingContent_OrderTrackingSignalShippingInfo_ShippingSt
 NSString * const kGTLRShoppingContent_OrderTrackingSignalShippingInfo_ShippingStatus_Shipped = @"SHIPPED";
 NSString * const kGTLRShoppingContent_OrderTrackingSignalShippingInfo_ShippingStatus_ShippingStateUnspecified = @"SHIPPING_STATE_UNSPECIFIED";
 
+// GTLRShoppingContent_ProductView.aggregatedDestinationStatus
+NSString * const kGTLRShoppingContent_ProductView_AggregatedDestinationStatus_AggregatedStatusUnspecified = @"AGGREGATED_STATUS_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_ProductView_AggregatedDestinationStatus_Eligible = @"ELIGIBLE";
+NSString * const kGTLRShoppingContent_ProductView_AggregatedDestinationStatus_EligibleLimited = @"ELIGIBLE_LIMITED";
+NSString * const kGTLRShoppingContent_ProductView_AggregatedDestinationStatus_NotEligibleOrDisapproved = @"NOT_ELIGIBLE_OR_DISAPPROVED";
+NSString * const kGTLRShoppingContent_ProductView_AggregatedDestinationStatus_Pending = @"PENDING";
+
+// GTLRShoppingContent_ProductView.channel
+NSString * const kGTLRShoppingContent_ProductView_Channel_ChannelUnspecified = @"CHANNEL_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_ProductView_Channel_Local = @"LOCAL";
+NSString * const kGTLRShoppingContent_ProductView_Channel_Online = @"ONLINE";
+
+// GTLRShoppingContent_ProductViewItemIssue.resolution
+NSString * const kGTLRShoppingContent_ProductViewItemIssue_Resolution_MerchantAction = @"MERCHANT_ACTION";
+NSString * const kGTLRShoppingContent_ProductViewItemIssue_Resolution_PendingProcessing = @"PENDING_PROCESSING";
+NSString * const kGTLRShoppingContent_ProductViewItemIssue_Resolution_Unknown = @"UNKNOWN";
+
+// GTLRShoppingContent_ProductViewItemIssueItemIssueSeverity.aggregatedSeverity
+NSString * const kGTLRShoppingContent_ProductViewItemIssueItemIssueSeverity_AggregatedSeverity_AggregatedIssueSeverityUnspecified = @"AGGREGATED_ISSUE_SEVERITY_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_ProductViewItemIssueItemIssueSeverity_AggregatedSeverity_Demoted = @"DEMOTED";
+NSString * const kGTLRShoppingContent_ProductViewItemIssueItemIssueSeverity_AggregatedSeverity_Disapproved = @"DISAPPROVED";
+NSString * const kGTLRShoppingContent_ProductViewItemIssueItemIssueSeverity_AggregatedSeverity_Pending = @"PENDING";
+
 // GTLRShoppingContent_Promotion.couponValueType
 NSString * const kGTLRShoppingContent_Promotion_CouponValueType_BuyMGetMoneyOff = @"BUY_M_GET_MONEY_OFF";
 NSString * const kGTLRShoppingContent_Promotion_CouponValueType_BuyMGetNMoneyOff = @"BUY_M_GET_N_MONEY_OFF";
@@ -4412,11 +4435,11 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
          customLabel2, customLabel3, customLabel4, descriptionProperty,
          displayAdsId, displayAdsLink, displayAdsSimilarIds, displayAdsTitle,
          displayAdsValue, energyEfficiencyClass, excludedDestinations,
-         expirationDate, externalSellerId, gender, googleProductCategory, gtin,
-         identifier, identifierExists, imageLink, includedDestinations,
-         installment, isBundle, itemGroupId, kind, link, linkTemplate,
-         loyaltyPoints, material, maxEnergyEfficiencyClass, maxHandlingTime,
-         minEnergyEfficiencyClass, minHandlingTime, mobileLink,
+         expirationDate, externalSellerId, feedLabel, gender,
+         googleProductCategory, gtin, identifier, identifierExists, imageLink,
+         includedDestinations, installment, isBundle, itemGroupId, kind, link,
+         linkTemplate, loyaltyPoints, material, maxEnergyEfficiencyClass,
+         maxHandlingTime, minEnergyEfficiencyClass, minHandlingTime, mobileLink,
          mobileLinkTemplate, mpn, multipack, offerId, pattern, pause,
          pickupMethod, pickupSla, price, productDetails, productHeight,
          productHighlights, productLength, productTypes, productWeight,
@@ -4890,6 +4913,89 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_ProductView
+//
+
+@implementation GTLRShoppingContent_ProductView
+@dynamic aggregatedDestinationStatus, availability, brand, channel, condition,
+         creationTime, currencyCode, expirationDate, gtin, identifier,
+         itemGroupId, itemIssues, languageCode, offerId, priceMicros,
+         shippingLabel, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"gtin" : [NSString class],
+    @"itemIssues" : [GTLRShoppingContent_ProductViewItemIssue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ProductViewItemIssue
+//
+
+@implementation GTLRShoppingContent_ProductViewItemIssue
+@dynamic issueType, resolution, severity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ProductViewItemIssueIssueSeverityPerDestination
+//
+
+@implementation GTLRShoppingContent_ProductViewItemIssueIssueSeverityPerDestination
+@dynamic demotedCountries, destination, disapprovedCountries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"demotedCountries" : [NSString class],
+    @"disapprovedCountries" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ProductViewItemIssueItemIssueSeverity
+//
+
+@implementation GTLRShoppingContent_ProductViewItemIssueItemIssueSeverity
+@dynamic aggregatedSeverity, severityPerDestination;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"severityPerDestination" : [GTLRShoppingContent_ProductViewItemIssueIssueSeverityPerDestination class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ProductViewItemIssueItemIssueType
+//
+
+@implementation GTLRShoppingContent_ProductViewItemIssueItemIssueType
+@dynamic canonicalAttribute;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_ProductWeight
 //
 
@@ -5157,7 +5263,7 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_ReportRow
-@dynamic metrics, segments;
+@dynamic metrics, productView, segments;
 @end
 
 

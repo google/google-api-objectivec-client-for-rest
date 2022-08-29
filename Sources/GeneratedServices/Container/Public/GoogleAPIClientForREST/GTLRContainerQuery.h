@@ -383,8 +383,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster, node pool id) of the node pool to
- *  complete upgrade. Specified in the format 'projects/ * /locations/ *
- *  /clusters/ * /nodePools/ *'.
+ *  complete upgrade. Specified in the format `projects/ * /locations/ *
+ *  /clusters/ * /nodePools/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -397,8 +397,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_CompleteNodePoolUpgradeRequest to include
  *    in the query.
  *  @param name The name (project, location, cluster, node pool id) of the node
- *    pool to complete upgrade. Specified in the format 'projects/ * /locations/
- *    * /clusters/ * /nodePools/ *'.
+ *    pool to complete upgrade. Specified in the format `projects/ * /locations/
+ *    * /clusters/ * /nodePools/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsCompleteUpgrade
  */

@@ -31,6 +31,7 @@
 @class GTLRAuthorizedBuyersMarketplace_FirstPartyMobileApplicationTargeting;
 @class GTLRAuthorizedBuyersMarketplace_FrequencyCap;
 @class GTLRAuthorizedBuyersMarketplace_InventorySizeTargeting;
+@class GTLRAuthorizedBuyersMarketplace_InventoryTypeTargeting;
 @class GTLRAuthorizedBuyersMarketplace_MarketplaceTargeting;
 @class GTLRAuthorizedBuyersMarketplace_MobileApplicationTargeting;
 @class GTLRAuthorizedBuyersMarketplace_Money;
@@ -674,6 +675,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_FrequencyCap
  *  Value: "WEEK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_FrequencyCap_TimeUnitType_Week;
+
+// ----------------------------------------------------------------------------
+// GTLRAuthorizedBuyersMarketplace_InventoryTypeTargeting.inventoryTypes
+
+/**
+ *  Desktop or mobile web browser excluding ads inside a video player
+ *
+ *  Value: "BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_InventoryTypeTargeting_InventoryTypes_Browser;
+/**
+ *  Unspecified inventory type
+ *
+ *  Value: "INVENTORY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_InventoryTypeTargeting_InventoryTypes_InventoryTypeUnspecified;
+/**
+ *  Mobile apps other than video players and web browsers
+ *
+ *  Value: "MOBILE_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_InventoryTypeTargeting_InventoryTypes_MobileApp;
+/**
+ *  Instream video and audio
+ *
+ *  Value: "VIDEO_PLAYER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_InventoryTypeTargeting_InventoryTypes_VideoPlayer;
 
 // ----------------------------------------------------------------------------
 // GTLRAuthorizedBuyersMarketplace_Note.creatorRole
@@ -1957,6 +1986,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 
 
 /**
+ *  Targeting of the inventory types a bid request can originate from.
+ */
+@interface GTLRAuthorizedBuyersMarketplace_InventoryTypeTargeting : GTLRObject
+
+/** The list of targeted inventory types for the bid request. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *inventoryTypes;
+
+@end
+
+
+/**
  *  Response message for listing auction packages.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2152,6 +2192,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 
 /** Output only. Inventory sizes to be included/excluded. */
 @property(nonatomic, strong, nullable) GTLRAuthorizedBuyersMarketplace_InventorySizeTargeting *inventorySizeTargeting;
+
+/** Output only. Inventory type targeting information. */
+@property(nonatomic, strong, nullable) GTLRAuthorizedBuyersMarketplace_InventoryTypeTargeting *inventoryTypeTargeting;
 
 /**
  *  Output only. Placement targeting information, for example, URL, mobile

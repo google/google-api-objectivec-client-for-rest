@@ -530,36 +530,6 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
 
 @end
 
-@implementation GTLRShoppingContentQuery_AccountstatusesbyexternalselleridGet
-
-@dynamic destinations, externalSellerId, merchantId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"destinations" : [NSString class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithMerchantId:(long long)merchantId
-                   externalSellerId:(NSString *)externalSellerId {
-  NSArray *pathParams = @[
-    @"externalSellerId", @"merchantId"
-  ];
-  NSString *pathURITemplate = @"{merchantId}/accountstatusesbyexternalsellerid/{externalSellerId}";
-  GTLRShoppingContentQuery_AccountstatusesbyexternalselleridGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.merchantId = merchantId;
-  query.externalSellerId = externalSellerId;
-  query.expectedObjectClass = [GTLRShoppingContent_AccountStatus class];
-  query.loggingName = @"content.accountstatusesbyexternalsellerid.get";
-  return query;
-}
-
-@end
-
 @implementation GTLRShoppingContentQuery_AccountstatusesCustombatch
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_AccountstatusesCustomBatchRequest *)object {

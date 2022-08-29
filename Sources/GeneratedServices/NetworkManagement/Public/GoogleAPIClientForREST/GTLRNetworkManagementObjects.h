@@ -19,6 +19,8 @@
 @class GTLRNetworkManagement_AuditConfig;
 @class GTLRNetworkManagement_AuditLogConfig;
 @class GTLRNetworkManagement_Binding;
+@class GTLRNetworkManagement_CloudFunctionEndpoint;
+@class GTLRNetworkManagement_CloudFunctionInfo;
 @class GTLRNetworkManagement_CloudSQLInstanceInfo;
 @class GTLRNetworkManagement_ConnectivityTest;
 @class GTLRNetworkManagement_ConnectivityTest_Labels;
@@ -48,6 +50,7 @@
 @class GTLRNetworkManagement_Status_Details_Item;
 @class GTLRNetworkManagement_Step;
 @class GTLRNetworkManagement_Trace;
+@class GTLRNetworkManagement_VpcConnectorInfo;
 @class GTLRNetworkManagement_VpnGatewayInfo;
 @class GTLRNetworkManagement_VpnTunnelInfo;
 
@@ -253,6 +256,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Tar
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CauseUnspecified;
 /**
+ *  Packet could be dropped because the Cloud function is not in an active
+ *  status.
+ *
+ *  Value: "CLOUD_FUNCTION_NOT_ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudFunctionNotActive;
+/**
  *  Packet was dropped because the Cloud SQL instance has neither a private nor
  *  a public IP address.
  *
@@ -404,6 +414,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_Unknown
  *  Value: "UNKNOWN_INTERNAL_ADDRESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_UnknownInternalAddress;
+/**
+ *  Packet could be dropped because the VPC connector is not in a running state.
+ *
+ *  Value: "VPC_CONNECTOR_NOT_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_VpcConnectorNotRunning;
+/**
+ *  Packet could be dropped because no VPC connector is set.
+ *
+ *  Value: "VPC_CONNECTOR_NOT_SET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_VpcConnectorNotSet;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_Endpoint.networkType
@@ -452,6 +474,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallR
  *  Value: "IMPLIED_VPC_FIREWALL_RULE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_ImpliedVpcFirewallRule;
+/**
+ *  Implicit firewall rules that are managed by serverless VPC access to allow
+ *  ingress access. They are not visible in the Google Cloud console. For
+ *  details, see [VPC connector's implicit
+ *  rules](https://cloud.google.com/functions/docs/networking/connecting-vpc#restrict-access).
+ *
+ *  Value: "SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_ServerlessVpcAccessManagedFirewallRule;
 /**
  *  VPC firewall rule. For details, see [VPC firewall rules
  *  overview](https://cloud.google.com/vpc/docs/firewalls).
@@ -820,6 +851,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtIns
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtInternalLoadBalancer;
 /**
+ *  Forwarding state: arriving at a VPC connector.
+ *
+ *  Value: "ARRIVE_AT_VPC_CONNECTOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtVpcConnector;
+/**
  *  Forwarding state: arriving at a Cloud VPN gateway.
  *
  *  Value: "ARRIVE_AT_VPN_GATEWAY"
@@ -870,6 +907,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ProxyConnec
  *  Value: "SPOOFING_APPROVED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_SpoofingApproved;
+/**
+ *  Initial state: packet originating from a Cloud function. A CloudFunctionInfo
+ *  is populated with starting function information.
+ *
+ *  Value: "START_FROM_CLOUD_FUNCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromCloudFunction;
 /**
  *  Initial state: packet originating from a Cloud SQL instance. A
  *  CloudSQLInstanceInfo is populated with starting instance information.
@@ -1012,6 +1056,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  */
 @property(nonatomic, copy, nullable) NSString *cause;
 
+/**
+ *  List of project IDs that the user has specified in the request but does not
+ *  have permission to access network configs. Analysis is aborted in this case
+ *  with the PERMISSION_DENIED cause.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *projectsMissingPermission;
+
 /** URI of the resource that caused the abort. */
 @property(nonatomic, copy, nullable) NSString *resourceUri;
 
@@ -1108,11 +1159,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  anyone who is authenticated with a Google account or a service account. *
  *  `user:{emailid}`: An email address that represents a specific Google
  *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
- *  address that represents a Google group. For example, `admins\@example.com`.
- *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
+ *  An email address that represents a Google service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
+ *  identifier for a [Kubernetes service
+ *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
+ *  `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
+ *  An email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -1145,6 +1201,41 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRNetworkManagement_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  Wrapper for cloud function attributes.
+ */
+@interface GTLRNetworkManagement_CloudFunctionEndpoint : GTLRObject
+
+/** A [Cloud function](https://cloud.google.com/functions) name. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  For display only. Metadata associated with a Cloud function.
+ */
+@interface GTLRNetworkManagement_CloudFunctionInfo : GTLRObject
+
+/** Name of a Cloud function. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Location in which the Cloud function is deployed. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** URI of a Cloud function. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+/**
+ *  Latest successfully deployed version id of the Cloud function.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *versionId;
+
 @end
 
 
@@ -1313,6 +1404,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  Likely values:
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CauseUnspecified Cause is
  *        unspecified. (Value: "CAUSE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CloudFunctionNotActive
+ *        Packet could be dropped because the Cloud function is not in an active
+ *        status. (Value: "CLOUD_FUNCTION_NOT_ACTIVE")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNoIpAddress
  *        Packet was dropped because the Cloud SQL instance has neither a
  *        private nor a public IP address. (Value:
@@ -1394,6 +1488,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        this is a shared VPC scenario, verify if the service project ID is
  *        provided as test input. Otherwise, verify if the IP address is being
  *        used in the project. (Value: "UNKNOWN_INTERNAL_ADDRESS")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_VpcConnectorNotRunning
+ *        Packet could be dropped because the VPC connector is not in a running
+ *        state. (Value: "VPC_CONNECTOR_NOT_RUNNING")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_VpcConnectorNotSet Packet
+ *        could be dropped because no VPC connector is set. (Value:
+ *        "VPC_CONNECTOR_NOT_SET")
  */
 @property(nonatomic, copy, nullable) NSString *cause;
 
@@ -1417,6 +1517,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  Source or destination of the Connectivity Test.
  */
 @interface GTLRNetworkManagement_Endpoint : GTLRObject
+
+/** A [Cloud function](https://cloud.google.com/functions). */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_CloudFunctionEndpoint *cloudFunction;
 
 /** A [Cloud SQL](https://cloud.google.com/sql) instance URI. */
 @property(nonatomic, copy, nullable) NSString *cloudSqlInstance;
@@ -1601,6 +1704,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Implied VPC firewall rule. For details, see [Implied
  *        rules](https://cloud.google.com/vpc/docs/firewalls#default_firewall_rules).
  *        (Value: "IMPLIED_VPC_FIREWALL_RULE")
+ *    @arg @c kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_ServerlessVpcAccessManagedFirewallRule
+ *        Implicit firewall rules that are managed by serverless VPC access to
+ *        allow ingress access. They are not visible in the Google Cloud
+ *        console. For details, see [VPC connector's implicit
+ *        rules](https://cloud.google.com/functions/docs/networking/connecting-vpc#restrict-access).
+ *        (Value: "SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE")
  *    @arg @c kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_VpcFirewallRule
  *        VPC firewall rule. For details, see [VPC firewall rules
  *        overview](https://cloud.google.com/vpc/docs/firewalls). (Value:
@@ -2458,6 +2567,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  */
 @property(nonatomic, strong, nullable) NSNumber *causesDrop;
 
+/** Display information of a Cloud function. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_CloudFunctionInfo *cloudFunction;
+
 /** Display information of a Cloud SQL instance. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_CloudSQLInstanceInfo *cloudSqlInstance;
 
@@ -2534,6 +2646,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_Step_State_ArriveAtInternalLoadBalancer
  *        Forwarding state: arriving at a Compute Engine internal load balancer.
  *        (Value: "ARRIVE_AT_INTERNAL_LOAD_BALANCER")
+ *    @arg @c kGTLRNetworkManagement_Step_State_ArriveAtVpcConnector Forwarding
+ *        state: arriving at a VPC connector. (Value: "ARRIVE_AT_VPC_CONNECTOR")
  *    @arg @c kGTLRNetworkManagement_Step_State_ArriveAtVpnGateway Forwarding
  *        state: arriving at a Cloud VPN gateway. (Value:
  *        "ARRIVE_AT_VPN_GATEWAY")
@@ -2554,6 +2668,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_Step_State_SpoofingApproved Config checking
  *        state: packet sent or received under foreign IP address and allowed.
  *        (Value: "SPOOFING_APPROVED")
+ *    @arg @c kGTLRNetworkManagement_Step_State_StartFromCloudFunction Initial
+ *        state: packet originating from a Cloud function. A CloudFunctionInfo
+ *        is populated with starting function information. (Value:
+ *        "START_FROM_CLOUD_FUNCTION")
  *    @arg @c kGTLRNetworkManagement_Step_State_StartFromCloudSqlInstance
  *        Initial state: packet originating from a Cloud SQL instance. A
  *        CloudSQLInstanceInfo is populated with starting instance information.
@@ -2581,6 +2699,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        configuration in this step. (Value: "VIEWER_PERMISSION_MISSING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/** Display information of a VPC connector. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_VpcConnectorInfo *vpcConnector;
 
 /** Display information of a Compute Engine VPN gateway. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_VpnGatewayInfo *vpnGateway;
@@ -2646,6 +2767,23 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  reordering or sorting them.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_Step *> *steps;
+
+@end
+
+
+/**
+ *  For display only. Metadata associated with a VPC connector.
+ */
+@interface GTLRNetworkManagement_VpcConnectorInfo : GTLRObject
+
+/** Name of a VPC connector. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Location in which the VPC connector is deployed. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** URI of a VPC connector. */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 

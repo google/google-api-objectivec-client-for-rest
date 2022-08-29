@@ -212,9 +212,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 @interface GTLRCertificateManager_AuthorizationAttemptInfo : GTLRObject
 
 /**
- *  Human readable explanation for reaching the state. Provided to help address
- *  the configuration issues. Not guaranteed to be stable. For programmatic
- *  access use Reason enum.
+ *  Output only. Human readable explanation for reaching the state. Provided to
+ *  help address the configuration issues. Not guaranteed to be stable. For
+ *  programmatic access use FailureReason enum.
  */
 @property(nonatomic, copy, nullable) NSString *details;
 
@@ -241,7 +241,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 @property(nonatomic, copy, nullable) NSString *failureReason;
 
 /**
- *  State of the domain for managed certificate issuance.
+ *  Output only. State of the domain for managed certificate issuance.
  *
  *  Likely values:
  *    @arg @c kGTLRCertificateManager_AuthorizationAttemptInfo_State_Authorized
@@ -571,19 +571,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 @interface GTLRCertificateManager_GclbTarget : GTLRObject
 
 /**
- *  IP configurations for this Target Proxy where the Certificate Map is
- *  serving.
+ *  Output only. IP configurations for this Target Proxy where the Certificate
+ *  Map is serving.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateManager_IpConfig *> *ipConfigs;
 
 /**
- *  This field returns the resource name in the following format:
+ *  Output only. This field returns the resource name in the following format:
  *  `//compute.googleapis.com/projects/ * /global/targetHttpsProxies/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *targetHttpsProxy;
 
 /**
- *  This field returns the resource name in the following format:
+ *  Output only. This field returns the resource name in the following format:
  *  `//compute.googleapis.com/projects/ * /global/targetSslProxies/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *targetSslProxy;
@@ -596,11 +596,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  */
 @interface GTLRCertificateManager_IpConfig : GTLRObject
 
-/** An external IP address. */
+/** Output only. An external IP address. */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
 /**
- *  Ports.
+ *  Output only. Ports.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -868,7 +868,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *domains;
 
-/** Information about issues with provisioning a Managed Certificate. */
+/**
+ *  Output only. Information about issues with provisioning a Managed
+ *  Certificate.
+ */
 @property(nonatomic, strong, nullable) GTLRCertificateManager_ProvisioningIssue *provisioningIssue;
 
 /**
@@ -1016,14 +1019,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 @interface GTLRCertificateManager_ProvisioningIssue : GTLRObject
 
 /**
- *  Human readable explanation about the issue. Provided to help address the
- *  configuration issues. Not guaranteed to be stable. For programmatic access
- *  use Reason enum.
+ *  Output only. Human readable explanation about the issue. Provided to help
+ *  address the configuration issues. Not guaranteed to be stable. For
+ *  programmatic access use Reason enum.
  */
 @property(nonatomic, copy, nullable) NSString *details;
 
 /**
- *  Reason for provisioning failures.
+ *  Output only. Reason for provisioning failures.
  *
  *  Likely values:
  *    @arg @c kGTLRCertificateManager_ProvisioningIssue_Reason_AuthorizationIssue
@@ -1039,42 +1042,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  *        Value "REASON_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
-
-@end
-
-
-/**
- *  ResourcesCount represents the resource that stores aggregated project's info
- *  in the given location, e.g.: total number of certificates assigned to the
- *  project.
- */
-@interface GTLRCertificateManager_ResourcesCount : GTLRObject
-
-/**
- *  The count of certificates.
- *
- *  Uses NSNumber of unsignedLongLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *certificates;
-
-/**
- *  Required. Input only. The time of the computation. The field is input only,
- *  used in Create and Update calls. For Update call, new values of selected
- *  resources are set if their compute_time is younger than the persisted ones,
- *  e.g.: If you support 3 types of resources: A, B and C, and you have: 'A'
- *  resource count computed at timestamp = 3 'B' resource count computed at
- *  timestamp = 10 'C' resource count computed at timestamp = 5 And you're going
- *  to update all of them with compute_time = 8, only 'A' and 'C' will be
- *  updated, as 'B' already has fresher data. For Get call a ResourcesCount
- *  instance contains the freshest values for every type.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *computeTime;
-
-/**
- *  The singleton resource of the resources count. Must be in the format
- *  `projects/ * /locations/ * /resourcesCounts/single`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

@@ -4,10 +4,10 @@
 // API:
 //   VM Migration API (vmmigration/v1)
 // Description:
-//   Use the Migrate for Compute Engine API to programmatically migrate
+//   Use the Migrate to Virtual Machines API to programmatically migrate
 //   workloads.
 // Documentation:
-//   https://cloud.google.com/migrate/compute-engine
+//   https://cloud.google.com/migrate/virtual-machines
 
 #import <GoogleAPIClientForREST/GTLRVMMigrationServiceQuery.h>
 
@@ -877,44 +877,6 @@ NSString * const kGTLRVMMigrationServiceViewUtilizationReportViewUnspecified = @
   query.migratingVm = migratingVm;
   query.expectedObjectClass = [GTLRVMMigrationService_Operation class];
   query.loggingName = @"vmmigration.projects.locations.sources.migratingVms.pauseMigration";
-  return query;
-}
-
-@end
-
-@implementation GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsReplicationCyclesGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsReplicationCyclesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRVMMigrationService_ReplicationCycle class];
-  query.loggingName = @"vmmigration.projects.locations.sources.migratingVms.replicationCycles.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsReplicationCyclesList
-
-@dynamic filter, orderBy, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/replicationCycles";
-  GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsReplicationCyclesList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRVMMigrationService_ListReplicationCyclesResponse class];
-  query.loggingName = @"vmmigration.projects.locations.sources.migratingVms.replicationCycles.list";
   return query;
 }
 

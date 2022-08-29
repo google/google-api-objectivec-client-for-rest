@@ -77,6 +77,15 @@ NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_Forw
 NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BehaviorUnspecified = @"behaviorUnspecified";
 NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassResponsePolicy = @"bypassResponsePolicy";
 
+// GTLRDns_RRSetRoutingPolicyLoadBalancerTarget.ipProtocol
+NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_IpProtocol_Tcp = @"tcp";
+NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_IpProtocol_Udp = @"udp";
+NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_IpProtocol_Undefined = @"undefined";
+
+// GTLRDns_RRSetRoutingPolicyLoadBalancerTarget.loadBalancerType
+NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_None = @"none";
+NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_RegionalL4ilb = @"regionalL4ilb";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRDns_Change
@@ -974,7 +983,7 @@ NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassResponsePolicy = @"b
 //
 
 @implementation GTLRDns_RRSetRoutingPolicy
-@dynamic geo, kind, wrr;
+@dynamic geo, kind, primaryBackup, wrr;
 @end
 
 
@@ -984,7 +993,7 @@ NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassResponsePolicy = @"b
 //
 
 @implementation GTLRDns_RRSetRoutingPolicyGeoPolicy
-@dynamic items, kind;
+@dynamic enableFencing, items, kind;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1002,7 +1011,7 @@ NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassResponsePolicy = @"b
 //
 
 @implementation GTLRDns_RRSetRoutingPolicyGeoPolicyGeoPolicyItem
-@dynamic kind, location, rrdatas, signatureRrdatas;
+@dynamic healthCheckedTargets, kind, location, rrdatas, signatureRrdatas;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1012,6 +1021,45 @@ NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassResponsePolicy = @"b
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_RRSetRoutingPolicyHealthCheckTargets
+//
+
+@implementation GTLRDns_RRSetRoutingPolicyHealthCheckTargets
+@dynamic internalLoadBalancers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"internalLoadBalancers" : [GTLRDns_RRSetRoutingPolicyLoadBalancerTarget class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_RRSetRoutingPolicyLoadBalancerTarget
+//
+
+@implementation GTLRDns_RRSetRoutingPolicyLoadBalancerTarget
+@dynamic ipAddress, ipProtocol, kind, loadBalancerType, networkUrl, port,
+         project, region;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_RRSetRoutingPolicyPrimaryBackupPolicy
+//
+
+@implementation GTLRDns_RRSetRoutingPolicyPrimaryBackupPolicy
+@dynamic backupGeoTargets, kind, primaryTargets, trickleTraffic;
 @end
 
 
@@ -1039,7 +1087,7 @@ NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassResponsePolicy = @"b
 //
 
 @implementation GTLRDns_RRSetRoutingPolicyWrrPolicyWrrPolicyItem
-@dynamic kind, rrdatas, signatureRrdatas, weight;
+@dynamic healthCheckedTargets, kind, rrdatas, signatureRrdatas, weight;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

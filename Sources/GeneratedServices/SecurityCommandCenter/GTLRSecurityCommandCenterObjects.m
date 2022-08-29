@@ -171,6 +171,8 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTactics_Resour
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTactics_TacticUnspecified = @"TACTIC_UNSPECIFIED";
 
 // GTLRSecurityCommandCenter_MitreAttack.additionalTechniques
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_AbuseElevationControlMechanism = @"ABUSE_ELEVATION_CONTROL_MECHANISM";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_AccessTokenManipulation = @"ACCESS_TOKEN_MANIPULATION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_AccountManipulation = @"ACCOUNT_MANIPULATION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ActiveScanning = @"ACTIVE_SCANNING";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CloudAccounts = @"CLOUD_ACCOUNTS";
@@ -192,6 +194,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_Mod
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_MultiHopProxy = @"MULTI_HOP_PROXY";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_NativeApi = @"NATIVE_API";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_NetworkDenialOfService = @"NETWORK_DENIAL_OF_SERVICE";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_NetworkServiceDiscovery = @"NETWORK_SERVICE_DISCOVERY";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_PermissionGroupsDiscovery = @"PERMISSION_GROUPS_DISCOVERY";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_Proxy = @"PROXY";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ResourceHijacking = @"RESOURCE_HIJACKING";
@@ -222,6 +225,8 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTactic_ResourceDe
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTactic_TacticUnspecified = @"TACTIC_UNSPECIFIED";
 
 // GTLRSecurityCommandCenter_MitreAttack.primaryTechniques
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_AbuseElevationControlMechanism = @"ABUSE_ELEVATION_CONTROL_MECHANISM";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_AccessTokenManipulation = @"ACCESS_TOKEN_MANIPULATION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_AccountManipulation = @"ACCOUNT_MANIPULATION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ActiveScanning = @"ACTIVE_SCANNING";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CloudAccounts = @"CLOUD_ACCOUNTS";
@@ -243,6 +248,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_Modify
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_MultiHopProxy = @"MULTI_HOP_PROXY";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_NativeApi = @"NATIVE_API";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_NetworkDenialOfService = @"NETWORK_DENIAL_OF_SERVICE";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_NetworkServiceDiscovery = @"NETWORK_SERVICE_DISCOVERY";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_PermissionGroupsDiscovery = @"PERMISSION_GROUPS_DISCOVERY";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_Proxy = @"PROXY";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ResourceHijacking = @"RESOURCE_HIJACKING";
@@ -255,6 +261,11 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_UnixSh
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_UnsecuredCredentials = @"UNSECURED_CREDENTIALS";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ValidAccounts = @"VALID_ACCOUNTS";
 
+// GTLRSecurityCommandCenter_Role.kind
+NSString * const kGTLRSecurityCommandCenter_Role_Kind_ClusterRole = @"CLUSTER_ROLE";
+NSString * const kGTLRSecurityCommandCenter_Role_Kind_KindUnspecified = @"KIND_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_Role_Kind_Role     = @"ROLE";
+
 // GTLRSecurityCommandCenter_SetFindingStateRequest.state
 NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_Active = @"ACTIVE";
 NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_Inactive = @"INACTIVE";
@@ -266,14 +277,39 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_MuteUnspecified 
 NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Undefined = @"UNDEFINED";
 NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMUTED";
 
+// GTLRSecurityCommandCenter_Subject.kind
+NSString * const kGTLRSecurityCommandCenter_Subject_Kind_AuthTypeUnspecified = @"AUTH_TYPE_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_Subject_Kind_Group = @"GROUP";
+NSString * const kGTLRSecurityCommandCenter_Subject_Kind_Serviceaccount = @"SERVICEACCOUNT";
+NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRSecurityCommandCenter_Access
 //
 
 @implementation GTLRSecurityCommandCenter_Access
-@dynamic callerIp, callerIpGeo, methodName, principalEmail, serviceName,
+@dynamic callerIp, callerIpGeo, methodName, principalEmail, principalSubject,
+         serviceAccountDelegationInfo, serviceAccountKeyName, serviceName,
          userAgentFamily;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"serviceAccountDelegationInfo" : [GTLRSecurityCommandCenter_ServiceAccountDelegationInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_AccessReview
+//
+
+@implementation GTLRSecurityCommandCenter_AccessReview
+@dynamic group, name, ns, resource, subresource, verb, version;
 @end
 
 
@@ -443,6 +479,24 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_Container
+//
+
+@implementation GTLRSecurityCommandCenter_Container
+@dynamic imageId, labels, name, uri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"labels" : [GTLRSecurityCommandCenter_Label class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_Cve
 //
 
@@ -472,6 +526,24 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 @dynamic attackComplexity, attackVector, availabilityImpact, baseScore,
          confidentialityImpact, integrityImpact, privilegesRequired, scope,
          userInteraction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_Database
+//
+
+@implementation GTLRSecurityCommandCenter_Database
+@dynamic displayName, grantees, name, query, userName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"grantees" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -573,11 +645,11 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 
 @implementation GTLRSecurityCommandCenter_Finding
 @dynamic access, canonicalName, category, compliances, connections, contacts,
-         createTime, descriptionProperty, eventTime, exfiltration,
-         externalSystems, externalUri, findingClass, iamBindings, indicator,
-         mitreAttack, mute, muteInitiator, muteUpdateTime, name, nextSteps,
-         parent, processes, resourceName, securityMarks, severity,
-         sourceProperties, state, vulnerability;
+         containers, createTime, database, descriptionProperty, eventTime,
+         exfiltration, externalSystems, externalUri, findingClass, iamBindings,
+         indicator, kubernetes, mitreAttack, mute, muteInitiator,
+         muteUpdateTime, name, nextSteps, parent, processes, resourceName,
+         securityMarks, severity, sourceProperties, state, vulnerability;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -587,6 +659,7 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
   NSDictionary<NSString *, Class> *map = @{
     @"compliances" : [GTLRSecurityCommandCenter_Compliance class],
     @"connections" : [GTLRSecurityCommandCenter_Connection class],
+    @"containers" : [GTLRSecurityCommandCenter_Container class],
     @"iamBindings" : [GTLRSecurityCommandCenter_IamBinding class],
     @"processes" : [GTLRSecurityCommandCenter_Process class]
   };
@@ -699,6 +772,24 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Binding
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Binding
+@dynamic name, ns, role, subjects;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"subjects" : [GTLRSecurityCommandCenter_Subject class]
+  };
+  return map;
 }
 
 @end
@@ -997,17 +1088,51 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 //
 
 @implementation GTLRSecurityCommandCenter_Indicator
-@dynamic domains, ipAddresses, signatures;
+@dynamic domains, ipAddresses, signatures, uris;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"domains" : [NSString class],
     @"ipAddresses" : [NSString class],
-    @"signatures" : [GTLRSecurityCommandCenter_ProcessSignature class]
+    @"signatures" : [GTLRSecurityCommandCenter_ProcessSignature class],
+    @"uris" : [NSString class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_Kubernetes
+//
+
+@implementation GTLRSecurityCommandCenter_Kubernetes
+@dynamic accessReviews, bindings, nodePools, nodes, pods, roles;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accessReviews" : [GTLRSecurityCommandCenter_AccessReview class],
+    @"bindings" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Binding class],
+    @"nodePools" : [GTLRSecurityCommandCenter_NodePool class],
+    @"nodes" : [GTLRSecurityCommandCenter_Node class],
+    @"pods" : [GTLRSecurityCommandCenter_Pod class],
+    @"roles" : [GTLRSecurityCommandCenter_Role class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_Label
+//
+
+@implementation GTLRSecurityCommandCenter_Label
+@dynamic name, value;
 @end
 
 
@@ -1226,6 +1351,34 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_Node
+//
+
+@implementation GTLRSecurityCommandCenter_Node
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_NodePool
+//
+
+@implementation GTLRSecurityCommandCenter_NodePool
+@dynamic name, nodes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"nodes" : [GTLRSecurityCommandCenter_Node class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_NotificationConfig
 //
 
@@ -1285,6 +1438,25 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 
 @implementation GTLRSecurityCommandCenter_OrganizationSettings
 @dynamic assetDiscoveryConfig, enableAssetDiscovery, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_Pod
+//
+
+@implementation GTLRSecurityCommandCenter_Pod
+@dynamic containers, labels, name, ns;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"containers" : [GTLRSecurityCommandCenter_Container class],
+    @"labels" : [GTLRSecurityCommandCenter_Label class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1373,6 +1545,23 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_Role
+//
+
+@implementation GTLRSecurityCommandCenter_Role
+@dynamic kind, name, ns;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_RunAssetDiscoveryRequest
 //
 
@@ -1422,6 +1611,16 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_ServiceAccountDelegationInfo
+//
+
+@implementation GTLRSecurityCommandCenter_ServiceAccountDelegationInfo
+@dynamic principalEmail, principalSubject;
 @end
 
 
@@ -1509,6 +1708,23 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 
 @implementation GTLRSecurityCommandCenter_StreamingConfig
 @dynamic filter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_Subject
+//
+
+@implementation GTLRSecurityCommandCenter_Subject
+@dynamic kind, name, ns;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 

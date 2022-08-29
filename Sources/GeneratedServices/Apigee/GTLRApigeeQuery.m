@@ -3295,6 +3295,33 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @end
 
+@implementation GTLRApigeeQuery_OrganizationsEnvironmentsModifyEnvironment
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1Environment *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsEnvironmentsModifyEnvironment *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleLongrunningOperation class];
+  query.loggingName = @"apigee.organizations.environments.modifyEnvironment";
+  return query;
+}
+
+@end
+
 @implementation GTLRApigeeQuery_OrganizationsEnvironmentsOptimizedStatsGet
 
 @dynamic accuracy, aggTable, filter, limit, name, offset, realtime, select,
@@ -3761,6 +3788,60 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
   query.parent = parent;
   query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ListSecurityReportsResponse class];
   query.loggingName = @"apigee.organizations.environments.securityReports.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsEnvironmentsSecurityStatsQueryTabularStats
+
+@dynamic orgenv;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1QueryTabularStatsRequest *)object
+                         orgenv:(NSString *)orgenv {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"orgenv" ];
+  NSString *pathURITemplate = @"v1/{+orgenv}/securityStats:queryTabularStats";
+  GTLRApigeeQuery_OrganizationsEnvironmentsSecurityStatsQueryTabularStats *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.orgenv = orgenv;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1QueryTabularStatsResponse class];
+  query.loggingName = @"apigee.organizations.environments.securityStats.queryTabularStats";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsEnvironmentsSecurityStatsQueryTimeSeriesStats
+
+@dynamic orgenv;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest *)object
+                         orgenv:(NSString *)orgenv {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"orgenv" ];
+  NSString *pathURITemplate = @"v1/{+orgenv}/securityStats:queryTimeSeriesStats";
+  GTLRApigeeQuery_OrganizationsEnvironmentsSecurityStatsQueryTimeSeriesStats *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.orgenv = orgenv;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsResponse class];
+  query.loggingName = @"apigee.organizations.environments.securityStats.queryTimeSeriesStats";
   return query;
 }
 

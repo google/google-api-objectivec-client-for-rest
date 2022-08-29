@@ -305,7 +305,7 @@ NSString * const kGTLRBlogger_Post_Status_SoftTrashed = @"SOFT_TRASHED";
 
 @implementation GTLRBlogger_Page
 @dynamic author, blog, content, ETag, identifier, kind, published, selfLink,
-         status, title, updated, url;
+         status, title, trashed, updated, url;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -434,7 +434,7 @@ NSString * const kGTLRBlogger_Post_Status_SoftTrashed = @"SOFT_TRASHED";
 @implementation GTLRBlogger_Post
 @dynamic author, blog, content, customMetaData, ETag, identifier, images, kind,
          labels, location, published, readerComments, replies, selfLink, status,
-         title, titleLink, updated, url;
+         title, titleLink, trashed, updated, url;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

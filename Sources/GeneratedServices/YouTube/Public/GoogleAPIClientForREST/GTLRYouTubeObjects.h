@@ -12743,7 +12743,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  Basic details about a video category, such as its localized title. Next Id:
- *  17
+ *  18
  */
 @interface GTLRYouTube_VideoStatus : GTLRObject
 

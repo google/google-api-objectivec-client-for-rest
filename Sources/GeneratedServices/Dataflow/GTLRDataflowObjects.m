@@ -195,6 +195,7 @@ NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpPublic
 NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpUnspecified = @"WORKER_IP_UNSPECIFIED";
 
 // GTLRDataflow_SDKInfo.language
+NSString * const kGTLRDataflow_SDKInfo_Language_Go      = @"GO";
 NSString * const kGTLRDataflow_SDKInfo_Language_Java    = @"JAVA";
 NSString * const kGTLRDataflow_SDKInfo_Language_Python  = @"PYTHON";
 NSString * const kGTLRDataflow_SDKInfo_Language_Unknown = @"UNKNOWN";
@@ -806,11 +807,12 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 @implementation GTLRDataflow_FlexTemplateRuntimeEnvironment
 @dynamic additionalExperiments, additionalUserLabels, autoscalingAlgorithm,
-         diskSizeGb, dumpHeapOnOom, enableStreamingEngine, flexrsGoal,
-         ipConfiguration, kmsKeyName, launcherMachineType, machineType,
-         maxWorkers, network, numWorkers, saveHeapDumpsToGcsPath,
-         sdkContainerImage, serviceAccountEmail, stagingLocation, subnetwork,
-         tempLocation, workerRegion, workerZone, zoneProperty;
+         diskSizeGb, dumpHeapOnOom, enableLauncherVmSerialPortLogging,
+         enableStreamingEngine, flexrsGoal, ipConfiguration, kmsKeyName,
+         launcherMachineType, machineType, maxWorkers, network, numWorkers,
+         saveHeapDumpsToGcsPath, sdkContainerImage, serviceAccountEmail,
+         stagingLocation, subnetwork, tempLocation, workerRegion, workerZone,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -918,11 +920,45 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_HotKeyDebuggingInfo
+//
+
+@implementation GTLRDataflow_HotKeyDebuggingInfo
+@dynamic detectedHotKeys;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_HotKeyDebuggingInfo_DetectedHotKeys
+//
+
+@implementation GTLRDataflow_HotKeyDebuggingInfo_DetectedHotKeys
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDataflow_HotKeyInfo class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_HotKeyDetection
 //
 
 @implementation GTLRDataflow_HotKeyDetection
 @dynamic hotKeyAge, systemName, userStepName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_HotKeyInfo
+//
+
+@implementation GTLRDataflow_HotKeyInfo
+@dynamic hotKeyAge, key, keyTruncated;
 @end
 
 
@@ -2484,7 +2520,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_StageSummary
-@dynamic endTime, metrics, progress, stageId, startTime, state;
+@dynamic endTime, metrics, progress, stageId, startTime, state,
+         stragglerSummary;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2564,6 +2601,64 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_StragglerDebuggingInfo
+//
+
+@implementation GTLRDataflow_StragglerDebuggingInfo
+@dynamic hotKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_StragglerInfo
+//
+
+@implementation GTLRDataflow_StragglerInfo
+@dynamic causes, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_StragglerInfo_Causes
+//
+
+@implementation GTLRDataflow_StragglerInfo_Causes
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDataflow_StragglerDebuggingInfo class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_StragglerSummary
+//
+
+@implementation GTLRDataflow_StragglerSummary
+@dynamic stragglerCauseCount, totalStragglerCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_StragglerSummary_StragglerCauseCount
+//
+
+@implementation GTLRDataflow_StragglerSummary_StragglerCauseCount
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
 }
 
 @end
@@ -3150,7 +3245,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_WorkItemDetails
-@dynamic attemptId, endTime, metrics, progress, startTime, state, taskId;
+@dynamic attemptId, endTime, metrics, progress, startTime, state, stragglerInfo,
+         taskId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

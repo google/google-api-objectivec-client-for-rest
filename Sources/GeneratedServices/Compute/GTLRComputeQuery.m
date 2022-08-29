@@ -13106,6 +13106,168 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_RegionSslPoliciesDelete
+
+@dynamic project, region, requestId, sslPolicy;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                       sslPolicy:(NSString *)sslPolicy {
+  NSArray *pathParams = @[
+    @"project", @"region", @"sslPolicy"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/sslPolicies/{sslPolicy}";
+  GTLRComputeQuery_RegionSslPoliciesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.sslPolicy = sslPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionSslPolicies.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionSslPoliciesGet
+
+@dynamic project, region, sslPolicy;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                       sslPolicy:(NSString *)sslPolicy {
+  NSArray *pathParams = @[
+    @"project", @"region", @"sslPolicy"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/sslPolicies/{sslPolicy}";
+  GTLRComputeQuery_RegionSslPoliciesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.sslPolicy = sslPolicy;
+  query.expectedObjectClass = [GTLRCompute_SslPolicy class];
+  query.loggingName = @"compute.regionSslPolicies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionSslPoliciesInsert
+
+@dynamic project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_SslPolicy *)object
+                        project:(NSString *)project
+                         region:(NSString *)region {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/sslPolicies";
+  GTLRComputeQuery_RegionSslPoliciesInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionSslPolicies.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionSslPoliciesList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region {
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/sslPolicies";
+  GTLRComputeQuery_RegionSslPoliciesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_SslPoliciesList class];
+  query.loggingName = @"compute.regionSslPolicies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionSslPoliciesListAvailableFeatures
+
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region {
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/sslPolicies/listAvailableFeatures";
+  GTLRComputeQuery_RegionSslPoliciesListAvailableFeatures *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_SslPoliciesListAvailableFeaturesResponse class];
+  query.loggingName = @"compute.regionSslPolicies.listAvailableFeatures";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionSslPoliciesPatch
+
+@dynamic project, region, requestId, sslPolicy;
+
++ (instancetype)queryWithObject:(GTLRCompute_SslPolicy *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                      sslPolicy:(NSString *)sslPolicy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"sslPolicy"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/sslPolicies/{sslPolicy}";
+  GTLRComputeQuery_RegionSslPoliciesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.sslPolicy = sslPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionSslPolicies.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_RegionTargetHttpProxiesDelete
 
 @dynamic project, region, requestId, targetHttpProxy;

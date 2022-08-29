@@ -4,8 +4,7 @@
 // API:
 //   Network Connectivity API (networkconnectivity/v1)
 // Description:
-//   The Network Connectivity API provides access to Network Connectivity
-//   Center.
+//   This API enables connectivity with and between Google Cloud resources.
 // Documentation:
 //   https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity/rest
 
@@ -61,7 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new hub in the specified project.
+ *  Creates a new Network Connectivity Center hub in the specified project.
  *
  *  Method: networkconnectivity.projects.locations.global.hubs.create
  *
@@ -94,7 +93,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
  *
- *  Creates a new hub in the specified project.
+ *  Creates a new Network Connectivity Center hub in the specified project.
  *
  *  @param object The @c GTLRNetworkconnectivity_Hub to include in the query.
  *  @param parent Required. The parent resource.
@@ -107,7 +106,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified hub.
+ *  Deletes a Network Connectivity Center hub.
  *
  *  Method: networkconnectivity.projects.locations.global.hubs.delete
  *
@@ -137,7 +136,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
  *
- *  Deletes the specified hub.
+ *  Deletes a Network Connectivity Center hub.
  *
  *  @param name Required. The name of the hub to delete.
  *
@@ -148,7 +147,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets details about the specified hub.
+ *  Gets details about a Network Connectivity Center hub.
  *
  *  Method: networkconnectivity.projects.locations.global.hubs.get
  *
@@ -163,7 +162,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkconnectivity_Hub.
  *
- *  Gets details about the specified hub.
+ *  Gets details about a Network Connectivity Center hub.
  *
  *  @param name Required. The name of the hub resource to get.
  *
@@ -223,7 +222,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists hubs in a given project.
+ *  Lists the Network Connectivity Center hubs associated with a given project.
  *
  *  Method: networkconnectivity.projects.locations.global.hubs.list
  *
@@ -250,7 +249,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkconnectivity_ListHubsResponse.
  *
- *  Lists hubs in a given project.
+ *  Lists the Network Connectivity Center hubs associated with a given project.
  *
  *  @param parent Required. The parent resource's name.
  *
@@ -265,7 +264,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the description and/or labels of the specified hub.
+ *  Updates the description and/or labels of a Network Connectivity Center hub.
  *
  *  Method: networkconnectivity.projects.locations.global.hubs.patch
  *
@@ -309,7 +308,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
  *
- *  Updates the description and/or labels of the specified hub.
+ *  Updates the description and/or labels of a Network Connectivity Center hub.
  *
  *  @param object The @c GTLRNetworkconnectivity_Hub to include in the query.
  *  @param name Immutable. The name of the hub. Hub names must be unique. They
@@ -754,7 +753,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a spoke in the specified project and location.
+ *  Creates a Network Connectivity Center spoke.
  *
  *  Method: networkconnectivity.projects.locations.spokes.create
  *
@@ -787,7 +786,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
  *
- *  Creates a spoke in the specified project and location.
+ *  Creates a Network Connectivity Center spoke.
  *
  *  @param object The @c GTLRNetworkconnectivity_Spoke to include in the query.
  *  @param parent Required. The parent resource.
@@ -800,7 +799,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified spoke.
+ *  Deletes a Network Connectivity Center spoke.
  *
  *  Method: networkconnectivity.projects.locations.spokes.delete
  *
@@ -830,7 +829,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
  *
- *  Deletes the specified spoke.
+ *  Deletes a Network Connectivity Center spoke.
  *
  *  @param name Required. The name of the spoke to delete.
  *
@@ -841,7 +840,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets details about the specified spoke.
+ *  Gets details about a Network Connectivity Center spoke.
  *
  *  Method: networkconnectivity.projects.locations.spokes.get
  *
@@ -856,7 +855,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkconnectivity_Spoke.
  *
- *  Gets details about the specified spoke.
+ *  Gets details about a Network Connectivity Center spoke.
  *
  *  @param name Required. The name of the spoke resource.
  *
@@ -916,7 +915,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists the spokes in the specified project and location.
+ *  Lists the Network Connectivity Center spokes in a specified project and
+ *  location.
  *
  *  Method: networkconnectivity.projects.locations.spokes.list
  *
@@ -943,7 +943,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkconnectivity_ListSpokesResponse.
  *
- *  Lists the spokes in the specified project and location.
+ *  Lists the Network Connectivity Center spokes in a specified project and
+ *  location.
  *
  *  @param parent Required. The parent resource.
  *
@@ -958,7 +959,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the parameters of the specified spoke.
+ *  Updates the parameters of a Network Connectivity Center spoke.
  *
  *  Method: networkconnectivity.projects.locations.spokes.patch
  *
@@ -1003,7 +1004,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
  *
- *  Updates the parameters of the specified spoke.
+ *  Updates the parameters of a Network Connectivity Center spoke.
  *
  *  @param object The @c GTLRNetworkconnectivity_Spoke to include in the query.
  *  @param name Immutable. The name of the spoke. Spoke names must be unique.

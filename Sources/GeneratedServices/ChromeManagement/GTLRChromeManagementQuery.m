@@ -111,6 +111,44 @@ NSString * const kGTLRChromeManagementAppTypeTheme             = @"THEME";
 
 @end
 
+@implementation GTLRChromeManagementQuery_CustomersReportsCountChromeDevicesReachingAutoExpirationDate
+
+@dynamic customer, maxAueDate, minAueDate, orgUnitId;
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/reports:countChromeDevicesReachingAutoExpirationDate";
+  GTLRChromeManagementQuery_CustomersReportsCountChromeDevicesReachingAutoExpirationDate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse class];
+  query.loggingName = @"chromemanagement.customers.reports.countChromeDevicesReachingAutoExpirationDate";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersReportsCountChromeDevicesThatNeedAttention
+
+@dynamic customer, orgUnitId, readMask;
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/reports:countChromeDevicesThatNeedAttention";
+  GTLRChromeManagementQuery_CustomersReportsCountChromeDevicesThatNeedAttention *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse class];
+  query.loggingName = @"chromemanagement.customers.reports.countChromeDevicesThatNeedAttention";
+  return query;
+}
+
+@end
+
 @implementation GTLRChromeManagementQuery_CustomersReportsCountChromeVersions
 
 @dynamic customer, filter, orgUnitId, pageSize, pageToken;

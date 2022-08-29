@@ -65,12 +65,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1ComputeThrea
 // GTLRWebRisk_GoogleCloudWebriskV1SearchHashesResponseThreatHash.threatTypes
 
 /**
- *  High Recall Social Engineering list targeting any platform.
- *
- *  Value: "HIGH_RECALL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchHashesResponseThreatHash_ThreatTypes_HighRecall;
-/**
  *  Malware targeting any platform.
  *
  *  Value: "MALWARE"
@@ -82,6 +76,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchHashes
  *  Value: "SOCIAL_ENGINEERING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchHashesResponseThreatHash_ThreatTypes_SocialEngineering;
+/**
+ *  Extended Coverage Social Engineering list targeting any platform.
+ *
+ *  Value: "SOCIAL_ENGINEERING_EXTENDED_COVERAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchHashesResponseThreatHash_ThreatTypes_SocialEngineeringExtendedCoverage;
 /**
  *  No entries should match this threat type. This threat type is unused.
  *
@@ -99,12 +99,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchHashes
 // GTLRWebRisk_GoogleCloudWebriskV1SearchUrisResponseThreatUri.threatTypes
 
 /**
- *  High Recall Social Engineering list targeting any platform.
- *
- *  Value: "HIGH_RECALL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchUrisResponseThreatUri_ThreatTypes_HighRecall;
-/**
  *  Malware targeting any platform.
  *
  *  Value: "MALWARE"
@@ -116,6 +110,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchUrisRe
  *  Value: "SOCIAL_ENGINEERING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchUrisResponseThreatUri_ThreatTypes_SocialEngineering;
+/**
+ *  Extended Coverage Social Engineering list targeting any platform.
+ *
+ *  Value: "SOCIAL_ENGINEERING_EXTENDED_COVERAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchUrisResponseThreatUri_ThreatTypes_SocialEngineeringExtendedCoverage;
 /**
  *  No entries should match this threat type. This threat type is unused.
  *
@@ -133,12 +133,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchUrisRe
 // GTLRWebRisk_GoogleCloudWebriskV1Submission.threatTypes
 
 /**
- *  High Recall Social Engineering list targeting any platform.
- *
- *  Value: "HIGH_RECALL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_HighRecall;
-/**
  *  Malware targeting any platform.
  *
  *  Value: "MALWARE"
@@ -150,6 +144,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_T
  *  Value: "SOCIAL_ENGINEERING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_SocialEngineering;
+/**
+ *  Extended Coverage Social Engineering list targeting any platform.
+ *
+ *  Value: "SOCIAL_ENGINEERING_EXTENDED_COVERAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_SocialEngineeringExtendedCoverage;
 /**
  *  No entries should match this threat type. This threat type is unused.
  *
@@ -172,6 +172,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_T
  *  Value: "CANCELLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Cancelled;
+/**
+ *  The operation was closed with no action taken.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Closed;
 /**
  *  The operation finished with a failure status.
  *
@@ -475,6 +481,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMet
  *  Likely values:
  *    @arg @c kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Cancelled
  *        The operation was cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Closed
+ *        The operation was closed with no action taken. (Value: "CLOSED")
  *    @arg @c kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Failed
  *        The operation finished with a failure status. (Value: "FAILED")
  *    @arg @c kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Running
@@ -593,18 +601,11 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMet
 /** The error result of the operation in case of failure or cancellation. */
 @property(nonatomic, strong, nullable) GTLRWebRisk_GoogleRpcStatus *error;
 
-/**
- *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time. Some
- *  services might not provide such metadata. Any method that returns a
- *  long-running operation should document the metadata type, if any.
- */
+/** This field will contain a `SubmitUriMetadata` object. */
 @property(nonatomic, strong, nullable) GTLRWebRisk_GoogleLongrunningOperation_Metadata *metadata;
 
 /**
- *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the `name`
- *  should be a resource name ending with `operations/{unique_id}`.
+ *  This will match the pattern `/v1/{project-name}/operations/{operation-id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -623,10 +624,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMet
 
 
 /**
- *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time. Some
- *  services might not provide such metadata. Any method that returns a
- *  long-running operation should document the metadata type, if any.
+ *  This field will contain a `SubmitUriMetadata` object.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to

@@ -4,10 +4,10 @@
 // API:
 //   VM Migration API (vmmigration/v1)
 // Description:
-//   Use the Migrate for Compute Engine API to programmatically migrate
+//   Use the Migrate to Virtual Machines API to programmatically migrate
 //   workloads.
 // Documentation:
-//   https://cloud.google.com/migrate/compute-engine
+//   https://cloud.google.com/migrate/virtual-machines
 
 #import <GoogleAPIClientForREST/GTLRVMMigrationService.h>
 

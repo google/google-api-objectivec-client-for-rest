@@ -185,6 +185,117 @@
 
 @end
 
+@implementation GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/customConstraints";
+  GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint class];
+  query.loggingName = @"orgpolicy.organizations.customConstraints.create";
+  return query;
+}
+
+@end
+
+@implementation GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLROrgPolicyAPI_GoogleProtobufEmpty class];
+  query.loggingName = @"orgpolicy.organizations.customConstraints.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint class];
+  query.loggingName = @"orgpolicy.organizations.customConstraints.get";
+  return query;
+}
+
+@end
+
+@implementation GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/customConstraints";
+  GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ListCustomConstraintsResponse class];
+  query.loggingName = @"orgpolicy.organizations.customConstraints.list";
+  return query;
+}
+
+@end
+
+@implementation GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsPatch
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint class];
+  query.loggingName = @"orgpolicy.organizations.customConstraints.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLROrgPolicyAPIQuery_OrganizationsPoliciesCreate
 
 @dynamic parent;

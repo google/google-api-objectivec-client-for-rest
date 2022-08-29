@@ -758,7 +758,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The location and project in which this service should be created.
- *  Format: projects/{projectnumber}/locations/{location}
+ *  Format: projects/{projectnumber}/locations/{location} Only lowercase,
+ *  digits, and hyphens; must begin with letter, and may not end with hyphen;
+ *  must contain fewer than 50 characters.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -783,6 +785,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param parent Required. The location and project in which this service
  *    should be created. Format: projects/{projectnumber}/locations/{location}
+ *    Only lowercase, digits, and hyphens; must begin with letter, and may not
+ *    end with hyphen; must contain fewer than 50 characters.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsServicesCreate
  */

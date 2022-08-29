@@ -944,11 +944,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  *  anyone who is authenticated with a Google account or a service account. *
  *  `user:{emailid}`: An email address that represents a specific Google
  *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
- *  address that represents a Google group. For example, `admins\@example.com`.
- *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
+ *  An email address that represents a Google service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
+ *  identifier for a [Kubernetes service
+ *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
+ *  `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
+ *  An email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -1876,11 +1881,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  *  P.O. Box or similar. It is not intended to model geographical locations
  *  (roads, towns, mountains). In typical usage an address would be created via
  *  user input or from importing existing data, depending on the type of
- *  process. Advice on address input / editing: - Use an i18n-ready address
- *  widget such as https://github.com/google/libaddressinput) - Users should not
- *  be presented with UI elements for input or editing of fields outside
- *  countries where that field is used. For more guidance on how to use this
- *  schema, please see: https://support.google.com/business/answer/6397478
+ *  process. Advice on address input / editing: - Use an
+ *  internationalization-ready address widget such as
+ *  https://github.com/google/libaddressinput) - Users should not be presented
+ *  with UI elements for input or editing of fields outside countries where that
+ *  field is used. For more guidance on how to use this schema, please see:
+ *  https://support.google.com/business/answer/6397478
  */
 @interface GTLRCloudDomains_PostalAddress : GTLRObject
 

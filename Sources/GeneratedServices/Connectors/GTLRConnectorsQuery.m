@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Connectors API (connectors/v1)
+//   Connectors API (connectors/v2)
 // Description:
 //   Enables users to create and manage connections to Google Cloud services and
 //   third-party business applications using the Connectors interface.
@@ -11,32 +11,63 @@
 
 #import <GoogleAPIClientForREST/GTLRConnectorsQuery.h>
 
-// ----------------------------------------------------------------------------
-// Constants
-
-// view
-NSString * const kGTLRConnectorsViewBasic                      = @"BASIC";
-NSString * const kGTLRConnectorsViewConnectionViewUnspecified  = @"CONNECTION_VIEW_UNSPECIFIED";
-NSString * const kGTLRConnectorsViewConnectorVersionViewBasic  = @"CONNECTOR_VERSION_VIEW_BASIC";
-NSString * const kGTLRConnectorsViewConnectorVersionViewFull   = @"CONNECTOR_VERSION_VIEW_FULL";
-NSString * const kGTLRConnectorsViewConnectorVersionViewUnspecified = @"CONNECTOR_VERSION_VIEW_UNSPECIFIED";
-NSString * const kGTLRConnectorsViewFull                       = @"FULL";
-
-// ----------------------------------------------------------------------------
-// Query Classes
-//
-
 @implementation GTLRConnectorsQuery
 
 @dynamic fields;
 
 @end
 
-@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsCreate
+@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsActionsExecute
 
-@dynamic connectionId, parent;
+@dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRConnectors_Connection *)object
++ (instancetype)queryWithObject:(GTLRConnectors_ExecuteActionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:execute";
+  GTLRConnectorsQuery_ProjectsLocationsConnectionsActionsExecute *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRConnectors_ExecuteActionResponse class];
+  query.loggingName = @"connectors.projects.locations.connections.actions.execute";
+  return query;
+}
+
+@end
+
+@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsActionsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/actions";
+  GTLRConnectorsQuery_ProjectsLocationsConnectionsActionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRConnectors_ListActionsResponse class];
+  query.loggingName = @"connectors.projects.locations.connections.actions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRConnectors_Entity *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -45,124 +76,108 @@ NSString * const kGTLRConnectorsViewFull                       = @"FULL";
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/connections";
-  GTLRConnectorsQuery_ProjectsLocationsConnectionsCreate *query =
+  NSString *pathURITemplate = @"v2/{+parent}/entities";
+  GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRConnectors_Operation class];
-  query.loggingName = @"connectors.projects.locations.connections.create";
+  query.expectedObjectClass = [GTLRConnectors_Entity class];
+  query.loggingName = @"connectors.projects.locations.connections.entityTypes.entities.create";
   return query;
 }
 
 @end
 
-@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsDelete
+@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesDelete
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRConnectorsQuery_ProjectsLocationsConnectionsDelete *query =
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRConnectors_Operation class];
-  query.loggingName = @"connectors.projects.locations.connections.delete";
+  query.expectedObjectClass = [GTLRConnectors_Empty class];
+  query.loggingName = @"connectors.projects.locations.connections.entityTypes.entities.delete";
   return query;
 }
 
 @end
 
-@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsGet
+@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesDeleteEntitiesWithConditions
 
-@dynamic name, view;
+@dynamic conditions, entityType;
 
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRConnectorsQuery_ProjectsLocationsConnectionsGet *query =
++ (instancetype)queryWithEntityType:(NSString *)entityType {
+  NSArray *pathParams = @[ @"entityType" ];
+  NSString *pathURITemplate = @"v2/{+entityType}/entities:deleteEntitiesWithConditions";
+  GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesDeleteEntitiesWithConditions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
+                               HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRConnectors_Connection class];
-  query.loggingName = @"connectors.projects.locations.connections.get";
+  query.entityType = entityType;
+  query.expectedObjectClass = [GTLRConnectors_Empty class];
+  query.loggingName = @"connectors.projects.locations.connections.entityTypes.entities.deleteEntitiesWithConditions";
   return query;
 }
 
 @end
 
-@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsGetConnectionSchemaMetadata
+@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRConnectorsQuery_ProjectsLocationsConnectionsGetConnectionSchemaMetadata *query =
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRConnectors_ConnectionSchemaMetadata class];
-  query.loggingName = @"connectors.projects.locations.connections.getConnectionSchemaMetadata";
+  query.expectedObjectClass = [GTLRConnectors_Entity class];
+  query.loggingName = @"connectors.projects.locations.connections.entityTypes.entities.get";
   return query;
 }
 
 @end
 
-@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsGetIamPolicy
+@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesList
 
-@dynamic optionsRequestedPolicyVersion, resource;
+@dynamic conditions, pageSize, pageToken, parent, sortBy;
 
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sortBy" : [NSString class]
+  };
+  return map;
 }
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
-  GTLRConnectorsQuery_ProjectsLocationsConnectionsGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRConnectors_Policy class];
-  query.loggingName = @"connectors.projects.locations.connections.getIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsList
-
-@dynamic filter, orderBy, pageSize, pageToken, parent, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/connections";
-  GTLRConnectorsQuery_ProjectsLocationsConnectionsList *query =
+  NSString *pathURITemplate = @"v2/{+parent}/entities";
+  GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRConnectors_ListConnectionsResponse class];
-  query.loggingName = @"connectors.projects.locations.connections.list";
+  query.expectedObjectClass = [GTLRConnectors_ListEntitiesResponse class];
+  query.loggingName = @"connectors.projects.locations.connections.entityTypes.entities.list";
   return query;
 }
 
 @end
 
-@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsPatch
+@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesPatch
 
-@dynamic name, updateMask;
+@dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRConnectors_Connection *)object
++ (instancetype)queryWithObject:(GTLRConnectors_Entity *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -171,439 +186,88 @@ NSString * const kGTLRConnectorsViewFull                       = @"FULL";
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRConnectorsQuery_ProjectsLocationsConnectionsPatch *query =
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRConnectors_Operation class];
-  query.loggingName = @"connectors.projects.locations.connections.patch";
+  query.expectedObjectClass = [GTLRConnectors_Entity class];
+  query.loggingName = @"connectors.projects.locations.connections.entityTypes.entities.patch";
   return query;
 }
 
 @end
 
-@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsRuntimeActionSchemasList
+@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesUpdateEntitiesWithConditions
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic conditions, entityType;
 
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/runtimeActionSchemas";
-  GTLRConnectorsQuery_ProjectsLocationsConnectionsRuntimeActionSchemasList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRConnectors_ListRuntimeActionSchemasResponse class];
-  query.loggingName = @"connectors.projects.locations.connections.runtimeActionSchemas.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsRuntimeEntitySchemasList
-
-@dynamic filter, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/runtimeEntitySchemas";
-  GTLRConnectorsQuery_ProjectsLocationsConnectionsRuntimeEntitySchemasList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRConnectors_ListRuntimeEntitySchemasResponse class];
-  query.loggingName = @"connectors.projects.locations.connections.runtimeEntitySchemas.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRConnectors_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
++ (instancetype)queryWithObject:(GTLRConnectors_Entity *)object
+                     entityType:(NSString *)entityType {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
-  GTLRConnectorsQuery_ProjectsLocationsConnectionsSetIamPolicy *query =
+  NSArray *pathParams = @[ @"entityType" ];
+  NSString *pathURITemplate = @"v2/{+entityType}/entities:updateEntitiesWithConditions";
+  GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesUpdateEntitiesWithConditions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRConnectors_Policy class];
-  query.loggingName = @"connectors.projects.locations.connections.setIamPolicy";
+  query.entityType = entityType;
+  query.expectedObjectClass = [GTLRConnectors_UpdateEntitiesWithConditionsResponse class];
+  query.loggingName = @"connectors.projects.locations.connections.entityTypes.entities.updateEntitiesWithConditions";
   return query;
 }
 
 @end
 
-@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRConnectors_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
-  GTLRConnectorsQuery_ProjectsLocationsConnectionsTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRConnectors_TestIamPermissionsResponse class];
-  query.loggingName = @"connectors.projects.locations.connections.testIamPermissions";
-  return query;
-}
-
-@end
-
-@implementation GTLRConnectorsQuery_ProjectsLocationsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRConnectorsQuery_ProjectsLocationsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRConnectors_Location class];
-  query.loggingName = @"connectors.projects.locations.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRConnectorsQuery_ProjectsLocationsGetRuntimeConfig
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRConnectorsQuery_ProjectsLocationsGetRuntimeConfig *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRConnectors_RuntimeConfig class];
-  query.loggingName = @"connectors.projects.locations.getRuntimeConfig";
-  return query;
-}
-
-@end
-
-@implementation GTLRConnectorsQuery_ProjectsLocationsGlobalProvidersConnectorsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRConnectorsQuery_ProjectsLocationsGlobalProvidersConnectorsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRConnectors_Connector class];
-  query.loggingName = @"connectors.projects.locations.global.providers.connectors.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRConnectorsQuery_ProjectsLocationsGlobalProvidersConnectorsList
+@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesList
 
 @dynamic pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/connectors";
-  GTLRConnectorsQuery_ProjectsLocationsGlobalProvidersConnectorsList *query =
+  NSString *pathURITemplate = @"v2/{+parent}/entityTypes";
+  GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRConnectors_ListConnectorsResponse class];
-  query.loggingName = @"connectors.projects.locations.global.providers.connectors.list";
+  query.expectedObjectClass = [GTLRConnectors_ListEntityTypesResponse class];
+  query.loggingName = @"connectors.projects.locations.connections.entityTypes.list";
   return query;
 }
 
 @end
 
-@implementation GTLRConnectorsQuery_ProjectsLocationsGlobalProvidersConnectorsVersionsGet
+@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsExecuteSqlQuery
 
-@dynamic name, view;
+@dynamic connection;
 
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRConnectorsQuery_ProjectsLocationsGlobalProvidersConnectorsVersionsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRConnectors_ConnectorVersion class];
-  query.loggingName = @"connectors.projects.locations.global.providers.connectors.versions.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRConnectorsQuery_ProjectsLocationsGlobalProvidersConnectorsVersionsList
-
-@dynamic pageSize, pageToken, parent, view;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/versions";
-  GTLRConnectorsQuery_ProjectsLocationsGlobalProvidersConnectorsVersionsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRConnectors_ListConnectorVersionsResponse class];
-  query.loggingName = @"connectors.projects.locations.global.providers.connectors.versions.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRConnectorsQuery_ProjectsLocationsGlobalProvidersGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRConnectorsQuery_ProjectsLocationsGlobalProvidersGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRConnectors_Provider class];
-  query.loggingName = @"connectors.projects.locations.global.providers.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRConnectorsQuery_ProjectsLocationsGlobalProvidersList
-
-@dynamic pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/providers";
-  GTLRConnectorsQuery_ProjectsLocationsGlobalProvidersList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRConnectors_ListProvidersResponse class];
-  query.loggingName = @"connectors.projects.locations.global.providers.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRConnectorsQuery_ProjectsLocationsList
-
-@dynamic filter, name, pageSize, pageToken;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}/locations";
-  GTLRConnectorsQuery_ProjectsLocationsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRConnectors_ListLocationsResponse class];
-  query.loggingName = @"connectors.projects.locations.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRConnectorsQuery_ProjectsLocationsOperationsCancel
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRConnectors_CancelOperationRequest *)object
-                           name:(NSString *)name {
++ (instancetype)queryWithObject:(GTLRConnectors_ExecuteSqlQueryRequest *)object
+                     connection:(NSString *)connection {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:cancel";
-  GTLRConnectorsQuery_ProjectsLocationsOperationsCancel *query =
+  NSArray *pathParams = @[ @"connection" ];
+  NSString *pathURITemplate = @"v2/{+connection}:executeSqlQuery";
+  GTLRConnectorsQuery_ProjectsLocationsConnectionsExecuteSqlQuery *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRConnectors_Empty class];
-  query.loggingName = @"connectors.projects.locations.operations.cancel";
-  return query;
-}
-
-@end
-
-@implementation GTLRConnectorsQuery_ProjectsLocationsOperationsDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRConnectorsQuery_ProjectsLocationsOperationsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRConnectors_Empty class];
-  query.loggingName = @"connectors.projects.locations.operations.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRConnectorsQuery_ProjectsLocationsOperationsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRConnectorsQuery_ProjectsLocationsOperationsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRConnectors_Operation class];
-  query.loggingName = @"connectors.projects.locations.operations.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRConnectorsQuery_ProjectsLocationsOperationsList
-
-@dynamic filter, name, pageSize, pageToken;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}/operations";
-  GTLRConnectorsQuery_ProjectsLocationsOperationsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRConnectors_ListOperationsResponse class];
-  query.loggingName = @"connectors.projects.locations.operations.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRConnectorsQuery_ProjectsLocationsProvidersGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
-  GTLRConnectorsQuery_ProjectsLocationsProvidersGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRConnectors_Policy class];
-  query.loggingName = @"connectors.projects.locations.providers.getIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRConnectorsQuery_ProjectsLocationsProvidersSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRConnectors_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
-  GTLRConnectorsQuery_ProjectsLocationsProvidersSetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRConnectors_Policy class];
-  query.loggingName = @"connectors.projects.locations.providers.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRConnectorsQuery_ProjectsLocationsProvidersTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRConnectors_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
-  GTLRConnectorsQuery_ProjectsLocationsProvidersTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRConnectors_TestIamPermissionsResponse class];
-  query.loggingName = @"connectors.projects.locations.providers.testIamPermissions";
+  query.connection = connection;
+  query.expectedObjectClass = [GTLRConnectors_ExecuteSqlQueryResponse class];
+  query.loggingName = @"connectors.projects.locations.connections.executeSqlQuery";
   return query;
 }
 

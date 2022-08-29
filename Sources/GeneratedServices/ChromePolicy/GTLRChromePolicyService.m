@@ -29,6 +29,7 @@ NSString * const kGTLRAuthScopeChromePolicyChromeManagementPolicyReadonly = @"ht
   if (self) {
     // From discovery.
     self.rootURLString = @"https://chromepolicy.googleapis.com/";
+    self.simpleUploadPath = @"upload/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }

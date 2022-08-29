@@ -17,28 +17,29 @@ NSString * const kGTLRWebRisk_GoogleCloudWebriskV1ComputeThreatListDiffResponse_
 NSString * const kGTLRWebRisk_GoogleCloudWebriskV1ComputeThreatListDiffResponse_ResponseType_ResponseTypeUnspecified = @"RESPONSE_TYPE_UNSPECIFIED";
 
 // GTLRWebRisk_GoogleCloudWebriskV1SearchHashesResponseThreatHash.threatTypes
-NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchHashesResponseThreatHash_ThreatTypes_HighRecall = @"HIGH_RECALL";
 NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchHashesResponseThreatHash_ThreatTypes_Malware = @"MALWARE";
 NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchHashesResponseThreatHash_ThreatTypes_SocialEngineering = @"SOCIAL_ENGINEERING";
+NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchHashesResponseThreatHash_ThreatTypes_SocialEngineeringExtendedCoverage = @"SOCIAL_ENGINEERING_EXTENDED_COVERAGE";
 NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchHashesResponseThreatHash_ThreatTypes_ThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
 NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchHashesResponseThreatHash_ThreatTypes_UnwantedSoftware = @"UNWANTED_SOFTWARE";
 
 // GTLRWebRisk_GoogleCloudWebriskV1SearchUrisResponseThreatUri.threatTypes
-NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchUrisResponseThreatUri_ThreatTypes_HighRecall = @"HIGH_RECALL";
 NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchUrisResponseThreatUri_ThreatTypes_Malware = @"MALWARE";
 NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchUrisResponseThreatUri_ThreatTypes_SocialEngineering = @"SOCIAL_ENGINEERING";
+NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchUrisResponseThreatUri_ThreatTypes_SocialEngineeringExtendedCoverage = @"SOCIAL_ENGINEERING_EXTENDED_COVERAGE";
 NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchUrisResponseThreatUri_ThreatTypes_ThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
 NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchUrisResponseThreatUri_ThreatTypes_UnwantedSoftware = @"UNWANTED_SOFTWARE";
 
 // GTLRWebRisk_GoogleCloudWebriskV1Submission.threatTypes
-NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_HighRecall = @"HIGH_RECALL";
 NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_Malware = @"MALWARE";
 NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_SocialEngineering = @"SOCIAL_ENGINEERING";
+NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_SocialEngineeringExtendedCoverage = @"SOCIAL_ENGINEERING_EXTENDED_COVERAGE";
 NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_ThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
 NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_UnwantedSoftware = @"UNWANTED_SOFTWARE";
 
 // GTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata.state
 NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Closed = @"CLOSED";
 NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Failed = @"FAILED";
 NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Running = @"RUNNING";
 NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";

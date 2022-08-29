@@ -17,18 +17,18 @@ NSString * const kGTLRWebRiskConstraintsSupportedCompressionsRaw = @"RAW";
 NSString * const kGTLRWebRiskConstraintsSupportedCompressionsRice = @"RICE";
 
 // threatType
-NSString * const kGTLRWebRiskThreatTypeHighRecall            = @"HIGH_RECALL";
-NSString * const kGTLRWebRiskThreatTypeMalware               = @"MALWARE";
-NSString * const kGTLRWebRiskThreatTypeSocialEngineering     = @"SOCIAL_ENGINEERING";
-NSString * const kGTLRWebRiskThreatTypeThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
-NSString * const kGTLRWebRiskThreatTypeUnwantedSoftware      = @"UNWANTED_SOFTWARE";
+NSString * const kGTLRWebRiskThreatTypeMalware                 = @"MALWARE";
+NSString * const kGTLRWebRiskThreatTypeSocialEngineering       = @"SOCIAL_ENGINEERING";
+NSString * const kGTLRWebRiskThreatTypeSocialEngineeringExtendedCoverage = @"SOCIAL_ENGINEERING_EXTENDED_COVERAGE";
+NSString * const kGTLRWebRiskThreatTypeThreatTypeUnspecified   = @"THREAT_TYPE_UNSPECIFIED";
+NSString * const kGTLRWebRiskThreatTypeUnwantedSoftware        = @"UNWANTED_SOFTWARE";
 
 // threatTypes
-NSString * const kGTLRWebRiskThreatTypesHighRecall            = @"HIGH_RECALL";
-NSString * const kGTLRWebRiskThreatTypesMalware               = @"MALWARE";
-NSString * const kGTLRWebRiskThreatTypesSocialEngineering     = @"SOCIAL_ENGINEERING";
-NSString * const kGTLRWebRiskThreatTypesThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
-NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware      = @"UNWANTED_SOFTWARE";
+NSString * const kGTLRWebRiskThreatTypesMalware                = @"MALWARE";
+NSString * const kGTLRWebRiskThreatTypesSocialEngineering      = @"SOCIAL_ENGINEERING";
+NSString * const kGTLRWebRiskThreatTypesSocialEngineeringExtendedCoverage = @"SOCIAL_ENGINEERING_EXTENDED_COVERAGE";
+NSString * const kGTLRWebRiskThreatTypesThreatTypeUnspecified  = @"THREAT_TYPE_UNSPECIFIED";
+NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware       = @"UNWANTED_SOFTWARE";
 
 // ----------------------------------------------------------------------------
 // Query Classes

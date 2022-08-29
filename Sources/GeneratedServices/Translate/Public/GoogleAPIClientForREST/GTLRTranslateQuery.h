@@ -454,6 +454,172 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a glossary entry.
+ *
+ *  Method: translate.projects.locations.glossaries.glossaryEntries.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesCreate : GTLRTranslateQuery
+
+/** Required. The resource name of the glossary to create the entry under. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTranslate_GlossaryEntry.
+ *
+ *  Creates a glossary entry.
+ *
+ *  @param object The @c GTLRTranslate_GlossaryEntry to include in the query.
+ *  @param parent Required. The resource name of the glossary to create the
+ *    entry under.
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesCreate
+ */
++ (instancetype)queryWithObject:(GTLRTranslate_GlossaryEntry *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single entry from the glossary
+ *
+ *  Method: translate.projects.locations.glossaries.glossaryEntries.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesDelete : GTLRTranslateQuery
+
+/** Required. The resource name of the glossary entry to delete */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRTranslate_Empty.
+ *
+ *  Deletes a single entry from the glossary
+ *
+ *  @param name Required. The resource name of the glossary entry to delete
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a single glossary entry by the given id.
+ *
+ *  Method: translate.projects.locations.glossaries.glossaryEntries.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesGet : GTLRTranslateQuery
+
+/** Required. The resource name of the glossary entry to get */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRTranslate_GlossaryEntry.
+ *
+ *  Gets a single glossary entry by the given id.
+ *
+ *  @param name Required. The resource name of the glossary entry to get
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List the entries for the glossary.
+ *
+ *  Method: translate.projects.locations.glossaries.glossaryEntries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesList : GTLRTranslateQuery
+
+/**
+ *  Optional. Requested page size. The server may return fewer glossary entries
+ *  than requested. If unspecified, the server picks an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  [ListGlossaryEntriesResponse.next_page_token] returned from the previous
+ *  call. The first page is returned if `page_token`is empty or missing.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent glossary resource name for listing the glossary's
+ *  entries.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTranslate_ListGlossaryEntriesResponse.
+ *
+ *  List the entries for the glossary.
+ *
+ *  @param parent Required. The parent glossary resource name for listing the
+ *    glossary's entries.
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a glossary entry.
+ *
+ *  Method: translate.projects.locations.glossaries.glossaryEntries.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesPatch : GTLRTranslateQuery
+
+/**
+ *  Required. The resource name of the entry. Format: "projects/ * /locations/ *
+ *  /glossaries/ * /glossaryEntries/ *"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRTranslate_GlossaryEntry.
+ *
+ *  Updates a glossary entry.
+ *
+ *  @param object The @c GTLRTranslate_GlossaryEntry to include in the query.
+ *  @param name Required. The resource name of the entry. Format: "projects/ *
+ *    /locations/ * /glossaries/ * /glossaryEntries/ *"
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesPatch
+ */
++ (instancetype)queryWithObject:(GTLRTranslate_GlossaryEntry *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
  *  exist.
  *
@@ -518,6 +684,49 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a glossary. A LRO is used since the update can be async if the
+ *  glossary's entry file is updated.
+ *
+ *  Method: translate.projects.locations.glossaries.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsGlossariesPatch : GTLRTranslateQuery
+
+/**
+ *  Required. The resource name of the glossary. Glossary names have the form
+ *  `projects/{project-number-or-id}/locations/{location-id}/glossaries/{glossary-id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to be updated. Currently only `display_name` and
+ *  'input_config'
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRTranslate_Operation.
+ *
+ *  Updates a glossary. A LRO is used since the update can be async if the
+ *  glossary's entry file is updated.
+ *
+ *  @param object The @c GTLRTranslate_Glossary to include in the query.
+ *  @param name Required. The resource name of the glossary. Glossary names have
+ *    the form
+ *    `projects/{project-number-or-id}/locations/{location-id}/glossaries/{glossary-id}`.
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsGlossariesPatch
+ */
++ (instancetype)queryWithObject:(GTLRTranslate_Glossary *)object
+                           name:(NSString *)name;
 
 @end
 

@@ -390,6 +390,25 @@ NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZoneUnspecified = @"R
 
 @end
 
+@implementation GTLRAdsenseQuery_AccountsGetAdBlockingRecoveryTag
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/adBlockingRecoveryTag";
+  GTLRAdsenseQuery_AccountsGetAdBlockingRecoveryTag *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAdsense_AdBlockingRecoveryTag class];
+  query.loggingName = @"adsense.accounts.getAdBlockingRecoveryTag";
+  return query;
+}
+
+@end
+
 @implementation GTLRAdsenseQuery_AccountsList
 
 @dynamic pageSize, pageToken;

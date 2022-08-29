@@ -324,8 +324,23 @@
 //
 
 @implementation GTLRTranslate_Glossary
-@dynamic endTime, entryCount, inputConfig, languageCodesSet, languagePair, name,
-         submitTime;
+@dynamic displayName, endTime, entryCount, inputConfig, languageCodesSet,
+         languagePair, name, submitTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_GlossaryEntry
+//
+
+@implementation GTLRTranslate_GlossaryEntry
+@dynamic descriptionProperty, name, termsPair, termsSet;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -336,6 +351,44 @@
 
 @implementation GTLRTranslate_GlossaryInputConfig
 @dynamic gcsSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_GlossaryTerm
+//
+
+@implementation GTLRTranslate_GlossaryTerm
+@dynamic languageCode, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_GlossaryTermsPair
+//
+
+@implementation GTLRTranslate_GlossaryTermsPair
+@dynamic sourceTerm, targetTerm;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_GlossaryTermsSet
+//
+
+@implementation GTLRTranslate_GlossaryTermsSet
+@dynamic terms;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"terms" : [GTLRTranslate_GlossaryTerm class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -394,6 +447,28 @@
 
 + (NSString *)collectionItemsKey {
   return @"glossaries";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_ListGlossaryEntriesResponse
+//
+
+@implementation GTLRTranslate_ListGlossaryEntriesResponse
+@dynamic glossaryEntries, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"glossaryEntries" : [GTLRTranslate_GlossaryEntry class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"glossaryEntries";
 }
 
 @end

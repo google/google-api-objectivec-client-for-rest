@@ -16,6 +16,125 @@
 
 @end
 
+@implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsCreate
+
+@dynamic functionId, parent;
+
++ (instancetype)queryWithObject:(GTLRCloudFunctions_Function *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/functions";
+  GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudFunctions_Operation class];
+  query.loggingName = @"cloudfunctions.projects.locations.functions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudFunctions_Operation class];
+  query.loggingName = @"cloudfunctions.projects.locations.functions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGenerateDownloadUrl
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudFunctions_GenerateDownloadUrlRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:generateDownloadUrl";
+  GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGenerateDownloadUrl *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudFunctions_GenerateDownloadUrlResponse class];
+  query.loggingName = @"cloudfunctions.projects.locations.functions.generateDownloadUrl";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGenerateUploadUrl
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudFunctions_GenerateUploadUrlRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/functions:generateUploadUrl";
+  GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGenerateUploadUrl *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudFunctions_GenerateUploadUrlResponse class];
+  query.loggingName = @"cloudfunctions.projects.locations.functions.generateUploadUrl";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudFunctions_Function class];
+  query.loggingName = @"cloudfunctions.projects.locations.functions.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGetIamPolicy
 
 @dynamic optionsRequestedPolicyVersion, resource;
@@ -34,6 +153,52 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRCloudFunctions_Policy class];
   query.loggingName = @"cloudfunctions.projects.locations.functions.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/functions";
+  GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudFunctions_ListFunctionsResponse class];
+  query.loggingName = @"cloudfunctions.projects.locations.functions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudFunctions_Function *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudFunctions_Operation class];
+  query.loggingName = @"cloudfunctions.projects.locations.functions.patch";
   return query;
 }
 
@@ -145,6 +310,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudFunctions_ListOperationsResponse class];
   query.loggingName = @"cloudfunctions.projects.locations.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudFunctionsQuery_ProjectsLocationsRuntimesList
+
+@dynamic filter, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/runtimes";
+  GTLRCloudFunctionsQuery_ProjectsLocationsRuntimesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudFunctions_ListRuntimesResponse class];
+  query.loggingName = @"cloudfunctions.projects.locations.runtimes.list";
   return query;
 }
 

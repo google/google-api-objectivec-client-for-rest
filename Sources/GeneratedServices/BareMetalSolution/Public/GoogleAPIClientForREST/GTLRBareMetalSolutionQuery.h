@@ -94,6 +94,34 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Create an Instance.
+ *
+ *  Method: baremetalsolution.projects.locations.instances.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesCreate : GTLRBareMetalSolutionQuery
+
+/** Required. The parent project and location. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_Operation.
+ *
+ *  Create an Instance.
+ *
+ *  @param object The @c GTLRBareMetalSolution_Instance to include in the query.
+ *  @param parent Required. The parent project and location.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesCreate
+ */
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_Instance *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Detach LUN from Instance.
  *
  *  Method: baremetalsolution.projects.locations.instances.detachLun
@@ -201,7 +229,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesPatch : GTLRBareMetalSolutionQuery
 
 /**
- *  Output only. The resource name of this `Instance`. Resource names are
+ *  Immutable. The resource name of this `Instance`. Resource names are
  *  schemeless URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. Format:
  *  `projects/{project}/locations/{location}/instances/{instance}`
@@ -222,8 +250,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Update details of a single server.
  *
  *  @param object The @c GTLRBareMetalSolution_Instance to include in the query.
- *  @param name Output only. The resource name of this `Instance`. Resource
- *    names are schemeless URIs that follow the conventions in
+ *  @param name Immutable. The resource name of this `Instance`. Resource names
+ *    are schemeless URIs that follow the conventions in
  *    https://cloud.google.com/apis/design/resource_names. Format:
  *    `projects/{project}/locations/{location}/instances/{instance}`
  *
@@ -513,6 +541,60 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Create an NFS share.
+ *
+ *  Method: baremetalsolution.projects.locations.nfsShares.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsNfsSharesCreate : GTLRBareMetalSolutionQuery
+
+/** Required. The parent project and location. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_Operation.
+ *
+ *  Create an NFS share.
+ *
+ *  @param object The @c GTLRBareMetalSolution_NfsShare to include in the query.
+ *  @param parent Required. The parent project and location.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsNfsSharesCreate
+ */
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_NfsShare *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete an NFS share. The underlying volume is automatically deleted.
+ *
+ *  Method: baremetalsolution.projects.locations.nfsShares.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsNfsSharesDelete : GTLRBareMetalSolutionQuery
+
+/** Required. The name of the NFS share to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_Operation.
+ *
+ *  Delete an NFS share. The underlying volume is automatically deleted.
+ *
+ *  @param name Required. The name of the NFS share to delete.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsNfsSharesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Get details of a single NFS share.
  *
  *  Method: baremetalsolution.projects.locations.nfsShares.get
@@ -590,12 +672,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRBareMetalSolutionQuery_ProjectsLocationsNfsSharesPatch : GTLRBareMetalSolutionQuery
 
-/** Output only. The name of the NFS share. */
+/** Immutable. The name of the NFS share. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The list of fields to update. The only currently supported fields are:
- *  `labels`
+ *  `labels` `allowed_clients`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -607,7 +689,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Update details of a single NFS share.
  *
  *  @param object The @c GTLRBareMetalSolution_NfsShare to include in the query.
- *  @param name Output only. The name of the NFS share.
+ *  @param name Immutable. The name of the NFS share.
  *
  *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsNfsSharesPatch
  */
@@ -974,8 +1056,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The list of fields to update. The only currently supported fields are:
- *  `snapshot_auto_delete_behavior` `snapshot_schedule_policy_name` 'labels'
- *  'snapshot_enabled' 'snapshot_reservation_detail.reserved_space_percent'
+ *  'labels'
  *
  *  String format is a comma-separated list of fields.
  */

@@ -1581,8 +1581,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  read [how to specify min CPU
  *  platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform)
  *  This field is deprecated, min_cpu_platform should be specified using
- *  cloud.google.com/requested-min-cpu-platform label selector on the pod. To
- *  unset the min cpu platform field pass "automatic" as field value.
+ *  https://cloud.google.com/requested-min-cpu-platform label selector on the
+ *  pod. To unset the min cpu platform field pass "automatic" as field value.
  */
 @property(nonatomic, copy, nullable) NSString *minCpuPlatform;
 
@@ -1642,8 +1642,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @interface GTLRContainer_BinaryAuthorization : GTLRObject
 
 /**
- *  Enable Binary Authorization for this cluster. If enabled, all container
- *  images will be validated by Binary Authorization.
+ *  This field is deprecated. Leave this unset and instead configure
+ *  BinaryAuthorization using evaluation_mode. If evaluation_mode is set to
+ *  anything other than EVALUATION_MODE_UNSPECIFIED, this field is ignored.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4049,7 +4050,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @interface GTLRContainer_NodeConfigDefaults : GTLRObject
 
-/** GCFS (Google Container File System, a.k.a. Riptide) options. */
+/** GCFS (Google Container File System, also known as Riptide) options. */
 @property(nonatomic, strong, nullable) GTLRContainer_GcfsConfig *gcfsConfig;
 
 @end

@@ -274,10 +274,6 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_CloudIdentity"]
         ),
         .library(
-            name: "GoogleAPIClientForREST_CloudIot",
-            targets: ["GoogleAPIClientForREST_CloudIot"]
-        ),
-        .library(
             name: "GoogleAPIClientForREST_CloudKMS",
             targets: ["GoogleAPIClientForREST_CloudKMS"]
         ),
@@ -496,6 +492,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_DriveActivity",
             targets: ["GoogleAPIClientForREST_DriveActivity"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_DriveLabels",
+            targets: ["GoogleAPIClientForREST_DriveLabels"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Essentialcontacts",
@@ -1407,12 +1407,6 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
-            name: "GoogleAPIClientForREST_CloudIot",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Sources/GeneratedServices/CloudIot",
-            publicHeadersPath: "Public"
-        ),
-        .target(
             name: "GoogleAPIClientForREST_CloudKMS",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/CloudKMS",
@@ -1740,6 +1734,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_DriveActivity",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/DriveActivity",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_DriveLabels",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/DriveLabels",
             publicHeadersPath: "Public"
         ),
         .target(

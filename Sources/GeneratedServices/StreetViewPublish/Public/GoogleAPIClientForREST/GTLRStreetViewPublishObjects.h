@@ -130,7 +130,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 // GTLRStreetViewPublish_PhotoSequence.failureReason
 
 /**
- *  The video file was corrupt.
+ *  The video file was corrupt or could not be decoded.
  *
  *  Value: "CORRUPT_VIDEO"
  */
@@ -166,6 +166,25 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureR
  *  Value: "INSUFFICIENT_GPS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientGps;
+/**
+ *  Too few IMU points.
+ *
+ *  Value: "INSUFFICIENT_IMU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientImu;
+/**
+ *  Insufficient overlap in the time frame between GPS, IMU, and other time
+ *  series data.
+ *
+ *  Value: "INSUFFICIENT_OVERLAP_TIME_SERIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientOverlapTimeSeries;
+/**
+ *  Not enough video frames.
+ *
+ *  Value: "INSUFFICIENT_VIDEO_FRAMES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientVideoFrames;
 /**
  *  A permanent failure in the underlying system occurred.
  *
@@ -389,7 +408,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_Processi
 
 
 /**
- *  Details related to ProcessingFailureReason#GPS_DATA_GAP.
+ *  Details related to ProcessingFailureReason#GPS_DATA_GAP. If there are
+ *  multiple GPS data gaps, only the one with the largest duration is reported
+ *  here.
  */
 @interface GTLRStreetViewPublish_GpsDataGapFailureDetails : GTLRObject
 
@@ -399,7 +420,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_Processi
 /**
  *  Relative time (from the start of the video stream) when the gap started.
  */
-@property(nonatomic, strong, nullable) GTLRDuration *gapTime;
+@property(nonatomic, strong, nullable) GTLRDuration *gapStartTime;
 
 @end
 
@@ -431,7 +452,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_Processi
 
 
 /**
- *  Details related to ProcessingFailureReason#IMU_DATA_GAP.
+ *  Details related to ProcessingFailureReason#IMU_DATA_GAP. If there are
+ *  multiple IMU data gaps, only the one with the largest duration is reported
+ *  here.
  */
 @interface GTLRStreetViewPublish_ImuDataGapFailureDetails : GTLRObject
 
@@ -441,7 +464,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_Processi
 /**
  *  Relative time (from the start of the video stream) when the gap started.
  */
-@property(nonatomic, strong, nullable) GTLRDuration *gapTime;
+@property(nonatomic, strong, nullable) GTLRDuration *gapStartTime;
 
 @end
 
@@ -618,7 +641,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_Processi
 
 
 /**
- *  Details related to ProcessingFailureReason#NOT_OUTDOORS.
+ *  Details related to ProcessingFailureReason#NOT_OUTDOORS. If there are
+ *  multiple indoor frames found, the first frame is recorded here.
  */
 @interface GTLRStreetViewPublish_NotOutdoorsFailureDetails : GTLRObject
 
@@ -626,7 +650,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_Processi
  *  Relative time (from the start of the video stream) when an indoor frame was
  *  found.
  */
-@property(nonatomic, strong, nullable) GTLRDuration *time;
+@property(nonatomic, strong, nullable) GTLRDuration *startTime;
 
 @end
 
@@ -884,7 +908,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_Processi
  *
  *  Likely values:
  *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_CorruptVideo
- *        The video file was corrupt. (Value: "CORRUPT_VIDEO")
+ *        The video file was corrupt or could not be decoded. (Value:
+ *        "CORRUPT_VIDEO")
  *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_Duplicate This
  *        video has been uploaded before. (Value: "DUPLICATE")
  *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_FailedToRefinePositions
@@ -898,6 +923,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_Processi
  *        seconds in duration. (Value: "IMU_DATA_GAP")
  *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientGps
  *        Too few GPS points. (Value: "INSUFFICIENT_GPS")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientImu
+ *        Too few IMU points. (Value: "INSUFFICIENT_IMU")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientOverlapTimeSeries
+ *        Insufficient overlap in the time frame between GPS, IMU, and other
+ *        time series data. (Value: "INSUFFICIENT_OVERLAP_TIME_SERIES")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientVideoFrames
+ *        Not enough video frames. (Value: "INSUFFICIENT_VIDEO_FRAMES")
  *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_Internal A
  *        permanent failure in the underlying system occurred. (Value:
  *        "INTERNAL")

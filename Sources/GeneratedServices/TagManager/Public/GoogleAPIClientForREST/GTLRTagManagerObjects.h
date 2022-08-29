@@ -671,8 +671,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 /**
  *  Built-in variables are a special category of variables that are pre-created
  *  and non-customizable. They provide common functionality like accessing
- *  propeties of the gtm data layer, monitoring clicks, or accessing elements of
- *  a page URL.
+ *  properties of the gtm data layer, monitoring clicks, or accessing elements
+ *  of a page URL.
  */
 @interface GTLRTagManager_BuiltInVariable : GTLRObject
 
@@ -1241,7 +1241,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 /** Number of zones in the container version. */
 @property(nonatomic, copy, nullable) NSString *numZones;
 
-/** GTM Container Versions's API relative path. */
+/** GTM Container Version's API relative path. */
 @property(nonatomic, copy, nullable) NSString *path;
 
 @end
@@ -3024,9 +3024,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /** User notes on how to apply this zone in the container. */
 @property(nonatomic, copy, nullable) NSString *notes;
-
-/** Additional parameters. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Parameter *> *parameter;
 
 /** GTM Zone's API relative path. */
 @property(nonatomic, copy, nullable) NSString *path;

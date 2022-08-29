@@ -19,6 +19,14 @@ NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unevaluat
 NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unknown = @"UNKNOWN";
 NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unlicensed = @"UNLICENSED";
 
+// GTLRPlayIntegrity_AccountRiskVerdict.riskLevel
+NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelLowestRisk = @"RISK_LEVEL_LOWEST_RISK";
+NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelLowRisk = @"RISK_LEVEL_LOW_RISK";
+NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelRisk = @"RISK_LEVEL_RISK";
+NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelUnevaluated = @"RISK_LEVEL_UNEVALUATED";
+NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelUnknown = @"RISK_LEVEL_UNKNOWN";
+NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelUnspecified = @"RISK_LEVEL_UNSPECIFIED";
+
 // GTLRPlayIntegrity_AppIntegrity.appRecognitionVerdict
 NSString * const kGTLRPlayIntegrity_AppIntegrity_AppRecognitionVerdict_PlayRecognized = @"PLAY_RECOGNIZED";
 NSString * const kGTLRPlayIntegrity_AppIntegrity_AppRecognitionVerdict_Unevaluated = @"UNEVALUATED";
@@ -38,7 +46,17 @@ NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_Unk
 //
 
 @implementation GTLRPlayIntegrity_AccountDetails
-@dynamic appLicensingVerdict;
+@dynamic accountRiskVerdict, appLicensingVerdict;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_AccountRiskVerdict
+//
+
+@implementation GTLRPlayIntegrity_AccountRiskVerdict
+@dynamic riskLevel;
 @end
 
 

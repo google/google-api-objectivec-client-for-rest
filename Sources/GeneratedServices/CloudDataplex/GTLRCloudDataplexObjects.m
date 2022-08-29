@@ -201,6 +201,7 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Session_State_Deleting 
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Session_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRCloudDataplex_GoogleCloudDataplexV1SessionEvent.type
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1SessionEvent_Type_Create = @"CREATE";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1SessionEvent_Type_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1SessionEvent_Type_Query = @"QUERY";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1SessionEvent_Type_Start = @"START";
@@ -1228,7 +1229,8 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1SessionEvent
-@dynamic message, query, sessionId, type, userId;
+@dynamic eventSucceeded, message, query, sessionId, type, unassignedDuration,
+         userId, warmPoolEnabled;
 @end
 
 
@@ -1310,7 +1312,7 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1TaskExecutionSpec
-@dynamic args, maxJobExecutionLifetime, project, serviceAccount;
+@dynamic args, kmsKey, maxJobExecutionLifetime, project, serviceAccount;
 @end
 
 
@@ -1364,7 +1366,7 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1TaskInfrastructureSpecContainerImageRuntime
-@dynamic javaJars, properties, pythonPackages;
+@dynamic image, javaJars, properties, pythonPackages;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

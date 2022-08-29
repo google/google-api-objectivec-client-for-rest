@@ -18,7 +18,9 @@
 
 @class GTLRChromePolicy_ChromeCrosDpanelAutosettingsProtoPolicyApiLifecycle;
 @class GTLRChromePolicy_GoogleChromePolicyV1AdditionalTargetKeyName;
+@class GTLRChromePolicy_GoogleChromePolicyV1DeleteGroupPolicyRequest;
 @class GTLRChromePolicy_GoogleChromePolicyV1InheritOrgUnitPolicyRequest;
+@class GTLRChromePolicy_GoogleChromePolicyV1ModifyGroupPolicyRequest;
 @class GTLRChromePolicy_GoogleChromePolicyV1ModifyOrgUnitPolicyRequest;
 @class GTLRChromePolicy_GoogleChromePolicyV1PolicySchema;
 @class GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldDependencies;
@@ -266,6 +268,25 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 
 
 /**
+ *  Request message for specifying that multiple policy values will be deleted.
+ */
+@interface GTLRChromePolicy_GoogleChromePolicyV1BatchDeleteGroupPoliciesRequest : GTLRObject
+
+/**
+ *  List of policies that will be deleted as defined by the `requests`. All
+ *  requests in the list must follow these restrictions: 1. All schemas in the
+ *  list must have the same root namespace. 2. All
+ *  `policyTargetKey.targetResource` values must point to a group resource. 3.
+ *  All `policyTargetKey` values must have the same `app_id` key name in the
+ *  `additionalTargetKeys`. 4. No two modification requests can reference the
+ *  same `policySchema` + ` policyTargetKey` pair.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromePolicy_GoogleChromePolicyV1DeleteGroupPolicyRequest *> *requests;
+
+@end
+
+
+/**
  *  Request message for specifying that multiple policy values inherit their
  *  value from their parents.
  */
@@ -283,6 +304,25 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
  *  the same `policySchema` + ` policyTargetKey` pair.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromePolicy_GoogleChromePolicyV1InheritOrgUnitPolicyRequest *> *requests;
+
+@end
+
+
+/**
+ *  Request message for modifying multiple policy values for a specific
+ *  group-based target.
+ */
+@interface GTLRChromePolicy_GoogleChromePolicyV1BatchModifyGroupPoliciesRequest : GTLRObject
+
+/**
+ *  List of policies to modify as defined by the `requests`. All requests in the
+ *  list must follow these restrictions: 1. All schemas in the list must have
+ *  the same root namespace. 2. All `policyTargetKey.targetResource` values must
+ *  point to a group resource. 3. All `policyTargetKey` values must have the
+ *  same `app_id` key name in the `additionalTargetKeys`. 4. No two modification
+ *  requests can reference the same `policySchema` + ` policyTargetKey` pair.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromePolicy_GoogleChromePolicyV1ModifyGroupPolicyRequest *> *requests;
 
 @end
 
@@ -308,6 +348,23 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 
 
 /**
+ *  Request parameters for deleting the policy value of a specific group target.
+ */
+@interface GTLRChromePolicy_GoogleChromePolicyV1DeleteGroupPolicyRequest : GTLRObject
+
+/** The fully qualified name of the policy schema that is being inherited. */
+@property(nonatomic, copy, nullable) NSString *policySchema;
+
+/**
+ *  Required. The key of the target for which we want to modify a policy. The
+ *  target resource must point to a Group.
+ */
+@property(nonatomic, strong, nullable) GTLRChromePolicy_GoogleChromePolicyV1PolicyTargetKey *policyTargetKey;
+
+@end
+
+
+/**
  *  Request parameters for inheriting policy value of a specific org unit target
  *  from the policy value of its parent org unit.
  */
@@ -319,6 +376,43 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 /**
  *  Required. The key of the target for which we want to modify a policy. The
  *  target resource must point to an Org Unit.
+ */
+@property(nonatomic, strong, nullable) GTLRChromePolicy_GoogleChromePolicyV1PolicyTargetKey *policyTargetKey;
+
+@end
+
+
+/**
+ *  Request message for listing the group priority ordering of an app.
+ */
+@interface GTLRChromePolicy_GoogleChromePolicyV1ListGroupPriorityOrderingRequest : GTLRObject
+
+/** Required. The namespace of the policy type for the request. */
+@property(nonatomic, copy, nullable) NSString *policyNamespace;
+
+/**
+ *  Required. The key of the target for which we want to retrieve the group
+ *  priority ordering. The target resource must point to an app.
+ */
+@property(nonatomic, strong, nullable) GTLRChromePolicy_GoogleChromePolicyV1PolicyTargetKey *policyTargetKey;
+
+@end
+
+
+/**
+ *  Response message for listing the group priority ordering of an app.
+ */
+@interface GTLRChromePolicy_GoogleChromePolicyV1ListGroupPriorityOrderingResponse : GTLRObject
+
+/** Output only. The group IDs, in priority ordering. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *groupIds;
+
+/** Output only. The namespace of the policy type of the group IDs. */
+@property(nonatomic, copy, nullable) NSString *policyNamespace;
+
+/**
+ *  Output only. The target resource for which the group priority ordering has
+ *  been retrieved.
  */
 @property(nonatomic, strong, nullable) GTLRChromePolicy_GoogleChromePolicyV1PolicyTargetKey *policyTargetKey;
 
@@ -345,6 +439,32 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromePolicy_GoogleChromePolicyV1PolicySchema *> *policySchemas;
+
+@end
+
+
+/**
+ *  Request parameters for modifying a policy value for a specific group target.
+ */
+@interface GTLRChromePolicy_GoogleChromePolicyV1ModifyGroupPolicyRequest : GTLRObject
+
+/**
+ *  Required. The key of the target for which we want to modify a policy. The
+ *  target resource must point to a Group.
+ */
+@property(nonatomic, strong, nullable) GTLRChromePolicy_GoogleChromePolicyV1PolicyTargetKey *policyTargetKey;
+
+/** The new value for the policy. */
+@property(nonatomic, strong, nullable) GTLRChromePolicy_GoogleChromePolicyV1PolicyValue *policyValue;
+
+/**
+ *  Required. Policy fields to update. Only fields in this mask will be updated;
+ *  other fields in `policy_value` will be ignored (even if they have values).
+ *  If a field is in this list it must have a value in 'policy_value'.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 @end
 
@@ -377,7 +497,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 
 
 /**
- *  Resource representing a policy schema. Next ID: 12
+ *  Resource representing a policy schema. Next ID: 13
  */
 @interface GTLRChromePolicy_GoogleChromePolicyV1PolicySchema : GTLRObject
 
@@ -409,7 +529,10 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaNoticeDescription *> *notices;
 
-/** Output only. Current life cycle information. */
+/** Output only. Current lifecycle information. */
+@property(nonatomic, strong, nullable) GTLRChromePolicy_ChromeCrosDpanelAutosettingsProtoPolicyApiLifecycle *policyApiLifecycle;
+
+/** Deprecated field because of typo. */
 @property(nonatomic, strong, nullable) GTLRChromePolicy_ChromeCrosDpanelAutosettingsProtoPolicyApiLifecycle *policyApiLifeycle;
 
 /** Output only. Description about the policy schema for user consumption. */
@@ -418,7 +541,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 /**
  *  Output only. The fully qualified name of the policy schema. This value is
  *  used to fill the field `policy_schema` in PolicyValue when calling
- *  BatchInheritOrgUnitPolicies or BatchModifyOrgUnitPolicies
+ *  BatchInheritOrgUnitPolicies BatchModifyOrgUnitPolicies
+ *  BatchModifyGroupPolicies or BatchDeleteGroupPolicies.
  */
 @property(nonatomic, copy, nullable) NSString *schemaName;
 
@@ -585,7 +709,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 
 /**
  *  The target resource on which this policy is applied. The following resources
- *  are supported: * Organizational Unit ("orgunits/{orgunit_id}")
+ *  are supported: * Organizational Unit ("orgunits/{orgunit_id}") * Group
+ *  ("groups/{group_id}")
  */
 @property(nonatomic, copy, nullable) NSString *targetResource;
 
@@ -735,6 +860,52 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromePolicy_GoogleChromePolicyV1ResolvedPolicy *> *resolvedPolicies;
+
+@end
+
+
+/**
+ *  Request message for updating the group priority ordering of an app.
+ */
+@interface GTLRChromePolicy_GoogleChromePolicyV1UpdateGroupPriorityOrderingRequest : GTLRObject
+
+/** Required. The group IDs, in desired priority ordering. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *groupIds;
+
+/** Required. The namespace of the policy type for the request. */
+@property(nonatomic, copy, nullable) NSString *policyNamespace;
+
+/**
+ *  Required. The key of the target for which we want to update the group
+ *  priority ordering. The target resource must point to an app.
+ */
+@property(nonatomic, strong, nullable) GTLRChromePolicy_GoogleChromePolicyV1PolicyTargetKey *policyTargetKey;
+
+@end
+
+
+/**
+ *  Request message for uploading a file for a policy. Next ID: 5
+ */
+@interface GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileRequest : GTLRObject
+
+/**
+ *  Required. The fully qualified policy schema and field name this file is
+ *  uploaded for. This information will be used to validate the content type of
+ *  the file.
+ */
+@property(nonatomic, copy, nullable) NSString *policyField;
+
+@end
+
+
+/**
+ *  Response message for downloading an uploaded file. Next ID: 2
+ */
+@interface GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileResponse : GTLRObject
+
+/** The uri for end user to download the file. */
+@property(nonatomic, copy, nullable) NSString *downloadUri;
 
 @end
 

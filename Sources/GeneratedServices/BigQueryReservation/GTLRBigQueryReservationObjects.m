@@ -14,6 +14,7 @@
 // Constants
 
 // GTLRBigQueryReservation_Assignment.jobType
+NSString * const kGTLRBigQueryReservation_Assignment_JobType_Background = @"BACKGROUND";
 NSString * const kGTLRBigQueryReservation_Assignment_JobType_JobTypeUnspecified = @"JOB_TYPE_UNSPECIFIED";
 NSString * const kGTLRBigQueryReservation_Assignment_JobType_MlExternal = @"ML_EXTERNAL";
 NSString * const kGTLRBigQueryReservation_Assignment_JobType_Pipeline = @"PIPELINE";

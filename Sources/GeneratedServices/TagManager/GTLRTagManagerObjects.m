@@ -1169,13 +1169,11 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 
 @implementation GTLRTagManager_Zone
 @dynamic accountId, boundary, childContainer, containerId, fingerprint, name,
-         notes, parameter, path, tagManagerUrl, typeRestriction, workspaceId,
-         zoneId;
+         notes, path, tagManagerUrl, typeRestriction, workspaceId, zoneId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"childContainer" : [GTLRTagManager_ZoneChildContainer class],
-    @"parameter" : [GTLRTagManager_Parameter class]
+    @"childContainer" : [GTLRTagManager_ZoneChildContainer class]
   };
   return map;
 }

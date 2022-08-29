@@ -63,9 +63,9 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 @implementation GTLRDriveQuery_ChangesList
 
 @dynamic driveId, includeCorpusRemovals, includeItemsFromAllDrives,
-         includePermissionsForView, includeRemoved, includeTeamDriveItems,
-         pageSize, pageToken, restrictToMyDrive, spaces, supportsAllDrives,
-         supportsTeamDrives, teamDriveId;
+         includeLabels, includePermissionsForView, includeRemoved,
+         includeTeamDriveItems, pageSize, pageToken, restrictToMyDrive, spaces,
+         supportsAllDrives, supportsTeamDrives, teamDriveId;
 
 + (instancetype)queryWithPageToken:(NSString *)pageToken {
   NSString *pathURITemplate = @"changes";
@@ -84,9 +84,9 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 @implementation GTLRDriveQuery_ChangesWatch
 
 @dynamic driveId, includeCorpusRemovals, includeItemsFromAllDrives,
-         includePermissionsForView, includeRemoved, includeTeamDriveItems,
-         pageSize, pageToken, restrictToMyDrive, spaces, supportsAllDrives,
-         supportsTeamDrives, teamDriveId;
+         includeLabels, includePermissionsForView, includeRemoved,
+         includeTeamDriveItems, pageSize, pageToken, restrictToMyDrive, spaces,
+         supportsAllDrives, supportsTeamDrives, teamDriveId;
 
 + (instancetype)queryWithObject:(GTLRDrive_Channel *)object
                       pageToken:(NSString *)pageToken {
@@ -400,7 +400,7 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_FilesCopy
 
-@dynamic enforceSingleParent, fileId, ignoreDefaultVisibility,
+@dynamic enforceSingleParent, fileId, ignoreDefaultVisibility, includeLabels,
          includePermissionsForView, keepRevisionForever, ocrLanguage,
          supportsAllDrives, supportsTeamDrives;
 
@@ -429,7 +429,7 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_FilesCreate
 
-@dynamic enforceSingleParent, ignoreDefaultVisibility,
+@dynamic enforceSingleParent, ignoreDefaultVisibility, includeLabels,
          includePermissionsForView, keepRevisionForever, ocrLanguage,
          supportsAllDrives, supportsTeamDrives, useContentAsIndexableText;
 
@@ -538,8 +538,8 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_FilesGet
 
-@dynamic acknowledgeAbuse, fileId, includePermissionsForView, supportsAllDrives,
-         supportsTeamDrives;
+@dynamic acknowledgeAbuse, fileId, includeLabels, includePermissionsForView,
+         supportsAllDrives, supportsTeamDrives;
 
 + (instancetype)queryWithFileId:(NSString *)fileId {
   NSArray *pathParams = @[ @"fileId" ];
@@ -567,7 +567,7 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_FilesList
 
-@dynamic corpora, corpus, driveId, includeItemsFromAllDrives,
+@dynamic corpora, corpus, driveId, includeItemsFromAllDrives, includeLabels,
          includePermissionsForView, includeTeamDriveItems, orderBy, pageSize,
          pageToken, q, spaces, supportsAllDrives, supportsTeamDrives,
          teamDriveId;
@@ -585,11 +585,58 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @end
 
+@implementation GTLRDriveQuery_FilesListLabels
+
+@dynamic fileId, maxResults, pageToken;
+
++ (instancetype)queryWithFileId:(NSString *)fileId {
+  NSArray *pathParams = @[ @"fileId" ];
+  NSString *pathURITemplate = @"files/{fileId}/listLabels";
+  GTLRDriveQuery_FilesListLabels *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.fileId = fileId;
+  query.expectedObjectClass = [GTLRDrive_LabelList class];
+  query.loggingName = @"drive.files.listLabels";
+  return query;
+}
+
+@end
+
+@implementation GTLRDriveQuery_FilesModifyLabels
+
+@dynamic fileId;
+
++ (instancetype)queryWithObject:(GTLRDrive_ModifyLabelsRequest *)object
+                         fileId:(NSString *)fileId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"fileId" ];
+  NSString *pathURITemplate = @"files/{fileId}/modifyLabels";
+  GTLRDriveQuery_FilesModifyLabels *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.fileId = fileId;
+  query.expectedObjectClass = [GTLRDrive_ModifyLabelsResponse class];
+  query.loggingName = @"drive.files.modifyLabels";
+  return query;
+}
+
+@end
+
 @implementation GTLRDriveQuery_FilesUpdate
 
-@dynamic addParents, enforceSingleParent, fileId, includePermissionsForView,
-         keepRevisionForever, ocrLanguage, removeParents, supportsAllDrives,
-         supportsTeamDrives, useContentAsIndexableText;
+@dynamic addParents, enforceSingleParent, fileId, includeLabels,
+         includePermissionsForView, keepRevisionForever, ocrLanguage,
+         removeParents, supportsAllDrives, supportsTeamDrives,
+         useContentAsIndexableText;
 
 + (instancetype)queryWithObject:(GTLRDrive_File *)object
                          fileId:(NSString *)fileId
@@ -618,8 +665,8 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_FilesWatch
 
-@dynamic acknowledgeAbuse, fileId, includePermissionsForView, supportsAllDrives,
-         supportsTeamDrives;
+@dynamic acknowledgeAbuse, fileId, includeLabels, includePermissionsForView,
+         supportsAllDrives, supportsTeamDrives;
 
 + (instancetype)queryWithObject:(GTLRDrive_Channel *)object
                          fileId:(NSString *)fileId {

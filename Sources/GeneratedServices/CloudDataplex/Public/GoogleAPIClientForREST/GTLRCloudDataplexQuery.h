@@ -128,7 +128,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the parent lake:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -138,7 +138,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Lists action resources in a lake.
  *
  *  @param parent Required. The resource name of the parent lake:
- *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}
+ *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesActionsList
  *
@@ -925,7 +925,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the lake:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -936,7 +936,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  the lake can be deleted.
  *
  *  @param name Required. The resource name of the lake:
- *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}
+ *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesDelete
  */
@@ -964,7 +964,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the parent lake:
- *  projects/{project_id}/locations/{location_id}/lakes/{lake_id}
+ *  projects/{project_id}/locations/{location_id}/lakes/{lake_id}.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -982,7 +982,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1Environment to
  *    include in the query.
  *  @param parent Required. The resource name of the parent lake:
- *    projects/{project_id}/locations/{location_id}/lakes/{lake_id}
+ *    projects/{project_id}/locations/{location_id}/lakes/{lake_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsCreate
  */
@@ -1004,7 +1004,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the environment:
- *  projects/{project_id}/locations/{location_id}/lakes/{lake_id}/environments/{environment_id}`
+ *  projects/{project_id}/locations/{location_id}/lakes/{lake_id}/environments/{environment_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1015,7 +1015,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  deleted before environment deletion can be initiated.
  *
  *  @param name Required. The resource name of the environment:
- *    projects/{project_id}/locations/{location_id}/lakes/{lake_id}/environments/{environment_id}`
+ *    projects/{project_id}/locations/{location_id}/lakes/{lake_id}/environments/{environment_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsDelete
  */
@@ -1035,7 +1035,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the environment:
- *  projects/{project_id}/locations/{location_id}/lakes/{lake_id}/environments/{environment_id}
+ *  projects/{project_id}/locations/{location_id}/lakes/{lake_id}/environments/{environment_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1045,7 +1045,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Get environment resource.
  *
  *  @param name Required. The resource name of the environment:
- *    projects/{project_id}/locations/{location_id}/lakes/{lake_id}/environments/{environment_id}
+ *    projects/{project_id}/locations/{location_id}/lakes/{lake_id}/environments/{environment_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsGet
  */
@@ -1137,7 +1137,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the parent lake:
- *  projects/{project_id}/locations/{location_id}/lakes/{lake_id}
+ *  projects/{project_id}/locations/{location_id}/lakes/{lake_id}.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1148,7 +1148,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Lists environments under the given lake.
  *
  *  @param parent Required. The resource name of the parent lake:
- *    projects/{project_id}/locations/{location_id}/lakes/{lake_id}
+ *    projects/{project_id}/locations/{location_id}/lakes/{lake_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsList
  *
@@ -1244,7 +1244,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the parent environment:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}/environment/{environment_id}
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}/environment/{environment_id}.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1254,7 +1254,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Lists session resources in an environment.
  *
  *  @param parent Required. The resource name of the parent environment:
- *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}/environment/{environment_id}
+ *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}/environment/{environment_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsSessionsList
  *
@@ -1362,7 +1362,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the lake:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1372,7 +1372,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Retrieves a lake resource.
  *
  *  @param name Required. The resource name of the lake:
- *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}
+ *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesGet
  */
@@ -1584,7 +1584,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the parent lake:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1605,7 +1605,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1Task to include
  *    in the query.
  *  @param parent Required. The resource name of the parent lake:
- *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}
+ *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesTasksCreate
  */
@@ -1626,8 +1626,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the task:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}
- *  /task/{task_id}`
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}/task/{task_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1637,8 +1636,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Delete the task resource.
  *
  *  @param name Required. The resource name of the task:
- *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}
- *    /task/{task_id}`
+ *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}/task/{task_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesTasksDelete
  */
@@ -1658,8 +1656,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the task:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}
- *  /tasks/{tasks_id}
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}/tasks/{tasks_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1669,8 +1666,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Get task resource.
  *
  *  @param name Required. The resource name of the task:
- *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}
- *    /tasks/{tasks_id}
+ *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}/tasks/{tasks_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesTasksGet
  */
@@ -1740,8 +1736,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the job:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}
- *  /task/{task_id}/job/{job_id}`
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}/task/{task_id}/job/{job_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1753,8 +1748,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1CancelJobRequest
  *    to include in the query.
  *  @param name Required. The resource name of the job:
- *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}
- *    /task/{task_id}/job/{job_id}`
+ *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}/task/{task_id}/job/{job_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesTasksJobsCancel
  */
@@ -1775,8 +1769,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the job:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}
- *  /tasks/{task_id}/jobs/{job_id}
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}/tasks/{task_id}/jobs/{job_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1786,8 +1779,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Get job resource.
  *
  *  @param name Required. The resource name of the job:
- *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}
- *    /tasks/{task_id}/jobs/{job_id}
+ *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}/tasks/{task_id}/jobs/{job_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesTasksJobsGet
  */
@@ -1821,7 +1813,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the parent environment:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}/tasks/{task_id}
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}/tasks/{task_id}.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1831,7 +1823,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Lists Jobs under the given task.
  *
  *  @param parent Required. The resource name of the parent environment:
- *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}/tasks/{task_id}
+ *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}/tasks/{task_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesTasksJobsList
  *
@@ -1875,7 +1867,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the parent lake:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1885,7 +1877,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Lists tasks under the given lake.
  *
  *  @param parent Required. The resource name of the parent lake:
- *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}
+ *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesTasksList
  *
@@ -2100,7 +2092,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the parent zone:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2110,7 +2102,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Lists action resources in a zone.
  *
  *  @param parent Required. The resource name of the parent zone:
- *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}
+ *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesActionsList
  *
@@ -2149,7 +2141,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the parent asset:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}/assets/{asset_id}
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}/assets/{asset_id}.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2159,7 +2151,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Lists action resources in an asset.
  *
  *  @param parent Required. The resource name of the parent asset:
- *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}/assets/{asset_id}
+ *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}/assets/{asset_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesAssetsActionsList
  *
@@ -2192,8 +2184,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the parent zone:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}
- *  /zones/{zone_id}`
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2211,8 +2202,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1Asset to include
  *    in the query.
  *  @param parent Required. The resource name of the parent zone:
- *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}
- *    /zones/{zone_id}`
+ *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesAssetsCreate
  */
@@ -2234,8 +2224,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the asset:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}
- *  /zones/{zone_id}/assets/{asset_id}
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}/assets/{asset_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2246,8 +2235,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  (default) or deleted based on the associated Lifecycle policy.
  *
  *  @param name Required. The resource name of the asset:
- *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}
- *    /zones/{zone_id}/assets/{asset_id}
+ *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}/assets/{asset_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesAssetsDelete
  */
@@ -2267,8 +2255,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the asset:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}
- *  /zones/{zone_id}/assets/{asset_id}
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}/assets/{asset_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2278,8 +2265,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Retrieves an asset resource.
  *
  *  @param name Required. The resource name of the asset:
- *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}
- *    /zones/{zone_id}/assets/{asset_id}
+ *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}/assets/{asset_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesAssetsGet
  */
@@ -2369,8 +2355,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the parent zone:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}
- *  /zones/{zone_id}`
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2380,8 +2365,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Lists asset resources in a zone.
  *
  *  @param parent Required. The resource name of the parent zone:
- *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}
- *    /zones/{zone_id}`
+ *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesAssetsList
  *
@@ -2536,7 +2520,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the parent lake:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2565,7 +2549,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1Zone to include
  *    in the query.
  *  @param parent Required. The resource name of the parent lake:
- *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}
+ *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesCreate
  */
@@ -2587,8 +2571,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the zone:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}
- *  /zones/{zone_id}`
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2599,8 +2582,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  zone can be deleted.
  *
  *  @param name Required. The resource name of the zone:
- *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}
- *    /zones/{zone_id}`
+ *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesDelete
  */
@@ -3024,8 +3006,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the zone:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}
- *  /zones/{zone_id}
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3035,8 +3016,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Retrieves a zone resource.
  *
  *  @param name Required. The resource name of the zone:
- *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}
- *    /zones/{zone_id}
+ *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesGet
  */
@@ -3126,7 +3106,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 
 /**
  *  Required. The resource name of the parent lake:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3136,7 +3116,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  Lists zone resources in a lake.
  *
  *  @param parent Required. The resource name of the parent lake:
- *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}
+ *    projects/{project_number}/locations/{location_id}/lakes/{lake_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesList
  *

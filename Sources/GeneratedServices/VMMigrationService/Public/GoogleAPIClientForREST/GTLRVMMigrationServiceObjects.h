@@ -4,10 +4,10 @@
 // API:
 //   VM Migration API (vmmigration/v1)
 // Description:
-//   Use the Migrate for Compute Engine API to programmatically migrate
+//   Use the Migrate to Virtual Machines API to programmatically migrate
 //   workloads.
 // Documentation:
-//   https://cloud.google.com/migrate/compute-engine
+//   https://cloud.google.com/migrate/virtual-machines
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -18,7 +18,6 @@
 @class GTLRVMMigrationService_ApplianceVersion;
 @class GTLRVMMigrationService_AppliedLicense;
 @class GTLRVMMigrationService_AvailableUpdates;
-@class GTLRVMMigrationService_AwsSourceVmDetails;
 @class GTLRVMMigrationService_CloneJob;
 @class GTLRVMMigrationService_ComputeEngineTargetDefaults;
 @class GTLRVMMigrationService_ComputeEngineTargetDefaults_Labels;
@@ -95,28 +94,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AppliedLicense_Type_P
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AppliedLicense_Type_TypeUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRVMMigrationService_AwsSourceVmDetails.firmware
-
-/**
- *  The firmware is BIOS.
- *
- *  Value: "BIOS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_Bios;
-/**
- *  The firmware is EFI.
- *
- *  Value: "EFI"
- */
-FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_Efi;
-/**
- *  The firmware is unknown.
- *
- *  Value: "FIRMWARE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_FirmwareUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRVMMigrationService_CloneJob.state
@@ -830,34 +807,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  a new appliance.
  */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_ApplianceVersion *newDeployableAppliance NS_RETURNS_NOT_RETAINED;
-
-@end
-
-
-/**
- *  Represent the source AWS VM details.
- */
-@interface GTLRVMMigrationService_AwsSourceVmDetails : GTLRObject
-
-/**
- *  The total size of the disks being migrated in bytes.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *committedStorageBytes;
-
-/**
- *  The firmware type of the source VM.
- *
- *  Likely values:
- *    @arg @c kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_Bios The
- *        firmware is BIOS. (Value: "BIOS")
- *    @arg @c kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_Efi The
- *        firmware is EFI. (Value: "EFI")
- *    @arg @c kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_FirmwareUnspecified
- *        The firmware is unknown. (Value: "FIRMWARE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *firmware;
 
 @end
 
@@ -1739,36 +1688,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
- *  Response message for 'ListReplicationCycles' request.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "replicationCycles" property. If returned as the result of a
- *        query, it should support automatic pagination (when @c
- *        shouldFetchNextPages is enabled).
- */
-@interface GTLRVMMigrationService_ListReplicationCyclesResponse : GTLRCollectionObject
-
-/**
- *  Output only. A token, which can be sent as `page_token` to retrieve the next
- *  page. If this field is omitted, there are no subsequent pages.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  Output only. The list of replication cycles response.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_ReplicationCycle *> *replicationCycles;
-
-/** Output only. Locations that could not be reached. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
-
-@end
-
-
-/**
  *  Response message for 'ListSources' request.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1866,8 +1785,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 /**
  *  The locale used following the specification defined at
- *  http://www.rfc-editor.org/rfc/bcp/bcp47.txt. Examples are: "en-US", "fr-CH",
- *  "es-MX"
+ *  https://www.rfc-editor.org/rfc/bcp/bcp47.txt. Examples are: "en-US",
+ *  "fr-CH", "es-MX"
  */
 @property(nonatomic, copy, nullable) NSString *locale;
 
@@ -1943,9 +1862,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  and its replication state.
  */
 @interface GTLRVMMigrationService_MigratingVm : GTLRObject
-
-/** Output only. Details of the VM from an AWS source. */
-@property(nonatomic, strong, nullable) GTLRVMMigrationService_AwsSourceVmDetails *awsSourceVmDetails;
 
 /** Details of the target VM in Compute Engine. */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_ComputeEngineTargetDefaults *computeEngineTargetDefaults;

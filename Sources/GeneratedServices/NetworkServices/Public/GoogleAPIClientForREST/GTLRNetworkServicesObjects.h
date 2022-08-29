@@ -363,11 +363,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
  *  anyone who is authenticated with a Google account or a service account. *
  *  `user:{emailid}`: An email address that represents a specific Google
  *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
- *  address that represents a Google group. For example, `admins\@example.com`.
- *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
+ *  An email address that represents a Google service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
+ *  identifier for a [Kubernetes service
+ *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
+ *  `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
+ *  An email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -666,9 +671,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. One or more ports that the Gateway must receive traffic on. The
- *  proxy binds to the ports specified. Gateway listen on 0.0.0.0 on the ports
- *  specified below.
+ *  Required. One or more port numbers (1-65535), on which the Gateway will
+ *  receive traffic. The proxy binds to the specified ports. Gateways of type
+ *  'SECURE_WEB_GATEWAY' are limited to 1 port. Gateways of type 'OPEN_MESH'
+ *  listen on 0.0.0.0 and support multiple ports.
  *
  *  Uses NSNumber of intValue.
  */
@@ -693,7 +699,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
 @property(nonatomic, copy, nullable) NSString *serverTlsPolicy;
 
 /**
- *  Immutable. The type of the customer managed gateway.
+ *  Immutable. The type of the customer managed gateway. This field is required.
+ *  If unspecified, an error is returned.
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkServices_Gateway_Type_OpenMesh The type of the
@@ -990,7 +997,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
 
 /**
  *  Specifies the allowed number of retries. This number must be > 0. If not
- *  specpfied, default to 1.
+ *  specified, default to 1.
  *
  *  Uses NSNumber of unsignedIntValue.
  */

@@ -18,6 +18,87 @@
 
 @end
 
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsAttributesConfigAddCatalogAttribute
+
+@dynamic attributesConfig;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2AddCatalogAttributeRequest *)object
+               attributesConfig:(NSString *)attributesConfig {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"attributesConfig" ];
+  NSString *pathURITemplate = @"v2/{+attributesConfig}:addCatalogAttribute";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsAttributesConfigAddCatalogAttribute *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.attributesConfig = attributesConfig;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2AttributesConfig class];
+  query.loggingName = @"retail.projects.locations.catalogs.attributesConfig.addCatalogAttribute";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsAttributesConfigRemoveCatalogAttribute
+
+@dynamic attributesConfig;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2RemoveCatalogAttributeRequest *)object
+               attributesConfig:(NSString *)attributesConfig {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"attributesConfig" ];
+  NSString *pathURITemplate = @"v2/{+attributesConfig}:removeCatalogAttribute";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsAttributesConfigRemoveCatalogAttribute *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.attributesConfig = attributesConfig;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2AttributesConfig class];
+  query.loggingName = @"retail.projects.locations.catalogs.attributesConfig.removeCatalogAttribute";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsAttributesConfigReplaceCatalogAttribute
+
+@dynamic attributesConfig;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2ReplaceCatalogAttributeRequest *)object
+               attributesConfig:(NSString *)attributesConfig {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"attributesConfig" ];
+  NSString *pathURITemplate = @"v2/{+attributesConfig}:replaceCatalogAttribute";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsAttributesConfigReplaceCatalogAttribute *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.attributesConfig = attributesConfig;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2AttributesConfig class];
+  query.loggingName = @"retail.projects.locations.catalogs.attributesConfig.replaceCatalogAttribute";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesOperationsGet
 
 @dynamic name;
@@ -364,6 +445,155 @@
 
 @end
 
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsControlsCreate
+
+@dynamic controlId, parent;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2Control *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/controls";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsControlsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2Control class];
+  query.loggingName = @"retail.projects.locations.catalogs.controls.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsControlsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsControlsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleProtobufEmpty class];
+  query.loggingName = @"retail.projects.locations.catalogs.controls.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsControlsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsControlsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2Control class];
+  query.loggingName = @"retail.projects.locations.catalogs.controls.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsControlsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/controls";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsControlsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2ListControlsResponse class];
+  query.loggingName = @"retail.projects.locations.catalogs.controls.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsControlsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2Control *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsControlsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2Control class];
+  query.loggingName = @"retail.projects.locations.catalogs.controls.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsGetAttributesConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsGetAttributesConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2AttributesConfig class];
+  query.loggingName = @"retail.projects.locations.catalogs.getAttributesConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsGetCompletionConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsGetCompletionConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2CompletionConfig class];
+  query.loggingName = @"retail.projects.locations.catalogs.getCompletionConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsGetDefaultBranch
 
 @dynamic catalog;
@@ -521,6 +751,144 @@
 
 @end
 
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsAddControl
+
+@dynamic servingConfig;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2AddControlRequest *)object
+                  servingConfig:(NSString *)servingConfig {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"servingConfig" ];
+  NSString *pathURITemplate = @"v2/{+servingConfig}:addControl";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsAddControl *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.servingConfig = servingConfig;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2ServingConfig class];
+  query.loggingName = @"retail.projects.locations.catalogs.servingConfigs.addControl";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsCreate
+
+@dynamic parent, servingConfigId;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2ServingConfig *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/servingConfigs";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2ServingConfig class];
+  query.loggingName = @"retail.projects.locations.catalogs.servingConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleProtobufEmpty class];
+  query.loggingName = @"retail.projects.locations.catalogs.servingConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2ServingConfig class];
+  query.loggingName = @"retail.projects.locations.catalogs.servingConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/servingConfigs";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2ListServingConfigsResponse class];
+  query.loggingName = @"retail.projects.locations.catalogs.servingConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2ServingConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2ServingConfig class];
+  query.loggingName = @"retail.projects.locations.catalogs.servingConfigs.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsPredict
 
 @dynamic placement;
@@ -543,6 +911,33 @@
   query.placement = placement;
   query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2PredictResponse class];
   query.loggingName = @"retail.projects.locations.catalogs.servingConfigs.predict";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsRemoveControl
+
+@dynamic servingConfig;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2RemoveControlRequest *)object
+                  servingConfig:(NSString *)servingConfig {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"servingConfig" ];
+  NSString *pathURITemplate = @"v2/{+servingConfig}:removeControl";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsRemoveControl *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.servingConfig = servingConfig;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2ServingConfig class];
+  query.loggingName = @"retail.projects.locations.catalogs.servingConfigs.removeControl";
   return query;
 }
 
@@ -597,6 +992,60 @@
   query.catalog = catalog;
   query.expectedObjectClass = [GTLRCloudRetail_GoogleProtobufEmpty class];
   query.loggingName = @"retail.projects.locations.catalogs.setDefaultBranch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsUpdateAttributesConfig
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2AttributesConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsUpdateAttributesConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2AttributesConfig class];
+  query.loggingName = @"retail.projects.locations.catalogs.updateAttributesConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsUpdateCompletionConfig
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2CompletionConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsUpdateCompletionConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2CompletionConfig class];
+  query.loggingName = @"retail.projects.locations.catalogs.updateCompletionConfig";
   return query;
 }
 

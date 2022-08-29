@@ -13,10 +13,15 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudIAP_AttributePropagationSettings.outputCredentials
+NSString * const kGTLRCloudIAP_AttributePropagationSettings_OutputCredentials_Header = @"HEADER";
+NSString * const kGTLRCloudIAP_AttributePropagationSettings_OutputCredentials_Jwt = @"JWT";
+NSString * const kGTLRCloudIAP_AttributePropagationSettings_OutputCredentials_OutputCredentialsUnspecified = @"OUTPUT_CREDENTIALS_UNSPECIFIED";
+NSString * const kGTLRCloudIAP_AttributePropagationSettings_OutputCredentials_Rctoken = @"RCTOKEN";
+
 // GTLRCloudIAP_ReauthSettings.method
 NSString * const kGTLRCloudIAP_ReauthSettings_Method_Login     = @"LOGIN";
 NSString * const kGTLRCloudIAP_ReauthSettings_Method_MethodUnspecified = @"METHOD_UNSPECIFIED";
-NSString * const kGTLRCloudIAP_ReauthSettings_Method_Password  = @"PASSWORD";
 NSString * const kGTLRCloudIAP_ReauthSettings_Method_SecureKey = @"SECURE_KEY";
 
 // GTLRCloudIAP_ReauthSettings.policyType
@@ -30,7 +35,8 @@ NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_PolicyTypeUnspecified =
 //
 
 @implementation GTLRCloudIAP_AccessDeniedPageSettings
-@dynamic accessDeniedPageUri, generateTroubleshootingUri;
+@dynamic accessDeniedPageUri, generateTroubleshootingUri,
+         remediationTokenGenerationEnabled;
 @end
 
 
@@ -40,8 +46,26 @@ NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_PolicyTypeUnspecified =
 //
 
 @implementation GTLRCloudIAP_AccessSettings
-@dynamic corsSettings, gcipSettings, oauthSettings, policyDelegationSettings,
-         reauthSettings;
+@dynamic allowedDomainsSettings, corsSettings, gcipSettings, oauthSettings,
+         policyDelegationSettings, reauthSettings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_AllowedDomainsSettings
+//
+
+@implementation GTLRCloudIAP_AllowedDomainsSettings
+@dynamic domains, enable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"domains" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -51,7 +75,26 @@ NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_PolicyTypeUnspecified =
 //
 
 @implementation GTLRCloudIAP_ApplicationSettings
-@dynamic accessDeniedPageSettings, cookieDomain, csmSettings;
+@dynamic accessDeniedPageSettings, attributePropagationSettings, cookieDomain,
+         csmSettings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_AttributePropagationSettings
+//
+
+@implementation GTLRCloudIAP_AttributePropagationSettings
+@dynamic enable, expression, outputCredentials;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"outputCredentials" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

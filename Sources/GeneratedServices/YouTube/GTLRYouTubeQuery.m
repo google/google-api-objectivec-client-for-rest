@@ -81,10 +81,6 @@ NSString * const kGTLRYouTubeRatingDislike = @"dislike";
 NSString * const kGTLRYouTubeRatingLike    = @"like";
 NSString * const kGTLRYouTubeRatingNone    = @"none";
 
-// resourceCueType
-NSString * const kGTLRYouTubeResourceCueTypeCueTypeAd          = @"cueTypeAd";
-NSString * const kGTLRYouTubeResourceCueTypeCueTypeUnspecified = @"cueTypeUnspecified";
-
 // safeSearch
 NSString * const kGTLRYouTubeSafeSearchModerate                = @"moderate";
 NSString * const kGTLRYouTubeSafeSearchNone                    = @"none";
@@ -953,20 +949,10 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
 @implementation GTLRYouTubeQuery_LiveBroadcastsInsertCuepoint
 
 @dynamic identifier, onBehalfOfContentOwner, onBehalfOfContentOwnerChannel,
-         part, resourceCueType, resourceDurationSecs, resourceEtag, resourceId,
-         resourceInsertionOffsetTimeMs, resourceWalltimeMs;
+         part;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"identifier" : @"id",
-    @"resourceCueType" : @"resource.cueType",
-    @"resourceDurationSecs" : @"resource.durationSecs",
-    @"resourceEtag" : @"resource.etag",
-    @"resourceId" : @"resource.id",
-    @"resourceInsertionOffsetTimeMs" : @"resource.insertionOffsetTimeMs",
-    @"resourceWalltimeMs" : @"resource.walltimeMs"
-  };
-  return map;
+  return @{ @"identifier" : @"id" };
 }
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -976,12 +962,19 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
   return map;
 }
 
-+ (instancetype)query {
++ (instancetype)queryWithObject:(GTLRYouTube_Cuepoint *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
   NSString *pathURITemplate = @"youtube/v3/liveBroadcasts/cuepoint";
   GTLRYouTubeQuery_LiveBroadcastsInsertCuepoint *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
+  query.bodyObject = object;
   query.expectedObjectClass = [GTLRYouTube_Cuepoint class];
   query.loggingName = @"youtube.liveBroadcasts.insertCuepoint";
   return query;

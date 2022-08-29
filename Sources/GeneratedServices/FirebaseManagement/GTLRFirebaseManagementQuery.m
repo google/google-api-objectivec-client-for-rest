@@ -311,6 +311,33 @@
 
 @end
 
+@implementation GTLRFirebaseManagementQuery_ProjectsAndroidAppsUndelete
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRFirebaseManagement_UndeleteAndroidAppRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}:undelete";
+  GTLRFirebaseManagementQuery_ProjectsAndroidAppsUndelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseManagement_Operation class];
+  query.loggingName = @"firebase.projects.androidApps.undelete";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirebaseManagementQuery_ProjectsAvailableLocationsList
 
 @dynamic pageSize, pageToken, parent;
@@ -552,9 +579,36 @@
 
 @end
 
+@implementation GTLRFirebaseManagementQuery_ProjectsIosAppsUndelete
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRFirebaseManagement_UndeleteIosAppRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}:undelete";
+  GTLRFirebaseManagementQuery_ProjectsIosAppsUndelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseManagement_Operation class];
+  query.loggingName = @"firebase.projects.iosApps.undelete";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirebaseManagementQuery_ProjectsList
 
-@dynamic pageSize, pageToken;
+@dynamic pageSize, pageToken, showDeleted;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"v1beta1/projects";
@@ -775,6 +829,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRFirebaseManagement_Operation class];
   query.loggingName = @"firebase.projects.webApps.remove";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseManagementQuery_ProjectsWebAppsUndelete
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRFirebaseManagement_UndeleteWebAppRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}:undelete";
+  GTLRFirebaseManagementQuery_ProjectsWebAppsUndelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseManagement_Operation class];
+  query.loggingName = @"firebase.projects.webApps.undelete";
   return query;
 }
 

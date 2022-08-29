@@ -550,6 +550,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBlogger_Post_Status_SoftTrashed;
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
+/** RFC 3339 date-time when this Page was trashed. */
+@property(nonatomic, copy, nullable) NSString *trashed;
+
 /** RFC 3339 date-time when this Page was last updated. */
 @property(nonatomic, copy, nullable) NSString *updated;
 
@@ -760,6 +763,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBlogger_Post_Status_SoftTrashed;
 
 /** The title link URL, similar to atom's related link. */
 @property(nonatomic, copy, nullable) NSString *titleLink;
+
+/** RFC 3339 date-time when this Post was last trashed. */
+@property(nonatomic, copy, nullable) NSString *trashed;
 
 /** RFC 3339 date-time when this Post was last updated. */
 @property(nonatomic, copy, nullable) NSString *updated;

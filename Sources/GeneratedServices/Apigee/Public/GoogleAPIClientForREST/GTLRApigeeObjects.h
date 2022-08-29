@@ -91,8 +91,10 @@
 @class GTLRApigee_GoogleCloudApigeeV1KeyValueEntry;
 @class GTLRApigee_GoogleCloudApigeeV1Metadata;
 @class GTLRApigee_GoogleCloudApigeeV1Metric;
+@class GTLRApigee_GoogleCloudApigeeV1MetricAggregation;
 @class GTLRApigee_GoogleCloudApigeeV1MonetizationConfig;
 @class GTLRApigee_GoogleCloudApigeeV1NatAddress;
+@class GTLRApigee_GoogleCloudApigeeV1NodeConfig;
 @class GTLRApigee_GoogleCloudApigeeV1Operation;
 @class GTLRApigee_GoogleCloudApigeeV1OperationConfig;
 @class GTLRApigee_GoogleCloudApigeeV1OperationGroup;
@@ -107,6 +109,8 @@
 @class GTLRApigee_GoogleCloudApigeeV1Property;
 @class GTLRApigee_GoogleCloudApigeeV1QueryMetadata;
 @class GTLRApigee_GoogleCloudApigeeV1QueryMetric;
+@class GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsResponseSequence;
+@class GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsResponseSequence_Dimensions;
 @class GTLRApigee_GoogleCloudApigeeV1Quota;
 @class GTLRApigee_GoogleCloudApigeeV1RatePlan;
 @class GTLRApigee_GoogleCloudApigeeV1RateRange;
@@ -218,6 +222,35 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionC
  *  Value: "KEY_CERT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_Type_KeyCert;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1ApiProduct.quotaCounterScope
+
+/**
+ *  When quota is not explicitly defined for each operation(REST/GraphQL), the
+ *  limits set at product level will be used as a local counter for quota
+ *  evaluation by all the operations, independent of proxy association. This
+ *  behavior mimics the same as QUOTA_COUNTER_SCOPE_UNSPECIFIED.
+ *
+ *  Value: "OPERATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiProduct_QuotaCounterScope_Operation;
+/**
+ *  When quota is not explicitly defined for each operation(REST/GraphQL), set
+ *  at product level will be used as a global counter for quota evaluation by
+ *  all the operations associated with a particular proxy.
+ *
+ *  Value: "PROXY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiProduct_QuotaCounterScope_Proxy;
+/**
+ *  When quota is not explicitly defined for each operation(REST/GraphQL), the
+ *  limits set at product level will be used as a local counter for quota
+ *  evaluation by all the operations, independent of proxy association.
+ *
+ *  Value: "QUOTA_COUNTER_SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiProduct_QuotaCounterScope_QuotaCounterScopeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1ApiProxy.apiProxyType
@@ -427,6 +460,62 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonet
  *  Value: "PREPAID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig_BillingType_Prepaid;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1EndpointAttachment.connectionState
+
+/**
+ *  The connection has been accepted by the PSC producer.
+ *
+ *  Value: "ACCEPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_Accepted;
+/**
+ *  The connection has been closed by the PSC producer and will not serve
+ *  traffic going forward.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_Closed;
+/**
+ *  The connection state has not been set.
+ *
+ *  Value: "CONNECTION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_ConnectionStateUnspecified;
+/**
+ *  The connection has been frozen by the PSC producer and will not serve
+ *  traffic.
+ *
+ *  Value: "FROZEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_Frozen;
+/**
+ *  The connection has been accepted by the PSC producer, but it is not ready to
+ *  serve the traffic due to producer side issues.
+ *
+ *  Value: "NEEDS_ATTENTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_NeedsAttention;
+/**
+ *  The connection is pending acceptance by the PSC producer.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_Pending;
+/**
+ *  The connection has been rejected by the PSC producer.
+ *
+ *  Value: "REJECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_Rejected;
+/**
+ *  The connection state is unavailable at this time, possibly because the
+ *  endpoint attachment is currently being provisioned.
+ *
+ *  Value: "UNAVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_Unavailable;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1EndpointAttachment.state
@@ -672,6 +761,68 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_Updating;
 
 // ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1MetricAggregation.aggregation
+
+/**
+ *  Unspecified Aggregation function.
+ *
+ *  Value: "AGGREGATION_FUNCTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Aggregation_AggregationFunctionUnspecified;
+/**
+ *  Average.
+ *
+ *  Value: "AVG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Aggregation_Avg;
+/**
+ *  Count distinct
+ *
+ *  Value: "COUNT_DISTINCT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Aggregation_CountDistinct;
+/**
+ *  Max.
+ *
+ *  Value: "MAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Aggregation_Max;
+/**
+ *  Min.
+ *
+ *  Value: "MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Aggregation_Min;
+/**
+ *  Summation.
+ *
+ *  Value: "SUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Aggregation_Sum;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1MetricAggregation.order
+
+/**
+ *  Ascending sort order.
+ *
+ *  Value: "ASCENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Order_Ascending;
+/**
+ *  Descending sort order.
+ *
+ *  Value: "DESCENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Order_Descending;
+/**
+ *  Unspecified order. Default is Descending.
+ *
+ *  Value: "ORDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Order_OrderUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1NatAddress.state
 
 /**
@@ -756,6 +907,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_B
  *  Value: "EVALUATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_BillingType_Evaluation;
+/**
+ *  Access to Apigee using a Pay-As-You-Go plan.
+ *
+ *  Value: "PAYG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_BillingType_Payg;
 /**
  *  A pre-paid subscription to Apigee.
  *
@@ -871,6 +1028,62 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_T
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest.timestampOrder
+
+/**
+ *  Ascending sort order.
+ *
+ *  Value: "ASCENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest_TimestampOrder_Ascending;
+/**
+ *  Descending sort order.
+ *
+ *  Value: "DESCENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest_TimestampOrder_Descending;
+/**
+ *  Unspecified order. Default is Descending.
+ *
+ *  Value: "ORDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest_TimestampOrder_OrderUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest.windowSize
+
+/**
+ *  1 Day window
+ *
+ *  Value: "DAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest_WindowSize_Day;
+/**
+ *  1 Hour window
+ *
+ *  Value: "HOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest_WindowSize_Hour;
+/**
+ *  1 Minute window
+ *
+ *  Value: "MINUTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest_WindowSize_Minute;
+/**
+ *  1 Month window
+ *
+ *  Value: "MONTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest_WindowSize_Month;
+/**
+ *  Unspecified window size. Default is 1 hour.
+ *
+ *  Value: "WINDOW_SIZE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest_WindowSize_WindowSizeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1RatePlan.billingPeriod
@@ -1660,6 +1873,23 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ApiProduct : GTLRObject
 
+/**
+ *  Comma-separated list of API resources to be bundled in the API product. By
+ *  default, the resource paths are mapped from the `proxy.pathsuffix` variable.
+ *  The proxy path suffix is defined as the URI fragment following the
+ *  ProxyEndpoint base path. For example, if the `apiResources` element is
+ *  defined to be `/forecastrss` and the base path defined for the API proxy is
+ *  `/weather`, then only requests to `/weather/forecastrss` are permitted by
+ *  the API product. You can select a specific path, or you can select all
+ *  subpaths with the following wildcard: - `/ **`: Indicates that all sub-URIs
+ *  are included. - `/ *` : Indicates that only URIs one level down are
+ *  included. By default, / supports the same resources as / ** as well as the
+ *  base path defined by the API proxy. For example, if the base path of the API
+ *  proxy is `/v1/weatherapikey`, then the API product supports requests to
+ *  `/v1/weatherapikey` and to any sub-URIs, such as
+ *  `/v1/weatherapikey/forecastrss`, `/v1/weatherapikey/region/CA`, and so on.
+ *  For more information, see Managing API products.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *apiResources;
 
 /**
@@ -1696,21 +1926,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  Description of the API product. Include key information about the API
- *  product that is not captured by other fields. Comma-separated list of API
- *  resources to be bundled in the API product. By default, the resource paths
- *  are mapped from the `proxy.pathsuffix` variable. The proxy path suffix is
- *  defined as the URI fragment following the ProxyEndpoint base path. For
- *  example, if the `apiResources` element is defined to be `/forecastrss` and
- *  the base path defined for the API proxy is `/weather`, then only requests to
- *  `/weather/forecastrss` are permitted by the API product. You can select a
- *  specific path, or you can select all subpaths with the following wildcard: -
- *  `/ **`: Indicates that all sub-URIs are included. - `/ *` : Indicates that
- *  only URIs one level down are included. By default, / supports the same
- *  resources as / ** as well as the base path defined by the API proxy. For
- *  example, if the base path of the API proxy is `/v1/weatherapikey`, then the
- *  API product supports requests to `/v1/weatherapikey` and to any sub-URIs,
- *  such as `/v1/weatherapikey/forecastrss`, `/v1/weatherapikey/region/CA`, and
- *  so on. For more information, see Managing API products.
+ *  product that is not captured by other fields.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -1786,6 +2002,36 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  are allowed every 12 hours.
  */
 @property(nonatomic, copy, nullable) NSString *quota;
+
+/**
+ *  Scope of the quota decides how the quota counter gets applied and evaluate
+ *  for quota violation. If the Scope is set as PROXY, then all the operations
+ *  defined for the APIproduct that are associated with the same proxy will
+ *  share the same quota counter set at the APIproduct level, making it a global
+ *  counter at a proxy level. If the Scope is set as OPERATION, then each
+ *  operations get the counter set at the API product dedicated, making it a
+ *  local counter. Note that, the QuotaCounterScope applies only when an
+ *  operation does not have dedicated quota set for itself.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1ApiProduct_QuotaCounterScope_Operation
+ *        When quota is not explicitly defined for each operation(REST/GraphQL),
+ *        the limits set at product level will be used as a local counter for
+ *        quota evaluation by all the operations, independent of proxy
+ *        association. This behavior mimics the same as
+ *        QUOTA_COUNTER_SCOPE_UNSPECIFIED. (Value: "OPERATION")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1ApiProduct_QuotaCounterScope_Proxy
+ *        When quota is not explicitly defined for each operation(REST/GraphQL),
+ *        set at product level will be used as a global counter for quota
+ *        evaluation by all the operations associated with a particular proxy.
+ *        (Value: "PROXY")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1ApiProduct_QuotaCounterScope_QuotaCounterScopeUnspecified
+ *        When quota is not explicitly defined for each operation(REST/GraphQL),
+ *        the limits set at product level will be used as a local counter for
+ *        quota evaluation by all the operations, independent of proxy
+ *        association. (Value: "QUOTA_COUNTER_SCOPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *quotaCounterScope;
 
 /** Time interval over which the number of request messages is calculated. */
 @property(nonatomic, copy, nullable) NSString *quotaInterval;
@@ -3730,10 +3976,45 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  Apigee endpoint attachment. For more information, see Southbound networking
- *  patterns.
+ *  Apigee endpoint attachment. For more information, see [Southbound networking
+ *  patterns]
+ *  (https://cloud.google.com/apigee/docs/api-platform/architecture/southbound-networking-patterns-endpoints).
  */
 @interface GTLRApigee_GoogleCloudApigeeV1EndpointAttachment : GTLRObject
+
+/**
+ *  Output only. State of the endpoint attachment connection to the service
+ *  attachment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_Accepted
+ *        The connection has been accepted by the PSC producer. (Value:
+ *        "ACCEPTED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_Closed
+ *        The connection has been closed by the PSC producer and will not serve
+ *        traffic going forward. (Value: "CLOSED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_ConnectionStateUnspecified
+ *        The connection state has not been set. (Value:
+ *        "CONNECTION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_Frozen
+ *        The connection has been frozen by the PSC producer and will not serve
+ *        traffic. (Value: "FROZEN")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_NeedsAttention
+ *        The connection has been accepted by the PSC producer, but it is not
+ *        ready to serve the traffic due to producer side issues. (Value:
+ *        "NEEDS_ATTENTION")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_Pending
+ *        The connection is pending acceptance by the PSC producer. (Value:
+ *        "PENDING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_Rejected
+ *        The connection has been rejected by the PSC producer. (Value:
+ *        "REJECTED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_Unavailable
+ *        The connection state is unavailable at this time, possibly because the
+ *        endpoint attachment is currently being provisioned. (Value:
+ *        "UNAVAILABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *connectionState;
 
 /**
  *  Output only. Host that can be used in either the HTTP target endpoint
@@ -3891,6 +4172,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  `^[.\\\\p{Alnum}-_]{1,255}$`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. NodeConfig of the environment. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1NodeConfig *nodeConfig;
 
 /**
  *  Optional. Key-value pairs that may be used for customizing the environment.
@@ -4568,14 +4852,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *host;
 
 /**
- *  Optional. IP range represents the customer-provided CIDR block of length 22
- *  that will be used for the Apigee instance creation. This optional range, if
- *  provided, should be freely available as part of larger named range the
- *  customer has allocated to the Service Networking peering. If this is not
- *  provided, Apigee will automatically request for any available /22 CIDR block
- *  from Service Networking. The customer should use this CIDR block for
- *  configuring their firewall needs to allow traffic from Apigee. Input format:
- *  "a.b.c.d/22", Output format: a.b.c.d/22, e.f.g.h/28"
+ *  Optional. Comma-separated list of CIDR blocks of length 22 and/or 28 used to
+ *  create the Apigee instance. Providing CIDR ranges is optional. You can
+ *  provide just /22 or /28 or both (or neither). Ranges you provide should be
+ *  freely available as part of a larger named range you have allocated to the
+ *  Service Networking peering. If this parameter is not provided, Apigee
+ *  automatically requests an available /22 and /28 CIDR block from Service
+ *  Networking. Use the /22 CIDR block for configuring your firewall needs to
+ *  allow traffic from Apigee. Input formats: `a.b.c.d/22` or `e.f.g.h/28` or
+ *  `a.b.c.d/22,e.f.g.h/28`
  */
 @property(nonatomic, copy, nullable) NSString *ipRange;
 
@@ -4789,7 +5074,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  Required. Resource ID for this keystore. Values must match the regular
- *  expression `[\\w[:space:]-.]{1,255}`.
+ *  expression `[\\w[:space:].-]{1,255}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5491,6 +5776,51 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  The optionally aggregated metric to query with its ordering.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1MetricAggregation : GTLRObject
+
+/**
+ *  Aggregation function associated with the metric.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Aggregation_AggregationFunctionUnspecified
+ *        Unspecified Aggregation function. (Value:
+ *        "AGGREGATION_FUNCTION_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Aggregation_Avg
+ *        Average. (Value: "AVG")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Aggregation_CountDistinct
+ *        Count distinct (Value: "COUNT_DISTINCT")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Aggregation_Max
+ *        Max. (Value: "MAX")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Aggregation_Min
+ *        Min. (Value: "MIN")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Aggregation_Sum
+ *        Summation. (Value: "SUM")
+ */
+@property(nonatomic, copy, nullable) NSString *aggregation;
+
+/** Name of the metric */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Ordering for this aggregation in the result. For time series this is ignored
+ *  since the ordering of points depends only on the timestamp, not the values.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Order_Ascending
+ *        Ascending sort order. (Value: "ASCENDING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Order_Descending
+ *        Descending sort order. (Value: "DESCENDING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Order_OrderUnspecified
+ *        Unspecified order. Default is Descending. (Value: "ORDER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *order;
+
+@end
+
+
+/**
  *  Configuration for the Monetization add-on.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1MonetizationConfig : GTLRObject
@@ -5534,6 +5864,43 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        The resource is in an unspecified state. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  NodeConfig for setting the min/max number of nodes associated with the
+ *  environment.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1NodeConfig : GTLRObject
+
+/**
+ *  Output only. The current total number of gateway nodes that each environment
+ *  currently has across all instances.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *currentAggregateNodeCount;
+
+/**
+ *  Optional. The maximum total number of gateway nodes that the is reserved for
+ *  all instances that has the specified environment. If not specified, the
+ *  default is determined by the recommended maximum number of nodes for that
+ *  gateway.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxNodeCount;
+
+/**
+ *  Optional. The minimum total number of gateway nodes that the is reserved for
+ *  all instances that has the specified environment. If not specified, the
+ *  default is determined by the recommended minimum number of nodes for that
+ *  gateway.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minNodeCount;
 
 @end
 
@@ -5841,6 +6208,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Organization_BillingType_Evaluation
  *        Free and limited access to Apigee for evaluation purposes only. only.
  *        (Value: "EVALUATION")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Organization_BillingType_Payg
+ *        Access to Apigee using a Pay-As-You-Go plan. (Value: "PAYG")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Organization_BillingType_Subscription
  *        A pre-paid subscription to Apigee. (Value: "SUBSCRIPTION")
  */
@@ -6299,6 +6668,203 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** Operand value should be provided when operator is set. */
 @property(nonatomic, copy, nullable) NSString *value;
 
+@end
+
+
+/**
+ *  Request payload representing the query to be run for fetching security
+ *  statistics as rows.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1QueryTabularStatsRequest : GTLRObject
+
+/** Required. List of dimension names to group the aggregations by. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dimensions;
+
+/**
+ *  Filter further on specific dimension values. Follows the same grammar as
+ *  custom report's filter expressions. Example, apiproxy eq 'foobar'.
+ *  https://cloud.google.com/apigee/docs/api-platform/analytics/analytics-reference#filters
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Required. List of metrics and their aggregations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1MetricAggregation *> *metrics;
+
+/**
+ *  Page size represents the number of rows.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/** Identifies a sequence of rows. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Time range for the stats. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleTypeInterval *timeRange;
+
+@end
+
+
+/**
+ *  Encapsulates two kinds of stats that are results of the dimensions and
+ *  aggregations requested. - Tabular rows. - Time series data. Example of
+ *  tabular rows, Represents security stats results as a row of flat values.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1QueryTabularStatsResponse : GTLRObject
+
+/**
+ *  Column names corresponding to the same order as the inner values in the
+ *  stats field.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *columns;
+
+/** Next page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Resultant rows from the executed query.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSArray *> *values;
+
+@end
+
+
+/**
+ *  QueryTimeSeriesStatsRequest represents a query that returns a collection of
+ *  time series sequences grouped by their values.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest : GTLRObject
+
+/**
+ *  List of dimension names to group the aggregations by. If no dimensions are
+ *  passed, a single trend line representing the requested metric aggregations
+ *  grouped by environment is returned.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dimensions;
+
+/**
+ *  Filter further on specific dimension values. Follows the same grammar as
+ *  custom report's filter expressions. Example, apiproxy eq 'foobar'.
+ *  https://cloud.google.com/apigee/docs/api-platform/analytics/analytics-reference#filters
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Required. List of metrics and their aggregations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1MetricAggregation *> *metrics;
+
+/**
+ *  Page size represents the number of time series sequences, one per unique set
+ *  of dimensions and their values.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/** Page token stands for a specific collection of time series sequences. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Time range for the stats. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleTypeInterval *timeRange;
+
+/**
+ *  Order the sequences in increasing or decreasing order of timestamps. Default
+ *  is descending order of timestamps (latest first).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest_TimestampOrder_Ascending
+ *        Ascending sort order. (Value: "ASCENDING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest_TimestampOrder_Descending
+ *        Descending sort order. (Value: "DESCENDING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest_TimestampOrder_OrderUnspecified
+ *        Unspecified order. Default is Descending. (Value: "ORDER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *timestampOrder;
+
+/**
+ *  Time buckets to group the stats by.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest_WindowSize_Day
+ *        1 Day window (Value: "DAY")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest_WindowSize_Hour
+ *        1 Hour window (Value: "HOUR")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest_WindowSize_Minute
+ *        1 Minute window (Value: "MINUTE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest_WindowSize_Month
+ *        1 Month window (Value: "MONTH")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest_WindowSize_WindowSizeUnspecified
+ *        Unspecified window size. Default is 1 hour. (Value:
+ *        "WINDOW_SIZE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *windowSize;
+
+@end
+
+
+/**
+ *  Represents security stats result as a collection of time series sequences.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "values" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsResponse : GTLRCollectionObject
+
+/**
+ *  Column names corresponding to the same order as the inner values in the
+ *  stats field.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *columns;
+
+/** Next page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Results of the query returned as a JSON array.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsResponseSequence *> *values;
+
+@end
+
+
+/**
+ *  A sequence of time series.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsResponseSequence : GTLRObject
+
+/**
+ *  Map of dimensions and their values that uniquely identifies a time series
+ *  sequence.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsResponseSequence_Dimensions *dimensions;
+
+/**
+ *  List of points. First value of each inner list is a timestamp.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSArray *> *points;
+
+@end
+
+
+/**
+ *  Map of dimensions and their values that uniquely identifies a time series
+ *  sequence.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsResponseSequence_Dimensions : GTLRObject
 @end
 
 
@@ -8464,11 +9030,16 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  anyone who is authenticated with a Google account or a service account. *
  *  `user:{emailid}`: An email address that represents a specific Google
  *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
- *  address that represents a Google group. For example, `admins\@example.com`.
- *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
+ *  An email address that represents a Google service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
+ *  identifier for a [Kubernetes service
+ *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
+ *  `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
+ *  An email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An

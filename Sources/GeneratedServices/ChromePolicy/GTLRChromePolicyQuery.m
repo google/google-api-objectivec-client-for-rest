@@ -18,6 +18,114 @@
 
 @end
 
+@implementation GTLRChromePolicyQuery_CustomersPoliciesGroupsBatchDelete
+
+@dynamic customer;
+
++ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyV1BatchDeleteGroupPoliciesRequest *)object
+                       customer:(NSString *)customer {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/policies/groups:batchDelete";
+  GTLRChromePolicyQuery_CustomersPoliciesGroupsBatchDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromePolicy_GoogleProtobufEmpty class];
+  query.loggingName = @"chromepolicy.customers.policies.groups.batchDelete";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromePolicyQuery_CustomersPoliciesGroupsBatchModify
+
+@dynamic customer;
+
++ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyV1BatchModifyGroupPoliciesRequest *)object
+                       customer:(NSString *)customer {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/policies/groups:batchModify";
+  GTLRChromePolicyQuery_CustomersPoliciesGroupsBatchModify *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromePolicy_GoogleProtobufEmpty class];
+  query.loggingName = @"chromepolicy.customers.policies.groups.batchModify";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromePolicyQuery_CustomersPoliciesGroupsListGroupPriorityOrdering
+
+@dynamic customer;
+
++ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyV1ListGroupPriorityOrderingRequest *)object
+                       customer:(NSString *)customer {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/policies/groups:listGroupPriorityOrdering";
+  GTLRChromePolicyQuery_CustomersPoliciesGroupsListGroupPriorityOrdering *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromePolicy_GoogleChromePolicyV1ListGroupPriorityOrderingResponse class];
+  query.loggingName = @"chromepolicy.customers.policies.groups.listGroupPriorityOrdering";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromePolicyQuery_CustomersPoliciesGroupsUpdateGroupPriorityOrdering
+
+@dynamic customer;
+
++ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyV1UpdateGroupPriorityOrderingRequest *)object
+                       customer:(NSString *)customer {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/policies/groups:updateGroupPriorityOrdering";
+  GTLRChromePolicyQuery_CustomersPoliciesGroupsUpdateGroupPriorityOrdering *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromePolicy_GoogleProtobufEmpty class];
+  query.loggingName = @"chromepolicy.customers.policies.groups.updateGroupPriorityOrdering";
+  return query;
+}
+
+@end
+
 @implementation GTLRChromePolicyQuery_CustomersPoliciesOrgunitsBatchInherit
 
 @dynamic customer;
@@ -132,6 +240,35 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRChromePolicy_GoogleChromePolicyV1ListPolicySchemasResponse class];
   query.loggingName = @"chromepolicy.customers.policySchemas.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromePolicyQuery_MediaUpload
+
+@dynamic customer;
+
++ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileRequest *)object
+                       customer:(NSString *)customer
+               uploadParameters:(GTLRUploadParameters *)uploadParameters {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/policies/files:uploadPolicyFile";
+  GTLRChromePolicyQuery_MediaUpload *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customer = customer;
+  query.uploadParameters = uploadParameters;
+  query.expectedObjectClass = [GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileResponse class];
+  query.loggingName = @"chromepolicy.media.upload";
   return query;
 }
 

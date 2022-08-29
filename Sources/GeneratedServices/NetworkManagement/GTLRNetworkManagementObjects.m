@@ -48,6 +48,7 @@ NSString * const kGTLRNetworkManagement_DeliverInfo_Target_TargetUnspecified = @
 
 // GTLRNetworkManagement_DropInfo.cause
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CauseUnspecified = @"CAUSE_UNSPECIFIED";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudFunctionNotActive = @"CLOUD_FUNCTION_NOT_ACTIVE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNoIpAddress = @"CLOUD_SQL_INSTANCE_NO_IP_ADDRESS";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceUnauthorizedAccess = @"CLOUD_SQL_INSTANCE_UNAUTHORIZED_ACCESS";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideCloudSqlService = @"DROPPED_INSIDE_CLOUD_SQL_SERVICE";
@@ -69,6 +70,8 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteWrongNetwork = @"ROU
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_TrafficTypeBlocked = @"TRAFFIC_TYPE_BLOCKED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_UnknownExternalAddress = @"UNKNOWN_EXTERNAL_ADDRESS";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_UnknownInternalAddress = @"UNKNOWN_INTERNAL_ADDRESS";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_VpcConnectorNotRunning = @"VPC_CONNECTOR_NOT_RUNNING";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_VpcConnectorNotSet = @"VPC_CONNECTOR_NOT_SET";
 
 // GTLRNetworkManagement_Endpoint.networkType
 NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_GcpNetwork = @"GCP_NETWORK";
@@ -79,6 +82,7 @@ NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_NonGcpNetwork = @"N
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_FirewallRuleTypeUnspecified = @"FIREWALL_RULE_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_HierarchicalFirewallPolicyRule = @"HIERARCHICAL_FIREWALL_POLICY_RULE";
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_ImpliedVpcFirewallRule = @"IMPLIED_VPC_FIREWALL_RULE";
+NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_ServerlessVpcAccessManagedFirewallRule = @"SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE";
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_VpcFirewallRule = @"VPC_FIREWALL_RULE";
 
 // GTLRNetworkManagement_ForwardInfo.target
@@ -147,6 +151,7 @@ NSString * const kGTLRNetworkManagement_Step_State_ApplyRoute  = @"APPLY_ROUTE";
 NSString * const kGTLRNetworkManagement_Step_State_ArriveAtExternalLoadBalancer = @"ARRIVE_AT_EXTERNAL_LOAD_BALANCER";
 NSString * const kGTLRNetworkManagement_Step_State_ArriveAtInstance = @"ARRIVE_AT_INSTANCE";
 NSString * const kGTLRNetworkManagement_Step_State_ArriveAtInternalLoadBalancer = @"ARRIVE_AT_INTERNAL_LOAD_BALANCER";
+NSString * const kGTLRNetworkManagement_Step_State_ArriveAtVpcConnector = @"ARRIVE_AT_VPC_CONNECTOR";
 NSString * const kGTLRNetworkManagement_Step_State_ArriveAtVpnGateway = @"ARRIVE_AT_VPN_GATEWAY";
 NSString * const kGTLRNetworkManagement_Step_State_ArriveAtVpnTunnel = @"ARRIVE_AT_VPN_TUNNEL";
 NSString * const kGTLRNetworkManagement_Step_State_Deliver     = @"DELIVER";
@@ -155,6 +160,7 @@ NSString * const kGTLRNetworkManagement_Step_State_Forward     = @"FORWARD";
 NSString * const kGTLRNetworkManagement_Step_State_Nat         = @"NAT";
 NSString * const kGTLRNetworkManagement_Step_State_ProxyConnection = @"PROXY_CONNECTION";
 NSString * const kGTLRNetworkManagement_Step_State_SpoofingApproved = @"SPOOFING_APPROVED";
+NSString * const kGTLRNetworkManagement_Step_State_StartFromCloudFunction = @"START_FROM_CLOUD_FUNCTION";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromCloudSqlInstance = @"START_FROM_CLOUD_SQL_INSTANCE";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromGkeMaster = @"START_FROM_GKE_MASTER";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromInstance = @"START_FROM_INSTANCE";
@@ -175,7 +181,15 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 //
 
 @implementation GTLRNetworkManagement_AbortInfo
-@dynamic cause, resourceUri;
+@dynamic cause, projectsMissingPermission, resourceUri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"projectsMissingPermission" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -239,6 +253,26 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 //
 
 @implementation GTLRNetworkManagement_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkManagement_CloudFunctionEndpoint
+//
+
+@implementation GTLRNetworkManagement_CloudFunctionEndpoint
+@dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkManagement_CloudFunctionInfo
+//
+
+@implementation GTLRNetworkManagement_CloudFunctionInfo
+@dynamic displayName, location, uri, versionId;
 @end
 
 
@@ -325,8 +359,8 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 //
 
 @implementation GTLRNetworkManagement_Endpoint
-@dynamic cloudSqlInstance, gkeMasterCluster, instance, ipAddress, network,
-         networkType, port, projectId;
+@dynamic cloudFunction, cloudSqlInstance, gkeMasterCluster, instance, ipAddress,
+         network, networkType, port, projectId;
 @end
 
 
@@ -745,9 +779,10 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 //
 
 @implementation GTLRNetworkManagement_Step
-@dynamic abort, causesDrop, cloudSqlInstance, deliver, descriptionProperty,
-         drop, endpoint, firewall, forward, forwardingRule, gkeMaster, instance,
-         loadBalancer, network, projectId, route, state, vpnGateway, vpnTunnel;
+@dynamic abort, causesDrop, cloudFunction, cloudSqlInstance, deliver,
+         descriptionProperty, drop, endpoint, firewall, forward, forwardingRule,
+         gkeMaster, instance, loadBalancer, network, projectId, route, state,
+         vpcConnector, vpnGateway, vpnTunnel;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -807,6 +842,16 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkManagement_VpcConnectorInfo
+//
+
+@implementation GTLRNetworkManagement_VpcConnectorInfo
+@dynamic displayName, location, uri;
 @end
 
 

@@ -228,7 +228,7 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
 
 @implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesDockerImagesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

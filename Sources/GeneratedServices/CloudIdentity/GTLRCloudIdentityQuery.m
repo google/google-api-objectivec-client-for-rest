@@ -35,6 +35,117 @@ NSString * const kGTLRCloudIdentityViewViewUnspecified     = @"VIEW_UNSPECIFIED"
 
 @end
 
+@implementation GTLRCloudIdentityQuery_CustomersUserinvitationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudIdentity_CancelUserInvitationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRCloudIdentityQuery_CustomersUserinvitationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.customers.userinvitations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_CustomersUserinvitationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIdentityQuery_CustomersUserinvitationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_UserInvitation class];
+  query.loggingName = @"cloudidentity.customers.userinvitations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_CustomersUserinvitationsIsInvitableUser
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:isInvitableUser";
+  GTLRCloudIdentityQuery_CustomersUserinvitationsIsInvitableUser *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_IsInvitableUserResponse class];
+  query.loggingName = @"cloudidentity.customers.userinvitations.isInvitableUser";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_CustomersUserinvitationsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/userinvitations";
+  GTLRCloudIdentityQuery_CustomersUserinvitationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudIdentity_ListUserInvitationsResponse class];
+  query.loggingName = @"cloudidentity.customers.userinvitations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_CustomersUserinvitationsSend
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudIdentity_SendUserInvitationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:send";
+  GTLRCloudIdentityQuery_CustomersUserinvitationsSend *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.customers.userinvitations.send";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudIdentityQuery_DevicesCancelWipe
 
 @dynamic name;

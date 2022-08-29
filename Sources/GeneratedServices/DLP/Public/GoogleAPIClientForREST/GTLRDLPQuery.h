@@ -65,8 +65,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Returns a list of the sensitive information types that the DLP API supports.
- *  See https://cloud.google.com/dlp/docs/infotypes-reference to learn more.
+ *  Returns a list of the sensitive information types that DLP API supports. See
+ *  https://cloud.google.com/dlp/docs/infotypes-reference to learn more.
  *
  *  Method: dlp.infoTypes.list
  *
@@ -99,8 +99,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInfoTypesResponse.
  *
- *  Returns a list of the sensitive information types that the DLP API supports.
- *  See https://cloud.google.com/dlp/docs/infotypes-reference to learn more.
+ *  Returns a list of the sensitive information types that DLP API supports. See
+ *  https://cloud.google.com/dlp/docs/infotypes-reference to learn more.
  *
  *  @return GTLRDLPQuery_InfoTypesList
  */
@@ -109,8 +109,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Returns a list of the sensitive information types that the DLP API supports.
- *  See https://cloud.google.com/dlp/docs/infotypes-reference to learn more.
+ *  Returns a list of the sensitive information types that DLP API supports. See
+ *  https://cloud.google.com/dlp/docs/infotypes-reference to learn more.
  *
  *  Method: dlp.locations.infoTypes.list
  *
@@ -143,8 +143,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInfoTypesResponse.
  *
- *  Returns a list of the sensitive information types that the DLP API supports.
- *  See https://cloud.google.com/dlp/docs/infotypes-reference to learn more.
+ *  Returns a list of the sensitive information types that DLP API supports. See
+ *  https://cloud.google.com/dlp/docs/infotypes-reference to learn more.
  *
  *  @param parent The parent resource name. The format of this value is as
  *    follows: locations/ LOCATION_ID
@@ -156,7 +156,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates a DeidentifyTemplate for re-using frequently used configuration for
+ *  Creates a DeidentifyTemplate for reusing frequently used configuration for
  *  de-identifying content, images, and storage. See
  *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
@@ -186,7 +186,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
- *  Creates a DeidentifyTemplate for re-using frequently used configuration for
+ *  Creates a DeidentifyTemplate for reusing frequently used configuration for
  *  de-identifying content, images, and storage. See
  *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
@@ -304,15 +304,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  postfix. This list is case-insensitive, default sorting order is ascending,
  *  redundant space characters are insignificant. Example: `name
  *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
- *  corresponds to time the template was created. - `update_time`: corresponds
- *  to time the template was last updated. - `name`: corresponds to template's
- *  name. - `display_name`: corresponds to template's display name.
+ *  corresponds to the time the template was created. - `update_time`:
+ *  corresponds to the time the template was last updated. - `name`: corresponds
+ *  to the template's name. - `display_name`: corresponds to the template's
+ *  display name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by server. If zero server returns a page of
- *  max size 100.
+ *  Size of the page, can be limited by the server. If zero server returns a
+ *  page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -409,7 +410,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates an InspectTemplate for re-using frequently used configuration for
+ *  Creates an InspectTemplate for reusing frequently used configuration for
  *  inspecting content, images, and storage. See
  *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
@@ -439,7 +440,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
- *  Creates an InspectTemplate for re-using frequently used configuration for
+ *  Creates an InspectTemplate for reusing frequently used configuration for
  *  inspecting content, images, and storage. See
  *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
@@ -556,15 +557,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  postfix. This list is case-insensitive, default sorting order is ascending,
  *  redundant space characters are insignificant. Example: `name
  *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
- *  corresponds to time the template was created. - `update_time`: corresponds
- *  to time the template was last updated. - `name`: corresponds to template's
- *  name. - `display_name`: corresponds to template's display name.
+ *  corresponds to the time the template was created. - `update_time`:
+ *  corresponds to the time the template was last updated. - `name`: corresponds
+ *  to the template's name. - `display_name`: corresponds to the template's
+ *  display name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by server. If zero server returns a page of
- *  max size 100.
+ *  Size of the page, can be limited by the server. If zero server returns a
+ *  page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -660,7 +662,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates a DeidentifyTemplate for re-using frequently used configuration for
+ *  Creates a DeidentifyTemplate for reusing frequently used configuration for
  *  de-identifying content, images, and storage. See
  *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
@@ -690,7 +692,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
- *  Creates a DeidentifyTemplate for re-using frequently used configuration for
+ *  Creates a DeidentifyTemplate for reusing frequently used configuration for
  *  de-identifying content, images, and storage. See
  *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
@@ -808,15 +810,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  postfix. This list is case-insensitive, default sorting order is ascending,
  *  redundant space characters are insignificant. Example: `name
  *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
- *  corresponds to time the template was created. - `update_time`: corresponds
- *  to time the template was last updated. - `name`: corresponds to template's
- *  name. - `display_name`: corresponds to template's display name.
+ *  corresponds to the time the template was created. - `update_time`:
+ *  corresponds to the time the template was last updated. - `name`: corresponds
+ *  to the template's name. - `display_name`: corresponds to the template's
+ *  display name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by server. If zero server returns a page of
- *  max size 100.
+ *  Size of the page, can be limited by the server. If zero server returns a
+ *  page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -931,17 +934,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  restriction has the form of `{field} {operator} {value}`. * Supported
  *  fields/values for inspect jobs: - `state` -
  *  PENDING|RUNNING|CANCELED|FINISHED|FAILED - `inspected_storage` -
- *  DATASTORE|CLOUD_STORAGE|BIGQUERY - `trigger_name` - The resource name of the
- *  trigger that created job. - 'end_time` - Corresponds to time the job
- *  finished. - 'start_time` - Corresponds to time the job finished. * Supported
- *  fields for risk analysis jobs: - `state` - RUNNING|CANCELED|FINISHED|FAILED
- *  - 'end_time` - Corresponds to time the job finished. - 'start_time` -
- *  Corresponds to time the job finished. * The operator must be `=` or `!=`.
- *  Examples: * inspected_storage = cloud_storage AND state = done *
- *  inspected_storage = cloud_storage OR inspected_storage = bigquery *
- *  inspected_storage = cloud_storage AND (state = done OR state = canceled) *
- *  end_time > \\"2017-12-12T00:00:00+00:00\\" The length of this field should
- *  be no more than 500 characters.
+ *  DATASTORE|CLOUD_STORAGE|BIGQUERY - `trigger_name` - The name of the trigger
+ *  that created the job. - 'end_time` - Corresponds to the time the job
+ *  finished. - 'start_time` - Corresponds to the time the job finished. *
+ *  Supported fields for risk analysis jobs: - `state` -
+ *  RUNNING|CANCELED|FINISHED|FAILED - 'end_time` - Corresponds to the time the
+ *  job finished. - 'start_time` - Corresponds to the time the job finished. *
+ *  The operator must be `=` or `!=`. Examples: * inspected_storage =
+ *  cloud_storage AND state = done * inspected_storage = cloud_storage OR
+ *  inspected_storage = bigquery * inspected_storage = cloud_storage AND (state
+ *  = done OR state = canceled) * end_time > \\"2017-12-12T00:00:00+00:00\\" The
+ *  length of this field should be no more than 500 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -953,8 +956,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  postfix. This list is case-insensitive, default sorting order is ascending,
  *  redundant space characters are insignificant. Example: `name asc, end_time
  *  asc, create_time desc` Supported fields are: - `create_time`: corresponds to
- *  time the job was created. - `end_time`: corresponds to time the job ended. -
- *  `name`: corresponds to job's name. - `state`: corresponds to `state`
+ *  the time the job was created. - `end_time`: corresponds to the time the job
+ *  ended. - `name`: corresponds to the job's name. - `state`: corresponds to
+ *  `state`
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -1019,7 +1023,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates an InspectTemplate for re-using frequently used configuration for
+ *  Creates an InspectTemplate for reusing frequently used configuration for
  *  inspecting content, images, and storage. See
  *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
@@ -1049,7 +1053,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
- *  Creates an InspectTemplate for re-using frequently used configuration for
+ *  Creates an InspectTemplate for reusing frequently used configuration for
  *  inspecting content, images, and storage. See
  *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
@@ -1166,15 +1170,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  postfix. This list is case-insensitive, default sorting order is ascending,
  *  redundant space characters are insignificant. Example: `name
  *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
- *  corresponds to time the template was created. - `update_time`: corresponds
- *  to time the template was last updated. - `name`: corresponds to template's
- *  name. - `display_name`: corresponds to template's display name.
+ *  corresponds to the time the template was created. - `update_time`:
+ *  corresponds to the time the template was last updated. - `name`: corresponds
+ *  to the template's name. - `display_name`: corresponds to the template's
+ *  display name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by server. If zero server returns a page of
- *  max size 100.
+ *  Size of the page, can be limited by the server. If zero server returns a
+ *  page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -1422,11 +1427,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  or `desc` postfix. This list is case-insensitive, default sorting order is
  *  ascending, redundant space characters are insignificant. Example: `name
  *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
- *  corresponds to time the JobTrigger was created. - `update_time`: corresponds
- *  to time the JobTrigger was last updated. - `last_run_time`: corresponds to
- *  the last time the JobTrigger ran. - `name`: corresponds to JobTrigger's
- *  name. - `display_name`: corresponds to JobTrigger's display name. -
- *  `status`: corresponds to JobTrigger's status.
+ *  corresponds to the time the JobTrigger was created. - `update_time`:
+ *  corresponds to the time the JobTrigger was last updated. - `last_run_time`:
+ *  corresponds to the last time the JobTrigger ran. - `name`: corresponds to
+ *  the JobTrigger's name. - `display_name`: corresponds to the JobTrigger's
+ *  display name. - `status`: corresponds to JobTrigger's status.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -1673,15 +1678,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  postfix. This list is case-insensitive, default sorting order is ascending,
  *  redundant space characters are insignificant. Example: `name asc,
  *  display_name, create_time desc` Supported fields are: - `create_time`:
- *  corresponds to time the most recent version of the resource was created. -
- *  `state`: corresponds to the state of the resource. - `name`: corresponds to
- *  resource name. - `display_name`: corresponds to info type's display name.
+ *  corresponds to the time the most recent version of the resource was created.
+ *  - `state`: corresponds to the state of the resource. - `name`: corresponds
+ *  to resource name. - `display_name`: corresponds to info type's display name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by server. If zero server returns a page of
- *  max size 100.
+ *  Size of the page, can be limited by the server. If zero server returns a
+ *  page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -1698,12 +1703,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  location](https://cloud.google.com/dlp/docs/specifying-location): + Projects
  *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
  *  Projects scope, no location specified (defaults to global):
- *  `projects/`PROJECT_ID + Organizations scope, location specified:
- *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
- *  location specified (defaults to global): `organizations/`ORG_ID The
- *  following example `parent` string specifies a parent project with the
- *  identifier `example-project`, and specifies the `europe-west3` location for
- *  processing data: parent=projects/example-project/locations/europe-west3
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1719,10 +1722,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    location](https://cloud.google.com/dlp/docs/specifying-location): +
  *    Projects scope, location specified:
  *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID +
- *    Organizations scope, location specified:
- *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
- *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    location specified (defaults to global): `projects/`PROJECT_ID The
  *    following example `parent` string specifies a parent project with the
  *    identifier `example-project`, and specifies the `europe-west3` location
  *    for processing data:
@@ -1923,15 +1923,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  postfix. This list is case-insensitive, default sorting order is ascending,
  *  redundant space characters are insignificant. Example: `name asc,
  *  display_name, create_time desc` Supported fields are: - `create_time`:
- *  corresponds to time the most recent version of the resource was created. -
- *  `state`: corresponds to the state of the resource. - `name`: corresponds to
- *  resource name. - `display_name`: corresponds to info type's display name.
+ *  corresponds to the time the most recent version of the resource was created.
+ *  - `state`: corresponds to the state of the resource. - `name`: corresponds
+ *  to resource name. - `display_name`: corresponds to info type's display name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by server. If zero server returns a page of
- *  max size 100.
+ *  Size of the page, can be limited by the server. If zero server returns a
+ *  page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -1948,12 +1948,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  location](https://cloud.google.com/dlp/docs/specifying-location): + Projects
  *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
  *  Projects scope, no location specified (defaults to global):
- *  `projects/`PROJECT_ID + Organizations scope, location specified:
- *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
- *  location specified (defaults to global): `organizations/`ORG_ID The
- *  following example `parent` string specifies a parent project with the
- *  identifier `example-project`, and specifies the `europe-west3` location for
- *  processing data: parent=projects/example-project/locations/europe-west3
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1969,10 +1967,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    location](https://cloud.google.com/dlp/docs/specifying-location): +
  *    Projects scope, location specified:
  *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID +
- *    Organizations scope, location specified:
- *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
- *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    location specified (defaults to global): `projects/`PROJECT_ID The
  *    following example `parent` string specifies a parent project with the
  *    identifier `example-project`, and specifies the `europe-west3` location
  *    for processing data:
@@ -2198,7 +2193,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates a DeidentifyTemplate for re-using frequently used configuration for
+ *  Creates a DeidentifyTemplate for reusing frequently used configuration for
  *  de-identifying content, images, and storage. See
  *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
@@ -2228,7 +2223,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
- *  Creates a DeidentifyTemplate for re-using frequently used configuration for
+ *  Creates a DeidentifyTemplate for reusing frequently used configuration for
  *  de-identifying content, images, and storage. See
  *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
@@ -2346,15 +2341,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  postfix. This list is case-insensitive, default sorting order is ascending,
  *  redundant space characters are insignificant. Example: `name
  *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
- *  corresponds to time the template was created. - `update_time`: corresponds
- *  to time the template was last updated. - `name`: corresponds to template's
- *  name. - `display_name`: corresponds to template's display name.
+ *  corresponds to the time the template was created. - `update_time`:
+ *  corresponds to the time the template was last updated. - `name`: corresponds
+ *  to the template's name. - `display_name`: corresponds to the template's
+ *  display name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by server. If zero server returns a page of
- *  max size 100.
+ *  Size of the page, can be limited by the server. If zero server returns a
+ *  page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -2545,7 +2541,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Deletes a long-running DlpJob. This method indicates that the client is no
- *  longer interested in the DlpJob result. The job will be cancelled if
+ *  longer interested in the DlpJob result. The job will be canceled if
  *  possible. See https://cloud.google.com/dlp/docs/inspecting-storage and
  *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
@@ -2563,7 +2559,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
  *  Deletes a long-running DlpJob. This method indicates that the client is no
- *  longer interested in the DlpJob result. The job will be cancelled if
+ *  longer interested in the DlpJob result. The job will be canceled if
  *  possible. See https://cloud.google.com/dlp/docs/inspecting-storage and
  *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
@@ -2624,17 +2620,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  restriction has the form of `{field} {operator} {value}`. * Supported
  *  fields/values for inspect jobs: - `state` -
  *  PENDING|RUNNING|CANCELED|FINISHED|FAILED - `inspected_storage` -
- *  DATASTORE|CLOUD_STORAGE|BIGQUERY - `trigger_name` - The resource name of the
- *  trigger that created job. - 'end_time` - Corresponds to time the job
- *  finished. - 'start_time` - Corresponds to time the job finished. * Supported
- *  fields for risk analysis jobs: - `state` - RUNNING|CANCELED|FINISHED|FAILED
- *  - 'end_time` - Corresponds to time the job finished. - 'start_time` -
- *  Corresponds to time the job finished. * The operator must be `=` or `!=`.
- *  Examples: * inspected_storage = cloud_storage AND state = done *
- *  inspected_storage = cloud_storage OR inspected_storage = bigquery *
- *  inspected_storage = cloud_storage AND (state = done OR state = canceled) *
- *  end_time > \\"2017-12-12T00:00:00+00:00\\" The length of this field should
- *  be no more than 500 characters.
+ *  DATASTORE|CLOUD_STORAGE|BIGQUERY - `trigger_name` - The name of the trigger
+ *  that created the job. - 'end_time` - Corresponds to the time the job
+ *  finished. - 'start_time` - Corresponds to the time the job finished. *
+ *  Supported fields for risk analysis jobs: - `state` -
+ *  RUNNING|CANCELED|FINISHED|FAILED - 'end_time` - Corresponds to the time the
+ *  job finished. - 'start_time` - Corresponds to the time the job finished. *
+ *  The operator must be `=` or `!=`. Examples: * inspected_storage =
+ *  cloud_storage AND state = done * inspected_storage = cloud_storage OR
+ *  inspected_storage = bigquery * inspected_storage = cloud_storage AND (state
+ *  = done OR state = canceled) * end_time > \\"2017-12-12T00:00:00+00:00\\" The
+ *  length of this field should be no more than 500 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2646,8 +2642,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  postfix. This list is case-insensitive, default sorting order is ascending,
  *  redundant space characters are insignificant. Example: `name asc, end_time
  *  asc, create_time desc` Supported fields are: - `create_time`: corresponds to
- *  time the job was created. - `end_time`: corresponds to time the job ended. -
- *  `name`: corresponds to job's name. - `state`: corresponds to `state`
+ *  the time the job was created. - `end_time`: corresponds to the time the job
+ *  ended. - `name`: corresponds to the job's name. - `state`: corresponds to
+ *  `state`
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -2770,7 +2767,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates an InspectTemplate for re-using frequently used configuration for
+ *  Creates an InspectTemplate for reusing frequently used configuration for
  *  inspecting content, images, and storage. See
  *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
@@ -2800,7 +2797,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
- *  Creates an InspectTemplate for re-using frequently used configuration for
+ *  Creates an InspectTemplate for reusing frequently used configuration for
  *  inspecting content, images, and storage. See
  *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
@@ -2917,15 +2914,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  postfix. This list is case-insensitive, default sorting order is ascending,
  *  redundant space characters are insignificant. Example: `name
  *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
- *  corresponds to time the template was created. - `update_time`: corresponds
- *  to time the template was last updated. - `name`: corresponds to template's
- *  name. - `display_name`: corresponds to template's display name.
+ *  corresponds to the time the template was created. - `update_time`:
+ *  corresponds to the time the template was last updated. - `name`: corresponds
+ *  to the template's name. - `display_name`: corresponds to the template's
+ *  display name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by server. If zero server returns a page of
- *  max size 100.
+ *  Size of the page, can be limited by the server. If zero server returns a
+ *  page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -3208,11 +3206,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  or `desc` postfix. This list is case-insensitive, default sorting order is
  *  ascending, redundant space characters are insignificant. Example: `name
  *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
- *  corresponds to time the JobTrigger was created. - `update_time`: corresponds
- *  to time the JobTrigger was last updated. - `last_run_time`: corresponds to
- *  the last time the JobTrigger ran. - `name`: corresponds to JobTrigger's
- *  name. - `display_name`: corresponds to JobTrigger's display name. -
- *  `status`: corresponds to JobTrigger's status.
+ *  corresponds to the time the JobTrigger was created. - `update_time`:
+ *  corresponds to the time the JobTrigger was last updated. - `last_run_time`:
+ *  corresponds to the last time the JobTrigger ran. - `name`: corresponds to
+ *  the JobTrigger's name. - `display_name`: corresponds to the JobTrigger's
+ *  display name. - `status`: corresponds to JobTrigger's status.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -3484,7 +3482,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates a DeidentifyTemplate for re-using frequently used configuration for
+ *  Creates a DeidentifyTemplate for reusing frequently used configuration for
  *  de-identifying content, images, and storage. See
  *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
@@ -3514,7 +3512,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
- *  Creates a DeidentifyTemplate for re-using frequently used configuration for
+ *  Creates a DeidentifyTemplate for reusing frequently used configuration for
  *  de-identifying content, images, and storage. See
  *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
@@ -3632,15 +3630,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  postfix. This list is case-insensitive, default sorting order is ascending,
  *  redundant space characters are insignificant. Example: `name
  *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
- *  corresponds to time the template was created. - `update_time`: corresponds
- *  to time the template was last updated. - `name`: corresponds to template's
- *  name. - `display_name`: corresponds to template's display name.
+ *  corresponds to the time the template was created. - `update_time`:
+ *  corresponds to the time the template was last updated. - `name`: corresponds
+ *  to the template's name. - `display_name`: corresponds to the template's
+ *  display name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by server. If zero server returns a page of
- *  max size 100.
+ *  Size of the page, can be limited by the server. If zero server returns a
+ *  page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -3831,7 +3830,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Deletes a long-running DlpJob. This method indicates that the client is no
- *  longer interested in the DlpJob result. The job will be cancelled if
+ *  longer interested in the DlpJob result. The job will be canceled if
  *  possible. See https://cloud.google.com/dlp/docs/inspecting-storage and
  *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
@@ -3849,7 +3848,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
  *  Deletes a long-running DlpJob. This method indicates that the client is no
- *  longer interested in the DlpJob result. The job will be cancelled if
+ *  longer interested in the DlpJob result. The job will be canceled if
  *  possible. See https://cloud.google.com/dlp/docs/inspecting-storage and
  *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
@@ -3976,17 +3975,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  restriction has the form of `{field} {operator} {value}`. * Supported
  *  fields/values for inspect jobs: - `state` -
  *  PENDING|RUNNING|CANCELED|FINISHED|FAILED - `inspected_storage` -
- *  DATASTORE|CLOUD_STORAGE|BIGQUERY - `trigger_name` - The resource name of the
- *  trigger that created job. - 'end_time` - Corresponds to time the job
- *  finished. - 'start_time` - Corresponds to time the job finished. * Supported
- *  fields for risk analysis jobs: - `state` - RUNNING|CANCELED|FINISHED|FAILED
- *  - 'end_time` - Corresponds to time the job finished. - 'start_time` -
- *  Corresponds to time the job finished. * The operator must be `=` or `!=`.
- *  Examples: * inspected_storage = cloud_storage AND state = done *
- *  inspected_storage = cloud_storage OR inspected_storage = bigquery *
- *  inspected_storage = cloud_storage AND (state = done OR state = canceled) *
- *  end_time > \\"2017-12-12T00:00:00+00:00\\" The length of this field should
- *  be no more than 500 characters.
+ *  DATASTORE|CLOUD_STORAGE|BIGQUERY - `trigger_name` - The name of the trigger
+ *  that created the job. - 'end_time` - Corresponds to the time the job
+ *  finished. - 'start_time` - Corresponds to the time the job finished. *
+ *  Supported fields for risk analysis jobs: - `state` -
+ *  RUNNING|CANCELED|FINISHED|FAILED - 'end_time` - Corresponds to the time the
+ *  job finished. - 'start_time` - Corresponds to the time the job finished. *
+ *  The operator must be `=` or `!=`. Examples: * inspected_storage =
+ *  cloud_storage AND state = done * inspected_storage = cloud_storage OR
+ *  inspected_storage = bigquery * inspected_storage = cloud_storage AND (state
+ *  = done OR state = canceled) * end_time > \\"2017-12-12T00:00:00+00:00\\" The
+ *  length of this field should be no more than 500 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3998,8 +3997,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  postfix. This list is case-insensitive, default sorting order is ascending,
  *  redundant space characters are insignificant. Example: `name asc, end_time
  *  asc, create_time desc` Supported fields are: - `create_time`: corresponds to
- *  time the job was created. - `end_time`: corresponds to time the job ended. -
- *  `name`: corresponds to job's name. - `state`: corresponds to `state`
+ *  the time the job was created. - `end_time`: corresponds to the time the job
+ *  ended. - `name`: corresponds to the job's name. - `state`: corresponds to
+ *  `state`
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -4122,7 +4122,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates an InspectTemplate for re-using frequently used configuration for
+ *  Creates an InspectTemplate for reusing frequently used configuration for
  *  inspecting content, images, and storage. See
  *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
@@ -4152,7 +4152,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
- *  Creates an InspectTemplate for re-using frequently used configuration for
+ *  Creates an InspectTemplate for reusing frequently used configuration for
  *  inspecting content, images, and storage. See
  *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
@@ -4269,15 +4269,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  postfix. This list is case-insensitive, default sorting order is ascending,
  *  redundant space characters are insignificant. Example: `name
  *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
- *  corresponds to time the template was created. - `update_time`: corresponds
- *  to time the template was last updated. - `name`: corresponds to template's
- *  name. - `display_name`: corresponds to template's display name.
+ *  corresponds to the time the template was created. - `update_time`:
+ *  corresponds to the time the template was last updated. - `name`: corresponds
+ *  to the template's name. - `display_name`: corresponds to the template's
+ *  display name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by server. If zero server returns a page of
- *  max size 100.
+ *  Size of the page, can be limited by the server. If zero server returns a
+ *  page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -4598,11 +4599,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  or `desc` postfix. This list is case-insensitive, default sorting order is
  *  ascending, redundant space characters are insignificant. Example: `name
  *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
- *  corresponds to time the JobTrigger was created. - `update_time`: corresponds
- *  to time the JobTrigger was last updated. - `last_run_time`: corresponds to
- *  the last time the JobTrigger ran. - `name`: corresponds to JobTrigger's
- *  name. - `display_name`: corresponds to JobTrigger's display name. -
- *  `status`: corresponds to JobTrigger's status.
+ *  corresponds to the time the JobTrigger was created. - `update_time`:
+ *  corresponds to the time the JobTrigger was last updated. - `last_run_time`:
+ *  corresponds to the last time the JobTrigger ran. - `name`: corresponds to
+ *  the JobTrigger's name. - `display_name`: corresponds to the JobTrigger's
+ *  display name. - `status`: corresponds to JobTrigger's status.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -4849,15 +4850,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  postfix. This list is case-insensitive, default sorting order is ascending,
  *  redundant space characters are insignificant. Example: `name asc,
  *  display_name, create_time desc` Supported fields are: - `create_time`:
- *  corresponds to time the most recent version of the resource was created. -
- *  `state`: corresponds to the state of the resource. - `name`: corresponds to
- *  resource name. - `display_name`: corresponds to info type's display name.
+ *  corresponds to the time the most recent version of the resource was created.
+ *  - `state`: corresponds to the state of the resource. - `name`: corresponds
+ *  to resource name. - `display_name`: corresponds to info type's display name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by server. If zero server returns a page of
- *  max size 100.
+ *  Size of the page, can be limited by the server. If zero server returns a
+ *  page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -4874,12 +4875,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  location](https://cloud.google.com/dlp/docs/specifying-location): + Projects
  *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
  *  Projects scope, no location specified (defaults to global):
- *  `projects/`PROJECT_ID + Organizations scope, location specified:
- *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
- *  location specified (defaults to global): `organizations/`ORG_ID The
- *  following example `parent` string specifies a parent project with the
- *  identifier `example-project`, and specifies the `europe-west3` location for
- *  processing data: parent=projects/example-project/locations/europe-west3
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4895,10 +4894,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    location](https://cloud.google.com/dlp/docs/specifying-location): +
  *    Projects scope, location specified:
  *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID +
- *    Organizations scope, location specified:
- *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
- *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    location specified (defaults to global): `projects/`PROJECT_ID The
  *    following example `parent` string specifies a parent project with the
  *    identifier `example-project`, and specifies the `europe-west3` location
  *    for processing data:
@@ -5099,15 +5095,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  postfix. This list is case-insensitive, default sorting order is ascending,
  *  redundant space characters are insignificant. Example: `name asc,
  *  display_name, create_time desc` Supported fields are: - `create_time`:
- *  corresponds to time the most recent version of the resource was created. -
- *  `state`: corresponds to the state of the resource. - `name`: corresponds to
- *  resource name. - `display_name`: corresponds to info type's display name.
+ *  corresponds to the time the most recent version of the resource was created.
+ *  - `state`: corresponds to the state of the resource. - `name`: corresponds
+ *  to resource name. - `display_name`: corresponds to info type's display name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by server. If zero server returns a page of
- *  max size 100.
+ *  Size of the page, can be limited by the server. If zero server returns a
+ *  page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -5124,12 +5120,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  location](https://cloud.google.com/dlp/docs/specifying-location): + Projects
  *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
  *  Projects scope, no location specified (defaults to global):
- *  `projects/`PROJECT_ID + Organizations scope, location specified:
- *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
- *  location specified (defaults to global): `organizations/`ORG_ID The
- *  following example `parent` string specifies a parent project with the
- *  identifier `example-project`, and specifies the `europe-west3` location for
- *  processing data: parent=projects/example-project/locations/europe-west3
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5145,10 +5139,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    location](https://cloud.google.com/dlp/docs/specifying-location): +
  *    Projects scope, location specified:
  *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
- *    location specified (defaults to global): `projects/`PROJECT_ID +
- *    Organizations scope, location specified:
- *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
- *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    location specified (defaults to global): `projects/`PROJECT_ID The
  *    following example `parent` string specifies a parent project with the
  *    identifier `example-project`, and specifies the `europe-west3` location
  *    for processing data:

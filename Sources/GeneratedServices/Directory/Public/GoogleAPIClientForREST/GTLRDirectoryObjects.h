@@ -50,6 +50,7 @@
 @class GTLRDirectory_MobileDevice;
 @class GTLRDirectory_MobileDevice_Applications_Item;
 @class GTLRDirectory_OrgUnit;
+@class GTLRDirectory_OsUpdateStatus;
 @class GTLRDirectory_Printer;
 @class GTLRDirectory_PrinterModel;
 @class GTLRDirectory_Privilege;
@@ -439,6 +440,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unimplem
  *  Value: "UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRDirectory_OsUpdateStatus.state
+
+/**
+ *  The pending update is being downloaded.
+ *
+ *  Value: "updateStateDownloadInProgress"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_OsUpdateStatus_State_UpdateStateDownloadInProgress;
+/**
+ *  The device is ready to install the update, but it just needs to reboot.
+ *
+ *  Value: "updateStateNeedReboot"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_OsUpdateStatus_State_UpdateStateNeedReboot;
+/**
+ *  There is an update pending but it hasn't started.
+ *
+ *  Value: "updateStateNotStarted"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_OsUpdateStatus_State_UpdateStateNotStarted;
+/**
+ *  The update state is unspecified.
+ *
+ *  Value: "updateStateUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_OsUpdateStatus_State_UpdateStateUnspecified;
 
 /**
  *  JSON template for Alias object in Directory API.
@@ -932,7 +961,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Additional parameters controlling delivery channel behavior. Optional. */
+/**
+ *  Additional parameters controlling delivery channel behavior. Optional. For
+ *  example, `params.ttl` specifies the time-to-live in seconds for the
+ *  notification channel, where the default is 2 hours and the maximum TTL is 2
+ *  days.
+ */
 @property(nonatomic, strong, nullable) GTLRDirectory_Channel_Params *params;
 
 /**
@@ -964,7 +998,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
 
 
 /**
- *  Additional parameters controlling delivery channel behavior. Optional.
+ *  Additional parameters controlling delivery channel behavior. Optional. For
+ *  example, `params.ttl` specifies the time-to-live in seconds for the
+ *  notification channel, where the default is 2 hours and the maximum TTL is 2
+ *  days.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1063,6 +1100,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
 /** The Chrome device's firmware version. */
 @property(nonatomic, copy, nullable) NSString *firmwareVersion;
 
+/** Date and time for the first time the device was enrolled. */
+@property(nonatomic, copy, nullable) NSString *firstEnrollmentTime;
+
 /**
  *  The type of resource. For the Chromeosdevices resource, the value is
  *  `admin#directory#chromeosdevice`.
@@ -1145,6 +1185,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
  *  center](https://support.google.com/a/answer/182433).
  */
 @property(nonatomic, copy, nullable) NSString *orgUnitPath;
+
+/** The status of the OS updates for the device. */
+@property(nonatomic, strong, nullable) GTLRDirectory_OsUpdateStatus *osUpdateStatus;
 
 /** The Chrome device's operating system version. */
 @property(nonatomic, copy, nullable) NSString *osVersion;
@@ -1487,7 +1530,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
 
 
 /**
- *  GTLRDirectory_ChromeOsDeviceAction
+ *  The data regarding an action to update the status of a Chrome OS device.
  */
 @interface GTLRDirectory_ChromeOsDeviceAction : GTLRObject
 
@@ -2185,7 +2228,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
  */
 @property(nonatomic, strong, nullable) NSNumber *adminCreated;
 
-/** Read-only. A list of a group's alias email addresses. */
+/**
+ *  Read-only. A list of a group's alias email addresses. To add, update, or
+ *  remove a group's aliases, use the `groups.aliases` methods. If edited in a
+ *  group's POST or PUT request, the edit is ignored.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
 
 /**
@@ -2241,9 +2288,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
  *  outside of the account's primary domain or subdomains. These are functioning
  *  email addresses used by the group. This is a read-only property returned in
  *  the API's response for a group. If edited in a group's POST or PUT request,
- *  the edit is ignored by the API service.
+ *  the edit is ignored.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *nonEditableAliases;
+
+@end
+
+
+/**
+ *  The Directory API manages aliases, which are alternative email addresses.
+ */
+@interface GTLRDirectory_GroupAlias : GTLRObject
+
+/** The alias email address. */
+@property(nonatomic, copy, nullable) NSString *alias;
+
+/** ETag of the resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  The unique ID of the group.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The type of the API resource. For Alias resources, the value is
+ *  `admin#directory#alias`.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The primary email address of the group. */
+@property(nonatomic, copy, nullable) NSString *primaryEmail;
 
 @end
 
@@ -2816,6 +2893,53 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
 
 /** List of organizational unit objects. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_OrgUnit *> *organizationUnits;
+
+@end
+
+
+/**
+ *  Contains information regarding the current OS update status.
+ */
+@interface GTLRDirectory_OsUpdateStatus : GTLRObject
+
+/** Date and time of the last reboot. */
+@property(nonatomic, copy, nullable) NSString *rebootTime;
+
+/**
+ *  The update state of an OS update.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectory_OsUpdateStatus_State_UpdateStateDownloadInProgress
+ *        The pending update is being downloaded. (Value:
+ *        "updateStateDownloadInProgress")
+ *    @arg @c kGTLRDirectory_OsUpdateStatus_State_UpdateStateNeedReboot The
+ *        device is ready to install the update, but it just needs to reboot.
+ *        (Value: "updateStateNeedReboot")
+ *    @arg @c kGTLRDirectory_OsUpdateStatus_State_UpdateStateNotStarted There is
+ *        an update pending but it hasn't started. (Value:
+ *        "updateStateNotStarted")
+ *    @arg @c kGTLRDirectory_OsUpdateStatus_State_UpdateStateUnspecified The
+ *        update state is unspecified. (Value: "updateStateUnspecified")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** New required platform version from the pending updated kiosk app. */
+@property(nonatomic, copy, nullable) NSString *targetKioskAppVersion;
+
+/**
+ *  New platform version of the OS image being downloaded and applied. It is
+ *  only set when update status is UPDATE_STATUS_DOWNLOAD_IN_PROGRESS or
+ *  UPDATE_STATUS_NEED_REBOOT. Note this could be a dummy "0.0.0.0" for
+ *  UPDATE_STATUS_NEED_REBOOT for some edge cases, e.g. update engine is
+ *  restarted without a reboot.
+ */
+@property(nonatomic, copy, nullable) NSString *targetOsVersion;
+
+/** Date and time of the last update check. */
+@property(nonatomic, copy, nullable) NSString *updateCheckTime;
+
+/** Date and time of the last successful OS update. */
+@property(nonatomic, copy, nullable) NSString *updateTime;
 
 @end
 
@@ -3448,7 +3572,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
 /**
  *  Stores the hash format of the `password` property. The following
  *  `hashFunction` values are allowed: * `MD5` - Accepts simple hex-encoded
- *  values. * `SHA1` - Accepts simple hex-encoded values. * `crypt` - Compliant
+ *  values. * `SHA-1` - Accepts simple hex-encoded values. * `crypt` - Compliant
  *  with the [C crypt library](https://en.wikipedia.org/wiki/Crypt_%28C%29).
  *  Supports the DES, MD5 (hash prefix `$1$`), SHA-256 (hash prefix `$5$`), and
  *  SHA-512 (hash prefix `$6$`) hash algorithms. If rounds are specified as part
@@ -3779,6 +3903,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
  *  should have the CUSTOM value as type and also have a customType value.
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The Directory API manages aliases, which are alternative email addresses.
+ */
+@interface GTLRDirectory_UserAlias : GTLRObject
+
+/** The alias email address. */
+@property(nonatomic, copy, nullable) NSString *alias;
+
+/** ETag of the resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  The unique ID for the user.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The type of the API resource. For Alias resources, the value is
+ *  `admin#directory#alias`.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The user's primary email address. */
+@property(nonatomic, copy, nullable) NSString *primaryEmail;
 
 @end
 

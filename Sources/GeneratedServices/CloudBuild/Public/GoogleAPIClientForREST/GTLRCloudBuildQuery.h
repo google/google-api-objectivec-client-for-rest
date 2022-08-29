@@ -34,6 +34,34 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  ReceiveGitHubDotComWebhook is called when the API receives a github.com
+ *  webhook.
+ *
+ *  Method: cloudbuild.githubDotComWebhook.receive
+ */
+@interface GTLRCloudBuildQuery_GithubDotComWebhookReceive : GTLRCloudBuildQuery
+
+/**
+ *  For GitHub Enterprise webhooks, this key is used to associate the webhook
+ *  request with the GitHubEnterpriseConfig to use for validation.
+ */
+@property(nonatomic, copy, nullable) NSString *webhookKey;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Empty.
+ *
+ *  ReceiveGitHubDotComWebhook is called when the API receives a github.com
+ *  webhook.
+ *
+ *  @param object The @c GTLRCloudBuild_HttpBody to include in the query.
+ *
+ *  @return GTLRCloudBuildQuery_GithubDotComWebhookReceive
+ */
++ (instancetype)queryWithObject:(GTLRCloudBuild_HttpBody *)object;
+
+@end
+
+/**
  *  ReceiveRegionalWebhook is called when the API receives a regional GitHub
  *  webhook.
  *
@@ -876,8 +904,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The maximum number of configs to return. The service may return fewer than
- *  this value. If unspecified, at most 50 configs will be returned. The maximum
- *  value is 1000; values above 1000 will be coerced to 1000.
+ *  this value. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

@@ -361,9 +361,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the secret key related to the specified public key. You should use
- *  the legacy secret key only if you are integrating with a 3rd party using the
- *  legacy reCAPTCHA instead of reCAPTCHA Enterprise.
+ *  Returns the secret key related to the specified public key. You must use the
+ *  legacy secret key only in a 3rd party integration with legacy reCAPTCHA.
  *
  *  Method: recaptchaenterprise.projects.keys.retrieveLegacySecretKey
  *
@@ -373,7 +372,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRRecaptchaEnterpriseQuery_ProjectsKeysRetrieveLegacySecretKey : GTLRRecaptchaEnterpriseQuery
 
 /**
- *  Required. The public key name linked to the requested secret key , in the
+ *  Required. The public key name linked to the requested secret key in the
  *  format "projects/{project}/keys/{key}".
  */
 @property(nonatomic, copy, nullable) NSString *key;
@@ -382,12 +381,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse.
  *
- *  Returns the secret key related to the specified public key. You should use
- *  the legacy secret key only if you are integrating with a 3rd party using the
- *  legacy reCAPTCHA instead of reCAPTCHA Enterprise.
+ *  Returns the secret key related to the specified public key. You must use the
+ *  legacy secret key only in a 3rd party integration with legacy reCAPTCHA.
  *
  *  @param key Required. The public key name linked to the requested secret key
- *    , in the format "projects/{project}/keys/{key}".
+ *    in the format "projects/{project}/keys/{key}".
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsKeysRetrieveLegacySecretKey
  */
@@ -407,7 +405,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the project to search related account group
- *  memberships from, in the format "projects/{project}".
+ *  memberships from. Specify the project name in the following format:
+ *  "projects/{project}".
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -421,7 +420,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest
  *    to include in the query.
  *  @param project Required. The name of the project to search related account
- *    group memberships from, in the format "projects/{project}".
+ *    group memberships from. Specify the project name in the following format:
+ *    "projects/{project}".
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsRelatedaccountgroupmembershipsSearch
  */
@@ -441,9 +441,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRRecaptchaEnterpriseQuery_ProjectsRelatedaccountgroupsList : GTLRRecaptchaEnterpriseQuery
 
 /**
- *  Optional. The maximum number of groups to return. The service may return
- *  fewer than this value. If unspecified, at most 50 groups will be returned.
- *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ *  Optional. The maximum number of groups to return. The service might return
+ *  fewer than this value. If unspecified, at most 50 groups are returned. The
+ *  maximum value is 1000; values above 1000 are coerced to 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -481,7 +481,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get the memberships in a group of related accounts.
+ *  Get memberships in a group of related accounts.
  *
  *  Method: recaptchaenterprise.projects.relatedaccountgroups.memberships.list
  *
@@ -491,9 +491,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRRecaptchaEnterpriseQuery_ProjectsRelatedaccountgroupsMembershipsList : GTLRRecaptchaEnterpriseQuery
 
 /**
- *  Optional. The maximum number of accounts to return. The service may return
- *  fewer than this value. If unspecified, at most 50 accounts will be returned.
- *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ *  Optional. The maximum number of accounts to return. The service might return
+ *  fewer than this value. If unspecified, at most 50 accounts are returned. The
+ *  maximum value is 1000; values above 1000 are coerced to 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -515,7 +515,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupMembershipsResponse.
  *
- *  Get the memberships in a group of related accounts.
+ *  Get memberships in a group of related accounts.
  *
  *  @param parent Required. The resource name for the related account group in
  *    the format

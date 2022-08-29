@@ -31,7 +31,11 @@
 @class GTLRTranslate_GcsDestination;
 @class GTLRTranslate_GcsSource;
 @class GTLRTranslate_Glossary;
+@class GTLRTranslate_GlossaryEntry;
 @class GTLRTranslate_GlossaryInputConfig;
+@class GTLRTranslate_GlossaryTerm;
+@class GTLRTranslate_GlossaryTermsPair;
+@class GTLRTranslate_GlossaryTermsSet;
 @class GTLRTranslate_InputConfig;
 @class GTLRTranslate_LanguageCodePair;
 @class GTLRTranslate_LanguageCodesSet;
@@ -108,9 +112,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  index.csv will be keeping updated during the process, please make sure there
  *  is no custom retention policy applied on the output bucket that may avoid
  *  file updating.
- *  (https://cloud.google.com/storage/docs/bucket-lock?hl=en#retention-policy)
- *  The naming format of translation output files follows (for target language
- *  code [trg]): `translation_output`:
+ *  (https://cloud.google.com/storage/docs/bucket-lock#retention-policy) The
+ *  naming format of translation output files follows (for target language code
+ *  [trg]): `translation_output`:
  *  gs://translation_output/a_b_c_[trg]_translation.[extension]
  *  `glossary_translation_output`:
  *  gs://translation_test/a_b_c_[trg]_glossary_translation.[extension] The
@@ -166,7 +170,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The BCP-47 language code of the input document if known, for
  *  example, "en-US" or "sr-Latn". Supported language codes are listed in
- *  Language Support (https://cloud.google.com/translate/docs/languages).
+ *  [Language Support](https://cloud.google.com/translate/docs/languages).
  */
 @property(nonatomic, copy, nullable) NSString *sourceLanguageCode;
 
@@ -696,6 +700,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRTranslate_Glossary : GTLRObject
 
+/** Optional. The display name of the glossary. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
 /** Output only. When the glossary creation was finished. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
@@ -731,6 +738,33 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Represents a single entry in a glossary.
+ */
+@interface GTLRTranslate_GlossaryEntry : GTLRObject
+
+/**
+ *  Describes the glossary entry.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. The resource name of the entry. Format: "projects/ * /locations/ *
+ *  /glossaries/ * /glossaryEntries/ *"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Used for an unidirectional glossary. */
+@property(nonatomic, strong, nullable) GTLRTranslate_GlossaryTermsPair *termsPair;
+
+/** Used for an equivalent term sets glossary. */
+@property(nonatomic, strong, nullable) GTLRTranslate_GlossaryTermsSet *termsSet;
+
+@end
+
+
+/**
  *  Input configuration for glossaries.
  */
 @interface GTLRTranslate_GlossaryInputConfig : GTLRObject
@@ -750,6 +784,50 @@ NS_ASSUME_NONNULL_BEGIN
  *  - [glossaries](https://cloud.google.com/translate/docs/advanced/glossary).
  */
 @property(nonatomic, strong, nullable) GTLRTranslate_GcsSource *gcsSource;
+
+@end
+
+
+/**
+ *  Represents a single glossary term
+ */
+@interface GTLRTranslate_GlossaryTerm : GTLRObject
+
+/** The language for this glossary term. */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** The text for the glossary term. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Represents a single entry for an unidirectional glossary.
+ */
+@interface GTLRTranslate_GlossaryTermsPair : GTLRObject
+
+/** The source term is the term that will get match in the text, */
+@property(nonatomic, strong, nullable) GTLRTranslate_GlossaryTerm *sourceTerm;
+
+/** The term that will replace the match source term. */
+@property(nonatomic, strong, nullable) GTLRTranslate_GlossaryTerm *targetTerm;
+
+@end
+
+
+/**
+ *  Represents a single entry for an equivalent term set glossary. This is used
+ *  for equivalent term sets where each term can be replaced by the other terms
+ *  in the set.
+ */
+@interface GTLRTranslate_GlossaryTermsSet : GTLRObject
+
+/**
+ *  Each term in the set represents a term that can be replaced by the other
+ *  terms.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTranslate_GlossaryTerm *> *terms;
 
 @end
 
@@ -843,6 +921,33 @@ NS_ASSUME_NONNULL_BEGIN
  *  A token to retrieve a page of results. Pass this value in the
  *  [ListGlossariesRequest.page_token] field in the subsequent call to
  *  `ListGlossaries` method to retrieve the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListGlossaryEntries
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "glossaryEntries" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRTranslate_ListGlossaryEntriesResponse : GTLRCollectionObject
+
+/**
+ *  Optional. The Glossary Entries
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTranslate_GlossaryEntry *> *glossaryEntries;
+
+/**
+ *  Optional. A token to retrieve a page of results. Pass this value in the
+ *  [ListGLossaryEntriesRequest.page_token] field in the subsequent calls.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1067,8 +1172,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  (that is, no partial output file is written). Since index.csv will be
  *  keeping updated during the process, please make sure there is no custom
  *  retention policy applied on the output bucket that may avoid file updating.
- *  (https://cloud.google.com/storage/docs/bucket-lock?hl=en#retention-policy)
- *  The format of translations_file (for target language code 'trg') is:
+ *  (https://cloud.google.com/storage/docs/bucket-lock#retention-policy) The
+ *  format of translations_file (for target language code 'trg') is:
  *  gs://translation_test/a_b_c_'trg'_translations.[extension] If the input file
  *  extension is tsv, the output has the following columns: Column 1: ID of the
  *  request provided in the input, if it's not provided in the input, then the

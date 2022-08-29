@@ -888,6 +888,54 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Lists the processor types that exist.
+ *
+ *  Method: documentai.projects.locations.processorTypes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsProcessorTypesList : GTLRDocumentQuery
+
+/**
+ *  The maximum number of processor types to return. If unspecified, at most 100
+ *  processor types will be returned. The maximum value is 500; values above 500
+ *  will be coerced to 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Used to retrieve the next page of results, empty if at the end of the list.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The location of processor type to list. The available processor
+ *  types may depend on the allow-listing on projects. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleCloudDocumentaiV1ListProcessorTypesResponse.
+ *
+ *  Lists the processor types that exist.
+ *
+ *  @param parent Required. The location of processor type to list. The
+ *    available processor types may depend on the allow-listing on projects.
+ *    Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsProcessorTypesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets the latest state of a long-running operation. Clients can use this
  *  method to poll the operation result at intervals as recommended by the API
  *  service.

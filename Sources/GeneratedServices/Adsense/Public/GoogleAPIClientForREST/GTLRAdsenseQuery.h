@@ -683,7 +683,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 @end
 
 /**
- *  Gets the AdSense code for a given ad unit.
+ *  Gets the ad unit code for a given ad unit. For more information, see [About
+ *  the AdSense code](https://support.google.com/adsense/answer/9274634) and
+ *  [Where to place the ad code in your
+ *  HTML](https://support.google.com/adsense/answer/9190028).
  *
  *  Method: adsense.accounts.adclients.adunits.getAdcode
  *
@@ -702,7 +705,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 /**
  *  Fetches a @c GTLRAdsense_AdUnitAdCode.
  *
- *  Gets the AdSense code for a given ad unit.
+ *  Gets the ad unit code for a given ad unit. For more information, see [About
+ *  the AdSense code](https://support.google.com/adsense/answer/9274634) and
+ *  [Where to place the ad code in your
+ *  HTML](https://support.google.com/adsense/answer/9190028).
  *
  *  @param name Required. Name of the adunit for which to get the adcode.
  *    Format: accounts/{account}/adclients/{adclient}/adunits/{adunit}
@@ -1205,6 +1211,36 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *    accounts/{account}
  *
  *  @return GTLRAdsenseQuery_AccountsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the ad blocking recovery tag of an account.
+ *
+ *  Method: adsense.accounts.getAdBlockingRecoveryTag
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdsense
+ */
+@interface GTLRAdsenseQuery_AccountsGetAdBlockingRecoveryTag : GTLRAdsenseQuery
+
+/**
+ *  Required. The name of the account to get the tag for. Format:
+ *  accounts/{account}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAdsense_AdBlockingRecoveryTag.
+ *
+ *  Gets the ad blocking recovery tag of an account.
+ *
+ *  @param name Required. The name of the account to get the tag for. Format:
+ *    accounts/{account}
+ *
+ *  @return GTLRAdsenseQuery_AccountsGetAdBlockingRecoveryTag
  */
 + (instancetype)queryWithName:(NSString *)name;
 

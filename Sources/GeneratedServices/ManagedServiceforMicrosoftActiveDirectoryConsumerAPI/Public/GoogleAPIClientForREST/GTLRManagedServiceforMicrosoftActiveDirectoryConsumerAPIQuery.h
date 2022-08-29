@@ -559,6 +559,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Extend Schema for Domain
+ *
+ *  Method: managedidentities.projects.locations.global.domains.extendSchema
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsExtendSchema : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  Required. The domain resource name using the form:
+ *  `projects/{project_id}/locations/global/domains/{domain_name}`
+ */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation.
+ *
+ *  Extend Schema for Domain
+ *
+ *  @param object The @c
+ *    GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ExtendSchemaRequest
+ *    to include in the query.
+ *  @param domain Required. The domain resource name using the form:
+ *    `projects/{project_id}/locations/global/domains/{domain_name}`
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsExtendSchema
+ */
++ (instancetype)queryWithObject:(GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ExtendSchemaRequest *)object
+                         domain:(NSString *)domain;
+
+@end
+
+/**
  *  Gets information about a domain.
  *
  *  Method: managedidentities.projects.locations.global.domains.get

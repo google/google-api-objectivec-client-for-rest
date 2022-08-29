@@ -227,6 +227,11 @@ NSString * const kGTLRHangoutsChat_KeyValue_Icon_Train         = @"TRAIN";
 NSString * const kGTLRHangoutsChat_KeyValue_Icon_VideoCamera   = @"VIDEO_CAMERA";
 NSString * const kGTLRHangoutsChat_KeyValue_Icon_VideoPlay     = @"VIDEO_PLAY";
 
+// GTLRHangoutsChat_Membership.role
+NSString * const kGTLRHangoutsChat_Membership_Role_MembershipRoleUnspecified = @"MEMBERSHIP_ROLE_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_Membership_Role_RoleManager = @"ROLE_MANAGER";
+NSString * const kGTLRHangoutsChat_Membership_Role_RoleMember  = @"ROLE_MEMBER";
+
 // GTLRHangoutsChat_Membership.state
 NSString * const kGTLRHangoutsChat_Membership_State_Invited    = @"INVITED";
 NSString * const kGTLRHangoutsChat_Membership_State_Joined     = @"JOINED";
@@ -360,6 +365,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 @implementation GTLRHangoutsChat_CardHeader
 @dynamic imageStyle, imageUrl, subtitle, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_CardWithId
+//
+
+@implementation GTLRHangoutsChat_CardWithId
+@dynamic card, cardId;
 @end
 
 
@@ -540,16 +555,6 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRHangoutsChat_GoogleAppsCardV1AppUri
-//
-
-@implementation GTLRHangoutsChat_GoogleAppsCardV1AppUri
-@dynamic androidIntent, companionUri, iosUri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRHangoutsChat_GoogleAppsCardV1BorderStyle
 //
 
@@ -668,16 +673,6 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRHangoutsChat_GoogleAppsCardV1ExtraData
-//
-
-@implementation GTLRHangoutsChat_GoogleAppsCardV1ExtraData
-@dynamic key, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRHangoutsChat_GoogleAppsCardV1Grid
 //
 
@@ -751,24 +746,6 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRHangoutsChat_GoogleAppsCardV1Intent
-//
-
-@implementation GTLRHangoutsChat_GoogleAppsCardV1Intent
-@dynamic extraData, intentAction;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"extraData" : [GTLRHangoutsChat_GoogleAppsCardV1ExtraData class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRHangoutsChat_GoogleAppsCardV1OnClick
 //
 
@@ -783,7 +760,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_GoogleAppsCardV1OpenLink
-@dynamic appUri, onClose, openAs, url;
+@dynamic onClose, openAs, url;
 @end
 
 
@@ -1014,7 +991,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_Membership
-@dynamic createTime, member, name, state;
+@dynamic createTime, member, name, role, state;
 @end
 
 
@@ -1024,7 +1001,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_Message
-@dynamic actionResponse, annotations, argumentText, attachment, cards,
+@dynamic actionResponse, annotations, argumentText, attachment, cards, cardsV2,
          createTime, fallbackText, lastUpdateTime, matchedUrl, name, sender,
          slashCommand, space, text, thread;
 
@@ -1032,7 +1009,8 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
   NSDictionary<NSString *, Class> *map = @{
     @"annotations" : [GTLRHangoutsChat_Annotation class],
     @"attachment" : [GTLRHangoutsChat_Attachment class],
-    @"cards" : [GTLRHangoutsChat_Card class]
+    @"cards" : [GTLRHangoutsChat_Card class],
+    @"cardsV2" : [GTLRHangoutsChat_CardWithId class]
   };
   return map;
 }
@@ -1104,7 +1082,22 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_Space
-@dynamic displayName, name, singleUserBotDm, threaded, type;
+@dynamic displayName, name, singleUserBotDm, spaceDetails, threaded, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_SpaceDetails
+//
+
+@implementation GTLRHangoutsChat_SpaceDetails
+@dynamic descriptionProperty, guidelines;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 

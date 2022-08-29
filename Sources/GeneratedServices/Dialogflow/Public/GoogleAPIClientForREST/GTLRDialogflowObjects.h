@@ -1682,7 +1682,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1C
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata.suggestionFeatureType
 
 /**
- *  Run article suggestion model.
+ *  Run article suggestion model for chat.
  *
  *  Value: "ARTICLE_SUGGESTION"
  */
@@ -1694,7 +1694,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1C
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq;
 /**
- *  Run smart reply model.
+ *  Run smart reply model for chat.
  *
  *  Value: "SMART_REPLY"
  */
@@ -2342,7 +2342,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1S
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata.suggestionFeatureType
 
 /**
- *  Run article suggestion model.
+ *  Run article suggestion model for chat.
  *
  *  Value: "ARTICLE_SUGGESTION"
  */
@@ -2354,7 +2354,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1S
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq;
 /**
- *  Run smart reply model.
+ *  Run smart reply model for chat.
  *
  *  Value: "SMART_REPLY"
  */
@@ -2399,19 +2399,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearS
 // GTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata.suggestionFeatureType
 
 /**
- *  Run article suggestion model.
+ *  Run article suggestion model for chat.
  *
  *  Value: "ARTICLE_SUGGESTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion;
 /**
- *  Run FAQ model.
+ *  Run FAQ model for chat.
  *
  *  Value: "FAQ"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq;
 /**
- *  Run smart reply model.
+ *  Run smart reply model for chat.
  *
  *  Value: "SMART_REPLY"
  */
@@ -3070,19 +3070,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSug
 // GTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata.suggestionFeatureType
 
 /**
- *  Run article suggestion model.
+ *  Run article suggestion model for chat.
  *
  *  Value: "ARTICLE_SUGGESTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion;
 /**
- *  Run FAQ model.
+ *  Run FAQ model for chat.
  *
  *  Value: "FAQ"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq;
 /**
- *  Run smart reply model.
+ *  Run smart reply model for chat.
  *
  *  Value: "SMART_REPLY"
  */
@@ -3147,7 +3147,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /**
  *  Hierarchical advanced settings for agent/flow/page/fulfillment/parameter.
  *  Settings exposed at lower level overrides the settings exposed at higher
- *  level. Hierarchy: Agent->Flow->Page->Fulfillment/Parameter.
+ *  level. Overriding occurs at the sub-setting level. For example, the
+ *  playback_interruption_settings at fulfillment level only overrides the
+ *  playback_interruption_settings at the agent level, leaving other settings at
+ *  the agent level unchanged. DTMF settings does not override each other. DTMF
+ *  settings set at different levels define DTMF detections running in parallel.
+ *  Hierarchy: Agent->Flow->Page->Fulfillment/Parameter.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettings : GTLRObject
 
@@ -11452,11 +11457,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion
- *        Run article suggestion model. (Value: "ARTICLE_SUGGESTION")
+ *        Run article suggestion model for chat. (Value: "ARTICLE_SUGGESTION")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq
  *        Run FAQ model. (Value: "FAQ")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply
- *        Run smart reply model. (Value: "SMART_REPLY")
+ *        Run smart reply model for chat. (Value: "SMART_REPLY")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified
  *        Unspecified feature type. (Value: "TYPE_UNSPECIFIED")
  */
@@ -13793,11 +13798,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion
- *        Run article suggestion model. (Value: "ARTICLE_SUGGESTION")
+ *        Run article suggestion model for chat. (Value: "ARTICLE_SUGGESTION")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq
  *        Run FAQ model. (Value: "FAQ")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply
- *        Run smart reply model. (Value: "SMART_REPLY")
+ *        Run smart reply model for chat. (Value: "SMART_REPLY")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified
  *        Unspecified feature type. (Value: "TYPE_UNSPECIFIED")
  */
@@ -14125,11 +14130,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion
- *        Run article suggestion model. (Value: "ARTICLE_SUGGESTION")
+ *        Run article suggestion model for chat. (Value: "ARTICLE_SUGGESTION")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq
- *        Run FAQ model. (Value: "FAQ")
+ *        Run FAQ model for chat. (Value: "FAQ")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply
- *        Run smart reply model. (Value: "SMART_REPLY")
+ *        Run smart reply model for chat. (Value: "SMART_REPLY")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified
  *        Unspecified feature type. (Value: "TYPE_UNSPECIFIED")
  */
@@ -14343,6 +14348,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Metadata for ConversationDatasets.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2CreateConversationDatasetOperationMetadata : GTLRObject
+
+/**
+ *  The resource name of the conversation dataset that will be created. Format:
+ *  `projects//locations//conversationDatasets/`
+ */
+@property(nonatomic, copy, nullable) NSString *conversationDataset;
+
 @end
 
 
@@ -16297,11 +16309,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion
- *        Run article suggestion model. (Value: "ARTICLE_SUGGESTION")
+ *        Run article suggestion model for chat. (Value: "ARTICLE_SUGGESTION")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq
- *        Run FAQ model. (Value: "FAQ")
+ *        Run FAQ model for chat. (Value: "FAQ")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply
- *        Run smart reply model. (Value: "SMART_REPLY")
+ *        Run smart reply model for chat. (Value: "SMART_REPLY")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified
  *        Unspecified feature type. (Value: "TYPE_UNSPECIFIED")
  */

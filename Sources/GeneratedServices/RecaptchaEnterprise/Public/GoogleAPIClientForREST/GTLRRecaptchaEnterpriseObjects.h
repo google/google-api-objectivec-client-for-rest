@@ -59,22 +59,22 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_Labels_ProfileMatch;
 /**
  *  The account in the request has a high number of related accounts. It does
- *  not necessarily imply that the account is bad but could require
- *  investigating.
+ *  not necessarily imply that the account is bad but can require further
+ *  investigation.
  *
  *  Value: "RELATED_ACCOUNTS_NUMBER_HIGH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_Labels_RelatedAccountsNumberHigh;
 /**
  *  The request matched a profile that previously had suspicious account
- *  creation behavior. This could mean this is a fake account.
+ *  creation behavior. This can mean that this is a fake account.
  *
  *  Value: "SUSPICIOUS_ACCOUNT_CREATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_Labels_SuspiciousAccountCreation;
 /**
- *  The request is potentially a suspicious login event and should be further
- *  verified either via multi-factor authentication or another system.
+ *  The request is potentially a suspicious login event and must be further
+ *  verified either through multi-factor authentication or another system.
  *
  *  Value: "SUSPICIOUS_LOGIN_ACTIVITY"
  */
@@ -122,24 +122,26 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest.reasons
 
 /**
- *  Indicates a chargeback issued for the transaction with no other details.
- *  When possible, specify the type by using CHARGEBACK_FRAUD or
+ *  Indicates that the transaction had a chargeback issued with no other
+ *  details. When possible, specify the type by using CHARGEBACK_FRAUD or
  *  CHARGEBACK_DISPUTE instead.
  *
  *  Value: "CHARGEBACK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_Chargeback;
 /**
- *  Indicates a chargeback related to the cardholder having provided their card
- *  details but allegedly not being satisfied with the purchase (for example,
- *  misrepresentation, attempted cancellation).
+ *  Indicates that the transaction had a chargeback issued related to the
+ *  cardholder having provided their card details but allegedly not being
+ *  satisfied with the purchase (for example, misrepresentation, attempted
+ *  cancellation).
  *
  *  Value: "CHARGEBACK_DISPUTE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_ChargebackDispute;
 /**
- *  Indicates a chargeback related to an alleged unauthorized transaction from
- *  the cardholder's perspective (for example, the card number was stolen).
+ *  Indicates that the transaction had a chargeback issued related to an alleged
+ *  unauthorized transaction from the cardholder's perspective (for example, the
+ *  card number was stolen).
  *
  *  Value: "CHARGEBACK_FRAUD"
  */
@@ -191,6 +193,33 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Value: "REASON_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_ReasonUnspecified;
+/**
+ *  Indicates that the completed payment transaction was refunded by the seller.
+ *
+ *  Value: "REFUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_Refund;
+/**
+ *  Indicates that the completed payment transaction was determined to be
+ *  fraudulent by the seller, and was cancelled and refunded as a result.
+ *
+ *  Value: "REFUND_FRAUD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_RefundFraud;
+/**
+ *  Indicates that the payment transaction was accepted, and the user was
+ *  charged.
+ *
+ *  Value: "TRANSACTION_ACCEPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_TransactionAccepted;
+/**
+ *  Indicates that the payment transaction was declined, for example due to
+ *  invalid card details.
+ *
+ *  Value: "TRANSACTION_DECLINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_TransactionDeclined;
 
 // ----------------------------------------------------------------------------
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis.reasons
@@ -411,7 +440,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings_IntegrationType_Score;
 
 /**
- *  Account Defender risk assessment.
+ *  Account defender risk assessment.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment : GTLRObject
 
@@ -475,11 +504,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *annotation;
 
 /**
- *  Optional. Optional unique stable hashed user identifier to apply to the
- *  assessment. This is an alternative to setting the hashed_account_id in
- *  CreateAssessment, for example when the account identifier is not yet known
- *  in the initial request. It is recommended that the identifier is hashed
- *  using hmac-sha256 with stable secret.
+ *  Optional. Unique stable hashed user identifier to apply to the assessment.
+ *  This is an alternative to setting the hashed_account_id in CreateAssessment,
+ *  for example when the account identifier is not yet known in the initial
+ *  request. It is recommended that the identifier is hashed using hmac-sha256
+ *  with stable secret.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -508,7 +537,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Assessment : GTLRObject
 
 /**
- *  Assessment returned by Account Defender when a hashed_account_id is
+ *  Assessment returned by account defender when a hashed_account_id is
  *  provided.
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment *accountDefenderAssessment;
@@ -523,8 +552,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The private password leak verification field contains the parameters used to
- *  check for leaks privately without sharing user credentials.
+ *  The private password leak verification field contains the parameters that
+ *  are used to to check for leaks privately without sharing user credentials.
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification *privatePasswordLeakVerification;
 
@@ -590,8 +619,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *expectedAction;
 
 /**
- *  Optional. Optional unique stable hashed user identifier for the request. The
- *  identifier should ideally be hashed using sha256 with stable secret.
+ *  Optional. Unique stable hashed user identifier for the request. The
+ *  identifier must be hashed using hmac-sha256 with stable secret.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -821,7 +850,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /**
  *  Output only. List of prefixes of the encrypted potential password leaks that
- *  matched the given parameters. They should be compared with the client-side
+ *  matched the given parameters. They must be compared with the client-side
  *  decryption prefix of `reencrypted_user_credentials_hash`
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
@@ -851,8 +880,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /**
  *  Output only. Corresponds to the re-encryption of the
- *  `encrypted_user_credentials_hash` field. Used to match potential password
- *  leaks within `encrypted_leak_match_prefixes`.
+ *  `encrypted_user_credentials_hash` field. It is used to match potential
+ *  password leaks within `encrypted_leak_match_prefixes`.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -883,8 +912,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /**
  *  The unique stable hashed user identifier of the member. The identifier
- *  corresponds to a `hashed_account_id` provided in a previous CreateAssessment
- *  or AnnotateAssessment call.
+ *  corresponds to a `hashed_account_id` provided in a previous
+ *  `CreateAssessment` or `AnnotateAssessment` call.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -901,8 +930,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 
 /**
- *  Secret key used in legacy reCAPTCHA only. Should be used when integrating
- *  with a 3rd party which is still using legacy reCAPTCHA.
+ *  Secret key is used only in legacy reCAPTCHA. It must be used in a 3rd party
+ *  integration with legacy reCAPTCHA.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse : GTLRObject
 
@@ -1006,7 +1035,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 /**
  *  Optional. The unique stable hashed user identifier we should search
  *  connections to. The identifier should correspond to a `hashed_account_id`
- *  provided in a previous CreateAssessment or AnnotateAssessment call.
+ *  provided in a previous `CreateAssessment` or `AnnotateAssessment` call.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1014,9 +1043,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *hashedAccountId;
 
 /**
- *  Optional. The maximum number of groups to return. The service may return
- *  fewer than this value. If unspecified, at most 50 groups will be returned.
- *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ *  Optional. The maximum number of groups to return. The service might return
+ *  fewer than this value. If unspecified, at most 50 groups are returned. The
+ *  maximum value is 1000; values above 1000 are coerced to 1000.
  *
  *  Uses NSNumber of intValue.
  */

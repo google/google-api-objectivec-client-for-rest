@@ -100,6 +100,231 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @end
 
 /**
+ *  Cancels a UserInvitation that was already sent.
+ *
+ *  Method: cloudidentity.customers.userinvitations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityUserinvitations
+ */
+@interface GTLRCloudIdentityQuery_CustomersUserinvitationsCancel : GTLRCloudIdentityQuery
+
+/**
+ *  Required. `UserInvitation` name in the format
+ *  `customers/{customer}/userinvitations/{user_email_address}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Operation.
+ *
+ *  Cancels a UserInvitation that was already sent.
+ *
+ *  @param object The @c GTLRCloudIdentity_CancelUserInvitationRequest to
+ *    include in the query.
+ *  @param name Required. `UserInvitation` name in the format
+ *    `customers/{customer}/userinvitations/{user_email_address}`
+ *
+ *  @return GTLRCloudIdentityQuery_CustomersUserinvitationsCancel
+ */
++ (instancetype)queryWithObject:(GTLRCloudIdentity_CancelUserInvitationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a UserInvitation resource. **Note:** New consumer accounts with
+ *  the customer's verified domain created within the previous 48 hours will not
+ *  appear in the result. This delay also applies to newly-verified domains.
+ *
+ *  Method: cloudidentity.customers.userinvitations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityUserinvitations
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityUserinvitationsReadonly
+ */
+@interface GTLRCloudIdentityQuery_CustomersUserinvitationsGet : GTLRCloudIdentityQuery
+
+/**
+ *  Required. `UserInvitation` name in the format
+ *  `customers/{customer}/userinvitations/{user_email_address}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_UserInvitation.
+ *
+ *  Retrieves a UserInvitation resource. **Note:** New consumer accounts with
+ *  the customer's verified domain created within the previous 48 hours will not
+ *  appear in the result. This delay also applies to newly-verified domains.
+ *
+ *  @param name Required. `UserInvitation` name in the format
+ *    `customers/{customer}/userinvitations/{user_email_address}`
+ *
+ *  @return GTLRCloudIdentityQuery_CustomersUserinvitationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Verifies whether a user account is eligible to receive a UserInvitation (is
+ *  an unmanaged account). Eligibility is based on the following criteria: * the
+ *  email address is a consumer account and it's the primary email address of
+ *  the account, and * the domain of the email address matches an existing
+ *  verified Google Workspace or Cloud Identity domain If both conditions are
+ *  met, the user is eligible. **Note:** This method is not supported for
+ *  Workspace Essentials customers.
+ *
+ *  Method: cloudidentity.customers.userinvitations.isInvitableUser
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityUserinvitations
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityUserinvitationsReadonly
+ */
+@interface GTLRCloudIdentityQuery_CustomersUserinvitationsIsInvitableUser : GTLRCloudIdentityQuery
+
+/**
+ *  Required. `UserInvitation` name in the format
+ *  `customers/{customer}/userinvitations/{user_email_address}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_IsInvitableUserResponse.
+ *
+ *  Verifies whether a user account is eligible to receive a UserInvitation (is
+ *  an unmanaged account). Eligibility is based on the following criteria: * the
+ *  email address is a consumer account and it's the primary email address of
+ *  the account, and * the domain of the email address matches an existing
+ *  verified Google Workspace or Cloud Identity domain If both conditions are
+ *  met, the user is eligible. **Note:** This method is not supported for
+ *  Workspace Essentials customers.
+ *
+ *  @param name Required. `UserInvitation` name in the format
+ *    `customers/{customer}/userinvitations/{user_email_address}`
+ *
+ *  @return GTLRCloudIdentityQuery_CustomersUserinvitationsIsInvitableUser
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a list of UserInvitation resources. **Note:** New consumer
+ *  accounts with the customer's verified domain created within the previous 48
+ *  hours will not appear in the result. This delay also applies to
+ *  newly-verified domains.
+ *
+ *  Method: cloudidentity.customers.userinvitations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityUserinvitations
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityUserinvitationsReadonly
+ */
+@interface GTLRCloudIdentityQuery_CustomersUserinvitationsList : GTLRCloudIdentityQuery
+
+/**
+ *  Optional. A query string for filtering `UserInvitation` results by their
+ *  current state, in the format: `"state=='invited'"`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The sort order of the list results. You can sort the results in
+ *  descending order based on either email or last update timestamp but not
+ *  both, using `order_by="email desc"`. Currently, sorting is supported for
+ *  `update_time asc`, `update_time desc`, `email asc`, and `email desc`. If not
+ *  specified, results will be returned based on `email asc` order.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of UserInvitation resources to return. If
+ *  unspecified, at most 100 resources will be returned. The maximum value is
+ *  200; values above 200 will be set to 200.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListUserInvitations` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListBooks` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The customer ID of the Google Workspace or Cloud Identity account
+ *  the UserInvitation resources are associated with.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_ListUserInvitationsResponse.
+ *
+ *  Retrieves a list of UserInvitation resources. **Note:** New consumer
+ *  accounts with the customer's verified domain created within the previous 48
+ *  hours will not appear in the result. This delay also applies to
+ *  newly-verified domains.
+ *
+ *  @param parent Required. The customer ID of the Google Workspace or Cloud
+ *    Identity account the UserInvitation resources are associated with.
+ *
+ *  @return GTLRCloudIdentityQuery_CustomersUserinvitationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Sends a UserInvitation to email. If the `UserInvitation` does not exist for
+ *  this request and it is a valid request, the request creates a
+ *  `UserInvitation`. **Note:** The `get` and `list` methods have a 48-hour
+ *  delay where newly-created consumer accounts will not appear in the results.
+ *  You can still send a `UserInvitation` to those accounts if you know the
+ *  unmanaged email address and IsInvitableUser==True.
+ *
+ *  Method: cloudidentity.customers.userinvitations.send
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityUserinvitations
+ */
+@interface GTLRCloudIdentityQuery_CustomersUserinvitationsSend : GTLRCloudIdentityQuery
+
+/**
+ *  Required. `UserInvitation` name in the format
+ *  `customers/{customer}/userinvitations/{user_email_address}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Operation.
+ *
+ *  Sends a UserInvitation to email. If the `UserInvitation` does not exist for
+ *  this request and it is a valid request, the request creates a
+ *  `UserInvitation`. **Note:** The `get` and `list` methods have a 48-hour
+ *  delay where newly-created consumer accounts will not appear in the results.
+ *  You can still send a `UserInvitation` to those accounts if you know the
+ *  unmanaged email address and IsInvitableUser==True.
+ *
+ *  @param object The @c GTLRCloudIdentity_SendUserInvitationRequest to include
+ *    in the query.
+ *  @param name Required. `UserInvitation` name in the format
+ *    `customers/{customer}/userinvitations/{user_email_address}`
+ *
+ *  @return GTLRCloudIdentityQuery_CustomersUserinvitationsSend
+ */
++ (instancetype)queryWithObject:(GTLRCloudIdentity_SendUserInvitationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Cancels an unfinished device wipe. This operation can be used to cancel
  *  device wipe in the gap between the wipe operation returning success and the
  *  device being wiped. This operation is possible when the device is in a

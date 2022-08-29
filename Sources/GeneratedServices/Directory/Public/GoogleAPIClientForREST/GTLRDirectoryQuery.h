@@ -621,7 +621,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @interface GTLRDirectoryQuery_ChromeosdevicesMoveDevicesToOu : GTLRDirectoryQuery
 
-/** Immutable ID of the Google Workspace account */
+/** Immutable. ID of the Google Workspace account */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Full path of the target organizational unit or its ID */
@@ -636,7 +636,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  @param object The @c GTLRDirectory_ChromeOsMoveDevicesToOu to include in the
  *    query.
- *  @param customerId Immutable ID of the Google Workspace account
+ *  @param customerId Immutable. ID of the Google Workspace account
  *  @param orgUnitPath Full path of the target organizational unit or its ID
  *
  *  @return GTLRDirectoryQuery_ChromeosdevicesMoveDevicesToOu
@@ -786,13 +786,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @interface GTLRDirectoryQuery_CustomerDevicesChromeosCommandsGet : GTLRDirectoryQuery
 
-/** Immutable. Immutable ID of Chrome OS Device Command. */
+/** Immutable. ID of Chrome OS Device Command. */
 @property(nonatomic, assign) long long commandId;
 
-/** Immutable. Immutable ID of the Google Workspace account. */
+/** Immutable. ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Immutable. Immutable ID of Chrome OS Device. */
+/** Immutable. ID of Chrome OS Device. */
 @property(nonatomic, copy, nullable) NSString *deviceId;
 
 /**
@@ -800,9 +800,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  Gets command data a specific command issued to the device.
  *
- *  @param customerId Immutable. Immutable ID of the Google Workspace account.
- *  @param deviceId Immutable. Immutable ID of Chrome OS Device.
- *  @param commandId Immutable. Immutable ID of Chrome OS Device Command.
+ *  @param customerId Immutable. ID of the Google Workspace account.
+ *  @param deviceId Immutable. ID of Chrome OS Device.
+ *  @param commandId Immutable. ID of Chrome OS Device Command.
  *
  *  @return GTLRDirectoryQuery_CustomerDevicesChromeosCommandsGet
  */
@@ -822,10 +822,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @interface GTLRDirectoryQuery_CustomerDevicesChromeosIssueCommand : GTLRDirectoryQuery
 
-/** Immutable. Immutable ID of the Google Workspace account. */
+/** Immutable. ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Immutable. Immutable ID of Chrome OS Device. */
+/** Immutable. ID of Chrome OS Device. */
 @property(nonatomic, copy, nullable) NSString *deviceId;
 
 /**
@@ -835,8 +835,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *
  *  @param object The @c GTLRDirectory_ChromeosdevicesIssueCommandRequest to
  *    include in the query.
- *  @param customerId Immutable. Immutable ID of the Google Workspace account.
- *  @param deviceId Immutable. Immutable ID of Chrome OS Device.
+ *  @param customerId Immutable. ID of the Google Workspace account.
+ *  @param deviceId Immutable. ID of Chrome OS Device.
  *
  *  @return GTLRDirectoryQuery_CustomerDevicesChromeosIssueCommand
  */
@@ -1914,7 +1914,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 
 /**
  *  Checks whether the given user is a member of the group. Membership can be
- *  direct or nested.
+ *  direct or nested, but if nested, the `memberKey` and `groupKey` must be
+ *  entities in the same domain or an `Invalid input` error is returned. To
+ *  check for nested memberships that include entities outside of the group's
+ *  domain, use the
+ *  [`checkTransitiveMembership()`](https://cloud.google.com/identity/docs/reference/rest/v1/groups.memberships/checkTransitiveMembership)
+ *  method in the Cloud Identity Groups API.
  *
  *  Method: directory.members.hasMember
  *
@@ -1942,7 +1947,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Fetches a @c GTLRDirectory_MembersHasMember.
  *
  *  Checks whether the given user is a member of the group. Membership can be
- *  direct or nested.
+ *  direct or nested, but if nested, the `memberKey` and `groupKey` must be
+ *  entities in the same domain or an `Invalid input` error is returned. To
+ *  check for nested memberships that include entities outside of the group's
+ *  domain, use the
+ *  [`checkTransitiveMembership()`](https://cloud.google.com/identity/docs/reference/rest/v1/groups.memberships/checkTransitiveMembership)
+ *  method in the Cloud Identity Groups API.
  *
  *  @param groupKey Identifies the group in the API request. The value can be
  *    the group's email address, group alias, or the unique group ID.

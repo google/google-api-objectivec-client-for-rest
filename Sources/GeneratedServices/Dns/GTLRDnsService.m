@@ -70,6 +70,8 @@ NSString * const kGTLRAuthScopeDnsNdevClouddnsReadwrite = @"https://www.googleap
     @"dns#rRSetRoutingPolicy" : [GTLRDns_RRSetRoutingPolicy class],
     @"dns#rRSetRoutingPolicyGeoPolicy" : [GTLRDns_RRSetRoutingPolicyGeoPolicy class],
     @"dns#rRSetRoutingPolicyGeoPolicyGeoPolicyItem" : [GTLRDns_RRSetRoutingPolicyGeoPolicyGeoPolicyItem class],
+    @"dns#rRSetRoutingPolicyLoadBalancerTarget" : [GTLRDns_RRSetRoutingPolicyLoadBalancerTarget class],
+    @"dns#rRSetRoutingPolicyPrimaryBackupPolicy" : [GTLRDns_RRSetRoutingPolicyPrimaryBackupPolicy class],
     @"dns#rRSetRoutingPolicyWrrPolicy" : [GTLRDns_RRSetRoutingPolicyWrrPolicy class],
     @"dns#rRSetRoutingPolicyWrrPolicyWrrPolicyItem" : [GTLRDns_RRSetRoutingPolicyWrrPolicyWrrPolicyItem class],
   };

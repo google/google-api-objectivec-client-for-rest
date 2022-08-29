@@ -35,6 +35,16 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMeta
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata_State_Succeeded = @"SUCCEEDED";
 
+// GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataDatasetResyncStatus.datasetInconsistencyType
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataDatasetResyncStatus_DatasetInconsistencyType_DatasetInconsistencyTypeNoStorageMarker = @"DATASET_INCONSISTENCY_TYPE_NO_STORAGE_MARKER";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataDatasetResyncStatus_DatasetInconsistencyType_DatasetInconsistencyTypeUnspecified = @"DATASET_INCONSISTENCY_TYPE_UNSPECIFIED";
+
+// GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataIndividualDocumentResyncStatus.documentInconsistencyType
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataIndividualDocumentResyncStatus_DocumentInconsistencyType_DocumentInconsistencyTypeInvalidDocproto = @"DOCUMENT_INCONSISTENCY_TYPE_INVALID_DOCPROTO";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataIndividualDocumentResyncStatus_DocumentInconsistencyType_DocumentInconsistencyTypeMismatchedMetadata = @"DOCUMENT_INCONSISTENCY_TYPE_MISMATCHED_METADATA";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataIndividualDocumentResyncStatus_DocumentInconsistencyType_DocumentInconsistencyTypeNoPageImage = @"DOCUMENT_INCONSISTENCY_TYPE_NO_PAGE_IMAGE";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataIndividualDocumentResyncStatus_DocumentInconsistencyType_DocumentInconsistencyTypeUnspecified = @"DOCUMENT_INCONSISTENCY_TYPE_UNSPECIFIED";
+
 // GTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference.revisionCase
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference_RevisionCase_LatestHumanReview = @"LATEST_HUMAN_REVIEW";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference_RevisionCase_LatestTimestamp = @"LATEST_TIMESTAMP";
@@ -275,7 +285,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchDeleteDocumentsMetadata
-@dynamic commonMetadata, individualBatchDeleteStatuses;
+@dynamic commonMetadata, errorDocumentCount, individualBatchDeleteStatuses,
+         totalDocumentCount;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -527,15 +538,27 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3ImportDocumentsMetadata
-@dynamic commonMetadata, individualImportStatuses;
+@dynamic commonMetadata, importConfigValidationResults,
+         individualImportStatuses, totalDocumentCount;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"importConfigValidationResults" : [GTLRDocument_GoogleCloudDocumentaiUiv1beta3ImportDocumentsMetadataImportConfigValidationResult class],
     @"individualImportStatuses" : [GTLRDocument_GoogleCloudDocumentaiUiv1beta3ImportDocumentsMetadataIndividualImportStatus class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3ImportDocumentsMetadataImportConfigValidationResult
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3ImportDocumentsMetadataImportConfigValidationResult
+@dynamic inputGcsSource, status;
 @end
 
 
@@ -564,11 +587,13 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadata
-@dynamic commonMetadata, newlyAddedDocuments;
+@dynamic commonMetadata, datasetResyncStatuses,
+         individualDocumentResyncStatuses;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"newlyAddedDocuments" : [GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataUpdatedDocument class]
+    @"datasetResyncStatuses" : [GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataDatasetResyncStatus class],
+    @"individualDocumentResyncStatuses" : [GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataIndividualDocumentResyncStatus class]
   };
   return map;
 }
@@ -578,11 +603,21 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataUpdatedDocument
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataDatasetResyncStatus
 //
 
-@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataUpdatedDocument
-@dynamic destinationPrefix, sourcePrefix, status;
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataDatasetResyncStatus
+@dynamic datasetInconsistencyType, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataIndividualDocumentResyncStatus
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataIndividualDocumentResyncStatus
+@dynamic documentId, documentInconsistencyType, status;
 @end
 
 
@@ -734,6 +769,16 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocument_GoogleCloudDocumentaiV1Barcode
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1Barcode
+@dynamic format, rawValue, valueFormat;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocument_GoogleCloudDocumentaiV1BatchDocumentsInputConfig
 //
 
@@ -786,6 +831,16 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1BatchProcessResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta1Barcode
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta1Barcode
+@dynamic format, rawValue, valueFormat;
 @end
 
 
@@ -856,9 +911,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentEntity
-@dynamic confidence, identifier, mentionId, mentionText, nonPresent,
-         normalizedValue, pageAnchor, properties, provenance, redacted,
-         textAnchor, type;
+@dynamic confidence, identifier, mentionId, mentionText, normalizedValue,
+         pageAnchor, properties, provenance, redacted, textAnchor, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -901,13 +955,14 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPage
-@dynamic blocks, detectedLanguages, dimension, formFields, image, layout, lines,
-         pageNumber, paragraphs, provenance, symbols, tables, tokens,
-         transforms, visualElements;
+@dynamic blocks, detectedBarcodes, detectedLanguages, dimension, formFields,
+         image, layout, lines, pageNumber, paragraphs, provenance, symbols,
+         tables, tokens, transforms, visualElements;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"blocks" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageBlock class],
+    @"detectedBarcodes" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageDetectedBarcode class],
     @"detectedLanguages" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage class],
     @"formFields" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageFormField class],
     @"lines" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageLine class],
@@ -967,6 +1022,16 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageDetectedBarcode
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageDetectedBarcode
+@dynamic barcode, layout;
 @end
 
 
@@ -1426,6 +1491,16 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocument_GoogleCloudDocumentaiV1beta2Barcode
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta2Barcode
+@dynamic format, rawValue, valueFormat;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocument_GoogleCloudDocumentaiV1beta2BatchProcessDocumentsResponse
 //
 
@@ -1492,9 +1567,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentEntity
-@dynamic confidence, identifier, mentionId, mentionText, nonPresent,
-         normalizedValue, pageAnchor, properties, provenance, redacted,
-         textAnchor, type;
+@dynamic confidence, identifier, mentionId, mentionText, normalizedValue,
+         pageAnchor, properties, provenance, redacted, textAnchor, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1547,13 +1621,14 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPage
-@dynamic blocks, detectedLanguages, dimension, formFields, image, layout, lines,
-         pageNumber, paragraphs, provenance, symbols, tables, tokens,
-         transforms, visualElements;
+@dynamic blocks, detectedBarcodes, detectedLanguages, dimension, formFields,
+         image, layout, lines, pageNumber, paragraphs, provenance, symbols,
+         tables, tokens, transforms, visualElements;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"blocks" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageBlock class],
+    @"detectedBarcodes" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageDetectedBarcode class],
     @"detectedLanguages" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage class],
     @"formFields" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageFormField class],
     @"lines" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageLine class],
@@ -1613,6 +1688,16 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageDetectedBarcode
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageDetectedBarcode
+@dynamic barcode, layout;
 @end
 
 
@@ -2399,9 +2484,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentEntity
-@dynamic confidence, identifier, mentionId, mentionText, nonPresent,
-         normalizedValue, pageAnchor, properties, provenance, redacted,
-         textAnchor, type;
+@dynamic confidence, identifier, mentionId, mentionText, normalizedValue,
+         pageAnchor, properties, provenance, redacted, textAnchor, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2464,13 +2548,14 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentPage
-@dynamic blocks, detectedLanguages, dimension, formFields, image, layout, lines,
-         pageNumber, paragraphs, provenance, symbols, tables, tokens,
-         transforms, visualElements;
+@dynamic blocks, detectedBarcodes, detectedLanguages, dimension, formFields,
+         image, layout, lines, pageNumber, paragraphs, provenance, symbols,
+         tables, tokens, transforms, visualElements;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"blocks" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentPageBlock class],
+    @"detectedBarcodes" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDetectedBarcode class],
     @"detectedLanguages" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDetectedLanguage class],
     @"formFields" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentPageFormField class],
     @"lines" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLine class],
@@ -2530,6 +2615,16 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDetectedBarcode
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDetectedBarcode
+@dynamic barcode, layout;
 @end
 
 
@@ -2858,7 +2953,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityType
-@dynamic baseTypes, displayName, enumValues, name, properties;
+@dynamic baseTypes, displayName, entityTypeMetadata, enumValues, name,
+         properties;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2895,7 +2991,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty
-@dynamic name, occurrenceType, valueType;
+@dynamic name, occurrenceType, propertyMetadata, valueType;
 @end
 
 
@@ -2905,7 +3001,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaMetadata
-@dynamic documentAllowMultipleLabels, documentSplitter;
+@dynamic documentAllowMultipleLabels, documentSplitter,
+         prefixedNamingOnProperties, skipNamingValidation;
 @end
 
 
@@ -3016,6 +3113,17 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocument_GoogleCloudDocumentaiV1EntityTypeMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1EntityTypeMetadata
+@dynamic humanReviewLabelingMetadata, humanReviewMetadata, inactive,
+         prefixedNamingOnProperties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocument_GoogleCloudDocumentaiV1FetchProcessorTypesResponse
 //
 
@@ -3072,11 +3180,31 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocument_GoogleCloudDocumentaiV1HumanReviewLabelingMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1HumanReviewLabelingMetadata
+@dynamic enableNormalizationEditing;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus
 @dynamic humanReviewOperation, state, stateMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1HumanReviewValidationMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1HumanReviewValidationMetadata
+@dynamic confidenceThreshold, enableValidation;
 @end
 
 
@@ -3097,6 +3225,28 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 
 + (NSString *)collectionItemsKey {
   return @"processors";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1ListProcessorTypesResponse
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1ListProcessorTypesResponse
+@dynamic nextPageToken, processorTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"processorTypes" : [GTLRDocument_GoogleCloudDocumentaiV1ProcessorType class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"processorTypes";
 }
 
 @end
@@ -3211,6 +3361,16 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1ProcessResponse
 @dynamic document, humanReviewStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1PropertyMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1PropertyMetadata
+@dynamic humanReviewLabelingMetadata, humanReviewMetadata, inactive;
 @end
 
 

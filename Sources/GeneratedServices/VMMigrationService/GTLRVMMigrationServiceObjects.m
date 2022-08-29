@@ -4,10 +4,10 @@
 // API:
 //   VM Migration API (vmmigration/v1)
 // Description:
-//   Use the Migrate for Compute Engine API to programmatically migrate
+//   Use the Migrate to Virtual Machines API to programmatically migrate
 //   workloads.
 // Documentation:
-//   https://cloud.google.com/migrate/compute-engine
+//   https://cloud.google.com/migrate/virtual-machines
 
 #import <GoogleAPIClientForREST/GTLRVMMigrationServiceObjects.h>
 
@@ -19,11 +19,6 @@ NSString * const kGTLRVMMigrationService_AppliedLicense_Type_Byol = @"BYOL";
 NSString * const kGTLRVMMigrationService_AppliedLicense_Type_None = @"NONE";
 NSString * const kGTLRVMMigrationService_AppliedLicense_Type_Payg = @"PAYG";
 NSString * const kGTLRVMMigrationService_AppliedLicense_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
-
-// GTLRVMMigrationService_AwsSourceVmDetails.firmware
-NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_Bios = @"BIOS";
-NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_Efi = @"EFI";
-NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_FirmwareUnspecified = @"FIRMWARE_UNSPECIFIED";
 
 // GTLRVMMigrationService_CloneJob.state
 NSString * const kGTLRVMMigrationService_CloneJob_State_Active = @"ACTIVE";
@@ -191,16 +186,6 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 @implementation GTLRVMMigrationService_AvailableUpdates
 @dynamic inPlaceUpdate, newDeployableAppliance;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRVMMigrationService_AwsSourceVmDetails
-//
-
-@implementation GTLRVMMigrationService_AwsSourceVmDetails
-@dynamic committedStorageBytes, firmware;
 @end
 
 
@@ -612,29 +597,6 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRVMMigrationService_ListReplicationCyclesResponse
-//
-
-@implementation GTLRVMMigrationService_ListReplicationCyclesResponse
-@dynamic nextPageToken, replicationCycles, unreachable;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"replicationCycles" : [GTLRVMMigrationService_ReplicationCycle class],
-    @"unreachable" : [NSString class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"replicationCycles";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRVMMigrationService_ListSourcesResponse
 //
 
@@ -756,10 +718,10 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_MigratingVm
-@dynamic awsSourceVmDetails, computeEngineTargetDefaults, createTime,
-         currentSyncInfo, descriptionProperty, displayName, error, group,
-         labels, lastSync, name, policy, recentCloneJobs, recentCutoverJobs,
-         sourceVmId, state, stateTime, updateTime;
+@dynamic computeEngineTargetDefaults, createTime, currentSyncInfo,
+         descriptionProperty, displayName, error, group, labels, lastSync, name,
+         policy, recentCloneJobs, recentCutoverJobs, sourceVmId, state,
+         stateTime, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

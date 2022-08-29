@@ -4971,13 +4971,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  Creates a new slide.
+ *  Creates a slide.
  */
 @interface GTLRSlides_CreateSlideRequest : GTLRObject
 
 /**
  *  The optional zero-based index indicating where to insert the slides. If you
- *  don't specify an index, the new slide is created at the end.
+ *  don't specify an index, the slide is created at the end.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4988,16 +4988,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  pages and page elements in the presentation. The ID must start with an
  *  alphanumeric character or an underscore (matches regex `[a-zA-Z0-9_]`);
  *  remaining characters may include those as well as a hyphen or colon (matches
- *  regex `[a-zA-Z0-9_-:]`). The length of the ID must not be less than 5 or
- *  greater than 50. If you don't specify an ID, a unique one is generated.
+ *  regex `[a-zA-Z0-9_-:]`). The ID length must be between 5 and 50 characters,
+ *  inclusive. If you don't specify an ID, a unique one is generated.
  */
 @property(nonatomic, copy, nullable) NSString *objectId;
 
 /**
  *  An optional list of object ID mappings from the placeholder(s) on the layout
- *  to the placeholder(s) that will be created on the new slide from that
- *  specified layout. Can only be used when `slide_layout_reference` is
- *  specified.
+ *  to the placeholders that are created on the slide from the specified layout.
+ *  Can only be used when `slide_layout_reference` is specified.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSlides_LayoutPlaceholderIdMapping *> *placeholderIdMappings;
 
@@ -5007,8 +5006,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  The master of the first slide, if the insertion_index is zero. - The first
  *  master in the presentation, if there are no slides. If the LayoutReference
  *  is not found in the current master, a 400 bad request error is returned. If
- *  you don't specify a layout reference, then the new slide will use the
- *  predefined layout `BLANK`.
+ *  you don't specify a layout reference, the slide uses the predefined `BLANK`
+ *  layout.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_LayoutReference *slideLayoutReference;
 

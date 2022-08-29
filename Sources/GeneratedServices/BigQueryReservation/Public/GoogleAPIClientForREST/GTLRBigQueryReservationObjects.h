@@ -35,6 +35,13 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRBigQueryReservation_Assignment.jobType
 
 /**
+ *  Background jobs that BigQuery runs for the customers in the background. This
+ *  is a preview feature.
+ *
+ *  Value: "BACKGROUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_JobType_Background;
+/**
  *  Invalid type. Requests with this value will be rejected with error code
  *  `google.rpc.Code.INVALID_ARGUMENT`.
  *
@@ -218,6 +225,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *  Which type of jobs will use the reservation.
  *
  *  Likely values:
+ *    @arg @c kGTLRBigQueryReservation_Assignment_JobType_Background Background
+ *        jobs that BigQuery runs for the customers in the background. This is a
+ *        preview feature. (Value: "BACKGROUND")
  *    @arg @c kGTLRBigQueryReservation_Assignment_JobType_JobTypeUnspecified
  *        Invalid type. Requests with this value will be rejected with error
  *        code `google.rpc.Code.INVALID_ARGUMENT`. (Value:

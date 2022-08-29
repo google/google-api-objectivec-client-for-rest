@@ -178,6 +178,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, assign) BOOL includeItemsFromAllDrives;
 
 /**
+ *  A comma-separated list of IDs of labels to include in the labelInfo part of
+ *  the response.
+ */
+@property(nonatomic, copy, nullable) NSString *includeLabels;
+
+/**
  *  Specifies which additional view's permissions to include in the response.
  *  Only 'published' is supported.
  */
@@ -306,6 +312,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  @note If not set, the documented server-side default will be false.
  */
 @property(nonatomic, assign) BOOL includeItemsFromAllDrives;
+
+/**
+ *  A comma-separated list of IDs of labels to include in the labelInfo part of
+ *  the response.
+ */
+@property(nonatomic, copy, nullable) NSString *includeLabels;
 
 /**
  *  Specifies which additional view's permissions to include in the response.
@@ -916,6 +928,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, assign) BOOL ignoreDefaultVisibility;
 
 /**
+ *  A comma-separated list of IDs of labels to include in the labelInfo part of
+ *  the response.
+ */
+@property(nonatomic, copy, nullable) NSString *includeLabels;
+
+/**
  *  Specifies which additional view's permissions to include in the response.
  *  Only 'published' is supported.
  */
@@ -995,6 +1013,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  @note If not set, the documented server-side default will be false.
  */
 @property(nonatomic, assign) BOOL ignoreDefaultVisibility;
+
+/**
+ *  A comma-separated list of IDs of labels to include in the labelInfo part of
+ *  the response.
+ */
+@property(nonatomic, copy, nullable) NSString *includeLabels;
 
 /**
  *  Specifies which additional view's permissions to include in the response.
@@ -1258,6 +1282,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
+ *  A comma-separated list of IDs of labels to include in the labelInfo part of
+ *  the response.
+ */
+@property(nonatomic, copy, nullable) NSString *includeLabels;
+
+/**
  *  Specifies which additional view's permissions to include in the response.
  *  Only 'published' is supported.
  */
@@ -1352,6 +1382,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, assign) BOOL includeItemsFromAllDrives;
 
 /**
+ *  A comma-separated list of IDs of labels to include in the labelInfo part of
+ *  the response.
+ */
+@property(nonatomic, copy, nullable) NSString *includeLabels;
+
+/**
  *  Specifies which additional view's permissions to include in the response.
  *  Only 'published' is supported.
  */
@@ -1439,6 +1475,85 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
+ *  Lists the labels on a file.
+ *
+ *  Method: drive.files.listLabels
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMetadata
+ *    @c kGTLRAuthScopeDriveMetadataReadonly
+ *    @c kGTLRAuthScopeDriveReadonly
+ */
+@interface GTLRDriveQuery_FilesListLabels : GTLRDriveQuery
+
+/** The ID of the file. */
+@property(nonatomic, copy, nullable) NSString *fileId;
+
+/**
+ *  The maximum number of labels to return per page. When not set, this defaults
+ *  to 100.
+ *
+ *  @note If not set, the documented server-side default will be 100 (from the
+ *        range 1..100).
+ */
+@property(nonatomic, assign) NSInteger maxResults;
+
+/**
+ *  The token for continuing a previous list request on the next page. This
+ *  should be set to the value of 'nextPageToken' from the previous response.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDrive_LabelList.
+ *
+ *  Lists the labels on a file.
+ *
+ *  @param fileId The ID of the file.
+ *
+ *  @return GTLRDriveQuery_FilesListLabels
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithFileId:(NSString *)fileId;
+
+@end
+
+/**
+ *  Modifies the set of labels on a file.
+ *
+ *  Method: drive.files.modifyLabels
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMetadata
+ */
+@interface GTLRDriveQuery_FilesModifyLabels : GTLRDriveQuery
+
+/** The ID of the file for which the labels are modified. */
+@property(nonatomic, copy, nullable) NSString *fileId;
+
+/**
+ *  Fetches a @c GTLRDrive_ModifyLabelsResponse.
+ *
+ *  Modifies the set of labels on a file.
+ *
+ *  @param object The @c GTLRDrive_ModifyLabelsRequest to include in the query.
+ *  @param fileId The ID of the file for which the labels are modified.
+ *
+ *  @return GTLRDriveQuery_FilesModifyLabels
+ */
++ (instancetype)queryWithObject:(GTLRDrive_ModifyLabelsRequest *)object
+                         fileId:(NSString *)fileId;
+
+@end
+
+/**
  *  Updates a file's metadata and/or content. When calling this method, only
  *  populate fields in the request that you want to modify. When updating
  *  fields, some fields might change automatically, such as modifiedDate. This
@@ -1468,6 +1583,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /** The ID of the file. */
 @property(nonatomic, copy, nullable) NSString *fileId;
+
+/**
+ *  A comma-separated list of IDs of labels to include in the labelInfo part of
+ *  the response.
+ */
+@property(nonatomic, copy, nullable) NSString *includeLabels;
 
 /**
  *  Specifies which additional view's permissions to include in the response.
@@ -1564,6 +1685,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /** The ID of the file. */
 @property(nonatomic, copy, nullable) NSString *fileId;
+
+/**
+ *  A comma-separated list of IDs of labels to include in the labelInfo part of
+ *  the response.
+ */
+@property(nonatomic, copy, nullable) NSString *includeLabels;
 
 /**
  *  Specifies which additional view's permissions to include in the response.

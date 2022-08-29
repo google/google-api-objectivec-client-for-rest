@@ -671,11 +671,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  anyone who is authenticated with a Google account or a service account. *
  *  `user:{emailid}`: An email address that represents a specific Google
  *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
- *  address that represents a Google group. For example, `admins\@example.com`.
- *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
+ *  An email address that represents a Google service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
+ *  identifier for a [Kubernetes service
+ *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
+ *  `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
+ *  An email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -1395,15 +1400,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Required. Labels are a flexible and lightweight mechanism for organizing
- *  cloud resources into groups that reflect a customer's organizational needs
- *  and deployment strategies. They can be used to filter resources and
- *  aggregate metrics. * Label keys must be between 1 and 63 characters long and
- *  must conform to the regular expression: `\\p{Ll}\\p{Lo}{0,62}`. * Label
- *  values must be between 0 and 63 characters long and must conform to the
- *  regular expression: `[\\p{Ll}\\p{Lo}\\p{N}_-]{0,63}`. * No more than 64
- *  labels can be associated with a given resource. * Keys and values must both
- *  be under 128 bytes.
+ *  Labels are a flexible and lightweight mechanism for organizing cloud
+ *  resources into groups that reflect a customer's organizational needs and
+ *  deployment strategies. They can be used to filter resources and aggregate
+ *  metrics. * Label keys must be between 1 and 63 characters long and must
+ *  conform to the regular expression: `\\p{Ll}\\p{Lo}{0,62}`. * Label values
+ *  must be between 0 and 63 characters long and must conform to the regular
+ *  expression: `[\\p{Ll}\\p{Lo}\\p{N}_-]{0,63}`. * No more than 64 labels can
+ *  be associated with a given resource. * Keys and values must both be under
+ *  128 bytes.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Instance_Labels *labels;
 
@@ -1412,6 +1417,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  `projects/{project}/instances/a-z+[a-z0-9]`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
  *  Output only. The current state of the instance.
@@ -1429,7 +1441,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Required. The type of the instance. Defaults to `PRODUCTION`.
+ *  The type of the instance. Defaults to `PRODUCTION`.
  *
  *  Likely values:
  *    @arg @c kGTLRBigtableAdmin_Instance_Type_Development DEPRECATED: Prefer
@@ -1449,15 +1461,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
- *  Required. Labels are a flexible and lightweight mechanism for organizing
- *  cloud resources into groups that reflect a customer's organizational needs
- *  and deployment strategies. They can be used to filter resources and
- *  aggregate metrics. * Label keys must be between 1 and 63 characters long and
- *  must conform to the regular expression: `\\p{Ll}\\p{Lo}{0,62}`. * Label
- *  values must be between 0 and 63 characters long and must conform to the
- *  regular expression: `[\\p{Ll}\\p{Lo}\\p{N}_-]{0,63}`. * No more than 64
- *  labels can be associated with a given resource. * Keys and values must both
- *  be under 128 bytes.
+ *  Labels are a flexible and lightweight mechanism for organizing cloud
+ *  resources into groups that reflect a customer's organizational needs and
+ *  deployment strategies. They can be used to filter resources and aggregate
+ *  metrics. * Label keys must be between 1 and 63 characters long and must
+ *  conform to the regular expression: `\\p{Ll}\\p{Lo}{0,62}`. * Label values
+ *  must be between 0 and 63 characters long and must conform to the regular
+ *  expression: `[\\p{Ll}\\p{Lo}\\p{N}_-]{0,63}`. * No more than 64 labels can
+ *  be associated with a given resource. * Keys and values must both be under
+ *  128 bytes.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

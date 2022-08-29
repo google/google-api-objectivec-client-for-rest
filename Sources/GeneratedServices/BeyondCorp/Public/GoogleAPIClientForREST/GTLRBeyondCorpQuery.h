@@ -7,7 +7,7 @@
 //   Beyondcorp Enterprise provides identity and context aware access controls
 //   for enterprise resources and enables zero-trust access. Using the
 //   Beyondcorp Enterprise APIs, enterprises can set up multi-cloud and on-prem
-//   connectivity using the App Connector hybrid connectivity solution.
+//   connectivity solutions.
 // Documentation:
 //   https://cloud.google.com/
 
@@ -33,6 +33,150 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Creates a new AppConnection in a given project and location.
+ *
+ *  Method: beyondcorp.projects.locations.appConnections.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsAppConnectionsCreate : GTLRBeyondCorpQuery
+
+/**
+ *  Optional. User-settable AppConnection resource ID. * Must start with a
+ *  letter. * Must contain between 4-63 characters from `/a-z-/`. * Must end
+ *  with a number or a letter.
+ */
+@property(nonatomic, copy, nullable) NSString *appConnectionId;
+
+/**
+ *  Required. The resource project name of the AppConnection location using the
+ *  form: `projects/{project_id}/locations/{location_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and t he request
+ *  times out. If you make the request again with the same request ID, the
+ *  server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments. The request ID must be a
+ *  valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set, validates request by executing a dry-run which would not
+ *  alter the resource in any way.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleLongrunningOperation.
+ *
+ *  Creates a new AppConnection in a given project and location.
+ *
+ *  @param object The @c
+ *    GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1AppConnection to
+ *    include in the query.
+ *  @param parent Required. The resource project name of the AppConnection
+ *    location using the form: `projects/{project_id}/locations/{location_id}`
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsAppConnectionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1AppConnection *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single AppConnection.
+ *
+ *  Method: beyondcorp.projects.locations.appConnections.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsAppConnectionsDelete : GTLRBeyondCorpQuery
+
+/**
+ *  Required. BeyondCorp Connector name using the form:
+ *  `projects/{project_id}/locations/{location_id}/appConnections/{app_connection_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and t he request
+ *  times out. If you make the request again with the same request ID, the
+ *  server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments. The request ID must be a
+ *  valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set, validates request by executing a dry-run which would not
+ *  alter the resource in any way.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleLongrunningOperation.
+ *
+ *  Deletes a single AppConnection.
+ *
+ *  @param name Required. BeyondCorp Connector name using the form:
+ *    `projects/{project_id}/locations/{location_id}/appConnections/{app_connection_id}`
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsAppConnectionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single AppConnection.
+ *
+ *  Method: beyondcorp.projects.locations.appConnections.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsAppConnectionsGet : GTLRBeyondCorpQuery
+
+/**
+ *  Required. BeyondCorp AppConnection name using the form:
+ *  `projects/{project_id}/locations/{location_id}/appConnections/{app_connection_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1AppConnection.
+ *
+ *  Gets details of a single AppConnection.
+ *
+ *  @param name Required. BeyondCorp AppConnection name using the form:
+ *    `projects/{project_id}/locations/{location_id}/appConnections/{app_connection_id}`
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsAppConnectionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -82,6 +226,193 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRBeyondCorpQuery_ProjectsLocationsAppConnectionsGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists AppConnections in a given project and location.
+ *
+ *  Method: beyondcorp.projects.locations.appConnections.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsAppConnectionsList : GTLRBeyondCorpQuery
+
+/** Optional. A filter specifying constraints of a list operation. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specifies the ordering of results. See [Sorting
+ *  order](https://cloud.google.com/apis/design/design_patterns#sorting_order)
+ *  for more information.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of items to return. If not specified, a default
+ *  value of 50 will be used by the service. Regardless of the page_size value,
+ *  the response may include a partial list and a caller should only rely on
+ *  response's next_page_token to determine if there are more instances left to
+ *  be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value returned from a previous
+ *  ListAppConnectionsRequest, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the AppConnection location using the form:
+ *  `projects/{project_id}/locations/{location_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1ListAppConnectionsResponse.
+ *
+ *  Lists AppConnections in a given project and location.
+ *
+ *  @param parent Required. The resource name of the AppConnection location
+ *    using the form: `projects/{project_id}/locations/{location_id}`
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsAppConnectionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single AppConnection.
+ *
+ *  Method: beyondcorp.projects.locations.appConnections.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsAppConnectionsPatch : GTLRBeyondCorpQuery
+
+/** Optional. If set as true, will create the resource if it is not found. */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Required. Unique resource name of the AppConnection. The name is ignored
+ *  when creating a AppConnection.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and t he request
+ *  times out. If you make the request again with the same request ID, the
+ *  server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments. The request ID must be a
+ *  valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Mask of fields to update. At least one path must be supplied in
+ *  this field. The elements of the repeated paths field may only include these
+ *  fields from [BeyondCorp.AppConnection]: * `labels` * `display_name` *
+ *  `application_endpoint` * `connectors`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. If set, validates request by executing a dry-run which would not
+ *  alter the resource in any way.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleLongrunningOperation.
+ *
+ *  Updates the parameters of a single AppConnection.
+ *
+ *  @param object The @c
+ *    GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1AppConnection to
+ *    include in the query.
+ *  @param name Required. Unique resource name of the AppConnection. The name is
+ *    ignored when creating a AppConnection.
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsAppConnectionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1AppConnection *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Resolves AppConnections details for a given AppConnector. An internal method
+ *  called by a connector to find AppConnections to connect to.
+ *
+ *  Method: beyondcorp.projects.locations.appConnections.resolve
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsAppConnectionsResolve : GTLRBeyondCorpQuery
+
+/**
+ *  Required. BeyondCorp Connector name of the connector associated with those
+ *  AppConnections using the form:
+ *  `projects/{project_id}/locations/{location_id}/appConnectors/{app_connector_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *appConnectorId;
+
+/**
+ *  Optional. The maximum number of items to return. If not specified, a default
+ *  value of 50 will be used by the service. Regardless of the page_size value,
+ *  the response may include a partial list and a caller should only rely on
+ *  response's next_page_token to determine if there are more instances left to
+ *  be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value returned from a previous
+ *  ResolveAppConnectionsResponse, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the AppConnection location using the form:
+ *  `projects/{project_id}/locations/{location_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1ResolveAppConnectionsResponse.
+ *
+ *  Resolves AppConnections details for a given AppConnector. An internal method
+ *  called by a connector to find AppConnections to connect to.
+ *
+ *  @param parent Required. The resource name of the AppConnection location
+ *    using the form: `projects/{project_id}/locations/{location_id}`
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsAppConnectionsResolve
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -170,6 +501,150 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new AppConnector in a given project and location.
+ *
+ *  Method: beyondcorp.projects.locations.appConnectors.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsAppConnectorsCreate : GTLRBeyondCorpQuery
+
+/**
+ *  Optional. User-settable AppConnector resource ID. * Must start with a
+ *  letter. * Must contain between 4-63 characters from `/a-z-/`. * Must end
+ *  with a number or a letter.
+ */
+@property(nonatomic, copy, nullable) NSString *appConnectorId;
+
+/**
+ *  Required. The resource project name of the AppConnector location using the
+ *  form: `projects/{project_id}/locations/{location_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and t he request
+ *  times out. If you make the request again with the same request ID, the
+ *  server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments. The request ID must be a
+ *  valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set, validates request by executing a dry-run which would not
+ *  alter the resource in any way.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleLongrunningOperation.
+ *
+ *  Creates a new AppConnector in a given project and location.
+ *
+ *  @param object The @c
+ *    GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1AppConnector to include
+ *    in the query.
+ *  @param parent Required. The resource project name of the AppConnector
+ *    location using the form: `projects/{project_id}/locations/{location_id}`
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsAppConnectorsCreate
+ */
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1AppConnector *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single AppConnector.
+ *
+ *  Method: beyondcorp.projects.locations.appConnectors.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsAppConnectorsDelete : GTLRBeyondCorpQuery
+
+/**
+ *  Required. BeyondCorp AppConnector name using the form:
+ *  `projects/{project_id}/locations/{location_id}/appConnectors/{app_connector_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and t he request
+ *  times out. If you make the request again with the same request ID, the
+ *  server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments. The request ID must be a
+ *  valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set, validates request by executing a dry-run which would not
+ *  alter the resource in any way.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleLongrunningOperation.
+ *
+ *  Deletes a single AppConnector.
+ *
+ *  @param name Required. BeyondCorp AppConnector name using the form:
+ *    `projects/{project_id}/locations/{location_id}/appConnectors/{app_connector_id}`
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsAppConnectorsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single AppConnector.
+ *
+ *  Method: beyondcorp.projects.locations.appConnectors.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsAppConnectorsGet : GTLRBeyondCorpQuery
+
+/**
+ *  Required. BeyondCorp AppConnector name using the form:
+ *  `projects/{project_id}/locations/{location_id}/appConnectors/{app_connector_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1AppConnector.
+ *
+ *  Gets details of a single AppConnector.
+ *
+ *  @param name Required. BeyondCorp AppConnector name using the form:
+ *    `projects/{project_id}/locations/{location_id}/appConnectors/{app_connector_id}`
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsAppConnectorsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -215,6 +690,197 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRBeyondCorpQuery_ProjectsLocationsAppConnectorsGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists AppConnectors in a given project and location.
+ *
+ *  Method: beyondcorp.projects.locations.appConnectors.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsAppConnectorsList : GTLRBeyondCorpQuery
+
+/** Optional. A filter specifying constraints of a list operation. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specifies the ordering of results. See [Sorting
+ *  order](https://cloud.google.com/apis/design/design_patterns#sorting_order)
+ *  for more information.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of items to return. If not specified, a default
+ *  value of 50 will be used by the service. Regardless of the page_size value,
+ *  the response may include a partial list and a caller should only rely on
+ *  response's next_page_token to determine if there are more instances left to
+ *  be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value returned from a previous
+ *  ListAppConnectorsRequest, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the AppConnector location using the form:
+ *  `projects/{project_id}/locations/{location_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1ListAppConnectorsResponse.
+ *
+ *  Lists AppConnectors in a given project and location.
+ *
+ *  @param parent Required. The resource name of the AppConnector location using
+ *    the form: `projects/{project_id}/locations/{location_id}`
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsAppConnectorsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single AppConnector.
+ *
+ *  Method: beyondcorp.projects.locations.appConnectors.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsAppConnectorsPatch : GTLRBeyondCorpQuery
+
+/**
+ *  Required. Unique resource name of the AppConnector. The name is ignored when
+ *  creating a AppConnector.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and t he request
+ *  times out. If you make the request again with the same request ID, the
+ *  server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments. The request ID must be a
+ *  valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Mask of fields to update. At least one path must be supplied in
+ *  this field. The elements of the repeated paths field may only include these
+ *  fields from [BeyondCorp.AppConnector]: * `labels` * `display_name`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. If set, validates request by executing a dry-run which would not
+ *  alter the resource in any way.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleLongrunningOperation.
+ *
+ *  Updates the parameters of a single AppConnector.
+ *
+ *  @param object The @c
+ *    GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1AppConnector to include
+ *    in the query.
+ *  @param name Required. Unique resource name of the AppConnector. The name is
+ *    ignored when creating a AppConnector.
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsAppConnectorsPatch
+ */
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1AppConnector *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Report status for a given connector.
+ *
+ *  Method: beyondcorp.projects.locations.appConnectors.reportStatus
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsAppConnectorsReportStatus : GTLRBeyondCorpQuery
+
+/**
+ *  Required. BeyondCorp Connector name using the form:
+ *  `projects/{project_id}/locations/{location_id}/connectors/{connector}`
+ */
+@property(nonatomic, copy, nullable) NSString *appConnector;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleLongrunningOperation.
+ *
+ *  Report status for a given connector.
+ *
+ *  @param object The @c
+ *    GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1ReportStatusRequest to
+ *    include in the query.
+ *  @param appConnector Required. BeyondCorp Connector name using the form:
+ *    `projects/{project_id}/locations/{location_id}/connectors/{connector}`
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsAppConnectorsReportStatus
+ */
++ (instancetype)queryWithObject:(GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1ReportStatusRequest *)object
+                   appConnector:(NSString *)appConnector;
+
+@end
+
+/**
+ *  Gets instance configuration for a given AppConnector. An internal method
+ *  called by a AppConnector to get its container config.
+ *
+ *  Method: beyondcorp.projects.locations.appConnectors.resolveInstanceConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsAppConnectorsResolveInstanceConfig : GTLRBeyondCorpQuery
+
+/**
+ *  Required. BeyondCorp AppConnector name using the form:
+ *  `projects/{project_id}/locations/{location_id}/appConnectors/{app_connector}`
+ */
+@property(nonatomic, copy, nullable) NSString *appConnector;
+
+/**
+ *  Fetches a @c
+ *  GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1ResolveInstanceConfigResponse.
+ *
+ *  Gets instance configuration for a given AppConnector. An internal method
+ *  called by a AppConnector to get its container config.
+ *
+ *  @param appConnector Required. BeyondCorp AppConnector name using the form:
+ *    `projects/{project_id}/locations/{location_id}/appConnectors/{app_connector}`
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsAppConnectorsResolveInstanceConfig
+ */
++ (instancetype)queryWithAppConnector:(NSString *)appConnector;
 
 @end
 
@@ -303,6 +969,147 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new AppGateway in a given project and location.
+ *
+ *  Method: beyondcorp.projects.locations.appGateways.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsAppGatewaysCreate : GTLRBeyondCorpQuery
+
+/**
+ *  Optional. User-settable AppGateway resource ID. * Must start with a letter.
+ *  * Must contain between 4-63 characters from `/a-z-/`. * Must end with a
+ *  number or a letter.
+ */
+@property(nonatomic, copy, nullable) NSString *appGatewayId;
+
+/**
+ *  Required. The resource project name of the AppGateway location using the
+ *  form: `projects/{project_id}/locations/{location_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and t he request
+ *  times out. If you make the request again with the same request ID, the
+ *  server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments. The request ID must be a
+ *  valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set, validates request by executing a dry-run which would not
+ *  alter the resource in any way.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleLongrunningOperation.
+ *
+ *  Creates a new AppGateway in a given project and location.
+ *
+ *  @param object The @c GTLRBeyondCorp_AppGateway to include in the query.
+ *  @param parent Required. The resource project name of the AppGateway location
+ *    using the form: `projects/{project_id}/locations/{location_id}`
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsAppGatewaysCreate
+ */
++ (instancetype)queryWithObject:(GTLRBeyondCorp_AppGateway *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single AppGateway.
+ *
+ *  Method: beyondcorp.projects.locations.appGateways.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsAppGatewaysDelete : GTLRBeyondCorpQuery
+
+/**
+ *  Required. BeyondCorp AppGateway name using the form:
+ *  `projects/{project_id}/locations/{location_id}/appGateways/{app_gateway_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and t he request
+ *  times out. If you make the request again with the same request ID, the
+ *  server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments. The request ID must be a
+ *  valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set, validates request by executing a dry-run which would not
+ *  alter the resource in any way.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleLongrunningOperation.
+ *
+ *  Deletes a single AppGateway.
+ *
+ *  @param name Required. BeyondCorp AppGateway name using the form:
+ *    `projects/{project_id}/locations/{location_id}/appGateways/{app_gateway_id}`
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsAppGatewaysDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single AppGateway.
+ *
+ *  Method: beyondcorp.projects.locations.appGateways.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsAppGatewaysGet : GTLRBeyondCorpQuery
+
+/**
+ *  Required. BeyondCorp AppGateway name using the form:
+ *  `projects/{project_id}/locations/{location_id}/appGateways/{app_gateway_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_AppGateway.
+ *
+ *  Gets details of a single AppGateway.
+ *
+ *  @param name Required. BeyondCorp AppGateway name using the form:
+ *    `projects/{project_id}/locations/{location_id}/appGateways/{app_gateway_id}`
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsAppGatewaysGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -348,6 +1155,65 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRBeyondCorpQuery_ProjectsLocationsAppGatewaysGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists AppGateways in a given project and location.
+ *
+ *  Method: beyondcorp.projects.locations.appGateways.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsAppGatewaysList : GTLRBeyondCorpQuery
+
+/** Optional. A filter specifying constraints of a list operation. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specifies the ordering of results. See [Sorting
+ *  order](https://cloud.google.com/apis/design/design_patterns#sorting_order)
+ *  for more information.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of items to return. If not specified, a default
+ *  value of 50 will be used by the service. Regardless of the page_size value,
+ *  the response may include a partial list and a caller should only rely on
+ *  response's next_page_token to determine if there are more instances left to
+ *  be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value returned from a previous
+ *  ListAppGatewaysRequest, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the AppGateway location using the form:
+ *  `projects/{project_id}/locations/{location_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_ListAppGatewaysResponse.
+ *
+ *  Lists AppGateways in a given project and location.
+ *
+ *  @param parent Required. The resource name of the AppGateway location using
+ *    the form: `projects/{project_id}/locations/{location_id}`
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsAppGatewaysList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -436,6 +1302,137 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new ClientConnectorService in a given project and location.
+ *
+ *  Method: beyondcorp.projects.locations.clientConnectorServices.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsClientConnectorServicesCreate : GTLRBeyondCorpQuery
+
+/**
+ *  Optional. User-settable client connector service resource ID. * Must start
+ *  with a letter. * Must contain between 4-63 characters from `/a-z-/`. * Must
+ *  end with a number or a letter. A random system generated name will be
+ *  assigned if not specified by the user.
+ */
+@property(nonatomic, copy, nullable) NSString *clientConnectorServiceId;
+
+/** Required. Value for parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and t he request
+ *  times out. If you make the request again with the same request ID, the
+ *  server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments. The request ID must be a
+ *  valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set, validates request by executing a dry-run which would not
+ *  alter the resource in any way.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleLongrunningOperation.
+ *
+ *  Creates a new ClientConnectorService in a given project and location.
+ *
+ *  @param object The @c GTLRBeyondCorp_ClientConnectorService to include in the
+ *    query.
+ *  @param parent Required. Value for parent.
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsClientConnectorServicesCreate
+ */
++ (instancetype)queryWithObject:(GTLRBeyondCorp_ClientConnectorService *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single ClientConnectorService.
+ *
+ *  Method: beyondcorp.projects.locations.clientConnectorServices.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsClientConnectorServicesDelete : GTLRBeyondCorpQuery
+
+/** Required. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and t he request
+ *  times out. If you make the request again with the same request ID, the
+ *  server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments. The request ID must be a
+ *  valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set, validates request by executing a dry-run which would not
+ *  alter the resource in any way.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleLongrunningOperation.
+ *
+ *  Deletes a single ClientConnectorService.
+ *
+ *  @param name Required. Name of the resource.
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsClientConnectorServicesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single ClientConnectorService.
+ *
+ *  Method: beyondcorp.projects.locations.clientConnectorServices.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsClientConnectorServicesGet : GTLRBeyondCorpQuery
+
+/** Required. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_ClientConnectorService.
+ *
+ *  Gets details of a single ClientConnectorService.
+ *
+ *  @param name Required. Name of the resource.
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsClientConnectorServicesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -481,6 +1478,118 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRBeyondCorpQuery_ProjectsLocationsClientConnectorServicesGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists ClientConnectorServices in a given project and location.
+ *
+ *  Method: beyondcorp.projects.locations.clientConnectorServices.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsClientConnectorServicesList : GTLRBeyondCorpQuery
+
+/** Optional. Filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent value for ListClientConnectorServicesRequest. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_ListClientConnectorServicesResponse.
+ *
+ *  Lists ClientConnectorServices in a given project and location.
+ *
+ *  @param parent Required. Parent value for ListClientConnectorServicesRequest.
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsClientConnectorServicesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single ClientConnectorService.
+ *
+ *  Method: beyondcorp.projects.locations.clientConnectorServices.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsClientConnectorServicesPatch : GTLRBeyondCorpQuery
+
+/** Optional. If set as true, will create the resource if it is not found. */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/** Required. Name of resource. The name is ignored during creation. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and t he request
+ *  times out. If you make the request again with the same request ID, the
+ *  server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments. The request ID must be a
+ *  valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  ClientConnectorService resource by the update. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field will
+ *  be overwritten if it is in the mask. If the user does not provide a mask
+ *  then all fields will be overwritten. Mutable fields: display_name,
+ *  ingress.config.destination_routes.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. If set, validates request by executing a dry-run which would not
+ *  alter the resource in any way.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleLongrunningOperation.
+ *
+ *  Updates the parameters of a single ClientConnectorService.
+ *
+ *  @param object The @c GTLRBeyondCorp_ClientConnectorService to include in the
+ *    query.
+ *  @param name Required. Name of resource. The name is ignored during creation.
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsClientConnectorServicesPatch
+ */
++ (instancetype)queryWithObject:(GTLRBeyondCorp_ClientConnectorService *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -569,6 +1678,135 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new ClientGateway in a given project and location.
+ *
+ *  Method: beyondcorp.projects.locations.clientGateways.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsClientGatewaysCreate : GTLRBeyondCorpQuery
+
+/**
+ *  Optional. User-settable client gateway resource ID. * Must start with a
+ *  letter. * Must contain between 4-63 characters from `/a-z-/`. * Must end
+ *  with a number or a letter.
+ */
+@property(nonatomic, copy, nullable) NSString *clientGatewayId;
+
+/** Required. Value for parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and t he request
+ *  times out. If you make the request again with the same request ID, the
+ *  server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments. The request ID must be a
+ *  valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set, validates request by executing a dry-run which would not
+ *  alter the resource in any way.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleLongrunningOperation.
+ *
+ *  Creates a new ClientGateway in a given project and location.
+ *
+ *  @param object The @c GTLRBeyondCorp_ClientGateway to include in the query.
+ *  @param parent Required. Value for parent.
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsClientGatewaysCreate
+ */
++ (instancetype)queryWithObject:(GTLRBeyondCorp_ClientGateway *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single ClientGateway.
+ *
+ *  Method: beyondcorp.projects.locations.clientGateways.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsClientGatewaysDelete : GTLRBeyondCorpQuery
+
+/** Required. Name of the resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and t he request
+ *  times out. If you make the request again with the same request ID, the
+ *  server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments. The request ID must be a
+ *  valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set, validates request by executing a dry-run which would not
+ *  alter the resource in any way.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_GoogleLongrunningOperation.
+ *
+ *  Deletes a single ClientGateway.
+ *
+ *  @param name Required. Name of the resource
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsClientGatewaysDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single ClientGateway.
+ *
+ *  Method: beyondcorp.projects.locations.clientGateways.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsClientGatewaysGet : GTLRBeyondCorpQuery
+
+/** Required. Name of the resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_ClientGateway.
+ *
+ *  Gets details of a single ClientGateway.
+ *
+ *  @param name Required. Name of the resource
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsClientGatewaysGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -614,6 +1852,53 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRBeyondCorpQuery_ProjectsLocationsClientGatewaysGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists ClientGateways in a given project and location.
+ *
+ *  Method: beyondcorp.projects.locations.clientGateways.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBeyondCorpCloudPlatform
+ */
+@interface GTLRBeyondCorpQuery_ProjectsLocationsClientGatewaysList : GTLRBeyondCorpQuery
+
+/** Optional. Filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent value for ListClientGatewaysRequest. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBeyondCorp_ListClientGatewaysResponse.
+ *
+ *  Lists ClientGateways in a given project and location.
+ *
+ *  @param parent Required. Parent value for ListClientGatewaysRequest.
+ *
+ *  @return GTLRBeyondCorpQuery_ProjectsLocationsClientGatewaysList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

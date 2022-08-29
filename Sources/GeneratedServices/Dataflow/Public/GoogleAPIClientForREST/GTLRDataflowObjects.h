@@ -56,7 +56,10 @@
 @class GTLRDataflow_FloatingPointList;
 @class GTLRDataflow_FloatingPointMean;
 @class GTLRDataflow_Histogram;
+@class GTLRDataflow_HotKeyDebuggingInfo;
+@class GTLRDataflow_HotKeyDebuggingInfo_DetectedHotKeys;
 @class GTLRDataflow_HotKeyDetection;
+@class GTLRDataflow_HotKeyInfo;
 @class GTLRDataflow_InstructionInput;
 @class GTLRDataflow_InstructionOutput;
 @class GTLRDataflow_InstructionOutput_Codec;
@@ -154,6 +157,11 @@
 @class GTLRDataflow_Status_Details_Item;
 @class GTLRDataflow_Step;
 @class GTLRDataflow_Step_Properties;
+@class GTLRDataflow_StragglerDebuggingInfo;
+@class GTLRDataflow_StragglerInfo;
+@class GTLRDataflow_StragglerInfo_Causes;
+@class GTLRDataflow_StragglerSummary;
+@class GTLRDataflow_StragglerSummary_StragglerCauseCount;
 @class GTLRDataflow_StreamingApplianceSnapshotConfig;
 @class GTLRDataflow_StreamingComputationConfig;
 @class GTLRDataflow_StreamingComputationConfig_TransformUserNameToStateFamily;
@@ -1222,6 +1230,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfigurat
 // ----------------------------------------------------------------------------
 // GTLRDataflow_SDKInfo.language
 
+/**
+ *  Go.
+ *
+ *  Value: "GO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SDKInfo_Language_Go;
 /**
  *  Java.
  *
@@ -3054,6 +3068,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, strong, nullable) NSNumber *dumpHeapOnOom;
 
 /**
+ *  If true serial port logging will be enabled for the launcher VM.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableLauncherVmSerialPortLogging;
+
+/**
  *  Whether to enable Streaming Engine for the job.
  *
  *  Uses NSNumber of boolValue.
@@ -3345,6 +3366,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
+ *  Information useful for debugging a hot key detection.
+ */
+@interface GTLRDataflow_HotKeyDebuggingInfo : GTLRObject
+
+/**
+ *  Debugging information for each detected hot key. Keyed by a hash of the key.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_HotKeyDebuggingInfo_DetectedHotKeys *detectedHotKeys;
+
+@end
+
+
+/**
+ *  Debugging information for each detected hot key. Keyed by a hash of the key.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDataflow_HotKeyInfo. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataflow_HotKeyDebuggingInfo_DetectedHotKeys : GTLRObject
+@end
+
+
+/**
  *  Proto describing a hot key detected on a given WorkItem.
  */
 @interface GTLRDataflow_HotKeyDetection : GTLRObject
@@ -3360,6 +3406,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /** User-provided name of the step that contains this hot key. */
 @property(nonatomic, copy, nullable) NSString *userStepName;
+
+@end
+
+
+/**
+ *  Information about a hot key.
+ */
+@interface GTLRDataflow_HotKeyInfo : GTLRObject
+
+/** The age of the hot key measured from when it was first detected. */
+@property(nonatomic, strong, nullable) GTLRDuration *hotKeyAge;
+
+/**
+ *  A detected hot key that is causing limited parallelism. This field will be
+ *  populated only if the following flag is set to true:
+ *  "--enable_hot_key_logging".
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  If true, then the above key is truncated and cannot be deserialized. This
+ *  occurs if the key above is populated and the key size is >5MB.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *keyTruncated;
 
 @end
 
@@ -5491,6 +5563,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  Required. The SDK Language.
  *
  *  Likely values:
+ *    @arg @c kGTLRDataflow_SDKInfo_Language_Go Go. (Value: "GO")
  *    @arg @c kGTLRDataflow_SDKInfo_Language_Java Java. (Value: "JAVA")
  *    @arg @c kGTLRDataflow_SDKInfo_Language_Python Python. (Value: "PYTHON")
  *    @arg @c kGTLRDataflow_SDKInfo_Language_Unknown UNKNOWN Language. (Value:
@@ -6327,6 +6400,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/** Straggler summary for this stage. */
+@property(nonatomic, strong, nullable) GTLRDataflow_StragglerSummary *stragglerSummary;
+
 @end
 
 
@@ -6439,6 +6515,85 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDataflow_Step_Properties : GTLRObject
+@end
+
+
+/**
+ *  Information useful for debugging a straggler. Each type will provide
+ *  specialized debugging information relevant for a particular cause. The
+ *  StragglerDebuggingInfo will be 1:1 mapping to the StragglerCause enum.
+ */
+@interface GTLRDataflow_StragglerDebuggingInfo : GTLRObject
+
+/** Hot key debugging details. */
+@property(nonatomic, strong, nullable) GTLRDataflow_HotKeyDebuggingInfo *hotKey;
+
+@end
+
+
+/**
+ *  Information useful for straggler identification and debugging.
+ */
+@interface GTLRDataflow_StragglerInfo : GTLRObject
+
+/**
+ *  The straggler causes, keyed by the string representation of the
+ *  StragglerCause enum and contains specialized debugging information for each
+ *  straggler cause.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_StragglerInfo_Causes *causes;
+
+/** The time when the work item attempt became a straggler. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  The straggler causes, keyed by the string representation of the
+ *  StragglerCause enum and contains specialized debugging information for each
+ *  straggler cause.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDataflow_StragglerDebuggingInfo. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataflow_StragglerInfo_Causes : GTLRObject
+@end
+
+
+/**
+ *  Summarized straggler identification details.
+ */
+@interface GTLRDataflow_StragglerSummary : GTLRObject
+
+/**
+ *  Aggregated counts of straggler causes, keyed by the string representation of
+ *  the StragglerCause enum.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_StragglerSummary_StragglerCauseCount *stragglerCauseCount;
+
+/**
+ *  The total count of stragglers.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalStragglerCount;
+
+@end
+
+
+/**
+ *  Aggregated counts of straggler causes, keyed by the string representation of
+ *  the StragglerCause enum.
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of longLongValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataflow_StragglerSummary_StragglerCauseCount : GTLRObject
 @end
 
 
@@ -7640,6 +7795,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *        "EXECUTION_STATE_UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/** Information about straggler detections for this work item. */
+@property(nonatomic, strong, nullable) GTLRDataflow_StragglerInfo *stragglerInfo;
 
 /** Name of this work item. */
 @property(nonatomic, copy, nullable) NSString *taskId;

@@ -48,6 +48,21 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Sy
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1CpuInfo_Architecture_ArchitectureUnspecified = @"ARCHITECTURE_UNSPECIFIED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1CpuInfo_Architecture_X64 = @"X64";
 
+// GTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport.aueMonth
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_April = @"APRIL";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_August = @"AUGUST";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_December = @"DECEMBER";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_February = @"FEBRUARY";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_January = @"JANUARY";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_July = @"JULY";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_June = @"JUNE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_March = @"MARCH";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_May = @"MAY";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_MonthUnspecified = @"MONTH_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_November = @"NOVEMBER";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_October = @"OCTOBER";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_September = @"SEPTEMBER";
+
 // GTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData.problem
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData_Problem_FailedDnsResolutions = @"FAILED_DNS_RESOLUTIONS";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData_Problem_FailedHttpsRequests = @"FAILED_HTTPS_REQUESTS";
@@ -310,6 +325,35 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse
+@dynamic deviceAueCountReports;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deviceAueCountReports" : [GTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse
+@dynamic noRecentPolicySyncCount, noRecentUserActivityCount,
+         osVersionNotCompliantCount, pendingUpdate, unsupportedPolicyCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1CountChromeVersionsResponse
 //
 
@@ -398,6 +442,16 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1Device
 @dynamic deviceId, machine;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport
+@dynamic aueMonth, aueYear, count, expired, model;
 @end
 
 

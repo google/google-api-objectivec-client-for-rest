@@ -31,6 +31,7 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1CpuStatusReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1CpuTemperatureInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1Device;
+@class GTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1DiskInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1DisplayInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1GraphicsAdapterInfo;
@@ -222,6 +223,88 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "X64"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1CpuInfo_Architecture_X64;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport.aueMonth
+
+/**
+ *  The month of April.
+ *
+ *  Value: "APRIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_April;
+/**
+ *  The month of August.
+ *
+ *  Value: "AUGUST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_August;
+/**
+ *  The month of December.
+ *
+ *  Value: "DECEMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_December;
+/**
+ *  The month of February.
+ *
+ *  Value: "FEBRUARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_February;
+/**
+ *  The month of January.
+ *
+ *  Value: "JANUARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_January;
+/**
+ *  The month of July.
+ *
+ *  Value: "JULY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_July;
+/**
+ *  The month of June.
+ *
+ *  Value: "JUNE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_June;
+/**
+ *  The month of March.
+ *
+ *  Value: "MARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_March;
+/**
+ *  The month of May.
+ *
+ *  Value: "MAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_May;
+/**
+ *  The unspecified month.
+ *
+ *  Value: "MONTH_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_MonthUnspecified;
+/**
+ *  The month of November.
+ *
+ *  Value: "NOVEMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_November;
+/**
+ *  The month of October.
+ *
+ *  Value: "OCTOBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_October;
+/**
+ *  The month of September.
+ *
+ *  Value: "SEPTEMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_September;
 
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1HttpsLatencyRoutineData.problem
@@ -1190,6 +1273,66 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Response containing a list of devices expiring in each month of a selected
+ *  time frame. Counts are grouped by model and Auto Update Expiration date.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse : GTLRObject
+
+/**
+ *  The list of reports sorted by auto update expiration date in ascending
+ *  order.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport *> *deviceAueCountReports;
+
+@end
+
+
+/**
+ *  Response containing counts for devices that need attention.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse : GTLRObject
+
+/**
+ *  Number of ChromeOS devices have not synced policies in the past 28 days.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noRecentPolicySyncCount;
+
+/**
+ *  Number of ChromeOS devices that have not seen any user activity in the past
+ *  28 days.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noRecentUserActivityCount;
+
+/**
+ *  Number of devices whose OS version is not compliant.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *osVersionNotCompliantCount;
+
+/**
+ *  Number of devices that are pending an OS update.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pendingUpdate;
+
+/**
+ *  Number of devices that are unable to apply a policy due to an OS version
+ *  mismatch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unsupportedPolicyCount;
+
+@end
+
+
+/**
  *  Response containing requested browser versions details and counts.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1356,6 +1499,74 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** Output only. The name of the machine within its local network. */
 @property(nonatomic, copy, nullable) NSString *machine;
+
+@end
+
+
+/**
+ *  Report for CountChromeDevicesPerAueDateResponse, contains the count of
+ *  devices of a specific model and auto update expiration range.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport : GTLRObject
+
+/**
+ *  Enum value of month corresponding to the auto update expiration date in UTC
+ *  time zone. If the device is already expired, this field is empty.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_April
+ *        The month of April. (Value: "APRIL")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_August
+ *        The month of August. (Value: "AUGUST")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_December
+ *        The month of December. (Value: "DECEMBER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_February
+ *        The month of February. (Value: "FEBRUARY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_January
+ *        The month of January. (Value: "JANUARY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_July
+ *        The month of July. (Value: "JULY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_June
+ *        The month of June. (Value: "JUNE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_March
+ *        The month of March. (Value: "MARCH")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_May
+ *        The month of May. (Value: "MAY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_MonthUnspecified
+ *        The unspecified month. (Value: "MONTH_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_November
+ *        The month of November. (Value: "NOVEMBER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_October
+ *        The month of October. (Value: "OCTOBER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport_AueMonth_September
+ *        The month of September. (Value: "SEPTEMBER")
+ */
+@property(nonatomic, copy, nullable) NSString *aueMonth;
+
+/**
+ *  Int value of year corresponding to the Auto Update Expiration date in UTC
+ *  time zone. If the device is already expired, this field is empty.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aueYear;
+
+/**
+ *  Count of devices of this model.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  Boolean value for whether or not the device has already expired.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *expired;
+
+/** Public model name of the devices. */
+@property(nonatomic, copy, nullable) NSString *model;
 
 @end
 
@@ -1912,7 +2123,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 @property(nonatomic, copy, nullable) NSString *lanIpAddress;
 
 /**
- *  Output only. Receiving bit rate measured in megabytes per second.
+ *  Output only. Receiving bit rate measured in Megabits per second.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1932,7 +2143,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 @property(nonatomic, strong, nullable) NSNumber *signalStrengthDbm;
 
 /**
- *  Output only. Transmission bit rate measured in megabytes per second.
+ *  Output only. Transmission bit rate measured in Megabits per second.
  *
  *  Uses NSNumber of longLongValue.
  */
