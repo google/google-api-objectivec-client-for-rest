@@ -70,6 +70,8 @@
 // Simple authorizer class for testing
 //
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
 @interface GTLRTestAuthorizer : NSObject <GTMFetcherAuthorizationProtocol>
 // The value string will be added to the authorization header, like
 // Authorization: Bearer value
@@ -78,6 +80,7 @@
 @property(atomic, copy) NSString *value;
 @property(atomic, retain) NSError *error;
 @end
+#pragma clang diagnostic pop
 
 // GTLRTestLifetimeObject fulfills the expectation when the provided object deallocates.
 //
@@ -486,7 +489,10 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   // The fetcher releases its authorizer upon completion, so to test the request,
   // we'll use the service's authorizer.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
   id<GTMFetcherAuthorizationProtocol> authorizer = service.authorizer;
+#pragma clang diagnostic pop
   XCTAssertNotNil(authorizer);
   XCTAssert([authorizer isAuthorizedRequest:fetcherRequest],
             @"%@", fetcherRequest.allHTTPHeaderFields);
@@ -628,7 +634,10 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
 
   // The fetcher releases its authorizer upon completion, so to test the request,
   // we'll use the service's authorizer.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
   id<GTMFetcherAuthorizationProtocol> authorizer = service.authorizer;
+#pragma clang diagnostic pop
   XCTAssertNotNil(authorizer);
   XCTAssert([authorizer isAuthorizedRequest:fetcherRequest],
             @"%@", fetcherRequest.allHTTPHeaderFields);
@@ -922,7 +931,10 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   XCTAssert(queryTicket.hasCalledCallback);
 
   // Authorization should have been skipped.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
   id<GTMFetcherAuthorizationProtocol> authorizer = service.authorizer;
+#pragma clang diagnostic pop
   NSURLRequest *fetcherRequest = queryTicket.objectFetcher.request;
   XCTAssertNotNil(authorizer);
   XCTAssertFalse([authorizer isAuthorizedRequest:fetcherRequest],
@@ -1678,7 +1690,10 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   XCTAssert([part2BodyStr hasPrefix:expectedBodyGet], @"%@", part2BodyStr);
 
   // Verify authorization.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
   id<GTMFetcherAuthorizationProtocol> authorizer = service.authorizer;
+#pragma clang diagnostic pop
   XCTAssertNotNil(authorizer);
   bool didAuthorize = [authorizer isAuthorizedRequest:fetcherRequest];
   XCTAssertEqual(didAuthorize, !shouldSkipAuthorization, @"%@", fetcherRequest.allHTTPHeaderFields);
@@ -3516,6 +3531,16 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   return str;
 }
 
+- (void)authorizeRequest:(nullable NSMutableURLRequest *)request
+       completionHandler:(void (^)(NSError *_Nullable error))handler {
+  NSString *str = [self authorizationValue];
+  [request setValue:str forHTTPHeaderField:@"Authorization"];
+
+  handler(_error);
+}
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 - (void)authorizeRequest:(NSMutableURLRequest *)request
                 delegate:(id)delegate
        didFinishSelector:(SEL)sel {
@@ -3532,6 +3557,7 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   [invocation setArgument:&_error atIndex:4];
   [invocation invoke];
 }
+#pragma clang diagnostic pop
 
 - (void)stopAuthorization {
 }

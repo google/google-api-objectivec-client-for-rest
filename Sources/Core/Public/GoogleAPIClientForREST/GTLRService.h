@@ -295,12 +295,18 @@ typedef void (^GTLRServiceTestBlock)(GTLRServiceTicket *testTicket,
  */
 - (void)setMainBundleIDRestrictionWithAPIKey:(NSString *)apiKey;
 
+// Avoid the warnings for GTMFetcherAuthorizationProtocol in newer
+// GTMSessionFetcher headers. Updating requires a new minimum, and
+// holding of on raising it that current for the moment.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
 /**
  *  An authorizer adds user authentication headers to the request as needed.
  *
  *  This may be overridden on individual queries with the @c shouldSkipAuthorization property.
  */
 @property(nonatomic, retain, nullable) id <GTMFetcherAuthorizationProtocol> authorizer;
+#pragma clang diagnostic pop
 
 /**
  *  Enable fetcher retry support.  See the explanation of retry support in @c GTMSessionFetcher.h
