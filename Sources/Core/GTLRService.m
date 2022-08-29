@@ -129,7 +129,10 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 // Internal properties copied from the service.
 @property(nonatomic, assign) BOOL allowInsecureQueries;
 @property(nonatomic, strong) GTMSessionFetcherService *fetcherService;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
 @property(nonatomic, strong, nullable) id<GTMFetcherAuthorizationProtocol> authorizer;
+#pragma clang diagnostic pop
 
 // Internal properties copied from serviceExecutionParameters.
 @property(nonatomic, getter=isRetryEnabled) BOOL retryEnabled;
@@ -2286,6 +2289,8 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
   return props;
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
 - (void)setAuthorizer:(id <GTMFetcherAuthorizationProtocol>)authorizer {
   self.fetcherService.authorizer = authorizer;
 }
@@ -2293,6 +2298,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 - (id <GTMFetcherAuthorizationProtocol>)authorizer {
   return self.fetcherService.authorizer;
 }
+#pragma clang diagnostic pop
 
 + (NSUInteger)defaultServiceUploadChunkSize {
   // Subclasses may override this method.
@@ -2531,7 +2537,10 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
   }
 
   NSString *authorizerInfo = @"";
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
   id <GTMFetcherAuthorizationProtocol> authorizer = self.objectFetcher.authorizer;
+#pragma clang diagnostic pop
   if (authorizer != nil) {
     authorizerInfo = [NSString stringWithFormat:@" authorizer:%@", authorizer];
   }
