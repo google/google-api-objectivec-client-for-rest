@@ -1375,6 +1375,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_AvailabilityType_SqlAv
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_AvailabilityType_Zonal;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_Settings.connectorEnforcement
+
+/**
+ *  The requirement for Cloud SQL connectors is unknown.
+ *
+ *  Value: "CONNECTOR_ENFORCEMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_ConnectorEnforcement_ConnectorEnforcementUnspecified;
+/**
+ *  Do not require Cloud SQL connectors.
+ *
+ *  Value: "NOT_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_ConnectorEnforcement_NotRequired;
+/**
+ *  Require all connections to use Cloud SQL connectors, including the Cloud SQL
+ *  Auth Proxy and Cloud SQL Java, Python, and Go connectors. Note: This
+ *  disables all existing authorized networks.
+ *
+ *  Value: "REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_ConnectorEnforcement_Required;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Settings.dataDiskType
 
 /**
@@ -1996,8 +2020,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *status;
 
 /**
- *  The type of this run; can be either "AUTOMATED" or "ON_DEMAND". This field
- *  defaults to "ON_DEMAND" and is ignored, when specified for insert requests.
+ *  The type of this run; can be either "AUTOMATED" or "ON_DEMAND" or "FINAL".
+ *  This field defaults to "ON_DEMAND" and is ignored, when specified for insert
+ *  requests.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_BackupRun_Type_Automated The backup schedule
@@ -2527,7 +2552,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /** The replicas of the instance. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *replicaNames;
 
-/** Initial root password. Use only on creation. */
+/**
+ *  Initial root password. Use only on creation. You must set root passwords
+ *  before you can connect to PostgreSQL instances.
+ */
 @property(nonatomic, copy, nullable) NSString *rootPassword;
 
 /**
@@ -4193,6 +4221,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *collation;
 
 /**
+ *  Specifies if connections must use Cloud SQL connectors. Option values
+ *  include the following: * `NOT_REQUIRED`: Cloud SQL instances can be
+ *  connected without Cloud SQL Connectors. * `REQUIRED`: Only allow connections
+ *  that use Cloud SQL Connectors. Note that using REQUIRED disables all
+ *  existing authorized networks. If this field is not specified when creating a
+ *  new instance, NOT_REQUIRED is used. If this field is not specified when
+ *  patching or updating an existing instance, it is left unchanged in the
+ *  instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_Settings_ConnectorEnforcement_ConnectorEnforcementUnspecified
+ *        The requirement for Cloud SQL connectors is unknown. (Value:
+ *        "CONNECTOR_ENFORCEMENT_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_Settings_ConnectorEnforcement_NotRequired Do not
+ *        require Cloud SQL connectors. (Value: "NOT_REQUIRED")
+ *    @arg @c kGTLRSQLAdmin_Settings_ConnectorEnforcement_Required Require all
+ *        connections to use Cloud SQL connectors, including the Cloud SQL Auth
+ *        Proxy and Cloud SQL Java, Python, and Go connectors. Note: This
+ *        disables all existing authorized networks. (Value: "REQUIRED")
+ */
+@property(nonatomic, copy, nullable) NSString *connectorEnforcement;
+
+/**
  *  Configuration specific to read replica instances. Indicates whether database
  *  flags for crash-safe replication are enabled. This property was only
  *  applicable to First Generation instances.
@@ -4236,6 +4287,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        "SQL_DATA_DISK_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *dataDiskType;
+
+/**
+ *  Configuration to protect against accidental instance deletion.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletionProtectionEnabled;
 
 /** Deny maintenance periods */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_DenyMaintenancePeriod *> *denyMaintenancePeriods;

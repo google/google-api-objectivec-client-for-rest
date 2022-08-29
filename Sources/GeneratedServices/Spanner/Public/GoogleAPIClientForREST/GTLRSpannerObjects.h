@@ -33,6 +33,7 @@
 @class GTLRSpanner_ExecuteSqlRequest_ParamTypes;
 @class GTLRSpanner_Expr;
 @class GTLRSpanner_Field;
+@class GTLRSpanner_FreeInstanceMetadata;
 @class GTLRSpanner_GetPolicyOptions;
 @class GTLRSpanner_IndexedHotKey;
 @class GTLRSpanner_IndexedHotKey_SparseHotKeys;
@@ -385,6 +386,55 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_Plan
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_Profile;
 
 // ----------------------------------------------------------------------------
+// GTLRSpanner_FreeInstanceMetadata.expireBehavior
+
+/**
+ *  Not specified.
+ *
+ *  Value: "EXPIRE_BEHAVIOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_FreeInstanceMetadata_ExpireBehavior_ExpireBehaviorUnspecified;
+/**
+ *  When the free instance expires, upgrade the instance to a provisioned
+ *  instance.
+ *
+ *  Value: "FREE_TO_PROVISIONED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_FreeInstanceMetadata_ExpireBehavior_FreeToProvisioned;
+/**
+ *  When the free instance expires, disable the instance, and delete it after
+ *  the grace period passes if it has not been upgraded.
+ *
+ *  Value: "REMOVE_AFTER_GRACE_PERIOD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_FreeInstanceMetadata_ExpireBehavior_RemoveAfterGracePeriod;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_Instance.instanceType
+
+/**
+ *  Free instances provide no guarantee for dedicated resources, [node_count,
+ *  processing_units] should be 0. They come with stricter usage limits and
+ *  limited support.
+ *
+ *  Value: "FREE_INSTANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Instance_InstanceType_FreeInstance;
+/**
+ *  Not specified.
+ *
+ *  Value: "INSTANCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Instance_InstanceType_InstanceTypeUnspecified;
+/**
+ *  Provisioned instances have dedicated resources, standard usage limits and
+ *  support.
+ *
+ *  Value: "PROVISIONED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Instance_InstanceType_Provisioned;
+
+// ----------------------------------------------------------------------------
 // GTLRSpanner_Instance.state
 
 /**
@@ -407,6 +457,43 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Instance_State_Ready;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Instance_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_InstanceConfig.freeInstanceAvailability
+
+/**
+ *  Indicates that free instances are available to be created in this instance
+ *  config.
+ *
+ *  Value: "AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_Available;
+/**
+ *  Indicates that free instances are currently not available to be created in
+ *  this instance config.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_Disabled;
+/**
+ *  Not specified.
+ *
+ *  Value: "FREE_INSTANCE_AVAILABILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_FreeInstanceAvailabilityUnspecified;
+/**
+ *  Indicates that additional free instances cannot be created in this instance
+ *  config because the project has reached its limit of free instances.
+ *
+ *  Value: "QUOTA_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_QuotaExceeded;
+/**
+ *  Indicates that free instances are not supported in this instance config.
+ *
+ *  Value: "UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_Unsupported;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_Metric.aggregation
@@ -931,11 +1018,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  anyone who is authenticated with a Google account or a service account. *
  *  `user:{emailid}`: An email address that represents a specific Google
  *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
- *  address that represents a Google group. For example, `admins\@example.com`.
- *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
+ *  An email address that represents a Google service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
+ *  identifier for a [Kubernetes service
+ *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
+ *  `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
+ *  An email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -1423,12 +1515,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  Output only. For databases that are using customer managed encryption, this
- *  field contains the encryption information for the database, such as
- *  encryption state and the Cloud KMS key versions that are in use. For
- *  databases that are using Google default or other types of encryption, this
- *  field is empty. This field is propagated lazily from the backend. There
- *  might be a delay from when a key version is being used and when it appears
- *  in this field.
+ *  field contains the encryption information for the database, such as all
+ *  Cloud KMS key versions that are in use. The `encryption_status' field inside
+ *  of each `EncryptionInfo` is not populated. For databases that are using
+ *  Google default or other types of encryption, this field is empty. This field
+ *  is propagated lazily from the backend. There might be a delay from when a
+ *  key version is being used and when it appears in this field.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_EncryptionInfo *> *encryptionInfo;
 
@@ -1484,9 +1576,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  Required. The name of the database role. Values are of the form
- *  `projects//instances//databases//databaseRoles/ {role}`, where `` is as
- *  specified in the `CREATE ROLE` DDL statement. This name can be passed to
- *  Get/Set IAMPolicy methods to identify the database role.
+ *  `projects//instances//databases//databaseRoles/ `, where `` is as specified
+ *  in the `CREATE ROLE` DDL statement.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1926,6 +2017,47 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
+ *  Free instance specific metadata that is kept even after an instance has been
+ *  upgraded for tracking purposes.
+ */
+@interface GTLRSpanner_FreeInstanceMetadata : GTLRObject
+
+/**
+ *  Specifies the expiration behavior of a free instance. The default of
+ *  ExpireBehavior is `REMOVE_AFTER_GRACE_PERIOD`. This can be modified during
+ *  or after creation, and before expiration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_FreeInstanceMetadata_ExpireBehavior_ExpireBehaviorUnspecified
+ *        Not specified. (Value: "EXPIRE_BEHAVIOR_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_FreeInstanceMetadata_ExpireBehavior_FreeToProvisioned
+ *        When the free instance expires, upgrade the instance to a provisioned
+ *        instance. (Value: "FREE_TO_PROVISIONED")
+ *    @arg @c kGTLRSpanner_FreeInstanceMetadata_ExpireBehavior_RemoveAfterGracePeriod
+ *        When the free instance expires, disable the instance, and delete it
+ *        after the grace period passes if it has not been upgraded. (Value:
+ *        "REMOVE_AFTER_GRACE_PERIOD")
+ */
+@property(nonatomic, copy, nullable) NSString *expireBehavior;
+
+/**
+ *  Output only. Timestamp after which the instance will either be upgraded or
+ *  scheduled for deletion after a grace period. ExpireBehavior is used to
+ *  choose between upgrading or scheduling the free instance for deletion. This
+ *  timestamp is set during the creation of a free instance.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Output only. If present, the timestamp at which the free instance was
+ *  upgraded to a provisioned instance.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *upgradeTime;
+
+@end
+
+
+/**
  *  The response for GetDatabaseDdl.
  */
 @interface GTLRSpanner_GetDatabaseDdlResponse : GTLRObject
@@ -2061,6 +2193,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 /** Deprecated. This field is not populated. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *endpointUris;
 
+/** Free instance metadata. Only populated for free instances. */
+@property(nonatomic, strong, nullable) GTLRSpanner_FreeInstanceMetadata *freeInstanceMetadata;
+
+/**
+ *  The `InstanceType` of the current instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_Instance_InstanceType_FreeInstance Free instances
+ *        provide no guarantee for dedicated resources, [node_count,
+ *        processing_units] should be 0. They come with stricter usage limits
+ *        and limited support. (Value: "FREE_INSTANCE")
+ *    @arg @c kGTLRSpanner_Instance_InstanceType_InstanceTypeUnspecified Not
+ *        specified. (Value: "INSTANCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_Instance_InstanceType_Provisioned Provisioned
+ *        instances have dedicated resources, standard usage limits and support.
+ *        (Value: "PROVISIONED")
+ */
+@property(nonatomic, copy, nullable) NSString *instanceType;
+
 /**
  *  Cloud Labels are a flexible and lightweight mechanism for organizing cloud
  *  resources into groups that reflect a customer's organizational needs and
@@ -2168,6 +2319,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /** The name of this instance configuration as it appears in UIs. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Describes whether free instances are available to be created in
+ *  this instance config.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_Available
+ *        Indicates that free instances are available to be created in this
+ *        instance config. (Value: "AVAILABLE")
+ *    @arg @c kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_Disabled
+ *        Indicates that free instances are currently not available to be
+ *        created in this instance config. (Value: "DISABLED")
+ *    @arg @c kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_FreeInstanceAvailabilityUnspecified
+ *        Not specified. (Value: "FREE_INSTANCE_AVAILABILITY_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_QuotaExceeded
+ *        Indicates that additional free instances cannot be created in this
+ *        instance config because the project has reached its limit of free
+ *        instances. (Value: "QUOTA_EXCEEDED")
+ *    @arg @c kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_Unsupported
+ *        Indicates that free instances are not supported in this instance
+ *        config. (Value: "UNSUPPORTED")
+ */
+@property(nonatomic, copy, nullable) NSString *freeInstanceAvailability;
 
 /**
  *  Allowed values of the "default_leader" schema option for databases in
@@ -3073,11 +3247,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  streaming SQL query is yielding a result set whose rows contain a single
  *  string field. The following `PartialResultSet`s might be yielded: {
  *  "metadata": { ... } "values": ["Hello", "W"] "chunked_value": true
- *  "resume_token": "Af65..." } { "values": ["orl"] "chunked_value": true
- *  "resume_token": "Bqp2..." } { "values": ["d"] "resume_token": "Zx1B..." }
- *  This sequence of `PartialResultSet`s encodes two rows, one containing the
- *  field value `"Hello"`, and a second containing the field value `"World" =
- *  "W" + "orl" + "d"`.
+ *  "resume_token": "Af65..." } { "values": ["orl"] "chunked_value": true } {
+ *  "values": ["d"] "resume_token": "Zx1B..." } This sequence of
+ *  `PartialResultSet`s encodes two rows, one containing the field value
+ *  `"Hello"`, and a second containing the field value `"World" = "W" + "orl" +
+ *  "d"`. Not all `PartialResultSet`s contain a `resume_token`. Execution can
+ *  only be resumed from a previously yielded `resume_token`. For the above
+ *  sequence of `PartialResultSet`s, resuming the query with `"resume_token":
+ *  "Af65..."` will yield results from the `PartialResultSet` with value
+ *  `["orl"]`.
  *
  *  Can be any valid JSON type.
  */

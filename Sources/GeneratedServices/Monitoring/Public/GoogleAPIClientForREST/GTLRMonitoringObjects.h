@@ -84,12 +84,14 @@
 @class GTLRMonitoring_Option;
 @class GTLRMonitoring_Option_Value;
 @class GTLRMonitoring_PerformanceThreshold;
+@class GTLRMonitoring_PingConfig;
 @class GTLRMonitoring_Point;
 @class GTLRMonitoring_PointData;
 @class GTLRMonitoring_QueryLanguageCondition;
 @class GTLRMonitoring_Range;
 @class GTLRMonitoring_RequestBasedSli;
 @class GTLRMonitoring_ResourceGroup;
+@class GTLRMonitoring_ResponseStatusCode;
 @class GTLRMonitoring_Service;
 @class GTLRMonitoring_Service_UserLabels;
 @class GTLRMonitoring_ServiceLevelIndicator;
@@ -108,6 +110,7 @@
 @class GTLRMonitoring_Trigger;
 @class GTLRMonitoring_TypedValue;
 @class GTLRMonitoring_UptimeCheckConfig;
+@class GTLRMonitoring_UptimeCheckConfig_UserLabels;
 @class GTLRMonitoring_UptimeCheckIp;
 @class GTLRMonitoring_ValueDescriptor;
 @class GTLRMonitoring_WindowsBasedSli;
@@ -1414,6 +1417,52 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_In
  *  Value: "RESOURCE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_ResourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMonitoring_ResponseStatusCode.statusClass
+
+/**
+ *  The class of status codes between 100 and 199.
+ *
+ *  Value: "STATUS_CLASS_1XX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClass1xx;
+/**
+ *  The class of status codes between 200 and 299.
+ *
+ *  Value: "STATUS_CLASS_2XX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClass2xx;
+/**
+ *  The class of status codes between 300 and 399.
+ *
+ *  Value: "STATUS_CLASS_3XX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClass3xx;
+/**
+ *  The class of status codes between 400 and 499.
+ *
+ *  Value: "STATUS_CLASS_4XX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClass4xx;
+/**
+ *  The class of status codes between 500 and 599.
+ *
+ *  Value: "STATUS_CLASS_5XX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClass5xx;
+/**
+ *  The class of all status codes.
+ *
+ *  Value: "STATUS_CLASS_ANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClassAny;
+/**
+ *  Default value that matches no status codes.
+ *
+ *  Value: "STATUS_CLASS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClassUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_ServiceLevelObjective.calendarPeriod
@@ -3343,6 +3392,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @interface GTLRMonitoring_HttpCheck : GTLRObject
 
 /**
+ *  If present, the check will only pass if the HTTP response status code is in
+ *  this set of status codes. If empty, the HTTP status code will only pass if
+ *  the HTTP status code is 200-299.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_ResponseStatusCode *> *acceptedResponseStatusCodes;
+
+/**
  *  The authentication information. Optional when creating an HTTP check;
  *  defaults to empty.
  */
@@ -3409,6 +3465,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  does not begin with "/", a "/" will be prepended automatically.
  */
 @property(nonatomic, copy, nullable) NSString *path;
+
+/** Contains information needed to add pings to an HTTP check. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_PingConfig *pingConfig;
 
 /**
  *  Optional (defaults to 80 when use_ssl is false, and 443 when use_ssl is
@@ -5255,6 +5314,22 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 
 /**
+ *  Information involved in sending ICMP pings alongside public HTTP/TCP checks.
+ *  For HTTP, the pings are performed for each part of the redirect chain.
+ */
+@interface GTLRMonitoring_PingConfig : GTLRObject
+
+/**
+ *  Number of ICMP pings. A maximum of 3 ICMP pings is currently supported.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pingsCount;
+
+@end
+
+
+/**
  *  A single data point in a time series.
  */
 @interface GTLRMonitoring_Point : GTLRObject
@@ -5476,6 +5551,44 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        Default value (not valid). (Value: "RESOURCE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
+
+@end
+
+
+/**
+ *  A status to accept. Either a status code class like "2xx", or an integer
+ *  status code like "200".
+ */
+@interface GTLRMonitoring_ResponseStatusCode : GTLRObject
+
+/**
+ *  A class of status codes to accept.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClass1xx The
+ *        class of status codes between 100 and 199. (Value: "STATUS_CLASS_1XX")
+ *    @arg @c kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClass2xx The
+ *        class of status codes between 200 and 299. (Value: "STATUS_CLASS_2XX")
+ *    @arg @c kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClass3xx The
+ *        class of status codes between 300 and 399. (Value: "STATUS_CLASS_3XX")
+ *    @arg @c kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClass4xx The
+ *        class of status codes between 400 and 499. (Value: "STATUS_CLASS_4XX")
+ *    @arg @c kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClass5xx The
+ *        class of status codes between 500 and 599. (Value: "STATUS_CLASS_5XX")
+ *    @arg @c kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClassAny The
+ *        class of all status codes. (Value: "STATUS_CLASS_ANY")
+ *    @arg @c kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClassUnspecified
+ *        Default value that matches no status codes. (Value:
+ *        "STATUS_CLASS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *statusClass;
+
+/**
+ *  A status code to accept.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *statusValue;
 
 @end
 
@@ -5784,6 +5897,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  Information required for a TCP Uptime check request.
  */
 @interface GTLRMonitoring_TcpCheck : GTLRObject
+
+/** Contains information needed to add pings to a TCP check. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_PingConfig *pingConfig;
 
 /**
  *  The TCP port on the server against which to run the check. Will be combined
@@ -6193,6 +6309,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  associated with the configuration. The following monitored resource types
  *  are valid for this field: uptime_url, gce_instance, gae_app,
  *  aws_ec2_instance, aws_elb_load_balancer k8s_service servicedirectory_service
+ *  cloud_run_revision
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResource *monitoredResource;
 
@@ -6234,6 +6351,31 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  */
 @property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
+/**
+ *  User-supplied key/value data to be used for organizing and identifying the
+ *  UptimeCheckConfig objects.The field can contain up to 64 entries. Each key
+ *  and value is limited to 63 Unicode characters or 128 bytes, whichever is
+ *  smaller. Labels and values can contain only lowercase letters, numerals,
+ *  underscores, and dashes. Keys must begin with a letter.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_UptimeCheckConfig_UserLabels *userLabels;
+
+@end
+
+
+/**
+ *  User-supplied key/value data to be used for organizing and identifying the
+ *  UptimeCheckConfig objects.The field can contain up to 64 entries. Each key
+ *  and value is limited to 63 Unicode characters or 128 bytes, whichever is
+ *  smaller. Labels and values can contain only lowercase letters, numerals,
+ *  underscores, and dashes. Keys must begin with a letter.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRMonitoring_UptimeCheckConfig_UserLabels : GTLRObject
 @end
 
 

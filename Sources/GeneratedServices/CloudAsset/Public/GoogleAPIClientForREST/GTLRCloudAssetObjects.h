@@ -1223,11 +1223,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  anyone who is authenticated with a Google account or a service account. *
  *  `user:{emailid}`: An email address that represents a specific Google
  *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
- *  address that represents a Google group. For example, `admins\@example.com`.
- *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
+ *  An email address that represents a Google service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
+ *  identifier for a [Kubernetes service
+ *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
+ *  `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
+ *  An email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -4281,7 +4286,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  A result of Resource Search, containing information of a cloud resource.
- *  Next ID: 28
+ *  Next ID: 31
  */
 @interface GTLRCloudAsset_ResourceSearchResult : GTLRObject
 
@@ -4297,7 +4302,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  through free text search. However, you should not consume the field
  *  programically as the field names and values may change as the GCP service
  *  updates to a new incompatible API version. To search against the
- *  `additional_attributes`: * use a free text query to match the attributes
+ *  `additional_attributes`: * Use a free text query to match the attributes
  *  values. Example: to search `additional_attributes = { dnsName: "foobar" }`,
  *  you can issue a query `foobar`.
  */
@@ -4305,7 +4310,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  The type of this resource. Example: `compute.googleapis.com/Disk`. To search
- *  against the `asset_type`: * specify the `asset_type` field in your search
+ *  against the `asset_type`: * Specify the `asset_type` field in your search
  *  request.
  */
 @property(nonatomic, copy, nullable) NSString *assetType;
@@ -4324,7 +4329,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  The create timestamp of this resource, at which the resource was created.
  *  The granularity is in seconds. Timestamp.nanos will always be 0. This field
  *  is available only when the resource's Protobuf contains it. To search
- *  against `create_time`: * use a field query. - value in seconds since unix
+ *  against `create_time`: * Use a field query. - value in seconds since unix
  *  epoch. Example: `createTime > 1609459200` - value in date string. Example:
  *  `createTime > 2021-01-01` - value in date-time string (must be quoted).
  *  Example: `createTime > "2021-01-01T00:00:00"`
@@ -4334,8 +4339,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  One or more paragraphs of text description of this resource. Maximum length
  *  could be up to 1M bytes. This field is available only when the resource's
- *  Protobuf contains it. To search against the `description`: * use a field
- *  query. Example: `description:"important instance"` * use a free text query.
+ *  Protobuf contains it. To search against the `description`: * Use a field
+ *  query. Example: `description:"important instance"` * Use a free text query.
  *  Example: `"important instance"`
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -4344,8 +4349,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  The display name of this resource. This field is available only when the
- *  resource's Protobuf contains it. To search against the `display_name`: * use
- *  a field query. Example: `displayName:"My Instance"` * use a free text query.
+ *  resource's Protobuf contains it. To search against the `display_name`: * Use
+ *  a field query. Example: `displayName:"My Instance"` * Use a free text query.
  *  Example: `"My Instance"`
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -4353,9 +4358,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  The folder(s) that this resource belongs to, in the form of
  *  folders/{FOLDER_NUMBER}. This field is available when the resource belongs
- *  to one or more folders. To search against `folders`: * use a field query.
- *  Example: `folders:(123 OR 456)` * use a free text query. Example: `123` *
- *  specify the `scope` field as this folder in your search request.
+ *  to one or more folders. To search against `folders`: * Use a field query.
+ *  Example: `folders:(123 OR 456)` * Use a free text query. Example: `123` *
+ *  Specify the `scope` field as this folder in your search request.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *folders;
 
@@ -4365,8 +4370,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  name or
  *  [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
  *  name. This field is available only when the resource's Protobuf contains it.
- *  To search against the `kms_key`: * use a field query. Example: `kmsKey:key`
- *  * use a free text query. Example: `key`
+ *  To search against the `kms_key`: * Use a field query. Example: `kmsKey:key`
+ *  * Use a free text query. Example: `key`
  */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
 
@@ -4374,18 +4379,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  Labels associated with this resource. See [Labelling and grouping GCP
  *  resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources)
  *  for more information. This field is available only when the resource's
- *  Protobuf contains it. To search against the `labels`: * use a field query: -
+ *  Protobuf contains it. To search against the `labels`: * Use a field query: -
  *  query on any label's key or value. Example: `labels:prod` - query by a given
  *  label. Example: `labels.env:prod` - query by a given label's existence.
- *  Example: `labels.env:*` * use a free text query. Example: `prod`
+ *  Example: `labels.env:*` * Use a free text query. Example: `prod`
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_ResourceSearchResult_Labels *labels;
 
 /**
  *  Location can be `global`, regional like `us-east1`, or zonal like
  *  `us-west1-b`. This field is available only when the resource's Protobuf
- *  contains it. To search against the `location`: * use a field query. Example:
- *  `location:us-west*` * use a free text query. Example: `us-west*`
+ *  contains it. To search against the `location`: * Use a field query. Example:
+ *  `location:us-west*` * Use a free text query. Example: `us-west*`
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -4394,8 +4399,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`.
  *  See [Cloud Asset Inventory Resource Name
  *  Format](https://cloud.google.com/asset-inventory/docs/resource-name-format)
- *  for more information. To search against the `name`: * use a field query.
- *  Example: `name:instance1` * use a free text query. Example: `instance1`
+ *  for more information. To search against the `name`: * Use a field query.
+ *  Example: `name:instance1` * Use a free text query. Example: `instance1`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4404,8 +4409,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  type of annotations used to group GCP resources. See [Labelling GCP
  *  resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources)
  *  for more information. This field is available only when the resource's
- *  Protobuf contains it. To search against the `network_tags`: * use a field
- *  query. Example: `networkTags:internal` * use a free text query. Example:
+ *  Protobuf contains it. To search against the `network_tags`: * Use a field
+ *  query. Example: `networkTags:internal` * Use a free text query. Example:
  *  `internal`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *networkTags;
@@ -4413,25 +4418,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  The organization that this resource belongs to, in the form of
  *  organizations/{ORGANIZATION_NUMBER}. This field is available when the
- *  resource belongs to an organization. To search against `organization`: * use
- *  a field query. Example: `organization:123` * use a free text query. Example:
- *  `123` * specify the `scope` field as this organization in your search
+ *  resource belongs to an organization. To search against `organization`: * Use
+ *  a field query. Example: `organization:123` * Use a free text query. Example:
+ *  `123` * Specify the `scope` field as this organization in your search
  *  request.
  */
 @property(nonatomic, copy, nullable) NSString *organization;
 
 /**
  *  The type of this resource's immediate parent, if there is one. To search
- *  against the `parent_asset_type`: * use a field query. Example:
- *  `parentAssetType:"cloudresourcemanager.googleapis.com/Project"` * use a free
+ *  against the `parent_asset_type`: * Use a field query. Example:
+ *  `parentAssetType:"cloudresourcemanager.googleapis.com/Project"` * Use a free
  *  text query. Example: `cloudresourcemanager.googleapis.com/Project`
  */
 @property(nonatomic, copy, nullable) NSString *parentAssetType;
 
 /**
  *  The full resource name of this resource's parent, if it has one. To search
- *  against the `parent_full_resource_name`: * use a field query. Example:
- *  `parentFullResourceName:"project-name"` * use a free text query. Example:
+ *  against the `parent_full_resource_name`: * Use a field query. Example:
+ *  `parentFullResourceName:"project-name"` * Use a free text query. Example:
  *  `project-name`
  */
 @property(nonatomic, copy, nullable) NSString *parentFullResourceName;
@@ -4439,8 +4444,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  The project that this resource belongs to, in the form of
  *  projects/{PROJECT_NUMBER}. This field is available when the resource belongs
- *  to a project. To search against `project`: * use a field query. Example:
- *  `project:12345` * use a free text query. Example: `12345` * specify the
+ *  to a project. To search against `project`: * Use a field query. Example:
+ *  `project:12345` * Use a free text query. Example: `12345` * Specify the
  *  `scope` field as this project in your search request.
  */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -4466,32 +4471,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  will include LIFECYCLE_STATE_UNSPECIFIED, ACTIVE, DELETE_REQUESTED and
  *  DELETE_IN_PROGRESS. See `lifecycleState` definition in [API
  *  Reference](https://cloud.google.com/resource-manager/reference/rest/v1/projects).
- *  To search against the `state`: * use a field query. Example: `state:RUNNING`
- *  * use a free text query. Example: `RUNNING`
+ *  To search against the `state`: * Use a field query. Example: `state:RUNNING`
+ *  * Use a free text query. Example: `RUNNING`
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
  *  TagKey namespaced names, in the format of {ORG_ID}/{TAG_KEY_SHORT_NAME}. To
- *  search against the `tagKeys`: * use a field query. Example: -
+ *  search against the `tagKeys`: * Use a field query. Example: -
  *  `tagKeys:"123456789/env*"` - `tagKeys="123456789/env"` - `tagKeys:"env"` *
- *  use a free text query. Example: - `env`
+ *  Use a free text query. Example: - `env`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tagKeys;
 
 /**
  *  TagValue IDs, in the format of tagValues/{TAG_VALUE_ID}. To search against
- *  the `tagValueIds`: * use a field query. Example: - `tagValueIds:"456"` -
- *  `tagValueIds="tagValues/456"` * use a free text query. Example: - `456`
+ *  the `tagValueIds`: * Use a field query. Example: - `tagValueIds:"456"` -
+ *  `tagValueIds="tagValues/456"` * Use a free text query. Example: - `456`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tagValueIds;
 
 /**
  *  TagValue namespaced names, in the format of
  *  {ORG_ID}/{TAG_KEY_SHORT_NAME}/{TAG_VALUE_SHORT_NAME}. To search against the
- *  `tagValues`: * use a field query. Example: - `tagValues:"env"` -
+ *  `tagValues`: * Use a field query. Example: - `tagValues:"env"` -
  *  `tagValues:"env/prod"` - `tagValues:"123456789/env/prod*"` -
- *  `tagValues="123456789/env/prod"` * use a free text query. Example: - `prod`
+ *  `tagValues="123456789/env/prod"` * Use a free text query. Example: - `prod`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tagValues;
 
@@ -4499,7 +4504,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  The last update timestamp of this resource, at which the resource was last
  *  modified or deleted. The granularity is in seconds. Timestamp.nanos will
  *  always be 0. This field is available only when the resource's Protobuf
- *  contains it. To search against `update_time`: * use a field query. - value
+ *  contains it. To search against `update_time`: * Use a field query. - value
  *  in seconds since unix epoch. Example: `updateTime < 1609459200` - value in
  *  date string. Example: `updateTime < 2021-01-01` - value in date-time string
  *  (must be quoted). Example: `updateTime < "2021-01-01T00:00:00"`
@@ -4530,7 +4535,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  through free text search. However, you should not consume the field
  *  programically as the field names and values may change as the GCP service
  *  updates to a new incompatible API version. To search against the
- *  `additional_attributes`: * use a free text query to match the attributes
+ *  `additional_attributes`: * Use a free text query to match the attributes
  *  values. Example: to search `additional_attributes = { dnsName: "foobar" }`,
  *  you can issue a query `foobar`.
  *
@@ -4547,10 +4552,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  Labels associated with this resource. See [Labelling and grouping GCP
  *  resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources)
  *  for more information. This field is available only when the resource's
- *  Protobuf contains it. To search against the `labels`: * use a field query: -
+ *  Protobuf contains it. To search against the `labels`: * Use a field query: -
  *  query on any label's key or value. Example: `labels:prod` - query by a given
  *  label. Example: `labels.env:prod` - query by a given label's existence.
- *  Example: `labels.env:*` * use a free text query. Example: `prod`
+ *  Example: `labels.env:*` * Use a free text query. Example: `prod`
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

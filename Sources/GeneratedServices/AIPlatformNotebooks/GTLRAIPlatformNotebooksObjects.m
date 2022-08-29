@@ -1059,8 +1059,8 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 //
 
 @implementation GTLRAIPlatformNotebooks_RuntimeSoftwareConfig
-@dynamic customGpuDriverPath, enableHealthMonitoring, idleShutdown,
-         idleShutdownTimeout, installGpuDriver, kernels,
+@dynamic customGpuDriverPath, disableTerminal, enableHealthMonitoring,
+         idleShutdown, idleShutdownTimeout, installGpuDriver, kernels,
          notebookUpgradeSchedule, postStartupScript, postStartupScriptBehavior,
          upgradeable;
 

@@ -517,16 +517,6 @@ NSString * const kGTLRCertificateManager_ProvisioningIssue_Reason_ReasonUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCertificateManager_ResourcesCount
-//
-
-@implementation GTLRCertificateManager_ResourcesCount
-@dynamic certificates, computeTime, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCertificateManager_SelfManagedCertificate
 //
 

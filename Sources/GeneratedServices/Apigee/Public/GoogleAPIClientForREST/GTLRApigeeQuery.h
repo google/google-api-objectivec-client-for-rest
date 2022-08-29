@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 // retention
 
 /**
- *  Default data retention settings will be applied.
+ *  Default data retention setting of seven days will be applied.
  *
  *  Value: "DELETION_RETENTION_UNSPECIFIED"
  */
@@ -1992,7 +1992,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Delete an Apigee organization. For organizations with BillingType
  *  EVALUATION, an immediate deletion is performed. For paid organizations, a
  *  soft-deletion is performed. The organization can be restored within the
- *  soft-deletion period - which can be controlled using the retention field in
+ *  soft-deletion period which can be controlled using the retention field in
  *  the request.
  *
  *  Method: apigee.organizations.delete
@@ -2009,8 +2009,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. This setting is only applicable for organizations that are
- *  soft-deleted (i.e. BillingType is not EVALUATION). It controls how long
+ *  Optional. This setting is applicable only for organizations that are
+ *  soft-deleted (i.e., BillingType is not EVALUATION). It controls how long
  *  Organization data will be retained after the initial delete operation
  *  completes. During this period, the Organization may be restored to its last
  *  known state. After this period, the Organization will no longer be able to
@@ -2018,7 +2018,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  Likely values:
  *    @arg @c kGTLRApigeeRetentionDeletionRetentionUnspecified Default data
- *        retention settings will be applied. (Value:
+ *        retention setting of seven days will be applied. (Value:
  *        "DELETION_RETENTION_UNSPECIFIED")
  *    @arg @c kGTLRApigeeRetentionMinimum Organization data will be retained for
  *        the minimum period of 24 hours. (Value: "MINIMUM")
@@ -2031,7 +2031,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Delete an Apigee organization. For organizations with BillingType
  *  EVALUATION, an immediate deletion is performed. For paid organizations, a
  *  soft-deletion is performed. The organization can be restored within the
- *  soft-deletion period - which can be controlled using the retention field in
+ *  soft-deletion period which can be controlled using the retention field in
  *  the request.
  *
  *  @param name Required. Name of the organization. Use the following structure
@@ -2340,15 +2340,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Manages access to a developer app by enabling you to: * Approve or revoke a
  *  developer app * Generate a new consumer key and secret for a developer app
  *  To approve or revoke a developer app, set the `action` query parameter to
- *  `approved` or `revoked`, respectively, and the `Content-Type` header to
+ *  `approve` or `revoke`, respectively, and the `Content-Type` header to
  *  `application/octet-stream`. If a developer app is revoked, none of its API
- *  keys are valid for API calls even though the keys are still `approved`. If
+ *  keys are valid for API calls even though the keys are still approved. If
  *  successful, the API call returns the following HTTP status code: `204 No
  *  Content` To generate a new consumer key and secret for a developer app, pass
  *  the new key/secret details. Rather than replace an existing key, this API
  *  generates a new key. In this case, multiple key pairs may be associated with
- *  a single developer app. Each key pair has an independent status (`approved`
- *  or `revoked`) and expiration time. Any approved, non-expired key can be used
+ *  a single developer app. Each key pair has an independent status (`approve`
+ *  or `revoke`) and expiration time. Any approved, non-expired key can be used
  *  in an API call. For example, if you're using API key rotation, you can
  *  generate new keys with expiration times that overlap keys that are going to
  *  expire. You might also generate a new consumer key/secret if the security of
@@ -2383,15 +2383,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Manages access to a developer app by enabling you to: * Approve or revoke a
  *  developer app * Generate a new consumer key and secret for a developer app
  *  To approve or revoke a developer app, set the `action` query parameter to
- *  `approved` or `revoked`, respectively, and the `Content-Type` header to
+ *  `approve` or `revoke`, respectively, and the `Content-Type` header to
  *  `application/octet-stream`. If a developer app is revoked, none of its API
- *  keys are valid for API calls even though the keys are still `approved`. If
+ *  keys are valid for API calls even though the keys are still approved. If
  *  successful, the API call returns the following HTTP status code: `204 No
  *  Content` To generate a new consumer key and secret for a developer app, pass
  *  the new key/secret details. Rather than replace an existing key, this API
  *  generates a new key. In this case, multiple key pairs may be associated with
- *  a single developer app. Each key pair has an independent status (`approved`
- *  or `revoked`) and expiration time. Any approved, non-expired key can be used
+ *  a single developer app. Each key pair has an independent status (`approve`
+ *  or `revoke`) and expiration time. Any approved, non-expired key can be used
  *  in an API call. For example, if you're using API key rotation, you can
  *  generate new keys with expiration times that overlap keys that are going to
  *  expire. You might also generate a new consumer key/secret if the security of
@@ -5209,8 +5209,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Deletes an environment from an organization. **Note**: You must delete all
- *  key value maps and key value entries before you can delete an environment.
+ *  Deletes an environment from an organization. **Warning: You must delete all
+ *  key value maps and key value entries before you delete an environment.**
+ *  Otherwise, if you re-create the environment the key value map entry
+ *  operations will encounter encryption/decryption discrepancies.
  *
  *  Method: apigee.organizations.environments.delete
  *
@@ -5228,8 +5230,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
  *
- *  Deletes an environment from an organization. **Note**: You must delete all
- *  key value maps and key value entries before you can delete an environment.
+ *  Deletes an environment from an organization. **Warning: You must delete all
+ *  key value maps and key value entries before you delete an environment.**
+ *  Otherwise, if you re-create the environment the key value map entry
+ *  operations will encounter encryption/decryption discrepancies.
  *
  *  @param name Required. Name of the environment. Use the following structure
  *    in your request: `organizations/{org}/environments/{env}`
@@ -6169,6 +6173,48 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Updates properties for an Apigee environment with patch semantics using a
+ *  field mask. **Note:** Not supported for Apigee hybrid.
+ *
+ *  Method: apigee.organizations.environments.modifyEnvironment
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsModifyEnvironment : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the environment. Use the following structure in your
+ *  request: `organizations/{org}/environments/{environment}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  List of fields to be updated. Fields that can be updated: node_config.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Updates properties for an Apigee environment with patch semantics using a
+ *  field mask. **Note:** Not supported for Apigee hybrid.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Environment to include in
+ *    the query.
+ *  @param name Required. Name of the environment. Use the following structure
+ *    in your request: `organizations/{org}/environments/{environment}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsModifyEnvironment
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1Environment *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Similar to GetStats except that the response is less verbose.
  *
  *  Method: apigee.organizations.environments.optimizedStats.get
@@ -7097,6 +7143,65 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Retrieve security statistics as tabular rows.
+ *
+ *  Method: apigee.organizations.environments.securityStats.queryTabularStats
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsSecurityStatsQueryTabularStats : GTLRApigeeQuery
+
+/** Required. Should be of the form organizations//environments/. */
+@property(nonatomic, copy, nullable) NSString *orgenv;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1QueryTabularStatsResponse.
+ *
+ *  Retrieve security statistics as tabular rows.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1QueryTabularStatsRequest
+ *    to include in the query.
+ *  @param orgenv Required. Should be of the form organizations//environments/.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSecurityStatsQueryTabularStats
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1QueryTabularStatsRequest *)object
+                         orgenv:(NSString *)orgenv;
+
+@end
+
+/**
+ *  Retrieve security statistics as a collection of time series.
+ *
+ *  Method: apigee.organizations.environments.securityStats.queryTimeSeriesStats
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsSecurityStatsQueryTimeSeriesStats : GTLRApigeeQuery
+
+/** Required. Should be of the form organizations//environments/. */
+@property(nonatomic, copy, nullable) NSString *orgenv;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsResponse.
+ *
+ *  Retrieve security statistics as a collection of time series.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest to include in
+ *    the query.
+ *  @param orgenv Required. Should be of the form organizations//environments/.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSecurityStatsQueryTimeSeriesStats
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest *)object
+                         orgenv:(NSString *)orgenv;
 
 @end
 

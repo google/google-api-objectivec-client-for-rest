@@ -1176,6 +1176,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_T
  */
 FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeLodging;
 /**
+ *  RESERVED
+ *
+ *  Value: "typeLogicalBorder"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeLogicalBorder;
+/**
  *  ABSTRACT
  *
  *  Value: "typeMetaFeature"
@@ -3292,6 +3298,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOff
  *        "typeLockerArea"
  *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeLodging DEPRECATED
  *        (Value: "typeLodging")
+ *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeLogicalBorder
+ *        RESERVED (Value: "typeLogicalBorder")
  *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeMetaFeature
  *        ABSTRACT (Value: "typeMetaFeature")
  *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeMilitary

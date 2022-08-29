@@ -70,10 +70,27 @@ NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_Normal = @"NORMAL";
 NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_Plan = @"PLAN";
 NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_Profile = @"PROFILE";
 
+// GTLRSpanner_FreeInstanceMetadata.expireBehavior
+NSString * const kGTLRSpanner_FreeInstanceMetadata_ExpireBehavior_ExpireBehaviorUnspecified = @"EXPIRE_BEHAVIOR_UNSPECIFIED";
+NSString * const kGTLRSpanner_FreeInstanceMetadata_ExpireBehavior_FreeToProvisioned = @"FREE_TO_PROVISIONED";
+NSString * const kGTLRSpanner_FreeInstanceMetadata_ExpireBehavior_RemoveAfterGracePeriod = @"REMOVE_AFTER_GRACE_PERIOD";
+
+// GTLRSpanner_Instance.instanceType
+NSString * const kGTLRSpanner_Instance_InstanceType_FreeInstance = @"FREE_INSTANCE";
+NSString * const kGTLRSpanner_Instance_InstanceType_InstanceTypeUnspecified = @"INSTANCE_TYPE_UNSPECIFIED";
+NSString * const kGTLRSpanner_Instance_InstanceType_Provisioned = @"PROVISIONED";
+
 // GTLRSpanner_Instance.state
 NSString * const kGTLRSpanner_Instance_State_Creating         = @"CREATING";
 NSString * const kGTLRSpanner_Instance_State_Ready            = @"READY";
 NSString * const kGTLRSpanner_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRSpanner_InstanceConfig.freeInstanceAvailability
+NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_Available = @"AVAILABLE";
+NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_Disabled = @"DISABLED";
+NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_FreeInstanceAvailabilityUnspecified = @"FREE_INSTANCE_AVAILABILITY_UNSPECIFIED";
+NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_QuotaExceeded = @"QUOTA_EXCEEDED";
+NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_Unsupported = @"UNSUPPORTED";
 
 // GTLRSpanner_Metric.aggregation
 NSString * const kGTLRSpanner_Metric_Aggregation_AggregationUnspecified = @"AGGREGATION_UNSPECIFIED";
@@ -569,6 +586,16 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_FreeInstanceMetadata
+//
+
+@implementation GTLRSpanner_FreeInstanceMetadata
+@dynamic expireBehavior, expireTime, upgradeTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_GetDatabaseDdlResponse
 //
 
@@ -659,8 +686,9 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_Instance
-@dynamic config, createTime, displayName, endpointUris, labels, name, nodeCount,
-         processingUnits, state, updateTime;
+@dynamic config, createTime, displayName, endpointUris, freeInstanceMetadata,
+         instanceType, labels, name, nodeCount, processingUnits, state,
+         updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -692,7 +720,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_InstanceConfig
-@dynamic displayName, leaderOptions, name, replicas;
+@dynamic displayName, freeInstanceAvailability, leaderOptions, name, replicas;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -84,6 +84,12 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRCloudRun_GoogleCloudRunV2Condition.executionReason
 
 /**
+ *  The execution was cancelled by users.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Cancelled;
+/**
  *  Default value.
  *
  *  Value: "EXECUTION_REASON_UNDEFINED"
@@ -960,6 +966,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  A reason for the execution condition.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Cancelled
+ *        The execution was cancelled by users. (Value: "CANCELLED")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_ExecutionReasonUndefined
  *        Default value. (Value: "EXECUTION_REASON_UNDEFINED")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_JobStatusServicePollingError
@@ -1176,6 +1184,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** Volume to mount into the container's filesystem. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2VolumeMount *> *volumeMounts;
+
+/**
+ *  Container's working directory. If not specified, the container runtime's
+ *  default will be used, which might be configured in the container image.
+ */
+@property(nonatomic, copy, nullable) NSString *workingDir;
 
 @end
 
@@ -2396,7 +2410,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  Integer representation of mode bits to use on created files by default. Must
- *  be a value between 0000 and 0777 (octal), defaulting to 0644. Directories
+ *  be a value between 0000 and 0777 (octal), defaulting to 0444. Directories
  *  within the path are not affected by this setting. Notes * Internally, a
  *  umask of 0222 will be applied to any non-zero value. * This is an integer
  *  representation of the mode bits. So, the octal integer value should look
@@ -3376,11 +3390,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  anyone who is authenticated with a Google account or a service account. *
  *  `user:{emailid}`: An email address that represents a specific Google
  *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
- *  address that represents a Google group. For example, `admins\@example.com`.
- *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
+ *  An email address that represents a Google service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
+ *  identifier for a [Kubernetes service
+ *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
+ *  `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
+ *  An email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An

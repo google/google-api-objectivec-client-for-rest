@@ -79,6 +79,24 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromePolicy_GoogleChromePolicyV1BatchDeleteGroupPoliciesRequest
+//
+
+@implementation GTLRChromePolicy_GoogleChromePolicyV1BatchDeleteGroupPoliciesRequest
+@dynamic requests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRChromePolicy_GoogleChromePolicyV1DeleteGroupPolicyRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromePolicy_GoogleChromePolicyV1BatchInheritOrgUnitPoliciesRequest
 //
 
@@ -88,6 +106,24 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"requests" : [GTLRChromePolicy_GoogleChromePolicyV1InheritOrgUnitPolicyRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromePolicy_GoogleChromePolicyV1BatchModifyGroupPoliciesRequest
+//
+
+@implementation GTLRChromePolicy_GoogleChromePolicyV1BatchModifyGroupPoliciesRequest
+@dynamic requests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRChromePolicy_GoogleChromePolicyV1ModifyGroupPolicyRequest class]
   };
   return map;
 }
@@ -115,11 +151,49 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromePolicy_GoogleChromePolicyV1DeleteGroupPolicyRequest
+//
+
+@implementation GTLRChromePolicy_GoogleChromePolicyV1DeleteGroupPolicyRequest
+@dynamic policySchema, policyTargetKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromePolicy_GoogleChromePolicyV1InheritOrgUnitPolicyRequest
 //
 
 @implementation GTLRChromePolicy_GoogleChromePolicyV1InheritOrgUnitPolicyRequest
 @dynamic policySchema, policyTargetKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromePolicy_GoogleChromePolicyV1ListGroupPriorityOrderingRequest
+//
+
+@implementation GTLRChromePolicy_GoogleChromePolicyV1ListGroupPriorityOrderingRequest
+@dynamic policyNamespace, policyTargetKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromePolicy_GoogleChromePolicyV1ListGroupPriorityOrderingResponse
+//
+
+@implementation GTLRChromePolicy_GoogleChromePolicyV1ListGroupPriorityOrderingResponse
+@dynamic groupIds, policyNamespace, policyTargetKey;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"groupIds" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -147,6 +221,16 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromePolicy_GoogleChromePolicyV1ModifyGroupPolicyRequest
+//
+
+@implementation GTLRChromePolicy_GoogleChromePolicyV1ModifyGroupPolicyRequest
+@dynamic policyTargetKey, policyValue, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromePolicy_GoogleChromePolicyV1ModifyOrgUnitPolicyRequest
 //
 
@@ -162,8 +246,9 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 
 @implementation GTLRChromePolicy_GoogleChromePolicyV1PolicySchema
 @dynamic accessRestrictions, additionalTargetKeyNames, definition,
-         fieldDescriptions, name, notices, policyApiLifeycle, policyDescription,
-         schemaName, supportUri, validTargetResources;
+         fieldDescriptions, name, notices, policyApiLifecycle,
+         policyApiLifeycle, policyDescription, schemaName, supportUri,
+         validTargetResources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -346,6 +431,44 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
   return @"resolvedPolicies";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromePolicy_GoogleChromePolicyV1UpdateGroupPriorityOrderingRequest
+//
+
+@implementation GTLRChromePolicy_GoogleChromePolicyV1UpdateGroupPriorityOrderingRequest
+@dynamic groupIds, policyNamespace, policyTargetKey;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"groupIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileRequest
+//
+
+@implementation GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileRequest
+@dynamic policyField;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileResponse
+//
+
+@implementation GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileResponse
+@dynamic downloadUri;
 @end
 
 

@@ -65,6 +65,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Ios
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Lacros;
 /** Value: "LACROS_ARM32" */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_LacrosArm32;
+/** Value: "LACROS_ARM64" */
+FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_LacrosArm64;
 /** Value: "LINUX" */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Linux;
 /** Value: "MAC" */
@@ -265,6 +267,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Win
  *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Lacros Value "LACROS"
  *    @arg @c kGTLRVersionHistory_Platform_PlatformType_LacrosArm32 Value
  *        "LACROS_ARM32"
+ *    @arg @c kGTLRVersionHistory_Platform_PlatformType_LacrosArm64 Value
+ *        "LACROS_ARM64"
  *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Linux Value "LINUX"
  *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Mac Value "MAC"
  *    @arg @c kGTLRVersionHistory_Platform_PlatformType_MacArm64 Value

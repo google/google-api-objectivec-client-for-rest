@@ -52,6 +52,9 @@
 @class GTLRDns_RRSetRoutingPolicy;
 @class GTLRDns_RRSetRoutingPolicyGeoPolicy;
 @class GTLRDns_RRSetRoutingPolicyGeoPolicyGeoPolicyItem;
+@class GTLRDns_RRSetRoutingPolicyHealthCheckTargets;
+@class GTLRDns_RRSetRoutingPolicyLoadBalancerTarget;
+@class GTLRDns_RRSetRoutingPolicyPrimaryBackupPolicy;
 @class GTLRDns_RRSetRoutingPolicyWrrPolicy;
 @class GTLRDns_RRSetRoutingPolicyWrrPolicyWrrPolicyItem;
 
@@ -259,6 +262,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_Behavior
  *  Value: "bypassResponsePolicy"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassResponsePolicy;
+
+// ----------------------------------------------------------------------------
+// GTLRDns_RRSetRoutingPolicyLoadBalancerTarget.ipProtocol
+
+/** Value: "tcp" */
+FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_IpProtocol_Tcp;
+/** Value: "udp" */
+FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_IpProtocol_Udp;
+/** Value: "undefined" */
+FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_IpProtocol_Undefined;
+
+// ----------------------------------------------------------------------------
+// GTLRDns_RRSetRoutingPolicyLoadBalancerTarget.loadBalancerType
+
+/** Value: "none" */
+FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_None;
+/** Value: "regionalL4ilb" */
+FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_RegionalL4ilb;
 
 /**
  *  A Change represents a set of ResourceRecordSet additions and deletions
@@ -669,11 +690,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
  *  anyone who is authenticated with a Google account or a service account. *
  *  `user:{emailid}`: An email address that represents a specific Google
  *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
- *  address that represents a Google group. For example, `admins\@example.com`.
- *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
+ *  An email address that represents a Google service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
+ *  identifier for a [Kubernetes service
+ *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
+ *  `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
+ *  An email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -2149,6 +2175,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
 
 @property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicyGeoPolicy *geo;
 @property(nonatomic, copy, nullable) NSString *kind;
+@property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicyPrimaryBackupPolicy *primaryBackup;
 @property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicyWrrPolicy *wrr;
 
 @end
@@ -2162,6 +2189,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
  *        its "items" property.
  */
 @interface GTLRDns_RRSetRoutingPolicyGeoPolicy : GTLRCollectionObject
+
+/**
+ *  Without fencing, if health check fails for all configured items in the
+ *  current geo bucket, we'll failover to the next nearest geo bucket. With
+ *  fencing, if health check is enabled, as long as some targets in the current
+ *  geo bucket are healthy, we'll return only the healthy targets. However, if
+ *  they're all unhealthy, we won't failover to the next nearest bucket, we'll
+ *  simply return all the items in the current bucket even though they're
+ *  unhealthy.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableFencing;
 
 /**
  *  The primary geo routing configuration. If there are multiple items with the
@@ -2182,6 +2222,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
  */
 @interface GTLRDns_RRSetRoutingPolicyGeoPolicyGeoPolicyItem : GTLRObject
 
+/**
+ *  For A and AAAA types only. Endpoints to return in the query result only if
+ *  they are healthy. These can be specified along with rrdata within this item.
+ */
+@property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicyHealthCheckTargets *healthCheckedTargets;
+
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -2199,6 +2245,101 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
  *  restriction of 1 ip per item. .
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *signatureRrdatas;
+
+@end
+
+
+/**
+ *  HealthCheckTargets describes endpoints to health-check when responding to
+ *  Routing Policy queries. Only the healthy endpoints will be included in the
+ *  response.
+ */
+@interface GTLRDns_RRSetRoutingPolicyHealthCheckTargets : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_RRSetRoutingPolicyLoadBalancerTarget *> *internalLoadBalancers;
+
+@end
+
+
+/**
+ *  GTLRDns_RRSetRoutingPolicyLoadBalancerTarget
+ */
+@interface GTLRDns_RRSetRoutingPolicyLoadBalancerTarget : GTLRObject
+
+/** The frontend IP address of the */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
+
+/**
+ *  ipProtocol
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_IpProtocol_Tcp Value
+ *        "tcp"
+ *    @arg @c kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_IpProtocol_Udp Value
+ *        "udp"
+ *    @arg @c kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_IpProtocol_Undefined
+ *        Value "undefined"
+ */
+@property(nonatomic, copy, nullable) NSString *ipProtocol;
+
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  loadBalancerType
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_None
+ *        Value "none"
+ *    @arg @c kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_RegionalL4ilb
+ *        Value "regionalL4ilb"
+ */
+@property(nonatomic, copy, nullable) NSString *loadBalancerType;
+
+/** The fully qualified url of the network on which the ILB is */
+@property(nonatomic, copy, nullable) NSString *networkUrl;
+
+/**
+ *  Load Balancer to health check. The configured port of the Load Balancer.
+ */
+@property(nonatomic, copy, nullable) NSString *port;
+
+/**
+ *  present. This should be formatted like
+ *  https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
+ *  The project ID in which the ILB exists.
+ */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The region for regional ILBs. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+@end
+
+
+/**
+ *  Configures a RRSetRoutingPolicy such that all queries are responded with the
+ *  primary_targets if they are healthy. And if all of them are unhealthy, then
+ *  we fallback to a geo localized policy.
+ */
+@interface GTLRDns_RRSetRoutingPolicyPrimaryBackupPolicy : GTLRObject
+
+/**
+ *  Backup targets provide a regional failover policy for the otherwise global
+ *  primary targets. If serving state is set to BACKUP, this policy essentially
+ *  becomes a geo routing policy.
+ */
+@property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicyGeoPolicy *backupGeoTargets;
+
+@property(nonatomic, copy, nullable) NSString *kind;
+@property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicyHealthCheckTargets *primaryTargets;
+
+/**
+ *  When serving state is PRIMARY, this field provides the option of sending a
+ *  small percentage of the traffic to the backup targets.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trickleTraffic;
 
 @end
 
@@ -2229,6 +2370,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
  *  A routing block which contains the routing information for one WRR item.
  */
 @interface GTLRDns_RRSetRoutingPolicyWrrPolicyWrrPolicyItem : GTLRObject
+
+/**
+ *  endpoints that need to be health checked before making the routing decision.
+ *  The unhealthy endpoints will be omitted from the result. If all endpoints
+ *  within a buckete are unhealthy, we'll choose a different bucket (sampled
+ *  w.r.t. its weight) for responding. Note that if DNSSEC is enabled for this
+ *  zone, only one of rrdata or health_checked_targets can be set.
+ */
+@property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicyHealthCheckTargets *healthCheckedTargets;
 
 @property(nonatomic, copy, nullable) NSString *kind;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *rrdatas;

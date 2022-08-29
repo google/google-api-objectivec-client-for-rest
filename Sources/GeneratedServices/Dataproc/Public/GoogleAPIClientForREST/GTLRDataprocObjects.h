@@ -1378,16 +1378,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  authenticated with a Google account or a service account. user:{emailid}: An
  *  email address that represents a specific Google account. For example,
  *  alice\@example.com . serviceAccount:{emailid}: An email address that
- *  represents a service account. For example,
- *  my-other-app\@appspot.gserviceaccount.com. group:{emailid}: An email address
- *  that represents a Google group. For example, admins\@example.com.
- *  deleted:user:{emailid}?uid={uniqueid}: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
- *  alice\@example.com?uid=123456789012345678901. If the user is recovered, this
- *  value reverts to user:{emailid} and the recovered user retains the role in
- *  the binding. deleted:serviceAccount:{emailid}?uid={uniqueid}: An email
- *  address (plus unique identifier) representing a service account that has
- *  been recently deleted. For example,
+ *  represents a Google service account. For example,
+ *  my-other-app\@appspot.gserviceaccount.com.
+ *  serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]: An
+ *  identifier for a Kubernetes service account
+ *  (https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, my-project.svc.id.goog[my-namespace/my-kubernetes-sa].
+ *  group:{emailid}: An email address that represents a Google group. For
+ *  example, admins\@example.com. deleted:user:{emailid}?uid={uniqueid}: An
+ *  email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example, alice\@example.com?uid=123456789012345678901.
+ *  If the user is recovered, this value reverts to user:{emailid} and the
+ *  recovered user retains the role in the binding.
+ *  deleted:serviceAccount:{emailid}?uid={uniqueid}: An email address (plus
+ *  unique identifier) representing a service account that has been recently
+ *  deleted. For example,
  *  my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901. If the
  *  service account is undeleted, this value reverts to serviceAccount:{emailid}
  *  and the undeleted service account retains the role in the binding.
@@ -2016,6 +2021,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Execution configuration for a workload.
  */
 @interface GTLRDataproc_ExecutionConfig : GTLRObject
+
+/**
+ *  Optional. The duration to keep the underlying cluster alive while idling
+ *  Passing this threshold will cause the cluster to be terminated. Minimum
+ *  value is 30 minutes; maximum value is 14 days (see JSON representation of
+ *  Duration (https://developers.google.com/protocol-buffers/docs/proto3#json)).
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *idleTtl;
 
 /** Optional. The Cloud KMS key to use for encryption. */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
@@ -4409,11 +4422,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *clusterUuid;
 
 /**
+ *  Optional. Timeout for graceful YARN decomissioning. Graceful decommissioning
+ *  facilitates the removal of cluster nodes without interrupting jobs in
+ *  progress. The timeout specifies the amount of time to wait for jobs finish
+ *  before forcefully removing nodes. The default timeout is 0 for forceful
+ *  decommissioning, and the maximum timeout period is 1 day. (see JSON
+ *  Mapping—Duration
+ *  (https://developers.google.com/protocol-buffers/docs/proto3#json)).graceful_decommission_timeout
+ *  is supported in Dataproc image versions 1.2+.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *gracefulDecommissionTimeout;
+
+/**
  *  Optional. Node pools and corresponding repair action to be taken. All node
  *  pools should be unique in this request. i.e. Multiple entries for the same
  *  node pool id are not allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_NodePool *> *nodePools;
+
+/**
+ *  Optional. operation id of the parent operation sending the repair request
+ */
+@property(nonatomic, copy, nullable) NSString *parentOperationId;
 
 /**
  *  Optional. A unique ID used to identify the request. If the server receives

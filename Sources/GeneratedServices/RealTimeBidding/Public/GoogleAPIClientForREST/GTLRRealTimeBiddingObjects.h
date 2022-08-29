@@ -1966,7 +1966,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedCategories;
 
 /**
- *  Output only. The version of this creative. Version for a new creative is 1
+ *  Output only. The version of the creative. Version for a new creative is 1
  *  and it increments during subsequent creative updates.
  *
  *  Uses NSNumber of intValue.

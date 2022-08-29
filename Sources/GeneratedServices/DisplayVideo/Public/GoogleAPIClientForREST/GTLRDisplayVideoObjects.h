@@ -573,11 +573,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Advertiser_EntityStatus_Ent
 // GTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails.ageRange
 
 /**
+ *  The age range of the audience is 18 to 20, only supported for the AdGroup of
+ *  YouTube Programmatic Reservation line item.
+ *
+ *  Value: "AGE_RANGE_18_20"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange1820;
+/**
  *  The age range of the audience is 18 to 24.
  *
  *  Value: "AGE_RANGE_18_24"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange1824;
+/**
+ *  The age range of the audience is 21 to 24, only supported for the AdGroup of
+ *  YouTube Programmatic Reservation line item.
+ *
+ *  Value: "AGE_RANGE_21_24"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange2124;
+/**
+ *  The age range of the audience is 25 to 29, only supported for the AdGroup of
+ *  YouTube Programmatic Reservation line item.
+ *
+ *  Value: "AGE_RANGE_25_29"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange2529;
 /**
  *  The age range of the audience is 25 to 34.
  *
@@ -585,11 +606,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange2534;
 /**
+ *  The age range of the audience is 30 to 34, only supported for the AdGroup of
+ *  YouTube Programmatic Reservation line item.
+ *
+ *  Value: "AGE_RANGE_30_34"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange3034;
+/**
+ *  The age range of the audience is 35 to 39, only supported for the AdGroup of
+ *  YouTube Programmatic Reservation line item.
+ *
+ *  Value: "AGE_RANGE_35_39"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange3539;
+/**
  *  The age range of the audience is 35 to 44.
  *
  *  Value: "AGE_RANGE_35_44"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange3544;
+/**
+ *  The age range of the audience is 40 to 44, only supported for the AdGroup of
+ *  YouTube Programmatic Reservation line item.
+ *
+ *  Value: "AGE_RANGE_40_44"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange4044;
+/**
+ *  The age range of the audience is 45 to 49, only supported for the AdGroup of
+ *  YouTube Programmatic Reservation line item.
+ *
+ *  Value: "AGE_RANGE_45_49"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange4549;
 /**
  *  The age range of the audience is 45 to 54.
  *
@@ -597,11 +646,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange4554;
 /**
+ *  The age range of the audience is 50 to 54, only supported for the AdGroup of
+ *  YouTube Programmatic Reservation line item.
+ *
+ *  Value: "AGE_RANGE_50_54"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange5054;
+/**
+ *  The age range of the audience is 55 to 59, only supported for the AdGroup of
+ *  YouTube Programmatic Reservation line item.
+ *
+ *  Value: "AGE_RANGE_55_59"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange5559;
+/**
  *  The age range of the audience is 55 to 64.
  *
  *  Value: "AGE_RANGE_55_64"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange5564;
+/**
+ *  The age range of the audience is 60 to 64, only supported for the AdGroup of
+ *  YouTube Programmatic Reservation line item.
+ *
+ *  Value: "AGE_RANGE_60_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange6064;
 /**
  *  The age range of the audience is 65 and up.
  *
@@ -627,11 +697,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeAssignedTargetingOp
 // GTLRDisplayVideo_AgeRangeTargetingOptionDetails.ageRange
 
 /**
+ *  The age range of the audience is 18 to 20, only supported for the AdGroup of
+ *  YouTube Programmatic Reservation line item.
+ *
+ *  Value: "AGE_RANGE_18_20"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange1820;
+/**
  *  The age range of the audience is 18 to 24.
  *
  *  Value: "AGE_RANGE_18_24"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange1824;
+/**
+ *  The age range of the audience is 21 to 24, only supported for the AdGroup of
+ *  YouTube Programmatic Reservation line item.
+ *
+ *  Value: "AGE_RANGE_21_24"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange2124;
+/**
+ *  The age range of the audience is 25 to 29, only supported for the AdGroup of
+ *  YouTube Programmatic Reservation line item.
+ *
+ *  Value: "AGE_RANGE_25_29"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange2529;
 /**
  *  The age range of the audience is 25 to 34.
  *
@@ -639,11 +730,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange2534;
 /**
+ *  The age range of the audience is 30 to 34, only supported for the AdGroup of
+ *  YouTube Programmatic Reservation line item.
+ *
+ *  Value: "AGE_RANGE_30_34"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange3034;
+/**
+ *  The age range of the audience is 35 to 39, only supported for the AdGroup of
+ *  YouTube Programmatic Reservation line item.
+ *
+ *  Value: "AGE_RANGE_35_39"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange3539;
+/**
  *  The age range of the audience is 35 to 44.
  *
  *  Value: "AGE_RANGE_35_44"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange3544;
+/**
+ *  The age range of the audience is 40 to 44, only supported for the AdGroup of
+ *  YouTube Programmatic Reservation line item.
+ *
+ *  Value: "AGE_RANGE_40_44"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange4044;
+/**
+ *  The age range of the audience is 45 to 49, only supported for the AdGroup of
+ *  YouTube Programmatic Reservation line item.
+ *
+ *  Value: "AGE_RANGE_45_49"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange4549;
 /**
  *  The age range of the audience is 45 to 54.
  *
@@ -651,11 +770,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange4554;
 /**
+ *  The age range of the audience is 50 to 54, only supported for the AdGroup of
+ *  YouTube Programmatic Reservation line item.
+ *
+ *  Value: "AGE_RANGE_50_54"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange5054;
+/**
+ *  The age range of the audience is 55 to 59, only supported for the AdGroup of
+ *  YouTube Programmatic Reservation line item.
+ *
+ *  Value: "AGE_RANGE_55_59"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange5559;
+/**
  *  The age range of the audience is 55 to 64.
  *
  *  Value: "AGE_RANGE_55_64"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange5564;
+/**
+ *  The age range of the audience is 60 to 64, only supported for the AdGroup of
+ *  YouTube Programmatic Reservation line item.
+ *
+ *  Value: "AGE_RANGE_60_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange6064;
 /**
  *  The age range of the audience is 65 and up.
  *
@@ -4366,6 +4506,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeDailymotion;
 /**
+ *  DAX.
+ *
+ *  Value: "EXCHANGE_DAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeDax;
+/**
  *  Five.
  *
  *  Value: "EXCHANGE_FIVE"
@@ -4383,6 +4529,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  *  Value: "EXCHANGE_FREEWHEEL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeFreewheel;
+/**
+ *  Fyber.
+ *
+ *  Value: "EXCHANGE_FYBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeFyber;
 /**
  *  Geniee.
  *
@@ -4672,6 +4824,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeUnspecified;
 /**
+ *  Vistar.
+ *
+ *  Value: "EXCHANGE_VISTAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeVistar;
+/**
  *  Waze.
  *
  *  Value: "EXCHANGE_WAZE"
@@ -4766,6 +4924,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeDailymotion;
 /**
+ *  DAX.
+ *
+ *  Value: "EXCHANGE_DAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeDax;
+/**
  *  Five.
  *
  *  Value: "EXCHANGE_FIVE"
@@ -4783,6 +4947,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  *  Value: "EXCHANGE_FREEWHEEL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeFreewheel;
+/**
+ *  Fyber.
+ *
+ *  Value: "EXCHANGE_FYBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeFyber;
 /**
  *  Geniee.
  *
@@ -5072,6 +5242,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeUnspecified;
 /**
+ *  Vistar.
+ *
+ *  Value: "EXCHANGE_VISTAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeVistar;
+/**
  *  Waze.
  *
  *  Value: "EXCHANGE_WAZE"
@@ -5194,6 +5370,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeDailymotion;
 /**
+ *  DAX.
+ *
+ *  Value: "EXCHANGE_DAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeDax;
+/**
  *  Five.
  *
  *  Value: "EXCHANGE_FIVE"
@@ -5211,6 +5393,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  *  Value: "EXCHANGE_FREEWHEEL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeFreewheel;
+/**
+ *  Fyber.
+ *
+ *  Value: "EXCHANGE_FYBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeFyber;
 /**
  *  Geniee.
  *
@@ -5499,6 +5687,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  *  Value: "EXCHANGE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeUnspecified;
+/**
+ *  Vistar.
+ *
+ *  Value: "EXCHANGE_VISTAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeVistar;
 /**
  *  Waze.
  *
@@ -6009,13 +6203,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequ
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeDisplayMobileAppInstall;
 /**
- *  Display ads served on mobile app inventory.
+ *  Display ads served on mobile app inventory. Line items of this type and
+ *  their targeting cannot be created or updated using the API.
  *
  *  Value: "LINE_ITEM_TYPE_DISPLAY_MOBILE_APP_INVENTORY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeDisplayMobileAppInventory;
 /**
- *  Type value is not specified or is unknown in this version.
+ *  Type value is not specified or is unknown in this version. Line items of
+ *  this type and their targeting cannot be created or updated using the API.
  *
  *  Value: "LINE_ITEM_TYPE_UNSPECIFIED"
  */
@@ -6033,7 +6229,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequ
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeVideoMobileAppInstall;
 /**
- *  Video ads served on mobile app inventory.
+ *  Video ads served on mobile app inventory. Line items of this type and their
+ *  targeting cannot be created or updated using the API.
  *
  *  Value: "LINE_ITEM_TYPE_VIDEO_MOBILE_APP_INVENTORY"
  */
@@ -6525,6 +6722,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDailymotion;
 /**
+ *  DAX.
+ *
+ *  Value: "EXCHANGE_DAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDax;
+/**
  *  Five.
  *
  *  Value: "EXCHANGE_FIVE"
@@ -6542,6 +6745,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  *  Value: "EXCHANGE_FREEWHEEL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFreewheel;
+/**
+ *  Fyber.
+ *
+ *  Value: "EXCHANGE_FYBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFyber;
 /**
  *  Geniee.
  *
@@ -6830,6 +7039,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  *  Value: "EXCHANGE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeUnspecified;
+/**
+ *  Vistar.
+ *
+ *  Value: "EXCHANGE_VISTAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeVistar;
 /**
  *  Waze.
  *
@@ -7639,6 +7854,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeDailymotion;
 /**
+ *  DAX.
+ *
+ *  Value: "EXCHANGE_DAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeDax;
+/**
  *  Five.
  *
  *  Value: "EXCHANGE_FIVE"
@@ -7656,6 +7877,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  *  Value: "EXCHANGE_FREEWHEEL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeFreewheel;
+/**
+ *  Fyber.
+ *
+ *  Value: "EXCHANGE_FYBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeFyber;
 /**
  *  Geniee.
  *
@@ -7944,6 +8171,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  *  Value: "EXCHANGE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnspecified;
+/**
+ *  Vistar.
+ *
+ *  Value: "EXCHANGE_VISTAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeVistar;
 /**
  *  Waze.
  *
@@ -8244,13 +8477,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineI
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeDisplayMobileAppInstall;
 /**
- *  Display ads served on mobile app inventory.
+ *  Display ads served on mobile app inventory. Line items of this type and
+ *  their targeting cannot be created or updated using the API.
  *
  *  Value: "LINE_ITEM_TYPE_DISPLAY_MOBILE_APP_INVENTORY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeDisplayMobileAppInventory;
 /**
- *  Type value is not specified or is unknown in this version.
+ *  Type value is not specified or is unknown in this version. Line items of
+ *  this type and their targeting cannot be created or updated using the API.
  *
  *  Value: "LINE_ITEM_TYPE_UNSPECIFIED"
  */
@@ -8268,7 +8503,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineI
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeVideoMobileAppInstall;
 /**
- *  Video ads served on mobile app inventory.
+ *  Video ads served on mobile app inventory. Line items of this type and their
+ *  targeting cannot be created or updated using the API.
  *
  *  Value: "LINE_ITEM_TYPE_VIDEO_MOBILE_APP_INVENTORY"
  */
@@ -11397,16 +11633,56 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  audience of an unknown age. Output only in v1. Required in v2.
  *
  *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange1820
+ *        The age range of the audience is 18 to 20, only supported for the
+ *        AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "AGE_RANGE_18_20")
  *    @arg @c kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange1824
  *        The age range of the audience is 18 to 24. (Value: "AGE_RANGE_18_24")
+ *    @arg @c kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange2124
+ *        The age range of the audience is 21 to 24, only supported for the
+ *        AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "AGE_RANGE_21_24")
+ *    @arg @c kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange2529
+ *        The age range of the audience is 25 to 29, only supported for the
+ *        AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "AGE_RANGE_25_29")
  *    @arg @c kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange2534
  *        The age range of the audience is 25 to 34. (Value: "AGE_RANGE_25_34")
+ *    @arg @c kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange3034
+ *        The age range of the audience is 30 to 34, only supported for the
+ *        AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "AGE_RANGE_30_34")
+ *    @arg @c kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange3539
+ *        The age range of the audience is 35 to 39, only supported for the
+ *        AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "AGE_RANGE_35_39")
  *    @arg @c kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange3544
  *        The age range of the audience is 35 to 44. (Value: "AGE_RANGE_35_44")
+ *    @arg @c kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange4044
+ *        The age range of the audience is 40 to 44, only supported for the
+ *        AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "AGE_RANGE_40_44")
+ *    @arg @c kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange4549
+ *        The age range of the audience is 45 to 49, only supported for the
+ *        AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "AGE_RANGE_45_49")
  *    @arg @c kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange4554
  *        The age range of the audience is 45 to 54. (Value: "AGE_RANGE_45_54")
+ *    @arg @c kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange5054
+ *        The age range of the audience is 50 to 54, only supported for the
+ *        AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "AGE_RANGE_50_54")
+ *    @arg @c kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange5559
+ *        The age range of the audience is 55 to 59, only supported for the
+ *        AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "AGE_RANGE_55_59")
  *    @arg @c kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange5564
  *        The age range of the audience is 55 to 64. (Value: "AGE_RANGE_55_64")
+ *    @arg @c kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange6064
+ *        The age range of the audience is 60 to 64, only supported for the
+ *        AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "AGE_RANGE_60_64")
  *    @arg @c kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange65Plus
  *        The age range of the audience is 65 and up. (Value:
  *        "AGE_RANGE_65_PLUS")
@@ -11438,16 +11714,56 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  Output only. The age range of an audience.
  *
  *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange1820
+ *        The age range of the audience is 18 to 20, only supported for the
+ *        AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "AGE_RANGE_18_20")
  *    @arg @c kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange1824
  *        The age range of the audience is 18 to 24. (Value: "AGE_RANGE_18_24")
+ *    @arg @c kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange2124
+ *        The age range of the audience is 21 to 24, only supported for the
+ *        AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "AGE_RANGE_21_24")
+ *    @arg @c kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange2529
+ *        The age range of the audience is 25 to 29, only supported for the
+ *        AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "AGE_RANGE_25_29")
  *    @arg @c kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange2534
  *        The age range of the audience is 25 to 34. (Value: "AGE_RANGE_25_34")
+ *    @arg @c kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange3034
+ *        The age range of the audience is 30 to 34, only supported for the
+ *        AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "AGE_RANGE_30_34")
+ *    @arg @c kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange3539
+ *        The age range of the audience is 35 to 39, only supported for the
+ *        AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "AGE_RANGE_35_39")
  *    @arg @c kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange3544
  *        The age range of the audience is 35 to 44. (Value: "AGE_RANGE_35_44")
+ *    @arg @c kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange4044
+ *        The age range of the audience is 40 to 44, only supported for the
+ *        AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "AGE_RANGE_40_44")
+ *    @arg @c kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange4549
+ *        The age range of the audience is 45 to 49, only supported for the
+ *        AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "AGE_RANGE_45_49")
  *    @arg @c kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange4554
  *        The age range of the audience is 45 to 54. (Value: "AGE_RANGE_45_54")
+ *    @arg @c kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange5054
+ *        The age range of the audience is 50 to 54, only supported for the
+ *        AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "AGE_RANGE_50_54")
+ *    @arg @c kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange5559
+ *        The age range of the audience is 55 to 59, only supported for the
+ *        AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "AGE_RANGE_55_59")
  *    @arg @c kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange5564
  *        The age range of the audience is 55 to 64. (Value: "AGE_RANGE_55_64")
+ *    @arg @c kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange6064
+ *        The age range of the audience is 60 to 64, only supported for the
+ *        AdGroup of YouTube Programmatic Reservation line item. (Value:
+ *        "AGE_RANGE_60_64")
  *    @arg @c kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange65Plus
  *        The age range of the audience is 65 and up. (Value:
  *        "AGE_RANGE_65_PLUS")
@@ -16724,12 +17040,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeDax
+ *        DAX. (Value: "EXCHANGE_DAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeFive
  *        Five. (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeFluct
  *        Fluct. (Value: "EXCHANGE_FLUCT")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeFreewheel
  *        FreeWheel SSP. (Value: "EXCHANGE_FREEWHEEL")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeFyber
+ *        Fyber. (Value: "EXCHANGE_FYBER")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeGeniee
  *        Geniee. (Value: "EXCHANGE_GENIEE")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeGoogleAdManager
@@ -16828,6 +17148,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeUnspecified
  *        Exchange is not specified or is unknown in this version. (Value:
  *        "EXCHANGE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeVistar
+ *        Vistar. (Value: "EXCHANGE_VISTAR")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeWaze
  *        Waze. (Value: "EXCHANGE_WAZE")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeYieldlab
@@ -16890,12 +17212,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeDax DAX.
+ *        (Value: "EXCHANGE_DAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeFive Five.
  *        (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeFluct
  *        Fluct. (Value: "EXCHANGE_FLUCT")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeFreewheel
  *        FreeWheel SSP. (Value: "EXCHANGE_FREEWHEEL")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeFyber
+ *        Fyber. (Value: "EXCHANGE_FYBER")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeGeniee
  *        Geniee. (Value: "EXCHANGE_GENIEE")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeGoogleAdManager
@@ -16994,6 +17320,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeUnspecified
  *        Exchange is not specified or is unknown in this version. (Value:
  *        "EXCHANGE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeVistar
+ *        Vistar. (Value: "EXCHANGE_VISTAR")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeWaze Waze.
  *        (Value: "EXCHANGE_WAZE")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeYieldlab
@@ -17059,12 +17387,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeDax
+ *        DAX. (Value: "EXCHANGE_DAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeFive
  *        Five. (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeFluct
  *        Fluct. (Value: "EXCHANGE_FLUCT")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeFreewheel
  *        FreeWheel SSP. (Value: "EXCHANGE_FREEWHEEL")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeFyber
+ *        Fyber. (Value: "EXCHANGE_FYBER")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeGeniee
  *        Geniee. (Value: "EXCHANGE_GENIEE")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeGoogleAdManager
@@ -17163,6 +17495,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeUnspecified
  *        Exchange is not specified or is unknown in this version. (Value:
  *        "EXCHANGE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeVistar
+ *        Vistar. (Value: "EXCHANGE_VISTAR")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeWaze
  *        Waze. (Value: "EXCHANGE_WAZE")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeYieldlab
@@ -17799,11 +18133,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        Display ads that drive installs of an app. (Value:
  *        "LINE_ITEM_TYPE_DISPLAY_MOBILE_APP_INSTALL")
  *    @arg @c kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeDisplayMobileAppInventory
- *        Display ads served on mobile app inventory. (Value:
- *        "LINE_ITEM_TYPE_DISPLAY_MOBILE_APP_INVENTORY")
+ *        Display ads served on mobile app inventory. Line items of this type
+ *        and their targeting cannot be created or updated using the API.
+ *        (Value: "LINE_ITEM_TYPE_DISPLAY_MOBILE_APP_INVENTORY")
  *    @arg @c kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeUnspecified
- *        Type value is not specified or is unknown in this version. (Value:
- *        "LINE_ITEM_TYPE_UNSPECIFIED")
+ *        Type value is not specified or is unknown in this version. Line items
+ *        of this type and their targeting cannot be created or updated using
+ *        the API. (Value: "LINE_ITEM_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeVideoDefault
  *        Video ads sold on a CPM basis for a variety of environments. (Value:
  *        "LINE_ITEM_TYPE_VIDEO_DEFAULT")
@@ -17811,7 +18147,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        Video ads that drive installs of an app. (Value:
  *        "LINE_ITEM_TYPE_VIDEO_MOBILE_APP_INSTALL")
  *    @arg @c kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeVideoMobileAppInventory
- *        Video ads served on mobile app inventory. (Value:
+ *        Video ads served on mobile app inventory. Line items of this type and
+ *        their targeting cannot be created or updated using the API. (Value:
  *        "LINE_ITEM_TYPE_VIDEO_MOBILE_APP_INVENTORY")
  *    @arg @c kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeVideoOverTheTop
  *        Over-the-top ads present in OTT insertion orders. This type is only
@@ -18211,12 +18548,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDax DAX.
+ *        (Value: "EXCHANGE_DAX")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFive Five.
  *        (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFluct Fluct.
  *        (Value: "EXCHANGE_FLUCT")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFreewheel
  *        FreeWheel SSP. (Value: "EXCHANGE_FREEWHEEL")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFyber Fyber.
+ *        (Value: "EXCHANGE_FYBER")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeGeniee Geniee.
  *        (Value: "EXCHANGE_GENIEE")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeGoogleAdManager
@@ -18315,6 +18656,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeUnspecified
  *        Exchange is not specified or is unknown in this version. (Value:
  *        "EXCHANGE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeVistar Vistar.
+ *        (Value: "EXCHANGE_VISTAR")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeWaze Waze.
  *        (Value: "EXCHANGE_WAZE")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeYieldlab
@@ -19188,12 +19531,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeDax DAX.
+ *        (Value: "EXCHANGE_DAX")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeFive Five.
  *        (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeFluct Fluct.
  *        (Value: "EXCHANGE_FLUCT")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeFreewheel
  *        FreeWheel SSP. (Value: "EXCHANGE_FREEWHEEL")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeFyber Fyber.
+ *        (Value: "EXCHANGE_FYBER")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeGeniee Geniee.
  *        (Value: "EXCHANGE_GENIEE")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeGoogleAdManager
@@ -19292,6 +19639,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnspecified
  *        Exchange is not specified or is unknown in this version. (Value:
  *        "EXCHANGE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeVistar Vistar.
+ *        (Value: "EXCHANGE_VISTAR")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeWaze Waze.
  *        (Value: "EXCHANGE_WAZE")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeYieldlab
@@ -20014,11 +20363,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        Display ads that drive installs of an app. (Value:
  *        "LINE_ITEM_TYPE_DISPLAY_MOBILE_APP_INSTALL")
  *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeDisplayMobileAppInventory
- *        Display ads served on mobile app inventory. (Value:
- *        "LINE_ITEM_TYPE_DISPLAY_MOBILE_APP_INVENTORY")
+ *        Display ads served on mobile app inventory. Line items of this type
+ *        and their targeting cannot be created or updated using the API.
+ *        (Value: "LINE_ITEM_TYPE_DISPLAY_MOBILE_APP_INVENTORY")
  *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeUnspecified
- *        Type value is not specified or is unknown in this version. (Value:
- *        "LINE_ITEM_TYPE_UNSPECIFIED")
+ *        Type value is not specified or is unknown in this version. Line items
+ *        of this type and their targeting cannot be created or updated using
+ *        the API. (Value: "LINE_ITEM_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeVideoDefault
  *        Video ads sold on a CPM basis for a variety of environments. (Value:
  *        "LINE_ITEM_TYPE_VIDEO_DEFAULT")
@@ -20026,7 +20377,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        Video ads that drive installs of an app. (Value:
  *        "LINE_ITEM_TYPE_VIDEO_MOBILE_APP_INSTALL")
  *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeVideoMobileAppInventory
- *        Video ads served on mobile app inventory. (Value:
+ *        Video ads served on mobile app inventory. Line items of this type and
+ *        their targeting cannot be created or updated using the API. (Value:
  *        "LINE_ITEM_TYPE_VIDEO_MOBILE_APP_INVENTORY")
  *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeVideoOverTheTop
  *        Over-the-top ads present in OTT insertion orders. This type is only

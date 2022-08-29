@@ -639,7 +639,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_ExecutionConfig
-@dynamic kmsKey, networkTags, networkUri, serviceAccount, subnetworkUri;
+@dynamic idleTtl, kmsKey, networkTags, networkUri, serviceAccount,
+         subnetworkUri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1753,7 +1754,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_RepairClusterRequest
-@dynamic clusterUuid, nodePools, requestId;
+@dynamic clusterUuid, gracefulDecommissionTimeout, nodePools, parentOperationId,
+         requestId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

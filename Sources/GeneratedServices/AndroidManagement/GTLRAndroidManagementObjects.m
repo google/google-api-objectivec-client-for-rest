@@ -98,8 +98,10 @@ NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_CertIn
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_DelegatedScopeUnspecified = @"DELEGATED_SCOPE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_EnableSystemApp = @"ENABLE_SYSTEM_APP";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_ManagedConfigurations = @"MANAGED_CONFIGURATIONS";
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_NetworkActivityLogs = @"NETWORK_ACTIVITY_LOGS";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_PackageAccess = @"PACKAGE_ACCESS";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_PermissionGrant = @"PERMISSION_GRANT";
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_SecurityLogs = @"SECURITY_LOGS";
 
 // GTLRAndroidManagement_ApplicationPolicy.installType
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Available = @"AVAILABLE";
@@ -300,6 +302,7 @@ NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_UserAction = @"USER_ACTION";
 
 // GTLRAndroidManagement_NonComplianceDetail.specificNonComplianceReason
+NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiApiLevel = @"ONC_WIFI_API_LEVEL";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiInvalidValue = @"ONC_WIFI_INVALID_VALUE";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PasswordPoliciesPasswordExpired = @"PASSWORD_POLICIES_PASSWORD_EXPIRED";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PasswordPoliciesPasswordNotSufficient = @"PASSWORD_POLICIES_PASSWORD_NOT_SUFFICIENT";

@@ -33,6 +33,7 @@
 @class GTLRSecretManager_ReplicationStatus;
 @class GTLRSecretManager_Rotation;
 @class GTLRSecretManager_Secret;
+@class GTLRSecretManager_Secret_Annotations;
 @class GTLRSecretManager_Secret_Labels;
 @class GTLRSecretManager_Secret_VersionAliases;
 @class GTLRSecretManager_SecretPayload;
@@ -260,11 +261,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  anyone who is authenticated with a Google account or a service account. *
  *  `user:{emailid}`: An email address that represents a specific Google
  *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
- *  address that represents a Google group. For example, `admins\@example.com`.
- *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
+ *  An email address that represents a Google service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
+ *  identifier for a [Kubernetes service
+ *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
+ *  `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
+ *  An email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -789,6 +795,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  */
 @interface GTLRSecretManager_Secret : GTLRObject
 
+/**
+ *  Optional. Custom metadata about the secret. Annotations are distinct from
+ *  various forms of labels. Annotations exist to allow client tools to store
+ *  their own state information without requiring a database. Annotation keys
+ *  must be between 1 and 63 characters long, have a UTF-8 encoding of maximum
+ *  128 bytes, begin and end with an alphanumeric character ([a-z0-9A-Z]), and
+ *  may have dashes (-), underscores (_), dots (.), and alphanumerics in between
+ *  these symbols. The total size of annotation keys and values must be less
+ *  than 16KiB.
+ */
+@property(nonatomic, strong, nullable) GTLRSecretManager_Secret_Annotations *annotations;
+
 /** Output only. The time at which the Secret was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -852,6 +870,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  */
 @property(nonatomic, strong, nullable) GTLRSecretManager_Secret_VersionAliases *versionAliases;
 
+@end
+
+
+/**
+ *  Optional. Custom metadata about the secret. Annotations are distinct from
+ *  various forms of labels. Annotations exist to allow client tools to store
+ *  their own state information without requiring a database. Annotation keys
+ *  must be between 1 and 63 characters long, have a UTF-8 encoding of maximum
+ *  128 bytes, begin and end with an alphanumeric character ([a-z0-9A-Z]), and
+ *  may have dashes (-), underscores (_), dots (.), and alphanumerics in between
+ *  these symbols. The total size of annotation keys and values must be less
+ *  than 16KiB.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRSecretManager_Secret_Annotations : GTLRObject
 @end
 
 

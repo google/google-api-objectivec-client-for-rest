@@ -4,8 +4,7 @@
 // API:
 //   Network Connectivity API (networkconnectivity/v1)
 // Description:
-//   The Network Connectivity API provides access to Network Connectivity
-//   Center.
+//   This API enables connectivity with and between Google Cloud resources.
 // Documentation:
 //   https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity/rest
 

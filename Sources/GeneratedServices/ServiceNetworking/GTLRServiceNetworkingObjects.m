@@ -420,6 +420,16 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_CloudSQLConfig
+//
+
+@implementation GTLRServiceNetworking_CloudSQLConfig
+@dynamic service, umbrellaNetwork, umbrellaProject;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_Connection
 //
 
@@ -442,15 +452,16 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_ConsumerConfig
-@dynamic consumerExportCustomRoutes, consumerExportSubnetRoutesWithPublicIp,
-         consumerImportCustomRoutes, consumerImportSubnetRoutesWithPublicIp,
-         producerExportCustomRoutes, producerExportSubnetRoutesWithPublicIp,
-         producerImportCustomRoutes, producerImportSubnetRoutesWithPublicIp,
-         producerNetwork, reservedRanges, usedIpRanges,
-         vpcScReferenceArchitectureEnabled;
+@dynamic cloudsqlConfigs, consumerExportCustomRoutes,
+         consumerExportSubnetRoutesWithPublicIp, consumerImportCustomRoutes,
+         consumerImportSubnetRoutesWithPublicIp, producerExportCustomRoutes,
+         producerExportSubnetRoutesWithPublicIp, producerImportCustomRoutes,
+         producerImportSubnetRoutesWithPublicIp, producerNetwork,
+         reservedRanges, usedIpRanges, vpcScReferenceArchitectureEnabled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"cloudsqlConfigs" : [GTLRServiceNetworking_CloudSQLConfig class],
     @"reservedRanges" : [GTLRServiceNetworking_GoogleCloudServicenetworkingV1ConsumerConfigReservedRange class],
     @"usedIpRanges" : [NSString class]
   };

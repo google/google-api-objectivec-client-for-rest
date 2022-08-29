@@ -102,7 +102,8 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 //
 
 @implementation GTLRArtifactRegistry_DockerImage
-@dynamic buildTime, imageSizeBytes, mediaType, name, tags, uploadTime, uri;
+@dynamic buildTime, imageSizeBytes, mediaType, name, tags, updateTime,
+         uploadTime, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

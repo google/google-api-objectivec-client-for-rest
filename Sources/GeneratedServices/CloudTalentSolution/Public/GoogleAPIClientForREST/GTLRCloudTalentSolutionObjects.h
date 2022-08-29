@@ -3776,7 +3776,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  If true, disable automatic enrollment selection (at all diversion points).
  *  Automatic enrollment selection means experiment selection process based on
  *  the experiment's automatic enrollment condition. This does not disable
- *  selection of forced experiments.
+ *  selection of forced experiments. Setting this filed to false does not change
+ *  anything in experiment selection process.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3817,7 +3818,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  If true, disable manual enrollment selection (at all diversion points).
  *  Manual enrollment selection means experiment selection process based on the
  *  request's manual enrollment states (a.k.a. opt-in experiments). This does
- *  not disable selection of forced experiments.
+ *  not disable selection of forced experiments. Setting this filed to false
+ *  does not change anything in experiment selection process.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3830,7 +3832,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  selection of forced experiments. This is useful in cases when it is not
  *  known whether experiment selection behavior is responsible for a error or
  *  breakage. Disabling organic selection may help to isolate the cause of a
- *  given problem.
+ *  given problem. Setting this filed to false does not change anything in
+ *  experiment selection process.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3978,11 +3981,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  P.O. Box or similar. It is not intended to model geographical locations
  *  (roads, towns, mountains). In typical usage an address would be created via
  *  user input or from importing existing data, depending on the type of
- *  process. Advice on address input / editing: - Use an i18n-ready address
- *  widget such as https://github.com/google/libaddressinput) - Users should not
- *  be presented with UI elements for input or editing of fields outside
- *  countries where that field is used. For more guidance on how to use this
- *  schema, please see: https://support.google.com/business/answer/6397478
+ *  process. Advice on address input / editing: - Use an
+ *  internationalization-ready address widget such as
+ *  https://github.com/google/libaddressinput) - Users should not be presented
+ *  with UI elements for input or editing of fields outside countries where that
+ *  field is used. For more guidance on how to use this schema, please see:
+ *  https://support.google.com/business/answer/6397478
  */
 @interface GTLRCloudTalentSolution_PostalAddress : GTLRObject
 

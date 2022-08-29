@@ -140,6 +140,22 @@ NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_ForwardCompliant
 NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_NonCompliant = @"NON_COMPLIANT";
 NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRCloudIdentity_UserInvitation.state
+NSString * const kGTLRCloudIdentity_UserInvitation_State_Accepted = @"ACCEPTED";
+NSString * const kGTLRCloudIdentity_UserInvitation_State_Declined = @"DECLINED";
+NSString * const kGTLRCloudIdentity_UserInvitation_State_Invited = @"INVITED";
+NSString * const kGTLRCloudIdentity_UserInvitation_State_NotYetSent = @"NOT_YET_SENT";
+NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_CancelUserInvitationRequest
+//
+
+@implementation GTLRCloudIdentity_CancelUserInvitationRequest
+@end
+
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudIdentity_CheckTransitiveMembershipResponse
@@ -761,6 +777,16 @@ NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_StateUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_IsInvitableUserResponse
+//
+
+@implementation GTLRCloudIdentity_IsInvitableUserResponse
+@dynamic isInvitableUser;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_ListGroupsResponse
 //
 
@@ -798,6 +824,28 @@ NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_StateUnspecified
 
 + (NSString *)collectionItemsKey {
   return @"memberships";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_ListUserInvitationsResponse
+//
+
+@implementation GTLRCloudIdentity_ListUserInvitationsResponse
+@dynamic nextPageToken, userInvitations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"userInvitations" : [GTLRCloudIdentity_UserInvitation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"userInvitations";
 }
 
 @end
@@ -1074,6 +1122,15 @@ NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_StateUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_SendUserInvitationRequest
+//
+
+@implementation GTLRCloudIdentity_SendUserInvitationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_Status
 //
 
@@ -1139,4 +1196,14 @@ NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_StateUnspecified
 
 @implementation GTLRCloudIdentity_UpdateMembershipRolesParams
 @dynamic fieldMask, membershipRole;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_UserInvitation
+//
+
+@implementation GTLRCloudIdentity_UserInvitation
+@dynamic mailsSentCount, name, state, updateTime;
 @end

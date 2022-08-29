@@ -739,6 +739,187 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Archives an Audience on a property.
+ *
+ *  Method: analyticsadmin.properties.audiences.archive
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesArchive : GTLRGoogleAnalyticsAdminQuery
+
+/** Required. Example format: properties/1234/audiences/5678 */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
+ *
+ *  Archives an Audience on a property.
+ *
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaArchiveAudienceRequest
+ *    to include in the query.
+ *  @param name Required. Example format: properties/1234/audiences/5678
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesArchive
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaArchiveAudienceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates an Audience.
+ *
+ *  Method: analyticsadmin.properties.audiences.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesCreate : GTLRGoogleAnalyticsAdminQuery
+
+/** Required. Example format: properties/1234 */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaAudience.
+ *
+ *  Creates an Audience.
+ *
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaAudience to include in
+ *    the query.
+ *  @param parent Required. Example format: properties/1234
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesCreate
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaAudience *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lookup for a single Audience. Audiences created before 2020 may not be
+ *  supported. Default audiences will not show filter definitions.
+ *
+ *  Method: analyticsadmin.properties.audiences.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesGet : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The name of the Audience to get. Example format:
+ *  properties/1234/audiences/5678
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaAudience.
+ *
+ *  Lookup for a single Audience. Audiences created before 2020 may not be
+ *  supported. Default audiences will not show filter definitions.
+ *
+ *  @param name Required. The name of the Audience to get. Example format:
+ *    properties/1234/audiences/5678
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Audiences on a property. Audiences created before 2020 may not be
+ *  supported. Default audiences will not show filter definitions.
+ *
+ *  Method: analyticsadmin.properties.audiences.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesList : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  The maximum number of resources to return. If unspecified, at most 50
+ *  resources will be returned. The maximum value is 200 (higher values will be
+ *  coerced to the maximum).
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListAudiences` call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to `ListAudiences` must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Example format: properties/1234 */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaListAudiencesResponse.
+ *
+ *  Lists Audiences on a property. Audiences created before 2020 may not be
+ *  supported. Default audiences will not show filter definitions.
+ *
+ *  @param parent Required. Example format: properties/1234
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an Audience on a property.
+ *
+ *  Method: analyticsadmin.properties.audiences.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesPatch : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Output only. The resource name for this Audience resource. Format:
+ *  properties/{propertyId}/audiences/{audienceId}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to be updated. Field names must be in snake
+ *  case (e.g., "field_to_update"). Omitted fields will not be updated. To
+ *  replace the entire entity, use one path with the string "*" to match all
+ *  fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaAudience.
+ *
+ *  Updates an Audience on a property.
+ *
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaAudience to include in
+ *    the query.
+ *  @param name Output only. The resource name for this Audience resource.
+ *    Format: properties/{propertyId}/audiences/{audienceId}
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesAudiencesPatch
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaAudience *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a conversion event with the specified attributes.
  *
  *  Method: analyticsadmin.properties.conversionEvents.create
@@ -2641,6 +2822,61 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaProperty *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a customized report of data access records. The report provides
+ *  records of each time a user reads Google Analytics reporting data. Access
+ *  records are retained for up to 2 years. Data Access Reports can be requested
+ *  for a property. The property must be in Google Analytics 360. This method is
+ *  only available to Administrators. These data access records include GA4 UI
+ *  Reporting, GA4 UI Explorations, GA4 Data API, and other products like
+ *  Firebase & Admob that can retrieve data from Google Analytics through a
+ *  linkage. These records don't include property configuration changes like
+ *  adding a stream or changing a property's time zone. For configuration change
+ *  history, see
+ *  [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents).
+ *
+ *  Method: analyticsadmin.properties.runAccessReport
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesRunAccessReport : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  The Data Access Report is requested for this property. For example if "123"
+ *  is your GA4 property ID, then entity should be "properties/123".
+ */
+@property(nonatomic, copy, nullable) NSString *entity;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaRunAccessReportResponse.
+ *
+ *  Returns a customized report of data access records. The report provides
+ *  records of each time a user reads Google Analytics reporting data. Access
+ *  records are retained for up to 2 years. Data Access Reports can be requested
+ *  for a property. The property must be in Google Analytics 360. This method is
+ *  only available to Administrators. These data access records include GA4 UI
+ *  Reporting, GA4 UI Explorations, GA4 Data API, and other products like
+ *  Firebase & Admob that can retrieve data from Google Analytics through a
+ *  linkage. These records don't include property configuration changes like
+ *  adding a stream or changing a property's time zone. For configuration change
+ *  history, see
+ *  [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents).
+ *
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaRunAccessReportRequest
+ *    to include in the query.
+ *  @param entity The Data Access Report is requested for this property. For
+ *    example if "123" is your GA4 property ID, then entity should be
+ *    "properties/123".
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesRunAccessReport
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaRunAccessReportRequest *)object
+                         entity:(NSString *)entity;
 
 @end
 

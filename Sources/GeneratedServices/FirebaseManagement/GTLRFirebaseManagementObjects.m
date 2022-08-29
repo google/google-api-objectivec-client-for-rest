@@ -195,7 +195,27 @@ NSString * const kGTLRFirebaseManagement_WebApp_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRFirebaseManagement_FirebaseProject
-@dynamic displayName, name, projectId, projectNumber, resources, state;
+@dynamic annotations, displayName, ETag, name, projectId, projectNumber,
+         resources, state;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseManagement_FirebaseProject_Annotations
+//
+
+@implementation GTLRFirebaseManagement_FirebaseProject_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -581,6 +601,51 @@ NSString * const kGTLRFirebaseManagement_WebApp_State_StateUnspecified = @"STATE
 
 @implementation GTLRFirebaseManagement_StreamMapping
 @dynamic app, measurementId, streamId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseManagement_UndeleteAndroidAppRequest
+//
+
+@implementation GTLRFirebaseManagement_UndeleteAndroidAppRequest
+@dynamic ETag, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseManagement_UndeleteIosAppRequest
+//
+
+@implementation GTLRFirebaseManagement_UndeleteIosAppRequest
+@dynamic ETag, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseManagement_UndeleteWebAppRequest
+//
+
+@implementation GTLRFirebaseManagement_UndeleteWebAppRequest
+@dynamic ETag, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
 @end
 
 

@@ -1375,6 +1375,48 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  Updates a datasource. **Note:** This API requires an admin account to
  *  execute.
  *
+ *  Method: cloudsearch.settings.datasources.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSearchCloudSearch
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchSettings
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchSettingsIndexing
+ */
+@interface GTLRCloudSearchQuery_SettingsDatasourcesPatch : GTLRCloudSearchQuery
+
+/**
+ *  If you are asked by Google to help with debugging, set this field.
+ *  Otherwise, ignore this field.
+ */
+@property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
+
+/**
+ *  The name of the datasource resource. Format: datasources/{source_id}. The
+ *  name is ignored when creating a datasource.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudSearch_Operation.
+ *
+ *  Updates a datasource. **Note:** This API requires an admin account to
+ *  execute.
+ *
+ *  @param object The @c GTLRCloudSearch_DataSource to include in the query.
+ *  @param name The name of the datasource resource. Format:
+ *    datasources/{source_id}. The name is ignored when creating a datasource.
+ *
+ *  @return GTLRCloudSearchQuery_SettingsDatasourcesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudSearch_DataSource *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates a datasource. **Note:** This API requires an admin account to
+ *  execute.
+ *
  *  Method: cloudsearch.settings.datasources.update
  *
  *  Authorization scope(s):
@@ -1582,6 +1624,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *        information.
  */
 + (instancetype)query;
+
+@end
+
+/**
+ *  Updates a search application. **Note:** This API requires an admin account
+ *  to execute.
+ *
+ *  Method: cloudsearch.settings.searchapplications.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSearchCloudSearch
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchSettings
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchSettingsQuery
+ */
+@interface GTLRCloudSearchQuery_SettingsSearchapplicationsPatch : GTLRCloudSearchQuery
+
+/**
+ *  The name of the Search Application. Format:
+ *  searchapplications/{application_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudSearch_Operation.
+ *
+ *  Updates a search application. **Note:** This API requires an admin account
+ *  to execute.
+ *
+ *  @param object The @c GTLRCloudSearch_SearchApplication to include in the
+ *    query.
+ *  @param name The name of the Search Application. Format:
+ *    searchapplications/{application_id}.
+ *
+ *  @return GTLRCloudSearchQuery_SettingsSearchapplicationsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudSearch_SearchApplication *)object
+                           name:(NSString *)name;
 
 @end
 

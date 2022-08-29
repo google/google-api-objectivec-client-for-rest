@@ -606,6 +606,13 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_CompleteRoboS
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_CrashDialogError;
 /**
+ *  Robo detected a splash screen provided by app (vs. Android OS splash
+ *  screen).
+ *
+ *  Value: "detectedAppSplashScreen"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_DetectedAppSplashScreen;
+/**
  *  Device running out of memory was detected
  *
  *  Value: "deviceOutOfMemory"
@@ -1123,6 +1130,14 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 /** The name of the package that caused the dialog. */
 @property(nonatomic, copy, nullable) NSString *crashPackage;
 
+@end
+
+
+/**
+ *  A notification that Robo detected a splash screen provided by app (vs.
+ *  Android OS splash screen).
+ */
+@interface GTLRToolResults_DetectedAppSplashScreen : GTLRObject
 @end
 
 
@@ -3387,6 +3402,9 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  *        "completeRoboScriptExecution")
  *    @arg @c kGTLRToolResults_TestIssue_Type_CrashDialogError Crash dialog was
  *        detected during the test execution (Value: "crashDialogError")
+ *    @arg @c kGTLRToolResults_TestIssue_Type_DetectedAppSplashScreen Robo
+ *        detected a splash screen provided by app (vs. Android OS splash
+ *        screen). (Value: "detectedAppSplashScreen")
  *    @arg @c kGTLRToolResults_TestIssue_Type_DeviceOutOfMemory Device running
  *        out of memory was detected (Value: "deviceOutOfMemory")
  *    @arg @c kGTLRToolResults_TestIssue_Type_EncounteredLoginScreen Robo crawl

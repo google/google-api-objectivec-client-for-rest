@@ -59,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a stored query as well as the associated stored reports.
+ *  Deletes a query as well as the associated reports.
  *
  *  Method: doubleclickbidmanager.queries.delete
  *
@@ -68,16 +68,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDoubleClickBidManagerQuery_QueriesDelete : GTLRDoubleClickBidManagerQuery
 
-/** Required. Query ID to delete. */
+/** Required. ID of query to delete. */
 @property(nonatomic, assign) long long queryId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes a stored query as well as the associated stored reports.
+ *  Deletes a query as well as the associated reports.
  *
- *  @param queryId Required. Query ID to delete.
+ *  @param queryId Required. ID of query to delete.
  *
  *  @return GTLRDoubleClickBidManagerQuery_QueriesDelete
  */
@@ -86,7 +86,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves a stored query.
+ *  Retrieves a query.
  *
  *  Method: doubleclickbidmanager.queries.get
  *
@@ -95,15 +95,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDoubleClickBidManagerQuery_QueriesGet : GTLRDoubleClickBidManagerQuery
 
-/** Required. Query ID to retrieve. */
+/** Required. ID of query to retrieve. */
 @property(nonatomic, assign) long long queryId;
 
 /**
  *  Fetches a @c GTLRDoubleClickBidManager_Query.
  *
- *  Retrieves a stored query.
+ *  Retrieves a query.
  *
- *  @param queryId Required. Query ID to retrieve.
+ *  @param queryId Required. ID of query to retrieve.
  *
  *  @return GTLRDoubleClickBidManagerQuery_QueriesGet
  */
@@ -112,7 +112,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves stored queries.
+ *  Lists queries created by the current user.
  *
  *  Method: doubleclickbidmanager.queries.list
  *
@@ -125,7 +125,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Name of a field used to order results. The default sorting order is
  *  ascending. To specify descending order for a field, append a " desc" suffix.
  *  For example "metadata.title desc". Sorting is only supported for the
- *  following fields: * queryId * metadata.title
+ *  following fields: * `queryId` * `metadata.title`
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -144,7 +144,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDoubleClickBidManager_ListQueriesResponse.
  *
- *  Retrieves stored queries.
+ *  Lists queries created by the current user.
  *
  *  @return GTLRDoubleClickBidManagerQuery_QueriesList
  *
@@ -157,7 +157,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves a stored report.
+ *  Retrieves a report.
  *
  *  Method: doubleclickbidmanager.queries.reports.get
  *
@@ -175,7 +175,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDoubleClickBidManager_Report.
  *
- *  Retrieves a stored report.
+ *  Retrieves a report.
  *
  *  @param queryId Required. ID of the query the report is associated with.
  *  @param reportId Required. ID of the report to retrieve.
@@ -188,7 +188,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists reports.
+ *  Lists reports associated with a query.
  *
  *  Method: doubleclickbidmanager.queries.reports.list
  *
@@ -201,7 +201,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Name of a field used to order results. The default sorting order is
  *  ascending. To specify descending order for a field, append a " desc" suffix.
  *  For example "key.reportId desc". Sorting is only supported for the following
- *  fields: * key.reportId
+ *  fields: * `key.reportId`
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -217,15 +217,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. Query ID with which the reports are associated. */
+/** Required. ID of the query with which the reports are associated. */
 @property(nonatomic, assign) long long queryId;
 
 /**
  *  Fetches a @c GTLRDoubleClickBidManager_ListReportsResponse.
  *
- *  Lists reports.
+ *  Lists reports associated with a query.
  *
- *  @param queryId Required. Query ID with which the reports are associated.
+ *  @param queryId Required. ID of the query with which the reports are
+ *    associated.
  *
  *  @return GTLRDoubleClickBidManagerQuery_QueriesReportsList
  *
@@ -247,7 +248,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDoubleClickBidManagerQuery_QueriesRun : GTLRDoubleClickBidManagerQuery
 
-/** Required. Query ID to run. */
+/** Required. ID of query to run. */
 @property(nonatomic, assign) long long queryId;
 
 /**
@@ -264,7 +265,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDoubleClickBidManager_RunQueryRequest to include in
  *    the query.
- *  @param queryId Required. Query ID to run.
+ *  @param queryId Required. ID of query to run.
  *
  *  @return GTLRDoubleClickBidManagerQuery_QueriesRun
  */

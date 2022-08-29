@@ -16,6 +16,7 @@
 #endif
 
 @class GTLRContainerAnalysis_AliasContext;
+@class GTLRContainerAnalysis_AnalysisCompleted;
 @class GTLRContainerAnalysis_Artifact;
 @class GTLRContainerAnalysis_AttestationNote;
 @class GTLRContainerAnalysis_AttestationOccurrence;
@@ -535,6 +536,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryNote_Analysis
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_AnalysisStatusUnspecified;
 /**
+ *  Analysis has completed
+ *
+ *  Value: "COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_Complete;
+/**
  *  Analysis has finished unsuccessfully, the analysis itself is in a bad state.
  *
  *  Value: "FINISHED_FAILED"
@@ -547,7 +554,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryOccurrence_An
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_FinishedSuccess;
 /**
- *  The resource is known not to be supported
+ *  The resource is known not to be supported.
  *
  *  Value: "FINISHED_UNSUPPORTED"
  */
@@ -1485,6 +1492,17 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
+ *  Indicates which analysis completed successfully. Multiple types of analysis
+ *  can be performed on a single resource.
+ */
+@interface GTLRContainerAnalysis_AnalysisCompleted : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *analysisType;
+
+@end
+
+
+/**
  *  Artifact describes a build product.
  */
 @interface GTLRContainerAnalysis_Artifact : GTLRObject
@@ -1657,11 +1675,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  anyone who is authenticated with a Google account or a service account. *
  *  `user:{emailid}`: An email address that represents a specific Google
  *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
- *  address that represents a Google group. For example, `admins\@example.com`.
- *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
+ *  An email address that represents a Google service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
+ *  identifier for a [Kubernetes service
+ *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
+ *  `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
+ *  An email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -2571,19 +2594,29 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  */
 @interface GTLRContainerAnalysis_DiscoveryOccurrence : GTLRObject
 
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_AnalysisCompleted *analysisCompleted;
+
+/**
+ *  Indicates any errors encountered during analysis of a resource. There could
+ *  be 0 or more of these errors.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Status *> *analysisError;
+
 /**
  *  The status of discovery for the resource.
  *
  *  Likely values:
  *    @arg @c kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_AnalysisStatusUnspecified
  *        Unknown. (Value: "ANALYSIS_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_Complete
+ *        Analysis has completed (Value: "COMPLETE")
  *    @arg @c kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_FinishedFailed
  *        Analysis has finished unsuccessfully, the analysis itself is in a bad
  *        state. (Value: "FINISHED_FAILED")
  *    @arg @c kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_FinishedSuccess
  *        Analysis has finished successfully. (Value: "FINISHED_SUCCESS")
  *    @arg @c kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_FinishedUnsupported
- *        The resource is known not to be supported (Value:
+ *        The resource is known not to be supported. (Value:
  *        "FINISHED_UNSUPPORTED")
  *    @arg @c kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_Pending
  *        Resource is known but no action has been taken yet. (Value: "PENDING")

@@ -148,6 +148,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Ite
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -317,6 +324,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item
  *  Value: "INJECTED_KERNELS_DEPRECATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_InvalidHealthCheckForDynamicWieghtedLb;
 /**
  *  When deploying a deployment with a exceedingly large number of resources
  *
@@ -562,6 +576,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_InjectedKernelsDeprecated;
 /**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
  *  When deploying a deployment with a exceedingly large number of resources
  *
  *  Value: "LARGE_DEPLOYMENT_WARNING"
@@ -767,11 +788,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
  *  anyone who is authenticated with a Google account or a service account. *
  *  `user:{emailid}`: An email address that represents a specific Google
  *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
- *  address that represents a Google group. For example, `admins\@example.com`.
- *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
+ *  An email address that represents a Google service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
+ *  identifier for a [Kubernetes service
+ *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
+ *  `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
+ *  An email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -1437,6 +1463,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
  *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -1768,6 +1798,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
  *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
@@ -2028,6 +2062,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
  *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_InjectedKernelsDeprecated
  *        The operation involved use of an injected kernel, which is deprecated.
  *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
  *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_LargeDeploymentWarning
  *        When deploying a deployment with a exceedingly large number of
  *        resources (Value: "LARGE_DEPLOYMENT_WARNING")

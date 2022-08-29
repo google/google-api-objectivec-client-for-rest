@@ -562,6 +562,25 @@
 
 @end
 
+@implementation GTLRDocumentQuery_ProjectsLocationsProcessorTypesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/processorTypes";
+  GTLRDocumentQuery_ProjectsLocationsProcessorTypesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDocument_GoogleCloudDocumentaiV1ListProcessorTypesResponse class];
+  query.loggingName = @"documentai.projects.locations.processorTypes.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRDocumentQuery_ProjectsOperationsGet
 
 @dynamic name;

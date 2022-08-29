@@ -514,7 +514,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_GcsDestination_MessageVi
 // GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination.writeDisposition
 
 /**
- *  Append data to the existing table.
+ *  Append data to the destination table.
  *
  *  Value: "WRITE_APPEND"
  */
@@ -532,7 +532,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1D
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination_WriteDisposition_WriteEmpty;
 /**
- *  Erase all existing data in a table before writing the instances.
+ *  Erase all existing data in the destination table before writing the
+ *  instances.
  *
  *  Value: "WRITE_TRUNCATE"
  */
@@ -542,7 +543,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1D
 // GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination.writeDisposition
 
 /**
- *  Append data to the existing tables.
+ *  Append data to the destination tables.
  *
  *  Value: "WRITE_APPEND"
  */
@@ -560,7 +561,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1F
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination_WriteDisposition_WriteEmpty;
 /**
- *  Erase all existing data in the tables before writing the instances.
+ *  Erase all existing data in the destination tables before writing the FHIR
+ *  resources.
  *
  *  Value: "WRITE_TRUNCATE"
  */
@@ -1026,11 +1028,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  anyone who is authenticated with a Google account or a service account. *
  *  `user:{emailid}`: An email address that represents a specific Google
  *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
- *  address that represents a Google group. For example, `admins\@example.com`.
- *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
+ *  An email address that represents a Google service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
+ *  identifier for a [Kubernetes service
+ *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
+ *  `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
+ *  An email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -2672,7 +2679,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination_WriteDisposition_WriteAppend
- *        Append data to the existing table. (Value: "WRITE_APPEND")
+ *        Append data to the destination table. (Value: "WRITE_APPEND")
  *    @arg @c kGTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination_WriteDisposition_WriteDispositionUnspecified
  *        Default behavior is the same as WRITE_EMPTY. (Value:
  *        "WRITE_DISPOSITION_UNSPECIFIED")
@@ -2680,8 +2687,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *        Only export data if the destination table is empty. (Value:
  *        "WRITE_EMPTY")
  *    @arg @c kGTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination_WriteDisposition_WriteTruncate
- *        Erase all existing data in a table before writing the instances.
- *        (Value: "WRITE_TRUNCATE")
+ *        Erase all existing data in the destination table before writing the
+ *        instances. (Value: "WRITE_TRUNCATE")
  */
 @property(nonatomic, copy, nullable) NSString *writeDisposition;
 
@@ -2790,7 +2797,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination_WriteDisposition_WriteAppend
- *        Append data to the existing tables. (Value: "WRITE_APPEND")
+ *        Append data to the destination tables. (Value: "WRITE_APPEND")
  *    @arg @c kGTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination_WriteDisposition_WriteDispositionUnspecified
  *        Default behavior is the same as WRITE_EMPTY. (Value:
  *        "WRITE_DISPOSITION_UNSPECIFIED")
@@ -2798,8 +2805,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *        Only export data if the destination tables are empty. (Value:
  *        "WRITE_EMPTY")
  *    @arg @c kGTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination_WriteDisposition_WriteTruncate
- *        Erase all existing data in the tables before writing the instances.
- *        (Value: "WRITE_TRUNCATE")
+ *        Erase all existing data in the destination tables before writing the
+ *        FHIR resources. (Value: "WRITE_TRUNCATE")
  */
 @property(nonatomic, copy, nullable) NSString *writeDisposition;
 

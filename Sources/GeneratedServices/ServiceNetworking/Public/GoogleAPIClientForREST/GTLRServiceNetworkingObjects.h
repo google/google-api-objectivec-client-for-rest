@@ -24,6 +24,7 @@
 @class GTLRServiceNetworking_BackendRule;
 @class GTLRServiceNetworking_Billing;
 @class GTLRServiceNetworking_BillingDestination;
+@class GTLRServiceNetworking_CloudSQLConfig;
 @class GTLRServiceNetworking_Connection;
 @class GTLRServiceNetworking_ConsumerConfig;
 @class GTLRServiceNetworking_ConsumerProject;
@@ -1421,6 +1422,27 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
+ *  Cloud SQL configuration.
+ */
+@interface GTLRServiceNetworking_CloudSQLConfig : GTLRObject
+
+/** Peering service used for peering with the Cloud SQL project. */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/** The name of the umbrella network in the Cloud SQL umbrella project. */
+@property(nonatomic, copy, nullable) NSString *umbrellaNetwork;
+
+/**
+ *  The project number of the Cloud SQL umbrella project.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *umbrellaProject;
+
+@end
+
+
+/**
  *  Represents a private connection resource. A private connection is
  *  implemented as a VPC Network Peering connection between a service producer's
  *  VPC network and a service consumer's VPC network.
@@ -1466,6 +1488,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  Configuration information for a private service access connection.
  */
 @interface GTLRServiceNetworking_ConsumerConfig : GTLRObject
+
+/** Represents one or multiple Cloud SQL configurations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_CloudSQLConfig *> *cloudsqlConfigs;
 
 /**
  *  Export custom routes flag value for peering from consumer to producer.

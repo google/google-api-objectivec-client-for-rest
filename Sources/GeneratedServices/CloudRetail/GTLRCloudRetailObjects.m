@@ -15,6 +15,75 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudRetail_GoogleCloudRetailV2alphaModel.dataState
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_DataState_DataError = @"DATA_ERROR";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_DataState_DataOk = @"DATA_OK";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_DataState_DataStateUnspecified = @"DATA_STATE_UNSPECIFIED";
+
+// GTLRCloudRetail_GoogleCloudRetailV2alphaModel.filteringOption
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_FilteringOption_RecommendationsFilteringDisabled = @"RECOMMENDATIONS_FILTERING_DISABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_FilteringOption_RecommendationsFilteringEnabled = @"RECOMMENDATIONS_FILTERING_ENABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_FilteringOption_RecommendationsFilteringOptionUnspecified = @"RECOMMENDATIONS_FILTERING_OPTION_UNSPECIFIED";
+
+// GTLRCloudRetail_GoogleCloudRetailV2alphaModel.periodicTuningState
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_PeriodicTuningState_AllTuningDisabled = @"ALL_TUNING_DISABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_PeriodicTuningState_PeriodicTuningDisabled = @"PERIODIC_TUNING_DISABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_PeriodicTuningState_PeriodicTuningEnabled = @"PERIODIC_TUNING_ENABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_PeriodicTuningState_PeriodicTuningStateUnspecified = @"PERIODIC_TUNING_STATE_UNSPECIFIED";
+
+// GTLRCloudRetail_GoogleCloudRetailV2alphaModel.servingState
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_ServingState_Active = @"ACTIVE";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_ServingState_Inactive = @"INACTIVE";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_ServingState_ServingStateUnspecified = @"SERVING_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_ServingState_Tuned = @"TUNED";
+
+// GTLRCloudRetail_GoogleCloudRetailV2alphaModel.trainingState
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_TrainingState_Paused = @"PAUSED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_TrainingState_Training = @"TRAINING";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModel_TrainingState_TrainingStateUnspecified = @"TRAINING_STATE_UNSPECIFIED";
+
+// GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig.restriction
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig_Restriction_NoRestriction = @"NO_RESTRICTION";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig_Restriction_RestrictionUnspecified = @"RESTRICTION_UNSPECIFIED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig_Restriction_UniqueModelRestriction = @"UNIQUE_MODEL_RESTRICTION";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig_Restriction_UniqueModelTypeRestriction = @"UNIQUE_MODEL_TYPE_RESTRICTION";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig_Restriction_UniqueServingConfigRestriction = @"UNIQUE_SERVING_CONFIG_RESTRICTION";
+
+// GTLRCloudRetail_GoogleCloudRetailV2AttributesConfig.attributeConfigLevel
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2AttributesConfig_AttributeConfigLevel_AttributeConfigLevelUnspecified = @"ATTRIBUTE_CONFIG_LEVEL_UNSPECIFIED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2AttributesConfig_AttributeConfigLevel_CatalogLevelAttributeConfig = @"CATALOG_LEVEL_ATTRIBUTE_CONFIG";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2AttributesConfig_AttributeConfigLevel_ProductLevelAttributeConfig = @"PRODUCT_LEVEL_ATTRIBUTE_CONFIG";
+
+// GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute.dynamicFacetableOption
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_DynamicFacetableOption_DynamicFacetableDisabled = @"DYNAMIC_FACETABLE_DISABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_DynamicFacetableOption_DynamicFacetableEnabled = @"DYNAMIC_FACETABLE_ENABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_DynamicFacetableOption_DynamicFacetableOptionUnspecified = @"DYNAMIC_FACETABLE_OPTION_UNSPECIFIED";
+
+// GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute.indexableOption
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_IndexableOption_IndexableDisabled = @"INDEXABLE_DISABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_IndexableOption_IndexableEnabled = @"INDEXABLE_ENABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_IndexableOption_IndexableOptionUnspecified = @"INDEXABLE_OPTION_UNSPECIFIED";
+
+// GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute.searchableOption
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_SearchableOption_SearchableDisabled = @"SEARCHABLE_DISABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_SearchableOption_SearchableEnabled = @"SEARCHABLE_ENABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_SearchableOption_SearchableOptionUnspecified = @"SEARCHABLE_OPTION_UNSPECIFIED";
+
+// GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute.type
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_Type_Numerical = @"NUMERICAL";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_Type_Textual = @"TEXTUAL";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_Type_Unknown = @"UNKNOWN";
+
+// GTLRCloudRetail_GoogleCloudRetailV2Control.searchSolutionUseCase
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Control_SearchSolutionUseCase_SearchSolutionUseCaseBrowse = @"SEARCH_SOLUTION_USE_CASE_BROWSE";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Control_SearchSolutionUseCase_SearchSolutionUseCaseSearch = @"SEARCH_SOLUTION_USE_CASE_SEARCH";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Control_SearchSolutionUseCase_SearchSolutionUseCaseUnspecified = @"SEARCH_SOLUTION_USE_CASE_UNSPECIFIED";
+
+// GTLRCloudRetail_GoogleCloudRetailV2Control.solutionTypes
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Control_SolutionTypes_SolutionTypeRecommendation = @"SOLUTION_TYPE_RECOMMENDATION";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Control_SolutionTypes_SolutionTypeSearch = @"SOLUTION_TYPE_SEARCH";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Control_SolutionTypes_SolutionTypeUnspecified = @"SOLUTION_TYPE_UNSPECIFIED";
+
 // GTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest.reconciliationMode
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest_ReconciliationMode_Full = @"FULL";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest_ReconciliationMode_Incremental = @"INCREMENTAL";
@@ -62,6 +131,16 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansion
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectionSpec_Mode_Auto = @"AUTO";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectionSpec_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectionSpec_Mode_SuggestionOnly = @"SUGGESTION_ONLY";
+
+// GTLRCloudRetail_GoogleCloudRetailV2ServingConfig.diversityType
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_DiversityType_DataDrivenDiversity = @"DATA_DRIVEN_DIVERSITY";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_DiversityType_DiversityTypeUnspecified = @"DIVERSITY_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_DiversityType_RuleBasedDiversity = @"RULE_BASED_DIVERSITY";
+
+// GTLRCloudRetail_GoogleCloudRetailV2ServingConfig.solutionTypes
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes_SolutionTypeRecommendation = @"SOLUTION_TYPE_RECOMMENDATION";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes_SolutionTypeSearch = @"SOLUTION_TYPE_SEARCH";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes_SolutionTypeUnspecified = @"SOLUTION_TYPE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -186,6 +265,26 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2AddCatalogAttributeRequest
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2AddCatalogAttributeRequest
+@dynamic catalogAttribute;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2AddControlRequest
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2AddControlRequest
+@dynamic controlId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2AddFulfillmentPlacesMetadata
 //
 
@@ -294,6 +393,26 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaBigQueryOutputResult
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaBigQueryOutputResult
+@dynamic datasetId, tableId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaCreateModelMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaCreateModelMetadata
+@dynamic model;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2alphaExportErrorsConfig
 //
 
@@ -318,7 +437,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2alphaExportProductsResponse
-@dynamic errorSamples, errorsConfig;
+@dynamic errorSamples, errorsConfig, outputResult;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -336,7 +455,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2alphaExportUserEventsResponse
-@dynamic errorSamples, errorsConfig;
+@dynamic errorSamples, errorsConfig, outputResult;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -383,7 +502,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2alphaImportMetadata
 @dynamic createTime, failureCount, notificationPubsubTopic, requestId,
-         successCount, updateTime;
+         successCount, transformedUserEventsMetadata, updateTime;
 @end
 
 
@@ -416,6 +535,109 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"errorSamples" : [GTLRCloudRetail_GoogleRpcStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaModel
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaModel
+@dynamic createTime, dataState, displayName, filteringOption, lastTuneTime,
+         name, optimizationObjective, pageOptimizationConfig,
+         periodicTuningState, servingConfigLists, servingState, trainingState,
+         tuningOperation, type, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"servingConfigLists" : [GTLRCloudRetail_GoogleCloudRetailV2alphaModelServingConfigList class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig
+@dynamic pageOptimizationEventType, panels, restriction;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"panels" : [GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfigPanel class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfigCandidate
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfigCandidate
+@dynamic servingConfigId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfigPanel
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfigPanel
+@dynamic candidates, defaultCandidate, displayName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"candidates" : [GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfigCandidate class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaModelServingConfigList
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaModelServingConfigList
+@dynamic servingConfigIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"servingConfigIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaOutputResult
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaOutputResult
+@dynamic bigqueryResult;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bigqueryResult" : [GTLRCloudRetail_GoogleCloudRetailV2alphaBigQueryOutputResult class]
   };
   return map;
 }
@@ -545,11 +767,64 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaTransformedUserEventsMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaTransformedUserEventsMetadata
+@dynamic sourceEventsCount, transformedEventsCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaTuneModelMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaTuneModelMetadata
+@dynamic model;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaTuneModelResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaTuneModelResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2alphaUserEventImportSummary
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2alphaUserEventImportSummary
 @dynamic joinedEventsCount, unjoinedEventsCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2AttributesConfig
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2AttributesConfig
+@dynamic attributeConfigLevel, catalogAttributes, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2AttributesConfig_CatalogAttributes
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2AttributesConfig_CatalogAttributes
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute class];
+}
+
 @end
 
 
@@ -610,6 +885,16 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2betaBigQueryOutputResult
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2betaBigQueryOutputResult
+@dynamic datasetId, tableId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2betaExportErrorsConfig
 //
 
@@ -634,7 +919,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2betaExportProductsResponse
-@dynamic errorSamples, errorsConfig;
+@dynamic errorSamples, errorsConfig, outputResult;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -652,7 +937,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2betaExportUserEventsResponse
-@dynamic errorSamples, errorsConfig;
+@dynamic errorSamples, errorsConfig, outputResult;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -732,6 +1017,24 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"errorSamples" : [GTLRCloudRetail_GoogleRpcStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2betaOutputResult
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2betaOutputResult
+@dynamic bigqueryResult;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bigqueryResult" : [GTLRCloudRetail_GoogleCloudRetailV2betaBigQueryOutputResult class]
   };
   return map;
 }
@@ -864,6 +1167,17 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute
+@dynamic dynamicFacetableOption, indexableOption, inUse, key, searchableOption,
+         type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2ColorInfo
 //
 
@@ -936,6 +1250,19 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2CompletionConfig
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2CompletionConfig
+@dynamic allowlistInputConfig, autoLearning, denylistInputConfig,
+         lastAllowlistImportOperation, lastDenylistImportOperation,
+         lastSuggestionsImportOperation, matchingOrder, maxSuggestions,
+         minPrefixLength, name, suggestionsInputConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2CompletionDataInputConfig
 //
 
@@ -951,6 +1278,66 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2CompletionDetail
 @dynamic completionAttributionToken, selectedPosition, selectedSuggestion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2Condition
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2Condition
+@dynamic activeTimeRange, queryTerms;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"activeTimeRange" : [GTLRCloudRetail_GoogleCloudRetailV2ConditionTimeRange class],
+    @"queryTerms" : [GTLRCloudRetail_GoogleCloudRetailV2ConditionQueryTerm class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ConditionQueryTerm
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ConditionQueryTerm
+@dynamic fullMatch, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ConditionTimeRange
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ConditionTimeRange
+@dynamic endTime, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2Control
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2Control
+@dynamic associatedServingConfigIds, displayName, name, rule,
+         searchSolutionUseCase, solutionTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"associatedServingConfigIds" : [NSString class],
+    @"searchSolutionUseCase" : [NSString class],
+    @"solutionTypes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1169,6 +1556,28 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2ListControlsResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ListControlsResponse
+@dynamic controls, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"controls" : [GTLRCloudRetail_GoogleCloudRetailV2Control class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"controls";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2ListProductsResponse
 //
 
@@ -1184,6 +1593,28 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
 
 + (NSString *)collectionItemsKey {
   return @"products";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ListServingConfigsResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ListServingConfigsResponse
+@dynamic nextPageToken, servingConfigs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"servingConfigs" : [GTLRCloudRetail_GoogleCloudRetailV2ServingConfig class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"servingConfigs";
 }
 
 @end
@@ -1337,9 +1768,9 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
 @dynamic attributes, audience, availability, availableQuantity, availableTime,
          brands, categories, collectionMemberIds, colorInfo, conditions,
          descriptionProperty, expireTime, fulfillmentInfo, gtin, identifier,
-         images, languageCode, materials, name, patterns, priceInfo,
-         primaryProductId, promotions, publishTime, rating, retrievableFields,
-         sizes, tags, title, ttl, type, uri, variants;
+         images, languageCode, localInventories, materials, name, patterns,
+         priceInfo, primaryProductId, promotions, publishTime, rating,
+         retrievableFields, sizes, tags, title, ttl, type, uri, variants;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1357,6 +1788,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
     @"conditions" : [NSString class],
     @"fulfillmentInfo" : [GTLRCloudRetail_GoogleCloudRetailV2FulfillmentInfo class],
     @"images" : [GTLRCloudRetail_GoogleCloudRetailV2Image class],
+    @"localInventories" : [GTLRCloudRetail_GoogleCloudRetailV2LocalInventory class],
     @"materials" : [NSString class],
     @"patterns" : [NSString class],
     @"promotions" : [GTLRCloudRetail_GoogleCloudRetailV2Promotion class],
@@ -1535,6 +1967,26 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2RemoveCatalogAttributeRequest
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2RemoveCatalogAttributeRequest
+@dynamic key;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2RemoveControlRequest
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2RemoveControlRequest
+@dynamic controlId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2RemoveFulfillmentPlacesMetadata
 //
 
@@ -1602,6 +2054,152 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2RemoveLocalInventoriesResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ReplaceCatalogAttributeRequest
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ReplaceCatalogAttributeRequest
+@dynamic catalogAttribute, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2Rule
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2Rule
+@dynamic boostAction, condition, doNotAssociateAction, filterAction,
+         ignoreAction, onewaySynonymsAction, redirectAction, replacementAction,
+         twowaySynonymsAction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2RuleBoostAction
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2RuleBoostAction
+@dynamic boost, productsFilter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2RuleDoNotAssociateAction
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2RuleDoNotAssociateAction
+@dynamic doNotAssociateTerms, queryTerms, terms;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"doNotAssociateTerms" : [NSString class],
+    @"queryTerms" : [NSString class],
+    @"terms" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2RuleFilterAction
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2RuleFilterAction
+@dynamic filter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2RuleIgnoreAction
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2RuleIgnoreAction
+@dynamic ignoreTerms;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ignoreTerms" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2RuleOnewaySynonymsAction
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2RuleOnewaySynonymsAction
+@dynamic onewayTerms, queryTerms, synonyms;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"onewayTerms" : [NSString class],
+    @"queryTerms" : [NSString class],
+    @"synonyms" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2RuleRedirectAction
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2RuleRedirectAction
+@dynamic redirectUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2RuleReplacementAction
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2RuleReplacementAction
+@dynamic queryTerms, replacementTerm, term;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"queryTerms" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2RuleTwowaySynonymsAction
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2RuleTwowaySynonymsAction
+@dynamic synonyms;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"synonyms" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1705,7 +2303,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2SearchRequestFacetSpecFacetKey
 @dynamic caseInsensitive, contains, intervals, key, orderBy, prefixes, query,
-         restrictedValues;
+         restrictedValues, returnMinMax;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1797,7 +2395,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2SearchResponseFacetFacetValue
-@dynamic count, interval, value;
+@dynamic count, interval, maxValue, minValue, value;
 @end
 
 
@@ -1817,11 +2415,18 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult
-@dynamic identifier, matchingVariantCount, matchingVariantFields, product,
-         variantRollupValues;
+@dynamic identifier, matchingVariantCount, matchingVariantFields,
+         personalLabels, product, variantRollupValues;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"personalLabels" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -1850,6 +2455,38 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestSpellCorrectio
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ServingConfig
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ServingConfig
+@dynamic boostControlIds, displayName, diversityLevel, diversityType,
+         doNotAssociateControlIds, dynamicFacetSpec, enableCategoryFilterLevel,
+         facetControlIds, filterControlIds, ignoreControlIds, modelId, name,
+         onewaySynonymsControlIds, personalizationSpec, priceRerankingLevel,
+         redirectControlIds, replacementControlIds, solutionTypes,
+         twowaySynonymsControlIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"boostControlIds" : [NSString class],
+    @"doNotAssociateControlIds" : [NSString class],
+    @"facetControlIds" : [NSString class],
+    @"filterControlIds" : [NSString class],
+    @"ignoreControlIds" : [NSString class],
+    @"onewaySynonymsControlIds" : [NSString class],
+    @"redirectControlIds" : [NSString class],
+    @"replacementControlIds" : [NSString class],
+    @"solutionTypes" : [NSString class],
+    @"twowaySynonymsControlIds" : [NSString class]
+  };
+  return map;
 }
 
 @end

@@ -4,8 +4,7 @@
 // API:
 //   Network Connectivity API (networkconnectivity/v1)
 // Description:
-//   The Network Connectivity API provides access to Network Connectivity
-//   Center.
+//   This API enables connectivity with and between Google Cloud resources.
 // Documentation:
 //   https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity/rest
 
@@ -103,6 +102,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_State_Deleting;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_State_StateUnspecified;
+/**
+ *  The resource's Update operation is in progress
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_LocationMetadata.locationFeatures
@@ -153,6 +158,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Deleting
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUnspecified;
+/**
+ *  The resource's Update operation is in progress
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating;
 
 /**
  *  Specifies the audit configuration for a service. The configuration
@@ -244,11 +255,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUns
  *  anyone who is authenticated with a Google account or a service account. *
  *  `user:{emailid}`: An email address that represents a specific Google
  *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
- *  address that represents a Google group. For example, `admins\@example.com`.
- *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
+ *  An email address that represents a Google service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
+ *  identifier for a [Kubernetes service
+ *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
+ *  `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
+ *  An email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -493,11 +509,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUns
 
 
 /**
- *  A hub is a collection of spokes. A single hub can contain spokes from
- *  multiple regions. However, if any of a hub's spokes use the data transfer
- *  feature, the resources associated with those spokes must all reside in the
- *  same VPC network. Spokes that do not use data transfer can be associated
- *  with any VPC network in your project.
+ *  A Network Connectivity Center hub is a collection of spokes. A single hub
+ *  can contain spokes from multiple regions. However, if any of a hub's spokes
+ *  use the data transfer feature, the resources associated with those spokes
+ *  must all reside in the same VPC network. Spokes that do not use data
+ *  transfer can be associated with any VPC network in your project.
  */
 @interface GTLRNetworkconnectivity_Hub : GTLRObject
 
@@ -543,6 +559,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUns
  *        operation is in progress (Value: "DELETING")
  *    @arg @c kGTLRNetworkconnectivity_Hub_State_StateUnspecified No state
  *        information available (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_Hub_State_Updating The resource's Update
+ *        operation is in progress (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -944,8 +962,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUns
 
 
 /**
- *  RoutingVPC contains information about the VPC networks that are associated
- *  with a hub's spokes.
+ *  RoutingVPC contains information about the VPC networks associated with the
+ *  spokes of a Network Connectivity Center hub.
  */
 @interface GTLRNetworkconnectivity_RoutingVPC : GTLRObject
 
@@ -991,11 +1009,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUns
 
 
 /**
- *  A spoke represents a connection between your Google Cloud network resources
- *  and a non-Google-Cloud network. When you create a spoke, you associate it
- *  with a hub. You must also identify a value for exactly one of the following
- *  fields: * linked_vpn_tunnels * linked_interconnect_attachments *
- *  linked_router_appliance_instances
+ *  A Network Connectivity Center spoke represents a connection between your
+ *  Google Cloud network resources and a non-Google-Cloud network. When you
+ *  create a spoke, you associate it with a hub. You must also identify a value
+ *  for exactly one of the following fields: * linked_vpn_tunnels *
+ *  linked_interconnect_attachments * linked_router_appliance_instances
  */
 @interface GTLRNetworkconnectivity_Spoke : GTLRObject
 
@@ -1047,6 +1065,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUns
  *        Delete operation is in progress (Value: "DELETING")
  *    @arg @c kGTLRNetworkconnectivity_Spoke_State_StateUnspecified No state
  *        information available (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_Spoke_State_Updating The resource's
+ *        Update operation is in progress (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 

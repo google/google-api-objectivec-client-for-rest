@@ -136,6 +136,12 @@ NSString * const kGTLRAuthorizedBuyersMarketplace_FrequencyCap_TimeUnitType_Stre
 NSString * const kGTLRAuthorizedBuyersMarketplace_FrequencyCap_TimeUnitType_TimeUnitTypeUnspecified = @"TIME_UNIT_TYPE_UNSPECIFIED";
 NSString * const kGTLRAuthorizedBuyersMarketplace_FrequencyCap_TimeUnitType_Week = @"WEEK";
 
+// GTLRAuthorizedBuyersMarketplace_InventoryTypeTargeting.inventoryTypes
+NSString * const kGTLRAuthorizedBuyersMarketplace_InventoryTypeTargeting_InventoryTypes_Browser = @"BROWSER";
+NSString * const kGTLRAuthorizedBuyersMarketplace_InventoryTypeTargeting_InventoryTypes_InventoryTypeUnspecified = @"INVENTORY_TYPE_UNSPECIFIED";
+NSString * const kGTLRAuthorizedBuyersMarketplace_InventoryTypeTargeting_InventoryTypes_MobileApp = @"MOBILE_APP";
+NSString * const kGTLRAuthorizedBuyersMarketplace_InventoryTypeTargeting_InventoryTypes_VideoPlayer = @"VIDEO_PLAYER";
+
 // GTLRAuthorizedBuyersMarketplace_Note.creatorRole
 NSString * const kGTLRAuthorizedBuyersMarketplace_Note_CreatorRole_Buyer = @"BUYER";
 NSString * const kGTLRAuthorizedBuyersMarketplace_Note_CreatorRole_BuyerSellerRoleUnspecified = @"BUYER_SELLER_ROLE_UNSPECIFIED";
@@ -553,6 +559,24 @@ NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeting_TargetedPositio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAuthorizedBuyersMarketplace_InventoryTypeTargeting
+//
+
+@implementation GTLRAuthorizedBuyersMarketplace_InventoryTypeTargeting
+@dynamic inventoryTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"inventoryTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAuthorizedBuyersMarketplace_ListAuctionPackagesResponse
 //
 
@@ -712,8 +736,8 @@ NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeting_TargetedPositio
 
 @implementation GTLRAuthorizedBuyersMarketplace_MarketplaceTargeting
 @dynamic daypartTargeting, geoTargeting, inventorySizeTargeting,
-         placementTargeting, technologyTargeting, userListTargeting,
-         videoTargeting;
+         inventoryTypeTargeting, placementTargeting, technologyTargeting,
+         userListTargeting, videoTargeting;
 @end
 
 

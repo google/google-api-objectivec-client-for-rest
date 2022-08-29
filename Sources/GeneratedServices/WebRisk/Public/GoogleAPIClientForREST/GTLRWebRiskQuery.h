@@ -50,12 +50,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskConstraintsSupportedCompressionsR
 // threatType
 
 /**
- *  High Recall Social Engineering list targeting any platform.
- *
- *  Value: "HIGH_RECALL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypeHighRecall;
-/**
  *  Malware targeting any platform.
  *
  *  Value: "MALWARE"
@@ -67,6 +61,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypeMalware;
  *  Value: "SOCIAL_ENGINEERING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypeSocialEngineering;
+/**
+ *  Extended Coverage Social Engineering list targeting any platform.
+ *
+ *  Value: "SOCIAL_ENGINEERING_EXTENDED_COVERAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypeSocialEngineeringExtendedCoverage;
 /**
  *  No entries should match this threat type. This threat type is unused.
  *
@@ -84,12 +84,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypeUnwantedSoftware;
 // threatTypes
 
 /**
- *  High Recall Social Engineering list targeting any platform.
- *
- *  Value: "HIGH_RECALL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesHighRecall;
-/**
  *  Malware targeting any platform.
  *
  *  Value: "MALWARE"
@@ -101,6 +95,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesMalware;
  *  Value: "SOCIAL_ENGINEERING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesSocialEngineering;
+/**
+ *  Extended Coverage Social Engineering list targeting any platform.
+ *
+ *  Value: "SOCIAL_ENGINEERING_EXTENDED_COVERAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesSocialEngineeringExtendedCoverage;
 /**
  *  No entries should match this threat type. This threat type is unused.
  *
@@ -166,8 +166,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware;
  *        targeting any platform. (Value: "SOCIAL_ENGINEERING")
  *    @arg @c kGTLRWebRiskThreatTypesUnwantedSoftware Unwanted software
  *        targeting any platform. (Value: "UNWANTED_SOFTWARE")
- *    @arg @c kGTLRWebRiskThreatTypesHighRecall High Recall Social Engineering
- *        list targeting any platform. (Value: "HIGH_RECALL")
+ *    @arg @c kGTLRWebRiskThreatTypesSocialEngineeringExtendedCoverage Extended
+ *        Coverage Social Engineering list targeting any platform. (Value:
+ *        "SOCIAL_ENGINEERING_EXTENDED_COVERAGE")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *threatTypes;
 
@@ -491,8 +492,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware;
  *        targeting any platform. (Value: "SOCIAL_ENGINEERING")
  *    @arg @c kGTLRWebRiskThreatTypeUnwantedSoftware Unwanted software targeting
  *        any platform. (Value: "UNWANTED_SOFTWARE")
- *    @arg @c kGTLRWebRiskThreatTypeHighRecall High Recall Social Engineering
- *        list targeting any platform. (Value: "HIGH_RECALL")
+ *    @arg @c kGTLRWebRiskThreatTypeSocialEngineeringExtendedCoverage Extended
+ *        Coverage Social Engineering list targeting any platform. (Value:
+ *        "SOCIAL_ENGINEERING_EXTENDED_COVERAGE")
  */
 @property(nonatomic, copy, nullable) NSString *threatType;
 
@@ -551,8 +553,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware;
  *        targeting any platform. (Value: "SOCIAL_ENGINEERING")
  *    @arg @c kGTLRWebRiskThreatTypesUnwantedSoftware Unwanted software
  *        targeting any platform. (Value: "UNWANTED_SOFTWARE")
- *    @arg @c kGTLRWebRiskThreatTypesHighRecall High Recall Social Engineering
- *        list targeting any platform. (Value: "HIGH_RECALL")
+ *    @arg @c kGTLRWebRiskThreatTypesSocialEngineeringExtendedCoverage Extended
+ *        Coverage Social Engineering list targeting any platform. (Value:
+ *        "SOCIAL_ENGINEERING_EXTENDED_COVERAGE")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *threatTypes;
 

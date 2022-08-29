@@ -48,97 +48,260 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRDoubleClickBidManager_DataRange.range
 
-/** Value: "ALL_TIME" */
+/**
+ *  All time for which data is available, excluding the current day.
+ *
+ *  Value: "ALL_TIME"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DataRange_Range_AllTime;
-/** Value: "CURRENT_DAY" */
+/**
+ *  Current day.
+ *
+ *  Value: "CURRENT_DAY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DataRange_Range_CurrentDay;
-/** Value: "CUSTOM_DATES" */
+/**
+ *  Custom range specified by custom_start_date and custom_end_date fields.
+ *
+ *  Value: "CUSTOM_DATES"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DataRange_Range_CustomDates;
-/** Value: "LAST_14_DAYS" */
+/**
+ *  The previous 14 days, excluding the current day.
+ *
+ *  Value: "LAST_14_DAYS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DataRange_Range_Last14Days;
-/** Value: "LAST_30_DAYS" */
+/**
+ *  The previous 30 days, excluding the current day.
+ *
+ *  Value: "LAST_30_DAYS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DataRange_Range_Last30Days;
-/** Value: "LAST_365_DAYS" */
+/**
+ *  The previous 365 days, excluding the current day.
+ *
+ *  Value: "LAST_365_DAYS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DataRange_Range_Last365Days;
-/** Value: "LAST_60_DAYS" */
+/**
+ *  The previous 60 days, excluding the current day.
+ *
+ *  Value: "LAST_60_DAYS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DataRange_Range_Last60Days;
-/** Value: "LAST_7_DAYS" */
+/**
+ *  The previous 7 days, excluding the current day.
+ *
+ *  Value: "LAST_7_DAYS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DataRange_Range_Last7Days;
-/** Value: "LAST_90_DAYS" */
+/**
+ *  The previous 90 days, excluding the current day.
+ *
+ *  Value: "LAST_90_DAYS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DataRange_Range_Last90Days;
-/** Value: "MONTH_TO_DATE" */
+/**
+ *  All days, including the current day, since the start of the current month.
+ *
+ *  Value: "MONTH_TO_DATE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DataRange_Range_MonthToDate;
-/** Value: "PREVIOUS_DAY" */
+/**
+ *  Previous day.
+ *
+ *  Value: "PREVIOUS_DAY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DataRange_Range_PreviousDay;
-/** Value: "PREVIOUS_MONTH" */
+/**
+ *  The previous completed calendar month.
+ *
+ *  Value: "PREVIOUS_MONTH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DataRange_Range_PreviousMonth;
-/** Value: "PREVIOUS_QUARTER" */
+/**
+ *  The previous completed quarter.
+ *
+ *  Value: "PREVIOUS_QUARTER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DataRange_Range_PreviousQuarter;
-/** Value: "PREVIOUS_WEEK" */
+/**
+ *  The previous completed week, beginning from Sunday.
+ *
+ *  Value: "PREVIOUS_WEEK"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DataRange_Range_PreviousWeek;
-/** Value: "PREVIOUS_YEAR" */
+/**
+ *  The previous completed calendar year.
+ *
+ *  Value: "PREVIOUS_YEAR"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DataRange_Range_PreviousYear;
-/** Value: "QUARTER_TO_DATE" */
+/**
+ *  All days, including the current day, since the start of the current quarter.
+ *
+ *  Value: "QUARTER_TO_DATE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DataRange_Range_QuarterToDate;
-/** Value: "RANGE_UNSPECIFIED" */
+/**
+ *  Default value when range is not specified or is unknown in this version.
+ *
+ *  Value: "RANGE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DataRange_Range_RangeUnspecified;
-/** Value: "WEEK_TO_DATE" */
+/**
+ *  All days, including the current day, since the most recent Sunday.
+ *
+ *  Value: "WEEK_TO_DATE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DataRange_Range_WeekToDate;
-/** Value: "YEAR_TO_DATE" */
+/**
+ *  All days, including the current day, since the start of the current calendar
+ *  year.
+ *
+ *  Value: "YEAR_TO_DATE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DataRange_Range_YearToDate;
 
 // ----------------------------------------------------------------------------
 // GTLRDoubleClickBidManager_Parameters.type
 
-/** Value: "AUDIENCE_COMPOSITION" */
+/**
+ *  Audience Composition report.
+ *
+ *  Value: "AUDIENCE_COMPOSITION"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_AudienceComposition;
-/** Value: "FLOODLIGHT" */
+/**
+ *  Floodlight report.
+ *
+ *  Value: "FLOODLIGHT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_Floodlight;
-/** Value: "FULL_PATH" */
+/**
+ *  Full Path report.
+ *
+ *  Value: "FULL_PATH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_FullPath;
-/** Value: "GRP" */
+/**
+ *  GRP report.
+ *
+ *  Value: "GRP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_Grp;
-/** Value: "INVENTORY_AVAILABILITY" */
+/**
+ *  Inventory Availability report.
+ *
+ *  Value: "INVENTORY_AVAILABILITY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_InventoryAvailability;
-/** Value: "PATH_ATTRIBUTION" */
+/**
+ *  Path Attribution report.
+ *
+ *  Value: "PATH_ATTRIBUTION"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_PathAttribution;
-/** Value: "REACH" */
+/**
+ *  Reach report.
+ *
+ *  Value: "REACH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_Reach;
-/** Value: "REPORT_TYPE_UNSPECIFIED" */
+/**
+ *  Default value when report type is not specified or is unknown in this
+ *  version.
+ *
+ *  Value: "REPORT_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_ReportTypeUnspecified;
-/** Value: "STANDARD" */
+/**
+ *  Standard report.
+ *
+ *  Value: "STANDARD"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_Standard;
-/** Value: "UNIQUE_REACH_AUDIENCE" */
+/**
+ *  Unique Reach Audience report.
+ *
+ *  Value: "UNIQUE_REACH_AUDIENCE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_UniqueReachAudience;
-/** Value: "YOUTUBE" */
+/**
+ *  YouTube report.
+ *
+ *  Value: "YOUTUBE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_Youtube;
-/** Value: "YOUTUBE_PROGRAMMATIC_GUARANTEED" */
+/**
+ *  YouTube Programmatic Guaranteed report.
+ *
+ *  Value: "YOUTUBE_PROGRAMMATIC_GUARANTEED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Type_YoutubeProgrammaticGuaranteed;
 
 // ----------------------------------------------------------------------------
 // GTLRDoubleClickBidManager_PathFilter.pathMatchPosition
 
-/** Value: "ANY" */
+/**
+ *  Any position in the path.
+ *
+ *  Value: "ANY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathFilter_PathMatchPosition_Any;
-/** Value: "FIRST" */
+/**
+ *  The first position in the path.
+ *
+ *  Value: "FIRST"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathFilter_PathMatchPosition_First;
-/** Value: "LAST" */
+/**
+ *  The last position in the path.
+ *
+ *  Value: "LAST"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathFilter_PathMatchPosition_Last;
-/** Value: "PATH_MATCH_POSITION_UNSPECIFIED" */
+/**
+ *  Default value when path match position is not specified or is unknown in
+ *  this version.
+ *
+ *  Value: "PATH_MATCH_POSITION_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathFilter_PathMatchPosition_PathMatchPositionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDoubleClickBidManager_PathQueryOptionsFilter.match
 
-/** Value: "BEGINS_WITH" */
+/**
+ *  Begins with a value.
+ *
+ *  Value: "BEGINS_WITH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Match_BeginsWith;
-/** Value: "EXACT" */
+/**
+ *  Matches a value exactly.
+ *
+ *  Value: "EXACT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Match_Exact;
-/** Value: "PARTIAL" */
+/**
+ *  Matches a value partially.
+ *
+ *  Value: "PARTIAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Match_Partial;
-/** Value: "UNKNOWN" */
+/**
+ *  Default value when match is not specified or is unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Match_Unknown;
-/** Value: "WILDCARD_EXPRESSION" */
+/**
+ *  Matches a value, utilizing wildcard character logic in the value.
+ *
+ *  Value: "WILDCARD_EXPRESSION"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Match_WildcardExpression;
 
 // ----------------------------------------------------------------------------
@@ -166,21 +329,53 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_QueryMetadata_Form
 // ----------------------------------------------------------------------------
 // GTLRDoubleClickBidManager_QuerySchedule.frequency
 
-/** Value: "DAILY" */
+/**
+ *  Once a day.
+ *
+ *  Value: "DAILY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Daily;
-/** Value: "FREQUENCY_UNSPECIFIED" */
+/**
+ *  Default value when frequency is not specified or is unknown in this version.
+ *
+ *  Value: "FREQUENCY_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_QuerySchedule_Frequency_FrequencyUnspecified;
-/** Value: "MONTHLY" */
+/**
+ *  Once a month.
+ *
+ *  Value: "MONTHLY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Monthly;
-/** Value: "ONE_TIME" */
+/**
+ *  Only once.
+ *
+ *  Value: "ONE_TIME"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_QuerySchedule_Frequency_OneTime;
-/** Value: "QUARTERLY" */
+/**
+ *  Once a quarter
+ *
+ *  Value: "QUARTERLY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Quarterly;
-/** Value: "SEMI_MONTHLY" */
+/**
+ *  Twice a month.
+ *
+ *  Value: "SEMI_MONTHLY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_QuerySchedule_Frequency_SemiMonthly;
-/** Value: "WEEKLY" */
+/**
+ *  Once a week.
+ *
+ *  Value: "WEEKLY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Weekly;
-/** Value: "YEARLY" */
+/**
+ *  Once a year.
+ *
+ *  Value: "YEARLY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Yearly;
 
 // ----------------------------------------------------------------------------
@@ -208,15 +403,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_Forma
 // ----------------------------------------------------------------------------
 // GTLRDoubleClickBidManager_ReportStatus.state
 
-/** Value: "DONE" */
+/**
+ *  The report has finished running successfully.
+ *
+ *  Value: "DONE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State_Done;
-/** Value: "FAILED" */
+/**
+ *  The report has finished running in failure.
+ *
+ *  Value: "FAILED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State_Failed;
-/** Value: "QUEUED" */
+/**
+ *  The report is queued to run.
+ *
+ *  Value: "QUEUED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State_Queued;
-/** Value: "RUNNING" */
+/**
+ *  The report is currently running.
+ *
+ *  Value: "RUNNING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State_Running;
-/** Value: "STATE_UNSPECIFIED" */
+/**
+ *  Default value when state is not specified or is unknown in this version.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State_StateUnspecified;
 
 /**
@@ -266,44 +481,52 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
  *  Report data range used to generate the report.
  *
  *  Likely values:
- *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_AllTime Value
- *        "ALL_TIME"
- *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_CurrentDay Value
- *        "CURRENT_DAY"
- *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_CustomDates Value
- *        "CUSTOM_DATES"
- *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_Last14Days Value
- *        "LAST_14_DAYS"
- *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_Last30Days Value
- *        "LAST_30_DAYS"
- *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_Last365Days Value
- *        "LAST_365_DAYS"
- *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_Last60Days Value
- *        "LAST_60_DAYS"
- *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_Last7Days Value
- *        "LAST_7_DAYS"
- *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_Last90Days Value
- *        "LAST_90_DAYS"
- *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_MonthToDate Value
- *        "MONTH_TO_DATE"
- *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_PreviousDay Value
- *        "PREVIOUS_DAY"
- *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_PreviousMonth Value
- *        "PREVIOUS_MONTH"
- *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_PreviousQuarter Value
- *        "PREVIOUS_QUARTER"
- *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_PreviousWeek Value
- *        "PREVIOUS_WEEK"
- *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_PreviousYear Value
- *        "PREVIOUS_YEAR"
- *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_QuarterToDate Value
- *        "QUARTER_TO_DATE"
- *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_RangeUnspecified Value
- *        "RANGE_UNSPECIFIED"
- *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_WeekToDate Value
- *        "WEEK_TO_DATE"
- *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_YearToDate Value
- *        "YEAR_TO_DATE"
+ *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_AllTime All time for
+ *        which data is available, excluding the current day. (Value:
+ *        "ALL_TIME")
+ *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_CurrentDay Current day.
+ *        (Value: "CURRENT_DAY")
+ *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_CustomDates Custom
+ *        range specified by custom_start_date and custom_end_date fields.
+ *        (Value: "CUSTOM_DATES")
+ *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_Last14Days The previous
+ *        14 days, excluding the current day. (Value: "LAST_14_DAYS")
+ *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_Last30Days The previous
+ *        30 days, excluding the current day. (Value: "LAST_30_DAYS")
+ *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_Last365Days The
+ *        previous 365 days, excluding the current day. (Value: "LAST_365_DAYS")
+ *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_Last60Days The previous
+ *        60 days, excluding the current day. (Value: "LAST_60_DAYS")
+ *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_Last7Days The previous
+ *        7 days, excluding the current day. (Value: "LAST_7_DAYS")
+ *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_Last90Days The previous
+ *        90 days, excluding the current day. (Value: "LAST_90_DAYS")
+ *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_MonthToDate All days,
+ *        including the current day, since the start of the current month.
+ *        (Value: "MONTH_TO_DATE")
+ *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_PreviousDay Previous
+ *        day. (Value: "PREVIOUS_DAY")
+ *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_PreviousMonth The
+ *        previous completed calendar month. (Value: "PREVIOUS_MONTH")
+ *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_PreviousQuarter The
+ *        previous completed quarter. (Value: "PREVIOUS_QUARTER")
+ *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_PreviousWeek The
+ *        previous completed week, beginning from Sunday. (Value:
+ *        "PREVIOUS_WEEK")
+ *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_PreviousYear The
+ *        previous completed calendar year. (Value: "PREVIOUS_YEAR")
+ *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_QuarterToDate All days,
+ *        including the current day, since the start of the current quarter.
+ *        (Value: "QUARTER_TO_DATE")
+ *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_RangeUnspecified
+ *        Default value when range is not specified or is unknown in this
+ *        version. (Value: "RANGE_UNSPECIFIED")
+ *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_WeekToDate All days,
+ *        including the current day, since the most recent Sunday. (Value:
+ *        "WEEK_TO_DATE")
+ *    @arg @c kGTLRDoubleClickBidManager_DataRange_Range_YearToDate All days,
+ *        including the current day, since the start of the current calendar
+ *        year. (Value: "YEAR_TO_DATE")
  */
 @property(nonatomic, copy, nullable) NSString *range;
 
@@ -391,7 +614,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 
 
 /**
- *  Represents a list of queries.
+ *  GTLRDoubleClickBidManager_ListQueriesResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "queries" property. If returned as the result of a query, it
@@ -401,13 +624,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 @interface GTLRDoubleClickBidManager_ListQueriesResponse : GTLRCollectionObject
 
 /**
- *  A token, which can be sent as `page_token` to retrieve the next page of
+ *  A token, which can be sent as page_token to retrieve the next page of
  *  queries. If this field is omitted, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  Retrieved queries.
+ *  The list of queries.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -418,7 +641,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 
 
 /**
- *  Represents a list of reports.
+ *  GTLRDoubleClickBidManager_ListReportsResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "reports" property. If returned as the result of a query, it
@@ -428,7 +651,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 @interface GTLRDoubleClickBidManager_ListReportsResponse : GTLRCollectionObject
 
 /**
- *  A token, which can be sent as `page_token` to retrieve the next page of
+ *  A token, which can be sent as page_token to retrieve the next page of
  *  reports. If this field is omitted, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -482,30 +705,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 @property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_Options *options;
 
 /**
- *  Report type.
+ *  The type of the report. The type of the report will dictate what dimesions,
+ *  filters, and metrics can be used.
  *
  *  Likely values:
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_AudienceComposition
- *        Value "AUDIENCE_COMPOSITION"
- *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_Floodlight Value
- *        "FLOODLIGHT"
- *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_FullPath Value
- *        "FULL_PATH"
- *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_Grp Value "GRP"
+ *        Audience Composition report. (Value: "AUDIENCE_COMPOSITION")
+ *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_Floodlight Floodlight
+ *        report. (Value: "FLOODLIGHT")
+ *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_FullPath Full Path
+ *        report. (Value: "FULL_PATH")
+ *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_Grp GRP report. (Value:
+ *        "GRP")
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_InventoryAvailability
- *        Value "INVENTORY_AVAILABILITY"
- *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_PathAttribution Value
- *        "PATH_ATTRIBUTION"
- *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_Reach Value "REACH"
+ *        Inventory Availability report. (Value: "INVENTORY_AVAILABILITY")
+ *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_PathAttribution Path
+ *        Attribution report. (Value: "PATH_ATTRIBUTION")
+ *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_Reach Reach report.
+ *        (Value: "REACH")
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_ReportTypeUnspecified
- *        Value "REPORT_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_Standard Value
- *        "STANDARD"
+ *        Default value when report type is not specified or is unknown in this
+ *        version. (Value: "REPORT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_Standard Standard
+ *        report. (Value: "STANDARD")
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_UniqueReachAudience
- *        Value "UNIQUE_REACH_AUDIENCE"
- *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_Youtube Value "YOUTUBE"
+ *        Unique Reach Audience report. (Value: "UNIQUE_REACH_AUDIENCE")
+ *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_Youtube YouTube report.
+ *        (Value: "YOUTUBE")
  *    @arg @c kGTLRDoubleClickBidManager_Parameters_Type_YoutubeProgrammaticGuaranteed
- *        Value "YOUTUBE_PROGRAMMATIC_GUARANTEED"
+ *        YouTube Programmatic Guaranteed report. (Value:
+ *        "YOUTUBE_PROGRAMMATIC_GUARANTEED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -525,18 +754,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 @property(nonatomic, strong, nullable) NSArray<GTLRDoubleClickBidManager_EventFilter *> *eventFilters;
 
 /**
- *  Indicates the position of the path the filter should match to (first, last,
- *  or any event in path).
+ *  The position of the path the filter should match to (first, last, or any
+ *  event in path).
  *
  *  Likely values:
- *    @arg @c kGTLRDoubleClickBidManager_PathFilter_PathMatchPosition_Any Value
- *        "ANY"
- *    @arg @c kGTLRDoubleClickBidManager_PathFilter_PathMatchPosition_First
- *        Value "FIRST"
- *    @arg @c kGTLRDoubleClickBidManager_PathFilter_PathMatchPosition_Last Value
- *        "LAST"
+ *    @arg @c kGTLRDoubleClickBidManager_PathFilter_PathMatchPosition_Any Any
+ *        position in the path. (Value: "ANY")
+ *    @arg @c kGTLRDoubleClickBidManager_PathFilter_PathMatchPosition_First The
+ *        first position in the path. (Value: "FIRST")
+ *    @arg @c kGTLRDoubleClickBidManager_PathFilter_PathMatchPosition_Last The
+ *        last position in the path. (Value: "LAST")
  *    @arg @c kGTLRDoubleClickBidManager_PathFilter_PathMatchPosition_PathMatchPositionUnspecified
- *        Value "PATH_MATCH_POSITION_UNSPECIFIED"
+ *        Default value when path match position is not specified or is unknown
+ *        in this version. (Value: "PATH_MATCH_POSITION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *pathMatchPosition;
 
@@ -561,7 +791,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 
 
 /**
- *  Dimension Filter on path events.
+ *  Dimension filter on path events.
  */
 @interface GTLRDoubleClickBidManager_PathQueryOptionsFilter : GTLRObject
 
@@ -569,23 +799,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Indicates how the filter should be matched to the value.
+ *  Match logic of the filter.
  *
  *  Likely values:
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Match_BeginsWith
- *        Value "BEGINS_WITH"
+ *        Begins with a value. (Value: "BEGINS_WITH")
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Match_Exact
- *        Value "EXACT"
+ *        Matches a value exactly. (Value: "EXACT")
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Match_Partial
- *        Value "PARTIAL"
+ *        Matches a value partially. (Value: "PARTIAL")
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Match_Unknown
- *        Value "UNKNOWN"
+ *        Default value when match is not specified or is unknown in this
+ *        version. (Value: "UNKNOWN")
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Match_WildcardExpression
- *        Value "WILDCARD_EXPRESSION"
+ *        Matches a value, utilizing wildcard character logic in the value.
+ *        (Value: "WILDCARD_EXPRESSION")
  */
 @property(nonatomic, copy, nullable) NSString *match;
 
-/** Value to filter on. */
+/** Values to filter on. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
 @end
@@ -609,7 +841,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
  */
 @property(nonatomic, strong, nullable) NSNumber *queryId;
 
-/** Information on how often and when to run a query. */
+/**
+ *  Information on how often and when to run a query. If `ONE_TIME` is set to
+ *  the frequency field, the query will only be run at the time of creation.
+ */
 @property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_QuerySchedule *schedule;
 
 @end
@@ -620,7 +855,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
  */
 @interface GTLRDoubleClickBidManager_QueryMetadata : GTLRObject
 
-/** Range of report data. */
+/**
+ *  Range of report data. All reports will be based on the same time zone as
+ *  used by the advertiser.
+ */
 @property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_DataRange *dataRange;
 
 /**
@@ -647,7 +885,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 
 /**
  *  List of email addresses which are sent email notifications when the report
- *  is finished. Separate from `sendNotification`.
+ *  is finished. Separate from send_notification.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *shareEmailAddress;
 
@@ -658,7 +896,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
 
 
 /**
- *  Information on how frequently and when to run a query.
+ *  Information on when and how frequently to run a query.
  */
 @interface GTLRDoubleClickBidManager_QuerySchedule : GTLRObject
 
@@ -672,22 +910,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
  *  How often the query is run.
  *
  *  Likely values:
- *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Daily Value
- *        "DAILY"
+ *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Daily Once a
+ *        day. (Value: "DAILY")
  *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_FrequencyUnspecified
- *        Value "FREQUENCY_UNSPECIFIED"
- *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Monthly Value
- *        "MONTHLY"
- *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_OneTime Value
- *        "ONE_TIME"
- *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Quarterly Value
- *        "QUARTERLY"
+ *        Default value when frequency is not specified or is unknown in this
+ *        version. (Value: "FREQUENCY_UNSPECIFIED")
+ *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Monthly Once a
+ *        month. (Value: "MONTHLY")
+ *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_OneTime Only
+ *        once. (Value: "ONE_TIME")
+ *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Quarterly Once
+ *        a quarter (Value: "QUARTERLY")
  *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_SemiMonthly
- *        Value "SEMI_MONTHLY"
- *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Weekly Value
- *        "WEEKLY"
- *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Yearly Value
- *        "YEARLY"
+ *        Twice a month. (Value: "SEMI_MONTHLY")
+ *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Weekly Once a
+ *        week. (Value: "WEEKLY")
+ *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Yearly Once a
+ *        year. (Value: "YEARLY")
  */
 @property(nonatomic, copy, nullable) NSString *frequency;
 
@@ -796,15 +1035,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_ReportStatus_State
  *  Output only. The state of the report.
  *
  *  Likely values:
- *    @arg @c kGTLRDoubleClickBidManager_ReportStatus_State_Done Value "DONE"
- *    @arg @c kGTLRDoubleClickBidManager_ReportStatus_State_Failed Value
- *        "FAILED"
- *    @arg @c kGTLRDoubleClickBidManager_ReportStatus_State_Queued Value
- *        "QUEUED"
- *    @arg @c kGTLRDoubleClickBidManager_ReportStatus_State_Running Value
- *        "RUNNING"
+ *    @arg @c kGTLRDoubleClickBidManager_ReportStatus_State_Done The report has
+ *        finished running successfully. (Value: "DONE")
+ *    @arg @c kGTLRDoubleClickBidManager_ReportStatus_State_Failed The report
+ *        has finished running in failure. (Value: "FAILED")
+ *    @arg @c kGTLRDoubleClickBidManager_ReportStatus_State_Queued The report is
+ *        queued to run. (Value: "QUEUED")
+ *    @arg @c kGTLRDoubleClickBidManager_ReportStatus_State_Running The report
+ *        is currently running. (Value: "RUNNING")
  *    @arg @c kGTLRDoubleClickBidManager_ReportStatus_State_StateUnspecified
- *        Value "STATE_UNSPECIFIED"
+ *        Default value when state is not specified or is unknown in this
+ *        version. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 

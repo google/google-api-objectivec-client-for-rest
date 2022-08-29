@@ -66,6 +66,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityGroup
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly;
 /**
+ *  Authorization scope: See, send, or cancel any Cloud Identity UserInvitations
+ *  to join your organization to users
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-identity.userinvitations"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityUserinvitations;
+/**
+ *  Authorization scope: See, send, or cancel any Cloud Identity UserInvitations
+ *  to join your organization to users
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-identity.userinvitations.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityUserinvitationsReadonly;
+/**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
  *  and see the email address for your Google Account.
  *

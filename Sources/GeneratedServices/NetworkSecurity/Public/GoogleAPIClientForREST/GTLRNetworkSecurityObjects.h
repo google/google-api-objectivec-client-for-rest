@@ -275,7 +275,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfi
  *  Required. List of host names to match. Matched against the ":authority"
  *  header in http requests. At least one host should match. Each host can be an
  *  exact match, or a prefix match (example "mydomain.*") or a suffix match
- *  (example // *.myorg.com") or a presence(any) match "*".
+ *  (example "*.myorg.com") or a presence (any) match "*".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *hosts;
 
@@ -392,7 +392,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfi
 
 /**
  *  Required. The target URI of the gRPC endpoint. Only UDS path is supported,
- *  and should start with “unix:”.
+ *  and should start with "unix:".
  */
 @property(nonatomic, copy, nullable) NSString *targetUri;
 
@@ -489,11 +489,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfi
  *  anyone who is authenticated with a Google account or a service account. *
  *  `user:{emailid}`: An email address that represents a specific Google
  *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
- *  address that represents a Google group. For example, `admins\@example.com`.
- *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
+ *  An email address that represents a Google service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
+ *  identifier for a [Kubernetes service
+ *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
+ *  `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
+ *  An email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -665,7 +670,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfi
 
 
 /**
- *  Specification of HTTP header match atrributes.
+ *  Specification of HTTP header match attributes.
  */
 @interface GTLRNetworkSecurity_HttpHeaderMatch : GTLRObject
 
@@ -1042,7 +1047,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfi
 /**
  *  ServerTlsPolicy is a resource that specifies how a server should
  *  authenticate incoming requests. This resource itself does not affect
- *  configuration unless it is attached to a target https proxy or endpoint
+ *  configuration unless it is attached to a target HTTPS proxy or endpoint
  *  config selector resource.
  */
 @interface GTLRNetworkSecurity_ServerTlsPolicy : GTLRObject
@@ -1130,10 +1135,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfi
 /**
  *  Optional. List of peer identities to match for authorization. At least one
  *  principal should match. Each peer can be an exact match, or a prefix match
- *  (example, "namespace/ *") or a suffix match (example, // *
- *  /service-account") or a presence match "*". Authorization based on the
- *  principal name without certificate validation (configured by ServerTlsPolicy
- *  resource) is considered insecure.
+ *  (example, "namespace/ *") or a suffix match (example, "* /service-account")
+ *  or a presence match "*". Authorization based on the principal name without
+ *  certificate validation (configured by ServerTlsPolicy resource) is
+ *  considered insecure.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *principals;
 

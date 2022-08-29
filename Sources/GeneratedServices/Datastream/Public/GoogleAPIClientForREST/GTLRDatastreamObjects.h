@@ -16,8 +16,11 @@
 @class GTLRDatastream_BackfillAllStrategy;
 @class GTLRDatastream_BackfillJob;
 @class GTLRDatastream_BackfillNoneStrategy;
+@class GTLRDatastream_BigQueryDestinationConfig;
+@class GTLRDatastream_BigQueryProfile;
 @class GTLRDatastream_ConnectionProfile;
 @class GTLRDatastream_ConnectionProfile_Labels;
+@class GTLRDatastream_DatasetTemplate;
 @class GTLRDatastream_DestinationConfig;
 @class GTLRDatastream_DropLargeObjects;
 @class GTLRDatastream_Error;
@@ -48,18 +51,28 @@
 @class GTLRDatastream_OracleSchema;
 @class GTLRDatastream_OracleSourceConfig;
 @class GTLRDatastream_OracleTable;
+@class GTLRDatastream_PostgresqlColumn;
+@class GTLRDatastream_PostgresqlObjectIdentifier;
+@class GTLRDatastream_PostgresqlProfile;
+@class GTLRDatastream_PostgresqlRdbms;
+@class GTLRDatastream_PostgresqlSchema;
+@class GTLRDatastream_PostgresqlSourceConfig;
+@class GTLRDatastream_PostgresqlTable;
 @class GTLRDatastream_PrivateConnection;
 @class GTLRDatastream_PrivateConnection_Labels;
 @class GTLRDatastream_PrivateConnectivity;
 @class GTLRDatastream_Route;
 @class GTLRDatastream_Route_Labels;
+@class GTLRDatastream_SingleTargetDataset;
 @class GTLRDatastream_SourceConfig;
+@class GTLRDatastream_SourceHierarchyDatasets;
 @class GTLRDatastream_SourceObjectIdentifier;
 @class GTLRDatastream_StaticServiceIpConnectivity;
 @class GTLRDatastream_Status;
 @class GTLRDatastream_Status_Details_Item;
 @class GTLRDatastream_Stream;
 @class GTLRDatastream_Stream_Labels;
+@class GTLRDatastream_StreamLargeObjects;
 @class GTLRDatastream_StreamObject;
 @class GTLRDatastream_Validation;
 @class GTLRDatastream_ValidationMessage;
@@ -369,6 +382,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Oracle data source objects to avoid backfilling. */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleRdbms *oracleExcludedObjects;
 
+/** PostgreSQL data source objects to avoid backfilling. */
+@property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlRdbms *postgresqlExcludedObjects;
+
 @end
 
 
@@ -437,6 +453,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  GTLRDatastream_BigQueryDestinationConfig
+ */
+@interface GTLRDatastream_BigQueryDestinationConfig : GTLRObject
+
+/**
+ *  The guaranteed data freshness (in seconds) when querying tables created by
+ *  the stream. Editing this field will only affect new tables created in the
+ *  future, but existing tables will not be impacted. Lower values mean that
+ *  queries will return fresher data, but may result in higher cost.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *dataFreshness;
+
+/** Single destination dataset. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SingleTargetDataset *singleTargetDataset;
+
+/** Source hierarchy datasets. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SourceHierarchyDatasets *sourceHierarchyDatasets;
+
+@end
+
+
+/**
+ *  BigQuery warehouse profile.
+ */
+@interface GTLRDatastream_BigQueryProfile : GTLRObject
+@end
+
+
+/**
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRDatastream_CancelOperationRequest : GTLRObject
@@ -448,6 +493,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  destination for a stream.
  */
 @interface GTLRDatastream_ConnectionProfile : GTLRObject
+
+/** BigQuery Connection Profile configuration. */
+@property(nonatomic, strong, nullable) GTLRDatastream_BigQueryProfile *bigqueryProfile;
 
 /** Output only. The create time of the resource. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -472,6 +520,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** Oracle ConnectionProfile configuration. */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleProfile *oracleProfile;
+
+/** PostgreSQL Connection Profile configuration. */
+@property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlProfile *postgresqlProfile;
 
 /** Private connectivity. */
 @property(nonatomic, strong, nullable) GTLRDatastream_PrivateConnectivity *privateConnectivity;
@@ -498,9 +549,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  Dataset template used for dynamic dataset creation.
+ */
+@interface GTLRDatastream_DatasetTemplate : GTLRObject
+
+/**
+ *  If supplied, every created dataset will have its name prefixed by the
+ *  provided value. The prefix and name will be separated by an underscore. i.e.
+ *  _.
+ */
+@property(nonatomic, copy, nullable) NSString *datasetIdPrefix;
+
+/**
+ *  Describes the Cloud KMS encryption key that will be used to protect
+ *  destination BigQuery table. The BigQuery Service Account associated with
+ *  your project requires access to this encryption key. i.e.
+ *  projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{cryptoKey}.
+ *  See https://cloud.google.com/bigquery/docs/customer-managed-encryption for
+ *  more information.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+/**
+ *  Required. The geographic location where the dataset should reside. See
+ *  https://cloud.google.com/bigquery/docs/locations for supported locations.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+@end
+
+
+/**
  *  The configuration of the stream destination.
  */
 @interface GTLRDatastream_DestinationConfig : GTLRObject
+
+/** BigQuery destination configuration. */
+@property(nonatomic, strong, nullable) GTLRDatastream_BigQueryDestinationConfig *bigqueryDestinationConfig;
 
 /**
  *  Required. Destination connection profile resource. Format:
@@ -546,6 +631,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Oracle RDBMS to enrich with child data objects and metadata. */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleRdbms *oracleRdbms;
 
+/** PostgreSQL RDBMS to enrich with child data objects and metadata. */
+@property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlRdbms *postgresqlRdbms;
+
 @end
 
 
@@ -559,6 +647,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** Enriched Oracle RDBMS object. */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleRdbms *oracleRdbms;
+
+/** Enriched PostgreSQL RDBMS object. */
+@property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlRdbms *postgresqlRdbms;
 
 @end
 
@@ -1132,6 +1223,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** MySQL objects to retrieve from the source. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MysqlRdbms *includeObjects;
 
+/**
+ *  Maximum number of concurrent CDC tasks. The number should be non negative.
+ *  If not set (or set to 0), the system's default value will be used.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxConcurrentCdcTasks;
+
 @end
 
 
@@ -1476,6 +1575,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Oracle objects to include in the stream. */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleRdbms *includeObjects;
 
+/**
+ *  Maximum number of concurrent CDC tasks. The number should be non negative.
+ *  If not set (or set to 0), the system's default value will be used.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxConcurrentCdcTasks;
+
+/** Stream large object values. */
+@property(nonatomic, strong, nullable) GTLRDatastream_StreamLargeObjects *streamLargeObjects;
+
 @end
 
 
@@ -1489,6 +1599,171 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  objects, includes/excludes everything.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastream_OracleColumn *> *oracleColumns;
+
+/** Table name. */
+@property(nonatomic, copy, nullable) NSString *table;
+
+@end
+
+
+/**
+ *  PostgreSQL Column.
+ */
+@interface GTLRDatastream_PostgresqlColumn : GTLRObject
+
+/** Column name. */
+@property(nonatomic, copy, nullable) NSString *column;
+
+/** The PostgreSQL data type. */
+@property(nonatomic, copy, nullable) NSString *dataType;
+
+/**
+ *  Column length.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *length;
+
+/**
+ *  Whether or not the column can accept a null value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nullable;
+
+/**
+ *  The ordinal position of the column in the table.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ordinalPosition;
+
+/**
+ *  Column precision.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *precision;
+
+/**
+ *  Whether or not the column represents a primary key.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *primaryKey;
+
+/**
+ *  Column scale.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scale;
+
+@end
+
+
+/**
+ *  PostgreSQL data source object identifier.
+ */
+@interface GTLRDatastream_PostgresqlObjectIdentifier : GTLRObject
+
+/** Required. The schema name. */
+@property(nonatomic, copy, nullable) NSString *schema;
+
+/** Required. The table name. */
+@property(nonatomic, copy, nullable) NSString *table;
+
+@end
+
+
+/**
+ *  PostgreSQL database profile.
+ */
+@interface GTLRDatastream_PostgresqlProfile : GTLRObject
+
+/** Required. Database for the PostgreSQL connection. */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/** Required. Hostname for the PostgreSQL connection. */
+@property(nonatomic, copy, nullable) NSString *hostname;
+
+/** Required. Password for the PostgreSQL connection. */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Port for the PostgreSQL connection, default value is 5432.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/** Required. Username for the PostgreSQL connection. */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  PostgreSQL database structure.
+ */
+@interface GTLRDatastream_PostgresqlRdbms : GTLRObject
+
+/** PostgreSQL schemas in the database server. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_PostgresqlSchema *> *postgresqlSchemas;
+
+@end
+
+
+/**
+ *  PostgreSQL schema.
+ */
+@interface GTLRDatastream_PostgresqlSchema : GTLRObject
+
+/** Tables in the schema. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_PostgresqlTable *> *postgresqlTables;
+
+/** Schema name. */
+@property(nonatomic, copy, nullable) NSString *schema;
+
+@end
+
+
+/**
+ *  PostgreSQL data source configuration
+ */
+@interface GTLRDatastream_PostgresqlSourceConfig : GTLRObject
+
+/** PostgreSQL objects to exclude from the stream. */
+@property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlRdbms *excludeObjects;
+
+/** PostgreSQL objects to include in the stream. */
+@property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlRdbms *includeObjects;
+
+/**
+ *  Required. The name of the publication that includes the set of all tables
+ *  that are defined in the stream's include_objects.
+ */
+@property(nonatomic, copy, nullable) NSString *publication;
+
+/**
+ *  Required. The name of the logical replication slot that's configured with
+ *  the pgoutput plugin.
+ */
+@property(nonatomic, copy, nullable) NSString *replicationSlot;
+
+@end
+
+
+/**
+ *  PostgreSQL table.
+ */
+@interface GTLRDatastream_PostgresqlTable : GTLRObject
+
+/**
+ *  PostgreSQL columns in the schema. When unspecified as part of
+ *  include/exclude objects, includes/excludes everything.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_PostgresqlColumn *> *postgresqlColumns;
 
 /** Table name. */
 @property(nonatomic, copy, nullable) NSString *table;
@@ -1624,6 +1899,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  A single target dataset to which all data will be streamed.
+ */
+@interface GTLRDatastream_SingleTargetDataset : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+@end
+
+
+/**
  *  The configuration of the stream source.
  */
 @interface GTLRDatastream_SourceConfig : GTLRObject
@@ -1634,11 +1919,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Oracle data source configuration. */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleSourceConfig *oracleSourceConfig;
 
+/** PostgreSQL data source configuration. */
+@property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlSourceConfig *postgresqlSourceConfig;
+
 /**
  *  Required. Source connection profile resoource. Format:
  *  `projects/{project}/locations/{location}/connectionProfiles/{name}`
  */
 @property(nonatomic, copy, nullable) NSString *sourceConnectionProfile;
+
+@end
+
+
+/**
+ *  Destination datasets are created so that hierarchy of the destination data
+ *  objects matches the source hierarchy.
+ */
+@interface GTLRDatastream_SourceHierarchyDatasets : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDatastream_DatasetTemplate *datasetTemplate;
 
 @end
 
@@ -1653,6 +1952,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** Oracle data source object identifier. */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleObjectIdentifier *oracleIdentifier;
+
+/** PostgreSQL data source object identifier. */
+@property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlObjectIdentifier *postgresqlIdentifier;
 
 @end
 
@@ -1831,6 +2133,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *        fetch them all at once.
  */
 @interface GTLRDatastream_Stream_Labels : GTLRObject
+@end
+
+
+/**
+ *  Configuration to stream large object values.
+ */
+@interface GTLRDatastream_StreamLargeObjects : GTLRObject
 @end
 
 

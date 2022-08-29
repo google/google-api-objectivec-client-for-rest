@@ -110,6 +110,26 @@ NSString * const kGTLRStorageTransfer_NotificationConfig_PayloadFormat_Json = @"
 NSString * const kGTLRStorageTransfer_NotificationConfig_PayloadFormat_None = @"NONE";
 NSString * const kGTLRStorageTransfer_NotificationConfig_PayloadFormat_PayloadFormatUnspecified = @"PAYLOAD_FORMAT_UNSPECIFIED";
 
+// GTLRStorageTransfer_S3CompatibleMetadata.authMethod
+NSString * const kGTLRStorageTransfer_S3CompatibleMetadata_AuthMethod_AuthMethodAwsSignatureV2 = @"AUTH_METHOD_AWS_SIGNATURE_V2";
+NSString * const kGTLRStorageTransfer_S3CompatibleMetadata_AuthMethod_AuthMethodAwsSignatureV4 = @"AUTH_METHOD_AWS_SIGNATURE_V4";
+NSString * const kGTLRStorageTransfer_S3CompatibleMetadata_AuthMethod_AuthMethodUnspecified = @"AUTH_METHOD_UNSPECIFIED";
+
+// GTLRStorageTransfer_S3CompatibleMetadata.listApi
+NSString * const kGTLRStorageTransfer_S3CompatibleMetadata_ListApi_ListApiUnspecified = @"LIST_API_UNSPECIFIED";
+NSString * const kGTLRStorageTransfer_S3CompatibleMetadata_ListApi_ListObjects = @"LIST_OBJECTS";
+NSString * const kGTLRStorageTransfer_S3CompatibleMetadata_ListApi_ListObjectsV2 = @"LIST_OBJECTS_V2";
+
+// GTLRStorageTransfer_S3CompatibleMetadata.protocol
+NSString * const kGTLRStorageTransfer_S3CompatibleMetadata_Protocol_NetworkProtocolHttp = @"NETWORK_PROTOCOL_HTTP";
+NSString * const kGTLRStorageTransfer_S3CompatibleMetadata_Protocol_NetworkProtocolHttps = @"NETWORK_PROTOCOL_HTTPS";
+NSString * const kGTLRStorageTransfer_S3CompatibleMetadata_Protocol_NetworkProtocolUnspecified = @"NETWORK_PROTOCOL_UNSPECIFIED";
+
+// GTLRStorageTransfer_S3CompatibleMetadata.requestModel
+NSString * const kGTLRStorageTransfer_S3CompatibleMetadata_RequestModel_RequestModelPathStyle = @"REQUEST_MODEL_PATH_STYLE";
+NSString * const kGTLRStorageTransfer_S3CompatibleMetadata_RequestModel_RequestModelUnspecified = @"REQUEST_MODEL_UNSPECIFIED";
+NSString * const kGTLRStorageTransfer_S3CompatibleMetadata_RequestModel_RequestModelVirtualHostedStyle = @"REQUEST_MODEL_VIRTUAL_HOSTED_STYLE";
+
 // GTLRStorageTransfer_TransferJob.status
 NSString * const kGTLRStorageTransfer_TransferJob_Status_Deleted = @"DELETED";
 NSString * const kGTLRStorageTransfer_TransferJob_Status_Disabled = @"DISABLED";
@@ -148,6 +168,16 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 
 @implementation GTLRStorageTransfer_AwsAccessKey
 @dynamic accessKeyId, secretAccessKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorageTransfer_AwsS3CompatibleData
+//
+
+@implementation GTLRStorageTransfer_AwsS3CompatibleData
+@dynamic bucketName, endpoint, path, region, s3Metadata;
 @end
 
 
@@ -498,6 +528,16 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorageTransfer_S3CompatibleMetadata
+//
+
+@implementation GTLRStorageTransfer_S3CompatibleMetadata
+@dynamic authMethod, listApi, protocol, requestModel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorageTransfer_Schedule
 //
 
@@ -631,10 +671,11 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 //
 
 @implementation GTLRStorageTransfer_TransferSpec
-@dynamic awsS3DataSource, azureBlobStorageDataSource, gcsDataSink,
-         gcsDataSource, gcsIntermediateDataLocation, httpDataSource,
-         objectConditions, posixDataSink, posixDataSource, sinkAgentPoolName,
-         sourceAgentPoolName, transferManifest, transferOptions;
+@dynamic awsS3CompatibleDataSource, awsS3DataSource, azureBlobStorageDataSource,
+         gcsDataSink, gcsDataSource, gcsIntermediateDataLocation,
+         httpDataSource, objectConditions, posixDataSink, posixDataSource,
+         sinkAgentPoolName, sourceAgentPoolName, transferManifest,
+         transferOptions;
 @end
 
 

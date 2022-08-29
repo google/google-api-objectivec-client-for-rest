@@ -78,7 +78,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Case_Priority_P3;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Case_Priority_P4;
 /**
- *  Severity is undefined or has not been set yet.
+ *  Priority is undefined or has not been set yet.
  *
  *  Value: "PRIORITY_UNSPECIFIED"
  */
@@ -516,13 +516,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
  *        service. Service is available, but moderately impaired. (Value: "P3")
  *    @arg @c kGTLRCloudSupport_Case_Priority_P4 General questions or minor
  *        issues. Production service is fully available. (Value: "P4")
- *    @arg @c kGTLRCloudSupport_Case_Priority_PriorityUnspecified Severity is
+ *    @arg @c kGTLRCloudSupport_Case_Priority_PriorityUnspecified Priority is
  *        undefined or has not been set yet. (Value: "PRIORITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *priority;
-
-/** The ID of the project associated with the case. */
-@property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  The severity of this case. Deprecated. Use priority instead.

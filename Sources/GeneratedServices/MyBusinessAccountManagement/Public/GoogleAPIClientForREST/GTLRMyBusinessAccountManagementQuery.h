@@ -335,8 +335,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. How many accounts to fetch per page. The minimum supported
- *  page_size is 2. The default and maximum is 20.
+ *  Optional. How many accounts to fetch per page. The default and maximum is
+ *  20.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

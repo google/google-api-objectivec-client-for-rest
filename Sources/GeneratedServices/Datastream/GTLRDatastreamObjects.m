@@ -81,7 +81,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_BackfillAllStrategy
-@dynamic mysqlExcludedObjects, oracleExcludedObjects;
+@dynamic mysqlExcludedObjects, oracleExcludedObjects, postgresqlExcludedObjects;
 @end
 
 
@@ -114,6 +114,25 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_BigQueryDestinationConfig
+//
+
+@implementation GTLRDatastream_BigQueryDestinationConfig
+@dynamic dataFreshness, singleTargetDataset, sourceHierarchyDatasets;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_BigQueryProfile
+//
+
+@implementation GTLRDatastream_BigQueryProfile
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_CancelOperationRequest
 //
 
@@ -127,9 +146,10 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_ConnectionProfile
-@dynamic createTime, displayName, forwardSshConnectivity, gcsProfile, labels,
-         mysqlProfile, name, oracleProfile, privateConnectivity,
-         staticServiceIpConnectivity, updateTime;
+@dynamic bigqueryProfile, createTime, displayName, forwardSshConnectivity,
+         gcsProfile, labels, mysqlProfile, name, oracleProfile,
+         postgresqlProfile, privateConnectivity, staticServiceIpConnectivity,
+         updateTime;
 @end
 
 
@@ -149,11 +169,22 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_DatasetTemplate
+//
+
+@implementation GTLRDatastream_DatasetTemplate
+@dynamic datasetIdPrefix, kmsKeyName, location;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_DestinationConfig
 //
 
 @implementation GTLRDatastream_DestinationConfig
-@dynamic destinationConnectionProfile, gcsDestinationConfig;
+@dynamic bigqueryDestinationConfig, destinationConnectionProfile,
+         gcsDestinationConfig;
 @end
 
 
@@ -164,7 +195,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_DiscoverConnectionProfileRequest
 @dynamic connectionProfile, connectionProfileName, fullHierarchy,
-         hierarchyDepth, mysqlRdbms, oracleRdbms;
+         hierarchyDepth, mysqlRdbms, oracleRdbms, postgresqlRdbms;
 @end
 
 
@@ -174,7 +205,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_DiscoverConnectionProfileResponse
-@dynamic mysqlRdbms, oracleRdbms;
+@dynamic mysqlRdbms, oracleRdbms, postgresqlRdbms;
 @end
 
 
@@ -558,7 +589,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_MysqlSourceConfig
-@dynamic excludeObjects, includeObjects;
+@dynamic excludeObjects, includeObjects, maxConcurrentCdcTasks;
 @end
 
 
@@ -728,7 +759,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_OracleSourceConfig
-@dynamic dropLargeObjects, excludeObjects, includeObjects;
+@dynamic dropLargeObjects, excludeObjects, includeObjects,
+         maxConcurrentCdcTasks, streamLargeObjects;
 @end
 
 
@@ -743,6 +775,101 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"oracleColumns" : [GTLRDatastream_OracleColumn class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_PostgresqlColumn
+//
+
+@implementation GTLRDatastream_PostgresqlColumn
+@dynamic column, dataType, length, nullable, ordinalPosition, precision,
+         primaryKey, scale;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_PostgresqlObjectIdentifier
+//
+
+@implementation GTLRDatastream_PostgresqlObjectIdentifier
+@dynamic schema, table;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_PostgresqlProfile
+//
+
+@implementation GTLRDatastream_PostgresqlProfile
+@dynamic database, hostname, password, port, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_PostgresqlRdbms
+//
+
+@implementation GTLRDatastream_PostgresqlRdbms
+@dynamic postgresqlSchemas;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"postgresqlSchemas" : [GTLRDatastream_PostgresqlSchema class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_PostgresqlSchema
+//
+
+@implementation GTLRDatastream_PostgresqlSchema
+@dynamic postgresqlTables, schema;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"postgresqlTables" : [GTLRDatastream_PostgresqlTable class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_PostgresqlSourceConfig
+//
+
+@implementation GTLRDatastream_PostgresqlSourceConfig
+@dynamic excludeObjects, includeObjects, publication, replicationSlot;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_PostgresqlTable
+//
+
+@implementation GTLRDatastream_PostgresqlTable
+@dynamic postgresqlColumns, table;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"postgresqlColumns" : [GTLRDatastream_PostgresqlColumn class]
   };
   return map;
 }
@@ -812,11 +939,32 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_SingleTargetDataset
+//
+
+@implementation GTLRDatastream_SingleTargetDataset
+@dynamic datasetId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_SourceConfig
 //
 
 @implementation GTLRDatastream_SourceConfig
-@dynamic mysqlSourceConfig, oracleSourceConfig, sourceConnectionProfile;
+@dynamic mysqlSourceConfig, oracleSourceConfig, postgresqlSourceConfig,
+         sourceConnectionProfile;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SourceHierarchyDatasets
+//
+
+@implementation GTLRDatastream_SourceHierarchyDatasets
+@dynamic datasetTemplate;
 @end
 
 
@@ -826,7 +974,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_SourceObjectIdentifier
-@dynamic mysqlIdentifier, oracleIdentifier;
+@dynamic mysqlIdentifier, oracleIdentifier, postgresqlIdentifier;
 @end
 
 
@@ -940,6 +1088,15 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_StreamLargeObjects
+//
+
+@implementation GTLRDatastream_StreamLargeObjects
 @end
 
 

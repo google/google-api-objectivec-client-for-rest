@@ -379,6 +379,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  */
 @interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesDockerImagesList : GTLRArtifactRegistryQuery
 
+/** The field to order the results by. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
 /** The maximum number of artifacts to return. */
 @property(nonatomic, assign) NSInteger pageSize;
 

@@ -211,6 +211,16 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDea
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAlertCenter_ApnsCertificateExpirationInfo
+//
+
+@implementation GTLRAlertCenter_ApnsCertificateExpirationInfo
+@dynamic appleId, expirationTime, uid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAlertCenter_AppMakerSqlSetupNotification
 //
 

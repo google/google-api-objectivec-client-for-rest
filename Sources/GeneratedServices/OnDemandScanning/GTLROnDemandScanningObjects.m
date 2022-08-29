@@ -79,6 +79,7 @@ NSString * const kGTLROnDemandScanning_DeploymentOccurrence_Platform_PlatformUns
 
 // GTLROnDemandScanning_DiscoveryOccurrence.analysisStatus
 NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_AnalysisStatus_AnalysisStatusUnspecified = @"ANALYSIS_STATUS_UNSPECIFIED";
+NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_AnalysisStatus_Complete = @"COMPLETE";
 NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_AnalysisStatus_FinishedFailed = @"FINISHED_FAILED";
 NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_AnalysisStatus_FinishedSuccess = @"FINISHED_SUCCESS";
 NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_AnalysisStatus_FinishedUnsupported = @"FINISHED_UNSUPPORTED";
@@ -157,6 +158,24 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
   // This class has a "kind" property that doesn't appear to be usable to
   // determine what type of object was encoded in the JSON.
   return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_AnalysisCompleted
+//
+
+@implementation GTLROnDemandScanning_AnalysisCompleted
+@dynamic analysisType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"analysisType" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -434,8 +453,16 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_DiscoveryOccurrence
-@dynamic analysisStatus, analysisStatusError, archiveTime, continuousAnalysis,
-         cpe, lastScanTime;
+@dynamic analysisCompleted, analysisError, analysisStatus, analysisStatusError,
+         archiveTime, continuousAnalysis, cpe, lastScanTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"analysisError" : [GTLROnDemandScanning_Status class]
+  };
+  return map;
+}
+
 @end
 
 

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Connectors API (connectors/v1)
+//   Connectors API (connectors/v2)
 // Description:
 //   Enables users to create and manage connections to Google Cloud services and
 //   third-party business applications using the Connectors interface.
@@ -14,506 +14,163 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRConnectors_AuditLogConfig.logType
-NSString * const kGTLRConnectors_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
-NSString * const kGTLRConnectors_AuditLogConfig_LogType_DataRead = @"DATA_READ";
-NSString * const kGTLRConnectors_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
-NSString * const kGTLRConnectors_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
-
-// GTLRConnectors_AuthConfig.authType
-NSString * const kGTLRConnectors_AuthConfig_AuthType_AuthTypeUnspecified = @"AUTH_TYPE_UNSPECIFIED";
-NSString * const kGTLRConnectors_AuthConfig_AuthType_Oauth2ClientCredentials = @"OAUTH2_CLIENT_CREDENTIALS";
-NSString * const kGTLRConnectors_AuthConfig_AuthType_Oauth2JwtBearer = @"OAUTH2_JWT_BEARER";
-NSString * const kGTLRConnectors_AuthConfig_AuthType_SshPublicKey = @"SSH_PUBLIC_KEY";
-NSString * const kGTLRConnectors_AuthConfig_AuthType_UserPassword = @"USER_PASSWORD";
-
-// GTLRConnectors_AuthConfigTemplate.authType
-NSString * const kGTLRConnectors_AuthConfigTemplate_AuthType_AuthTypeUnspecified = @"AUTH_TYPE_UNSPECIFIED";
-NSString * const kGTLRConnectors_AuthConfigTemplate_AuthType_Oauth2ClientCredentials = @"OAUTH2_CLIENT_CREDENTIALS";
-NSString * const kGTLRConnectors_AuthConfigTemplate_AuthType_Oauth2JwtBearer = @"OAUTH2_JWT_BEARER";
-NSString * const kGTLRConnectors_AuthConfigTemplate_AuthType_SshPublicKey = @"SSH_PUBLIC_KEY";
-NSString * const kGTLRConnectors_AuthConfigTemplate_AuthType_UserPassword = @"USER_PASSWORD";
-
-// GTLRConnectors_ConfigVariableTemplate.valueType
-NSString * const kGTLRConnectors_ConfigVariableTemplate_ValueType_Bool = @"BOOL";
-NSString * const kGTLRConnectors_ConfigVariableTemplate_ValueType_Enum = @"ENUM";
-NSString * const kGTLRConnectors_ConfigVariableTemplate_ValueType_Int = @"INT";
-NSString * const kGTLRConnectors_ConfigVariableTemplate_ValueType_Secret = @"SECRET";
-NSString * const kGTLRConnectors_ConfigVariableTemplate_ValueType_String = @"STRING";
-NSString * const kGTLRConnectors_ConfigVariableTemplate_ValueType_ValueTypeUnspecified = @"VALUE_TYPE_UNSPECIFIED";
-
-// GTLRConnectors_ConnectionStatus.state
-NSString * const kGTLRConnectors_ConnectionStatus_State_Active = @"ACTIVE";
-NSString * const kGTLRConnectors_ConnectionStatus_State_Creating = @"CREATING";
-NSString * const kGTLRConnectors_ConnectionStatus_State_Deleting = @"DELETING";
-NSString * const kGTLRConnectors_ConnectionStatus_State_Error  = @"ERROR";
-NSString * const kGTLRConnectors_ConnectionStatus_State_Inactive = @"INACTIVE";
-NSString * const kGTLRConnectors_ConnectionStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
-NSString * const kGTLRConnectors_ConnectionStatus_State_Updating = @"UPDATING";
-
-// GTLRConnectors_Connector.launchStage
-NSString * const kGTLRConnectors_Connector_LaunchStage_Deprecated = @"DEPRECATED";
-NSString * const kGTLRConnectors_Connector_LaunchStage_Ga      = @"GA";
-NSString * const kGTLRConnectors_Connector_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
-NSString * const kGTLRConnectors_Connector_LaunchStage_Preview = @"PREVIEW";
-
-// GTLRConnectors_ConnectorVersion.launchStage
-NSString * const kGTLRConnectors_ConnectorVersion_LaunchStage_Deprecated = @"DEPRECATED";
-NSString * const kGTLRConnectors_ConnectorVersion_LaunchStage_Ga = @"GA";
-NSString * const kGTLRConnectors_ConnectorVersion_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
-NSString * const kGTLRConnectors_ConnectorVersion_LaunchStage_Preview = @"PREVIEW";
-
 // GTLRConnectors_Field.dataType
-NSString * const kGTLRConnectors_Field_DataType_DataTypeArray  = @"DATA_TYPE_ARRAY";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeBigint = @"DATA_TYPE_BIGINT";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeBinary = @"DATA_TYPE_BINARY";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeBit    = @"DATA_TYPE_BIT";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeBlob   = @"DATA_TYPE_BLOB";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeBoolean = @"DATA_TYPE_BOOLEAN";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeChar   = @"DATA_TYPE_CHAR";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeClob   = @"DATA_TYPE_CLOB";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeDatalink = @"DATA_TYPE_DATALINK";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeDate   = @"DATA_TYPE_DATE";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeDatetime = @"DATA_TYPE_DATETIME";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeDecimal = @"DATA_TYPE_DECIMAL";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeDistinct = @"DATA_TYPE_DISTINCT";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeDouble = @"DATA_TYPE_DOUBLE";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeFloat  = @"DATA_TYPE_FLOAT";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeInt    = @"DATA_TYPE_INT";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeInteger = @"DATA_TYPE_INTEGER";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeJavaObject = @"DATA_TYPE_JAVA_OBJECT";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeLong   = @"DATA_TYPE_LONG";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeLongnvarchar = @"DATA_TYPE_LONGNVARCHAR";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeLongvarbinary = @"DATA_TYPE_LONGVARBINARY";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeLongvarchar = @"DATA_TYPE_LONGVARCHAR";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeNchar  = @"DATA_TYPE_NCHAR";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeNclob  = @"DATA_TYPE_NCLOB";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeNull   = @"DATA_TYPE_NULL";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeNumeric = @"DATA_TYPE_NUMERIC";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeNvarchar = @"DATA_TYPE_NVARCHAR";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeOther  = @"DATA_TYPE_OTHER";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeReal   = @"DATA_TYPE_REAL";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeRef    = @"DATA_TYPE_REF";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeRefCursor = @"DATA_TYPE_REF_CURSOR";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeRowid  = @"DATA_TYPE_ROWID";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeSmallint = @"DATA_TYPE_SMALLINT";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeSqlxml = @"DATA_TYPE_SQLXML";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeString = @"DATA_TYPE_STRING";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeStruct = @"DATA_TYPE_STRUCT";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeTime   = @"DATA_TYPE_TIME";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeTimestamp = @"DATA_TYPE_TIMESTAMP";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeTimestampWithTimezone = @"DATA_TYPE_TIMESTAMP_WITH_TIMEZONE";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeTimeWithTimezone = @"DATA_TYPE_TIME_WITH_TIMEZONE";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeTinyint = @"DATA_TYPE_TINYINT";
+NSString * const kGTLRConnectors_Field_DataType_Array          = @"ARRAY";
+NSString * const kGTLRConnectors_Field_DataType_Bigint         = @"BIGINT";
+NSString * const kGTLRConnectors_Field_DataType_Binary         = @"BINARY";
+NSString * const kGTLRConnectors_Field_DataType_Bit            = @"BIT";
+NSString * const kGTLRConnectors_Field_DataType_Blob           = @"BLOB";
+NSString * const kGTLRConnectors_Field_DataType_Boolean        = @"BOOLEAN";
+NSString * const kGTLRConnectors_Field_DataType_Char           = @"CHAR";
+NSString * const kGTLRConnectors_Field_DataType_Clob           = @"CLOB";
+NSString * const kGTLRConnectors_Field_DataType_Datalink       = @"DATALINK";
 NSString * const kGTLRConnectors_Field_DataType_DataTypeUnspecified = @"DATA_TYPE_UNSPECIFIED";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeUuid   = @"DATA_TYPE_UUID";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeVarbinary = @"DATA_TYPE_VARBINARY";
-NSString * const kGTLRConnectors_Field_DataType_DataTypeVarchar = @"DATA_TYPE_VARCHAR";
+NSString * const kGTLRConnectors_Field_DataType_Date           = @"DATE";
+NSString * const kGTLRConnectors_Field_DataType_Datetime       = @"DATETIME";
+NSString * const kGTLRConnectors_Field_DataType_Decimal        = @"DECIMAL";
+NSString * const kGTLRConnectors_Field_DataType_Distinct       = @"DISTINCT";
+NSString * const kGTLRConnectors_Field_DataType_Double         = @"DOUBLE";
+NSString * const kGTLRConnectors_Field_DataType_Float          = @"FLOAT";
+NSString * const kGTLRConnectors_Field_DataType_Int            = @"INT";
+NSString * const kGTLRConnectors_Field_DataType_Integer        = @"INTEGER";
+NSString * const kGTLRConnectors_Field_DataType_JavaObject     = @"JAVA_OBJECT";
+NSString * const kGTLRConnectors_Field_DataType_Long           = @"LONG";
+NSString * const kGTLRConnectors_Field_DataType_Longnvarchar   = @"LONGNVARCHAR";
+NSString * const kGTLRConnectors_Field_DataType_Longvarbinary  = @"LONGVARBINARY";
+NSString * const kGTLRConnectors_Field_DataType_Longvarchar    = @"LONGVARCHAR";
+NSString * const kGTLRConnectors_Field_DataType_Nchar          = @"NCHAR";
+NSString * const kGTLRConnectors_Field_DataType_Nclob          = @"NCLOB";
+NSString * const kGTLRConnectors_Field_DataType_Null           = @"NULL";
+NSString * const kGTLRConnectors_Field_DataType_Numeric        = @"NUMERIC";
+NSString * const kGTLRConnectors_Field_DataType_Nvarchar       = @"NVARCHAR";
+NSString * const kGTLRConnectors_Field_DataType_Other          = @"OTHER";
+NSString * const kGTLRConnectors_Field_DataType_Real           = @"REAL";
+NSString * const kGTLRConnectors_Field_DataType_Ref            = @"REF";
+NSString * const kGTLRConnectors_Field_DataType_RefCursor      = @"REF_CURSOR";
+NSString * const kGTLRConnectors_Field_DataType_Rowid          = @"ROWID";
+NSString * const kGTLRConnectors_Field_DataType_Smallint       = @"SMALLINT";
+NSString * const kGTLRConnectors_Field_DataType_Sqlxml         = @"SQLXML";
+NSString * const kGTLRConnectors_Field_DataType_String         = @"STRING";
+NSString * const kGTLRConnectors_Field_DataType_Struct         = @"STRUCT";
+NSString * const kGTLRConnectors_Field_DataType_Time           = @"TIME";
+NSString * const kGTLRConnectors_Field_DataType_Timestamp      = @"TIMESTAMP";
+NSString * const kGTLRConnectors_Field_DataType_TimestampWithTimezone = @"TIMESTAMP_WITH_TIMEZONE";
+NSString * const kGTLRConnectors_Field_DataType_TimeWithTimezone = @"TIME_WITH_TIMEZONE";
+NSString * const kGTLRConnectors_Field_DataType_Tinyint        = @"TINYINT";
+NSString * const kGTLRConnectors_Field_DataType_Uuid           = @"UUID";
+NSString * const kGTLRConnectors_Field_DataType_Varbinary      = @"VARBINARY";
+NSString * const kGTLRConnectors_Field_DataType_Varchar        = @"VARCHAR";
 
 // GTLRConnectors_InputParameter.dataType
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeArray = @"DATA_TYPE_ARRAY";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeBigint = @"DATA_TYPE_BIGINT";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeBinary = @"DATA_TYPE_BINARY";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeBit = @"DATA_TYPE_BIT";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeBlob = @"DATA_TYPE_BLOB";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeBoolean = @"DATA_TYPE_BOOLEAN";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeChar = @"DATA_TYPE_CHAR";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeClob = @"DATA_TYPE_CLOB";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeDatalink = @"DATA_TYPE_DATALINK";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeDate = @"DATA_TYPE_DATE";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeDatetime = @"DATA_TYPE_DATETIME";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeDecimal = @"DATA_TYPE_DECIMAL";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeDistinct = @"DATA_TYPE_DISTINCT";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeDouble = @"DATA_TYPE_DOUBLE";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeFloat = @"DATA_TYPE_FLOAT";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeInt = @"DATA_TYPE_INT";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeInteger = @"DATA_TYPE_INTEGER";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeJavaObject = @"DATA_TYPE_JAVA_OBJECT";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeLong = @"DATA_TYPE_LONG";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeLongnvarchar = @"DATA_TYPE_LONGNVARCHAR";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeLongvarbinary = @"DATA_TYPE_LONGVARBINARY";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeLongvarchar = @"DATA_TYPE_LONGVARCHAR";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeNchar = @"DATA_TYPE_NCHAR";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeNclob = @"DATA_TYPE_NCLOB";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeNull = @"DATA_TYPE_NULL";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeNumeric = @"DATA_TYPE_NUMERIC";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeNvarchar = @"DATA_TYPE_NVARCHAR";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeOther = @"DATA_TYPE_OTHER";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeReal = @"DATA_TYPE_REAL";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeRef = @"DATA_TYPE_REF";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeRefCursor = @"DATA_TYPE_REF_CURSOR";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeRowid = @"DATA_TYPE_ROWID";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeSmallint = @"DATA_TYPE_SMALLINT";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeSqlxml = @"DATA_TYPE_SQLXML";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeString = @"DATA_TYPE_STRING";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeStruct = @"DATA_TYPE_STRUCT";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeTime = @"DATA_TYPE_TIME";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeTimestamp = @"DATA_TYPE_TIMESTAMP";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeTimestampWithTimezone = @"DATA_TYPE_TIMESTAMP_WITH_TIMEZONE";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeTimeWithTimezone = @"DATA_TYPE_TIME_WITH_TIMEZONE";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeTinyint = @"DATA_TYPE_TINYINT";
+NSString * const kGTLRConnectors_InputParameter_DataType_Array = @"ARRAY";
+NSString * const kGTLRConnectors_InputParameter_DataType_Bigint = @"BIGINT";
+NSString * const kGTLRConnectors_InputParameter_DataType_Binary = @"BINARY";
+NSString * const kGTLRConnectors_InputParameter_DataType_Bit   = @"BIT";
+NSString * const kGTLRConnectors_InputParameter_DataType_Blob  = @"BLOB";
+NSString * const kGTLRConnectors_InputParameter_DataType_Boolean = @"BOOLEAN";
+NSString * const kGTLRConnectors_InputParameter_DataType_Char  = @"CHAR";
+NSString * const kGTLRConnectors_InputParameter_DataType_Clob  = @"CLOB";
+NSString * const kGTLRConnectors_InputParameter_DataType_Datalink = @"DATALINK";
 NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeUnspecified = @"DATA_TYPE_UNSPECIFIED";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeUuid = @"DATA_TYPE_UUID";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeVarbinary = @"DATA_TYPE_VARBINARY";
-NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeVarchar = @"DATA_TYPE_VARCHAR";
-
-// GTLRConnectors_Provider.launchStage
-NSString * const kGTLRConnectors_Provider_LaunchStage_Deprecated = @"DEPRECATED";
-NSString * const kGTLRConnectors_Provider_LaunchStage_Ga       = @"GA";
-NSString * const kGTLRConnectors_Provider_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
-NSString * const kGTLRConnectors_Provider_LaunchStage_Preview  = @"PREVIEW";
-
-// GTLRConnectors_Resource.type
-NSString * const kGTLRConnectors_Resource_Type_GcpProject      = @"GCP_PROJECT";
-NSString * const kGTLRConnectors_Resource_Type_GcpResource     = @"GCP_RESOURCE";
-NSString * const kGTLRConnectors_Resource_Type_GcpSecretmanagerSecret = @"GCP_SECRETMANAGER_SECRET";
-NSString * const kGTLRConnectors_Resource_Type_GcpSecretmanagerSecretVersion = @"GCP_SECRETMANAGER_SECRET_VERSION";
-NSString * const kGTLRConnectors_Resource_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRConnectors_InputParameter_DataType_Date  = @"DATE";
+NSString * const kGTLRConnectors_InputParameter_DataType_Datetime = @"DATETIME";
+NSString * const kGTLRConnectors_InputParameter_DataType_Decimal = @"DECIMAL";
+NSString * const kGTLRConnectors_InputParameter_DataType_Distinct = @"DISTINCT";
+NSString * const kGTLRConnectors_InputParameter_DataType_Double = @"DOUBLE";
+NSString * const kGTLRConnectors_InputParameter_DataType_Float = @"FLOAT";
+NSString * const kGTLRConnectors_InputParameter_DataType_Int   = @"INT";
+NSString * const kGTLRConnectors_InputParameter_DataType_Integer = @"INTEGER";
+NSString * const kGTLRConnectors_InputParameter_DataType_JavaObject = @"JAVA_OBJECT";
+NSString * const kGTLRConnectors_InputParameter_DataType_Long  = @"LONG";
+NSString * const kGTLRConnectors_InputParameter_DataType_Longnvarchar = @"LONGNVARCHAR";
+NSString * const kGTLRConnectors_InputParameter_DataType_Longvarbinary = @"LONGVARBINARY";
+NSString * const kGTLRConnectors_InputParameter_DataType_Longvarchar = @"LONGVARCHAR";
+NSString * const kGTLRConnectors_InputParameter_DataType_Nchar = @"NCHAR";
+NSString * const kGTLRConnectors_InputParameter_DataType_Nclob = @"NCLOB";
+NSString * const kGTLRConnectors_InputParameter_DataType_Null  = @"NULL";
+NSString * const kGTLRConnectors_InputParameter_DataType_Numeric = @"NUMERIC";
+NSString * const kGTLRConnectors_InputParameter_DataType_Nvarchar = @"NVARCHAR";
+NSString * const kGTLRConnectors_InputParameter_DataType_Other = @"OTHER";
+NSString * const kGTLRConnectors_InputParameter_DataType_Real  = @"REAL";
+NSString * const kGTLRConnectors_InputParameter_DataType_Ref   = @"REF";
+NSString * const kGTLRConnectors_InputParameter_DataType_RefCursor = @"REF_CURSOR";
+NSString * const kGTLRConnectors_InputParameter_DataType_Rowid = @"ROWID";
+NSString * const kGTLRConnectors_InputParameter_DataType_Smallint = @"SMALLINT";
+NSString * const kGTLRConnectors_InputParameter_DataType_Sqlxml = @"SQLXML";
+NSString * const kGTLRConnectors_InputParameter_DataType_String = @"STRING";
+NSString * const kGTLRConnectors_InputParameter_DataType_Struct = @"STRUCT";
+NSString * const kGTLRConnectors_InputParameter_DataType_Time  = @"TIME";
+NSString * const kGTLRConnectors_InputParameter_DataType_Timestamp = @"TIMESTAMP";
+NSString * const kGTLRConnectors_InputParameter_DataType_TimestampWithTimezone = @"TIMESTAMP_WITH_TIMEZONE";
+NSString * const kGTLRConnectors_InputParameter_DataType_TimeWithTimezone = @"TIME_WITH_TIMEZONE";
+NSString * const kGTLRConnectors_InputParameter_DataType_Tinyint = @"TINYINT";
+NSString * const kGTLRConnectors_InputParameter_DataType_Uuid  = @"UUID";
+NSString * const kGTLRConnectors_InputParameter_DataType_Varbinary = @"VARBINARY";
+NSString * const kGTLRConnectors_InputParameter_DataType_Varchar = @"VARCHAR";
 
 // GTLRConnectors_ResultMetadata.dataType
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeArray = @"DATA_TYPE_ARRAY";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeBigint = @"DATA_TYPE_BIGINT";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeBinary = @"DATA_TYPE_BINARY";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeBit = @"DATA_TYPE_BIT";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeBlob = @"DATA_TYPE_BLOB";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeBoolean = @"DATA_TYPE_BOOLEAN";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeChar = @"DATA_TYPE_CHAR";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeClob = @"DATA_TYPE_CLOB";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeDatalink = @"DATA_TYPE_DATALINK";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeDate = @"DATA_TYPE_DATE";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeDatetime = @"DATA_TYPE_DATETIME";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeDecimal = @"DATA_TYPE_DECIMAL";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeDistinct = @"DATA_TYPE_DISTINCT";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeDouble = @"DATA_TYPE_DOUBLE";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeFloat = @"DATA_TYPE_FLOAT";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeInt = @"DATA_TYPE_INT";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeInteger = @"DATA_TYPE_INTEGER";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeJavaObject = @"DATA_TYPE_JAVA_OBJECT";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeLong = @"DATA_TYPE_LONG";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeLongnvarchar = @"DATA_TYPE_LONGNVARCHAR";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeLongvarbinary = @"DATA_TYPE_LONGVARBINARY";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeLongvarchar = @"DATA_TYPE_LONGVARCHAR";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeNchar = @"DATA_TYPE_NCHAR";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeNclob = @"DATA_TYPE_NCLOB";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeNull = @"DATA_TYPE_NULL";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeNumeric = @"DATA_TYPE_NUMERIC";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeNvarchar = @"DATA_TYPE_NVARCHAR";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeOther = @"DATA_TYPE_OTHER";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeReal = @"DATA_TYPE_REAL";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeRef = @"DATA_TYPE_REF";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeRefCursor = @"DATA_TYPE_REF_CURSOR";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeRowid = @"DATA_TYPE_ROWID";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeSmallint = @"DATA_TYPE_SMALLINT";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeSqlxml = @"DATA_TYPE_SQLXML";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeString = @"DATA_TYPE_STRING";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeStruct = @"DATA_TYPE_STRUCT";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeTime = @"DATA_TYPE_TIME";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeTimestamp = @"DATA_TYPE_TIMESTAMP";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeTimestampWithTimezone = @"DATA_TYPE_TIMESTAMP_WITH_TIMEZONE";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeTimeWithTimezone = @"DATA_TYPE_TIME_WITH_TIMEZONE";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeTinyint = @"DATA_TYPE_TINYINT";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Array = @"ARRAY";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Bigint = @"BIGINT";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Binary = @"BINARY";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Bit   = @"BIT";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Blob  = @"BLOB";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Boolean = @"BOOLEAN";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Char  = @"CHAR";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Clob  = @"CLOB";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Datalink = @"DATALINK";
 NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeUnspecified = @"DATA_TYPE_UNSPECIFIED";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeUuid = @"DATA_TYPE_UUID";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeVarbinary = @"DATA_TYPE_VARBINARY";
-NSString * const kGTLRConnectors_ResultMetadata_DataType_DataTypeVarchar = @"DATA_TYPE_VARCHAR";
-
-// GTLRConnectors_RoleGrant.principal
-NSString * const kGTLRConnectors_RoleGrant_Principal_ConnectorSa = @"CONNECTOR_SA";
-NSString * const kGTLRConnectors_RoleGrant_Principal_PrincipalUnspecified = @"PRINCIPAL_UNSPECIFIED";
-
-// GTLRConnectors_RuntimeConfig.state
-NSString * const kGTLRConnectors_RuntimeConfig_State_Activating = @"ACTIVATING";
-NSString * const kGTLRConnectors_RuntimeConfig_State_Active    = @"ACTIVE";
-NSString * const kGTLRConnectors_RuntimeConfig_State_Creating  = @"CREATING";
-NSString * const kGTLRConnectors_RuntimeConfig_State_Deleting  = @"DELETING";
-NSString * const kGTLRConnectors_RuntimeConfig_State_Inactive  = @"INACTIVE";
-NSString * const kGTLRConnectors_RuntimeConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
-NSString * const kGTLRConnectors_RuntimeConfig_State_Updating  = @"UPDATING";
-
-// GTLRConnectors_Source.sourceType
-NSString * const kGTLRConnectors_Source_SourceType_ConfigVariable = @"CONFIG_VARIABLE";
-NSString * const kGTLRConnectors_Source_SourceType_SourceTypeUnspecified = @"SOURCE_TYPE_UNSPECIFIED";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Date  = @"DATE";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Datetime = @"DATETIME";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Decimal = @"DECIMAL";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Distinct = @"DISTINCT";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Double = @"DOUBLE";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Float = @"FLOAT";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Int   = @"INT";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Integer = @"INTEGER";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_JavaObject = @"JAVA_OBJECT";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Long  = @"LONG";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Longnvarchar = @"LONGNVARCHAR";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Longvarbinary = @"LONGVARBINARY";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Longvarchar = @"LONGVARCHAR";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Nchar = @"NCHAR";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Nclob = @"NCLOB";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Null  = @"NULL";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Numeric = @"NUMERIC";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Nvarchar = @"NVARCHAR";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Other = @"OTHER";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Real  = @"REAL";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Ref   = @"REF";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_RefCursor = @"REF_CURSOR";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Rowid = @"ROWID";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Smallint = @"SMALLINT";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Sqlxml = @"SQLXML";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_String = @"STRING";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Struct = @"STRUCT";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Time  = @"TIME";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Timestamp = @"TIMESTAMP";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_TimestampWithTimezone = @"TIMESTAMP_WITH_TIMEZONE";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_TimeWithTimezone = @"TIME_WITH_TIMEZONE";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Tinyint = @"TINYINT";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Uuid  = @"UUID";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Varbinary = @"VARBINARY";
+NSString * const kGTLRConnectors_ResultMetadata_DataType_Varchar = @"VARCHAR";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRConnectors_AuditConfig
+//   GTLRConnectors_Action
 //
 
-@implementation GTLRConnectors_AuditConfig
-@dynamic auditLogConfigs, service;
+@implementation GTLRConnectors_Action
+@dynamic inputParameters, name, resultMetadata;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"auditLogConfigs" : [GTLRConnectors_AuditLogConfig class]
+    @"inputParameters" : [GTLRConnectors_InputParameter class],
+    @"resultMetadata" : [GTLRConnectors_ResultMetadata class]
   };
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_AuditLogConfig
-//
-
-@implementation GTLRConnectors_AuditLogConfig
-@dynamic exemptedMembers, logType;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"exemptedMembers" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_AuthConfig
-//
-
-@implementation GTLRConnectors_AuthConfig
-@dynamic additionalVariables, authType, oauth2ClientCredentials,
-         oauth2JwtBearer, sshPublicKey, userPassword;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"additionalVariables" : [GTLRConnectors_ConfigVariable class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_AuthConfigTemplate
-//
-
-@implementation GTLRConnectors_AuthConfigTemplate
-@dynamic authType, configVariableTemplates;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"configVariableTemplates" : [GTLRConnectors_ConfigVariableTemplate class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_Binding
-//
-
-@implementation GTLRConnectors_Binding
-@dynamic condition, members, role;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"members" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_CancelOperationRequest
-//
-
-@implementation GTLRConnectors_CancelOperationRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_ConfigVariable
-//
-
-@implementation GTLRConnectors_ConfigVariable
-@dynamic boolValue, intValue, key, secretValue, stringValue;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_ConfigVariableTemplate
-//
-
-@implementation GTLRConnectors_ConfigVariableTemplate
-@dynamic descriptionProperty, displayName, enumOptions, key, required,
-         roleGrant, validationRegex, valueType;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"enumOptions" : [GTLRConnectors_EnumOption class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_Connection
-//
-
-@implementation GTLRConnectors_Connection
-@dynamic authConfig, configVariables, connectorVersion, createTime,
-         descriptionProperty, egressBackends, envoyImageLocation, imageLocation,
-         labels, lockConfig, name, serviceAccount, serviceDirectory, status,
-         suspended, updateTime;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"configVariables" : [GTLRConnectors_ConfigVariable class],
-    @"egressBackends" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_Connection_Labels
-//
-
-@implementation GTLRConnectors_Connection_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_ConnectionSchemaMetadata
-//
-
-@implementation GTLRConnectors_ConnectionSchemaMetadata
-@dynamic actions, entities;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"actions" : [NSString class],
-    @"entities" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_ConnectionStatus
-//
-
-@implementation GTLRConnectors_ConnectionStatus
-@dynamic descriptionProperty, state, status;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_Connector
-//
-
-@implementation GTLRConnectors_Connector
-@dynamic createTime, descriptionProperty, displayName, documentationUri,
-         externalUri, labels, launchStage, name, updateTime, webAssetsLocation;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_Connector_Labels
-//
-
-@implementation GTLRConnectors_Connector_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_ConnectorVersion
-//
-
-@implementation GTLRConnectors_ConnectorVersion
-@dynamic authConfigTemplates, configVariableTemplates, createTime, displayName,
-         egressControlConfig, labels, launchStage, name, releaseVersion,
-         roleGrant, roleGrants, supportedRuntimeFeatures, updateTime;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"authConfigTemplates" : [GTLRConnectors_AuthConfigTemplate class],
-    @"configVariableTemplates" : [GTLRConnectors_ConfigVariableTemplate class],
-    @"roleGrants" : [GTLRConnectors_RoleGrant class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_ConnectorVersion_Labels
-//
-
-@implementation GTLRConnectors_ConnectorVersion_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_EgressControlConfig
-//
-
-@implementation GTLRConnectors_EgressControlConfig
-@dynamic backends, extractionRules;
 @end
 
 
@@ -528,14 +185,23 @@ NSString * const kGTLRConnectors_Source_SourceType_SourceTypeUnspecified = @"SOU
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRConnectors_EnumOption
+//   GTLRConnectors_Entity
 //
 
-@implementation GTLRConnectors_EnumOption
-@dynamic displayName, identifier;
+@implementation GTLRConnectors_Entity
+@dynamic fields, name;
+@end
 
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_Entity_Fields
+//
+
+@implementation GTLRConnectors_Entity_Fields
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -543,42 +209,115 @@ NSString * const kGTLRConnectors_Source_SourceType_SourceTypeUnspecified = @"SOU
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRConnectors_Expr
+//   GTLRConnectors_EntityType
 //
 
-@implementation GTLRConnectors_Expr
-@dynamic descriptionProperty, expression, location, title;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_ExtractionRule
-//
-
-@implementation GTLRConnectors_ExtractionRule
-@dynamic extractionRegex, source;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_ExtractionRules
-//
-
-@implementation GTLRConnectors_ExtractionRules
-@dynamic extractionRule;
+@implementation GTLRConnectors_EntityType
+@dynamic fields, name;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"extractionRule" : [GTLRConnectors_ExtractionRule class]
+    @"fields" : [GTLRConnectors_Field class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ExecuteActionRequest
+//
+
+@implementation GTLRConnectors_ExecuteActionRequest
+@dynamic parameters;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ExecuteActionRequest_Parameters
+//
+
+@implementation GTLRConnectors_ExecuteActionRequest_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ExecuteActionResponse
+//
+
+@implementation GTLRConnectors_ExecuteActionResponse
+@dynamic results;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"results" : [GTLRConnectors_ExecuteActionResponse_Results_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ExecuteActionResponse_Results_Item
+//
+
+@implementation GTLRConnectors_ExecuteActionResponse_Results_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ExecuteSqlQueryRequest
+//
+
+@implementation GTLRConnectors_ExecuteSqlQueryRequest
+@dynamic query;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ExecuteSqlQueryResponse
+//
+
+@implementation GTLRConnectors_ExecuteSqlQueryResponse
+@dynamic results;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"results" : [GTLRConnectors_ExecuteSqlQueryResponse_Results_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ExecuteSqlQueryResponse_Results_Item
+//
+
+@implementation GTLRConnectors_ExecuteSqlQueryResponse_Results_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -590,8 +329,8 @@ NSString * const kGTLRConnectors_Source_SourceType_SourceTypeUnspecified = @"SOU
 //
 
 @implementation GTLRConnectors_Field
-@dynamic additionalDetails, dataType, defaultValue, descriptionProperty, field,
-         key, nullable, readonly;
+@dynamic additionalDetails, dataType, defaultValue, descriptionProperty, key,
+         name, nullable, reference;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -620,7 +359,7 @@ NSString * const kGTLRConnectors_Source_SourceType_SourceTypeUnspecified = @"SOU
 //
 
 @implementation GTLRConnectors_InputParameter
-@dynamic dataType, defaultValue, descriptionProperty, nullable, parameter;
+@dynamic dataType, defaultValue, descriptionProperty, name, nullable;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -631,32 +370,22 @@ NSString * const kGTLRConnectors_Source_SourceType_SourceTypeUnspecified = @"SOU
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRConnectors_JwtClaims
+//   GTLRConnectors_ListActionsResponse
 //
 
-@implementation GTLRConnectors_JwtClaims
-@dynamic audience, issuer, subject;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_ListConnectionsResponse
-//
-
-@implementation GTLRConnectors_ListConnectionsResponse
-@dynamic connections, nextPageToken, unreachable;
+@implementation GTLRConnectors_ListActionsResponse
+@dynamic actions, nextPageToken, unsupportedActionNames;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"connections" : [GTLRConnectors_Connection class],
-    @"unreachable" : [NSString class]
+    @"actions" : [GTLRConnectors_Action class],
+    @"unsupportedActionNames" : [NSString class]
   };
   return map;
 }
 
 + (NSString *)collectionItemsKey {
-  return @"connections";
+  return @"actions";
 }
 
 @end
@@ -664,22 +393,21 @@ NSString * const kGTLRConnectors_Source_SourceType_SourceTypeUnspecified = @"SOU
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRConnectors_ListConnectorsResponse
+//   GTLRConnectors_ListEntitiesResponse
 //
 
-@implementation GTLRConnectors_ListConnectorsResponse
-@dynamic connectors, nextPageToken, unreachable;
+@implementation GTLRConnectors_ListEntitiesResponse
+@dynamic entities, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"connectors" : [GTLRConnectors_Connector class],
-    @"unreachable" : [NSString class]
+    @"entities" : [GTLRConnectors_Entity class]
   };
   return map;
 }
 
 + (NSString *)collectionItemsKey {
-  return @"connectors";
+  return @"entities";
 }
 
 @end
@@ -687,22 +415,22 @@ NSString * const kGTLRConnectors_Source_SourceType_SourceTypeUnspecified = @"SOU
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRConnectors_ListConnectorVersionsResponse
+//   GTLRConnectors_ListEntityTypesResponse
 //
 
-@implementation GTLRConnectors_ListConnectorVersionsResponse
-@dynamic connectorVersions, nextPageToken, unreachable;
+@implementation GTLRConnectors_ListEntityTypesResponse
+@dynamic nextPageToken, types, unsupportedTypeNames;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"connectorVersions" : [GTLRConnectors_ConnectorVersion class],
-    @"unreachable" : [NSString class]
+    @"types" : [GTLRConnectors_EntityType class],
+    @"unsupportedTypeNames" : [NSString class]
   };
   return map;
 }
 
 + (NSString *)collectionItemsKey {
-  return @"connectorVersions";
+  return @"types";
 }
 
 @end
@@ -710,292 +438,21 @@ NSString * const kGTLRConnectors_Source_SourceType_SourceTypeUnspecified = @"SOU
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRConnectors_ListLocationsResponse
+//   GTLRConnectors_Query
 //
 
-@implementation GTLRConnectors_ListLocationsResponse
-@dynamic locations, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"locations" : [GTLRConnectors_Location class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"locations";
-}
-
+@implementation GTLRConnectors_Query
+@dynamic query;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRConnectors_ListOperationsResponse
+//   GTLRConnectors_Reference
 //
 
-@implementation GTLRConnectors_ListOperationsResponse
-@dynamic nextPageToken, operations;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRConnectors_Operation class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"operations";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_ListProvidersResponse
-//
-
-@implementation GTLRConnectors_ListProvidersResponse
-@dynamic nextPageToken, providers, unreachable;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"providers" : [GTLRConnectors_Provider class],
-    @"unreachable" : [NSString class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"providers";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_ListRuntimeActionSchemasResponse
-//
-
-@implementation GTLRConnectors_ListRuntimeActionSchemasResponse
-@dynamic nextPageToken, runtimeActionSchemas;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"runtimeActionSchemas" : [GTLRConnectors_RuntimeActionSchema class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"runtimeActionSchemas";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_ListRuntimeEntitySchemasResponse
-//
-
-@implementation GTLRConnectors_ListRuntimeEntitySchemasResponse
-@dynamic nextPageToken, runtimeEntitySchemas;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"runtimeEntitySchemas" : [GTLRConnectors_RuntimeEntitySchema class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"runtimeEntitySchemas";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_Location
-//
-
-@implementation GTLRConnectors_Location
-@dynamic displayName, labels, locationId, metadata, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_Location_Labels
-//
-
-@implementation GTLRConnectors_Location_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_Location_Metadata
-//
-
-@implementation GTLRConnectors_Location_Metadata
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_LockConfig
-//
-
-@implementation GTLRConnectors_LockConfig
-@dynamic locked, reason;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_Oauth2ClientCredentials
-//
-
-@implementation GTLRConnectors_Oauth2ClientCredentials
-@dynamic clientId, clientSecret;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_Oauth2JwtBearer
-//
-
-@implementation GTLRConnectors_Oauth2JwtBearer
-@dynamic clientKey, jwtClaims;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_Operation
-//
-
-@implementation GTLRConnectors_Operation
-@dynamic done, error, metadata, name, response;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_Operation_Metadata
-//
-
-@implementation GTLRConnectors_Operation_Metadata
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_Operation_Response
-//
-
-@implementation GTLRConnectors_Operation_Response
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_OperationMetadata
-//
-
-@implementation GTLRConnectors_OperationMetadata
-@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
-         target, verb;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_Policy
-//
-
-@implementation GTLRConnectors_Policy
-@dynamic auditConfigs, bindings, ETag, version;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"auditConfigs" : [GTLRConnectors_AuditConfig class],
-    @"bindings" : [GTLRConnectors_Binding class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_Provider
-//
-
-@implementation GTLRConnectors_Provider
-@dynamic createTime, descriptionProperty, displayName, documentationUri,
-         externalUri, labels, launchStage, name, updateTime, webAssetsLocation;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_Provider_Labels
-//
-
-@implementation GTLRConnectors_Provider_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_Resource
-//
-
-@implementation GTLRConnectors_Resource
-@dynamic pathTemplate, type;
+@implementation GTLRConnectors_Reference
+@dynamic name, type;
 @end
 
 
@@ -1005,7 +462,7 @@ NSString * const kGTLRConnectors_Source_SourceType_SourceTypeUnspecified = @"SOU
 //
 
 @implementation GTLRConnectors_ResultMetadata
-@dynamic dataType, descriptionProperty, field;
+@dynamic dataType, descriptionProperty, name;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1016,194 +473,23 @@ NSString * const kGTLRConnectors_Source_SourceType_SourceTypeUnspecified = @"SOU
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRConnectors_RoleGrant
+//   GTLRConnectors_UpdateEntitiesWithConditionsResponse
 //
 
-@implementation GTLRConnectors_RoleGrant
-@dynamic helperTextTemplate, principal, resource, roles;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"roles" : [NSString class]
-  };
-  return map;
-}
-
+@implementation GTLRConnectors_UpdateEntitiesWithConditionsResponse
+@dynamic response;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRConnectors_RuntimeActionSchema
+//   GTLRConnectors_UpdateEntitiesWithConditionsResponse_Response
 //
 
-@implementation GTLRConnectors_RuntimeActionSchema
-@dynamic action, inputParameters, resultMetadata;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"inputParameters" : [GTLRConnectors_InputParameter class],
-    @"resultMetadata" : [GTLRConnectors_ResultMetadata class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_RuntimeConfig
-//
-
-@implementation GTLRConnectors_RuntimeConfig
-@dynamic conndSubscription, conndTopic, controlPlaneSubscription,
-         controlPlaneTopic, locationId, runtimeEndpoint, schemaGcsBucket,
-         serviceDirectory, state;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_RuntimeEntitySchema
-//
-
-@implementation GTLRConnectors_RuntimeEntitySchema
-@dynamic entity, fields;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"fields" : [GTLRConnectors_Field class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_Secret
-//
-
-@implementation GTLRConnectors_Secret
-@dynamic secretVersion;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_SetIamPolicyRequest
-//
-
-@implementation GTLRConnectors_SetIamPolicyRequest
-@dynamic policy, updateMask;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_Source
-//
-
-@implementation GTLRConnectors_Source
-@dynamic fieldId, sourceType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_SshPublicKey
-//
-
-@implementation GTLRConnectors_SshPublicKey
-@dynamic certType, password, sshClientCert, username;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_Status
-//
-
-@implementation GTLRConnectors_Status
-@dynamic code, details, message;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"details" : [GTLRConnectors_Status_Details_Item class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_Status_Details_Item
-//
-
-@implementation GTLRConnectors_Status_Details_Item
+@implementation GTLRConnectors_UpdateEntitiesWithConditionsResponse_Response
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_SupportedRuntimeFeatures
-//
-
-@implementation GTLRConnectors_SupportedRuntimeFeatures
-@dynamic actionApis, entityApis, sqlQuery;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_TestIamPermissionsRequest
-//
-
-@implementation GTLRConnectors_TestIamPermissionsRequest
-@dynamic permissions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"permissions" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_TestIamPermissionsResponse
-//
-
-@implementation GTLRConnectors_TestIamPermissionsResponse
-@dynamic permissions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"permissions" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRConnectors_UserPassword
-//
-
-@implementation GTLRConnectors_UserPassword
-@dynamic password, username;
 @end

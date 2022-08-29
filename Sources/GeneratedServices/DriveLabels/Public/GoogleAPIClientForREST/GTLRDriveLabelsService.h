@@ -2,12 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud IoT API (cloudiot/v1)
+//   Drive Labels API (drivelabels/v2)
 // Description:
-//   Registers and manages IoT (Internet of Things) devices that connect to the
-//   Google Cloud Platform.
+//   An API for managing Drive Labels
 // Documentation:
-//   https://cloud.google.com/iot
+//   https://developers.google.com/drive/labels
 
 #import <GoogleAPIClientForREST/GTLRService.h>
 
@@ -22,40 +21,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// ----------------------------------------------------------------------------
-// Authorization scopes
-
 /**
- *  Authorization scope: Register and manage devices in the Google Cloud IoT
- *  service
+ *  Service for executing Drive Labels API queries.
  *
- *  Value "https://www.googleapis.com/auth/cloudiot"
+ *  An API for managing Drive Labels
  */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIot;
-/**
- *  Authorization scope: See, edit, configure, and delete your Google Cloud data
- *  and see the email address for your Google Account.
- *
- *  Value "https://www.googleapis.com/auth/cloud-platform"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIotCloudPlatform;
-
-// ----------------------------------------------------------------------------
-//   GTLRCloudIotService
-//
-
-/**
- *  Service for executing Cloud IoT API queries.
- *
- *  Registers and manages IoT (Internet of Things) devices that connect to the
- *  Google Cloud Platform.
- */
-@interface GTLRCloudIotService : GTLRService
+@interface GTLRDriveLabelsService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRCloudIotQuery.h. The query can the be sent with GTLRService's execute
+// GTLRDriveLabelsQuery.h. The query can the be sent with GTLRService's execute
 // methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query

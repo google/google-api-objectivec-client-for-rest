@@ -1254,8 +1254,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @end
 
 /**
- *  Pulls messages from the server. The server may return `UNAVAILABLE` if there
- *  are too many concurrent pull requests pending for the given subscription.
+ *  Pulls messages from the server.
  *
  *  Method: pubsub.projects.subscriptions.pull
  *
@@ -1274,8 +1273,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 /**
  *  Fetches a @c GTLRPubsub_PullResponse.
  *
- *  Pulls messages from the server. The server may return `UNAVAILABLE` if there
- *  are too many concurrent pull requests pending for the given subscription.
+ *  Pulls messages from the server.
  *
  *  @param object The @c GTLRPubsub_PullRequest to include in the query.
  *  @param subscription Required. The subscription from which messages should be

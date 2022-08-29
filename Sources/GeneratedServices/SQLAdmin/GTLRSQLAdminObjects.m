@@ -260,6 +260,11 @@ NSString * const kGTLRSQLAdmin_Settings_AvailabilityType_Regional = @"REGIONAL";
 NSString * const kGTLRSQLAdmin_Settings_AvailabilityType_SqlAvailabilityTypeUnspecified = @"SQL_AVAILABILITY_TYPE_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_Settings_AvailabilityType_Zonal = @"ZONAL";
 
+// GTLRSQLAdmin_Settings.connectorEnforcement
+NSString * const kGTLRSQLAdmin_Settings_ConnectorEnforcement_ConnectorEnforcementUnspecified = @"CONNECTOR_ENFORCEMENT_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_Settings_ConnectorEnforcement_NotRequired = @"NOT_REQUIRED";
+NSString * const kGTLRSQLAdmin_Settings_ConnectorEnforcement_Required = @"REQUIRED";
+
 // GTLRSQLAdmin_Settings.dataDiskType
 NSString * const kGTLRSQLAdmin_Settings_DataDiskType_ObsoleteLocalSsd = @"OBSOLETE_LOCAL_SSD";
 NSString * const kGTLRSQLAdmin_Settings_DataDiskType_PdHdd     = @"PD_HDD";
@@ -1380,13 +1385,13 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 @implementation GTLRSQLAdmin_Settings
 @dynamic activationPolicy, activeDirectoryConfig, authorizedGaeApplications,
-         availabilityType, backupConfiguration, collation,
+         availabilityType, backupConfiguration, collation, connectorEnforcement,
          crashSafeReplicationEnabled, databaseFlags, databaseReplicationEnabled,
-         dataDiskSizeGb, dataDiskType, denyMaintenancePeriods, insightsConfig,
-         ipConfiguration, kind, locationPreference, maintenanceWindow,
-         passwordValidationPolicy, pricingPlan, replicationType,
-         settingsVersion, sqlServerAuditConfig, storageAutoResize,
-         storageAutoResizeLimit, tier, userLabels;
+         dataDiskSizeGb, dataDiskType, deletionProtectionEnabled,
+         denyMaintenancePeriods, insightsConfig, ipConfiguration, kind,
+         locationPreference, maintenanceWindow, passwordValidationPolicy,
+         pricingPlan, replicationType, settingsVersion, sqlServerAuditConfig,
+         storageAutoResize, storageAutoResizeLimit, tier, userLabels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

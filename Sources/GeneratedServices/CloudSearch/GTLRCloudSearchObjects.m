@@ -15,6 +15,19 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudSearch_AclFixRequest.role
+NSString * const kGTLRCloudSearch_AclFixRequest_Role_Commenter = @"COMMENTER";
+NSString * const kGTLRCloudSearch_AclFixRequest_Role_Reader    = @"READER";
+NSString * const kGTLRCloudSearch_AclFixRequest_Role_Unknown   = @"UNKNOWN";
+NSString * const kGTLRCloudSearch_AclFixRequest_Role_Writer    = @"WRITER";
+
+// GTLRCloudSearch_AclFixStatus.fixability
+NSString * const kGTLRCloudSearch_AclFixStatus_Fixability_AclFixerError = @"ACL_FIXER_ERROR";
+NSString * const kGTLRCloudSearch_AclFixStatus_Fixability_AlreadyAccessible = @"ALREADY_ACCESSIBLE";
+NSString * const kGTLRCloudSearch_AclFixStatus_Fixability_CanFix = @"CAN_FIX";
+NSString * const kGTLRCloudSearch_AclFixStatus_Fixability_CannotFix = @"CANNOT_FIX";
+NSString * const kGTLRCloudSearch_AclFixStatus_Fixability_Unknown = @"UNKNOWN";
+
 // GTLRCloudSearch_AclInfo.scope
 NSString * const kGTLRCloudSearch_AclInfo_Scope_DasherDomain   = @"DASHER_DOMAIN";
 NSString * const kGTLRCloudSearch_AclInfo_Scope_DasherDomainWithLink = @"DASHER_DOMAIN_WITH_LINK";
@@ -22,6 +35,64 @@ NSString * const kGTLRCloudSearch_AclInfo_Scope_Limited        = @"LIMITED";
 NSString * const kGTLRCloudSearch_AclInfo_Scope_Public         = @"PUBLIC";
 NSString * const kGTLRCloudSearch_AclInfo_Scope_PublicWithLink = @"PUBLIC_WITH_LINK";
 NSString * const kGTLRCloudSearch_AclInfo_Scope_TeamDrive      = @"TEAM_DRIVE";
+
+// GTLRCloudSearch_AffectedMembership.priorMembershipRole
+NSString * const kGTLRCloudSearch_AffectedMembership_PriorMembershipRole_RoleInvitee = @"ROLE_INVITEE";
+NSString * const kGTLRCloudSearch_AffectedMembership_PriorMembershipRole_RoleMember = @"ROLE_MEMBER";
+NSString * const kGTLRCloudSearch_AffectedMembership_PriorMembershipRole_RoleNone = @"ROLE_NONE";
+NSString * const kGTLRCloudSearch_AffectedMembership_PriorMembershipRole_RoleOwner = @"ROLE_OWNER";
+NSString * const kGTLRCloudSearch_AffectedMembership_PriorMembershipRole_RoleUnknown = @"ROLE_UNKNOWN";
+
+// GTLRCloudSearch_AffectedMembership.priorMembershipState
+NSString * const kGTLRCloudSearch_AffectedMembership_PriorMembershipState_MemberFailed = @"MEMBER_FAILED";
+NSString * const kGTLRCloudSearch_AffectedMembership_PriorMembershipState_MemberInvited = @"MEMBER_INVITED";
+NSString * const kGTLRCloudSearch_AffectedMembership_PriorMembershipState_MemberJoined = @"MEMBER_JOINED";
+NSString * const kGTLRCloudSearch_AffectedMembership_PriorMembershipState_MemberNotAMember = @"MEMBER_NOT_A_MEMBER";
+NSString * const kGTLRCloudSearch_AffectedMembership_PriorMembershipState_MemberUnknown = @"MEMBER_UNKNOWN";
+
+// GTLRCloudSearch_AffectedMembership.targetMembershipRole
+NSString * const kGTLRCloudSearch_AffectedMembership_TargetMembershipRole_RoleInvitee = @"ROLE_INVITEE";
+NSString * const kGTLRCloudSearch_AffectedMembership_TargetMembershipRole_RoleMember = @"ROLE_MEMBER";
+NSString * const kGTLRCloudSearch_AffectedMembership_TargetMembershipRole_RoleNone = @"ROLE_NONE";
+NSString * const kGTLRCloudSearch_AffectedMembership_TargetMembershipRole_RoleOwner = @"ROLE_OWNER";
+NSString * const kGTLRCloudSearch_AffectedMembership_TargetMembershipRole_RoleUnknown = @"ROLE_UNKNOWN";
+
+// GTLRCloudSearch_Annotation.chipRenderType
+NSString * const kGTLRCloudSearch_Annotation_ChipRenderType_ChipRenderTypeUnspecified = @"CHIP_RENDER_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_Annotation_ChipRenderType_DoNotRender = @"DO_NOT_RENDER";
+NSString * const kGTLRCloudSearch_Annotation_ChipRenderType_Render = @"RENDER";
+NSString * const kGTLRCloudSearch_Annotation_ChipRenderType_RenderIfPossible = @"RENDER_IF_POSSIBLE";
+
+// GTLRCloudSearch_Annotation.type
+NSString * const kGTLRCloudSearch_Annotation_Type_BabelPlaceholder = @"BABEL_PLACEHOLDER";
+NSString * const kGTLRCloudSearch_Annotation_Type_CardCapability = @"CARD_CAPABILITY";
+NSString * const kGTLRCloudSearch_Annotation_Type_ConsentedAppUnfurl = @"CONSENTED_APP_UNFURL";
+NSString * const kGTLRCloudSearch_Annotation_Type_CustomEmoji  = @"CUSTOM_EMOJI";
+NSString * const kGTLRCloudSearch_Annotation_Type_DataLossPrevention = @"DATA_LOSS_PREVENTION";
+NSString * const kGTLRCloudSearch_Annotation_Type_DriveDoc     = @"DRIVE_DOC";
+NSString * const kGTLRCloudSearch_Annotation_Type_DriveFile    = @"DRIVE_FILE";
+NSString * const kGTLRCloudSearch_Annotation_Type_DriveForm    = @"DRIVE_FORM";
+NSString * const kGTLRCloudSearch_Annotation_Type_DriveSheet   = @"DRIVE_SHEET";
+NSString * const kGTLRCloudSearch_Annotation_Type_DriveSlide   = @"DRIVE_SLIDE";
+NSString * const kGTLRCloudSearch_Annotation_Type_FormatData   = @"FORMAT_DATA";
+NSString * const kGTLRCloudSearch_Annotation_Type_GroupRetentionSettingsUpdated = @"GROUP_RETENTION_SETTINGS_UPDATED";
+NSString * const kGTLRCloudSearch_Annotation_Type_GsuiteIntegration = @"GSUITE_INTEGRATION";
+NSString * const kGTLRCloudSearch_Annotation_Type_Image        = @"IMAGE";
+NSString * const kGTLRCloudSearch_Annotation_Type_IncomingWebhookChanged = @"INCOMING_WEBHOOK_CHANGED";
+NSString * const kGTLRCloudSearch_Annotation_Type_IntegrationConfigUpdated = @"INTEGRATION_CONFIG_UPDATED";
+NSString * const kGTLRCloudSearch_Annotation_Type_Invitation   = @"INVITATION";
+NSString * const kGTLRCloudSearch_Annotation_Type_MembershipChanged = @"MEMBERSHIP_CHANGED";
+NSString * const kGTLRCloudSearch_Annotation_Type_Pdf          = @"PDF";
+NSString * const kGTLRCloudSearch_Annotation_Type_ReadReceiptsSettingsUpdated = @"READ_RECEIPTS_SETTINGS_UPDATED";
+NSString * const kGTLRCloudSearch_Annotation_Type_RequiredMessageFeaturesMetadata = @"REQUIRED_MESSAGE_FEATURES_METADATA";
+NSString * const kGTLRCloudSearch_Annotation_Type_RoomUpdated  = @"ROOM_UPDATED";
+NSString * const kGTLRCloudSearch_Annotation_Type_SlashCommand = @"SLASH_COMMAND";
+NSString * const kGTLRCloudSearch_Annotation_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_Annotation_Type_UploadMetadata = @"UPLOAD_METADATA";
+NSString * const kGTLRCloudSearch_Annotation_Type_Url          = @"URL";
+NSString * const kGTLRCloudSearch_Annotation_Type_UserMention  = @"USER_MENTION";
+NSString * const kGTLRCloudSearch_Annotation_Type_Video        = @"VIDEO";
+NSString * const kGTLRCloudSearch_Annotation_Type_VideoCall    = @"VIDEO_CALL";
 
 // GTLRCloudSearch_AppId.appType
 NSString * const kGTLRCloudSearch_AppId_AppType_App            = @"APP";
@@ -42,17 +113,372 @@ NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_SheetsApp = @"SHEETS_APP";
 NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_SlidesApp = @"SLIDES_APP";
 NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_TasksApp = @"TASKS_APP";
 
+// GTLRCloudSearch_AppsDynamiteSharedAction.interaction
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedAction_Interaction_InteractionUnspecified = @"INTERACTION_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedAction_Interaction_OpenDialog = @"OPEN_DIALOG";
+
+// GTLRCloudSearch_AppsDynamiteSharedAction.loadIndicator
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedAction_LoadIndicator_None = @"NONE";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedAction_LoadIndicator_Spinner = @"SPINNER";
+
+// GTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationDataUserInfo.updaterCountDisplayType
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationDataUserInfo_UpdaterCountDisplayType_ExactCount = @"EXACT_COUNT";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationDataUserInfo_UpdaterCountDisplayType_NonzeroCount = @"NONZERO_COUNT";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationDataUserInfo_UpdaterCountDisplayType_UpdaterCountDisplayTypeUnspecified = @"UPDATER_COUNT_DISPLAY_TYPE_UNSPECIFIED";
+
+// GTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContext.thumbsFeedback
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContext_ThumbsFeedback_Down = @"DOWN";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContext_ThumbsFeedback_NoneSelected = @"NONE_SELECTED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContext_ThumbsFeedback_ThumbsFeedbackUnspecified = @"THUMBS_FEEDBACK_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContext_ThumbsFeedback_Up = @"UP";
+
+// GTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip.feedbackChipType
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip_FeedbackChipType_CorrectFile = @"CORRECT_FILE";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip_FeedbackChipType_CorrectTrigger = @"CORRECT_TRIGGER";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip_FeedbackChipType_Disruptive = @"DISRUPTIVE";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip_FeedbackChipType_FeedbackChipTypeUnspecified = @"FEEDBACK_CHIP_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip_FeedbackChipType_Other = @"OTHER";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip_FeedbackChipType_WrongFile = @"WRONG_FILE";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip_FeedbackChipType_WrongTrigger = @"WRONG_TRIGGER";
+
+// GTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip.state
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip_State_FeedbackChipStateUnspecified = @"FEEDBACK_CHIP_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip_State_Selected = @"SELECTED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip_State_Unselected = @"UNSELECTED";
+
+// GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata.dlpScanOutcome
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanFailureAllRulesFailed = @"SCAN_FAILURE_ALL_RULES_FAILED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanFailureException = @"SCAN_FAILURE_EXCEPTION";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanFailureIllegalStateForAttachments = @"SCAN_FAILURE_ILLEGAL_STATE_FOR_ATTACHMENTS";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanFailureTimeout = @"SCAN_FAILURE_TIMEOUT";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanRuleEvaluationSkippedChangelingEmptyResponse = @"SCAN_RULE_EVALUATION_SKIPPED_CHANGELING_EMPTY_RESPONSE";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanRuleEvaluationSkippedChangelingPermanentError = @"SCAN_RULE_EVALUATION_SKIPPED_CHANGELING_PERMANENT_ERROR";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanRuleEvaluationSkippedNoApplicableRulesForActionParams = @"SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_ACTION_PARAMS";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanRuleEvaluationSkippedNoApplicableRulesForTrigger = @"SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_TRIGGER";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanRuleEvaluationSkippedNoRulesFound = @"SCAN_RULE_EVALUATION_SKIPPED_NO_RULES_FOUND";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedConsumer = @"SCAN_SKIPPED_CONSUMER";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedExperimentDisabled = @"SCAN_SKIPPED_EXPERIMENT_DISABLED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedMessageFromUnsupportedOrigin = @"SCAN_SKIPPED_MESSAGE_FROM_UNSUPPORTED_ORIGIN";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedNoMessage = @"SCAN_SKIPPED_NO_MESSAGE";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedNonHumanUser = @"SCAN_SKIPPED_NON_HUMAN_USER";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSkippedUserAcknowledgedWarning = @"SCAN_SKIPPED_USER_ACKNOWLEDGED_WARNING";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSucceededAuditOnly = @"SCAN_SUCCEEDED_AUDIT_ONLY";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSucceededBlock = @"SCAN_SUCCEEDED_BLOCK";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSucceededNoViolation = @"SCAN_SUCCEEDED_NO_VIOLATION";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSucceededWarn = @"SCAN_SUCCEEDED_WARN";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSucceededWithFailuresAuditOnly = @"SCAN_SUCCEEDED_WITH_FAILURES_AUDIT_ONLY";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSucceededWithFailuresBlock = @"SCAN_SUCCEEDED_WITH_FAILURES_BLOCK";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSucceededWithFailuresNoViolation = @"SCAN_SUCCEEDED_WITH_FAILURES_NO_VIOLATION";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanSucceededWithFailuresWarn = @"SCAN_SUCCEEDED_WITH_FAILURES_WARN";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_DlpScanOutcome_ScanUnknownOutcome = @"SCAN_UNKNOWN_OUTCOME";
+
+// GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata.virusScanResult
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_VirusScanResult_Clean = @"CLEAN";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_VirusScanResult_Error = @"ERROR";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_VirusScanResult_Infected = @"INFECTED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_VirusScanResult_PolicyViolation = @"POLICY_VIOLATION";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata_VirusScanResult_UnknownVirusScanResult = @"UNKNOWN_VIRUS_SCAN_RESULT";
+
+// GTLRCloudSearch_AppsDynamiteSharedBorderStyle.type
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBorderStyle_Type_BorderTypeUnspecified = @"BORDER_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBorderStyle_Type_NoBorder = @"NO_BORDER";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedBorderStyle_Type_Stroke = @"STROKE";
+
+// GTLRCloudSearch_AppsDynamiteSharedCallAnnotationData.callStatus
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedCallAnnotationData_CallStatus_CallEnded = @"CALL_ENDED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedCallAnnotationData_CallStatus_CallMissed = @"CALL_MISSED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedCallAnnotationData_CallStatus_CallStarted = @"CALL_STARTED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedCallAnnotationData_CallStatus_CallStatusUnspecified = @"CALL_STATUS_UNSPECIFIED";
+
+// GTLRCloudSearch_AppsDynamiteSharedCardCardHeader.imageType
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedCardCardHeader_ImageType_Circle = @"CIRCLE";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedCardCardHeader_ImageType_Square = @"SQUARE";
+
+// GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemNudge.nudgeType
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemNudge_NudgeType_FollowUp = @"FOLLOW_UP";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemNudge_NudgeType_Reply = @"REPLY";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemNudge_NudgeType_Undefined = @"UNDEFINED";
+
+// GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemThreadReply.replyType
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemThreadReply_ReplyType_Follower = @"FOLLOWER";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemThreadReply_ReplyType_Root = @"ROOT";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemThreadReply_ReplyType_Unspecified = @"UNSPECIFIED";
+
+// GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemUserMention.type
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemUserMention_Type_All = @"ALL";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemUserMention_Type_Direct = @"DIRECT";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemUserMention_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo.attributeCheckerGroupType
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_ActivityFeed = @"ACTIVITY_FEED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_AttributeCheckerGroupTypeUnspecified = @"ATTRIBUTE_CHECKER_GROUP_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_FlatRoom = @"FLAT_ROOM";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_ImmutableMembershipGroupDm = @"IMMUTABLE_MEMBERSHIP_GROUP_DM";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_ImmutableMembershipHumanDm = @"IMMUTABLE_MEMBERSHIP_HUMAN_DM";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_OneToOneBotDm = @"ONE_TO_ONE_BOT_DM";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_OneToOneHumanDm = @"ONE_TO_ONE_HUMAN_DM";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_PostRoom = @"POST_ROOM";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_ThreadedRoom = @"THREADED_ROOM";
+
+// GTLRCloudSearch_AppsDynamiteSharedColumns.wrapStyle
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumns_WrapStyle_Nowrap = @"NOWRAP";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumns_WrapStyle_Wrap = @"WRAP";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumns_WrapStyle_WrapStyleUnspecified = @"WRAP_STYLE_UNSPECIFIED";
+
+// GTLRCloudSearch_AppsDynamiteSharedColumnsColumn.horizontalAlignment
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalAlignment_Center = @"CENTER";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalAlignment_End = @"END";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalAlignment_HorizontalAlignmentUnspecified = @"HORIZONTAL_ALIGNMENT_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalAlignment_Start = @"START";
+
+// GTLRCloudSearch_AppsDynamiteSharedColumnsColumn.horizontalSizeStyle
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalSizeStyle_FillAvailableSpace = @"FILL_AVAILABLE_SPACE";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalSizeStyle_FillMinimumSpace = @"FILL_MINIMUM_SPACE";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_HorizontalSizeStyle_HorizontalSizeStyleUnspecified = @"HORIZONTAL_SIZE_STYLE_UNSPECIFIED";
+
+// GTLRCloudSearch_AppsDynamiteSharedColumnsColumn.verticalAlignment
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_VerticalAlignment_Bottom = @"BOTTOM";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_VerticalAlignment_Center = @"CENTER";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_VerticalAlignment_Top = @"TOP";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_VerticalAlignment_VerticalAlignmentUnspecified = @"VERTICAL_ALIGNMENT_UNSPECIFIED";
+
+// GTLRCloudSearch_AppsDynamiteSharedContentReportType.systemViolation
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_ConfidentialInformation = @"CONFIDENTIAL_INFORMATION";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_Discrimination = @"DISCRIMINATION";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_ExplicitContent = @"EXPLICIT_CONTENT";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_Harassment = @"HARASSMENT";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_Other = @"OTHER";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_SensitiveInformation = @"SENSITIVE_INFORMATION";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_Spam = @"SPAM";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_ViolationUnspecified = @"VIOLATION_UNSPECIFIED";
+
+// GTLRCloudSearch_AppsDynamiteSharedCustomEmoji.state
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedCustomEmoji_State_EmojiDeleted = @"EMOJI_DELETED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedCustomEmoji_State_EmojiEnabled = @"EMOJI_ENABLED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedCustomEmoji_State_EmojiHidden = @"EMOJI_HIDDEN";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedCustomEmoji_State_EmojiStateUnspecified = @"EMOJI_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedCustomEmoji_State_EmojiSystemDisabled = @"EMOJI_SYSTEM_DISABLED";
+
+// GTLRCloudSearch_AppsDynamiteSharedDateTimePicker.type
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedDateTimePicker_Type_DateAndTime = @"DATE_AND_TIME";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedDateTimePicker_Type_DateOnly = @"DATE_ONLY";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedDateTimePicker_Type_TimeOnly = @"TIME_ONLY";
+
+// GTLRCloudSearch_AppsDynamiteSharedDecoratedTextSwitchControl.controlType
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedDecoratedTextSwitchControl_ControlType_CheckBox = @"CHECK_BOX";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedDecoratedTextSwitchControl_ControlType_Checkbox = @"CHECKBOX";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedDecoratedTextSwitchControl_ControlType_Switch = @"SWITCH";
+
+// GTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata.dlpStatus
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata_DlpStatus_DlpDisabled = @"DLP_DISABLED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata_DlpStatus_DlpEnabledNoRuleFetch = @"DLP_ENABLED_NO_RULE_FETCH";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata_DlpStatus_DlpEnabledRulesFetchedAndEvaluated = @"DLP_ENABLED_RULES_FETCHED_AND_EVALUATED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata_DlpStatus_DlpEnabledRulesFetchedNoApplicableRules = @"DLP_ENABLED_RULES_FETCHED_NO_APPLICABLE_RULES";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata_DlpStatus_DlpEnabledRulesFetchedNoRules = @"DLP_ENABLED_RULES_FETCHED_NO_RULES";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata_DlpStatus_DlpEnabledScanFailed = @"DLP_ENABLED_SCAN_FAILED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata_DlpStatus_DlpEnabledScanTimeout = @"DLP_ENABLED_SCAN_TIMEOUT";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata_DlpStatus_DlpStatusUnknown = @"DLP_STATUS_UNKNOWN";
+
+// GTLRCloudSearch_AppsDynamiteSharedGridGridItem.layout
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_Layout_GridItemLayoutUnspecified = @"GRID_ITEM_LAYOUT_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_Layout_TextAbove = @"TEXT_ABOVE";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_Layout_TextBelow = @"TEXT_BELOW";
+
+// GTLRCloudSearch_AppsDynamiteSharedGridGridItem.textAlignment
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_TextAlignment_Center = @"CENTER";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_TextAlignment_End = @"END";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_TextAlignment_HorizontalAlignmentUnspecified = @"HORIZONTAL_ALIGNMENT_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedGridGridItem_TextAlignment_Start = @"START";
+
+// GTLRCloudSearch_AppsDynamiteSharedGroupVisibility.state
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedGroupVisibility_State_Private = @"PRIVATE";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedGroupVisibility_State_Public = @"PUBLIC";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedGroupVisibility_State_Unknown = @"UNKNOWN";
+
+// GTLRCloudSearch_AppsDynamiteSharedIcon.imageType
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedIcon_ImageType_Circle = @"CIRCLE";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedIcon_ImageType_Square = @"SQUARE";
+
+// GTLRCloudSearch_AppsDynamiteSharedImageCropStyle.type
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedImageCropStyle_Type_Circle = @"CIRCLE";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedImageCropStyle_Type_ImageCropTypeUnspecified = @"IMAGE_CROP_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedImageCropStyle_Type_Rectangle43 = @"RECTANGLE_4_3";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedImageCropStyle_Type_RectangleCustom = @"RECTANGLE_CUSTOM";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedImageCropStyle_Type_Square = @"SQUARE";
+
+// GTLRCloudSearch_AppsDynamiteSharedJustification.actionType
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustification_ActionType_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustification_ActionType_Commented = @"COMMENTED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustification_ActionType_CommentResolved = @"COMMENT_RESOLVED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustification_ActionType_Created = @"CREATED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustification_ActionType_Edited = @"EDITED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustification_ActionType_Presented = @"PRESENTED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustification_ActionType_Sent = @"SENT";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustification_ActionType_Shared = @"SHARED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustification_ActionType_Viewed = @"VIEWED";
+
+// GTLRCloudSearch_AppsDynamiteSharedMessageIntegrationPayload.type
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedMessageIntegrationPayload_Type_PayloadTypeUnspecified = @"PAYLOAD_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedMessageIntegrationPayload_Type_Tasks = @"TASKS";
+
+// GTLRCloudSearch_AppsDynamiteSharedOpenLink.onClose
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedOpenLink_OnClose_Nothing = @"NOTHING";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedOpenLink_OnClose_Reload = @"RELOAD";
+
+// GTLRCloudSearch_AppsDynamiteSharedOpenLink.openAs
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedOpenLink_OpenAs_FullSize = @"FULL_SIZE";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedOpenLink_OpenAs_Overlay = @"OVERLAY";
+
+// GTLRCloudSearch_AppsDynamiteSharedRetentionSettings.state
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedRetentionSettings_State_EphemeralOneDay = @"EPHEMERAL_ONE_DAY";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedRetentionSettings_State_Permanent = @"PERMANENT";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedRetentionSettings_State_UnknownRetentionState = @"UNKNOWN_RETENTION_STATE";
+
+// GTLRCloudSearch_AppsDynamiteSharedSelectionInput.type
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedSelectionInput_Type_CheckBox = @"CHECK_BOX";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedSelectionInput_Type_Dropdown = @"DROPDOWN";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedSelectionInput_Type_RadioButton = @"RADIO_BUTTON";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedSelectionInput_Type_Switch = @"SWITCH";
+
+// GTLRCloudSearch_AppsDynamiteSharedSpaceInfo.userMembershipState
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedSpaceInfo_UserMembershipState_MemberFailed = @"MEMBER_FAILED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedSpaceInfo_UserMembershipState_MemberInvited = @"MEMBER_INVITED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedSpaceInfo_UserMembershipState_MemberJoined = @"MEMBER_JOINED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedSpaceInfo_UserMembershipState_MemberNotAMember = @"MEMBER_NOT_A_MEMBER";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedSpaceInfo_UserMembershipState_MemberUnknown = @"MEMBER_UNKNOWN";
+
+// GTLRCloudSearch_AppsDynamiteSharedTextInput.type
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedTextInput_Type_MultipleLine = @"MULTIPLE_LINE";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedTextInput_Type_SingleLine = @"SINGLE_LINE";
+
+// GTLRCloudSearch_AppsDynamiteSharedVideoReference.status
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_Error = @"ERROR";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_NotApplicable = @"NOT_APPLICABLE";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_Success = @"SUCCESS";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_UnknownStatus = @"UNKNOWN_STATUS";
+
+// GTLRCloudSearch_AppsDynamiteSharedWidget.horizontalAlignment
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedWidget_HorizontalAlignment_Center = @"CENTER";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedWidget_HorizontalAlignment_End = @"END";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedWidget_HorizontalAlignment_HorizontalAlignmentUnspecified = @"HORIZONTAL_ALIGNMENT_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedWidget_HorizontalAlignment_Start = @"START";
+
+// GTLRCloudSearch_BorderStyle.type
+NSString * const kGTLRCloudSearch_BorderStyle_Type_BorderTypeNotSet = @"BORDER_TYPE_NOT_SET";
+NSString * const kGTLRCloudSearch_BorderStyle_Type_NoBorder    = @"NO_BORDER";
+NSString * const kGTLRCloudSearch_BorderStyle_Type_Stroke      = @"STROKE";
+
+// GTLRCloudSearch_BotInfo.status
+NSString * const kGTLRCloudSearch_BotInfo_Status_DisabledByDeveloper = @"DISABLED_BY_DEVELOPER";
+NSString * const kGTLRCloudSearch_BotInfo_Status_Enabled       = @"ENABLED";
+NSString * const kGTLRCloudSearch_BotInfo_Status_UnknownStatus = @"UNKNOWN_STATUS";
+
+// GTLRCloudSearch_BotInfo.supportedUses
+NSString * const kGTLRCloudSearch_BotInfo_SupportedUses_CanAddToDm = @"CAN_ADD_TO_DM";
+NSString * const kGTLRCloudSearch_BotInfo_SupportedUses_CanAddToHumanDm = @"CAN_ADD_TO_HUMAN_DM";
+NSString * const kGTLRCloudSearch_BotInfo_SupportedUses_CanAddToRoom = @"CAN_ADD_TO_ROOM";
+NSString * const kGTLRCloudSearch_BotInfo_SupportedUses_Unknown = @"UNKNOWN";
+
+// GTLRCloudSearch_BotInfo.whitelistStatus
+NSString * const kGTLRCloudSearch_BotInfo_WhitelistStatus_AllBotsDisabledByAdmin = @"ALL_BOTS_DISABLED_BY_ADMIN";
+NSString * const kGTLRCloudSearch_BotInfo_WhitelistStatus_Allowed = @"ALLOWED";
+NSString * const kGTLRCloudSearch_BotInfo_WhitelistStatus_BotNotWhitelistedByAdmin = @"BOT_NOT_WHITELISTED_BY_ADMIN";
+NSString * const kGTLRCloudSearch_BotInfo_WhitelistStatus_UnspecifiedStatus = @"UNSPECIFIED_STATUS";
+
+// GTLRCloudSearch_BotResponse.requiredAction
+NSString * const kGTLRCloudSearch_BotResponse_RequiredAction_Authentication = @"AUTHENTICATION";
+NSString * const kGTLRCloudSearch_BotResponse_RequiredAction_Configuration = @"CONFIGURATION";
+NSString * const kGTLRCloudSearch_BotResponse_RequiredAction_UnknownSetupType = @"UNKNOWN_SETUP_TYPE";
+
+// GTLRCloudSearch_BotResponse.responseType
+NSString * const kGTLRCloudSearch_BotResponse_ResponseType_DisabledByAdmin = @"DISABLED_BY_ADMIN";
+NSString * const kGTLRCloudSearch_BotResponse_ResponseType_DisabledByDeveloper = @"DISABLED_BY_DEVELOPER";
+NSString * const kGTLRCloudSearch_BotResponse_ResponseType_Error = @"ERROR";
+NSString * const kGTLRCloudSearch_BotResponse_ResponseType_Private = @"PRIVATE";
+NSString * const kGTLRCloudSearch_BotResponse_ResponseType_SetupRequired = @"SETUP_REQUIRED";
+NSString * const kGTLRCloudSearch_BotResponse_ResponseType_UnknownResponseType = @"UNKNOWN_RESPONSE_TYPE";
+
+// GTLRCloudSearch_BroadcastAccess.accessPolicy
+NSString * const kGTLRCloudSearch_BroadcastAccess_AccessPolicy_BroadcastingAccessPolicyUnspecified = @"BROADCASTING_ACCESS_POLICY_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_BroadcastAccess_AccessPolicy_Organization = @"ORGANIZATION";
+NSString * const kGTLRCloudSearch_BroadcastAccess_AccessPolicy_Public = @"PUBLIC";
+
+// GTLRCloudSearch_Card.displayStyle
+NSString * const kGTLRCloudSearch_Card_DisplayStyle_DisplayStyleUnspecified = @"DISPLAY_STYLE_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_Card_DisplayStyle_Peek       = @"PEEK";
+NSString * const kGTLRCloudSearch_Card_DisplayStyle_Replace    = @"REPLACE";
+
+// GTLRCloudSearch_CardCapabilityMetadata.requiredCapabilities
+NSString * const kGTLRCloudSearch_CardCapabilityMetadata_RequiredCapabilities_SupportsBaseCards = @"SUPPORTS_BASE_CARDS";
+NSString * const kGTLRCloudSearch_CardCapabilityMetadata_RequiredCapabilities_Unknown = @"UNKNOWN";
+
+// GTLRCloudSearch_CardHeader.imageStyle
+NSString * const kGTLRCloudSearch_CardHeader_ImageStyle_Circle = @"CIRCLE";
+NSString * const kGTLRCloudSearch_CardHeader_ImageStyle_CropTypeNotSet = @"CROP_TYPE_NOT_SET";
+NSString * const kGTLRCloudSearch_CardHeader_ImageStyle_Rectangle43 = @"RECTANGLE_4_3";
+NSString * const kGTLRCloudSearch_CardHeader_ImageStyle_RectangleCustom = @"RECTANGLE_CUSTOM";
+NSString * const kGTLRCloudSearch_CardHeader_ImageStyle_Square = @"SQUARE";
+
+// GTLRCloudSearch_ChatConfig.chatType
+NSString * const kGTLRCloudSearch_ChatConfig_ChatType_ChatTypeUnspecified = @"CHAT_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_ChatConfig_ChatType_GoogleChat = @"GOOGLE_CHAT";
+NSString * const kGTLRCloudSearch_ChatConfig_ChatType_MeetChat = @"MEET_CHAT";
+
+// GTLRCloudSearch_ChatContentExtension.eventOtrStatus
+NSString * const kGTLRCloudSearch_ChatContentExtension_EventOtrStatus_OffTheRecord = @"OFF_THE_RECORD";
+NSString * const kGTLRCloudSearch_ChatContentExtension_EventOtrStatus_OnTheRecord = @"ON_THE_RECORD";
+
+// GTLRCloudSearch_CoActivity.coActivityApp
+NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppGqueues = @"CO_ACTIVITY_APP_GQUEUES";
+NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppHeadsup = @"CO_ACTIVITY_APP_HEADSUP";
+NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppKahoot = @"CO_ACTIVITY_APP_KAHOOT";
+NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppSpotify = @"CO_ACTIVITY_APP_SPOTIFY";
+NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppUno = @"CO_ACTIVITY_APP_UNO";
+NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppUnspecified = @"CO_ACTIVITY_APP_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_CoActivity_CoActivityApp_CoActivityAppYouTubeMain = @"CO_ACTIVITY_APP_YOU_TUBE_MAIN";
+
 // GTLRCloudSearch_CompositeFilter.logicOperator
 NSString * const kGTLRCloudSearch_CompositeFilter_LogicOperator_And = @"AND";
 NSString * const kGTLRCloudSearch_CompositeFilter_LogicOperator_Not = @"NOT";
 NSString * const kGTLRCloudSearch_CompositeFilter_LogicOperator_Or = @"OR";
 
-// GTLRCloudSearch_CustomEmoji.state
-NSString * const kGTLRCloudSearch_CustomEmoji_State_EmojiDeleted = @"EMOJI_DELETED";
-NSString * const kGTLRCloudSearch_CustomEmoji_State_EmojiEnabled = @"EMOJI_ENABLED";
-NSString * const kGTLRCloudSearch_CustomEmoji_State_EmojiHidden = @"EMOJI_HIDDEN";
-NSString * const kGTLRCloudSearch_CustomEmoji_State_EmojiStateUnspecified = @"EMOJI_STATE_UNSPECIFIED";
-NSString * const kGTLRCloudSearch_CustomEmoji_State_EmojiSystemDisabled = @"EMOJI_SYSTEM_DISABLED";
+// GTLRCloudSearch_DateTimePicker.type
+NSString * const kGTLRCloudSearch_DateTimePicker_Type_DateAndTime = @"DATE_AND_TIME";
+NSString * const kGTLRCloudSearch_DateTimePicker_Type_DateOnly = @"DATE_ONLY";
+NSString * const kGTLRCloudSearch_DateTimePicker_Type_TimeOnly = @"TIME_ONLY";
+NSString * const kGTLRCloudSearch_DateTimePicker_Type_UnspecifiedType = @"UNSPECIFIED_TYPE";
+
+// GTLRCloudSearch_DeliveryMedium.mediumType
+NSString * const kGTLRCloudSearch_DeliveryMedium_MediumType_BabelMedium = @"BABEL_MEDIUM";
+NSString * const kGTLRCloudSearch_DeliveryMedium_MediumType_GoogleVoiceMedium = @"GOOGLE_VOICE_MEDIUM";
+NSString * const kGTLRCloudSearch_DeliveryMedium_MediumType_LocalSmsMedium = @"LOCAL_SMS_MEDIUM";
+NSString * const kGTLRCloudSearch_DeliveryMedium_MediumType_UnknownMedium = @"UNKNOWN_MEDIUM";
+
+// GTLRCloudSearch_DlpScanSummary.scanOutcome
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanFailureAllRulesFailed = @"SCAN_FAILURE_ALL_RULES_FAILED";
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanFailureException = @"SCAN_FAILURE_EXCEPTION";
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanFailureIllegalStateForAttachments = @"SCAN_FAILURE_ILLEGAL_STATE_FOR_ATTACHMENTS";
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanFailureTimeout = @"SCAN_FAILURE_TIMEOUT";
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanRuleEvaluationSkippedChangelingEmptyResponse = @"SCAN_RULE_EVALUATION_SKIPPED_CHANGELING_EMPTY_RESPONSE";
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanRuleEvaluationSkippedChangelingPermanentError = @"SCAN_RULE_EVALUATION_SKIPPED_CHANGELING_PERMANENT_ERROR";
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanRuleEvaluationSkippedNoApplicableRulesForActionParams = @"SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_ACTION_PARAMS";
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanRuleEvaluationSkippedNoApplicableRulesForTrigger = @"SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_TRIGGER";
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanRuleEvaluationSkippedNoRulesFound = @"SCAN_RULE_EVALUATION_SKIPPED_NO_RULES_FOUND";
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedConsumer = @"SCAN_SKIPPED_CONSUMER";
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedExperimentDisabled = @"SCAN_SKIPPED_EXPERIMENT_DISABLED";
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedMessageFromUnsupportedOrigin = @"SCAN_SKIPPED_MESSAGE_FROM_UNSUPPORTED_ORIGIN";
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedNoMessage = @"SCAN_SKIPPED_NO_MESSAGE";
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedNonHumanUser = @"SCAN_SKIPPED_NON_HUMAN_USER";
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSkippedUserAcknowledgedWarning = @"SCAN_SKIPPED_USER_ACKNOWLEDGED_WARNING";
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSucceededAuditOnly = @"SCAN_SUCCEEDED_AUDIT_ONLY";
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSucceededBlock = @"SCAN_SUCCEEDED_BLOCK";
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSucceededNoViolation = @"SCAN_SUCCEEDED_NO_VIOLATION";
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSucceededWarn = @"SCAN_SUCCEEDED_WARN";
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSucceededWithFailuresAuditOnly = @"SCAN_SUCCEEDED_WITH_FAILURES_AUDIT_ONLY";
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSucceededWithFailuresBlock = @"SCAN_SUCCEEDED_WITH_FAILURES_BLOCK";
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSucceededWithFailuresNoViolation = @"SCAN_SUCCEEDED_WITH_FAILURES_NO_VIOLATION";
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanSucceededWithFailuresWarn = @"SCAN_SUCCEEDED_WITH_FAILURES_WARN";
+NSString * const kGTLRCloudSearch_DlpScanSummary_ScanOutcome_ScanUnknownOutcome = @"SCAN_UNKNOWN_OUTCOME";
 
 // GTLRCloudSearch_DriveFollowUpRestrict.type
 NSString * const kGTLRCloudSearch_DriveFollowUpRestrict_Type_FollowupActionItems = @"FOLLOWUP_ACTION_ITEMS";
@@ -63,6 +489,20 @@ NSString * const kGTLRCloudSearch_DriveFollowUpRestrict_Type_Unspecified = @"UNS
 NSString * const kGTLRCloudSearch_DriveLocationRestrict_Type_Starred = @"STARRED";
 NSString * const kGTLRCloudSearch_DriveLocationRestrict_Type_Trashed = @"TRASHED";
 NSString * const kGTLRCloudSearch_DriveLocationRestrict_Type_Unspecified = @"UNSPECIFIED";
+
+// GTLRCloudSearch_DriveMetadata.driveAction
+NSString * const kGTLRCloudSearch_DriveMetadata_DriveAction_AddAnotherShortcut = @"ADD_ANOTHER_SHORTCUT";
+NSString * const kGTLRCloudSearch_DriveMetadata_DriveAction_AddShortcut = @"ADD_SHORTCUT";
+NSString * const kGTLRCloudSearch_DriveMetadata_DriveAction_AddToDrive = @"ADD_TO_DRIVE";
+NSString * const kGTLRCloudSearch_DriveMetadata_DriveAction_DriveActionUnspecified = @"DRIVE_ACTION_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_DriveMetadata_DriveAction_Organize = @"ORGANIZE";
+
+// GTLRCloudSearch_DriveMetadata.driveState
+NSString * const kGTLRCloudSearch_DriveMetadata_DriveState_DriveStateUnspecified = @"DRIVE_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_DriveMetadata_DriveState_InMyDrive = @"IN_MY_DRIVE";
+NSString * const kGTLRCloudSearch_DriveMetadata_DriveState_InTeamDrive = @"IN_TEAM_DRIVE";
+NSString * const kGTLRCloudSearch_DriveMetadata_DriveState_NotInDrive = @"NOT_IN_DRIVE";
+NSString * const kGTLRCloudSearch_DriveMetadata_DriveState_SharedInDrive = @"SHARED_IN_DRIVE";
 
 // GTLRCloudSearch_DriveMimeTypeRestrict.type
 NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Archive = @"ARCHIVE";
@@ -89,10 +529,538 @@ NSString * const kGTLRCloudSearch_DriveTimeSpanRestrict_Type_Today = @"TODAY";
 NSString * const kGTLRCloudSearch_DriveTimeSpanRestrict_Type_Unspecified = @"UNSPECIFIED";
 NSString * const kGTLRCloudSearch_DriveTimeSpanRestrict_Type_Yesterday = @"YESTERDAY";
 
+// GTLRCloudSearch_EmbedClientItem.type
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AboutPage = @"ABOUT_PAGE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AccountingService = @"ACCOUNTING_SERVICE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ActionV2 = @"ACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AddActionV2 = @"ADD_ACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AdministrativeArea = @"ADMINISTRATIVE_AREA";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AdultEntertainment = @"ADULT_ENTERTAINMENT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AggregateRating = @"AGGREGATE_RATING";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AggregateRatingV2 = @"AGGREGATE_RATING_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Airport = @"AIRPORT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AmusementPark = @"AMUSEMENT_PARK";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AnimalShelter = @"ANIMAL_SHELTER";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ApartmentComplex = @"APARTMENT_COMPLEX";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AppInvite = @"APP_INVITE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Aquarium = @"AQUARIUM";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ArtGallery = @"ART_GALLERY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Article = @"ARTICLE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ArticleV2 = @"ARTICLE_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AssessActionV2 = @"ASSESS_ACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Attorney = @"ATTORNEY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AudioObject = @"AUDIO_OBJECT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AudioObjectV2 = @"AUDIO_OBJECT_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AutoBodyShop = @"AUTO_BODY_SHOP";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AutoDealer = @"AUTO_DEALER";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AutomatedTeller = @"AUTOMATED_TELLER";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AutomotiveBusiness = @"AUTOMOTIVE_BUSINESS";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AutoPartsStore = @"AUTO_PARTS_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AutoRental = @"AUTO_RENTAL";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AutoRepair = @"AUTO_REPAIR";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_AutoWash = @"AUTO_WASH";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Bakery  = @"BAKERY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BankOrCreditUnion = @"BANK_OR_CREDIT_UNION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BarOrPub = @"BAR_OR_PUB";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BasicInteractionV2 = @"BASIC_INTERACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Beach   = @"BEACH";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BeautySalon = @"BEAUTY_SALON";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BedAndBreakfast = @"BED_AND_BREAKFAST";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BikeStore = @"BIKE_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Blog    = @"BLOG";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BlogPosting = @"BLOG_POSTING";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BlogPostingV2 = @"BLOG_POSTING_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BlogV2  = @"BLOG_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BodyOfWater = @"BODY_OF_WATER";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Book    = @"BOOK";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BookFormatType = @"BOOK_FORMAT_TYPE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BookStore = @"BOOK_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BookV2  = @"BOOK_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BowlingAlley = @"BOWLING_ALLEY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Brewery = @"BREWERY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BuddhistTemple = @"BUDDHIST_TEMPLE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BusinessEvent = @"BUSINESS_EVENT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BusStation = @"BUS_STATION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BusStop = @"BUS_STOP";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_BuyActionV2 = @"BUY_ACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CafeOrCoffeeShop = @"CAFE_OR_COFFEE_SHOP";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Campground = @"CAMPGROUND";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Canal   = @"CANAL";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CarouselFrame = @"CAROUSEL_FRAME";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Casino  = @"CASINO";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CatholicChurch = @"CATHOLIC_CHURCH";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Cemetery = @"CEMETERY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Checkin = @"CHECKIN";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CheckInActionV2 = @"CHECK_IN_ACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CheckinV2 = @"CHECKIN_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CheckoutPage = @"CHECKOUT_PAGE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ChildCare = @"CHILD_CARE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ChildrensEvent = @"CHILDRENS_EVENT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Church  = @"CHURCH";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_City    = @"CITY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CityHall = @"CITY_HALL";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CivicStructure = @"CIVIC_STRUCTURE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ClothingStore = @"CLOTHING_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CollectionPage = @"COLLECTION_PAGE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CollegeOrUniversity = @"COLLEGE_OR_UNIVERSITY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CollexionV2 = @"COLLEXION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ComedyClub = @"COMEDY_CLUB";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ComedyEvent = @"COMEDY_EVENT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Comment = @"COMMENT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CommentActionV2 = @"COMMENT_ACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CommentV2 = @"COMMENT_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CommunicateActionV2 = @"COMMUNICATE_ACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ComputerStore = @"COMPUTER_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ConsumeActionV2 = @"CONSUME_ACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ContactPage = @"CONTACT_PAGE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ContactPoint = @"CONTACT_POINT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Continent = @"CONTINENT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ConvenienceStore = @"CONVENIENCE_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Corporation = @"CORPORATION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Country = @"COUNTRY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Courthouse = @"COURTHOUSE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CreateActionV2 = @"CREATE_ACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CreativeWork = @"CREATIVE_WORK";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_CreativeWorkV2 = @"CREATIVE_WORK_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Crematorium = @"CREMATORIUM";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DanceEvent = @"DANCE_EVENT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Date    = @"DATE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DaySpa  = @"DAY_SPA";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DefenceEstablishment = @"DEFENCE_ESTABLISHMENT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Dentist = @"DENTIST";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DepartmentStore = @"DEPARTMENT_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DeprecatedTourObject = @"DEPRECATED_TOUR_OBJECT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DeprecatedTourObjectV2 = @"DEPRECATED_TOUR_OBJECT_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DiscoverActionV2 = @"DISCOVER_ACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Distance = @"DISTANCE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DocumentObject = @"DOCUMENT_OBJECT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DocumentObjectV2 = @"DOCUMENT_OBJECT_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DrawingObject = @"DRAWING_OBJECT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DrawingObjectV2 = @"DRAWING_OBJECT_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DriveObjectCollection = @"DRIVE_OBJECT_COLLECTION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DriveObjectV2 = @"DRIVE_OBJECT_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DryCleaningOrLaundry = @"DRY_CLEANING_OR_LAUNDRY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Duration = @"DURATION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DynamiteAttachmentMetadata = @"DYNAMITE_ATTACHMENT_METADATA";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_DynamiteMessageMetadata = @"DYNAMITE_MESSAGE_METADATA";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_EducationalOrganization = @"EDUCATIONAL_ORGANIZATION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_EducationEvent = @"EDUCATION_EVENT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Electrician = @"ELECTRICIAN";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ElectronicsStore = @"ELECTRONICS_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ElementarySchool = @"ELEMENTARY_SCHOOL";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Embassy = @"EMBASSY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_EmergencyService = @"EMERGENCY_SERVICE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Emotishare = @"EMOTISHARE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_EmotishareV2 = @"EMOTISHARE_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_EmploymentAgengy = @"EMPLOYMENT_AGENGY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Energy  = @"ENERGY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_EntertainmentBusiness = @"ENTERTAINMENT_BUSINESS";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_EntryPointV2 = @"ENTRY_POINT_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Enumeration = @"ENUMERATION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Event   = @"EVENT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_EventTimeV2 = @"EVENT_TIME_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_EventV2 = @"EVENT_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_EventVenue = @"EVENT_VENUE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ExampleObject = @"EXAMPLE_OBJECT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ExerciseGym = @"EXERCISE_GYM";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FastFoodRestaurant = @"FAST_FOOD_RESTAURANT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Festival = @"FESTIVAL";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FileObject = @"FILE_OBJECT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FileObjectV2 = @"FILE_OBJECT_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FinancialQuote = @"FINANCIAL_QUOTE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FinancialQuoteV2 = @"FINANCIAL_QUOTE_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FinancialService = @"FINANCIAL_SERVICE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FindActionV2 = @"FIND_ACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FireStation = @"FIRE_STATION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Florist = @"FLORIST";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FoodEstablishment = @"FOOD_ESTABLISHMENT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FoodEvent = @"FOOD_EVENT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FormObject = @"FORM_OBJECT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FormObjectV2 = @"FORM_OBJECT_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_FurnitureStore = @"FURNITURE_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GardenStore = @"GARDEN_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GasStation = @"GAS_STATION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GatedResidenceCommunity = @"GATED_RESIDENCE_COMMUNITY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GeneralContractor = @"GENERAL_CONTRACTOR";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GeoCoordinates = @"GEO_COORDINATES";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GeoCoordinatesV2 = @"GEO_COORDINATES_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GeoShape = @"GEO_SHAPE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GolfCourse = @"GOLF_COURSE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GoogleChart = @"GOOGLE_CHART";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GoogleOfferV2 = @"GOOGLE_OFFER_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GooglePhotoRecipe = @"GOOGLE_PHOTO_RECIPE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GoogleUserPhotoAlbum = @"GOOGLE_USER_PHOTO_ALBUM";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GoogleUserPhotoV2 = @"GOOGLE_USER_PHOTO_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GovernmentBuilding = @"GOVERNMENT_BUILDING";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GovernmentOffice = @"GOVERNMENT_OFFICE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GovernmentOrganization = @"GOVERNMENT_ORGANIZATION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_GroceryStore = @"GROCERY_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HairSalon = @"HAIR_SALON";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Hangout = @"HANGOUT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HangoutBroadcast = @"HANGOUT_BROADCAST";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HangoutChatMessage = @"HANGOUT_CHAT_MESSAGE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HangoutConsumer = @"HANGOUT_CONSUMER";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HangoutQuote = @"HANGOUT_QUOTE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HangoutV2 = @"HANGOUT_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HardwareStore = @"HARDWARE_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HealthAndBeautyBusiness = @"HEALTH_AND_BEAUTY_BUSINESS";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HealthClub = @"HEALTH_CLUB";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HighSchool = @"HIGH_SCHOOL";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HinduTemple = @"HINDU_TEMPLE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HoaPlusEventV2 = @"HOA_PLUS_EVENT_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HobbyShop = @"HOBBY_SHOP";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HomeAndConstructionBusiness = @"HOME_AND_CONSTRUCTION_BUSINESS";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HomeGoodsStore = @"HOME_GOODS_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Hospital = @"HOSPITAL";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Hostel  = @"HOSTEL";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Hotel   = @"HOTEL";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HousePainter = @"HOUSE_PAINTER";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_HvacBusiness = @"HVAC_BUSINESS";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_IceCreamShop = @"ICE_CREAM_SHOP";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ImageGallery = @"IMAGE_GALLERY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ImageObject = @"IMAGE_OBJECT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ImageObjectV2 = @"IMAGE_OBJECT_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_InsuranceAgency = @"INSURANCE_AGENCY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Intangible = @"INTANGIBLE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_InteractActionV2 = @"INTERACT_ACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_InteractionV2 = @"INTERACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_InternetCafe = @"INTERNET_CAFE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ItemAvailability = @"ITEM_AVAILABILITY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ItemList = @"ITEM_LIST";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ItemPage = @"ITEM_PAGE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_JewelryStore = @"JEWELRY_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_JobPosting = @"JOB_POSTING";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_LakeBodyOfWater = @"LAKE_BODY_OF_WATER";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Landform = @"LANDFORM";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_LandmarksOrHistoricalBuildings = @"LANDMARKS_OR_HISTORICAL_BUILDINGS";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Language = @"LANGUAGE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_LegislativeBuilding = @"LEGISLATIVE_BUILDING";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Library = @"LIBRARY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_LiquorStore = @"LIQUOR_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ListenActionV2 = @"LISTEN_ACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_LiteraryEvent = @"LITERARY_EVENT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_LocalBusiness = @"LOCAL_BUSINESS";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_LocalBusinessV2 = @"LOCAL_BUSINESS_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_LocalPlusPhotoAlbum = @"LOCAL_PLUS_PHOTO_ALBUM";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_LocalPlusPhotoAlbumV2 = @"LOCAL_PLUS_PHOTO_ALBUM_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Locksmith = @"LOCKSMITH";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_LodgingBusiness = @"LODGING_BUSINESS";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Magazine = @"MAGAZINE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MagazineV2 = @"MAGAZINE_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Map     = @"MAP";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Mass    = @"MASS";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MediaObject = @"MEDIA_OBJECT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MediaObjectV2 = @"MEDIA_OBJECT_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MedicalClinic = @"MEDICAL_CLINIC";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MedicalOrganization = @"MEDICAL_ORGANIZATION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MensClothingStore = @"MENS_CLOTHING_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MiddleSchool = @"MIDDLE_SCHOOL";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MobileApplication = @"MOBILE_APPLICATION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MobileApplicationV2 = @"MOBILE_APPLICATION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MobilePhoneStore = @"MOBILE_PHONE_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Mosque  = @"MOSQUE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Motel   = @"MOTEL";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MotorcycleDealer = @"MOTORCYCLE_DEALER";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MotorcycleRepair = @"MOTORCYCLE_REPAIR";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Mountain = @"MOUNTAIN";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Movie   = @"MOVIE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MovieRentalStore = @"MOVIE_RENTAL_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MovieTheater = @"MOVIE_THEATER";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MovieV2 = @"MOVIE_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MovingCompany = @"MOVING_COMPANY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Museum  = @"MUSEUM";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MusicAlbum = @"MUSIC_ALBUM";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MusicAlbumV2 = @"MUSIC_ALBUM_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MusicEvent = @"MUSIC_EVENT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MusicGroup = @"MUSIC_GROUP";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MusicGroupV2 = @"MUSIC_GROUP_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MusicPlaylist = @"MUSIC_PLAYLIST";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MusicPlaylistV2 = @"MUSIC_PLAYLIST_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MusicRecording = @"MUSIC_RECORDING";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MusicRecordingV2 = @"MUSIC_RECORDING_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MusicStore = @"MUSIC_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MusicVenue = @"MUSIC_VENUE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_MusicVideoObject = @"MUSIC_VIDEO_OBJECT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_NailSalon = @"NAIL_SALON";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_NewsArticle = @"NEWS_ARTICLE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_NewsArticleV2 = @"NEWS_ARTICLE_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_NewsMediaOrganization = @"NEWS_MEDIA_ORGANIZATION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_NightClub = @"NIGHT_CLUB";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Notary  = @"NOTARY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_NutritionInformation = @"NUTRITION_INFORMATION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_OceanBodyOfWater = @"OCEAN_BODY_OF_WATER";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Offer   = @"OFFER";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_OfferItemCondition = @"OFFER_ITEM_CONDITION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_OfferV2 = @"OFFER_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_OfficeEquipmentStore = @"OFFICE_EQUIPMENT_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Optician = @"OPTICIAN";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Organization = @"ORGANIZATION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_OrganizationV2 = @"ORGANIZATION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_OrganizeActionV2 = @"ORGANIZE_ACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_OutletStore = @"OUTLET_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Painting = @"PAINTING";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Park    = @"PARK";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ParkingFacility = @"PARKING_FACILITY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PawnShop = @"PAWN_SHOP";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PerformingArtsTheater = @"PERFORMING_ARTS_THEATER";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PerformingGroup = @"PERFORMING_GROUP";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Person  = @"PERSON";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PersonV2 = @"PERSON_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PetStore = @"PET_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Pharmacy = @"PHARMACY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Photograph = @"PHOTOGRAPH";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Physician = @"PHYSICIAN";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Place   = @"PLACE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlaceOfWorship = @"PLACE_OF_WORSHIP";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlaceReview = @"PLACE_REVIEW";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlaceReviewV2 = @"PLACE_REVIEW_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlaceV2 = @"PLACE_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlanActionV2 = @"PLAN_ACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Playground = @"PLAYGROUND";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlayMusicAlbum = @"PLAY_MUSIC_ALBUM";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlayMusicAlbumV2 = @"PLAY_MUSIC_ALBUM_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlayMusicTrack = @"PLAY_MUSIC_TRACK";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlayMusicTrackV2 = @"PLAY_MUSIC_TRACK_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlayObjectV2 = @"PLAY_OBJECT_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Plumber = @"PLUMBER";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusAudioV2 = @"PLUS_AUDIO_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusEvent = @"PLUS_EVENT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusEventV2 = @"PLUS_EVENT_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusMediaCollectionV2 = @"PLUS_MEDIA_COLLECTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusMediaObjectV2 = @"PLUS_MEDIA_OBJECT_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusPage = @"PLUS_PAGE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusPageV2 = @"PLUS_PAGE_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusPhoto = @"PLUS_PHOTO";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusPhotoAlbum = @"PLUS_PHOTO_ALBUM";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusPhotoAlbumV2 = @"PLUS_PHOTO_ALBUM_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusPhotoCollectionV2 = @"PLUS_PHOTO_COLLECTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusPhotosAddedToCollection = @"PLUS_PHOTOS_ADDED_TO_COLLECTION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusPhotosAddedToCollectionV2 = @"PLUS_PHOTOS_ADDED_TO_COLLECTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusPhotoV2 = @"PLUS_PHOTO_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusPost = @"PLUS_POST";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusPostV2 = @"PLUS_POST_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusReshareV2 = @"PLUS_RESHARE_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PlusSoftwareApplicationV2 = @"PLUS_SOFTWARE_APPLICATION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PoliceStation = @"POLICE_STATION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PollOptionV2 = @"POLL_OPTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PollV2  = @"POLL_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Pond    = @"POND";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PostalAddress = @"POSTAL_ADDRESS";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PostalAddressV2 = @"POSTAL_ADDRESS_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PostOffice = @"POST_OFFICE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Preschool = @"PRESCHOOL";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PresentationObject = @"PRESENTATION_OBJECT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PresentationObjectV2 = @"PRESENTATION_OBJECT_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Product = @"PRODUCT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ProductReview = @"PRODUCT_REVIEW";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ProductReviewV2 = @"PRODUCT_REVIEW_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ProfessionalService = @"PROFESSIONAL_SERVICE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ProfilePage = @"PROFILE_PAGE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_PublicSwimmingPool = @"PUBLIC_SWIMMING_POOL";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Quantity = @"QUANTITY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_RadioStation = @"RADIO_STATION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Rating  = @"RATING";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_RatingV2 = @"RATING_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ReactActionV2 = @"REACT_ACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_RealEstateAgent = @"REAL_ESTATE_AGENT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Recipe  = @"RECIPE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_RecommendedPeople = @"RECOMMENDED_PEOPLE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_RecyclingCenter = @"RECYCLING_CENTER";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Reservation = @"RESERVATION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ReservationV2 = @"RESERVATION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ReserveActionV2 = @"RESERVE_ACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Reservoir = @"RESERVOIR";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Residence = @"RESIDENCE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Restaurant = @"RESTAURANT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Review  = @"REVIEW";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ReviewActionV2 = @"REVIEW_ACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ReviewV2 = @"REVIEW_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_RiverBodyOfWater = @"RIVER_BODY_OF_WATER";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_RoofingContractor = @"ROOFING_CONTRACTOR";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_RVPark  = @"R_V_PARK";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SaleEvent = @"SALE_EVENT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ScholarlyArticle = @"SCHOLARLY_ARTICLE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_School  = @"SCHOOL";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Sculpture = @"SCULPTURE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SeaBodyOfWater = @"SEA_BODY_OF_WATER";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SearchResultsPage = @"SEARCH_RESULTS_PAGE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SelfStorage = @"SELF_STORAGE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ShoeStore = @"SHOE_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ShoppingCenter = @"SHOPPING_CENTER";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SingleFamilyResidence = @"SINGLE_FAMILY_RESIDENCE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SiteNavigationElement = @"SITE_NAVIGATION_ELEMENT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SkiResort = @"SKI_RESORT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SocialEvent = @"SOCIAL_EVENT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SoftwareApplication = @"SOFTWARE_APPLICATION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SoftwareApplicationV2 = @"SOFTWARE_APPLICATION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SportingGoodsStore = @"SPORTING_GOODS_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SportsActivityLocation = @"SPORTS_ACTIVITY_LOCATION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SportsClub = @"SPORTS_CLUB";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SportsEvent = @"SPORTS_EVENT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SpreadsheetObject = @"SPREADSHEET_OBJECT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SpreadsheetObjectV2 = @"SPREADSHEET_OBJECT_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Square  = @"SQUARE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SquareInvite = @"SQUARE_INVITE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SquareInviteV2 = @"SQUARE_INVITE_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SquareV2 = @"SQUARE_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_StadiumOrArena = @"STADIUM_OR_ARENA";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_State   = @"STATE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_StickerV2 = @"STICKER_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Store   = @"STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_StoryV2 = @"STORY_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_StructuredValue = @"STRUCTURED_VALUE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_SubwayStation = @"SUBWAY_STATION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Synagogue = @"SYNAGOGUE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Table   = @"TABLE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TattooParlor = @"TATTOO_PARLOR";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TaxiStand = @"TAXI_STAND";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TelevisionStation = @"TELEVISION_STATION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TennisComplex = @"TENNIS_COMPLEX";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TheaterEvent = @"THEATER_EVENT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Thing   = @"THING";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ThingV2 = @"THING_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TireShop = @"TIRE_SHOP";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TouristAttraction = @"TOURIST_ATTRACTION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TouristInformationCenter = @"TOURIST_INFORMATION_CENTER";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ToyStore = @"TOY_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TradeActionV2 = @"TRADE_ACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TrainStation = @"TRAIN_STATION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TravelAgency = @"TRAVEL_AGENCY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TravelEvent = @"TRAVEL_EVENT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TvEpisode = @"TV_EPISODE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TvEpisodeV2 = @"TV_EPISODE_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TvSeason = @"TV_SEASON";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TvSeries = @"TV_SERIES";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_TvSeriesV2 = @"TV_SERIES_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Unknown = @"UNKNOWN";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_UpdateActionV2 = @"UPDATE_ACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_UserInteraction = @"USER_INTERACTION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_UserPlusOnes = @"USER_PLUS_ONES";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_VeterinaryCare = @"VETERINARY_CARE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_VideoGallery = @"VIDEO_GALLERY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_VideoGalleryV2 = @"VIDEO_GALLERY_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_VideoObject = @"VIDEO_OBJECT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_VideoObjectV2 = @"VIDEO_OBJECT_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_ViewActionV2 = @"VIEW_ACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_VisualArtsEvent = @"VISUAL_ARTS_EVENT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Volcano = @"VOLCANO";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_WantActionV2 = @"WANT_ACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Waterfall = @"WATERFALL";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_WebApplication = @"WEB_APPLICATION";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_WebPage = @"WEB_PAGE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_WebPageElement = @"WEB_PAGE_ELEMENT";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_WebPageV2 = @"WEB_PAGE_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_WholesaleStore = @"WHOLESALE_STORE";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Winery  = @"WINERY";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_WpAdBlock = @"WP_AD_BLOCK";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_WpFooter = @"WP_FOOTER";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_WpHeader = @"WP_HEADER";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_WpSidebar = @"WP_SIDEBAR";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_WriteActionV2 = @"WRITE_ACTION_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_YoutubeChannelV2 = @"YOUTUBE_CHANNEL_V2";
+NSString * const kGTLRCloudSearch_EmbedClientItem_Type_Zoo     = @"ZOO";
+
 // GTLRCloudSearch_EnumPropertyOptions.orderedRanking
 NSString * const kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking_Ascending = @"ASCENDING";
 NSString * const kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking_Descending = @"DESCENDING";
 NSString * const kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking_NoOrder = @"NO_ORDER";
+
+// GTLRCloudSearch_FormAction.loadIndicator
+NSString * const kGTLRCloudSearch_FormAction_LoadIndicator_None = @"NONE";
+NSString * const kGTLRCloudSearch_FormAction_LoadIndicator_Spinner = @"SPINNER";
+
+// GTLRCloudSearch_FormatMetadata.formatType
+NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_Bold = @"BOLD";
+NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_BulletedList = @"BULLETED_LIST";
+NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_BulletedListItem = @"BULLETED_LIST_ITEM";
+NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_ClientHidden = @"CLIENT_HIDDEN";
+NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_FontColor = @"FONT_COLOR";
+NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_Hidden = @"HIDDEN";
+NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_Italic = @"ITALIC";
+NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_Monospace = @"MONOSPACE";
+NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_MonospaceBlock = @"MONOSPACE_BLOCK";
+NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_SourceCode = @"SOURCE_CODE";
+NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_Strike = @"STRIKE";
+NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_FormatMetadata_FormatType_Underline = @"UNDERLINE";
+
+// GTLRCloudSearch_Formatting.style
+NSString * const kGTLRCloudSearch_Formatting_Style_Heading1    = @"HEADING_1";
+NSString * const kGTLRCloudSearch_Formatting_Style_Heading2    = @"HEADING_2";
+NSString * const kGTLRCloudSearch_Formatting_Style_Heading3    = @"HEADING_3";
+NSString * const kGTLRCloudSearch_Formatting_Style_Heading4    = @"HEADING_4";
+NSString * const kGTLRCloudSearch_Formatting_Style_UnknownStyle = @"UNKNOWN_STYLE";
+
+// GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardCardHeader.imageStyle
+NSString * const kGTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardCardHeader_ImageStyle_Avatar = @"AVATAR";
+NSString * const kGTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardCardHeader_ImageStyle_Image = @"IMAGE";
+NSString * const kGTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardCardHeader_ImageStyle_ImageStyleUnspecified = @"IMAGE_STYLE_UNSPECIFIED";
+
+// GTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton.icon
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Airplane = @"AIRPLANE";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Bookmark = @"BOOKMARK";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Bus = @"BUS";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Car = @"CAR";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Clock = @"CLOCK";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_ConfirmationNumberIcon = @"CONFIRMATION_NUMBER_ICON";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Description = @"DESCRIPTION";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Dollar = @"DOLLAR";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Email = @"EMAIL";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_EventPerformer = @"EVENT_PERFORMER";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_EventSeat = @"EVENT_SEAT";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_FlightArrival = @"FLIGHT_ARRIVAL";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_FlightDeparture = @"FLIGHT_DEPARTURE";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Hotel = @"HOTEL";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_HotelRoomType = @"HOTEL_ROOM_TYPE";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_IconUnspecified = @"ICON_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Invite = @"INVITE";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_MapPin = @"MAP_PIN";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Membership = @"MEMBERSHIP";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_MultiplePeople = @"MULTIPLE_PEOPLE";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Offer = @"OFFER";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Person = @"PERSON";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Phone = @"PHONE";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_RestaurantIcon = @"RESTAURANT_ICON";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_ShoppingCart = @"SHOPPING_CART";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Star = @"STAR";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Store = @"STORE";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Ticket = @"TICKET";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_Train = @"TRAIN";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_VideoCamera = @"VIDEO_CAMERA";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton_Icon_VideoPlay = @"VIDEO_PLAY";
+
+// GTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue.icon
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Airplane = @"AIRPLANE";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Bookmark = @"BOOKMARK";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Bus = @"BUS";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Car = @"CAR";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Clock = @"CLOCK";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_ConfirmationNumberIcon = @"CONFIRMATION_NUMBER_ICON";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Description = @"DESCRIPTION";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Dollar = @"DOLLAR";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Email = @"EMAIL";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_EventPerformer = @"EVENT_PERFORMER";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_EventSeat = @"EVENT_SEAT";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_FlightArrival = @"FLIGHT_ARRIVAL";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_FlightDeparture = @"FLIGHT_DEPARTURE";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Hotel = @"HOTEL";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_HotelRoomType = @"HOTEL_ROOM_TYPE";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_IconUnspecified = @"ICON_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Invite = @"INVITE";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_MapPin = @"MAP_PIN";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Membership = @"MEMBERSHIP";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_MultiplePeople = @"MULTIPLE_PEOPLE";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Offer = @"OFFER";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Person = @"PERSON";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Phone = @"PHONE";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_RestaurantIcon = @"RESTAURANT_ICON";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_ShoppingCart = @"SHOPPING_CART";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Star = @"STAR";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Store = @"STORE";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Ticket = @"TICKET";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_Train = @"TRAIN";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_VideoCamera = @"VIDEO_CAMERA";
+NSString * const kGTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue_Icon_VideoPlay = @"VIDEO_PLAY";
 
 // GTLRCloudSearch_GoogleDocsMetadata.documentType
 NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_BinaryBlob = @"BINARY_BLOB";
@@ -112,6 +1080,180 @@ NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_Shortcut = @"S
 NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_Spreadsheet = @"SPREADSHEET";
 NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_Unknown = @"UNKNOWN";
 NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_Video = @"VIDEO";
+
+// GTLRCloudSearch_GridItem.layout
+NSString * const kGTLRCloudSearch_GridItem_Layout_NotSet    = @"NOT_SET";
+NSString * const kGTLRCloudSearch_GridItem_Layout_TextAbove = @"TEXT_ABOVE";
+NSString * const kGTLRCloudSearch_GridItem_Layout_TextBelow = @"TEXT_BELOW";
+
+// GTLRCloudSearch_GridItem.textAlignment
+NSString * const kGTLRCloudSearch_GridItem_TextAlignment_Center = @"CENTER";
+NSString * const kGTLRCloudSearch_GridItem_TextAlignment_End   = @"END";
+NSString * const kGTLRCloudSearch_GridItem_TextAlignment_HorizontalAlignmentUnspecified = @"HORIZONTAL_ALIGNMENT_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_GridItem_TextAlignment_Start = @"START";
+
+// GTLRCloudSearch_GroupLinkSharingModificationEvent.newStatus
+NSString * const kGTLRCloudSearch_GroupLinkSharingModificationEvent_NewStatus_LinkSharingOff = @"LINK_SHARING_OFF";
+NSString * const kGTLRCloudSearch_GroupLinkSharingModificationEvent_NewStatus_LinkSharingOn = @"LINK_SHARING_ON";
+NSString * const kGTLRCloudSearch_GroupLinkSharingModificationEvent_NewStatus_NotAvailable = @"NOT_AVAILABLE";
+NSString * const kGTLRCloudSearch_GroupLinkSharingModificationEvent_NewStatus_UnknownLinkSharingStatus = @"UNKNOWN_LINK_SHARING_STATUS";
+
+// GTLRCloudSearch_GsuiteIntegrationMetadata.clientType
+NSString * const kGTLRCloudSearch_GsuiteIntegrationMetadata_ClientType_ActivityFeedService = @"ACTIVITY_FEED_SERVICE";
+NSString * const kGTLRCloudSearch_GsuiteIntegrationMetadata_ClientType_Assistant = @"ASSISTANT";
+NSString * const kGTLRCloudSearch_GsuiteIntegrationMetadata_ClientType_CalendarEvent = @"CALENDAR_EVENT";
+NSString * const kGTLRCloudSearch_GsuiteIntegrationMetadata_ClientType_Meet = @"MEET";
+NSString * const kGTLRCloudSearch_GsuiteIntegrationMetadata_ClientType_Tasks = @"TASKS";
+NSString * const kGTLRCloudSearch_GsuiteIntegrationMetadata_ClientType_UnknownClientType = @"UNKNOWN_CLIENT_TYPE";
+
+// GTLRCloudSearch_HangoutEvent.mediaType
+NSString * const kGTLRCloudSearch_HangoutEvent_MediaType_AudioOnly = @"AUDIO_ONLY";
+NSString * const kGTLRCloudSearch_HangoutEvent_MediaType_AudioVideo = @"AUDIO_VIDEO";
+NSString * const kGTLRCloudSearch_HangoutEvent_MediaType_PushToTalk = @"PUSH_TO_TALK";
+
+// GTLRCloudSearch_HangoutEvent.type
+NSString * const kGTLRCloudSearch_HangoutEvent_Type_EndHangout = @"END_HANGOUT";
+NSString * const kGTLRCloudSearch_HangoutEvent_Type_HangoutComingSoon = @"HANGOUT_COMING_SOON";
+NSString * const kGTLRCloudSearch_HangoutEvent_Type_JoinHangout = @"JOIN_HANGOUT";
+NSString * const kGTLRCloudSearch_HangoutEvent_Type_LeaveHangout = @"LEAVE_HANGOUT";
+NSString * const kGTLRCloudSearch_HangoutEvent_Type_OngoingHangout = @"ONGOING_HANGOUT";
+NSString * const kGTLRCloudSearch_HangoutEvent_Type_StartHangout = @"START_HANGOUT";
+
+// GTLRCloudSearch_HangoutVideoEventMetadata.hangoutVideoType
+NSString * const kGTLRCloudSearch_HangoutVideoEventMetadata_HangoutVideoType_UnknownHangoutVideoEventType = @"UNKNOWN_HANGOUT_VIDEO_EVENT_TYPE";
+NSString * const kGTLRCloudSearch_HangoutVideoEventMetadata_HangoutVideoType_VideoEnd = @"VIDEO_END";
+NSString * const kGTLRCloudSearch_HangoutVideoEventMetadata_HangoutVideoType_VideoStart = @"VIDEO_START";
+
+// GTLRCloudSearch_IconImage.icon
+NSString * const kGTLRCloudSearch_IconImage_Icon_Airplane      = @"AIRPLANE";
+NSString * const kGTLRCloudSearch_IconImage_Icon_Bookmark      = @"BOOKMARK";
+NSString * const kGTLRCloudSearch_IconImage_Icon_Bus           = @"BUS";
+NSString * const kGTLRCloudSearch_IconImage_Icon_Car           = @"CAR";
+NSString * const kGTLRCloudSearch_IconImage_Icon_Clock         = @"CLOCK";
+NSString * const kGTLRCloudSearch_IconImage_Icon_ConfirmationNumberIcon = @"CONFIRMATION_NUMBER_ICON";
+NSString * const kGTLRCloudSearch_IconImage_Icon_Description   = @"DESCRIPTION";
+NSString * const kGTLRCloudSearch_IconImage_Icon_Dollar        = @"DOLLAR";
+NSString * const kGTLRCloudSearch_IconImage_Icon_Edit          = @"EDIT";
+NSString * const kGTLRCloudSearch_IconImage_Icon_EditNote      = @"EDIT_NOTE";
+NSString * const kGTLRCloudSearch_IconImage_Icon_Email         = @"EMAIL";
+NSString * const kGTLRCloudSearch_IconImage_Icon_EventPerformer = @"EVENT_PERFORMER";
+NSString * const kGTLRCloudSearch_IconImage_Icon_EventSeat     = @"EVENT_SEAT";
+NSString * const kGTLRCloudSearch_IconImage_Icon_FlightArrival = @"FLIGHT_ARRIVAL";
+NSString * const kGTLRCloudSearch_IconImage_Icon_FlightDeparture = @"FLIGHT_DEPARTURE";
+NSString * const kGTLRCloudSearch_IconImage_Icon_Hotel         = @"HOTEL";
+NSString * const kGTLRCloudSearch_IconImage_Icon_HotelRoomType = @"HOTEL_ROOM_TYPE";
+NSString * const kGTLRCloudSearch_IconImage_Icon_Invite        = @"INVITE";
+NSString * const kGTLRCloudSearch_IconImage_Icon_MapPin        = @"MAP_PIN";
+NSString * const kGTLRCloudSearch_IconImage_Icon_Membership    = @"MEMBERSHIP";
+NSString * const kGTLRCloudSearch_IconImage_Icon_MultiplePeople = @"MULTIPLE_PEOPLE";
+NSString * const kGTLRCloudSearch_IconImage_Icon_None          = @"NONE";
+NSString * const kGTLRCloudSearch_IconImage_Icon_Offer         = @"OFFER";
+NSString * const kGTLRCloudSearch_IconImage_Icon_OpenInNew     = @"OPEN_IN_NEW";
+NSString * const kGTLRCloudSearch_IconImage_Icon_Person        = @"PERSON";
+NSString * const kGTLRCloudSearch_IconImage_Icon_Phone         = @"PHONE";
+NSString * const kGTLRCloudSearch_IconImage_Icon_RestaurantIcon = @"RESTAURANT_ICON";
+NSString * const kGTLRCloudSearch_IconImage_Icon_ShoppingCart  = @"SHOPPING_CART";
+NSString * const kGTLRCloudSearch_IconImage_Icon_Star          = @"STAR";
+NSString * const kGTLRCloudSearch_IconImage_Icon_Store         = @"STORE";
+NSString * const kGTLRCloudSearch_IconImage_Icon_Ticket        = @"TICKET";
+NSString * const kGTLRCloudSearch_IconImage_Icon_Train         = @"TRAIN";
+NSString * const kGTLRCloudSearch_IconImage_Icon_VideoCamera   = @"VIDEO_CAMERA";
+NSString * const kGTLRCloudSearch_IconImage_Icon_VideoPlay     = @"VIDEO_PLAY";
+
+// GTLRCloudSearch_IconImage.imageStyle
+NSString * const kGTLRCloudSearch_IconImage_ImageStyle_Circle  = @"CIRCLE";
+NSString * const kGTLRCloudSearch_IconImage_ImageStyle_CropTypeNotSet = @"CROP_TYPE_NOT_SET";
+NSString * const kGTLRCloudSearch_IconImage_ImageStyle_Rectangle43 = @"RECTANGLE_4_3";
+NSString * const kGTLRCloudSearch_IconImage_ImageStyle_RectangleCustom = @"RECTANGLE_CUSTOM";
+NSString * const kGTLRCloudSearch_IconImage_ImageStyle_Square  = @"SQUARE";
+
+// GTLRCloudSearch_ImageButton.icon
+NSString * const kGTLRCloudSearch_ImageButton_Icon_Airplane    = @"AIRPLANE";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_Bookmark    = @"BOOKMARK";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_Bus         = @"BUS";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_Car         = @"CAR";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_Clock       = @"CLOCK";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_ConfirmationNumberIcon = @"CONFIRMATION_NUMBER_ICON";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_Description = @"DESCRIPTION";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_Dollar      = @"DOLLAR";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_Edit        = @"EDIT";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_EditNote    = @"EDIT_NOTE";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_Email       = @"EMAIL";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_EventPerformer = @"EVENT_PERFORMER";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_EventSeat   = @"EVENT_SEAT";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_FlightArrival = @"FLIGHT_ARRIVAL";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_FlightDeparture = @"FLIGHT_DEPARTURE";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_Hotel       = @"HOTEL";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_HotelRoomType = @"HOTEL_ROOM_TYPE";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_Invite      = @"INVITE";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_MapPin      = @"MAP_PIN";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_Membership  = @"MEMBERSHIP";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_MultiplePeople = @"MULTIPLE_PEOPLE";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_None        = @"NONE";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_Offer       = @"OFFER";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_OpenInNew   = @"OPEN_IN_NEW";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_Person      = @"PERSON";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_Phone       = @"PHONE";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_RestaurantIcon = @"RESTAURANT_ICON";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_ShoppingCart = @"SHOPPING_CART";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_Star        = @"STAR";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_Store       = @"STORE";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_Ticket      = @"TICKET";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_Train       = @"TRAIN";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_VideoCamera = @"VIDEO_CAMERA";
+NSString * const kGTLRCloudSearch_ImageButton_Icon_VideoPlay   = @"VIDEO_PLAY";
+
+// GTLRCloudSearch_ImageCropStyle.type
+NSString * const kGTLRCloudSearch_ImageCropStyle_Type_Circle   = @"CIRCLE";
+NSString * const kGTLRCloudSearch_ImageCropStyle_Type_CropTypeNotSet = @"CROP_TYPE_NOT_SET";
+NSString * const kGTLRCloudSearch_ImageCropStyle_Type_Rectangle43 = @"RECTANGLE_4_3";
+NSString * const kGTLRCloudSearch_ImageCropStyle_Type_RectangleCustom = @"RECTANGLE_CUSTOM";
+NSString * const kGTLRCloudSearch_ImageCropStyle_Type_Square   = @"SQUARE";
+
+// GTLRCloudSearch_ImageKeyValue.icon
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Airplane  = @"AIRPLANE";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Bookmark  = @"BOOKMARK";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Bus       = @"BUS";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Car       = @"CAR";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Clock     = @"CLOCK";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_ConfirmationNumberIcon = @"CONFIRMATION_NUMBER_ICON";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Description = @"DESCRIPTION";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Dollar    = @"DOLLAR";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Edit      = @"EDIT";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_EditNote  = @"EDIT_NOTE";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Email     = @"EMAIL";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_EventPerformer = @"EVENT_PERFORMER";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_EventSeat = @"EVENT_SEAT";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_FlightArrival = @"FLIGHT_ARRIVAL";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_FlightDeparture = @"FLIGHT_DEPARTURE";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Hotel     = @"HOTEL";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_HotelRoomType = @"HOTEL_ROOM_TYPE";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Invite    = @"INVITE";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_MapPin    = @"MAP_PIN";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Membership = @"MEMBERSHIP";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_MultiplePeople = @"MULTIPLE_PEOPLE";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_None      = @"NONE";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Offer     = @"OFFER";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_OpenInNew = @"OPEN_IN_NEW";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Person    = @"PERSON";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Phone     = @"PHONE";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_RestaurantIcon = @"RESTAURANT_ICON";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_ShoppingCart = @"SHOPPING_CART";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Star      = @"STAR";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Store     = @"STORE";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Ticket    = @"TICKET";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_Train     = @"TRAIN";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_VideoCamera = @"VIDEO_CAMERA";
+NSString * const kGTLRCloudSearch_ImageKeyValue_Icon_VideoPlay = @"VIDEO_PLAY";
+
+// GTLRCloudSearch_IncomingWebhookChangedMetadata.type
+NSString * const kGTLRCloudSearch_IncomingWebhookChangedMetadata_Type_Added = @"ADDED";
+NSString * const kGTLRCloudSearch_IncomingWebhookChangedMetadata_Type_Removed = @"REMOVED";
+NSString * const kGTLRCloudSearch_IncomingWebhookChangedMetadata_Type_Unspecified = @"UNSPECIFIED";
+NSString * const kGTLRCloudSearch_IncomingWebhookChangedMetadata_Type_Updated = @"UPDATED";
+NSString * const kGTLRCloudSearch_IncomingWebhookChangedMetadata_Type_UpdatedAvatar = @"UPDATED_AVATAR";
+NSString * const kGTLRCloudSearch_IncomingWebhookChangedMetadata_Type_UpdatedName = @"UPDATED_NAME";
+NSString * const kGTLRCloudSearch_IncomingWebhookChangedMetadata_Type_UpdatedNameAndAvatar = @"UPDATED_NAME_AND_AVATAR";
 
 // GTLRCloudSearch_IndexItemRequest.mode
 NSString * const kGTLRCloudSearch_IndexItemRequest_Mode_Asynchronous = @"ASYNCHRONOUS";
@@ -160,6 +1302,187 @@ NSString * const kGTLRCloudSearch_ItemStatus_Code_Error        = @"ERROR";
 NSString * const kGTLRCloudSearch_ItemStatus_Code_Modified     = @"MODIFIED";
 NSString * const kGTLRCloudSearch_ItemStatus_Code_NewItem      = @"NEW_ITEM";
 
+// GTLRCloudSearch_KeyValue.icon
+NSString * const kGTLRCloudSearch_KeyValue_Icon_Airplane       = @"AIRPLANE";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_Bookmark       = @"BOOKMARK";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_Bus            = @"BUS";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_Car            = @"CAR";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_Clock          = @"CLOCK";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_ConfirmationNumberIcon = @"CONFIRMATION_NUMBER_ICON";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_Description    = @"DESCRIPTION";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_Dollar         = @"DOLLAR";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_Edit           = @"EDIT";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_EditNote       = @"EDIT_NOTE";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_Email          = @"EMAIL";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_EventPerformer = @"EVENT_PERFORMER";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_EventSeat      = @"EVENT_SEAT";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_FlightArrival  = @"FLIGHT_ARRIVAL";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_FlightDeparture = @"FLIGHT_DEPARTURE";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_Hotel          = @"HOTEL";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_HotelRoomType  = @"HOTEL_ROOM_TYPE";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_Invite         = @"INVITE";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_MapPin         = @"MAP_PIN";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_Membership     = @"MEMBERSHIP";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_MultiplePeople = @"MULTIPLE_PEOPLE";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_None           = @"NONE";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_Offer          = @"OFFER";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_OpenInNew      = @"OPEN_IN_NEW";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_Person         = @"PERSON";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_Phone          = @"PHONE";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_RestaurantIcon = @"RESTAURANT_ICON";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_ShoppingCart   = @"SHOPPING_CART";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_Star           = @"STAR";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_Store          = @"STORE";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_Ticket         = @"TICKET";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_Train          = @"TRAIN";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_VideoCamera    = @"VIDEO_CAMERA";
+NSString * const kGTLRCloudSearch_KeyValue_Icon_VideoPlay      = @"VIDEO_PLAY";
+
+// GTLRCloudSearch_KeyValue.imageStyle
+NSString * const kGTLRCloudSearch_KeyValue_ImageStyle_Circle   = @"CIRCLE";
+NSString * const kGTLRCloudSearch_KeyValue_ImageStyle_CropTypeNotSet = @"CROP_TYPE_NOT_SET";
+NSString * const kGTLRCloudSearch_KeyValue_ImageStyle_Rectangle43 = @"RECTANGLE_4_3";
+NSString * const kGTLRCloudSearch_KeyValue_ImageStyle_RectangleCustom = @"RECTANGLE_CUSTOM";
+NSString * const kGTLRCloudSearch_KeyValue_ImageStyle_Square   = @"SQUARE";
+
+// GTLRCloudSearch_LinkData.attachmentRenderHint
+NSString * const kGTLRCloudSearch_LinkData_AttachmentRenderHint_AttachmentRenderHintAfter = @"ATTACHMENT_RENDER_HINT_AFTER";
+NSString * const kGTLRCloudSearch_LinkData_AttachmentRenderHint_AttachmentRenderHintInterleaved = @"ATTACHMENT_RENDER_HINT_INTERLEAVED";
+NSString * const kGTLRCloudSearch_LinkData_AttachmentRenderHint_AttachmentRenderHintUnknown = @"ATTACHMENT_RENDER_HINT_UNKNOWN";
+
+// GTLRCloudSearch_LinkData.linkType
+NSString * const kGTLRCloudSearch_LinkData_LinkType_SelfLink   = @"SELF_LINK";
+NSString * const kGTLRCloudSearch_LinkData_LinkType_UnknownLinkType = @"UNKNOWN_LINK_TYPE";
+
+// GTLRCloudSearch_MeetingSpace.acceptedNumberClass
+NSString * const kGTLRCloudSearch_MeetingSpace_AcceptedNumberClass_HighCost = @"HIGH_COST";
+NSString * const kGTLRCloudSearch_MeetingSpace_AcceptedNumberClass_Legacy = @"LEGACY";
+NSString * const kGTLRCloudSearch_MeetingSpace_AcceptedNumberClass_LowCost = @"LOW_COST";
+NSString * const kGTLRCloudSearch_MeetingSpace_AcceptedNumberClass_NumberClassUnspecified = @"NUMBER_CLASS_UNSPECIFIED";
+
+// GTLRCloudSearch_MembershipChangedMetadata.type
+NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_Added = @"ADDED";
+NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_BotAdded = @"BOT_ADDED";
+NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_BotRemoved = @"BOT_REMOVED";
+NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_Invited = @"INVITED";
+NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_Joined = @"JOINED";
+NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_KickedDueToOtrConflict = @"KICKED_DUE_TO_OTR_CONFLICT";
+NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_Left = @"LEFT";
+NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_Removed = @"REMOVED";
+NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_RoleTargetAudienceUpdated = @"ROLE_TARGET_AUDIENCE_UPDATED";
+NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_RoleUpdated = @"ROLE_UPDATED";
+NSString * const kGTLRCloudSearch_MembershipChangedMetadata_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRCloudSearch_MembershipChangeEvent.leaveReason
+NSString * const kGTLRCloudSearch_MembershipChangeEvent_LeaveReason_ForceHistoryPolicyChange = @"FORCE_HISTORY_POLICY_CHANGE";
+NSString * const kGTLRCloudSearch_MembershipChangeEvent_LeaveReason_LeaveReasonUnknown = @"LEAVE_REASON_UNKNOWN";
+NSString * const kGTLRCloudSearch_MembershipChangeEvent_LeaveReason_UserInitiated = @"USER_INITIATED";
+
+// GTLRCloudSearch_MembershipChangeEvent.type
+NSString * const kGTLRCloudSearch_MembershipChangeEvent_Type_Join = @"JOIN";
+NSString * const kGTLRCloudSearch_MembershipChangeEvent_Type_Leave = @"LEAVE";
+
+// GTLRCloudSearch_Message.deletableBy
+NSString * const kGTLRCloudSearch_Message_DeletableBy_PermissionCreator = @"PERMISSION_CREATOR";
+NSString * const kGTLRCloudSearch_Message_DeletableBy_PermissionMember = @"PERMISSION_MEMBER";
+NSString * const kGTLRCloudSearch_Message_DeletableBy_PermissionNoOne = @"PERMISSION_NO_ONE";
+NSString * const kGTLRCloudSearch_Message_DeletableBy_PermissionUnspecified = @"PERMISSION_UNSPECIFIED";
+
+// GTLRCloudSearch_Message.dlpScanOutcome
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanFailureAllRulesFailed = @"SCAN_FAILURE_ALL_RULES_FAILED";
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanFailureException = @"SCAN_FAILURE_EXCEPTION";
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanFailureIllegalStateForAttachments = @"SCAN_FAILURE_ILLEGAL_STATE_FOR_ATTACHMENTS";
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanFailureTimeout = @"SCAN_FAILURE_TIMEOUT";
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanRuleEvaluationSkippedChangelingEmptyResponse = @"SCAN_RULE_EVALUATION_SKIPPED_CHANGELING_EMPTY_RESPONSE";
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanRuleEvaluationSkippedChangelingPermanentError = @"SCAN_RULE_EVALUATION_SKIPPED_CHANGELING_PERMANENT_ERROR";
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanRuleEvaluationSkippedNoApplicableRulesForActionParams = @"SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_ACTION_PARAMS";
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanRuleEvaluationSkippedNoApplicableRulesForTrigger = @"SCAN_RULE_EVALUATION_SKIPPED_NO_APPLICABLE_RULES_FOR_TRIGGER";
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanRuleEvaluationSkippedNoRulesFound = @"SCAN_RULE_EVALUATION_SKIPPED_NO_RULES_FOUND";
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedConsumer = @"SCAN_SKIPPED_CONSUMER";
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedExperimentDisabled = @"SCAN_SKIPPED_EXPERIMENT_DISABLED";
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedMessageFromUnsupportedOrigin = @"SCAN_SKIPPED_MESSAGE_FROM_UNSUPPORTED_ORIGIN";
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedNoMessage = @"SCAN_SKIPPED_NO_MESSAGE";
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedNonHumanUser = @"SCAN_SKIPPED_NON_HUMAN_USER";
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSkippedUserAcknowledgedWarning = @"SCAN_SKIPPED_USER_ACKNOWLEDGED_WARNING";
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSucceededAuditOnly = @"SCAN_SUCCEEDED_AUDIT_ONLY";
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSucceededBlock = @"SCAN_SUCCEEDED_BLOCK";
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSucceededNoViolation = @"SCAN_SUCCEEDED_NO_VIOLATION";
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSucceededWarn = @"SCAN_SUCCEEDED_WARN";
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSucceededWithFailuresAuditOnly = @"SCAN_SUCCEEDED_WITH_FAILURES_AUDIT_ONLY";
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSucceededWithFailuresBlock = @"SCAN_SUCCEEDED_WITH_FAILURES_BLOCK";
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSucceededWithFailuresNoViolation = @"SCAN_SUCCEEDED_WITH_FAILURES_NO_VIOLATION";
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanSucceededWithFailuresWarn = @"SCAN_SUCCEEDED_WITH_FAILURES_WARN";
+NSString * const kGTLRCloudSearch_Message_DlpScanOutcome_ScanUnknownOutcome = @"SCAN_UNKNOWN_OUTCOME";
+
+// GTLRCloudSearch_Message.editableBy
+NSString * const kGTLRCloudSearch_Message_EditableBy_PermissionCreator = @"PERMISSION_CREATOR";
+NSString * const kGTLRCloudSearch_Message_EditableBy_PermissionMember = @"PERMISSION_MEMBER";
+NSString * const kGTLRCloudSearch_Message_EditableBy_PermissionNoOne = @"PERMISSION_NO_ONE";
+NSString * const kGTLRCloudSearch_Message_EditableBy_PermissionUnspecified = @"PERMISSION_UNSPECIFIED";
+
+// GTLRCloudSearch_Message.messageOrigin
+NSString * const kGTLRCloudSearch_Message_MessageOrigin_OriginBabel = @"ORIGIN_BABEL";
+NSString * const kGTLRCloudSearch_Message_MessageOrigin_OriginBabelDualWrite = @"ORIGIN_BABEL_DUAL_WRITE";
+NSString * const kGTLRCloudSearch_Message_MessageOrigin_OriginBabelDualWriteRetry = @"ORIGIN_BABEL_DUAL_WRITE_RETRY";
+NSString * const kGTLRCloudSearch_Message_MessageOrigin_OriginBabelInteropLive = @"ORIGIN_BABEL_INTEROP_LIVE";
+NSString * const kGTLRCloudSearch_Message_MessageOrigin_OriginBabelInteropRetry = @"ORIGIN_BABEL_INTEROP_RETRY";
+NSString * const kGTLRCloudSearch_Message_MessageOrigin_OriginBackfillFromGmailArchive = @"ORIGIN_BACKFILL_FROM_GMAIL_ARCHIVE";
+NSString * const kGTLRCloudSearch_Message_MessageOrigin_OriginBackfillFromPapyrus = @"ORIGIN_BACKFILL_FROM_PAPYRUS";
+NSString * const kGTLRCloudSearch_Message_MessageOrigin_OriginDynamite = @"ORIGIN_DYNAMITE";
+NSString * const kGTLRCloudSearch_Message_MessageOrigin_OriginNotSet = @"ORIGIN_NOT_SET";
+
+// GTLRCloudSearch_Message.messageState
+NSString * const kGTLRCloudSearch_Message_MessageState_Private = @"PRIVATE";
+NSString * const kGTLRCloudSearch_Message_MessageState_Public  = @"PUBLIC";
+
+// GTLRCloudSearch_Message.quotedByState
+NSString * const kGTLRCloudSearch_Message_QuotedByState_QuotedByStateHasBeenQuoted = @"QUOTED_BY_STATE_HAS_BEEN_QUOTED";
+NSString * const kGTLRCloudSearch_Message_QuotedByState_QuotedByStateHasNotBeenQuoted = @"QUOTED_BY_STATE_HAS_NOT_BEEN_QUOTED";
+NSString * const kGTLRCloudSearch_Message_QuotedByState_QuotedByStateUnspecified = @"QUOTED_BY_STATE_UNSPECIFIED";
+
+// GTLRCloudSearch_MessageInfo.searcherMembershipState
+NSString * const kGTLRCloudSearch_MessageInfo_SearcherMembershipState_MemberFailed = @"MEMBER_FAILED";
+NSString * const kGTLRCloudSearch_MessageInfo_SearcherMembershipState_MemberInvited = @"MEMBER_INVITED";
+NSString * const kGTLRCloudSearch_MessageInfo_SearcherMembershipState_MemberJoined = @"MEMBER_JOINED";
+NSString * const kGTLRCloudSearch_MessageInfo_SearcherMembershipState_MemberNotAMember = @"MEMBER_NOT_A_MEMBER";
+NSString * const kGTLRCloudSearch_MessageInfo_SearcherMembershipState_MemberUnknown = @"MEMBER_UNKNOWN";
+
+// GTLRCloudSearch_OpenLink.loadIndicator
+NSString * const kGTLRCloudSearch_OpenLink_LoadIndicator_None  = @"NONE";
+NSString * const kGTLRCloudSearch_OpenLink_LoadIndicator_Spinner = @"SPINNER";
+
+// GTLRCloudSearch_OpenLink.onClose
+NSString * const kGTLRCloudSearch_OpenLink_OnClose_Nothing     = @"NOTHING";
+NSString * const kGTLRCloudSearch_OpenLink_OnClose_ReloadAddOn = @"RELOAD_ADD_ON";
+
+// GTLRCloudSearch_OpenLink.openAs
+NSString * const kGTLRCloudSearch_OpenLink_OpenAs_FullSize = @"FULL_SIZE";
+NSString * const kGTLRCloudSearch_OpenLink_OpenAs_Overlay  = @"OVERLAY";
+
+// GTLRCloudSearch_OtrChatMessageEvent.messageOtrStatus
+NSString * const kGTLRCloudSearch_OtrChatMessageEvent_MessageOtrStatus_OffTheRecord = @"OFF_THE_RECORD";
+NSString * const kGTLRCloudSearch_OtrChatMessageEvent_MessageOtrStatus_OnTheRecord = @"ON_THE_RECORD";
+
+// GTLRCloudSearch_OtrModificationEvent.newOtrStatus
+NSString * const kGTLRCloudSearch_OtrModificationEvent_NewOtrStatus_OffTheRecord = @"OFF_THE_RECORD";
+NSString * const kGTLRCloudSearch_OtrModificationEvent_NewOtrStatus_OnTheRecord = @"ON_THE_RECORD";
+
+// GTLRCloudSearch_OtrModificationEvent.newOtrToggle
+NSString * const kGTLRCloudSearch_OtrModificationEvent_NewOtrToggle_Disabled = @"DISABLED";
+NSString * const kGTLRCloudSearch_OtrModificationEvent_NewOtrToggle_Enabled = @"ENABLED";
+
+// GTLRCloudSearch_OtrModificationEvent.oldOtrStatus
+NSString * const kGTLRCloudSearch_OtrModificationEvent_OldOtrStatus_OffTheRecord = @"OFF_THE_RECORD";
+NSString * const kGTLRCloudSearch_OtrModificationEvent_OldOtrStatus_OnTheRecord = @"ON_THE_RECORD";
+
+// GTLRCloudSearch_OtrModificationEvent.oldOtrToggle
+NSString * const kGTLRCloudSearch_OtrModificationEvent_OldOtrToggle_Disabled = @"DISABLED";
+NSString * const kGTLRCloudSearch_OtrModificationEvent_OldOtrToggle_Enabled = @"ENABLED";
+
+// GTLRCloudSearch_PackagingServiceClient.type
+NSString * const kGTLRCloudSearch_PackagingServiceClient_Type_Android = @"ANDROID";
+NSString * const kGTLRCloudSearch_PackagingServiceClient_Type_Ios = @"IOS";
+
 // GTLRCloudSearch_PhoneNumber.type
 NSString * const kGTLRCloudSearch_PhoneNumber_Type_Mobile = @"MOBILE";
 NSString * const kGTLRCloudSearch_PhoneNumber_Type_Office = @"OFFICE";
@@ -171,6 +1494,36 @@ NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_CodeUnspecified =
 NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_Error = @"ERROR";
 NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_Modified = @"MODIFIED";
 NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_NewItem = @"NEW_ITEM";
+
+// GTLRCloudSearch_PrincipalProto.scope
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_AllAuthenticatedUsers = @"ALL_AUTHENTICATED_USERS";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_CapTokenHolder = @"CAP_TOKEN_HOLDER";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_Chat    = @"CHAT";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_Circle  = @"CIRCLE";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_CloudPrincipal = @"CLOUD_PRINCIPAL";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_ContactGroup = @"CONTACT_GROUP";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_EmailOwner = @"EMAIL_OWNER";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_Event   = @"EVENT";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_GaiaGroup = @"GAIA_GROUP";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_GaiaUser = @"GAIA_USER";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_Host    = @"HOST";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_Invalid = @"INVALID";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_LdapGroup = @"LDAP_GROUP";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_LdapUser = @"LDAP_USER";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_MdbGroup = @"MDB_GROUP";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_MdbUser = @"MDB_USER";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_OauthConsumer = @"OAUTH_CONSUMER";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_PostiniUser = @"POSTINI_USER";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_RbacRole = @"RBAC_ROLE";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_RbacSubject = @"RBAC_SUBJECT";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_ResourceRole = @"RESOURCE_ROLE";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_SigningKeyPossessor = @"SIGNING_KEY_POSSESSOR";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_SimpleSecretHolder = @"SIMPLE_SECRET_HOLDER";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_SocialGraphNode = @"SOCIAL_GRAPH_NODE";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_Square  = @"SQUARE";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_UnusedZwiebackSession = @"UNUSED_ZWIEBACK_SESSION";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_YoutubeUser = @"YOUTUBE_USER";
+NSString * const kGTLRCloudSearch_PrincipalProto_Scope_ZwiebackSession = @"ZWIEBACK_SESSION";
 
 // GTLRCloudSearch_ProcessingError.code
 NSString * const kGTLRCloudSearch_ProcessingError_Code_AclCycle = @"ACL_CYCLE";
@@ -207,6 +1560,41 @@ NSString * const kGTLRCloudSearch_QueryOperator_Type_Text      = @"TEXT";
 NSString * const kGTLRCloudSearch_QueryOperator_Type_Timestamp = @"TIMESTAMP";
 NSString * const kGTLRCloudSearch_QueryOperator_Type_Unknown   = @"UNKNOWN";
 
+// GTLRCloudSearch_QuotedMessageMetadata.botAttachmentState
+NSString * const kGTLRCloudSearch_QuotedMessageMetadata_BotAttachmentState_BotAttachmentStateHasBotAttachment = @"BOT_ATTACHMENT_STATE_HAS_BOT_ATTACHMENT";
+NSString * const kGTLRCloudSearch_QuotedMessageMetadata_BotAttachmentState_BotAttachmentStateNoBotAttachment = @"BOT_ATTACHMENT_STATE_NO_BOT_ATTACHMENT";
+NSString * const kGTLRCloudSearch_QuotedMessageMetadata_BotAttachmentState_BotAttachmentStateUnspecified = @"BOT_ATTACHMENT_STATE_UNSPECIFIED";
+
+// GTLRCloudSearch_QuotedMessageMetadata.messageState
+NSString * const kGTLRCloudSearch_QuotedMessageMetadata_MessageState_MessageStateActive = @"MESSAGE_STATE_ACTIVE";
+NSString * const kGTLRCloudSearch_QuotedMessageMetadata_MessageState_MessageStateDeleted = @"MESSAGE_STATE_DELETED";
+NSString * const kGTLRCloudSearch_QuotedMessageMetadata_MessageState_MessageStateUnspecified = @"MESSAGE_STATE_UNSPECIFIED";
+
+// GTLRCloudSearch_RecordingEvent.type
+NSString * const kGTLRCloudSearch_RecordingEvent_Type_ActiveAboutToStopTooLong = @"ACTIVE_ABOUT_TO_STOP_TOO_LONG";
+NSString * const kGTLRCloudSearch_RecordingEvent_Type_CancelledByUser = @"CANCELLED_BY_USER";
+NSString * const kGTLRCloudSearch_RecordingEvent_Type_CancelledInitializationFailed = @"CANCELLED_INITIALIZATION_FAILED";
+NSString * const kGTLRCloudSearch_RecordingEvent_Type_CancelledInitiatorLeft = @"CANCELLED_INITIATOR_LEFT";
+NSString * const kGTLRCloudSearch_RecordingEvent_Type_RecordingEventUnspecified = @"RECORDING_EVENT_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_RecordingEvent_Type_StartedByUser = @"STARTED_BY_USER";
+NSString * const kGTLRCloudSearch_RecordingEvent_Type_StoppedAllDevicesLeft = @"STOPPED_ALL_DEVICES_LEFT";
+NSString * const kGTLRCloudSearch_RecordingEvent_Type_StoppedByUser = @"STOPPED_BY_USER";
+NSString * const kGTLRCloudSearch_RecordingEvent_Type_StoppedInternalFailures = @"STOPPED_INTERNAL_FAILURES";
+NSString * const kGTLRCloudSearch_RecordingEvent_Type_StoppedTooLong = @"STOPPED_TOO_LONG";
+NSString * const kGTLRCloudSearch_RecordingEvent_Type_UserAction = @"USER_ACTION";
+
+// GTLRCloudSearch_RecordingInfo.recordingApplicationType
+NSString * const kGTLRCloudSearch_RecordingInfo_RecordingApplicationType_Broadcast = @"BROADCAST";
+NSString * const kGTLRCloudSearch_RecordingInfo_RecordingApplicationType_GliveStream = @"GLIVE_STREAM";
+NSString * const kGTLRCloudSearch_RecordingInfo_RecordingApplicationType_Recording = @"RECORDING";
+NSString * const kGTLRCloudSearch_RecordingInfo_RecordingApplicationType_RecordingApplicationTypeUnspecified = @"RECORDING_APPLICATION_TYPE_UNSPECIFIED";
+
+// GTLRCloudSearch_RecordingInfo.recordingStatus
+NSString * const kGTLRCloudSearch_RecordingInfo_RecordingStatus_RecordingInactive = @"RECORDING_INACTIVE";
+NSString * const kGTLRCloudSearch_RecordingInfo_RecordingStatus_RecordingStarted = @"RECORDING_STARTED";
+NSString * const kGTLRCloudSearch_RecordingInfo_RecordingStatus_RecordingStarting = @"RECORDING_STARTING";
+NSString * const kGTLRCloudSearch_RecordingInfo_RecordingStatus_RecordingUnspecified = @"RECORDING_UNSPECIFIED";
+
 // GTLRCloudSearch_RepositoryError.type
 NSString * const kGTLRCloudSearch_RepositoryError_Type_AuthenticationError = @"AUTHENTICATION_ERROR";
 NSString * const kGTLRCloudSearch_RepositoryError_Type_AuthorizationError = @"AUTHORIZATION_ERROR";
@@ -219,12 +1607,67 @@ NSString * const kGTLRCloudSearch_RepositoryError_Type_ServerError = @"SERVER_ER
 NSString * const kGTLRCloudSearch_RepositoryError_Type_ServiceUnavailable = @"SERVICE_UNAVAILABLE";
 NSString * const kGTLRCloudSearch_RepositoryError_Type_Unknown = @"UNKNOWN";
 
+// GTLRCloudSearch_RequiredMessageFeaturesMetadata.requiredFeatures
+NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureMessageQuoting = @"REQUIRED_FEATURE_MESSAGE_QUOTING";
+NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureUnspecified = @"REQUIRED_FEATURE_UNSPECIFIED";
+
 // GTLRCloudSearch_RetrievalImportance.importance
 NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_Default = @"DEFAULT";
 NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_High = @"HIGH";
 NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_Highest = @"HIGHEST";
 NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_Low = @"LOW";
 NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_None = @"NONE";
+
+// GTLRCloudSearch_RoomUpdatedMetadata.initiatorType
+NSString * const kGTLRCloudSearch_RoomUpdatedMetadata_InitiatorType_InitiatorTypeAdmin = @"INITIATOR_TYPE_ADMIN";
+NSString * const kGTLRCloudSearch_RoomUpdatedMetadata_InitiatorType_InitiatorTypeEndUser = @"INITIATOR_TYPE_END_USER";
+NSString * const kGTLRCloudSearch_RoomUpdatedMetadata_InitiatorType_InitiatorTypeUnspecified = @"INITIATOR_TYPE_UNSPECIFIED";
+
+// GTLRCloudSearch_Roster.rosterState
+NSString * const kGTLRCloudSearch_Roster_RosterState_RosterActive = @"ROSTER_ACTIVE";
+NSString * const kGTLRCloudSearch_Roster_RosterState_RosterDeleted = @"ROSTER_DELETED";
+NSString * const kGTLRCloudSearch_Roster_RosterState_RosterStateUnknown = @"ROSTER_STATE_UNKNOWN";
+
+// GTLRCloudSearch_Segment.type
+NSString * const kGTLRCloudSearch_Segment_Type_AllUserMention = @"ALL_USER_MENTION";
+NSString * const kGTLRCloudSearch_Segment_Type_Hashtag        = @"HASHTAG";
+NSString * const kGTLRCloudSearch_Segment_Type_LineBreak      = @"LINE_BREAK";
+NSString * const kGTLRCloudSearch_Segment_Type_Link           = @"LINK";
+NSString * const kGTLRCloudSearch_Segment_Type_Text           = @"TEXT";
+NSString * const kGTLRCloudSearch_Segment_Type_UserMention    = @"USER_MENTION";
+
+// GTLRCloudSearch_SelectionControl.type
+NSString * const kGTLRCloudSearch_SelectionControl_Type_CheckBox = @"CHECK_BOX";
+NSString * const kGTLRCloudSearch_SelectionControl_Type_Dropdown = @"DROPDOWN";
+NSString * const kGTLRCloudSearch_SelectionControl_Type_RadioButton = @"RADIO_BUTTON";
+NSString * const kGTLRCloudSearch_SelectionControl_Type_Switch = @"SWITCH";
+
+// GTLRCloudSearch_SessionEvent.type
+NSString * const kGTLRCloudSearch_SessionEvent_Type_ActiveAboutToStopTooLong = @"ACTIVE_ABOUT_TO_STOP_TOO_LONG";
+NSString * const kGTLRCloudSearch_SessionEvent_Type_CancelledByUser = @"CANCELLED_BY_USER";
+NSString * const kGTLRCloudSearch_SessionEvent_Type_CancelledInitializationFailed = @"CANCELLED_INITIALIZATION_FAILED";
+NSString * const kGTLRCloudSearch_SessionEvent_Type_CancelledInitiatorLeft = @"CANCELLED_INITIATOR_LEFT";
+NSString * const kGTLRCloudSearch_SessionEvent_Type_EventUnspecified = @"EVENT_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_SessionEvent_Type_StartedByUser = @"STARTED_BY_USER";
+NSString * const kGTLRCloudSearch_SessionEvent_Type_StoppedAllDevicesLeft = @"STOPPED_ALL_DEVICES_LEFT";
+NSString * const kGTLRCloudSearch_SessionEvent_Type_StoppedByUser = @"STOPPED_BY_USER";
+NSString * const kGTLRCloudSearch_SessionEvent_Type_StoppedInternalFailures = @"STOPPED_INTERNAL_FAILURES";
+NSString * const kGTLRCloudSearch_SessionEvent_Type_StoppedTooLong = @"STOPPED_TOO_LONG";
+
+// GTLRCloudSearch_SessionStateInfo.sessionState
+NSString * const kGTLRCloudSearch_SessionStateInfo_SessionState_Active = @"ACTIVE";
+NSString * const kGTLRCloudSearch_SessionStateInfo_SessionState_SessionStateUnspecified = @"SESSION_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_SessionStateInfo_SessionState_Starting = @"STARTING";
+NSString * const kGTLRCloudSearch_SessionStateInfo_SessionState_Stopped = @"STOPPED";
+
+// GTLRCloudSearch_SessionStateInfo.sessionStopReason
+NSString * const kGTLRCloudSearch_SessionStateInfo_SessionStopReason_SessionStopReasonUnspecified = @"SESSION_STOP_REASON_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_SessionStateInfo_SessionStopReason_StoppedAllDevicesLeft = @"STOPPED_ALL_DEVICES_LEFT";
+NSString * const kGTLRCloudSearch_SessionStateInfo_SessionStopReason_StoppedInitializationFailed = @"STOPPED_INITIALIZATION_FAILED";
+NSString * const kGTLRCloudSearch_SessionStateInfo_SessionStopReason_StoppedInternalFailures = @"STOPPED_INTERNAL_FAILURES";
+NSString * const kGTLRCloudSearch_SessionStateInfo_SessionStopReason_StoppedTooLong = @"STOPPED_TOO_LONG";
+NSString * const kGTLRCloudSearch_SessionStateInfo_SessionStopReason_StoppedYouTubeLiveEventEnded = @"STOPPED_YOU_TUBE_LIVE_EVENT_ENDED";
+NSString * const kGTLRCloudSearch_SessionStateInfo_SessionStopReason_UserAction = @"USER_ACTION";
 
 // GTLRCloudSearch_ShareScope.scope
 NSString * const kGTLRCloudSearch_ShareScope_Scope_DasherDomain = @"DASHER_DOMAIN";
@@ -233,6 +1676,20 @@ NSString * const kGTLRCloudSearch_ShareScope_Scope_Limited     = @"LIMITED";
 NSString * const kGTLRCloudSearch_ShareScope_Scope_Private     = @"PRIVATE";
 NSString * const kGTLRCloudSearch_ShareScope_Scope_Public      = @"PUBLIC";
 NSString * const kGTLRCloudSearch_ShareScope_Scope_Unknown     = @"UNKNOWN";
+
+// GTLRCloudSearch_SimpleSecretLabelProto.type
+NSString * const kGTLRCloudSearch_SimpleSecretLabelProto_Type_AuthKey = @"AUTH_KEY";
+NSString * const kGTLRCloudSearch_SimpleSecretLabelProto_Type_CapToken = @"CAP_TOKEN";
+NSString * const kGTLRCloudSearch_SimpleSecretLabelProto_Type_GenericSecret = @"GENERIC_SECRET";
+NSString * const kGTLRCloudSearch_SimpleSecretLabelProto_Type_Invalid = @"INVALID";
+NSString * const kGTLRCloudSearch_SimpleSecretLabelProto_Type_Invite = @"INVITE";
+NSString * const kGTLRCloudSearch_SimpleSecretLabelProto_Type_Reke = @"REKE";
+
+// GTLRCloudSearch_SlashCommandMetadata.type
+NSString * const kGTLRCloudSearch_SlashCommandMetadata_Type_Add = @"ADD";
+NSString * const kGTLRCloudSearch_SlashCommandMetadata_Type_FailedToAdd = @"FAILED_TO_ADD";
+NSString * const kGTLRCloudSearch_SlashCommandMetadata_Type_Invoke = @"INVOKE";
+NSString * const kGTLRCloudSearch_SlashCommandMetadata_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRCloudSearch_SortOptions.sortOrder
 NSString * const kGTLRCloudSearch_SortOptions_SortOrder_Ascending = @"ASCENDING";
@@ -254,12 +1711,45 @@ NSString * const kGTLRCloudSearch_SourceScoringConfig_SourceImportance_Default =
 NSString * const kGTLRCloudSearch_SourceScoringConfig_SourceImportance_High = @"HIGH";
 NSString * const kGTLRCloudSearch_SourceScoringConfig_SourceImportance_Low = @"LOW";
 
-// GTLRCloudSearch_SpaceInfo.userMembershipState
-NSString * const kGTLRCloudSearch_SpaceInfo_UserMembershipState_MemberFailed = @"MEMBER_FAILED";
-NSString * const kGTLRCloudSearch_SpaceInfo_UserMembershipState_MemberInvited = @"MEMBER_INVITED";
-NSString * const kGTLRCloudSearch_SpaceInfo_UserMembershipState_MemberJoined = @"MEMBER_JOINED";
-NSString * const kGTLRCloudSearch_SpaceInfo_UserMembershipState_MemberNotAMember = @"MEMBER_NOT_A_MEMBER";
-NSString * const kGTLRCloudSearch_SpaceInfo_UserMembershipState_MemberUnknown = @"MEMBER_UNKNOWN";
+// GTLRCloudSearch_StreamingSessionInfo.applicationType
+NSString * const kGTLRCloudSearch_StreamingSessionInfo_ApplicationType_Broadcast = @"BROADCAST";
+NSString * const kGTLRCloudSearch_StreamingSessionInfo_ApplicationType_GliveStream = @"GLIVE_STREAM";
+NSString * const kGTLRCloudSearch_StreamingSessionInfo_ApplicationType_Recording = @"RECORDING";
+NSString * const kGTLRCloudSearch_StreamingSessionInfo_ApplicationType_RecordingApplicationTypeUnspecified = @"RECORDING_APPLICATION_TYPE_UNSPECIFIED";
+
+// GTLRCloudSearch_StreamingSessionInfo.status
+NSString * const kGTLRCloudSearch_StreamingSessionInfo_Status_Inactive = @"INACTIVE";
+NSString * const kGTLRCloudSearch_StreamingSessionInfo_Status_Live = @"LIVE";
+NSString * const kGTLRCloudSearch_StreamingSessionInfo_Status_Starting = @"STARTING";
+NSString * const kGTLRCloudSearch_StreamingSessionInfo_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
+
+// GTLRCloudSearch_StreamingSessionInfo.viewerAccessPolicy
+NSString * const kGTLRCloudSearch_StreamingSessionInfo_ViewerAccessPolicy_BroadcastingAccessPolicyUnspecified = @"BROADCASTING_ACCESS_POLICY_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_StreamingSessionInfo_ViewerAccessPolicy_Organization = @"ORGANIZATION";
+NSString * const kGTLRCloudSearch_StreamingSessionInfo_ViewerAccessPolicy_Public = @"PUBLIC";
+
+// GTLRCloudSearch_SwitchWidget.controlType
+NSString * const kGTLRCloudSearch_SwitchWidget_ControlType_Checkbox = @"CHECKBOX";
+NSString * const kGTLRCloudSearch_SwitchWidget_ControlType_Switch = @"SWITCH";
+NSString * const kGTLRCloudSearch_SwitchWidget_ControlType_Unspecified = @"UNSPECIFIED";
+
+// GTLRCloudSearch_TextButton.style
+NSString * const kGTLRCloudSearch_TextButton_Style_Filled      = @"FILLED";
+NSString * const kGTLRCloudSearch_TextButton_Style_Text        = @"TEXT";
+NSString * const kGTLRCloudSearch_TextButton_Style_Unspecified = @"UNSPECIFIED";
+
+// GTLRCloudSearch_TextField.type
+NSString * const kGTLRCloudSearch_TextField_Type_MultipleLine = @"MULTIPLE_LINE";
+NSString * const kGTLRCloudSearch_TextField_Type_SingleLine   = @"SINGLE_LINE";
+
+// GTLRCloudSearch_TombstoneMetadata.tombstoneType
+NSString * const kGTLRCloudSearch_TombstoneMetadata_TombstoneType_Admin = @"ADMIN";
+NSString * const kGTLRCloudSearch_TombstoneMetadata_TombstoneType_AppMessageExpiry = @"APP_MESSAGE_EXPIRY";
+NSString * const kGTLRCloudSearch_TombstoneMetadata_TombstoneType_Creator = @"CREATOR";
+NSString * const kGTLRCloudSearch_TombstoneMetadata_TombstoneType_CreatorViaApp = @"CREATOR_VIA_APP";
+NSString * const kGTLRCloudSearch_TombstoneMetadata_TombstoneType_RoomOwner = @"ROOM_OWNER";
+NSString * const kGTLRCloudSearch_TombstoneMetadata_TombstoneType_RoomOwnerViaApp = @"ROOM_OWNER_VIA_APP";
+NSString * const kGTLRCloudSearch_TombstoneMetadata_TombstoneType_TombstoneUnspecified = @"TOMBSTONE_UNSPECIFIED";
 
 // GTLRCloudSearch_UnmappedIdentity.resolutionStatusCode
 NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_CodeUnspecified = @"CODE_UNSPECIFIED";
@@ -269,9 +1759,132 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_Internal
 NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_NotFound = @"NOT_FOUND";
 NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyMappingsFound = @"TOO_MANY_MAPPINGS_FOUND";
 
+// GTLRCloudSearch_UploadMetadata.clonedDriveAction
+NSString * const kGTLRCloudSearch_UploadMetadata_ClonedDriveAction_AddAnotherShortcut = @"ADD_ANOTHER_SHORTCUT";
+NSString * const kGTLRCloudSearch_UploadMetadata_ClonedDriveAction_AddShortcut = @"ADD_SHORTCUT";
+NSString * const kGTLRCloudSearch_UploadMetadata_ClonedDriveAction_AddToDrive = @"ADD_TO_DRIVE";
+NSString * const kGTLRCloudSearch_UploadMetadata_ClonedDriveAction_DriveActionUnspecified = @"DRIVE_ACTION_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_UploadMetadata_ClonedDriveAction_Organize = @"ORGANIZE";
+
+// GTLRCloudSearch_UploadMetadata.virusScanResult
+NSString * const kGTLRCloudSearch_UploadMetadata_VirusScanResult_Clean = @"CLEAN";
+NSString * const kGTLRCloudSearch_UploadMetadata_VirusScanResult_Error = @"ERROR";
+NSString * const kGTLRCloudSearch_UploadMetadata_VirusScanResult_Infected = @"INFECTED";
+NSString * const kGTLRCloudSearch_UploadMetadata_VirusScanResult_PolicyViolation = @"POLICY_VIOLATION";
+NSString * const kGTLRCloudSearch_UploadMetadata_VirusScanResult_UnknownVirusScanResult = @"UNKNOWN_VIRUS_SCAN_RESULT";
+
+// GTLRCloudSearch_User.userAccountState
+NSString * const kGTLRCloudSearch_User_UserAccountState_Deleted = @"DELETED";
+NSString * const kGTLRCloudSearch_User_UserAccountState_Disabled = @"DISABLED";
+NSString * const kGTLRCloudSearch_User_UserAccountState_Enabled = @"ENABLED";
+NSString * const kGTLRCloudSearch_User_UserAccountState_TemporaryUnavailable = @"TEMPORARY_UNAVAILABLE";
+NSString * const kGTLRCloudSearch_User_UserAccountState_UnknownUserAccountState = @"UNKNOWN_USER_ACCOUNT_STATE";
+
+// GTLRCloudSearch_User.userProfileVisibility
+NSString * const kGTLRCloudSearch_User_UserProfileVisibility_DeletedUser = @"DELETED_USER";
+NSString * const kGTLRCloudSearch_User_UserProfileVisibility_Failure = @"FAILURE";
+NSString * const kGTLRCloudSearch_User_UserProfileVisibility_FullProfile = @"FULL_PROFILE";
+NSString * const kGTLRCloudSearch_User_UserProfileVisibility_InviteeEmail = @"INVITEE_EMAIL";
+NSString * const kGTLRCloudSearch_User_UserProfileVisibility_PrimaryMail = @"PRIMARY_MAIL";
+NSString * const kGTLRCloudSearch_User_UserProfileVisibility_UnknownUser = @"UNKNOWN_USER";
+NSString * const kGTLRCloudSearch_User_UserProfileVisibility_UnknownUserProfileVisibility = @"UNKNOWN_USER_PROFILE_VISIBILITY";
+
 // GTLRCloudSearch_UserId.type
 NSString * const kGTLRCloudSearch_UserId_Type_Bot   = @"BOT";
 NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
+
+// GTLRCloudSearch_UserInfo.updaterCountDisplayType
+NSString * const kGTLRCloudSearch_UserInfo_UpdaterCountDisplayType_ExactCount = @"EXACT_COUNT";
+NSString * const kGTLRCloudSearch_UserInfo_UpdaterCountDisplayType_NonzeroCount = @"NONZERO_COUNT";
+NSString * const kGTLRCloudSearch_UserInfo_UpdaterCountDisplayType_UpdaterCountDisplayTypeUnspecified = @"UPDATER_COUNT_DISPLAY_TYPE_UNSPECIFIED";
+
+// GTLRCloudSearch_UserMentionMetadata.type
+NSString * const kGTLRCloudSearch_UserMentionMetadata_Type_FailedToAdd = @"FAILED_TO_ADD";
+NSString * const kGTLRCloudSearch_UserMentionMetadata_Type_Invite = @"INVITE";
+NSString * const kGTLRCloudSearch_UserMentionMetadata_Type_Mention = @"MENTION";
+NSString * const kGTLRCloudSearch_UserMentionMetadata_Type_MentionAll = @"MENTION_ALL";
+NSString * const kGTLRCloudSearch_UserMentionMetadata_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_UserMentionMetadata_Type_Uninvite = @"UNINVITE";
+
+// GTLRCloudSearch_VoicePhoneNumberI18nData.validationResult
+NSString * const kGTLRCloudSearch_VoicePhoneNumberI18nData_ValidationResult_InvalidCountryCode = @"INVALID_COUNTRY_CODE";
+NSString * const kGTLRCloudSearch_VoicePhoneNumberI18nData_ValidationResult_InvalidLength = @"INVALID_LENGTH";
+NSString * const kGTLRCloudSearch_VoicePhoneNumberI18nData_ValidationResult_IsPossible = @"IS_POSSIBLE";
+NSString * const kGTLRCloudSearch_VoicePhoneNumberI18nData_ValidationResult_IsPossibleLocalOnly = @"IS_POSSIBLE_LOCAL_ONLY";
+NSString * const kGTLRCloudSearch_VoicePhoneNumberI18nData_ValidationResult_TooLong = @"TOO_LONG";
+NSString * const kGTLRCloudSearch_VoicePhoneNumberI18nData_ValidationResult_TooShort = @"TOO_SHORT";
+NSString * const kGTLRCloudSearch_VoicePhoneNumberI18nData_ValidationResult_Unknown = @"UNKNOWN";
+
+// GTLRCloudSearch_WidgetMarkup.horizontalAlignment
+NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Center = @"CENTER";
+NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_End = @"END";
+NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_HorizontalAlignmentUnspecified = @"HORIZONTAL_ALIGNMENT_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"START";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AbuseReportingConfig
+//
+
+@implementation GTLRCloudSearch_AbuseReportingConfig
+@dynamic recordingAllowed, writtenUgcAllowed;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AckInfo
+//
+
+@implementation GTLRCloudSearch_AckInfo
+@dynamic unackedDeviceCount, unackedDeviceIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"unackedDeviceIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AclFixRequest
+//
+
+@implementation GTLRCloudSearch_AclFixRequest
+@dynamic recipientEmails, role, shouldFix;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"recipientEmails" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AclFixStatus
+//
+
+@implementation GTLRCloudSearch_AclFixStatus
+@dynamic fixability, fixableEmailAddress, outOfDomainWarningEmailAddress;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fixableEmailAddress" : [NSString class],
+    @"outOfDomainWarningEmailAddress" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -280,6 +1893,54 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 @implementation GTLRCloudSearch_AclInfo
 @dynamic groupsCount, scope, usersCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ActionParameter
+//
+
+@implementation GTLRCloudSearch_ActionParameter
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AffectedMembership
+//
+
+@implementation GTLRCloudSearch_AffectedMembership
+@dynamic affectedMember, priorMembershipRole, priorMembershipState,
+         targetMembershipRole;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AllAuthenticatedUsersProto
+//
+
+@implementation GTLRCloudSearch_AllAuthenticatedUsersProto
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_Annotation
+//
+
+@implementation GTLRCloudSearch_Annotation
+@dynamic babelPlaceholderMetadata, cardCapabilityMetadata, chipRenderType,
+         consentedAppUnfurlMetadata, customEmojiMetadata,
+         dataLossPreventionMetadata, driveMetadata, formatMetadata,
+         groupRetentionSettingsUpdated, gsuiteIntegrationMetadata,
+         incomingWebhookChangedMetadata, integrationConfigUpdated, length,
+         localId, membershipChanged, readReceiptsSettingsMetadata,
+         requiredMessageFeaturesMetadata, roomUpdated, serverInvalidated,
+         slashCommandMetadata, startIndex, type, uniqueId, uploadMetadata,
+         urlMetadata, userMentionMetadata, videoCallMetadata, youtubeMetadata;
 @end
 
 
@@ -300,6 +1961,1165 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_AppsDynamiteSharedAction
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedAction
+@dynamic function, interaction, loadIndicator, parameters;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"parameters" : [GTLRCloudSearch_AppsDynamiteSharedActionActionParameter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedActionActionParameter
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedActionActionParameter
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationData
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationData
+@dynamic activityFeedMessageId, chatItem, sharedUserInfo, userInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationDataUserInfo
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationDataUserInfo
+@dynamic updaterCountDisplayType, updaterCountToShow, updaterToShow;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedAppProfile
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedAppProfile
+@dynamic avatarEmoji, avatarUrl, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedAssistantAnnotationData
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedAssistantAnnotationData
+@dynamic suggestion, unfulfillable;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedAssistantDebugContext
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedAssistantDebugContext
+@dynamic query;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContext
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContext
+@dynamic feedbackChips, thumbsFeedback;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"feedbackChips" : [GTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedAssistantFeedbackContextFeedbackChip
+@dynamic feedbackChipType, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedAssistantSessionContext
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedAssistantSessionContext
+@dynamic contextualSessionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedAssistantSuggestion
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedAssistantSuggestion
+@dynamic debugContext, feedbackContext, findDocumentSuggestion,
+         serializedSuggestions, sessionContext;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedAssistantUnfulfillableRequest
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedAssistantUnfulfillableRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedAvatarInfo
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedAvatarInfo
+@dynamic emoji;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedBackendUploadMetadata
+@dynamic blobPath, contentName, contentSize, contentType, dlpScanOutcome,
+         dlpScanSummary, groupId, originalDimension, quoteReplyMessageId,
+         sha256, uploadIp, uploadTimestampUsec, videoId, videoThumbnailBlobId,
+         virusScanResult;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedBorderStyle
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedBorderStyle
+@dynamic cornerRadius, strokeColor, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedButton
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedButton
+@dynamic altText, color, disabled, icon, onClick, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedButtonList
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedButtonList
+@dynamic buttons;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"buttons" : [GTLRCloudSearch_AppsDynamiteSharedButton class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedCalendarEventAnnotationData
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedCalendarEventAnnotationData
+@dynamic calendarEvent, eventCreation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedCalendarEventAnnotationDataCalendarEvent
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedCalendarEventAnnotationDataCalendarEvent
+@dynamic endTime, eventId, startTime, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedCalendarEventAnnotationDataCalendarEventTime
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedCalendarEventAnnotationDataCalendarEventTime
+@dynamic allDay, timed;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedCalendarEventAnnotationDataEventCreation
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedCalendarEventAnnotationDataEventCreation
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedCallAnnotationData
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedCallAnnotationData
+@dynamic callEndedTimestamp, callMetadata, callStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedCallMetadata
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedCallMetadata
+@dynamic meetMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedCard
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedCard
+@dynamic cardActions, header, name, sections;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cardActions" : [GTLRCloudSearch_AppsDynamiteSharedCardCardAction class],
+    @"sections" : [GTLRCloudSearch_AppsDynamiteSharedCardSection class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedCardCardAction
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedCardCardAction
+@dynamic actionLabel, onClick;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedCardCardHeader
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedCardCardHeader
+@dynamic imageAltText, imageType, imageUrl, subtitle, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedCardClickSuggestion
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedCardClickSuggestion
+@dynamic actionId, suggestionMessageId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedCardSection
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedCardSection
+@dynamic collapsible, header, uncollapsibleWidgetsCount, widgets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"widgets" : [GTLRCloudSearch_AppsDynamiteSharedWidget class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedChatItem
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedChatItem
+@dynamic activityInfo, groupInfo, messageInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"activityInfo" : [GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfo
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfo
+@dynamic feedItemNudge, feedItemReactions, feedItemThreadReply,
+         feedItemUserMention;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemNudge
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemNudge
+@dynamic nudgeType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemReactions
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemReactions
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemThreadReply
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemThreadReply
+@dynamic replyType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemUserMention
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedChatItemActivityInfoFeedItemUserMention
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo
+@dynamic attributeCheckerGroupType, groupName, groupReadTimeUsec,
+         inlineThreadingEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedColumns
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedColumns
+@dynamic columnItems, wrapStyle;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"columnItems" : [GTLRCloudSearch_AppsDynamiteSharedColumnsColumn class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedColumnsColumn
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedColumnsColumn
+@dynamic horizontalAlignment, horizontalSizeStyle, verticalAlignment, widgets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"widgets" : [GTLRCloudSearch_AppsDynamiteSharedColumnsColumnWidgets class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedColumnsColumnWidgets
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedColumnsColumnWidgets
+@dynamic buttonList, dateTimePicker, decoratedText, image, selectionInput,
+         textInput, textParagraph;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedContentReportType
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedContentReportType
+@dynamic systemViolation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedCustomEmoji
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedCustomEmoji
+@dynamic blobId, contentType, createTimeMicros, creatorUserId, deleteTimeMicros,
+         ephemeralUrl, ownerCustomerId, readToken, shortcode, state,
+         updateTimeMicros, uuid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedDateTimePicker
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedDateTimePicker
+@dynamic label, name, onChangeAction, timezoneOffsetDate, type, valueMsEpoch;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedDecoratedText
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedDecoratedText
+@dynamic bottomLabel, button, endIcon, icon, onClick, startIcon, switchControl,
+         text, topLabel, wrapText;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedDecoratedTextSwitchControl
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedDecoratedTextSwitchControl
+@dynamic controlType, name, onChangeAction, selected, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedDimension
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedDimension
+@dynamic height, width;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedDivider
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedDivider
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedDlpMetricsMetadata
+@dynamic dlpStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedDocument
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedDocument
+@dynamic fileId, justification, lastModifiedTime, mimeType, title, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedEmoji
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedEmoji
+@dynamic customEmoji, unicode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedFindDocumentSuggestion
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedFindDocumentSuggestion
+@dynamic documentSuggestions, showActionButtons;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"documentSuggestions" : [GTLRCloudSearch_AppsDynamiteSharedDocument class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedGrid
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedGrid
+@dynamic borderStyle, columnCount, items, onClick, title;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCloudSearch_AppsDynamiteSharedGridGridItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedGridGridItem
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedGridGridItem
+@dynamic identifier, image, layout, subtitle, textAlignment, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedGroupDetails
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedGroupDetails
+@dynamic descriptionProperty, guidelines;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedGroupVisibility
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedGroupVisibility
+@dynamic state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedIcon
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedIcon
+@dynamic altText, iconUrl, imageType, knownIcon;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedImage
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedImage
+@dynamic altText, imageUrl, onClick;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedImageComponent
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedImageComponent
+@dynamic altText, borderStyle, cropStyle, imageUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedImageCropStyle
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedImageCropStyle
+@dynamic aspectRatio, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedJustification
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedJustification
+@dynamic actionTime, actionType, documentOwner, topics;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"topics" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedJustificationPerson
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedJustificationPerson
+@dynamic isRecipient, user;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedMeetMetadata
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedMeetMetadata
+@dynamic meetingCode, meetingUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedMessageInfo
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedMessageInfo
+@dynamic messageId, topicReadTimeUsec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedMessageIntegrationPayload
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedMessageIntegrationPayload
+@dynamic projectNumber, tasksMessageIntegrationPayload, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedOnClick
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedOnClick
+@dynamic action, openDynamicLinkAction, openLink;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedOpenLink
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedOpenLink
+@dynamic appUri, onClose, openAs, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedOpenLinkAppUri
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedOpenLinkAppUri
+@dynamic androidIntent, companionUri, iosUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedOpenLinkAppUriIntent
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedOpenLinkAppUriIntent
+@dynamic extraData, intentAction;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraData" : [GTLRCloudSearch_AppsDynamiteSharedOpenLinkAppUriIntentExtraData class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedOpenLinkAppUriIntentExtraData
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedOpenLinkAppUriIntentExtraData
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedOrganizationInfo
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedOrganizationInfo
+@dynamic consumerInfo, customerInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedOrganizationInfoConsumerInfo
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedOrganizationInfoConsumerInfo
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedOrganizationInfoCustomerInfo
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedOrganizationInfoCustomerInfo
+@dynamic customerId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedOriginAppSuggestion
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedOriginAppSuggestion
+@dynamic appId, cardClickSuggestion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedPhoneNumber
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedPhoneNumber
+@dynamic type, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedReaction
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedReaction
+@dynamic count, createTimestamp, currentUserParticipated, emoji;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedRetentionSettings
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedRetentionSettings
+@dynamic expiryTimestamp, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedSelectionInput
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedSelectionInput
+@dynamic items, label, name, onChangeAction, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCloudSearch_AppsDynamiteSharedSelectionInputSelectionItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedSelectionInputSelectionItem
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedSelectionInputSelectionItem
+@dynamic selected, text, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedSpaceInfo
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedSpaceInfo
+@dynamic avatarInfo, avatarUrl, descriptionProperty, groupId, inviterEmail,
+         isExternal, name, numMembers, userMembershipState;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedSuggestions
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedSuggestions
+@dynamic items;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCloudSearch_AppsDynamiteSharedSuggestionsSuggestionItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedSuggestionsSuggestionItem
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedSuggestionsSuggestionItem
+@dynamic text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationData
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationData
+@dynamic assigneeChange, completionChange, creation, deletionChange, taskId,
+         taskProperties, userDefinedMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataAssigneeChange
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataAssigneeChange
+@dynamic oldAssignee;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataCompletionChange
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataCompletionChange
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataCreation
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataCreation
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataDeletionChange
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataDeletionChange
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataTaskProperties
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataTaskProperties
+@dynamic assignee, completed, deleted, descriptionProperty, startDate,
+         startTime, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataUserDefinedMessage
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedTasksAnnotationDataUserDefinedMessage
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedTasksMessageIntegrationPayload
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedTasksMessageIntegrationPayload
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedTextInput
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedTextInput
+@dynamic autoCompleteAction, hintText, initialSuggestions, label, name,
+         onChangeAction, type, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedTextParagraph
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedTextParagraph
+@dynamic text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedUserBlockRelationship
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedUserBlockRelationship
+@dynamic hasBlockedRequester, isBlockedByRequester;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedVideoReference
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedVideoReference
+@dynamic format, status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"format" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedWidget
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedWidget
+@dynamic buttonList, columns, dateTimePicker, decoratedText, divider, grid,
+         horizontalAlignment, image, selectionInput, textInput, textParagraph;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteV1ApiCompatV1Action
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteV1ApiCompatV1Action
+@dynamic confirm, name, style, text, type, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteV1ApiCompatV1ActionConfirm
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteV1ApiCompatV1ActionConfirm
+@dynamic dismissText, okText, text, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"dismissText" : @"dismiss_text",
+    @"okText" : @"ok_text"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteV1ApiCompatV1Attachment
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteV1ApiCompatV1Attachment
+@dynamic actions, attachmentType, authorIcon, authorLink, authorName,
+         callbackId, color, fallback, fields, footer, footerIcon, imageUrl,
+         mrkdwnIn, pretext, text, thumbUrl, title, titleLink, ts;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"attachmentType" : @"attachment_type",
+    @"authorIcon" : @"author_icon",
+    @"authorLink" : @"author_link",
+    @"authorName" : @"author_name",
+    @"callbackId" : @"callback_id",
+    @"footerIcon" : @"footer_icon",
+    @"imageUrl" : @"image_url",
+    @"mrkdwnIn" : @"mrkdwn_in",
+    @"thumbUrl" : @"thumb_url",
+    @"titleLink" : @"title_link"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"actions" : [GTLRCloudSearch_AppsDynamiteV1ApiCompatV1Action class],
+    @"fields" : [GTLRCloudSearch_AppsDynamiteV1ApiCompatV1Field class],
+    @"mrkdwn_in" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteV1ApiCompatV1Field
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteV1ApiCompatV1Field
+@dynamic shortProperty, title, value;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"shortProperty" : @"short" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_Attachment
+//
+
+@implementation GTLRCloudSearch_Attachment
+@dynamic addOnData, appId, attachmentId, cardAddOnData, deprecatedAddOnData,
+         slackData, slackDataImageUrlHeight;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_AuditLoggingSettings
 //
 
@@ -310,11 +3130,65 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_AvatarInfo
+//   GTLRCloudSearch_AuthorizedItemId
 //
 
-@implementation GTLRCloudSearch_AvatarInfo
-@dynamic emoji;
+@implementation GTLRCloudSearch_AuthorizedItemId
+@dynamic identifier, resourceKey;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AutoComplete
+//
+
+@implementation GTLRCloudSearch_AutoComplete
+@dynamic items;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCloudSearch_AutoCompleteItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AutoCompleteItem
+//
+
+@implementation GTLRCloudSearch_AutoCompleteItem
+@dynamic text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_BabelMessageProps
+//
+
+@implementation GTLRCloudSearch_BabelMessageProps
+@dynamic clientGeneratedId, contentExtension, deliveryMedium, eventId,
+         messageContent, wasUpdatedByBackfill;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_BabelPlaceholderMetadata
+//
+
+@implementation GTLRCloudSearch_BabelPlaceholderMetadata
+@dynamic deleteMetadata, editMetadata, hangoutVideoMetadata;
 @end
 
 
@@ -340,11 +3214,403 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_BorderStyle
+//
+
+@implementation GTLRCloudSearch_BorderStyle
+@dynamic cornerRadius, strokeColor, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_BotInfo
+//
+
+@implementation GTLRCloudSearch_BotInfo
+@dynamic appId, botAvatarUrl, botName, descriptionProperty, developerName,
+         marketPlaceBannerUrl, status, supportedUses, supportUrls,
+         whitelistStatus;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"supportedUses" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_BotResponse
+//
+
+@implementation GTLRCloudSearch_BotResponse
+@dynamic botId, requiredAction, responseType, setupUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_BroadcastAccess
+//
+
+@implementation GTLRCloudSearch_BroadcastAccess
+@dynamic accessPolicy, viewUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_BroadcastSessionInfo
+//
+
+@implementation GTLRCloudSearch_BroadcastSessionInfo
+@dynamic broadcastSessionId, broadcastStats, ingestionId, sessionStateInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_BroadcastStats
+//
+
+@implementation GTLRCloudSearch_BroadcastStats
+@dynamic estimatedViewerCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_Button
+//
+
+@implementation GTLRCloudSearch_Button
+@dynamic imageButton, textButton;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_CallInfo
+//
+
+@implementation GTLRCloudSearch_CallInfo
+@dynamic abuseReportingConfig, artifactOwner, attachedDocuments,
+         availableReactions, broadcastSessionInfo, calendarEventId, chatConfig,
+         coActivity, collaboration, cseInfo, maxJoinedDevices, mediaBackendInfo,
+         organizationName, paygateInfo, presenter, recordingInfo,
+         recordingSessionInfo, settings, streamingSessions,
+         transcriptionSessionInfo, viewerCount, youTubeBroadcastSessionInfos;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attachedDocuments" : [GTLRCloudSearch_DocumentInfo class],
+    @"availableReactions" : [GTLRCloudSearch_ReactionInfo class],
+    @"streamingSessions" : [GTLRCloudSearch_StreamingSessionInfo class],
+    @"youTubeBroadcastSessionInfos" : [GTLRCloudSearch_YouTubeBroadcastSessionInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_CallSettings
+//
+
+@implementation GTLRCloudSearch_CallSettings
+@dynamic accessLock, attendanceReportEnabled, audioLock, chatLock, cseEnabled,
+         moderationEnabled, presentLock, projectDinoEnabled, reactionsLock,
+         videoLock;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_CapTokenHolderProto
+//
+
+@implementation GTLRCloudSearch_CapTokenHolderProto
+@dynamic tokenHmacSha1Prefix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_Card
+//
+
+@implementation GTLRCloudSearch_Card
+@dynamic cardActions, displayStyle, fixedFooter, header, name, peekCardHeader,
+         sections;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cardActions" : [GTLRCloudSearch_CardAction class],
+    @"sections" : [GTLRCloudSearch_Section class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_CardAction
+//
+
+@implementation GTLRCloudSearch_CardAction
+@dynamic actionLabel, onClick;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_CardCapabilityMetadata
+//
+
+@implementation GTLRCloudSearch_CardCapabilityMetadata
+@dynamic requiredCapabilities;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requiredCapabilities" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_CardHeader
+//
+
+@implementation GTLRCloudSearch_CardHeader
+@dynamic imageAltText, imageStyle, imageUrl, subtitle, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ChatConfig
+//
+
+@implementation GTLRCloudSearch_ChatConfig
+@dynamic chatType, googleChatConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadata
+//
+
+@implementation GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadata
+@dynamic attachmentMetadata, botMessageMetadata, calendarEventMetadata,
+         deleteMetadata, editMetadata, spaceUrl, tasksMetadata,
+         videoCallMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataAttachmentMetadata
+//
+
+@implementation GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataAttachmentMetadata
+@dynamic filename;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataBotMessageMetadata
+//
+
+@implementation GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataBotMessageMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataCalendarEventMetadata
+//
+
+@implementation GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataCalendarEventMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataDeleteMetadata
+//
+
+@implementation GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataDeleteMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataEditMetadata
+//
+
+@implementation GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataEditMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataTasksMetadata
+//
+
+@implementation GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataTasksMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataVideoCallMetadata
+//
+
+@implementation GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataVideoCallMetadata
+@dynamic meetingUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ChatConserverMessageContent
+//
+
+@implementation GTLRCloudSearch_ChatConserverMessageContent
+@dynamic attachment, segment;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attachment" : [GTLRCloudSearch_SocialCommonAttachmentAttachment class],
+    @"segment" : [GTLRCloudSearch_Segment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ChatContentExtension
+//
+
+@implementation GTLRCloudSearch_ChatContentExtension
+@dynamic annotation, dynamitePlaceholderMetadata, eventOtrStatus,
+         groupLinkSharingModificationEvent, hangoutEvent, inviteAcceptedEvent,
+         membershipChangeEvent, otrChatMessageEvent, otrModificationEvent,
+         renameEvent;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"annotation" : [GTLRCloudSearch_EventAnnotation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ChatProto
+//
+
+@implementation GTLRCloudSearch_ChatProto
+@dynamic chatId, memberType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_CheckAccessResponse
 //
 
 @implementation GTLRCloudSearch_CheckAccessResponse
 @dynamic hasAccess;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_CircleProto
+//
+
+@implementation GTLRCloudSearch_CircleProto
+@dynamic circleId, ownerGaiaId, requiredConsistencyTimestampUsec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_CloudPrincipalProto
+//
+
+@implementation GTLRCloudSearch_CloudPrincipalProto
+@dynamic identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_CoActivity
+//
+
+@implementation GTLRCloudSearch_CoActivity
+@dynamic activityTitle, coActivityApp;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_Collaboration
+//
+
+@implementation GTLRCloudSearch_Collaboration
+@dynamic attachmentId, initiator, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_Color
+//
+
+@implementation GTLRCloudSearch_Color
+@dynamic alpha, blue, green, red;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_CommunalLabelTag
+//
+
+@implementation GTLRCloudSearch_CommunalLabelTag
+@dynamic creatorUserId, labelId;
 @end
 
 
@@ -368,6 +3634,57 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_ConsentedAppUnfurlMetadata
+//
+
+@implementation GTLRCloudSearch_ConsentedAppUnfurlMetadata
+@dynamic clientSpecifiedAppId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ContactGroupProto
+//
+
+@implementation GTLRCloudSearch_ContactGroupProto
+@dynamic groupId, ownerGaiaId, requiredConsistencyTimestampUsec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ContentReport
+//
+
+@implementation GTLRCloudSearch_ContentReport
+@dynamic reportCreateTimestamp, reporterUserId, reportJustification, reportType,
+         revisionCreateTimestamp;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ContentReportJustification
+//
+
+@implementation GTLRCloudSearch_ContentReportJustification
+@dynamic userJustification;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ContentReportSummary
+//
+
+@implementation GTLRCloudSearch_ContentReportSummary
+@dynamic numberReports, numberReportsAllRevisions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_ContextAttribute
 //
 
@@ -386,13 +3703,39 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_CustomEmoji
+//   GTLRCloudSearch_ContextualAddOnMarkup
 //
 
-@implementation GTLRCloudSearch_CustomEmoji
-@dynamic blobId, contentType, createTimeMicros, creatorUserId, deleteTimeMicros,
-         ephemeralUrl, ownerCustomerId, readToken, shortcode, state,
-         updateTimeMicros, uuid;
+@implementation GTLRCloudSearch_ContextualAddOnMarkup
+@dynamic cards, toolbar;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cards" : [GTLRCloudSearch_Card class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_CseInfo
+//
+
+@implementation GTLRCloudSearch_CseInfo
+@dynamic cseDomain, wrappedKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_CustomEmojiMetadata
+//
+
+@implementation GTLRCloudSearch_CustomEmojiMetadata
+@dynamic customEmoji;
 @end
 
 
@@ -480,6 +3823,16 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 @implementation GTLRCloudSearch_CustomerUserStats
 @dynamic date, oneDayActiveUsersCount, sevenDaysActiveUsersCount,
          thirtyDaysActiveUsersCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_DataLossPreventionMetadata
+//
+
+@implementation GTLRCloudSearch_DataLossPreventionMetadata
+@dynamic dlpScanSummary, warnAcknowledged;
 @end
 
 
@@ -573,6 +3926,16 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_DateTimePicker
+//
+
+@implementation GTLRCloudSearch_DateTimePicker
+@dynamic label, name, onChange, timezoneOffsetDate, type, valueMsEpoch;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_DateValues
 //
 
@@ -601,11 +3964,48 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_DeepLinkData
+//
+
+@implementation GTLRCloudSearch_DeepLinkData
+@dynamic appId, client, deepLinkId, url;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"client" : [GTLRCloudSearch_PackagingServiceClient class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_DeleteMetadata
+//
+
+@implementation GTLRCloudSearch_DeleteMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_DeleteQueueItemsRequest
 //
 
 @implementation GTLRCloudSearch_DeleteQueueItemsRequest
 @dynamic connectorName, debugOptions, queue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_DeliveryMedium
+//
+
+@implementation GTLRCloudSearch_DeliveryMedium
+@dynamic mediumType, selfPhone;
 @end
 
 
@@ -621,11 +4021,40 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_Divider
+//
+
+@implementation GTLRCloudSearch_Divider
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_DlpScanSummary
+//
+
+@implementation GTLRCloudSearch_DlpScanSummary
+@dynamic scanId, scanNotApplicableForContext, scanOutcome;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_DmId
 //
 
 @implementation GTLRCloudSearch_DmId
 @dynamic dmId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_DocumentInfo
+//
+
+@implementation GTLRCloudSearch_DocumentInfo
+@dynamic whiteboardInfo;
 @end
 
 
@@ -689,6 +4118,26 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_DriveMetadata
+//
+
+@implementation GTLRCloudSearch_DriveMetadata
+@dynamic aclFixRequest, aclFixStatus, canEdit, canShare, canView, driveAction,
+         driveState, embedUrl, encryptedDocId, encryptedResourceKey,
+         externalMimetype, identifier, isDownloadRestricted, isOwner,
+         legacyUploadMetadata, mimetype, organizationDisplayName,
+         shortcutAuthorizedItemId, shouldNotRender, thumbnailHeight,
+         thumbnailUrl, thumbnailWidth, title, urlFragment, wrappedResourceKey;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_DriveMimeTypeRestrict
 //
 
@@ -725,21 +4174,53 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_EmailAddress
+//   GTLRCloudSearch_EditMetadata
 //
 
-@implementation GTLRCloudSearch_EmailAddress
-@dynamic emailAddress;
+@implementation GTLRCloudSearch_EditMetadata
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_Emoji
+//   GTLRCloudSearch_EmailAddress
 //
 
-@implementation GTLRCloudSearch_Emoji
-@dynamic customEmoji, unicode;
+@implementation GTLRCloudSearch_EmailAddress
+@dynamic customType, emailAddress, emailUrl, primary, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EmailOwnerProto
+//
+
+@implementation GTLRCloudSearch_EmailOwnerProto
+@dynamic email;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EmbedClientItem
+//
+
+@implementation GTLRCloudSearch_EmbedClientItem
+@dynamic canonicalId, deepLinkData, identifier, provenance, renderId, signature,
+         transientData, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"type" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -829,6 +4310,26 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_EventAnnotation
+//
+
+@implementation GTLRCloudSearch_EventAnnotation
+@dynamic type, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_EventProto
+//
+
+@implementation GTLRCloudSearch_EventProto
+@dynamic eventId, memberType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_FacetBucket
 //
 
@@ -902,11 +4403,107 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_FixedFooter
+//
+
+@implementation GTLRCloudSearch_FixedFooter
+@dynamic buttons, primaryButton, secondaryButton;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"buttons" : [GTLRCloudSearch_Button class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_FormAction
+//
+
+@implementation GTLRCloudSearch_FormAction
+@dynamic actionMethodName, loadIndicator, parameters, persistValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"parameters" : [GTLRCloudSearch_ActionParameter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_FormatMetadata
+//
+
+@implementation GTLRCloudSearch_FormatMetadata
+@dynamic fontColor, formatType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_Formatting
+//
+
+@implementation GTLRCloudSearch_Formatting
+@dynamic bold, highlight, italics, strikethrough, style, underline;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_FreshnessOptions
 //
 
 @implementation GTLRCloudSearch_FreshnessOptions
 @dynamic freshnessDuration, freshnessProperty;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GaiaGroupProto
+//
+
+@implementation GTLRCloudSearch_GaiaGroupProto
+@dynamic groupId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GaiaUserProto
+//
+
+@implementation GTLRCloudSearch_GaiaUserProto
+@dynamic userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GatewayAccess
+//
+
+@implementation GTLRCloudSearch_GatewayAccess
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GatewaySipAccess
+//
+
+@implementation GTLRCloudSearch_GatewaySipAccess
+@dynamic sipAccessCode, uri;
 @end
 
 
@@ -1074,6 +4671,218 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_GoogleChatConfig
+//
+
+@implementation GTLRCloudSearch_GoogleChatConfig
+@dynamic chatGroupId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkup
+//
+
+@implementation GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkup
+@dynamic cards;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cards" : [GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCard class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCard
+//
+
+@implementation GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCard
+@dynamic cardActions, header, name, sections;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cardActions" : [GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardCardAction class],
+    @"sections" : [GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardSection class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardCardAction
+//
+
+@implementation GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardCardAction
+@dynamic actionLabel, onClick;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardCardHeader
+//
+
+@implementation GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardCardHeader
+@dynamic imageStyle, imageUrl, subtitle, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardSection
+//
+
+@implementation GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardSection
+@dynamic header, widgets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"widgets" : [GTLRCloudSearch_GoogleChatV1WidgetMarkup class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GoogleChatV1WidgetMarkup
+//
+
+@implementation GTLRCloudSearch_GoogleChatV1WidgetMarkup
+@dynamic buttons, image, keyValue, textParagraph;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"buttons" : [GTLRCloudSearch_GoogleChatV1WidgetMarkupButton class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GoogleChatV1WidgetMarkupButton
+//
+
+@implementation GTLRCloudSearch_GoogleChatV1WidgetMarkupButton
+@dynamic imageButton, textButton;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GoogleChatV1WidgetMarkupFormAction
+//
+
+@implementation GTLRCloudSearch_GoogleChatV1WidgetMarkupFormAction
+@dynamic actionMethodName, parameters;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"parameters" : [GTLRCloudSearch_GoogleChatV1WidgetMarkupFormActionActionParameter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GoogleChatV1WidgetMarkupFormActionActionParameter
+//
+
+@implementation GTLRCloudSearch_GoogleChatV1WidgetMarkupFormActionActionParameter
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GoogleChatV1WidgetMarkupImage
+//
+
+@implementation GTLRCloudSearch_GoogleChatV1WidgetMarkupImage
+@dynamic aspectRatio, imageUrl, onClick;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton
+//
+
+@implementation GTLRCloudSearch_GoogleChatV1WidgetMarkupImageButton
+@dynamic icon, iconUrl, name, onClick;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue
+//
+
+@implementation GTLRCloudSearch_GoogleChatV1WidgetMarkupKeyValue
+@dynamic bottomLabel, button, content, contentMultiline, icon, iconUrl, onClick,
+         topLabel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GoogleChatV1WidgetMarkupOnClick
+//
+
+@implementation GTLRCloudSearch_GoogleChatV1WidgetMarkupOnClick
+@dynamic action, openLink;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GoogleChatV1WidgetMarkupOpenLink
+//
+
+@implementation GTLRCloudSearch_GoogleChatV1WidgetMarkupOpenLink
+@dynamic url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GoogleChatV1WidgetMarkupTextButton
+//
+
+@implementation GTLRCloudSearch_GoogleChatV1WidgetMarkupTextButton
+@dynamic onClick, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GoogleChatV1WidgetMarkupTextParagraph
+//
+
+@implementation GTLRCloudSearch_GoogleChatV1WidgetMarkupTextParagraph
+@dynamic text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_GoogleDocsMetadata
 //
 
@@ -1096,6 +4905,49 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_Grid
+//
+
+@implementation GTLRCloudSearch_Grid
+@dynamic borderStyle, items, numColumns, onClick, title;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCloudSearch_GridItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GridItem
+//
+
+@implementation GTLRCloudSearch_GridItem
+@dynamic identifierProperty, image, layout, subtitle, textAlignment, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifierProperty" : @"identifier" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GroupDetailsUpdatedMetadata
+//
+
+@implementation GTLRCloudSearch_GroupDetailsUpdatedMetadata
+@dynamic newGroupDetails, prevGroupDetails;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_GroupId
 //
 
@@ -1106,11 +4958,98 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_GroupLinkSharingModificationEvent
+//
+
+@implementation GTLRCloudSearch_GroupLinkSharingModificationEvent
+@dynamic newStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GroupRetentionSettingsUpdatedMetaData
+//
+
+@implementation GTLRCloudSearch_GroupRetentionSettingsUpdatedMetaData
+@dynamic initiator, retentionSettings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GsuiteIntegrationMetadata
+//
+
+@implementation GTLRCloudSearch_GsuiteIntegrationMetadata
+@dynamic activityFeedData, assistantData, calendarEventData, callData,
+         clientType, indexableTexts, tasksData;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"indexableTexts" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_GSuitePrincipal
 //
 
 @implementation GTLRCloudSearch_GSuitePrincipal
 @dynamic gsuiteDomain, gsuiteGroupEmail, gsuiteUserEmail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_HangoutEvent
+//
+
+@implementation GTLRCloudSearch_HangoutEvent
+@dynamic hangoutDurationSecs, mediaType, participantId, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"participantId" : [GTLRCloudSearch_StoredParticipantId class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_HangoutVideoEventMetadata
+//
+
+@implementation GTLRCloudSearch_HangoutVideoEventMetadata
+@dynamic hangoutVideoType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_HashtagData
+//
+
+@implementation GTLRCloudSearch_HashtagData
+@dynamic searchText;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_HostProto
+//
+
+@implementation GTLRCloudSearch_HostProto
+@dynamic hostName, hostOwner;
 @end
 
 
@@ -1154,11 +5093,82 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_IconImage
+//
+
+@implementation GTLRCloudSearch_IconImage
+@dynamic altText, icon, iconUrl, imageStyle;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_Id
 //
 
 @implementation GTLRCloudSearch_Id
 @dynamic creatorUserId, localId, nameSpace;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_Image
+//
+
+@implementation GTLRCloudSearch_Image
+@dynamic altText, aspectRatio, imageUrl, onClick;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ImageButton
+//
+
+@implementation GTLRCloudSearch_ImageButton
+@dynamic icon, iconUrl, name, onClick;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ImageComponent
+//
+
+@implementation GTLRCloudSearch_ImageComponent
+@dynamic altText, borderStyle, cropStyle, imageUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ImageCropStyle
+//
+
+@implementation GTLRCloudSearch_ImageCropStyle
+@dynamic aspectRatio, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ImageKeyValue
+//
+
+@implementation GTLRCloudSearch_ImageKeyValue
+@dynamic icon, iconUrl, onClick, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_IncomingWebhookChangedMetadata
+//
+
+@implementation GTLRCloudSearch_IncomingWebhookChangedMetadata
+@dynamic incomingWebhookName, initiatorId, initiatorProfile,
+         obfuscatedIncomingWebhookId, oldIncomingWebhookName, type;
 @end
 
 
@@ -1231,11 +5241,67 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_IntegrationConfigMutation
+//
+
+@implementation GTLRCloudSearch_IntegrationConfigMutation
+@dynamic addApp, addPinnedItem, removeApp, removePinnedItem;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_IntegrationConfigUpdatedMetadata
+//
+
+@implementation GTLRCloudSearch_IntegrationConfigUpdatedMetadata
+@dynamic initiatorId, mutations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mutations" : [GTLRCloudSearch_IntegrationConfigMutation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_Interaction
 //
 
 @implementation GTLRCloudSearch_Interaction
 @dynamic interactionTime, principal, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_InviteAcceptedEvent
+//
+
+@implementation GTLRCloudSearch_InviteAcceptedEvent
+@dynamic participantId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"participantId" : [GTLRCloudSearch_StoredParticipantId class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_InviteeInfo
+//
+
+@implementation GTLRCloudSearch_InviteeInfo
+@dynamic email, userId;
 @end
 
 
@@ -1352,6 +5418,77 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
   return @{ @"hashProperty" : @"hash" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_KeyValue
+//
+
+@implementation GTLRCloudSearch_KeyValue
+@dynamic bottomLabel, button, content, contentMultiline, endIcon, icon,
+         iconAltText, iconUrl, imageStyle, onClick, startIcon, switchWidget,
+         topLabel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_LanguageConfig
+//
+
+@implementation GTLRCloudSearch_LanguageConfig
+@dynamic spokenLanguages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"spokenLanguages" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_LdapGroupProto
+//
+
+@implementation GTLRCloudSearch_LdapGroupProto
+@dynamic groupName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_LdapUserProto
+//
+
+@implementation GTLRCloudSearch_LdapUserProto
+@dynamic userName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_LegacyUploadMetadata
+//
+
+@implementation GTLRCloudSearch_LegacyUploadMetadata
+@dynamic legacyUniqueId, uploadMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_LinkData
+//
+
+@implementation GTLRCloudSearch_LinkData
+@dynamic attachment, attachmentRenderHint, displayUrl, linkTarget, linkType,
+         title;
 @end
 
 
@@ -1513,11 +5650,230 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_MdbGroupProto
+//
+
+@implementation GTLRCloudSearch_MdbGroupProto
+@dynamic groupName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_MdbUserProto
+//
+
+@implementation GTLRCloudSearch_MdbUserProto
+@dynamic gaiaId, userName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_Media
 //
 
 @implementation GTLRCloudSearch_Media
 @dynamic resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_MeetingSpace
+//
+
+@implementation GTLRCloudSearch_MeetingSpace
+@dynamic acceptedNumberClass, broadcastAccess, callInfo, gatewayAccess,
+         gatewaySipAccess, meetingAlias, meetingCode, meetingSpaceId,
+         meetingUrl, moreJoinUrl, phoneAccess, settings, universalPhoneAccess;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"acceptedNumberClass" : [NSString class],
+    @"gatewaySipAccess" : [GTLRCloudSearch_GatewaySipAccess class],
+    @"phoneAccess" : [GTLRCloudSearch_PhoneAccess class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_Member
+//
+
+@implementation GTLRCloudSearch_Member
+@dynamic roster, user;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_MemberId
+//
+
+@implementation GTLRCloudSearch_MemberId
+@dynamic rosterId, userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_MembershipChangedMetadata
+//
+
+@implementation GTLRCloudSearch_MembershipChangedMetadata
+@dynamic affectedMemberProfiles, affectedMembers, affectedMemberships,
+         initiator, initiatorProfile, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"affectedMemberProfiles" : [GTLRCloudSearch_Member class],
+    @"affectedMembers" : [GTLRCloudSearch_MemberId class],
+    @"affectedMemberships" : [GTLRCloudSearch_AffectedMembership class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_MembershipChangeEvent
+//
+
+@implementation GTLRCloudSearch_MembershipChangeEvent
+@dynamic leaveReason, participantId, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"participantId" : [GTLRCloudSearch_StoredParticipantId class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_Menu
+//
+
+@implementation GTLRCloudSearch_Menu
+@dynamic items, label, name, onChange;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCloudSearch_MenuItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_MenuItem
+//
+
+@implementation GTLRCloudSearch_MenuItem
+@dynamic selected, text, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_Message
+//
+
+@implementation GTLRCloudSearch_Message
+@dynamic annotations, appProfile, attachments, attributes, botResponses,
+         communalLabels, contentReportSummary, createTime, creatorId,
+         deletableBy, deletedByVault, deleteTime, deleteTimeForRequester,
+         dlpScanOutcome, dlpScanSummary, editableBy, fallbackText, identifier,
+         isInlineReply, lastEditTime, lastUpdateTime, localId,
+         messageIntegrationPayload, messageOrigin, messageState,
+         originAppSuggestions, personalLabels, privateMessageInfos,
+         privateMessageViewer, props, quotedByState, quotedMessageMetadata,
+         reactions, reports, retentionSettings, secondaryMessageKey, textBody,
+         tombstoneMetadata, updaterId, uploadMetadata;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"annotations" : [GTLRCloudSearch_Annotation class],
+    @"attachments" : [GTLRCloudSearch_Attachment class],
+    @"botResponses" : [GTLRCloudSearch_BotResponse class],
+    @"communalLabels" : [GTLRCloudSearch_CommunalLabelTag class],
+    @"originAppSuggestions" : [GTLRCloudSearch_AppsDynamiteSharedOriginAppSuggestion class],
+    @"personalLabels" : [GTLRCloudSearch_PersonalLabelTag class],
+    @"privateMessageInfos" : [GTLRCloudSearch_PrivateMessageInfo class],
+    @"reactions" : [GTLRCloudSearch_AppsDynamiteSharedReaction class],
+    @"reports" : [GTLRCloudSearch_ContentReport class],
+    @"uploadMetadata" : [GTLRCloudSearch_UploadMetadata class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_MessageAttributes
+//
+
+@implementation GTLRCloudSearch_MessageAttributes
+@dynamic isTombstone;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_MessageId
+//
+
+@implementation GTLRCloudSearch_MessageId
+@dynamic messageId, parentId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_MessageInfo
+//
+
+@implementation GTLRCloudSearch_MessageInfo
+@dynamic message, searcherMembershipState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_MessageParentId
+//
+
+@implementation GTLRCloudSearch_MessageParentId
+@dynamic topicId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_MessageProps
+//
+
+@implementation GTLRCloudSearch_MessageProps
+@dynamic babelProps;
 @end
 
 
@@ -1581,6 +5937,16 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_OAuthConsumerProto
+//
+
+@implementation GTLRCloudSearch_OAuthConsumerProto
+@dynamic domain;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_ObjectDefinition
 //
 
@@ -1621,7 +5987,15 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 //
 
 @implementation GTLRCloudSearch_ObjectOptions
-@dynamic displayOptions, freshnessOptions;
+@dynamic displayOptions, freshnessOptions, suggestionFilteringOperators;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"suggestionFilteringOperators" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1658,6 +6032,26 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_OnClick
+//
+
+@implementation GTLRCloudSearch_OnClick
+@dynamic action, link, openLink, openLinkAction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_OpenLink
+//
+
+@implementation GTLRCloudSearch_OpenLink
+@dynamic loadIndicator, onClose, openAs, url;
 @end
 
 
@@ -1701,6 +6095,47 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_OtrChatMessageEvent
+//
+
+@implementation GTLRCloudSearch_OtrChatMessageEvent
+@dynamic expirationTimestampUsec, kansasRowId, kansasVersionInfo,
+         messageOtrStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_OtrModificationEvent
+//
+
+@implementation GTLRCloudSearch_OtrModificationEvent
+@dynamic newOtrStatus, newOtrToggle, oldOtrStatus, oldOtrToggle;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_PackagingServiceClient
+//
+
+@implementation GTLRCloudSearch_PackagingServiceClient
+@dynamic androidPackageName, iosAppStoreId, iosBundleId, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_PaygateInfo
+//
+
+@implementation GTLRCloudSearch_PaygateInfo
+@dynamic callEndingSoonWarningTime, callEndingTime, showUpgradePromos;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_PeopleSuggestion
 //
 
@@ -1732,6 +6167,26 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_PersonalLabelTag
+//
+
+@implementation GTLRCloudSearch_PersonalLabelTag
+@dynamic labelId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_PhoneAccess
+//
+
+@implementation GTLRCloudSearch_PhoneAccess
+@dynamic formattedPhoneNumber, languageCode, phoneNumber, pin, regionCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_PhoneNumber
 //
 
@@ -1747,6 +6202,16 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 @implementation GTLRCloudSearch_Photo
 @dynamic url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_PinnedItemId
+//
+
+@implementation GTLRCloudSearch_PinnedItemId
+@dynamic driveId;
 @end
 
 
@@ -1788,11 +6253,76 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_PostiniUserProto
+//
+
+@implementation GTLRCloudSearch_PostiniUserProto
+@dynamic postiniUserId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_Presenter
+//
+
+@implementation GTLRCloudSearch_Presenter
+@dynamic byDeviceId, copresenterDeviceIds, presenterDeviceId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"copresenterDeviceIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_Principal
 //
 
 @implementation GTLRCloudSearch_Principal
 @dynamic groupResourceName, gsuitePrincipal, userResourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_PrincipalProto
+//
+
+@implementation GTLRCloudSearch_PrincipalProto
+@dynamic allAuthenticatedUsers, capTokenHolder, chat, circle, cloudPrincipal,
+         contactGroup, emailOwner, event, gaiaGroup, gaiaUser, host, ldapGroup,
+         ldapUser, mdbGroup, mdbUser, oauthConsumer, postiniUser, rbacRole,
+         rbacSubject, resourceRole, scope, signingKeyPossessor,
+         simpleSecretHolder, socialGraphNode, square, youtubeUser,
+         zwiebackSession;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_PrivateMessageInfo
+//
+
+@implementation GTLRCloudSearch_PrivateMessageInfo
+@dynamic annotations, attachments, contextualAddOnMarkup,
+         gsuiteIntegrationMetadata, text, userId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"annotations" : [GTLRCloudSearch_Annotation class],
+    @"attachments" : [GTLRCloudSearch_Attachment class],
+    @"contextualAddOnMarkup" : [GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkup class],
+    @"gsuiteIntegrationMetadata" : [GTLRCloudSearch_GsuiteIntegrationMetadata class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1835,6 +6365,25 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 @implementation GTLRCloudSearch_PropertyDisplayOptions
 @dynamic displayLabel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_Provenance
+//
+
+@implementation GTLRCloudSearch_Provenance
+@dynamic annotationBlob, canonicalUrl, inputUrl, itemtype,
+         retrievedTimestampMsec, retrievedUrl;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"itemtype" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1959,6 +6508,108 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_QuotedMessageMetadata
+//
+
+@implementation GTLRCloudSearch_QuotedMessageMetadata
+@dynamic annotations, appProfile, botAttachmentState, creatorId,
+         lastUpdateTimeWhenQuotedMicros, messageId, messageState,
+         retentionSettings, textBody, uploadMetadata;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"annotations" : [GTLRCloudSearch_Annotation class],
+    @"uploadMetadata" : [GTLRCloudSearch_UploadMetadata class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_RbacRoleProto
+//
+
+@implementation GTLRCloudSearch_RbacRoleProto
+@dynamic name, objectId, rbacNamespace, rbacRoleName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_RbacSubjectProto
+//
+
+@implementation GTLRCloudSearch_RbacSubjectProto
+@dynamic username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ReactionInfo
+//
+
+@implementation GTLRCloudSearch_ReactionInfo
+@dynamic emoji;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ReadReceiptsSettingsUpdatedMetadata
+//
+
+@implementation GTLRCloudSearch_ReadReceiptsSettingsUpdatedMetadata
+@dynamic readReceiptsEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_RecordingEvent
+//
+
+@implementation GTLRCloudSearch_RecordingEvent
+@dynamic deviceId, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_RecordingInfo
+//
+
+@implementation GTLRCloudSearch_RecordingInfo
+@dynamic latestRecordingEvent, ownerDisplayName, producerDeviceId,
+         recordingApplicationType, recordingId, recordingStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_RecordingSessionInfo
+//
+
+@implementation GTLRCloudSearch_RecordingSessionInfo
+@dynamic ownerEmail, recordingSessionId, sessionStateInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_RenameEvent
+//
+
+@implementation GTLRCloudSearch_RenameEvent
+@dynamic newName, originalName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_RepositoryError
 //
 
@@ -1979,6 +6630,24 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_RequiredMessageFeaturesMetadata
+//
+
+@implementation GTLRCloudSearch_RequiredMessageFeaturesMetadata
+@dynamic requiredFeatures;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requiredFeatures" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_ResetSearchApplicationRequest
 //
 
@@ -1989,11 +6658,29 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_ResourceRoleProto
+//
+
+@implementation GTLRCloudSearch_ResourceRoleProto
+@dynamic applicationId, objectId, objectPart, roleId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_ResponseDebugInfo
 //
 
 @implementation GTLRCloudSearch_ResponseDebugInfo
-@dynamic formattedDebugInfo;
+@dynamic enabledExperiments, formattedDebugInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enabledExperiments" : [NSNumber class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2089,6 +6776,68 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 @implementation GTLRCloudSearch_RetrievalImportance
 @dynamic importance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_RoomRenameMetadata
+//
+
+@implementation GTLRCloudSearch_RoomRenameMetadata
+@dynamic newName, prevName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_RoomUpdatedMetadata
+//
+
+@implementation GTLRCloudSearch_RoomUpdatedMetadata
+@dynamic groupDetailsMetadata, groupLinkSharingEnabled, initiator,
+         initiatorType, name, renameMetadata, visibility;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_Roster
+//
+
+@implementation GTLRCloudSearch_Roster
+@dynamic avatarUrl, identifier, membershipCount, name, rosterGaiaKey,
+         rosterState;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_RosterId
+//
+
+@implementation GTLRCloudSearch_RosterId
+@dynamic identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_SafeUrlProto
+//
+
+@implementation GTLRCloudSearch_SafeUrlProto
+@dynamic privateDoNotAccessOrElseSafeUrlWrappedValue;
 @end
 
 
@@ -2286,11 +7035,151 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_Section
+//
+
+@implementation GTLRCloudSearch_Section
+@dynamic collapsable, descriptionProperty, numUncollapsableWidgets, widgets;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"widgets" : [GTLRCloudSearch_WidgetMarkup class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_Segment
+//
+
+@implementation GTLRCloudSearch_Segment
+@dynamic formatting, hashtagData, linkData, text, type, userMentionData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_SelectionControl
+//
+
+@implementation GTLRCloudSearch_SelectionControl
+@dynamic items, label, name, onChange, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCloudSearch_SelectionItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_SelectionItem
+//
+
+@implementation GTLRCloudSearch_SelectionItem
+@dynamic selected, text, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_SessionEvent
+//
+
+@implementation GTLRCloudSearch_SessionEvent
+@dynamic deviceId, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_SessionStateInfo
+//
+
+@implementation GTLRCloudSearch_SessionStateInfo
+@dynamic ackInfo, languageConfig, lastActorDeviceId, maxEndTime, sessionState,
+         sessionStopReason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_Settings
+//
+
+@implementation GTLRCloudSearch_Settings
+@dynamic accessLock, attendanceReportEnabled, chatLock,
+         cohostArtifactSharingEnabled, cseEnabled, defaultAsViewer,
+         moderationEnabled, presentLock, reactionsLock;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_ShareScope
 //
 
 @implementation GTLRCloudSearch_ShareScope
 @dynamic domain, scope;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_SigningKeyPossessorProto
+//
+
+@implementation GTLRCloudSearch_SigningKeyPossessorProto
+@dynamic keymasterKeyType, serializedVerificationKey,
+         serializedVerificationKeyset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_SimpleSecretHolderProto
+//
+
+@implementation GTLRCloudSearch_SimpleSecretHolderProto
+@dynamic label;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_SimpleSecretLabelProto
+//
+
+@implementation GTLRCloudSearch_SimpleSecretLabelProto
+@dynamic capabilityId, genericLabel, inviteId, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_SlashCommandMetadata
+//
+
+@implementation GTLRCloudSearch_SlashCommandMetadata
+@dynamic argumentsHint, commandId, commandName, identifier, triggersDialog,
+         type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 
@@ -2309,6 +7198,31 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_SocialCommonAttachmentAttachment
+//
+
+@implementation GTLRCloudSearch_SocialCommonAttachmentAttachment
+@dynamic embedItem, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_SocialGraphNodeProto
+//
+
+@implementation GTLRCloudSearch_SocialGraphNodeProto
+@dynamic sgnDomain, sgnPk;
 @end
 
 
@@ -2384,27 +7298,21 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudSearch_SpaceInfo
-//
-
-@implementation GTLRCloudSearch_SpaceInfo
-@dynamic avatarInfo, avatarUrl, descriptionProperty, groupId, inviterEmail,
-         isExternal, name, numMembers, userMembershipState;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudSearch_SpellResult
 //
 
 @implementation GTLRCloudSearch_SpellResult
 @dynamic suggestedQuery;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_SquareProto
+//
+
+@implementation GTLRCloudSearch_SquareProto
+@dynamic memberType, squareId;
 @end
 
 
@@ -2447,6 +7355,37 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_StoredParticipantId
+//
+
+@implementation GTLRCloudSearch_StoredParticipantId
+@dynamic gaiaId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_StreamingSessionInfo
+//
+
+@implementation GTLRCloudSearch_StreamingSessionInfo
+@dynamic applicationType, latestSessionEvent, ownerDisplayName, sessionId,
+         status, trainingEnabled, viewerAccessPolicy, viewerStats;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_StreamViewerStats
+//
+
+@implementation GTLRCloudSearch_StreamViewerStats
+@dynamic estimatedViewerCount;
 @end
 
 
@@ -2526,11 +7465,73 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_SupportUrls
+//
+
+@implementation GTLRCloudSearch_SupportUrls
+@dynamic adminConfigUrl, deletionPolicyUrl, privacyPolicyUrl, setupUrl,
+         supportUrl, tosUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_SwitchWidget
+//
+
+@implementation GTLRCloudSearch_SwitchWidget
+@dynamic controlType, name, onChange, selected, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_TextButton
+//
+
+@implementation GTLRCloudSearch_TextButton
+@dynamic altText, backgroundColor, disabled, onClick, style, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_TextField
+//
+
+@implementation GTLRCloudSearch_TextField
+@dynamic autoComplete, autoCompleteCallback, autoCompleteMultipleSelections,
+         hintText, label, maxLines, name, onChange, type, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_TextKeyValue
+//
+
+@implementation GTLRCloudSearch_TextKeyValue
+@dynamic key, onClick, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_TextOperatorOptions
 //
 
 @implementation GTLRCloudSearch_TextOperatorOptions
 @dynamic exactMatchWithOperator, operatorName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_TextParagraph
+//
+
+@implementation GTLRCloudSearch_TextParagraph
+@dynamic text;
 @end
 
 
@@ -2602,11 +7603,80 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_TombstoneMetadata
+//
+
+@implementation GTLRCloudSearch_TombstoneMetadata
+@dynamic tombstoneType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_Toolbar
+//
+
+@implementation GTLRCloudSearch_Toolbar
+@dynamic color, iconUrl, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_TopicId
+//
+
+@implementation GTLRCloudSearch_TopicId
+@dynamic groupId, topicId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_TranscriptionSessionInfo
+//
+
+@implementation GTLRCloudSearch_TranscriptionSessionInfo
+@dynamic sessionStateInfo, transcriptionSessionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_TransientData
+//
+
+@implementation GTLRCloudSearch_TransientData
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_TrustedResourceUrlProto
+//
+
+@implementation GTLRCloudSearch_TrustedResourceUrlProto
+@dynamic privateDoNotAccessOrElseTrustedResourceUrlWrappedValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_TypeInfo
 //
 
 @implementation GTLRCloudSearch_TypeInfo
 @dynamic videoInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_UniversalPhoneAccess
+//
+
+@implementation GTLRCloudSearch_UniversalPhoneAccess
+@dynamic pin, pstnInfoUrl;
 @end
 
 
@@ -2662,11 +7732,106 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_UploadMetadata
+//
+
+@implementation GTLRCloudSearch_UploadMetadata
+@dynamic attachmentToken, backendUploadMetadata, clonedAuthorizedItemId,
+         clonedDriveAction, clonedDriveId, contentName, contentType,
+         dlpMetricsMetadata, localId, originalDimension, videoReference,
+         virusScanResult;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_UrlMetadata
+//
+
+@implementation GTLRCloudSearch_UrlMetadata
+@dynamic domain, gwsUrl, gwsUrlExpirationTimestamp, imageHeight, imageUrl,
+         imageWidth, intImageHeight, intImageWidth, mimeType, redirectUrl,
+         shouldNotRender, snippet, title, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_User
+//
+
+@implementation GTLRCloudSearch_User
+@dynamic avatarUrl, blockRelationship, botInfo, deleted, email, firstName,
+         gender, identifier, isAnonymous, lastName, name, organizationInfo,
+         phoneNumber, userAccountState, userProfileVisibility;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"phoneNumber" : [GTLRCloudSearch_AppsDynamiteSharedPhoneNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_UserDisplayInfo
+//
+
+@implementation GTLRCloudSearch_UserDisplayInfo
+@dynamic avatarUrl, displayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_UserId
 //
 
 @implementation GTLRCloudSearch_UserId
 @dynamic actingUserId, identifier, originAppId, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_UserInfo
+//
+
+@implementation GTLRCloudSearch_UserInfo
+@dynamic updaterCountDisplayType, updaterCountToShow, updaterToShowEmail,
+         updaterToShowGaiaId, updaterToShowUserId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_UserMentionData
+//
+
+@implementation GTLRCloudSearch_UserMentionData
+@dynamic email, user, userGaiaId, userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_UserMentionMetadata
+//
+
+@implementation GTLRCloudSearch_UserMentionMetadata
+@dynamic displayName, gender, identifier, inviteeInfo, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2698,6 +7863,16 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_VideoCallMetadata
+//
+
+@implementation GTLRCloudSearch_VideoCallMetadata
+@dynamic meetingSpace, shouldNotRender, wasCreatedInCurrentGroup;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_VideoInfo
 //
 
@@ -2708,9 +7883,141 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_VoicePhoneNumber
+//
+
+@implementation GTLRCloudSearch_VoicePhoneNumber
+@dynamic e164, i18nData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_VoicePhoneNumberI18nData
+//
+
+@implementation GTLRCloudSearch_VoicePhoneNumberI18nData
+@dynamic countryCode, internationalNumber, isValid, nationalNumber, regionCode,
+         validationResult;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_VPCSettings
 //
 
 @implementation GTLRCloudSearch_VPCSettings
 @dynamic project;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_WhiteboardInfo
+//
+
+@implementation GTLRCloudSearch_WhiteboardInfo
+@dynamic identifier, title, uri;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_WidgetMarkup
+//
+
+@implementation GTLRCloudSearch_WidgetMarkup
+@dynamic buttons, dateTimePicker, divider, grid, horizontalAlignment, image,
+         imageKeyValue, keyValue, menu, selectionControl, textField,
+         textKeyValue, textParagraph;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"buttons" : [GTLRCloudSearch_Button class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_WrappedResourceKey
+//
+
+@implementation GTLRCloudSearch_WrappedResourceKey
+@dynamic resourceKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_YouTubeBroadcastSessionInfo
+//
+
+@implementation GTLRCloudSearch_YouTubeBroadcastSessionInfo
+@dynamic broadcastStats, sessionStateInfo, youTubeBroadcastSessionId,
+         youTubeLiveBroadcastEvent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_YouTubeBroadcastStats
+//
+
+@implementation GTLRCloudSearch_YouTubeBroadcastStats
+@dynamic estimatedViewerCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_YouTubeLiveBroadcastEvent
+//
+
+@implementation GTLRCloudSearch_YouTubeLiveBroadcastEvent
+@dynamic broadcastId, channelId, viewUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_YoutubeMetadata
+//
+
+@implementation GTLRCloudSearch_YoutubeMetadata
+@dynamic identifier, shouldNotRender, startTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_YoutubeUserProto
+//
+
+@implementation GTLRCloudSearch_YoutubeUserProto
+@dynamic youtubeUserId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ZwiebackSessionProto
+//
+
+@implementation GTLRCloudSearch_ZwiebackSessionProto
+@dynamic zwiebackSessionId;
 @end

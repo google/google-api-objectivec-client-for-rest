@@ -1295,7 +1295,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 
 /**
  *  Required. The database whose roles should be listed. Values are of the form
- *  `projects//instances//databases//databaseRoles`.
+ *  `projects//instances//databases/`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1305,7 +1305,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Lists Cloud Spanner database roles.
  *
  *  @param parent Required. The database whose roles should be listed. Values
- *    are of the form `projects//instances//databases//databaseRoles`.
+ *    are of the form `projects//instances//databases/`.
  *
  *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesDatabaseRolesList
  *
@@ -1314,6 +1314,54 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns permissions that the caller has on the specified database or backup
+ *  resource. Attempting this RPC on a non-existent Cloud Spanner database will
+ *  result in a NOT_FOUND error if the user has `spanner.databases.list`
+ *  permission on the containing Cloud Spanner instance. Otherwise returns an
+ *  empty set of permissions. Calling this method on a backup that does not
+ *  exist will result in a NOT_FOUND error if the user has
+ *  `spanner.backups.list` permission on the containing instance.
+ *
+ *  Method: spanner.projects.instances.databases.databaseRoles.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesDatabaseRolesTestIamPermissions : GTLRSpannerQuery
+
+/**
+ *  REQUIRED: The Cloud Spanner resource for which permissions are being tested.
+ *  The format is `projects//instances/` for instance resources and
+ *  `projects//instances//databases/` for database resources.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRSpanner_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that the caller has on the specified database or backup
+ *  resource. Attempting this RPC on a non-existent Cloud Spanner database will
+ *  result in a NOT_FOUND error if the user has `spanner.databases.list`
+ *  permission on the containing Cloud Spanner instance. Otherwise returns an
+ *  empty set of permissions. Calling this method on a backup that does not
+ *  exist will result in a NOT_FOUND error if the user has
+ *  `spanner.backups.list` permission on the containing instance.
+ *
+ *  @param object The @c GTLRSpanner_TestIamPermissionsRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The Cloud Spanner resource for which permissions
+ *    are being tested. The format is `projects//instances/` for instance
+ *    resources and `projects//instances//databases/` for database resources.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesDatabaseRolesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 

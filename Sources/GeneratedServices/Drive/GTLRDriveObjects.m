@@ -334,14 +334,15 @@
          driveId, explicitlyTrashed, exportLinks, fileExtension, folderColorRgb,
          fullFileExtension, hasAugmentedPermissions, hasThumbnail,
          headRevisionId, iconLink, identifier, imageMediaMetadata,
-         isAppAuthorized, kind, lastModifyingUser, linkShareMetadata,
+         isAppAuthorized, kind, labelInfo, lastModifyingUser, linkShareMetadata,
          md5Checksum, mimeType, modifiedByMe, modifiedByMeTime, modifiedTime,
          name, originalFilename, ownedByMe, owners, parents, permissionIds,
-         permissions, properties, quotaBytesUsed, resourceKey, shared,
-         sharedWithMeTime, sharingUser, shortcutDetails, size, spaces, starred,
-         teamDriveId, thumbnailLink, thumbnailVersion, trashed, trashedTime,
-         trashingUser, version, videoMediaMetadata, viewedByMe, viewedByMeTime,
-         viewersCanCopyContent, webContentLink, webViewLink, writersCanShare;
+         permissions, properties, quotaBytesUsed, resourceKey, sha1Checksum,
+         sha256Checksum, shared, sharedWithMeTime, sharingUser, shortcutDetails,
+         size, spaces, starred, teamDriveId, thumbnailLink, thumbnailVersion,
+         trashed, trashedTime, trashingUser, version, videoMediaMetadata,
+         viewedByMe, viewedByMeTime, viewersCanCopyContent, webContentLink,
+         webViewLink, writersCanShare;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -391,14 +392,15 @@
          canChangeSecurityUpdateEnabled, canChangeViewersCanCopyContent,
          canComment, canCopy, canDelete, canDeleteChildren, canDownload,
          canEdit, canListChildren, canModifyContent,
-         canModifyContentRestriction, canMoveChildrenOutOfDrive,
-         canMoveChildrenOutOfTeamDrive, canMoveChildrenWithinDrive,
-         canMoveChildrenWithinTeamDrive, canMoveItemIntoTeamDrive,
-         canMoveItemOutOfDrive, canMoveItemOutOfTeamDrive,
-         canMoveItemWithinDrive, canMoveItemWithinTeamDrive,
-         canMoveTeamDriveItem, canReadDrive, canReadRevisions, canReadTeamDrive,
-         canRemoveChildren, canRemoveMyDriveParent, canRename, canShare,
-         canTrash, canTrashChildren, canUntrash;
+         canModifyContentRestriction, canModifyLabels,
+         canMoveChildrenOutOfDrive, canMoveChildrenOutOfTeamDrive,
+         canMoveChildrenWithinDrive, canMoveChildrenWithinTeamDrive,
+         canMoveItemIntoTeamDrive, canMoveItemOutOfDrive,
+         canMoveItemOutOfTeamDrive, canMoveItemWithinDrive,
+         canMoveItemWithinTeamDrive, canMoveTeamDriveItem, canReadDrive,
+         canReadLabels, canReadRevisions, canReadTeamDrive, canRemoveChildren,
+         canRemoveMyDriveParent, canRename, canShare, canTrash,
+         canTrashChildren, canUntrash;
 @end
 
 
@@ -436,6 +438,24 @@
          exposureMode, exposureTime, flashUsed, focalLength, height, isoSpeed,
          lens, location, maxApertureValue, meteringMode, rotation, sensor,
          subjectDistance, time, whiteBalance, width;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_File_LabelInfo
+//
+
+@implementation GTLRDrive_File_LabelInfo
+@dynamic labels;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"labels" : [GTLRDrive_Label class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -536,6 +556,161 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"ids" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_Label
+//
+
+@implementation GTLRDrive_Label
+@dynamic fields, identifier, kind, revisionId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_Label_Fields
+//
+
+@implementation GTLRDrive_Label_Fields
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDrive_LabelField class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_LabelField
+//
+
+@implementation GTLRDrive_LabelField
+@dynamic dateString, identifier, integer, kind, selection, text, user,
+         valueType;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dateString" : [GTLRDateTime class],
+    @"integer" : [NSNumber class],
+    @"selection" : [NSString class],
+    @"text" : [NSString class],
+    @"user" : [GTLRDrive_User class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_LabelFieldModification
+//
+
+@implementation GTLRDrive_LabelFieldModification
+@dynamic fieldId, kind, setDateValues, setIntegerValues, setSelectionValues,
+         setTextValues, setUserValues, unsetValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"setDateValues" : [GTLRDateTime class],
+    @"setIntegerValues" : [NSNumber class],
+    @"setSelectionValues" : [NSString class],
+    @"setTextValues" : [NSString class],
+    @"setUserValues" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_LabelList
+//
+
+@implementation GTLRDrive_LabelList
+@dynamic kind, labels, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"labels" : [GTLRDrive_Label class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"labels";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_LabelModification
+//
+
+@implementation GTLRDrive_LabelModification
+@dynamic fieldModifications, kind, labelId, removeLabel;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fieldModifications" : [GTLRDrive_LabelFieldModification class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_ModifyLabelsRequest
+//
+
+@implementation GTLRDrive_ModifyLabelsRequest
+@dynamic kind, labelModifications;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"labelModifications" : [GTLRDrive_LabelModification class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_ModifyLabelsResponse
+//
+
+@implementation GTLRDrive_ModifyLabelsResponse
+@dynamic kind, modifiedLabels;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"modifiedLabels" : [GTLRDrive_Label class]
   };
   return map;
 }

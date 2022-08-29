@@ -43,6 +43,7 @@
 @class GTLRCloudIdentity_Status_Details_Item;
 @class GTLRCloudIdentity_TransitiveMembershipRole;
 @class GTLRCloudIdentity_UpdateMembershipRolesParams;
+@class GTLRCloudIdentity_UserInvitation;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -663,6 +664,47 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_RestrictionEvaluation_Stat
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_UserInvitation.state
+
+/**
+ *  The user has accepted the invitation and is part of the organization.
+ *
+ *  Value: "ACCEPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_Accepted;
+/**
+ *  The user declined the invitation.
+ *
+ *  Value: "DECLINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_Declined;
+/**
+ *  The user has been invited by email.
+ *
+ *  Value: "INVITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_Invited;
+/**
+ *  The `UserInvitation` has been created and is ready for sending as an email.
+ *
+ *  Value: "NOT_YET_SENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_NotYetSent;
+/**
+ *  The default value. This value is used if the state is omitted.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified;
+
+/**
+ *  Request to cancel sent invitation for target email in UserInvitation.
+ */
+@interface GTLRCloudIdentity_CancelUserInvitationRequest : GTLRObject
+@end
+
 
 /**
  *  The response message for MembershipsService.CheckTransitiveMembership.
@@ -1900,6 +1942,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_RestrictionEvaluation_Stat
 
 
 /**
+ *  Response for IsInvitableUser RPC.
+ */
+@interface GTLRCloudIdentity_IsInvitableUserResponse : GTLRObject
+
+/**
+ *  Returns true if the email address is invitable.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isInvitableUser;
+
+@end
+
+
+/**
  *  Response message for ListGroups operation.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1949,6 +2006,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_RestrictionEvaluation_Stat
  *  are no more results available.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for UserInvitation listing request.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "userInvitations" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRCloudIdentity_ListUserInvitationsResponse : GTLRCollectionObject
+
+/**
+ *  The token for the next page. If not empty, indicates that there may be more
+ *  `UserInvitation` resources that match the listing request; this value can be
+ *  used in a subsequent ListUserInvitationsRequest to get continued results
+ *  with the current list call.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of UserInvitation resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_UserInvitation *> *userInvitations;
 
 @end
 
@@ -2437,6 +2523,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_RestrictionEvaluation_Stat
 
 
 /**
+ *  A request to send email for inviting target user corresponding to the
+ *  UserInvitation.
+ */
+@interface GTLRCloudIdentity_SendUserInvitationRequest : GTLRObject
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -2527,6 +2621,55 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_RestrictionEvaluation_Stat
  *  currently be updated.
  */
 @property(nonatomic, strong, nullable) GTLRCloudIdentity_MembershipRole *membershipRole;
+
+@end
+
+
+/**
+ *  The `UserInvitation` resource represents an email that can be sent to an
+ *  unmanaged user account inviting them to join the customer's Google Workspace
+ *  or Cloud Identity account. An unmanaged account shares an email address
+ *  domain with the Google Workspace or Cloud Identity account but is not
+ *  managed by it yet. If the user accepts the `UserInvitation`, the user
+ *  account will become managed.
+ */
+@interface GTLRCloudIdentity_UserInvitation : GTLRObject
+
+/**
+ *  Number of invitation emails sent to the user.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mailsSentCount;
+
+/**
+ *  Shall be of the form
+ *  `customers/{customer}/userinvitations/{user_email_address}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  State of the `UserInvitation`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_UserInvitation_State_Accepted The user has
+ *        accepted the invitation and is part of the organization. (Value:
+ *        "ACCEPTED")
+ *    @arg @c kGTLRCloudIdentity_UserInvitation_State_Declined The user declined
+ *        the invitation. (Value: "DECLINED")
+ *    @arg @c kGTLRCloudIdentity_UserInvitation_State_Invited The user has been
+ *        invited by email. (Value: "INVITED")
+ *    @arg @c kGTLRCloudIdentity_UserInvitation_State_NotYetSent The
+ *        `UserInvitation` has been created and is ready for sending as an
+ *        email. (Value: "NOT_YET_SENT")
+ *    @arg @c kGTLRCloudIdentity_UserInvitation_State_StateUnspecified The
+ *        default value. This value is used if the state is omitted. (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Time when the `UserInvitation` was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 

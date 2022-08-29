@@ -103,6 +103,9 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy_Channel_Earlier = @"EARLIER";
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy_Channel_Later = @"LATER";
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy_Channel_UpdateChannelUnspecified = @"UPDATE_CHANNEL_UNSPECIFIED";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy_Channel_Week1 = @"WEEK1";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy_Channel_Week2 = @"WEEK2";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy_Channel_Week5 = @"WEEK5";
 
 // ----------------------------------------------------------------------------
 //
@@ -276,6 +279,21 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Expr
 @dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ExtendSchemaRequest
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ExtendSchemaRequest
+@dynamic descriptionProperty, fileContents, gcsPath;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

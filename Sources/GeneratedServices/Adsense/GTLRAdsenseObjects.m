@@ -81,6 +81,16 @@ NSString * const kGTLRAdsense_Site_State_StateUnspecified = @"STATE_UNSPECIFIED"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAdsense_AdBlockingRecoveryTag
+//
+
+@implementation GTLRAdsense_AdBlockingRecoveryTag
+@dynamic errorProtectionCode, tag;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAdsense_AdClient
 //
 

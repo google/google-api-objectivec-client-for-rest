@@ -36,6 +36,172 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Delete multiple policy values that are applied to a specific group. All
+ *  targets must have the same target format. That is to say that they must
+ *  point to the same target resource and must have the same keys specified in
+ *  `additionalTargetKeyNames`, though the values for those keys may be
+ *  different. On failure the request will return the error details as part of
+ *  the google.rpc.Status.
+ *
+ *  Method: chromepolicy.customers.policies.groups.batchDelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromePolicyChromeManagementPolicy
+ */
+@interface GTLRChromePolicyQuery_CustomersPoliciesGroupsBatchDelete : GTLRChromePolicyQuery
+
+/**
+ *  ID of the Google Workspace account or literal "my_customer" for the customer
+ *  associated to the request.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Fetches a @c GTLRChromePolicy_GoogleProtobufEmpty.
+ *
+ *  Delete multiple policy values that are applied to a specific group. All
+ *  targets must have the same target format. That is to say that they must
+ *  point to the same target resource and must have the same keys specified in
+ *  `additionalTargetKeyNames`, though the values for those keys may be
+ *  different. On failure the request will return the error details as part of
+ *  the google.rpc.Status.
+ *
+ *  @param object The @c
+ *    GTLRChromePolicy_GoogleChromePolicyV1BatchDeleteGroupPoliciesRequest to
+ *    include in the query.
+ *  @param customer ID of the Google Workspace account or literal "my_customer"
+ *    for the customer associated to the request.
+ *
+ *  @return GTLRChromePolicyQuery_CustomersPoliciesGroupsBatchDelete
+ */
++ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyV1BatchDeleteGroupPoliciesRequest *)object
+                       customer:(NSString *)customer;
+
+@end
+
+/**
+ *  Modify multiple policy values that are applied to a specific group. All
+ *  targets must have the same target format. That is to say that they must
+ *  point to the same target resource and must have the same keys specified in
+ *  `additionalTargetKeyNames`, though the values for those keys may be
+ *  different. On failure the request will return the error details as part of
+ *  the google.rpc.Status.
+ *
+ *  Method: chromepolicy.customers.policies.groups.batchModify
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromePolicyChromeManagementPolicy
+ */
+@interface GTLRChromePolicyQuery_CustomersPoliciesGroupsBatchModify : GTLRChromePolicyQuery
+
+/**
+ *  ID of the Google Workspace account or literal "my_customer" for the customer
+ *  associated to the request.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Fetches a @c GTLRChromePolicy_GoogleProtobufEmpty.
+ *
+ *  Modify multiple policy values that are applied to a specific group. All
+ *  targets must have the same target format. That is to say that they must
+ *  point to the same target resource and must have the same keys specified in
+ *  `additionalTargetKeyNames`, though the values for those keys may be
+ *  different. On failure the request will return the error details as part of
+ *  the google.rpc.Status.
+ *
+ *  @param object The @c
+ *    GTLRChromePolicy_GoogleChromePolicyV1BatchModifyGroupPoliciesRequest to
+ *    include in the query.
+ *  @param customer ID of the Google Workspace account or literal "my_customer"
+ *    for the customer associated to the request.
+ *
+ *  @return GTLRChromePolicyQuery_CustomersPoliciesGroupsBatchModify
+ */
++ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyV1BatchModifyGroupPoliciesRequest *)object
+                       customer:(NSString *)customer;
+
+@end
+
+/**
+ *  Retrieve a group priority ordering for an app. The target app must be
+ *  supplied in `additionalTargetKeyNames` in the PolicyTargetKey. On failure
+ *  the request will return the error details as part of the google.rpc.Status.
+ *
+ *  Method: chromepolicy.customers.policies.groups.listGroupPriorityOrdering
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromePolicyChromeManagementPolicy
+ *    @c kGTLRAuthScopeChromePolicyChromeManagementPolicyReadonly
+ */
+@interface GTLRChromePolicyQuery_CustomersPoliciesGroupsListGroupPriorityOrdering : GTLRChromePolicyQuery
+
+/**
+ *  Required. ID of the Google Workspace account or literal "my_customer" for
+ *  the customer associated to the request.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromePolicy_GoogleChromePolicyV1ListGroupPriorityOrderingResponse.
+ *
+ *  Retrieve a group priority ordering for an app. The target app must be
+ *  supplied in `additionalTargetKeyNames` in the PolicyTargetKey. On failure
+ *  the request will return the error details as part of the google.rpc.Status.
+ *
+ *  @param object The @c
+ *    GTLRChromePolicy_GoogleChromePolicyV1ListGroupPriorityOrderingRequest to
+ *    include in the query.
+ *  @param customer Required. ID of the Google Workspace account or literal
+ *    "my_customer" for the customer associated to the request.
+ *
+ *  @return GTLRChromePolicyQuery_CustomersPoliciesGroupsListGroupPriorityOrdering
+ */
++ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyV1ListGroupPriorityOrderingRequest *)object
+                       customer:(NSString *)customer;
+
+@end
+
+/**
+ *  Update a group priority ordering for an app. The target app must be supplied
+ *  in `additionalTargetKeyNames` in the PolicyTargetKey. On failure the request
+ *  will return the error details as part of the google.rpc.Status.
+ *
+ *  Method: chromepolicy.customers.policies.groups.updateGroupPriorityOrdering
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromePolicyChromeManagementPolicy
+ */
+@interface GTLRChromePolicyQuery_CustomersPoliciesGroupsUpdateGroupPriorityOrdering : GTLRChromePolicyQuery
+
+/**
+ *  Required. ID of the Google Workspace account or literal "my_customer" for
+ *  the customer associated to the request.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Fetches a @c GTLRChromePolicy_GoogleProtobufEmpty.
+ *
+ *  Update a group priority ordering for an app. The target app must be supplied
+ *  in `additionalTargetKeyNames` in the PolicyTargetKey. On failure the request
+ *  will return the error details as part of the google.rpc.Status.
+ *
+ *  @param object The @c
+ *    GTLRChromePolicy_GoogleChromePolicyV1UpdateGroupPriorityOrderingRequest to
+ *    include in the query.
+ *  @param customer Required. ID of the Google Workspace account or literal
+ *    "my_customer" for the customer associated to the request.
+ *
+ *  @return GTLRChromePolicyQuery_CustomersPoliciesGroupsUpdateGroupPriorityOrdering
+ */
++ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyV1UpdateGroupPriorityOrderingRequest *)object
+                       customer:(NSString *)customer;
+
+@end
+
+/**
  *  Modify multiple policy values that are applied to a specific org unit so
  *  that they now inherit the value from a parent (if applicable). All targets
  *  must have the same target format. That is to say that they must point to the
@@ -231,6 +397,41 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates an enterprise file from the content provided by user. Returns a
+ *  public download url for end user.
+ *
+ *  Method: chromepolicy.media.upload
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromePolicyChromeManagementPolicy
+ */
+@interface GTLRChromePolicyQuery_MediaUpload : GTLRChromePolicyQuery
+
+/** Required. The customer for which the file upload will apply. */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Fetches a @c GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileResponse.
+ *
+ *  Creates an enterprise file from the content provided by user. Returns a
+ *  public download url for end user.
+ *
+ *  @param object The @c
+ *    GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileRequest to include in
+ *    the query.
+ *  @param customer Required. The customer for which the file upload will apply.
+ *  @param uploadParameters The media to include in this query. Accepted MIME
+ *    type: * / *
+ *
+ *  @return GTLRChromePolicyQuery_MediaUpload
+ */
++ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileRequest *)object
+                       customer:(NSString *)customer
+               uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
 
 @end
 

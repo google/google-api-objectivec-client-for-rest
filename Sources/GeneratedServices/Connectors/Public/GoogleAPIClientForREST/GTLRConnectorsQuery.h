@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Connectors API (connectors/v1)
+//   Connectors API (connectors/v2)
 // Description:
 //   Enables users to create and manage connections to Google Cloud services and
 //   third-party business applications using the Connectors interface.
@@ -24,53 +24,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// ----------------------------------------------------------------------------
-// Constants - For some of the query classes' properties below.
-
-// ----------------------------------------------------------------------------
-// view
-
-/**
- *  Do not include runtime required configs.
- *
- *  Value: "BASIC"
- */
-FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewBasic;
-/**
- *  CONNECTION_UNSPECIFIED.
- *
- *  Value: "CONNECTION_VIEW_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewConnectionViewUnspecified;
-/**
- *  Do not include role grant configs.
- *
- *  Value: "CONNECTOR_VERSION_VIEW_BASIC"
- */
-FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewConnectorVersionViewBasic;
-/**
- *  Include role grant configs.
- *
- *  Value: "CONNECTOR_VERSION_VIEW_FULL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewConnectorVersionViewFull;
-/**
- *  CONNECTOR_VERSION_VIEW_UNSPECIFIED.
- *
- *  Value: "CONNECTOR_VERSION_VIEW_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewConnectorVersionViewUnspecified;
-/**
- *  Include runtime required configs.
- *
- *  Value: "FULL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewFull;
-
-// ----------------------------------------------------------------------------
-// Query Classes
-//
-
 /**
  *  Parent class for other Connectors query classes.
  */
@@ -82,1118 +35,464 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewFull;
 @end
 
 /**
- *  Creates a new Connection in a given project and location.
+ *  Executes an action with the name specified in the request. The input
+ *  parameters for executing the action are passed through the body of the
+ *  ExecuteAction request.
  *
- *  Method: connectors.projects.locations.connections.create
+ *  Method: connectors.projects.locations.connections.actions.execute
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeConnectorsCloudPlatform
  */
-@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsCreate : GTLRConnectorsQuery
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsActionsExecute : GTLRConnectorsQuery
 
 /**
- *  Required. Identifier to assign to the Connection. Must be unique within
- *  scope of the parent resource.
+ *  Required. Resource name of the Action. Format:
+ *  projects/{project}/locations/{location}/connections/{connection}/actions/{action}
  */
-@property(nonatomic, copy, nullable) NSString *connectionId;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Parent resource of the Connection, of the form: `projects/ *
- *  /locations/ *`
+ *  Fetches a @c GTLRConnectors_ExecuteActionResponse.
+ *
+ *  Executes an action with the name specified in the request. The input
+ *  parameters for executing the action are passed through the body of the
+ *  ExecuteAction request.
+ *
+ *  @param object The @c GTLRConnectors_ExecuteActionRequest to include in the
+ *    query.
+ *  @param name Required. Resource name of the Action. Format:
+ *    projects/{project}/locations/{location}/connections/{connection}/actions/{action}
+ *
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsActionsExecute
+ */
++ (instancetype)queryWithObject:(GTLRConnectors_ExecuteActionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the schema of all the actions supported by the connector.
+ *
+ *  Method: connectors.projects.locations.connections.actions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConnectorsCloudPlatform
+ */
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsActionsList : GTLRConnectorsQuery
+
+/** Number of Actions to return. Defaults to 25. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Page token, return from a previous ListActions call, that can be used
+ *  retrieve the next page of content. If unspecified, the request returns the
+ *  first page of actions.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent resource name of the Action. Format:
+ *  projects/{project}/locations/{location}/connections/{connection}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRConnectors_Operation.
+ *  Fetches a @c GTLRConnectors_ListActionsResponse.
  *
- *  Creates a new Connection in a given project and location.
+ *  Gets the schema of all the actions supported by the connector.
  *
- *  @param object The @c GTLRConnectors_Connection to include in the query.
- *  @param parent Required. Parent resource of the Connection, of the form:
- *    `projects/ * /locations/ *`
+ *  @param parent Required. Parent resource name of the Action. Format:
+ *    projects/{project}/locations/{location}/connections/{connection}
  *
- *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsCreate
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsActionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
-+ (instancetype)queryWithObject:(GTLRConnectors_Connection *)object
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new entity row of the specified entity type in the external
+ *  system. The field values for creating the row are contained in the body of
+ *  the request. The response message contains a `Entity` message object
+ *  returned as a response by the external system.
+ *
+ *  Method: connectors.projects.locations.connections.entityTypes.entities.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConnectorsCloudPlatform
+ */
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesCreate : GTLRConnectorsQuery
+
+/**
+ *  Required. Resource name of the Entity Type. Format:
+ *  projects/{project}/locations/{location}/connections/{connection}/entityTypes/{type}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRConnectors_Entity.
+ *
+ *  Creates a new entity row of the specified entity type in the external
+ *  system. The field values for creating the row are contained in the body of
+ *  the request. The response message contains a `Entity` message object
+ *  returned as a response by the external system.
+ *
+ *  @param object The @c GTLRConnectors_Entity to include in the query.
+ *  @param parent Required. Resource name of the Entity Type. Format:
+ *    projects/{project}/locations/{location}/connections/{connection}/entityTypes/{type}
+ *
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesCreate
+ */
++ (instancetype)queryWithObject:(GTLRConnectors_Entity *)object
                          parent:(NSString *)parent;
 
 @end
 
 /**
- *  Deletes a single Connection.
+ *  Deletes an existing entity row matching the entity type and entity id
+ *  specified in the request.
  *
- *  Method: connectors.projects.locations.connections.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeConnectorsCloudPlatform
- */
-@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsDelete : GTLRConnectorsQuery
-
-/**
- *  Required. Resource name of the form: `projects/ * /locations/ *
- *  /connections/ *`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRConnectors_Operation.
- *
- *  Deletes a single Connection.
- *
- *  @param name Required. Resource name of the form: `projects/ * /locations/ *
- *    /connections/ *`
- *
- *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Gets details of a single Connection.
- *
- *  Method: connectors.projects.locations.connections.get
+ *  Method: connectors.projects.locations.connections.entityTypes.entities.delete
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeConnectorsCloudPlatform
  */
-@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsGet : GTLRConnectorsQuery
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesDelete : GTLRConnectorsQuery
 
 /**
- *  Required. Resource name of the form: `projects/ * /locations/ *
- *  /connections/ *`
+ *  Required. Resource name of the Entity Type. Format:
+ *  projects/{project}/locations/{location}/connections/{connection}/entityTypes/{type}/entities/{id}
  */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Specifies which fields of the Connection are returned in the response.
- *  Defaults to `BASIC` view.
- *
- *  Likely values:
- *    @arg @c kGTLRConnectorsViewConnectionViewUnspecified
- *        CONNECTION_UNSPECIFIED. (Value: "CONNECTION_VIEW_UNSPECIFIED")
- *    @arg @c kGTLRConnectorsViewBasic Do not include runtime required configs.
- *        (Value: "BASIC")
- *    @arg @c kGTLRConnectorsViewFull Include runtime required configs. (Value:
- *        "FULL")
- */
-@property(nonatomic, copy, nullable) NSString *view;
-
-/**
- *  Fetches a @c GTLRConnectors_Connection.
- *
- *  Gets details of a single Connection.
- *
- *  @param name Required. Resource name of the form: `projects/ * /locations/ *
- *    /connections/ *`
- *
- *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Gets schema metadata of a connection. SchemaMetadata is a singleton resource
- *  for each connection.
- *
- *  Method: connectors.projects.locations.connections.getConnectionSchemaMetadata
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeConnectorsCloudPlatform
- */
-@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsGetConnectionSchemaMetadata : GTLRConnectorsQuery
-
-/**
- *  Required. Connection name Format:
- *  projects/{project}/locations/{location}/connections/{connection}/connectionSchemaMetadata
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRConnectors_ConnectionSchemaMetadata.
- *
- *  Gets schema metadata of a connection. SchemaMetadata is a singleton resource
- *  for each connection.
- *
- *  @param name Required. Connection name Format:
- *    projects/{project}/locations/{location}/connections/{connection}/connectionSchemaMetadata
- *
- *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsGetConnectionSchemaMetadata
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  Method: connectors.projects.locations.connections.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeConnectorsCloudPlatform
- */
-@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsGetIamPolicy : GTLRConnectorsQuery
-
-/**
- *  Optional. The maximum policy version that will be used to format the policy.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected. Requests for policies with any conditional role bindings must
- *  specify version 3. Policies with no conditional role bindings may specify
- *  any valid value or leave the field unset. The policy in the response might
- *  use the policy version that you specified, or it might use a lower policy
- *  version. For example, if you specify version 3, but the policy has no
- *  conditional role bindings, the response uses version 1. To learn which
- *  resources support conditions in their IAM policies, see the [IAM
- *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRConnectors_Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
- *  Lists Connections in a given project and location.
- *
- *  Method: connectors.projects.locations.connections.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeConnectorsCloudPlatform
- */
-@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsList : GTLRConnectorsQuery
-
-/** Filter. */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** Order by parameters. */
-@property(nonatomic, copy, nullable) NSString *orderBy;
-
-/** Page size. */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/** Page token. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. Parent resource of the Connection, of the form: `projects/ *
- *  /locations/ *`
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Specifies which fields of the Connection are returned in the response.
- *  Defaults to `BASIC` view.
- *
- *  Likely values:
- *    @arg @c kGTLRConnectorsViewConnectionViewUnspecified
- *        CONNECTION_UNSPECIFIED. (Value: "CONNECTION_VIEW_UNSPECIFIED")
- *    @arg @c kGTLRConnectorsViewBasic Do not include runtime required configs.
- *        (Value: "BASIC")
- *    @arg @c kGTLRConnectorsViewFull Include runtime required configs. (Value:
- *        "FULL")
- */
-@property(nonatomic, copy, nullable) NSString *view;
-
-/**
- *  Fetches a @c GTLRConnectors_ListConnectionsResponse.
- *
- *  Lists Connections in a given project and location.
- *
- *  @param parent Required. Parent resource of the Connection, of the form:
- *    `projects/ * /locations/ *`
- *
- *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates the parameters of a single Connection.
- *
- *  Method: connectors.projects.locations.connections.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeConnectorsCloudPlatform
- */
-@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsPatch : GTLRConnectorsQuery
-
-/**
- *  Output only. Resource name of the Connection. Format:
- *  projects/{project}/locations/{location}/connections/{connection}
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Field mask is used to specify the fields to be overwritten in the Connection
- *  resource by the update. The fields specified in the update_mask are relative
- *  to the resource, not the full request. A field will be overwritten if it is
- *  in the mask. If the user does not provide a mask then all fields will be
- *  overwritten.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRConnectors_Operation.
- *
- *  Updates the parameters of a single Connection.
- *
- *  @param object The @c GTLRConnectors_Connection to include in the query.
- *  @param name Output only. Resource name of the Connection. Format:
- *    projects/{project}/locations/{location}/connections/{connection}
- *
- *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsPatch
- */
-+ (instancetype)queryWithObject:(GTLRConnectors_Connection *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  List schema of a runtime actions filtered by action name.
- *
- *  Method: connectors.projects.locations.connections.runtimeActionSchemas.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeConnectorsCloudPlatform
- */
-@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsRuntimeActionSchemasList : GTLRConnectorsQuery
-
-/**
- *  Required. Filter Format: action="{actionId}" Only action field is supported
- *  with literal equality operator. Accepted filter example:
- *  action="CancelOrder" Wildcards are not supported in the filter currently.
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** Page size. */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/** Page token. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. Parent resource of RuntimeActionSchema Format:
- *  projects/{project}/locations/{location}/connections/{connection}
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRConnectors_ListRuntimeActionSchemasResponse.
- *
- *  List schema of a runtime actions filtered by action name.
- *
- *  @param parent Required. Parent resource of RuntimeActionSchema Format:
- *    projects/{project}/locations/{location}/connections/{connection}
- *
- *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsRuntimeActionSchemasList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  List schema of a runtime entities filtered by entity name.
- *
- *  Method: connectors.projects.locations.connections.runtimeEntitySchemas.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeConnectorsCloudPlatform
- */
-@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsRuntimeEntitySchemasList : GTLRConnectorsQuery
-
-/**
- *  Required. Filter Format: entity="{entityId}" Only entity field is supported
- *  with literal equality operator. Accepted filter example: entity="Order"
- *  Wildcards are not supported in the filter currently.
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** Page size. */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/** Page token. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. Parent resource of RuntimeEntitySchema Format:
- *  projects/{project}/locations/{location}/connections/{connection}
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRConnectors_ListRuntimeEntitySchemasResponse.
- *
- *  List schema of a runtime entities filtered by entity name.
- *
- *  @param parent Required. Parent resource of RuntimeEntitySchema Format:
- *    projects/{project}/locations/{location}/connections/{connection}
- *
- *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsRuntimeEntitySchemasList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  Method: connectors.projects.locations.connections.setIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeConnectorsCloudPlatform
- */
-@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsSetIamPolicy : GTLRConnectorsQuery
-
-/**
- *  REQUIRED: The resource for which the policy is being specified. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRConnectors_Policy.
- *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  @param object The @c GTLRConnectors_SetIamPolicyRequest to include in the
- *    query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRConnectors_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  Method: connectors.projects.locations.connections.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeConnectorsCloudPlatform
- */
-@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsTestIamPermissions : GTLRConnectorsQuery
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRConnectors_TestIamPermissionsResponse.
- *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  @param object The @c GTLRConnectors_TestIamPermissionsRequest to include in
- *    the query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsTestIamPermissions
- */
-+ (instancetype)queryWithObject:(GTLRConnectors_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Gets information about a location.
- *
- *  Method: connectors.projects.locations.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeConnectorsCloudPlatform
- */
-@interface GTLRConnectorsQuery_ProjectsLocationsGet : GTLRConnectorsQuery
-
-/** Resource name for the location. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRConnectors_Location.
- *
- *  Gets information about a location.
- *
- *  @param name Resource name for the location.
- *
- *  @return GTLRConnectorsQuery_ProjectsLocationsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Gets the runtimeConfig of a location. RuntimeConfig is a singleton resource
- *  for each location.
- *
- *  Method: connectors.projects.locations.getRuntimeConfig
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeConnectorsCloudPlatform
- */
-@interface GTLRConnectorsQuery_ProjectsLocationsGetRuntimeConfig : GTLRConnectorsQuery
-
-/**
- *  Required. Resource name of the form: `projects/ * /locations/ *
- *  /runtimeConfig`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRConnectors_RuntimeConfig.
- *
- *  Gets the runtimeConfig of a location. RuntimeConfig is a singleton resource
- *  for each location.
- *
- *  @param name Required. Resource name of the form: `projects/ * /locations/ *
- *    /runtimeConfig`
- *
- *  @return GTLRConnectorsQuery_ProjectsLocationsGetRuntimeConfig
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Gets details of a single Connector.
- *
- *  Method: connectors.projects.locations.global.providers.connectors.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeConnectorsCloudPlatform
- */
-@interface GTLRConnectorsQuery_ProjectsLocationsGlobalProvidersConnectorsGet : GTLRConnectorsQuery
-
-/**
- *  Required. Resource name of the form: `projects/ * /locations/ * /providers/
- *  * /connectors/ *`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRConnectors_Connector.
- *
- *  Gets details of a single Connector.
- *
- *  @param name Required. Resource name of the form: `projects/ * /locations/ *
- *    /providers/ * /connectors/ *`
- *
- *  @return GTLRConnectorsQuery_ProjectsLocationsGlobalProvidersConnectorsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists Connectors in a given project and location.
- *
- *  Method: connectors.projects.locations.global.providers.connectors.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeConnectorsCloudPlatform
- */
-@interface GTLRConnectorsQuery_ProjectsLocationsGlobalProvidersConnectorsList : GTLRConnectorsQuery
-
-/** Page size. */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/** Page token. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. Parent resource of the connectors, of the form: `projects/ *
- *  /locations/ * /providers/ *`
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRConnectors_ListConnectorsResponse.
- *
- *  Lists Connectors in a given project and location.
- *
- *  @param parent Required. Parent resource of the connectors, of the form:
- *    `projects/ * /locations/ * /providers/ *`
- *
- *  @return GTLRConnectorsQuery_ProjectsLocationsGlobalProvidersConnectorsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Gets details of a single connector version.
- *
- *  Method: connectors.projects.locations.global.providers.connectors.versions.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeConnectorsCloudPlatform
- */
-@interface GTLRConnectorsQuery_ProjectsLocationsGlobalProvidersConnectorsVersionsGet : GTLRConnectorsQuery
-
-/**
- *  Required. Resource name of the form: `projects/ * /locations/ * /providers/
- *  * /connectors/ * /versions/ *`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Specifies which fields of the ConnectorVersion are returned in the response.
- *  Defaults to `CUSTOMER` view.
- *
- *  Likely values:
- *    @arg @c kGTLRConnectorsViewConnectorVersionViewUnspecified
- *        CONNECTOR_VERSION_VIEW_UNSPECIFIED. (Value:
- *        "CONNECTOR_VERSION_VIEW_UNSPECIFIED")
- *    @arg @c kGTLRConnectorsViewConnectorVersionViewBasic Do not include role
- *        grant configs. (Value: "CONNECTOR_VERSION_VIEW_BASIC")
- *    @arg @c kGTLRConnectorsViewConnectorVersionViewFull Include role grant
- *        configs. (Value: "CONNECTOR_VERSION_VIEW_FULL")
- */
-@property(nonatomic, copy, nullable) NSString *view;
-
-/**
- *  Fetches a @c GTLRConnectors_ConnectorVersion.
- *
- *  Gets details of a single connector version.
- *
- *  @param name Required. Resource name of the form: `projects/ * /locations/ *
- *    /providers/ * /connectors/ * /versions/ *`
- *
- *  @return GTLRConnectorsQuery_ProjectsLocationsGlobalProvidersConnectorsVersionsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists Connector Versions in a given project and location.
- *
- *  Method: connectors.projects.locations.global.providers.connectors.versions.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeConnectorsCloudPlatform
- */
-@interface GTLRConnectorsQuery_ProjectsLocationsGlobalProvidersConnectorsVersionsList : GTLRConnectorsQuery
-
-/** Page size. */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/** Page token. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. Parent resource of the connectors, of the form: `projects/ *
- *  /locations/ * /providers/ * /connectors/ *`
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Specifies which fields of the ConnectorVersion are returned in the response.
- *  Defaults to `CUSTOMER` view.
- *
- *  Likely values:
- *    @arg @c kGTLRConnectorsViewConnectorVersionViewUnspecified
- *        CONNECTOR_VERSION_VIEW_UNSPECIFIED. (Value:
- *        "CONNECTOR_VERSION_VIEW_UNSPECIFIED")
- *    @arg @c kGTLRConnectorsViewConnectorVersionViewBasic Do not include role
- *        grant configs. (Value: "CONNECTOR_VERSION_VIEW_BASIC")
- *    @arg @c kGTLRConnectorsViewConnectorVersionViewFull Include role grant
- *        configs. (Value: "CONNECTOR_VERSION_VIEW_FULL")
- */
-@property(nonatomic, copy, nullable) NSString *view;
-
-/**
- *  Fetches a @c GTLRConnectors_ListConnectorVersionsResponse.
- *
- *  Lists Connector Versions in a given project and location.
- *
- *  @param parent Required. Parent resource of the connectors, of the form:
- *    `projects/ * /locations/ * /providers/ * /connectors/ *`
- *
- *  @return GTLRConnectorsQuery_ProjectsLocationsGlobalProvidersConnectorsVersionsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Gets details of a single Provider.
- *
- *  Method: connectors.projects.locations.global.providers.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeConnectorsCloudPlatform
- */
-@interface GTLRConnectorsQuery_ProjectsLocationsGlobalProvidersGet : GTLRConnectorsQuery
-
-/**
- *  Required. Resource name of the form: `projects/ * /locations/ * /providers/
- *  *`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRConnectors_Provider.
- *
- *  Gets details of a single Provider.
- *
- *  @param name Required. Resource name of the form: `projects/ * /locations/ *
- *    /providers/ *`
- *
- *  @return GTLRConnectorsQuery_ProjectsLocationsGlobalProvidersGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists Providers in a given project and location.
- *
- *  Method: connectors.projects.locations.global.providers.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeConnectorsCloudPlatform
- */
-@interface GTLRConnectorsQuery_ProjectsLocationsGlobalProvidersList : GTLRConnectorsQuery
-
-/** Page size. */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/** Page token. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. Parent resource of the API, of the form: `projects/ * /locations/
- *  *`
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRConnectors_ListProvidersResponse.
- *
- *  Lists Providers in a given project and location.
- *
- *  @param parent Required. Parent resource of the API, of the form: `projects/
- *    * /locations/ *`
- *
- *  @return GTLRConnectorsQuery_ProjectsLocationsGlobalProvidersList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Lists information about the supported locations for this service.
- *
- *  Method: connectors.projects.locations.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeConnectorsCloudPlatform
- */
-@interface GTLRConnectorsQuery_ProjectsLocationsList : GTLRConnectorsQuery
-
-/**
- *  A filter to narrow down results to a preferred subset. The filtering
- *  language accepts strings like `"displayName=tokyo"`, and is documented in
- *  more detail in [AIP-160](https://google.aip.dev/160).
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** The resource that owns the locations collection, if applicable. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The maximum number of results to return. If not set, the service selects a
- *  default.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A page token received from the `next_page_token` field in the response. Send
- *  that page token to receive the subsequent page.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c GTLRConnectors_ListLocationsResponse.
- *
- *  Lists information about the supported locations for this service.
- *
- *  @param name The resource that owns the locations collection, if applicable.
- *
- *  @return GTLRConnectorsQuery_ProjectsLocationsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not guaranteed.
- *  If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
- *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation, the
- *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
- *
- *  Method: connectors.projects.locations.operations.cancel
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeConnectorsCloudPlatform
- */
-@interface GTLRConnectorsQuery_ProjectsLocationsOperationsCancel : GTLRConnectorsQuery
-
-/** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRConnectors_Empty.
  *
- *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not guaranteed.
- *  If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
- *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation, the
- *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
+ *  Deletes an existing entity row matching the entity type and entity id
+ *  specified in the request.
  *
- *  @param object The @c GTLRConnectors_CancelOperationRequest to include in the
- *    query.
- *  @param name The name of the operation resource to be cancelled.
+ *  @param name Required. Resource name of the Entity Type. Format:
+ *    projects/{project}/locations/{location}/connections/{connection}/entityTypes/{type}/entities/{id}
  *
- *  @return GTLRConnectorsQuery_ProjectsLocationsOperationsCancel
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesDelete
  */
-+ (instancetype)queryWithObject:(GTLRConnectors_CancelOperationRequest *)object
-                           name:(NSString *)name;
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
 /**
- *  Deletes a long-running operation. This method indicates that the client is
- *  no longer interested in the operation result. It does not cancel the
- *  operation. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`.
+ *  Deletes entities based on conditions specified in the request and not on
+ *  entity id.
  *
- *  Method: connectors.projects.locations.operations.delete
+ *  Method: connectors.projects.locations.connections.entityTypes.entities.deleteEntitiesWithConditions
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeConnectorsCloudPlatform
  */
-@interface GTLRConnectorsQuery_ProjectsLocationsOperationsDelete : GTLRConnectorsQuery
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesDeleteEntitiesWithConditions : GTLRConnectorsQuery
 
-/** The name of the operation resource to be deleted. */
-@property(nonatomic, copy, nullable) NSString *name;
+/**
+ *  Required. Conditions to be used when deleting entities. From a proto
+ *  standpoint, There are no restrictions on what can be passed using this
+ *  field. The connector documentation should have information about what format
+ *  of filters/conditions are supported. Note: If this conditions field is left
+ *  empty, an exception is thrown. We don't want to consider 'empty conditions'
+ *  to be a match-all case. Connector developers can determine and document what
+ *  a match-all case constraint would be.
+ */
+@property(nonatomic, copy, nullable) NSString *conditions;
+
+/**
+ *  Required. Resource name of the Entity Type. Format:
+ *  projects/{project}/locations/{location}/connections/{connection}/entityTypes/{type}
+ */
+@property(nonatomic, copy, nullable) NSString *entityType;
 
 /**
  *  Fetches a @c GTLRConnectors_Empty.
  *
- *  Deletes a long-running operation. This method indicates that the client is
- *  no longer interested in the operation result. It does not cancel the
- *  operation. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`.
+ *  Deletes entities based on conditions specified in the request and not on
+ *  entity id.
  *
- *  @param name The name of the operation resource to be deleted.
+ *  @param entityType Required. Resource name of the Entity Type. Format:
+ *    projects/{project}/locations/{location}/connections/{connection}/entityTypes/{type}
  *
- *  @return GTLRConnectorsQuery_ProjectsLocationsOperationsDelete
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesDeleteEntitiesWithConditions
+ */
++ (instancetype)queryWithEntityType:(NSString *)entityType;
+
+@end
+
+/**
+ *  Gets a single entity row matching the entity type and entity id specified in
+ *  the request.
+ *
+ *  Method: connectors.projects.locations.connections.entityTypes.entities.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConnectorsCloudPlatform
+ */
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesGet : GTLRConnectorsQuery
+
+/**
+ *  Required. Resource name of the Entity Type. Format:
+ *  projects/{project}/locations/{location}/connections/{connection}/entityTypes/{type}/entities/{id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRConnectors_Entity.
+ *
+ *  Gets a single entity row matching the entity type and entity id specified in
+ *  the request.
+ *
+ *  @param name Required. Resource name of the Entity Type. Format:
+ *    projects/{project}/locations/{location}/connections/{connection}/entityTypes/{type}/entities/{id}
+ *
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
 @end
 
 /**
- *  Gets the latest state of a long-running operation. Clients can use this
- *  method to poll the operation result at intervals as recommended by the API
- *  service.
+ *  Lists entity rows of a particular entity type contained in the request.
+ *  Note: 1. Currently, only max of one 'sort_by' column is supported. 2. If no
+ *  'sort_by' column is provided, the primary key of the table is used. If zero
+ *  or more than one primary key is available, we default to the unpaginated
+ *  list entities logic which only returns the first page. 3. The values of the
+ *  'sort_by' columns must uniquely identify an entity row, otherwise undefined
+ *  behaviors may be observed during pagination. 4. Since transactions are not
+ *  supported, any updates, inserts or deletes during pagination can lead to
+ *  stale data being returned or other unexpected behaviors.
  *
- *  Method: connectors.projects.locations.operations.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeConnectorsCloudPlatform
- */
-@interface GTLRConnectorsQuery_ProjectsLocationsOperationsGet : GTLRConnectorsQuery
-
-/** The name of the operation resource. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRConnectors_Operation.
- *
- *  Gets the latest state of a long-running operation. Clients can use this
- *  method to poll the operation result at intervals as recommended by the API
- *  service.
- *
- *  @param name The name of the operation resource.
- *
- *  @return GTLRConnectorsQuery_ProjectsLocationsOperationsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
- *
- *  Method: connectors.projects.locations.operations.list
+ *  Method: connectors.projects.locations.connections.entityTypes.entities.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeConnectorsCloudPlatform
  */
-@interface GTLRConnectorsQuery_ProjectsLocationsOperationsList : GTLRConnectorsQuery
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesList : GTLRConnectorsQuery
 
-/** The standard list filter. */
-@property(nonatomic, copy, nullable) NSString *filter;
+/**
+ *  Conditions to be used when listing entities. From a proto standpoint, There
+ *  are no restrictions on what can be passed using this field. The connector
+ *  documentation should have information about what format of
+ *  filters/conditions are supported.
+ */
+@property(nonatomic, copy, nullable) NSString *conditions;
 
-/** The name of the operation's parent resource. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** The standard list page size. */
+/**
+ *  Number of entity rows to return. Defaults page size = 25. Max page size =
+ *  200.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/** Page token value if available from a previous request. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Fetches a @c GTLRConnectors_ListOperationsResponse.
+ *  Required. Resource name of the Entity Type. Format:
+ *  projects/{project}/locations/{location}/connections/{connection}/entityTypes/{type}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** List of 'sort_by' columns to use when returning the results. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sortBy;
+
+/**
+ *  Fetches a @c GTLRConnectors_ListEntitiesResponse.
  *
- *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
+ *  Lists entity rows of a particular entity type contained in the request.
+ *  Note: 1. Currently, only max of one 'sort_by' column is supported. 2. If no
+ *  'sort_by' column is provided, the primary key of the table is used. If zero
+ *  or more than one primary key is available, we default to the unpaginated
+ *  list entities logic which only returns the first page. 3. The values of the
+ *  'sort_by' columns must uniquely identify an entity row, otherwise undefined
+ *  behaviors may be observed during pagination. 4. Since transactions are not
+ *  supported, any updates, inserts or deletes during pagination can lead to
+ *  stale data being returned or other unexpected behaviors.
  *
- *  @param name The name of the operation's parent resource.
+ *  @param parent Required. Resource name of the Entity Type. Format:
+ *    projects/{project}/locations/{location}/connections/{connection}/entityTypes/{type}
  *
- *  @return GTLRConnectorsQuery_ProjectsLocationsOperationsList
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithName:(NSString *)name;
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
 /**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
+ *  Updates an existing entity row matching the entity type and entity id
+ *  specified in the request. The fields in the entity row that need to be
+ *  modified are contained in the body of the request. All unspecified fields
+ *  are left unchanged. The response message contains a `Entity` message object
+ *  returned as a response by the external system.
  *
- *  Method: connectors.projects.locations.providers.getIamPolicy
+ *  Method: connectors.projects.locations.connections.entityTypes.entities.patch
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeConnectorsCloudPlatform
  */
-@interface GTLRConnectorsQuery_ProjectsLocationsProvidersGetIamPolicy : GTLRConnectorsQuery
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesPatch : GTLRConnectorsQuery
 
 /**
- *  Optional. The maximum policy version that will be used to format the policy.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected. Requests for policies with any conditional role bindings must
- *  specify version 3. Policies with no conditional role bindings may specify
- *  any valid value or leave the field unset. The policy in the response might
- *  use the policy version that you specified, or it might use a lower policy
- *  version. For example, if you specify version 3, but the policy has no
- *  conditional role bindings, the response uses version 1. To learn which
- *  resources support conditions in their IAM policies, see the [IAM
- *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ *  Output only. Resource name of the Entity. Format:
+ *  projects/{project}/locations/{location}/connections/{connection}/entityTypes/{type}/entities/{id}
  */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
+ *  Fetches a @c GTLRConnectors_Entity.
+ *
+ *  Updates an existing entity row matching the entity type and entity id
+ *  specified in the request. The fields in the entity row that need to be
+ *  modified are contained in the body of the request. All unspecified fields
+ *  are left unchanged. The response message contains a `Entity` message object
+ *  returned as a response by the external system.
+ *
+ *  @param object The @c GTLRConnectors_Entity to include in the query.
+ *  @param name Output only. Resource name of the Entity. Format:
+ *    projects/{project}/locations/{location}/connections/{connection}/entityTypes/{type}/entities/{id}
+ *
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesPatch
  */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRConnectors_Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRConnectorsQuery_ProjectsLocationsProvidersGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
++ (instancetype)queryWithObject:(GTLRConnectors_Entity *)object
+                           name:(NSString *)name;
 
 @end
 
 /**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
+ *  Updates entities based on conditions specified in the request and not on
+ *  entity id.
  *
- *  Method: connectors.projects.locations.providers.setIamPolicy
+ *  Method: connectors.projects.locations.connections.entityTypes.entities.updateEntitiesWithConditions
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeConnectorsCloudPlatform
  */
-@interface GTLRConnectorsQuery_ProjectsLocationsProvidersSetIamPolicy : GTLRConnectorsQuery
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesUpdateEntitiesWithConditions : GTLRConnectorsQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
+ *  Required. Conditions to be used when updating entities. From a proto
+ *  standpoint, There are no restrictions on what can be passed using this
+ *  field. The connector documentation should have information about what format
+ *  of filters/conditions are supported. Note: If this conditions field is left
+ *  empty, an exception is thrown. We don't want to consider 'empty conditions'
+ *  to be a match-all case. Connector developers can determine and document what
+ *  a match-all case constraint would be.
  */
-@property(nonatomic, copy, nullable) NSString *resource;
+@property(nonatomic, copy, nullable) NSString *conditions;
 
 /**
- *  Fetches a @c GTLRConnectors_Policy.
+ *  Required. Resource name of the Entity Type. Format:
+ *  projects/{project}/locations/{location}/connections/{connection}/entityTypes/{type}
+ */
+@property(nonatomic, copy, nullable) NSString *entityType;
+
+/**
+ *  Fetches a @c GTLRConnectors_UpdateEntitiesWithConditionsResponse.
  *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
+ *  Updates entities based on conditions specified in the request and not on
+ *  entity id.
  *
- *  @param object The @c GTLRConnectors_SetIamPolicyRequest to include in the
+ *  @param object The @c GTLRConnectors_Entity to include in the query.
+ *  @param entityType Required. Resource name of the Entity Type. Format:
+ *    projects/{project}/locations/{location}/connections/{connection}/entityTypes/{type}
+ *
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesUpdateEntitiesWithConditions
+ */
++ (instancetype)queryWithObject:(GTLRConnectors_Entity *)object
+                     entityType:(NSString *)entityType;
+
+@end
+
+/**
+ *  Lists metadata related to all entity types present in the external system.
+ *
+ *  Method: connectors.projects.locations.connections.entityTypes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConnectorsCloudPlatform
+ */
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesList : GTLRConnectorsQuery
+
+/** Number of entity types to return. Defaults to 25. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Page token, return from a previous ListEntityTypes call, that can be used
+ *  retrieve the next page of content. If unspecified, the request returns the
+ *  first page of entity types.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Resource name of the Entity Type. Format:
+ *  projects/{project}/locations/{location}/connections/{connection}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRConnectors_ListEntityTypesResponse.
+ *
+ *  Lists metadata related to all entity types present in the external system.
+ *
+ *  @param parent Required. Resource name of the Entity Type. Format:
+ *    projects/{project}/locations/{location}/connections/{connection}
+ *
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Executes a SQL statement specified in the body of the request. An example of
+ *  this SQL statement in the case of Salesforce connector would be 'select *
+ *  from Account a, Order o where a.Id = o.AccountId'.
+ *
+ *  Method: connectors.projects.locations.connections.executeSqlQuery
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConnectorsCloudPlatform
+ */
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsExecuteSqlQuery : GTLRConnectorsQuery
+
+/**
+ *  Required. Resource name of the Connection. Format:
+ *  projects/{project}/locations/{location}/connections/{connection}
+ */
+@property(nonatomic, copy, nullable) NSString *connection;
+
+/**
+ *  Fetches a @c GTLRConnectors_ExecuteSqlQueryResponse.
+ *
+ *  Executes a SQL statement specified in the body of the request. An example of
+ *  this SQL statement in the case of Salesforce connector would be 'select *
+ *  from Account a, Order o where a.Id = o.AccountId'.
+ *
+ *  @param object The @c GTLRConnectors_ExecuteSqlQueryRequest to include in the
  *    query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
+ *  @param connection Required. Resource name of the Connection. Format:
+ *    projects/{project}/locations/{location}/connections/{connection}
  *
- *  @return GTLRConnectorsQuery_ProjectsLocationsProvidersSetIamPolicy
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsExecuteSqlQuery
  */
-+ (instancetype)queryWithObject:(GTLRConnectors_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  Method: connectors.projects.locations.providers.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeConnectorsCloudPlatform
- */
-@interface GTLRConnectorsQuery_ProjectsLocationsProvidersTestIamPermissions : GTLRConnectorsQuery
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRConnectors_TestIamPermissionsResponse.
- *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  @param object The @c GTLRConnectors_TestIamPermissionsRequest to include in
- *    the query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRConnectorsQuery_ProjectsLocationsProvidersTestIamPermissions
- */
-+ (instancetype)queryWithObject:(GTLRConnectors_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
++ (instancetype)queryWithObject:(GTLRConnectors_ExecuteSqlQueryRequest *)object
+                     connection:(NSString *)connection;
 
 @end
 

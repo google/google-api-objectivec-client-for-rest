@@ -189,6 +189,11 @@
 @class GTLRShoppingContent_ProductTax;
 @class GTLRShoppingContent_ProductUnitPricingBaseMeasure;
 @class GTLRShoppingContent_ProductUnitPricingMeasure;
+@class GTLRShoppingContent_ProductView;
+@class GTLRShoppingContent_ProductViewItemIssue;
+@class GTLRShoppingContent_ProductViewItemIssueIssueSeverityPerDestination;
+@class GTLRShoppingContent_ProductViewItemIssueItemIssueSeverity;
+@class GTLRShoppingContent_ProductViewItemIssueItemIssueType;
 @class GTLRShoppingContent_ProductWeight;
 @class GTLRShoppingContent_RateGroup;
 @class GTLRShoppingContent_RefundReason;
@@ -726,6 +731,114 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_OrderTrackingSignalShipp
  *  Value: "SHIPPING_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_OrderTrackingSignalShippingInfo_ShippingStatus_ShippingStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ProductView.aggregatedDestinationStatus
+
+/**
+ *  Undefined aggregated status.
+ *
+ *  Value: "AGGREGATED_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductView_AggregatedDestinationStatus_AggregatedStatusUnspecified;
+/**
+ *  Offer is eligible for all destinations.
+ *
+ *  Value: "ELIGIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductView_AggregatedDestinationStatus_Eligible;
+/**
+ *  Offer is eligible for some (but not all) destinations.
+ *
+ *  Value: "ELIGIBLE_LIMITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductView_AggregatedDestinationStatus_EligibleLimited;
+/**
+ *  Offer isn't eligible, or is disapproved for all destinations.
+ *
+ *  Value: "NOT_ELIGIBLE_OR_DISAPPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductView_AggregatedDestinationStatus_NotEligibleOrDisapproved;
+/**
+ *  Offer's status is pending in all destinations.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductView_AggregatedDestinationStatus_Pending;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ProductView.channel
+
+/**
+ *  Indicates that the channel is unspecified.
+ *
+ *  Value: "CHANNEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductView_Channel_ChannelUnspecified;
+/**
+ *  Indicates that the channel is local.
+ *
+ *  Value: "LOCAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductView_Channel_Local;
+/**
+ *  Indicates that the channel is online.
+ *
+ *  Value: "ONLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductView_Channel_Online;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ProductViewItemIssue.resolution
+
+/**
+ *  The merchant has to fix the issue.
+ *
+ *  Value: "MERCHANT_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductViewItemIssue_Resolution_MerchantAction;
+/**
+ *  The issue will be resolved automatically (for example, image crawl), or
+ *  Google review. No merchant action is required now. Resolution might lead to
+ *  another issue (for example, if crawl fails).
+ *
+ *  Value: "PENDING_PROCESSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductViewItemIssue_Resolution_PendingProcessing;
+/**
+ *  Unknown resolution type.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductViewItemIssue_Resolution_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ProductViewItemIssueItemIssueSeverity.aggregatedSeverity
+
+/**
+ *  Undefined Issue severity.
+ *
+ *  Value: "AGGREGATED_ISSUE_SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductViewItemIssueItemIssueSeverity_AggregatedSeverity_AggregatedIssueSeverityUnspecified;
+/**
+ *  Issue demotes the product in all selected destinations it affects.
+ *
+ *  Value: "DEMOTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductViewItemIssueItemIssueSeverity_AggregatedSeverity_Demoted;
+/**
+ *  Issue disapproves the product in at least one of the selected destinations.
+ *
+ *  Value: "DISAPPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductViewItemIssueItemIssueSeverity_AggregatedSeverity_Disapproved;
+/**
+ *  Issue resolution is `PENDING_PROCESSING`.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ProductViewItemIssueItemIssueSeverity_AggregatedSeverity_Pending;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_Promotion.couponValueType
@@ -1478,7 +1591,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) GTLRShoppingContent_AccountGoogleMyBusinessLink *googleMyBusinessLink;
 
 /**
- *  Required for update. Merchant Center account ID.
+ *  Required. 64-bit Merchant Center account ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  *
@@ -2192,7 +2305,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) NSNumber *batchId;
 
-/** A list of errors defined if and only if the request failed. */
+/**
+ *  A list of errors for failed custombatch entries. *Note:* Schema errors fail
+ *  the whole request.
+ */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Errors *errors;
 
 /**
@@ -2502,7 +2618,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) NSNumber *batchId;
 
-/** A list of errors defined if and only if the request failed. */
+/**
+ *  A list of errors for failed custombatch entries. *Note:* Schema errors fail
+ *  the whole request.
+ */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Errors *errors;
 
 @end
@@ -2778,7 +2897,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) NSNumber *batchId;
 
-/** A list of errors defined if and only if the request failed. */
+/**
+ *  A list of errors for failed custombatch entries. *Note:* Schema errors fail
+ *  the whole request.
+ */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Errors *errors;
 
 /**
@@ -3337,7 +3459,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /**
  *  Date on which the collection has been created in [ISO
  *  8601](http://en.wikipedia.org/wiki/ISO_8601) format: Date, time, and offset,
- *  e.g. "2020-01-02T09:00:00+01:00" or "2020-01-02T09:00:00Z"
+ *  for example "2020-01-02T09:00:00+01:00" or "2020-01-02T09:00:00Z"
  */
 @property(nonatomic, copy, nullable) NSString *creationDate;
 
@@ -3354,7 +3476,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /**
  *  Date on which the collection has been last updated in [ISO
  *  8601](http://en.wikipedia.org/wiki/ISO_8601) format: Date, time, and offset,
- *  e.g. "2020-01-02T09:00:00+01:00" or "2020-01-02T09:00:00Z"
+ *  for example "2020-01-02T09:00:00+01:00" or "2020-01-02T09:00:00Z"
  */
 @property(nonatomic, copy, nullable) NSString *lastUpdateDate;
 
@@ -3369,7 +3491,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /** The name of the destination */
 @property(nonatomic, copy, nullable) NSString *destination;
 
-/** The status for the specified destination. */
+/**
+ *  The status for the specified destination in the collections target country.
+ */
 @property(nonatomic, copy, nullable) NSString *status;
 
 @end
@@ -3764,7 +3888,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Datafeed *datafeed;
 
-/** A list of errors defined if and only if the request failed. */
+/**
+ *  A list of errors for failed custombatch entries. *Note:* Schema errors fail
+ *  the whole request.
+ */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Errors *errors;
 
 @end
@@ -3994,7 +4121,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_DatafeedStatus *datafeedStatus;
 
-/** A list of errors defined if and only if the request failed. */
+/**
+ *  A list of errors for failed custombatch entries. *Note:* Schema errors fail
+ *  the whole request.
+ */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Errors *errors;
 
 @end
@@ -4131,60 +4261,60 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  offset from UTC. * When time_zone is set and utc_offset is unset: a civil
  *  time on a calendar day in a particular time zone. * When neither time_zone
  *  nor utc_offset is set: a civil time on a calendar day in local time. The
- *  date is relative to the Proleptic Gregorian Calendar. If year is 0, the
- *  DateTime is considered not to have a specific year. month and day must have
- *  valid, non-zero values. This type may also be used to represent a physical
- *  time if all the date and time fields are set and either case of the
- *  `time_offset` oneof is set. Consider using `Timestamp` message for physical
- *  time instead. If your use case also would like to store the user's timezone,
- *  that can be done in another field. This type is more flexible than some
- *  applications may want. Make sure to document and validate your application's
- *  limitations.
+ *  date is relative to the Proleptic Gregorian Calendar. If year, month, or day
+ *  are 0, the DateTime is considered not to have a specific year, month, or day
+ *  respectively. This type may also be used to represent a physical time if all
+ *  the date and time fields are set and either case of the `time_offset` oneof
+ *  is set. Consider using `Timestamp` message for physical time instead. If
+ *  your use case also would like to store the user's timezone, that can be done
+ *  in another field. This type is more flexible than some applications may
+ *  want. Make sure to document and validate your application's limitations.
  */
 @interface GTLRShoppingContent_DateTime : GTLRObject
 
 /**
- *  Required. Day of month. Must be from 1 to 31 and valid for the year and
- *  month.
+ *  Optional. Day of month. Must be from 1 to 31 and valid for the year and
+ *  month, or 0 if specifying a datetime without a day.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *day;
 
 /**
- *  Required. Hours of day in 24 hour format. Should be from 0 to 23. An API may
- *  choose to allow the value "24:00:00" for scenarios like business closing
- *  time.
+ *  Optional. Hours of day in 24 hour format. Should be from 0 to 23, defaults
+ *  to 0 (midnight). An API may choose to allow the value "24:00:00" for
+ *  scenarios like business closing time.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hours;
 
 /**
- *  Required. Minutes of hour of day. Must be from 0 to 59.
+ *  Optional. Minutes of hour of day. Must be from 0 to 59, defaults to 0.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minutes;
 
 /**
- *  Required. Month of year. Must be from 1 to 12.
+ *  Optional. Month of year. Must be from 1 to 12, or 0 if specifying a datetime
+ *  without a month.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *month;
 
 /**
- *  Required. Fractions of seconds in nanoseconds. Must be from 0 to
- *  999,999,999.
+ *  Optional. Fractions of seconds in nanoseconds. Must be from 0 to
+ *  999,999,999, defaults to 0.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nanos;
 
 /**
- *  Required. Seconds of minutes of the time. Must normally be from 0 to 59. An
- *  API may allow the value 60 if it allows leap-seconds.
+ *  Optional. Seconds of minutes of the time. Must normally be from 0 to 59,
+ *  defaults to 0. An API may allow the value 60 if it allows leap-seconds.
  *
  *  Uses NSNumber of intValue.
  */
@@ -5672,7 +5802,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) NSNumber *batchId;
 
-/** A list of errors defined if and only if the request failed. */
+/**
+ *  A list of errors for failed custombatch entries. *Note:* Schema errors fail
+ *  the whole request.
+ */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Errors *errors;
 
 /**
@@ -9761,6 +9894,11 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, copy, nullable) NSString *externalSellerId;
 
+/**
+ *  Feed label for the item. Either `targetCountry` or `feedLabel` is required.
+ */
+@property(nonatomic, copy, nullable) NSString *feedLabel;
+
 /** Target gender of the item. */
 @property(nonatomic, copy, nullable) NSString *gender;
 
@@ -10299,7 +10437,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) NSNumber *batchId;
 
-/** A list of errors defined if and only if the request failed. */
+/**
+ *  A list of errors for failed custombatch entries. *Note:* Schema errors fail
+ *  the whole request.
+ */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Errors *errors;
 
 /**
@@ -10615,7 +10756,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) NSNumber *batchId;
 
-/** A list of errors, if the request failed. */
+/**
+ *  A list of errors for failed custombatch entries. *Note:* Schema errors fail
+ *  the whole request.
+ */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Errors *errors;
 
 /**
@@ -10803,6 +10947,195 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
+ *  Product fields. Values are only set for fields requested explicitly in the
+ *  request's search query.
+ */
+@interface GTLRShoppingContent_ProductView : GTLRObject
+
+/**
+ *  Aggregated destination status.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ProductView_AggregatedDestinationStatus_AggregatedStatusUnspecified
+ *        Undefined aggregated status. (Value: "AGGREGATED_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_ProductView_AggregatedDestinationStatus_Eligible
+ *        Offer is eligible for all destinations. (Value: "ELIGIBLE")
+ *    @arg @c kGTLRShoppingContent_ProductView_AggregatedDestinationStatus_EligibleLimited
+ *        Offer is eligible for some (but not all) destinations. (Value:
+ *        "ELIGIBLE_LIMITED")
+ *    @arg @c kGTLRShoppingContent_ProductView_AggregatedDestinationStatus_NotEligibleOrDisapproved
+ *        Offer isn't eligible, or is disapproved for all destinations. (Value:
+ *        "NOT_ELIGIBLE_OR_DISAPPROVED")
+ *    @arg @c kGTLRShoppingContent_ProductView_AggregatedDestinationStatus_Pending
+ *        Offer's status is pending in all destinations. (Value: "PENDING")
+ */
+@property(nonatomic, copy, nullable) NSString *aggregatedDestinationStatus;
+
+/** Availability of the product. */
+@property(nonatomic, copy, nullable) NSString *availability;
+
+/** Brand of the product. */
+@property(nonatomic, copy, nullable) NSString *brand;
+
+/**
+ *  Channel of the product (online versus local).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ProductView_Channel_ChannelUnspecified
+ *        Indicates that the channel is unspecified. (Value:
+ *        "CHANNEL_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_ProductView_Channel_Local Indicates that the
+ *        channel is local. (Value: "LOCAL")
+ *    @arg @c kGTLRShoppingContent_ProductView_Channel_Online Indicates that the
+ *        channel is online. (Value: "ONLINE")
+ */
+@property(nonatomic, copy, nullable) NSString *channel;
+
+/** Condition of the product. */
+@property(nonatomic, copy, nullable) NSString *condition;
+
+/** The time the merchant created the product in timestamp seconds. */
+@property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
+
+/**
+ *  Product price currency code (for example, ISO 4217). Absent if product price
+ *  is not available.
+ */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/** Expiration date for the product. Specified on insertion. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Date *expirationDate;
+
+/** GTIN of the product. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *gtin;
+
+/**
+ *  The REST ID of the product, in the form of
+ *  channel:contentLanguage:targetCountry:offerId. Content API methods that
+ *  operate on products take this as their productId parameter. Should always be
+ *  included in the SELECT clause.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Item group ID provided by the merchant for grouping variants together. */
+@property(nonatomic, copy, nullable) NSString *itemGroupId;
+
+/** List of item issues for the product. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ProductViewItemIssue *> *itemIssues;
+
+/** Language code of the product in BCP 47 format. */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Merchant-provided id of the product. */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/**
+ *  Product price specified as micros in the product currency. Absent in case
+ *  the information about the price of the product is not available.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *priceMicros;
+
+/** The normalized shipping label specified in the feed */
+@property(nonatomic, copy, nullable) NSString *shippingLabel;
+
+/** Title of the product. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Item issue associated with the product.
+ */
+@interface GTLRShoppingContent_ProductViewItemIssue : GTLRObject
+
+/** Item issue type. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ProductViewItemIssueItemIssueType *issueType;
+
+/**
+ *  Item issue resolution.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ProductViewItemIssue_Resolution_MerchantAction
+ *        The merchant has to fix the issue. (Value: "MERCHANT_ACTION")
+ *    @arg @c kGTLRShoppingContent_ProductViewItemIssue_Resolution_PendingProcessing
+ *        The issue will be resolved automatically (for example, image crawl),
+ *        or Google review. No merchant action is required now. Resolution might
+ *        lead to another issue (for example, if crawl fails). (Value:
+ *        "PENDING_PROCESSING")
+ *    @arg @c kGTLRShoppingContent_ProductViewItemIssue_Resolution_Unknown
+ *        Unknown resolution type. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *resolution;
+
+/** Item issue severity. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ProductViewItemIssueItemIssueSeverity *severity;
+
+@end
+
+
+/**
+ *  Issue severity for all affected regions in a destination.
+ */
+@interface GTLRShoppingContent_ProductViewItemIssueIssueSeverityPerDestination : GTLRObject
+
+/** List of demoted countries in the destination. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *demotedCountries;
+
+/** Issue destination. */
+@property(nonatomic, copy, nullable) NSString *destination;
+
+/** List of disapproved countries in the destination. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *disapprovedCountries;
+
+@end
+
+
+/**
+ *  Severity of an issue per destination in a region, and aggregated severity.
+ */
+@interface GTLRShoppingContent_ProductViewItemIssueItemIssueSeverity : GTLRObject
+
+/**
+ *  Severity of an issue aggregated for destination.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ProductViewItemIssueItemIssueSeverity_AggregatedSeverity_AggregatedIssueSeverityUnspecified
+ *        Undefined Issue severity. (Value:
+ *        "AGGREGATED_ISSUE_SEVERITY_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_ProductViewItemIssueItemIssueSeverity_AggregatedSeverity_Demoted
+ *        Issue demotes the product in all selected destinations it affects.
+ *        (Value: "DEMOTED")
+ *    @arg @c kGTLRShoppingContent_ProductViewItemIssueItemIssueSeverity_AggregatedSeverity_Disapproved
+ *        Issue disapproves the product in at least one of the selected
+ *        destinations. (Value: "DISAPPROVED")
+ *    @arg @c kGTLRShoppingContent_ProductViewItemIssueItemIssueSeverity_AggregatedSeverity_Pending
+ *        Issue resolution is `PENDING_PROCESSING`. (Value: "PENDING")
+ */
+@property(nonatomic, copy, nullable) NSString *aggregatedSeverity;
+
+/** Item issue severity for every destination. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ProductViewItemIssueIssueSeverityPerDestination *> *severityPerDestination;
+
+@end
+
+
+/**
+ *  Type of the item issue.
+ */
+@interface GTLRShoppingContent_ProductViewItemIssueItemIssueType : GTLRObject
+
+/** Canonical attribute name for attribute-specific issues. */
+@property(nonatomic, copy, nullable) NSString *canonicalAttribute;
 
 @end
 
@@ -11334,7 +11667,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) NSNumber *batchId;
 
-/** A list of errors defined if and only if the request failed. */
+/**
+ *  A list of errors for failed custombatch entries. *Note:* Schema errors fail
+ *  the whole request.
+ */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Errors *errors;
 
 /**
@@ -11421,6 +11757,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  for metrics requested explicitly in the query.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Metrics *metrics;
+
+/**
+ *  Product fields requested by the merchant in the query. Field values are only
+ *  set if the merchant queries `ProductView`. `product_view` field is available
+ *  only to allowlisted users who can query the `ProductView` table.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ProductView *productView;
 
 /**
  *  Segmentation dimensions requested by the merchant in the query. Dimension
@@ -13449,7 +13792,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) NSNumber *batchId;
 
-/** A list of errors defined if, and only if, the request failed. */
+/**
+ *  A list of errors for failed custombatch entries. *Note:* Schema errors fail
+ *  the whole request.
+ */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Errors *errors;
 
 /**

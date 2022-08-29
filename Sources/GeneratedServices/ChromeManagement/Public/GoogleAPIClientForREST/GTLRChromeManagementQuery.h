@@ -242,6 +242,108 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @end
 
 /**
+ *  Generate report of the number of devices expiring in each month of the
+ *  selected time frame. Devices are grouped by auto update expiration date and
+ *  model. Further information can be found
+ *  [here](https://support.google.com/chrome/a/answer/10564947).
+ *
+ *  Method: chromemanagement.customers.reports.countChromeDevicesReachingAutoExpirationDate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersReportsCountChromeDevicesReachingAutoExpirationDate : GTLRChromeManagementQuery
+
+/** Required. The customer ID or "my_customer" prefixed with "customers/". */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Optional. Maximum expiration date in format yyyy-mm-dd in UTC timezone. If
+ *  included returns all devices that have already expired and devices with auto
+ *  expiration date equal to or earlier than the maximum date.
+ */
+@property(nonatomic, copy, nullable) NSString *maxAueDate;
+
+/**
+ *  Optional. Maximum expiration date in format yyyy-mm-dd in UTC timezone. If
+ *  included returns all devices that have already expired and devices with auto
+ *  expiration date equal to or later than the minimum date.
+ */
+@property(nonatomic, copy, nullable) NSString *minAueDate;
+
+/**
+ *  Optional. The organizational unit ID, if omitted, will return data for all
+ *  organizational units.
+ */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse.
+ *
+ *  Generate report of the number of devices expiring in each month of the
+ *  selected time frame. Devices are grouped by auto update expiration date and
+ *  model. Further information can be found
+ *  [here](https://support.google.com/chrome/a/answer/10564947).
+ *
+ *  @param customer Required. The customer ID or "my_customer" prefixed with
+ *    "customers/".
+ *
+ *  @return GTLRChromeManagementQuery_CustomersReportsCountChromeDevicesReachingAutoExpirationDate
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
+ *  Counts of ChromeOS devices that have not synced policies or have lacked user
+ *  activity in the past 28 days, are out of date, or are not complaint. Further
+ *  information can be found here
+ *  https://support.google.com/chrome/a/answer/10564947
+ *
+ *  Method: chromemanagement.customers.reports.countChromeDevicesThatNeedAttention
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersReportsCountChromeDevicesThatNeedAttention : GTLRChromeManagementQuery
+
+/** Required. The customer ID or "my_customer" prefixed with "customers/". */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Optional. The ID of the organizational unit. If omitted, all data will be
+ *  returned.
+ */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+/**
+ *  Required. Mask of the fields that should be populated in the returned
+ *  report.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse.
+ *
+ *  Counts of ChromeOS devices that have not synced policies or have lacked user
+ *  activity in the past 28 days, are out of date, or are not complaint. Further
+ *  information can be found here
+ *  https://support.google.com/chrome/a/answer/10564947
+ *
+ *  @param customer Required. The customer ID or "my_customer" prefixed with
+ *    "customers/".
+ *
+ *  @return GTLRChromeManagementQuery_CustomersReportsCountChromeDevicesThatNeedAttention
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
  *  Generate report of installed Chrome versions.
  *
  *  Method: chromemanagement.customers.reports.countChromeVersions

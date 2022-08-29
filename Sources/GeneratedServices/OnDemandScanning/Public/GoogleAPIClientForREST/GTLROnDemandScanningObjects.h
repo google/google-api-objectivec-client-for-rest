@@ -15,6 +15,7 @@
 #endif
 
 @class GTLROnDemandScanning_AliasContext;
+@class GTLROnDemandScanning_AnalysisCompleted;
 @class GTLROnDemandScanning_Artifact;
 @class GTLROnDemandScanning_AttestationOccurrence;
 @class GTLROnDemandScanning_BuilderConfig;
@@ -280,6 +281,12 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_DeploymentOccurrence_Pl
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_AnalysisStatus_AnalysisStatusUnspecified;
 /**
+ *  Analysis has completed
+ *
+ *  Value: "COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_AnalysisStatus_Complete;
+/**
  *  Analysis has finished unsuccessfully, the analysis itself is in a bad state.
  *
  *  Value: "FINISHED_FAILED"
@@ -292,7 +299,7 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_Ana
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_AnalysisStatus_FinishedSuccess;
 /**
- *  The resource is known not to be supported
+ *  The resource is known not to be supported.
  *
  *  Value: "FINISHED_UNSUPPORTED"
  */
@@ -625,6 +632,17 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 /** The alias name. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Indicates which analysis completed successfully. Multiple types of analysis
+ *  can be performed on a single resource.
+ */
+@interface GTLROnDemandScanning_AnalysisCompleted : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *analysisType;
 
 @end
 
@@ -1234,19 +1252,29 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  */
 @interface GTLROnDemandScanning_DiscoveryOccurrence : GTLRObject
 
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_AnalysisCompleted *analysisCompleted;
+
+/**
+ *  Indicates any errors encountered during analysis of a resource. There could
+ *  be 0 or more of these errors.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_Status *> *analysisError;
+
 /**
  *  The status of discovery for the resource.
  *
  *  Likely values:
  *    @arg @c kGTLROnDemandScanning_DiscoveryOccurrence_AnalysisStatus_AnalysisStatusUnspecified
  *        Unknown. (Value: "ANALYSIS_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLROnDemandScanning_DiscoveryOccurrence_AnalysisStatus_Complete
+ *        Analysis has completed (Value: "COMPLETE")
  *    @arg @c kGTLROnDemandScanning_DiscoveryOccurrence_AnalysisStatus_FinishedFailed
  *        Analysis has finished unsuccessfully, the analysis itself is in a bad
  *        state. (Value: "FINISHED_FAILED")
  *    @arg @c kGTLROnDemandScanning_DiscoveryOccurrence_AnalysisStatus_FinishedSuccess
  *        Analysis has finished successfully. (Value: "FINISHED_SUCCESS")
  *    @arg @c kGTLROnDemandScanning_DiscoveryOccurrence_AnalysisStatus_FinishedUnsupported
- *        The resource is known not to be supported (Value:
+ *        The resource is known not to be supported. (Value:
  *        "FINISHED_UNSUPPORTED")
  *    @arg @c kGTLROnDemandScanning_DiscoveryOccurrence_AnalysisStatus_Pending
  *        Resource is known but no action has been taken yet. (Value: "PENDING")

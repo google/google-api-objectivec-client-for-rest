@@ -16,6 +16,30 @@
 
 @end
 
+@implementation GTLRCloudBuildQuery_GithubDotComWebhookReceive
+
+@dynamic webhookKey;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_HttpBody *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/githubDotComWebhook:receive";
+  GTLRCloudBuildQuery_GithubDotComWebhookReceive *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRCloudBuild_Empty class];
+  query.loggingName = @"cloudbuild.githubDotComWebhook.receive";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudBuildQuery_LocationsRegionalWebhook
 
 @dynamic location, webhookKey;

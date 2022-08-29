@@ -42,6 +42,7 @@ NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DataDiskType_PdS
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DataDiskType_SqlDataDiskTypeUnspecified = @"SQL_DATA_DISK_TYPE_UNSPECIFIED";
 
 // GTLRDatabaseMigrationService_ConnectionProfile.provider
+NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Alloydb = @"ALLOYDB";
 NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Aurora = @"AURORA";
 NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Cloudsql = @"CLOUDSQL";
 NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_DatabaseProviderUnspecified = @"DATABASE_PROVIDER_UNSPECIFIED";
@@ -63,6 +64,7 @@ NSString * const kGTLRDatabaseMigrationService_DatabaseType_Engine_Mysql = @"MYS
 NSString * const kGTLRDatabaseMigrationService_DatabaseType_Engine_Postgresql = @"POSTGRESQL";
 
 // GTLRDatabaseMigrationService_DatabaseType.provider
+NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_Alloydb = @"ALLOYDB";
 NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_Aurora = @"AURORA";
 NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_Cloudsql = @"CLOUDSQL";
 NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_DatabaseProviderUnspecified = @"DATABASE_PROVIDER_UNSPECIFIED";
@@ -122,10 +124,49 @@ NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_Err
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedTableDefinition = @"UNSUPPORTED_TABLE_DEFINITION";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_VersionIncompatibility = @"VERSION_INCOMPATIBILITY";
 
+// GTLRDatabaseMigrationService_PostgreSqlConnectionProfile.networkArchitecture
+NSString * const kGTLRDatabaseMigrationService_PostgreSqlConnectionProfile_NetworkArchitecture_NetworkArchitectureNewCsqlProducer = @"NETWORK_ARCHITECTURE_NEW_CSQL_PRODUCER";
+NSString * const kGTLRDatabaseMigrationService_PostgreSqlConnectionProfile_NetworkArchitecture_NetworkArchitectureOldCsqlProducer = @"NETWORK_ARCHITECTURE_OLD_CSQL_PRODUCER";
+NSString * const kGTLRDatabaseMigrationService_PostgreSqlConnectionProfile_NetworkArchitecture_NetworkArchitectureUnspecified = @"NETWORK_ARCHITECTURE_UNSPECIFIED";
+
 // GTLRDatabaseMigrationService_SslConfig.type
 NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_ServerClient = @"SERVER_CLIENT";
 NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_ServerOnly = @"SERVER_ONLY";
 NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified = @"SSL_TYPE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_AlloyDbConnectionProfile
+//
+
+@implementation GTLRDatabaseMigrationService_AlloyDbConnectionProfile
+@dynamic clusterId, settings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_AlloyDbSettings
+//
+
+@implementation GTLRDatabaseMigrationService_AlloyDbSettings
+@dynamic initialUser, labels, primaryInstanceSettings, vpcNetwork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_AlloyDbSettings_Labels
+//
+
+@implementation GTLRDatabaseMigrationService_AlloyDbSettings_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -252,7 +293,7 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 //
 
 @implementation GTLRDatabaseMigrationService_ConnectionProfile
-@dynamic cloudsql, createTime, displayName, error, labels, mysql, name,
+@dynamic alloydb, cloudsql, createTime, displayName, error, labels, mysql, name,
          postgresql, provider, state, updateTime;
 @end
 
@@ -484,6 +525,16 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_MachineConfig
+//
+
+@implementation GTLRDatabaseMigrationService_MachineConfig
+@dynamic cpuCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_MigrationJob
 //
 
@@ -596,7 +647,51 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 //
 
 @implementation GTLRDatabaseMigrationService_PostgreSqlConnectionProfile
-@dynamic cloudSqlId, host, password, passwordSet, port, ssl, username;
+@dynamic cloudSqlId, host, networkArchitecture, password, passwordSet, port,
+         ssl, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_PrimaryInstanceSettings
+//
+
+@implementation GTLRDatabaseMigrationService_PrimaryInstanceSettings
+@dynamic databaseFlags, identifier, labels, machineConfig, privateIp;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_PrimaryInstanceSettings_DatabaseFlags
+//
+
+@implementation GTLRDatabaseMigrationService_PrimaryInstanceSettings_DatabaseFlags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_PrimaryInstanceSettings_Labels
+//
+
+@implementation GTLRDatabaseMigrationService_PrimaryInstanceSettings_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -787,6 +882,16 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_UserPassword
+//
+
+@implementation GTLRDatabaseMigrationService_UserPassword
+@dynamic password, passwordSet, user;
 @end
 
 

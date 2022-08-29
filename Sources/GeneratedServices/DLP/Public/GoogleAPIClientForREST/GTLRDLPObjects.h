@@ -17,6 +17,8 @@
 #endif
 
 @class GTLRDLP_GooglePrivacyDlpV2Action;
+@class GTLRDLP_GooglePrivacyDlpV2AllInfoTypes;
+@class GTLRDLP_GooglePrivacyDlpV2AllText;
 @class GTLRDLP_GooglePrivacyDlpV2AnalyzeDataSourceRiskDetails;
 @class GTLRDLP_GooglePrivacyDlpV2AuxiliaryTable;
 @class GTLRDLP_GooglePrivacyDlpV2BigQueryField;
@@ -57,6 +59,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2DatastoreOptions;
 @class GTLRDLP_GooglePrivacyDlpV2DateShiftConfig;
 @class GTLRDLP_GooglePrivacyDlpV2DateTime;
+@class GTLRDLP_GooglePrivacyDlpV2Deidentify;
 @class GTLRDLP_GooglePrivacyDlpV2DeidentifyConfig;
 @class GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate;
 @class GTLRDLP_GooglePrivacyDlpV2DeltaPresenceEstimationConfig;
@@ -89,6 +92,8 @@
 @class GTLRDLP_GooglePrivacyDlpV2HybridOptions_Labels;
 @class GTLRDLP_GooglePrivacyDlpV2ImageLocation;
 @class GTLRDLP_GooglePrivacyDlpV2ImageRedactionConfig;
+@class GTLRDLP_GooglePrivacyDlpV2ImageTransformation;
+@class GTLRDLP_GooglePrivacyDlpV2ImageTransformations;
 @class GTLRDLP_GooglePrivacyDlpV2InfoType;
 @class GTLRDLP_GooglePrivacyDlpV2InfoTypeCategory;
 @class GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription;
@@ -154,6 +159,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2RecordKey;
 @class GTLRDLP_GooglePrivacyDlpV2RecordLocation;
 @class GTLRDLP_GooglePrivacyDlpV2RecordSuppression;
+@class GTLRDLP_GooglePrivacyDlpV2RecordTransformation;
 @class GTLRDLP_GooglePrivacyDlpV2RecordTransformations;
 @class GTLRDLP_GooglePrivacyDlpV2RedactConfig;
 @class GTLRDLP_GooglePrivacyDlpV2Regex;
@@ -167,6 +173,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2Row;
 @class GTLRDLP_GooglePrivacyDlpV2SaveFindings;
 @class GTLRDLP_GooglePrivacyDlpV2Schedule;
+@class GTLRDLP_GooglePrivacyDlpV2SelectedInfoTypes;
 @class GTLRDLP_GooglePrivacyDlpV2SensitivityScore;
 @class GTLRDLP_GooglePrivacyDlpV2StatisticalTable;
 @class GTLRDLP_GooglePrivacyDlpV2StorageConfig;
@@ -188,14 +195,20 @@
 @class GTLRDLP_GooglePrivacyDlpV2TimePartConfig;
 @class GTLRDLP_GooglePrivacyDlpV2TimespanConfig;
 @class GTLRDLP_GooglePrivacyDlpV2TimeZone;
+@class GTLRDLP_GooglePrivacyDlpV2TransformationConfig;
+@class GTLRDLP_GooglePrivacyDlpV2TransformationDescription;
+@class GTLRDLP_GooglePrivacyDlpV2TransformationDetailsStorageConfig;
 @class GTLRDLP_GooglePrivacyDlpV2TransformationErrorHandling;
+@class GTLRDLP_GooglePrivacyDlpV2TransformationLocation;
 @class GTLRDLP_GooglePrivacyDlpV2TransformationOverview;
+@class GTLRDLP_GooglePrivacyDlpV2TransformationResultStatus;
 @class GTLRDLP_GooglePrivacyDlpV2TransformationSummary;
 @class GTLRDLP_GooglePrivacyDlpV2TransientCryptoKey;
 @class GTLRDLP_GooglePrivacyDlpV2Trigger;
 @class GTLRDLP_GooglePrivacyDlpV2UnwrappedCryptoKey;
 @class GTLRDLP_GooglePrivacyDlpV2Value;
 @class GTLRDLP_GooglePrivacyDlpV2ValueFrequency;
+@class GTLRDLP_GooglePrivacyDlpV2VersionDescription;
 @class GTLRDLP_GooglePrivacyDlpV2WordList;
 @class GTLRDLP_GoogleProtobufEmpty;
 @class GTLRDLP_GoogleRpcStatus;
@@ -656,8 +669,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DataRiskLevel_Scor
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DataRiskLevel_Score_RiskLow;
 /**
  *  Medium risk - Sensitive data may be present but additional access or fine
- *  grain access restrictions appears to be present. Consider limiting access
- *  even further or transforming data to mask.
+ *  grain access restrictions appear to be present. Consider limiting access
+ *  even further or transform data to mask.
  *
  *  Value: "RISK_MODERATE"
  */
@@ -722,19 +735,103 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Wednesday;
 
 // ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2Deidentify.fileTypesToTransform
+
+/**
+ *  Included file extensions: avro
+ *
+ *  Value: "AVRO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Deidentify_FileTypesToTransform_Avro;
+/**
+ *  Includes all file extensions not covered by another entry. Binary scanning
+ *  attempts to convert the content of the file to utf_8 to scan the file. If
+ *  you wish to avoid this fall back, specify one or more of the other
+ *  FileType's in your storage scan.
+ *
+ *  Value: "BINARY_FILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Deidentify_FileTypesToTransform_BinaryFile;
+/**
+ *  Included file extensions: csv
+ *
+ *  Value: "CSV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Deidentify_FileTypesToTransform_Csv;
+/**
+ *  Excel files >30 MB will be scanned as binary files. Included file
+ *  extensions: xlsx, xlsm, xltx, xltm
+ *
+ *  Value: "EXCEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Deidentify_FileTypesToTransform_Excel;
+/**
+ *  Includes all files.
+ *
+ *  Value: "FILE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Deidentify_FileTypesToTransform_FileTypeUnspecified;
+/**
+ *  Included file extensions: bmp, gif, jpg, jpeg, jpe, png.
+ *  bytes_limit_per_file has no effect on image files. Image inspection is
+ *  restricted to 'global', 'us', 'asia', and 'europe'.
+ *
+ *  Value: "IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Deidentify_FileTypesToTransform_Image;
+/**
+ *  PDF files >30 MB will be scanned as binary files. Included file extensions:
+ *  pdf
+ *
+ *  Value: "PDF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Deidentify_FileTypesToTransform_Pdf;
+/**
+ *  Powerpoint files >30 MB will be scanned as binary files. Included file
+ *  extensions: pptx, pptm, potx, potm, pot
+ *
+ *  Value: "POWERPOINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Deidentify_FileTypesToTransform_Powerpoint;
+/**
+ *  Included file extensions: asc,asp, aspx, brf, c, cc,cfm, cgi, cpp, csv, cxx,
+ *  c++, cs, css, dart, dat, dot, eml,, epbub, ged, go, h, hh, hpp, hxx, h++,
+ *  hs, html, htm, mkd, markdown, m, ml, mli, perl, pl, plist, pm, php, phtml,
+ *  pht, properties, py, pyw, rb, rbw, rs, rss, rc, scala, sh, sql, swift, tex,
+ *  shtml, shtm, xhtml, lhs, ics, ini, java, js, json, kix, kml, ocaml, md, txt,
+ *  text, tsv, vb, vcard, vcs, wml, xcodeproj, xml, xsl, xsd, yml, yaml.
+ *
+ *  Value: "TEXT_FILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Deidentify_FileTypesToTransform_TextFile;
+/**
+ *  Included file extensions: tsv
+ *
+ *  Value: "TSV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Deidentify_FileTypesToTransform_Tsv;
+/**
+ *  Word files >30 MB will be scanned as binary files. Included file extensions:
+ *  docx, dotx, docm, dotm
+ *
+ *  Value: "WORD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Deidentify_FileTypesToTransform_Word;
+
+// ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2DlpJob.state
 
 /**
  *  The job is currently accepting findings via hybridInspect. A hybrid job in
- *  ACTIVE state may continue to have findings added to it through calling of
- *  hybridInspect. After the job has finished no more calls to hybridInspect may
- *  be made. ACTIVE jobs can transition to DONE.
+ *  ACTIVE state may continue to have findings added to it through the calling
+ *  of hybridInspect. After the job has finished no more calls to hybridInspect
+ *  may be made. ACTIVE jobs can transition to DONE.
  *
  *  Value: "ACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Active;
 /**
- *  The job was canceled before it could complete.
+ *  The job was canceled before it could be completed.
  *
  *  Value: "CANCELED"
  */
@@ -1390,7 +1487,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfi
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_DatastoreColumns;
 /**
- *  Schema tailored to findings from scanning Google Cloud Storage.
+ *  Schema tailored to findings from scanning Cloud Storage.
  *
  *  Value: "GCS_COLUMNS"
  */
@@ -1732,6 +1829,147 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_Par
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_Year;
 
 // ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2TransformationDescription.type
+
+/**
+ *  Bucketing
+ *
+ *  Value: "BUCKETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_Bucketing;
+/**
+ *  Character mask
+ *
+ *  Value: "CHARACTER_MASK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_CharacterMask;
+/**
+ *  Deterministic crypto
+ *
+ *  Value: "CRYPTO_DETERMINISTIC_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_CryptoDeterministicConfig;
+/**
+ *  Crypto hash
+ *
+ *  Value: "CRYPTO_HASH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_CryptoHash;
+/**
+ *  FFX-FPE
+ *
+ *  Value: "CRYPTO_REPLACE_FFX_FPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_CryptoReplaceFfxFpe;
+/**
+ *  Date shift
+ *
+ *  Value: "DATE_SHIFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_DateShift;
+/**
+ *  Fixed size bucketing
+ *
+ *  Value: "FIXED_SIZE_BUCKETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_FixedSizeBucketing;
+/**
+ *  Record suppression
+ *
+ *  Value: "RECORD_SUPPRESSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_RecordSuppression;
+/**
+ *  Redact
+ *
+ *  Value: "REDACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_Redact;
+/**
+ *  Redact image
+ *
+ *  Value: "REDACT_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_RedactImage;
+/**
+ *  Replace value using a dictionary.
+ *
+ *  Value: "REPLACE_DICTIONARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_ReplaceDictionary;
+/**
+ *  Replace value
+ *
+ *  Value: "REPLACE_VALUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_ReplaceValue;
+/**
+ *  Replace with info type
+ *
+ *  Value: "REPLACE_WITH_INFO_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_ReplaceWithInfoType;
+/**
+ *  Time part
+ *
+ *  Value: "TIME_PART"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_TimePart;
+/**
+ *  Unused
+ *
+ *  Value: "TRANSFORMATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_TransformationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2TransformationLocation.containerType
+
+/** Value: "TRANSFORM_BODY" */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationLocation_ContainerType_TransformBody;
+/** Value: "TRANSFORM_METADATA" */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationLocation_ContainerType_TransformMetadata;
+/** Value: "TRANSFORM_TABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationLocation_ContainerType_TransformTable;
+/** Value: "TRANSFORM_UNKNOWN_CONTAINER" */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationLocation_ContainerType_TransformUnknownContainer;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2TransformationResultStatus.resultStatusType
+
+/**
+ *  This will be set when a BigQuery transformation was successful but could not
+ *  be stored back in BigQuery because the transformed row exceeds BigQuery's
+ *  max row size.
+ *
+ *  Value: "BIGQUERY_MAX_ROW_SIZE_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationResultStatus_ResultStatusType_BigqueryMaxRowSizeExceeded;
+/**
+ *  This will be set when a finding could not be transformed (i.e. outside user
+ *  set bucket range).
+ *
+ *  Value: "INVALID_TRANSFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationResultStatus_ResultStatusType_InvalidTransform;
+/**
+ *  This will be set when there is a finding in the custom metadata of a file,
+ *  but at the write time of the transformed file, this key / value pair is
+ *  unretrievable.
+ *
+ *  Value: "METADATA_UNRETRIEVABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationResultStatus_ResultStatusType_MetadataUnretrievable;
+/** Value: "STATE_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationResultStatus_ResultStatusType_StateTypeUnspecified;
+/**
+ *  This will be set when the transformation and storing of it is successful.
+ *
+ *  Value: "SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationResultStatus_ResultStatusType_Success;
+
+// ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2Value.dayOfWeekValue
 
 /**
@@ -1789,6 +2027,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Action : GTLRObject
 
+/** Create a de-identified copy of the input data. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Deidentify *deidentify;
+
 /**
  *  Enable email notification for project owners and editors on job's
  *  completion/failure.
@@ -1817,6 +2058,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Request message for ActivateJobTrigger.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ActivateJobTriggerRequest : GTLRObject
+@end
+
+
+/**
+ *  Apply transformation to all findings.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2AllInfoTypes : GTLRObject
+@end
+
+
+/**
+ *  Apply to all text.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2AllText : GTLRObject
 @end
 
 
@@ -2307,8 +2562,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Options defining a file or a set of files within a Google Cloud Storage
- *  bucket.
+ *  Options defining a file or a set of files within a Cloud Storage bucket.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions : GTLRObject
 
@@ -2537,7 +2791,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  A string representation of the full container name. Examples: - BigQuery:
- *  'Project:DataSetId.TableId' - Google Cloud Storage:
+ *  'Project:DataSetId.TableId' - Cloud Storage:
  *  'gs://Bucket/folders/filename.txt'
  */
 @property(nonatomic, copy, nullable) NSString *fullPath;
@@ -2550,7 +2804,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  The rest of the path after the root. Examples: - For BigQuery table
- *  `project_id:dataset_id.table_id`, the relative path is `table_id` - Google
+ *  `project_id:dataset_id.table_id`, the relative path is `table_id` - For
  *  Cloud Storage file `gs://bucket/folder/filename.txt`, the relative path is
  *  `folder/filename.txt`
  */
@@ -2558,25 +2812,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  The root of the container. Examples: - For BigQuery table
- *  `project_id:dataset_id.table_id`, the root is `dataset_id` - For Google
- *  Cloud Storage file `gs://bucket/folder/filename.txt`, the root is
- *  `gs://bucket`
+ *  `project_id:dataset_id.table_id`, the root is `dataset_id` - For Cloud
+ *  Storage file `gs://bucket/folder/filename.txt`, the root is `gs://bucket`
  */
 @property(nonatomic, copy, nullable) NSString *rootPath;
 
-/** Container type, for example BigQuery or Google Cloud Storage. */
+/** Container type, for example BigQuery or Cloud Storage. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
- *  Findings container modification timestamp, if applicable. For Google Cloud
- *  Storage contains last file modification timestamp. For BigQuery table
- *  contains last_modified_time property. For Datastore - not populated.
+ *  Findings container modification timestamp, if applicable. For Cloud Storage,
+ *  this field contains the last file modification timestamp. For a BigQuery
+ *  table, this field contains the last_modified_time property. For Datastore,
+ *  this field isn't populated.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
- *  Findings container version, if available ("generation" for Google Cloud
- *  Storage).
+ *  Findings container version, if available ("generation" for Cloud Storage).
  */
 @property(nonatomic, copy, nullable) NSString *version;
 
@@ -2616,21 +2869,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  are formatted as follows: * BigQuery tables:
  *  `{project_id}:{dataset_id}.{table_id}` * Cloud Storage files:
  *  `gs://{bucket}/{path}` * Datastore namespace: {namespace} Nested names could
- *  be absent if the embedded object has no string identifier (for an example an
+ *  be absent if the embedded object has no string identifier (for example, an
  *  image contained within a document).
  */
 @property(nonatomic, copy, nullable) NSString *containerName;
 
 /**
- *  Findings container modification timestamp, if applicable. For Google Cloud
- *  Storage contains last file modification timestamp. For BigQuery table
- *  contains last_modified_time property. For Datastore - not populated.
+ *  Finding container modification timestamp, if applicable. For Cloud Storage,
+ *  this field contains the last file modification timestamp. For a BigQuery
+ *  table, this field contains the last_modified_time property. For Datastore,
+ *  this field isn't populated.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *containerTimestamp;
 
 /**
- *  Findings container version, if available ("generation" for Google Cloud
- *  Storage).
+ *  Finding container version, if available ("generation" for Cloud Storage).
  */
 @property(nonatomic, copy, nullable) NSString *containerVersion;
 
@@ -2784,7 +3037,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  but: 1. there is no record present when transforming a given value or 2. the
  *  field is not present when transforming a given value, plaintext would be
  *  used as is for encryption. Note that case (1) is expected when an
- *  `InfoTypeTransformation` is applied to both structured and non-structured
+ *  `InfoTypeTransformation` is applied to both structured and unstructured
  *  `ContentItem`s.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *context;
@@ -2899,7 +3152,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  but: 1. there is no record present when transforming a given value or 1. the
  *  field is not present when transforming a given value, a default tweak will
  *  be used. Note that case (1) is expected when an `InfoTypeTransformation` is
- *  applied to both structured and non-structured `ContentItem`s. Currently, the
+ *  applied to both structured and unstructured `ContentItem`s. Currently, the
  *  referenced field may be of value type integer or string. The tweak is
  *  constructed as a sequence of bytes in big endian byte order such that: - a
  *  64 bit integer is encoded followed by a single byte of value 1 - a string is
@@ -3138,9 +3391,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  The message that will be published to a Pub/Sub topic. To receive a message
- *  of protocol buffer schema type, convert the message data to an object of
- *  this proto class.
+ *  Pub/Sub topic message for a DataProfileAction.PubSubNotification event. To
+ *  receive a message of protocol buffer schema type, convert the message data
+ *  to an object of this proto class.
  *  https://cloud.google.com/pubsub/docs/samples/pubsub-subscribe-proto-messages
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage : GTLRObject
@@ -3178,7 +3431,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Score is a summary of all elements in the data profile. A higher number
- *  means more risky.
+ *  means more risk.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DataRiskLevel : GTLRObject
 
@@ -3197,8 +3450,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        (Value: "RISK_LOW")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DataRiskLevel_Score_RiskModerate Medium
  *        risk - Sensitive data may be present but additional access or fine
- *        grain access restrictions appears to be present. Consider limiting
- *        access even further or transforming data to mask. (Value:
+ *        grain access restrictions appear to be present. Consider limiting
+ *        access even further or transform data to mask. (Value:
  *        "RISK_MODERATE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DataRiskLevel_Score_RiskScoreUnspecified
  *        Unused. (Value: "RISK_SCORE_UNSPECIFIED")
@@ -3322,9 +3575,65 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Create a de-identified copy of the requested table or files. A
+ *  TransformationDetail will be created for each transformation. If any rows in
+ *  BigQuery are skipped during de-identification (transformation errors or row
+ *  size exceeds BigQuery insert API limits) they are placed in the failure
+ *  output table. If the original row exceeds the BigQuery insert API limit it
+ *  will be truncated when written to the failure output table. The failure
+ *  output table can be set in the
+ *  action.deidentify.output.big_query_output.deidentified_failure_output_table
+ *  field, if no table is set, a table will be automatically created in the same
+ *  project and dataset as the original table. Compatible with: Inspect
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2Deidentify : GTLRObject
+
+/**
+ *  Required. User settable Cloud Storage bucket and folders to store
+ *  de-identified files. This field must be set for cloud storage
+ *  deidentification. The output Cloud Storage bucket must be different from the
+ *  input bucket. De-identified files will overwrite files in the output path.
+ *  Form of: gs://bucket/folder/ or gs://bucket
+ */
+@property(nonatomic, copy, nullable) NSString *cloudStorageOutput;
+
+/**
+ *  List of user-specified file type groups to transform. If specified, only the
+ *  files with these filetypes will be transformed. If empty, all supported
+ *  files will be transformed. Supported types may be automatically added over
+ *  time. If a file type is set in this field that isn't supported by the
+ *  Deidentify action then the job will fail and will not be successfully
+ *  created/started. Currently the only filetypes supported are: IMAGES,
+ *  TEXT_FILES, CSV, TSV.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fileTypesToTransform;
+
+/**
+ *  User specified deidentify templates and configs for structured,
+ *  unstructured, and image files.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TransformationConfig *transformationConfig;
+
+/**
+ *  Config for storing transformation details. This is separate from the
+ *  de-identified content, and contains metadata about the successful
+ *  transformations and/or failures that occurred while de-identifying. This
+ *  needs to be set in order for users to access information about the status of
+ *  each transformation (see TransformationDetails message for more information
+ *  about what is noted).
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TransformationDetailsStorageConfig *transformationDetailsStorageConfig;
+
+@end
+
+
+/**
  *  The configuration that controls how the data will change.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DeidentifyConfig : GTLRObject
+
+/** Treat the dataset as an image and redact. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ImageTransformations *imageTransformations;
 
 /**
  *  Treat the dataset as free-form text and apply the same free text
@@ -3349,7 +3658,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Request to de-identify a list of items.
+ *  Request to de-identify a ContentItem.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DeidentifyContentRequest : GTLRObject
 
@@ -3651,12 +3960,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Active The job is
  *        currently accepting findings via hybridInspect. A hybrid job in ACTIVE
- *        state may continue to have findings added to it through calling of
+ *        state may continue to have findings added to it through the calling of
  *        hybridInspect. After the job has finished no more calls to
  *        hybridInspect may be made. ACTIVE jobs can transition to DONE. (Value:
  *        "ACTIVE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Canceled The job was
- *        canceled before it could complete. (Value: "CANCELED")
+ *        canceled before it could be completed. (Value: "CANCELED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Done The job is no longer
  *        running. (Value: "DONE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Failed The job had an
@@ -3734,7 +4043,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  List of exclude infoTypes.
+ *  List of excluded infoTypes.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ExcludeInfoTypes : GTLRObject
 
@@ -3811,7 +4120,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  An expression, consisting or an operator and conditions.
+ *  An expression, consisting of an operator and conditions.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Expressions : GTLRObject
 
@@ -4011,7 +4320,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Configuration to control the number of findings returned for inspection.
- *  This is not used for de-identification or data profiling.
+ *  This is not used for de-identification or data profiling. When redacting
+ *  sensitive data from images, finding limits don't apply. They can cause
+ *  unexpected or inconsistent results, where only some data is redacted. Don't
+ *  include finding limits in RedactImage requests. Otherwise, Cloud DLP returns
+ *  an error.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2FindingLimits : GTLRObject
 
@@ -4102,13 +4415,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment *likelihoodAdjustment;
 
 /**
- *  Proximity of the finding within which the entire hotword must reside. The
- *  total length of the window cannot exceed 1000 characters. Note that the
- *  finding itself will be included in the window, so that hotwords may be used
- *  to match substrings of the finding itself. For example, the certainty of a
- *  phone number regex "\\(\\d{3}\\) \\d{3}-\\d{4}" could be adjusted upwards if
- *  the area code is known to be the local area code of a company office using
- *  the hotword regex "\\(xxx\\)", where "xxx" is the area code in question.
+ *  Range of characters within which the entire hotword must reside. The total
+ *  length of the window cannot exceed 1000 characters. The finding itself will
+ *  be included in the window, so that hotwords can be used to match substrings
+ *  of the finding itself. Suppose you want Cloud DLP to promote the likelihood
+ *  of the phone number regex "\\(\\d{3}\\) \\d{3}-\\d{4}" if the area code is
+ *  known to be the area code of a company's office. In this case, use the
+ *  hotword regex "\\(xxx\\)", where "xxx" is the area code in question. For
+ *  tabular data, if you want to modify the likelihood of an entire column of
+ *  findngs, see [Hotword example: Set the match likelihood of a table column]
+ *  (https://cloud.google.com/dlp/docs/creating-custom-infotypes-likelihood#match-column-values).
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Proximity *proximity;
 
@@ -4368,6 +4684,46 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Configuration for determining how redaction of images should occur.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2ImageTransformation : GTLRObject
+
+/**
+ *  Apply transformation to all findings not specified in other
+ *  ImageTransformation's selected_info_types. Only one instance is allowed
+ *  within the ImageTransformations message.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2AllInfoTypes *allInfoTypes;
+
+/**
+ *  Apply transformation to all text that doesn't match an infoType. Only one
+ *  instance is allowed within the ImageTransformations message.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2AllText *allText;
+
+/**
+ *  The color to use when redacting content from an image. If not specified, the
+ *  default is black.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Color *redactionColor;
+
+/** Apply transformation to the selected info_types. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2SelectedInfoTypes *selectedInfoTypes;
+
+@end
+
+
+/**
+ *  A type of transformation that is applied over images.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2ImageTransformations : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2ImageTransformation *> *transforms;
+
+@end
+
+
+/**
  *  Type of information detected by the API.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2InfoType : GTLRObject
@@ -4566,6 +4922,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Which parts of the API supports this InfoType. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedBy;
 
+/** A list of available versions for the infotype. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2VersionDescription *> *versions;
+
 @end
 
 
@@ -4712,7 +5071,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Configuration to control the number of findings returned. This is not used
- *  for data profiling.
+ *  for data profiling. When redacting sensitive data from images, finding
+ *  limits don't apply. They can cause unexpected or inconsistent results, where
+ *  only some data is redacted. Don't include finding limits in RedactImage
+ *  requests. Otherwise, Cloud DLP returns an error.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FindingLimits *limits;
 
@@ -4919,8 +5281,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Enable email notification to project owners and editors on jobs's
- *  completion/failure.
+ *  Sends an email when the job completes. The email goes to IAM project owners
+ *  and technical [Essential
+ *  Contacts](https://cloud.google.com/resource-manager/docs/managing-notification-contacts).
  */
 @interface GTLRDLP_GooglePrivacyDlpV2JobNotificationEmails : GTLRObject
 @end
@@ -5284,9 +5647,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Configuration for a custom dictionary created from a data source of any size
  *  up to the maximum size defined in the
  *  [limits](https://cloud.google.com/dlp/limits) page. The artifacts of
- *  dictionary creation are stored in the specified Google Cloud Storage
- *  location. Consider using `CustomInfoType.Dictionary` for smaller
- *  dictionaries that satisfy the size requirements.
+ *  dictionary creation are stored in the specified Cloud Storage location.
+ *  Consider using `CustomInfoType.Dictionary` for smaller dictionaries that
+ *  satisfy the size requirements.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2LargeCustomDictionaryConfig : GTLRObject
 
@@ -5299,8 +5662,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CloudStorageFileSet *cloudStorageFileSet;
 
 /**
- *  Location to store dictionary artifacts in Google Cloud Storage. These files
- *  will only be accessible by project owners and the DLP API. If any of these
+ *  Location to store dictionary artifacts in Cloud Storage. These files will
+ *  only be accessible by project owners and the DLP API. If any of these
  *  artifacts are modified, the dictionary is considered invalid and can no
  *  longer be used.
  */
@@ -5769,8 +6132,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        Schema tailored to findings from scanning Google Datastore. (Value:
  *        "DATASTORE_COLUMNS")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_GcsColumns
- *        Schema tailored to findings from scanning Google Cloud Storage.
- *        (Value: "GCS_COLUMNS")
+ *        Schema tailored to findings from scanning Cloud Storage. (Value:
+ *        "GCS_COLUMNS")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_OutputSchemaUnspecified
  *        Unused. (Value: "OUTPUT_SCHEMA_UNSPECIFIED")
  */
@@ -5779,7 +6142,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Store findings in an existing table or a new table in an existing dataset.
  *  If table_id is not set a new one will be generated for you with the
- *  following format: dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific timezone
+ *  following format: dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific time zone
  *  will be used for generating the date details. For Inspect, each column in an
  *  existing output table must have the same name, type, and mode of a field in
  *  the `Finding` object. For Risk, an existing output table should be the
@@ -5942,7 +6305,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSNumber *windowAfter;
 
 /**
- *  Number of characters before the finding to consider.
+ *  Number of characters before the finding to consider. For tabular data, if
+ *  you want to modify the likelihood of an entire column of findngs, set this
+ *  to 1. For more information, see [Hotword example: Set the match likelihood
+ *  of a table column]
+ *  (https://cloud.google.com/dlp/docs/creating-custom-infotypes-likelihood#match-column-values).
  *
  *  Uses NSNumber of intValue.
  */
@@ -5952,15 +6319,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Publish findings of a DlpJob to Data Catalog. Labels summarizing the results
- *  of the DlpJob will be applied to the entry for the resource scanned in Data
- *  Catalog. Any labels previously written by another DlpJob will be deleted.
- *  InfoType naming patterns are strictly enforced when using this feature. Note
- *  that the findings will be persisted in Data Catalog storage and are governed
- *  by Data Catalog service-specific policy, see
- *  https://cloud.google.com/terms/service-terms Only a single instance of this
- *  action can be specified and only allowed if all resources being scanned are
- *  BigQuery tables. Compatible with: Inspect
+ *  Publish findings of a DlpJob to Data Catalog. In Data Catalog, tag templates
+ *  are applied to the resource that Cloud DLP scanned. Data Catalog tag
+ *  templates are stored in the same project and region where the BigQuery table
+ *  exists. For Cloud DLP to create and apply the tag template, the Cloud DLP
+ *  service agent must have the `roles/datacatalog.tagTemplateOwner` permission
+ *  on the project. The tag template contains fields summarizing the results of
+ *  the DlpJob. Any field values previously written by another DlpJob are
+ *  deleted. InfoType naming patterns are strictly enforced when using this
+ *  feature. Findings are persisted in Data Catalog storage and are governed by
+ *  service-specific policies for Data Catalog. For more information, see
+ *  [Service Specific Terms](https://cloud.google.com/terms/service-terms). Only
+ *  a single instance of this action can be specified. This action is allowed
+ *  only if all resources being scanned are BigQuery tables. Compatible with:
+ *  Inspect
  */
 @interface GTLRDLP_GooglePrivacyDlpV2PublishFindingsToCloudDataCatalog : GTLRObject
 @end
@@ -5970,8 +6342,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Publish the result summary of a DlpJob to the Cloud Security Command Center
  *  (CSCC Alpha). This action is only available for projects which are parts of
  *  an organization and whitelisted for the alpha Cloud Security Command Center.
- *  The action will publish count of finding instances and their info types. The
- *  summary of findings will be persisted in CSCC and are governed by CSCC
+ *  The action will publish the count of finding instances and their info types.
+ *  The summary of findings will be persisted in CSCC and are governed by CSCC
  *  service-specific policy, see https://cloud.google.com/terms/service-terms
  *  Only a single instance of this action can be specified. Compatible with:
  *  Inspect
@@ -5981,7 +6353,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Publish a message into given Pub/Sub topic when DlpJob has completed. The
+ *  Publish a message into a given Pub/Sub topic when DlpJob has completed. The
  *  message contains a single field, `DlpJobName`, which is equal to the
  *  finished job's
  *  [`DlpJob.name`](https://cloud.google.com/dlp/docs/reference/rest/v2/projects.dlpJobs#DlpJob).
@@ -6288,6 +6660,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  GTLRDLP_GooglePrivacyDlpV2RecordTransformation
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2RecordTransformation : GTLRObject
+
+/** Findings container modification timestamp, if applicable. */
+@property(nonatomic, strong, nullable) GTLRDateTime *containerTimestamp;
+
+/** Container version, if available ("generation" for Cloud Storage). */
+@property(nonatomic, copy, nullable) NSString *containerVersion;
+
+/** For record transformations, provide a field. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *fieldId;
+
+@end
+
+
+/**
  *  A type of transformation that is applied over structured data such as a
  *  table.
  */
@@ -6441,7 +6830,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Results of re-identifying a item.
+ *  Results of re-identifying an item.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ReidentifyContentResponse : GTLRObject
 
@@ -6597,13 +6986,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2Schedule : GTLRObject
 
 /**
- *  With this option a job is started a regular periodic basis. For example:
+ *  With this option a job is started on a regular periodic basis. For example:
  *  every day (86400 seconds). A scheduled start time will be skipped if the
  *  previous execution has not ended when its scheduled time occurs. This value
  *  must be set to a time duration greater than or equal to 1 day and can be no
  *  longer than 60 days.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *recurrencePeriodDuration;
+
+@end
+
+
+/**
+ *  Apply transformation to the selected info_types.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2SelectedInfoTypes : GTLRObject
+
+/**
+ *  Required. InfoTypes to apply the transformation to. Required. Provided
+ *  InfoType must be unique within the ImageTransformations message.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoType *> *infoTypes;
 
 @end
 
@@ -6671,7 +7074,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** BigQuery options. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryOptions *bigQueryOptions;
 
-/** Google Cloud Storage options. */
+/** Cloud Storage options. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions *cloudStorageOptions;
 
 /** Google Cloud Datastore options. */
@@ -6775,9 +7178,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  detected in the storedInfoType data that render it unusable. Only the five
  *  most recent errors will be displayed, with the most recent error appearing
  *  first. For example, some of the data for stored custom dictionaries is put
- *  in the user's Google Cloud Storage bucket, and if this data is modified or
- *  deleted by the user or another system, the dictionary becomes invalid. If
- *  any errors occur, fix the problem indicated by the error message and use the
+ *  in the user's Cloud Storage bucket, and if this data is modified or deleted
+ *  by the user or another system, the dictionary becomes invalid. If any errors
+ *  occur, fix the problem indicated by the error message and use the
  *  UpdateStoredInfoType API method to create another version of the
  *  storedInfoType to continue using it, reusing the same `config` if it was not
  *  the source of the error.
@@ -7162,7 +7565,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Configuration of the timespan of the items to include in scanning. Currently
- *  only supported when inspecting Google Cloud Storage and BigQuery.
+ *  only supported when inspecting Cloud Storage and BigQuery.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2TimespanConfig : GTLRObject
 
@@ -7190,17 +7593,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Specification of the field containing the timestamp of scanned items. Used
- *  for data sources like Datastore and BigQuery. For BigQuery: If this value is
- *  not specified and the table was modified between the given start and end
+ *  for data sources like Datastore and BigQuery. *For BigQuery* If this value
+ *  is not specified and the table was modified between the given start and end
  *  times, the entire table will be scanned. If this value is specified, then
  *  rows are filtered based on the given start and end times. Rows with a `NULL`
  *  value in the provided BigQuery column are skipped. Valid data types of the
  *  provided BigQuery column are: `INTEGER`, `DATE`, `TIMESTAMP`, and
- *  `DATETIME`. For Datastore: If this value is specified, then entities are
- *  filtered based on the given start and end times. If an entity does not
- *  contain the provided timestamp property or contains empty or invalid values,
- *  then it is included. Valid data types of the provided timestamp property
- *  are: `TIMESTAMP`.
+ *  `DATETIME`. If your BigQuery table is [partitioned at ingestion
+ *  time](https://cloud.google.com/bigquery/docs/partitioned-tables#ingestion_time),
+ *  you can use any of the following pseudo-columns as your timestamp field.
+ *  When used with Cloud DLP, these pseudo-column names are case sensitive. -
+ *  _PARTITIONTIME - _PARTITIONDATE - _PARTITION_LOAD_TIME *For Datastore* If
+ *  this value is specified, then entities are filtered based on the given start
+ *  and end times. If an entity does not contain the provided timestamp property
+ *  or contains empty or invalid values, then it is included. Valid data types
+ *  of the provided timestamp property are: `TIMESTAMP`. See the [known
+ *  issue](https://cloud.google.com/dlp/docs/known-issues#bq-timespan) related
+ *  to this operation.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *timestampField;
 
@@ -7219,6 +7628,178 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *offsetMinutes;
+
+@end
+
+
+/**
+ *  User specified templates and configs for how to deidentify structured,
+ *  unstructures, and image files. User must provide either a unstructured
+ *  deidentify template or at least one redact image config.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2TransformationConfig : GTLRObject
+
+/**
+ *  De-identify template. If this template is specified, it will serve as the
+ *  default de-identify template. This template cannot contain
+ *  `record_transformations` since it can be used for unstructured content such
+ *  as free-form text files. If this template is not set, a default
+ *  `ReplaceWithInfoTypeConfig` will be used to de-identify unstructured
+ *  content.
+ */
+@property(nonatomic, copy, nullable) NSString *deidentifyTemplate;
+
+/**
+ *  Image redact template. If this template is specified, it will serve as the
+ *  de-identify template for images. If this template is not set, all findings
+ *  in the image will be redacted with a black box.
+ */
+@property(nonatomic, copy, nullable) NSString *imageRedactTemplate;
+
+/**
+ *  Structured de-identify template. If this template is specified, it will
+ *  serve as the de-identify template for structured content such as delimited
+ *  files and tables. If this template is not set but the `deidentify_template`
+ *  is set, then `deidentify_template` will also apply to the structured
+ *  content. If neither template is set, a default `ReplaceWithInfoTypeConfig`
+ *  will be used to de-identify structured content.
+ */
+@property(nonatomic, copy, nullable) NSString *structuredDeidentifyTemplate;
+
+@end
+
+
+/**
+ *  A flattened description of a `PrimitiveTransformation` or
+ *  `RecordSuppression`.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2TransformationDescription : GTLRObject
+
+/**
+ *  A human-readable string representation of the `RecordCondition`
+ *  corresponding to this transformation. Set if a `RecordCondition` was used to
+ *  determine whether or not to apply this transformation. Examples: *
+ *  (age_field > 85) * (age_field <= 18) * (zip_field exists) * (zip_field ==
+ *  01234) && (city_field != "Springville") * (zip_field == 01234) && (age_field
+ *  <= 18) && (city_field exists)
+ */
+@property(nonatomic, copy, nullable) NSString *condition;
+
+/**
+ *  A description of the transformation. This is empty for a RECORD_SUPPRESSION,
+ *  or is the output of calling toString() on the `PrimitiveTransformation`
+ *  protocol buffer message for any other type of transformation.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Set if the transformation was limited to a specific `InfoType`. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infoType;
+
+/**
+ *  The transformation type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_Bucketing
+ *        Bucketing (Value: "BUCKETING")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_CharacterMask
+ *        Character mask (Value: "CHARACTER_MASK")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_CryptoDeterministicConfig
+ *        Deterministic crypto (Value: "CRYPTO_DETERMINISTIC_CONFIG")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_CryptoHash
+ *        Crypto hash (Value: "CRYPTO_HASH")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_CryptoReplaceFfxFpe
+ *        FFX-FPE (Value: "CRYPTO_REPLACE_FFX_FPE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_DateShift
+ *        Date shift (Value: "DATE_SHIFT")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_FixedSizeBucketing
+ *        Fixed size bucketing (Value: "FIXED_SIZE_BUCKETING")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_RecordSuppression
+ *        Record suppression (Value: "RECORD_SUPPRESSION")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_Redact
+ *        Redact (Value: "REDACT")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_RedactImage
+ *        Redact image (Value: "REDACT_IMAGE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_ReplaceDictionary
+ *        Replace value using a dictionary. (Value: "REPLACE_DICTIONARY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_ReplaceValue
+ *        Replace value (Value: "REPLACE_VALUE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_ReplaceWithInfoType
+ *        Replace with info type (Value: "REPLACE_WITH_INFO_TYPE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_TimePart
+ *        Time part (Value: "TIME_PART")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationDescription_Type_TransformationTypeUnspecified
+ *        Unused (Value: "TRANSFORMATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Details about a single transformation. This object contains a description of
+ *  the transformation, information about whether the transformation was
+ *  successfully applied, and the precise location where the transformation
+ *  occurred. These details are stored in a user-specified BigQuery table.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2TransformationDetails : GTLRObject
+
+/**
+ *  The top level name of the container where the transformation is located
+ *  (this will be the source file name or table name).
+ */
+@property(nonatomic, copy, nullable) NSString *containerName;
+
+/** The name of the job that completed the transformation. */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  Status of the transformation, if transformation was not successful, this
+ *  will specify what caused it to fail, otherwise it will show that the
+ *  transformation was successful.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TransformationResultStatus *statusDetails;
+
+/**
+ *  Description of transformation. This would only contain more than one element
+ *  if there were multiple matching transformations and which one to apply was
+ *  ambiguous. Not set for states that contain no transformation, currently only
+ *  state that contains no transformation is
+ *  TransformationResultStateType.METADATA_UNRETRIEVABLE.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2TransformationDescription *> *transformation;
+
+/**
+ *  The precise location of the transformed content in the original container.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TransformationLocation *transformationLocation;
+
+/**
+ *  The number of bytes that were transformed. If transformation was
+ *  unsuccessful or did not take place because there was no content to
+ *  transform, this will be zero.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *transformedBytes;
+
+@end
+
+
+/**
+ *  Config for storing transformation details.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2TransformationDetailsStorageConfig : GTLRObject
+
+/**
+ *  The BigQuery table in which to store the output. This may be an existing
+ *  table or in a new table in an existing dataset. If table_id is not set a new
+ *  one will be generated for you with the following format:
+ *  dlp_googleapis_transformation_details_yyyy_mm_dd_[dlp_job_id]. Pacific time
+ *  zone will be used for generating the date details.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryTable *table;
 
 @end
 
@@ -7244,6 +7825,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Specifies the location of a transformation.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2TransformationLocation : GTLRObject
+
+/**
+ *  Information about the functionality of the container where this finding
+ *  occurred, if available.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationLocation_ContainerType_TransformBody
+ *        Value "TRANSFORM_BODY"
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationLocation_ContainerType_TransformMetadata
+ *        Value "TRANSFORM_METADATA"
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationLocation_ContainerType_TransformTable
+ *        Value "TRANSFORM_TABLE"
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationLocation_ContainerType_TransformUnknownContainer
+ *        Value "TRANSFORM_UNKNOWN_CONTAINER"
+ */
+@property(nonatomic, copy, nullable) NSString *containerType;
+
+/**
+ *  For infotype transformations, link to the corresponding findings ID so that
+ *  location information does not need to be duplicated. Each findings ID
+ *  correlates to an entry in the findings output table, this table only gets
+ *  created when users specify to save findings (add the save findings action to
+ *  the request).
+ */
+@property(nonatomic, copy, nullable) NSString *findingId;
+
+/** For record transformations, provide a field and container information. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2RecordTransformation *recordTransformation;
+
+@end
+
+
+/**
  *  Overview of the modifications that occurred.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2TransformationOverview : GTLRObject
@@ -7257,6 +7874,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *transformedBytes;
+
+@end
+
+
+/**
+ *  GTLRDLP_GooglePrivacyDlpV2TransformationResultStatus
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2TransformationResultStatus : GTLRObject
+
+/** Detailed error codes and messages */
+@property(nonatomic, strong, nullable) GTLRDLP_GoogleRpcStatus *details;
+
+/**
+ *  Transformation result status type, this will be either SUCCESS, or it will
+ *  be the reason for why the transformation was not completely successful.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationResultStatus_ResultStatusType_BigqueryMaxRowSizeExceeded
+ *        This will be set when a BigQuery transformation was successful but
+ *        could not be stored back in BigQuery because the transformed row
+ *        exceeds BigQuery's max row size. (Value:
+ *        "BIGQUERY_MAX_ROW_SIZE_EXCEEDED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationResultStatus_ResultStatusType_InvalidTransform
+ *        This will be set when a finding could not be transformed (i.e. outside
+ *        user set bucket range). (Value: "INVALID_TRANSFORM")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationResultStatus_ResultStatusType_MetadataUnretrievable
+ *        This will be set when there is a finding in the custom metadata of a
+ *        file, but at the write time of the transformed file, this key / value
+ *        pair is unretrievable. (Value: "METADATA_UNRETRIEVABLE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationResultStatus_ResultStatusType_StateTypeUnspecified
+ *        Value "STATE_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationResultStatus_ResultStatusType_Success
+ *        This will be set when the transformation and storing of it is
+ *        successful. (Value: "SUCCESS")
+ */
+@property(nonatomic, copy, nullable) NSString *resultStatusType;
 
 @end
 
@@ -7506,6 +8159,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** A value contained in the field in question. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Value *value;
+
+@end
+
+
+/**
+ *  Details about each available version for an infotype.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2VersionDescription : GTLRObject
+
+/**
+ *  Description of the version.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Name of the version */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 

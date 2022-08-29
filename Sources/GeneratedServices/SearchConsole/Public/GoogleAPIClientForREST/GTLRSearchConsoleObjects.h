@@ -63,7 +63,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_AmpInspectionResult_AmpInd
  */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_AmpInspectionResult_AmpIndexStatusVerdict_Neutral;
 /**
- *  Equivalent to "Valid with warnings" for the page or item in Search Console.
+ *  Reserved, no longer in use.
  *
  *  Value: "PARTIAL"
  */
@@ -224,7 +224,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_AmpInspectionResult_Verdic
  */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_AmpInspectionResult_Verdict_Neutral;
 /**
- *  Equivalent to "Valid with warnings" for the page or item in Search Console.
+ *  Reserved, no longer in use.
  *
  *  Value: "PARTIAL"
  */
@@ -471,7 +471,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_IndexStatusInspectionResul
  */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_Verdict_Neutral;
 /**
- *  Equivalent to "Valid with warnings" for the page or item in Search Console.
+ *  Reserved, no longer in use.
  *
  *  Value: "PARTIAL"
  */
@@ -558,7 +558,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_MobileUsabilityInspectionR
  */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_MobileUsabilityInspectionResult_Verdict_Neutral;
 /**
- *  Equivalent to "Valid with warnings" for the page or item in Search Console.
+ *  Reserved, no longer in use.
  *
  *  Value: "PARTIAL"
  */
@@ -667,7 +667,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_RichResultsInspectionResul
  */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_RichResultsInspectionResult_Verdict_Neutral;
 /**
- *  Equivalent to "Valid with warnings" for the page or item in Search Console.
+ *  Reserved, no longer in use.
  *
  *  Value: "PARTIAL"
  */
@@ -973,8 +973,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
  *        Equivalent to "Excluded" for the page or item in Search Console.
  *        (Value: "NEUTRAL")
  *    @arg @c kGTLRSearchConsole_AmpInspectionResult_AmpIndexStatusVerdict_Partial
- *        Equivalent to "Valid with warnings" for the page or item in Search
- *        Console. (Value: "PARTIAL")
+ *        Reserved, no longer in use. (Value: "PARTIAL")
  *    @arg @c kGTLRSearchConsole_AmpInspectionResult_AmpIndexStatusVerdict_Pass
  *        Equivalent to "Valid" for the page or item in Search Console. (Value:
  *        "PASS")
@@ -1073,9 +1072,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
  *    @arg @c kGTLRSearchConsole_AmpInspectionResult_Verdict_Neutral Equivalent
  *        to "Excluded" for the page or item in Search Console. (Value:
  *        "NEUTRAL")
- *    @arg @c kGTLRSearchConsole_AmpInspectionResult_Verdict_Partial Equivalent
- *        to "Valid with warnings" for the page or item in Search Console.
- *        (Value: "PARTIAL")
+ *    @arg @c kGTLRSearchConsole_AmpInspectionResult_Verdict_Partial Reserved,
+ *        no longer in use. (Value: "PARTIAL")
  *    @arg @c kGTLRSearchConsole_AmpInspectionResult_Verdict_Pass Equivalent to
  *        "Valid" for the page or item in Search Console. (Value: "PASS")
  *    @arg @c kGTLRSearchConsole_AmpInspectionResult_Verdict_VerdictUnspecified
@@ -1410,8 +1408,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
  *        Equivalent to "Excluded" for the page or item in Search Console.
  *        (Value: "NEUTRAL")
  *    @arg @c kGTLRSearchConsole_IndexStatusInspectionResult_Verdict_Partial
- *        Equivalent to "Valid with warnings" for the page or item in Search
- *        Console. (Value: "PARTIAL")
+ *        Reserved, no longer in use. (Value: "PARTIAL")
  *    @arg @c kGTLRSearchConsole_IndexStatusInspectionResult_Verdict_Pass
  *        Equivalent to "Valid" for the page or item in Search Console. (Value:
  *        "PASS")
@@ -1538,8 +1535,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
  *        Equivalent to "Excluded" for the page or item in Search Console.
  *        (Value: "NEUTRAL")
  *    @arg @c kGTLRSearchConsole_MobileUsabilityInspectionResult_Verdict_Partial
- *        Equivalent to "Valid with warnings" for the page or item in Search
- *        Console. (Value: "PARTIAL")
+ *        Reserved, no longer in use. (Value: "PARTIAL")
  *    @arg @c kGTLRSearchConsole_MobileUsabilityInspectionResult_Verdict_Pass
  *        Equivalent to "Valid" for the page or item in Search Console. (Value:
  *        "PASS")
@@ -1644,8 +1640,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
  *        Equivalent to "Excluded" for the page or item in Search Console.
  *        (Value: "NEUTRAL")
  *    @arg @c kGTLRSearchConsole_RichResultsInspectionResult_Verdict_Partial
- *        Equivalent to "Valid with warnings" for the page or item in Search
- *        Console. (Value: "PARTIAL")
+ *        Reserved, no longer in use. (Value: "PARTIAL")
  *    @arg @c kGTLRSearchConsole_RichResultsInspectionResult_Verdict_Pass
  *        Equivalent to "Valid" for the page or item in Search Console. (Value:
  *        "PASS")

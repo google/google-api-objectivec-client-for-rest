@@ -1019,6 +1019,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Sessi
 // GTLRCloudDataplex_GoogleCloudDataplexV1SessionEvent.type
 
 /**
+ *  Event for creation of a cluster. It is not yet assigned to a user. This
+ *  comes before START in the sequence
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1SessionEvent_Type_Create;
+/**
  *  An unspecified event type.
  *
  *  Value: "EVENT_TYPE_UNSPECIFIED"
@@ -1031,7 +1038,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Sessi
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1SessionEvent_Type_Query;
 /**
- *  Event for start of a session.
+ *  Event when the session is assigned to a user.
  *
  *  Value: "START"
  */
@@ -2647,13 +2654,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 /**
  *  Output only. The relative resource name of the job, of the form:
- *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}/
- *  tasks/{task_id}/jobs/{job_id}.
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}/tasks/{task_id}/jobs/{job_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. . The number of times the job has been retried (excluding the
+ *  Output only. The number of times the job has been retried (excluding the
  *  initial attempt).
  *
  *  Uses NSNumber of unsignedIntValue.
@@ -3535,6 +3541,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1SessionEvent : GTLRObject
 
+/**
+ *  The status of the event.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *eventSucceeded;
+
 /** The log message. */
 @property(nonatomic, copy, nullable) NSString *message;
 
@@ -3548,19 +3561,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  The type of the event.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1SessionEvent_Type_Create
+ *        Event for creation of a cluster. It is not yet assigned to a user.
+ *        This comes before START in the sequence (Value: "CREATE")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1SessionEvent_Type_EventTypeUnspecified
  *        An unspecified event type. (Value: "EVENT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1SessionEvent_Type_Query
  *        Query events in the session. (Value: "QUERY")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1SessionEvent_Type_Start
- *        Event for start of a session. (Value: "START")
+ *        Event when the session is assigned to a user. (Value: "START")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1SessionEvent_Type_Stop
  *        Event for stop of a session. (Value: "STOP")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
-/** The information about the user that created the session. */
+/**
+ *  The idle duration of a warm pooled session before it is assigned to user.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *unassignedDuration;
+
+/**
+ *  The information about the user that created the session. It will be the
+ *  email address of the user.
+ */
 @property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  If the session is a warm pooled session.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *warmPoolEnabled;
 
 @end
 
@@ -3830,6 +3861,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1TaskExecutionSpec_Args *args;
 
 /**
+ *  Optional. The Cloud KMS key to use for encryption, of the form:
+ *  projects/{project_number}/locations/{location_id}/keyRings/{key-ring-name}/cryptoKeys/{key-name}.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
+
+/**
  *  Optional. The maximum duration after which the job execution is expired.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxJobExecutionLifetime;
@@ -3837,7 +3874,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 /**
  *  Optional. The project in which jobs are run. By default, the project
  *  containing the Lake is used. If a project is provided, the
- *  executionspec.service_account must belong to this same project.
+ *  ExecutionSpec.service_account must belong to this project.
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -3930,6 +3967,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  Container Image Runtime Configuration used with Batch execution.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1TaskInfrastructureSpecContainerImageRuntime : GTLRObject
+
+/** Optional. Container image to use. */
+@property(nonatomic, copy, nullable) NSString *image;
 
 /**
  *  Optional. A list of Java JARS to add to the classpath. Valid input includes
@@ -4514,16 +4554,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  authenticated with a Google account or a service account. user:{emailid}: An
  *  email address that represents a specific Google account. For example,
  *  alice\@example.com . serviceAccount:{emailid}: An email address that
- *  represents a service account. For example,
- *  my-other-app\@appspot.gserviceaccount.com. group:{emailid}: An email address
- *  that represents a Google group. For example, admins\@example.com.
- *  deleted:user:{emailid}?uid={uniqueid}: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
- *  alice\@example.com?uid=123456789012345678901. If the user is recovered, this
- *  value reverts to user:{emailid} and the recovered user retains the role in
- *  the binding. deleted:serviceAccount:{emailid}?uid={uniqueid}: An email
- *  address (plus unique identifier) representing a service account that has
- *  been recently deleted. For example,
+ *  represents a Google service account. For example,
+ *  my-other-app\@appspot.gserviceaccount.com.
+ *  serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]: An
+ *  identifier for a Kubernetes service account
+ *  (https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, my-project.svc.id.goog[my-namespace/my-kubernetes-sa].
+ *  group:{emailid}: An email address that represents a Google group. For
+ *  example, admins\@example.com. deleted:user:{emailid}?uid={uniqueid}: An
+ *  email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example, alice\@example.com?uid=123456789012345678901.
+ *  If the user is recovered, this value reverts to user:{emailid} and the
+ *  recovered user retains the role in the binding.
+ *  deleted:serviceAccount:{emailid}?uid={uniqueid}: An email address (plus
+ *  unique identifier) representing a service account that has been recently
+ *  deleted. For example,
  *  my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901. If the
  *  service account is undeleted, this value reverts to serviceAccount:{emailid}
  *  and the undeleted service account retains the role in the binding.

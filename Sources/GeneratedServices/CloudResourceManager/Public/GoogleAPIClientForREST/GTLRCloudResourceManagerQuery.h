@@ -1402,7 +1402,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  NAME:howl | Equivalent to above. | | labels.color:* | The project has the
  *  label `color`. | | labels.color:red | The project's label `color` has the
  *  value `red`. | | labels.color:red labels.size:big | The project's label
- *  `color` has the value `red` and its label `size` has the value `big`.| ```
+ *  `color` has the value `red` or its label `size` has the value `big`. | ```
  *  If no query is specified, the call will return projects for which the user
  *  has the `resourcemanager.projects.get` permission.
  */
@@ -2131,9 +2131,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves TagValue. If the TagValue or namespaced name does not exist, or if
- *  the user does not have permission to view it, this method will return
- *  `PERMISSION_DENIED`.
+ *  Retrieves a TagValue. This method will return `PERMISSION_DENIED` if the
+ *  value does not exist or the user does not have permission to view it.
  *
  *  Method: cloudresourcemanager.tagValues.get
  *
@@ -2152,9 +2151,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudResourceManager_TagValue.
  *
- *  Retrieves TagValue. If the TagValue or namespaced name does not exist, or if
- *  the user does not have permission to view it, this method will return
- *  `PERMISSION_DENIED`.
+ *  Retrieves a TagValue. This method will return `PERMISSION_DENIED` if the
+ *  value does not exist or the user does not have permission to view it.
  *
  *  @param name Required. Resource name for TagValue to be fetched in the format
  *    `tagValues/456`.

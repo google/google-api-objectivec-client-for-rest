@@ -71,6 +71,9 @@ NSString * const kGTLRCloudMemorystoreforMemcached_Schedule_Day_Wednesday = @"WE
 NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_Earlier = @"EARLIER";
 NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_Later = @"LATER";
 NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_UpdateChannelUnspecified = @"UPDATE_CHANNEL_UNSPECIFIED";
+NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_Week1 = @"WEEK1";
+NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_Week2 = @"WEEK2";
+NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_Week5 = @"WEEK5";
 
 // GTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow.day
 NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";

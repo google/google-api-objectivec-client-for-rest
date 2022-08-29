@@ -325,6 +325,33 @@
 
 @end
 
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsExtendSchema
+
+@dynamic domain;
+
++ (instancetype)queryWithObject:(GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ExtendSchemaRequest *)object
+                         domain:(NSString *)domain {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"domain" ];
+  NSString *pathURITemplate = @"v1/{+domain}:extendSchema";
+  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsExtendSchema *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.domain = domain;
+  query.expectedObjectClass = [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation class];
+  query.loggingName = @"managedidentities.projects.locations.global.domains.extendSchema";
+  return query;
+}
+
+@end
+
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsGet
 
 @dynamic name;

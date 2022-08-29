@@ -1086,7 +1086,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 @end
 
 /**
- *  Returns an event.
+ *  Returns an event based on its Google Calendar ID. To retrieve an event using
+ *  its iCalendar ID, call the events.list method using the iCalUID parameter.
  *
  *  Method: calendar.events.get
  *
@@ -1131,7 +1132,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 /**
  *  Fetches a @c GTLRCalendar_Event.
  *
- *  Returns an event.
+ *  Returns an event based on its Google Calendar ID. To retrieve an event using
+ *  its iCalendar ID, call the events.list method using the iCalUID parameter.
  *
  *  @param calendarId Calendar identifier. To retrieve calendar IDs call the
  *    calendarList.list method. If you want to access the primary calendar of
@@ -1408,8 +1410,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 @property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
- *  Specifies event ID in the iCalendar format to be included in the response.
- *  Optional.
+ *  Specifies an event ID in the iCalendar format to be provided in the
+ *  response. Optional. Use this if you want to search for an event by its
+ *  iCalendar ID.
  */
 @property(nonatomic, copy, nullable) NSString *iCalUID;
 
@@ -1909,8 +1912,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 @property(nonatomic, copy, nullable) NSString *calendarId;
 
 /**
- *  Specifies event ID in the iCalendar format to be included in the response.
- *  Optional.
+ *  Specifies an event ID in the iCalendar format to be provided in the
+ *  response. Optional. Use this if you want to search for an event by its
+ *  iCalendar ID.
  */
 @property(nonatomic, copy, nullable) NSString *iCalUID;
 

@@ -58,8 +58,8 @@ NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning = @"WARNING";
 @implementation GTLRManufacturerCenter_Attributes
 @dynamic additionalImageLink, ageGroup, brand, capacity, color, count,
          descriptionProperty, disclosureDate, excludedDestination,
-         featureDescription, flavor, format, gender, gtin, imageLink,
-         includedDestination, itemGroupId, material, mpn, pattern,
+         featureDescription, flavor, format, gender, grocery, gtin, imageLink,
+         includedDestination, itemGroupId, material, mpn, nutrition, pattern,
          productDetail, productHighlight, productLine, productName,
          productPageUrl, productType, releaseDate, richProductContent, scent,
          size, sizeSystem, sizeType, suggestedRetailPrice, targetClientId,
@@ -140,6 +140,37 @@ NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRManufacturerCenter_FloatUnit
+//
+
+@implementation GTLRManufacturerCenter_FloatUnit
+@dynamic amount, unit;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManufacturerCenter_Grocery
+//
+
+@implementation GTLRManufacturerCenter_Grocery
+@dynamic activeIngredients, alcoholByVolume, allergens, derivedNutritionClaim,
+         directions, indications, ingredients, nutritionClaim,
+         storageInstructions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"derivedNutritionClaim" : [NSString class],
+    @"nutritionClaim" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRManufacturerCenter_Image
 //
 
@@ -188,6 +219,37 @@ NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRManufacturerCenter_Nutrition
+//
+
+@implementation GTLRManufacturerCenter_Nutrition
+@dynamic addedSugars, addedSugarsDailyPercentage, calcium,
+         calciumDailyPercentage, cholesterol, cholesterolDailyPercentage,
+         dietaryFiber, dietaryFiberDailyPercentage, energy, energyFromFat,
+         folateDailyPercentage, folateFolicAcid, folateMcgDfe, iron,
+         ironDailyPercentage, monounsaturatedFat, nutritionFactMeasure, polyols,
+         polyunsaturatedFat, potassium, potassiumDailyPercentage,
+         preparedSizeDescription, protein, proteinDailyPercentage, saturatedFat,
+         saturatedFatDailyPercentage, servingSizeDescription,
+         servingSizeMeasure, servingsPerContainer, sodium,
+         sodiumDailyPercentage, starch, totalCarbohydrate,
+         totalCarbohydrateDailyPercentage, totalFat, totalFatDailyPercentage,
+         totalSugars, totalSugarsDailyPercentage, transFat,
+         transFatDailyPercentage, vitaminD, vitaminDDailyPercentage,
+         voluntaryNutritionFact;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"voluntaryNutritionFact" : [GTLRManufacturerCenter_VoluntaryNutritionFact class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRManufacturerCenter_Price
 //
 
@@ -223,4 +285,14 @@ NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning = @"WARNING";
 
 @implementation GTLRManufacturerCenter_ProductDetail
 @dynamic attributeName, attributeValue, sectionName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManufacturerCenter_VoluntaryNutritionFact
+//
+
+@implementation GTLRManufacturerCenter_VoluntaryNutritionFact
+@dynamic dailyPercentage, name, value;
 @end

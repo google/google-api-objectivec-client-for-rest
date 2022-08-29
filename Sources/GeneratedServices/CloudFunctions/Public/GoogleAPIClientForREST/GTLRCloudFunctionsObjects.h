@@ -17,13 +17,22 @@
 @class GTLRCloudFunctions_AuditConfig;
 @class GTLRCloudFunctions_AuditLogConfig;
 @class GTLRCloudFunctions_Binding;
+@class GTLRCloudFunctions_BuildConfig;
+@class GTLRCloudFunctions_BuildConfig_EnvironmentVariables;
+@class GTLRCloudFunctions_EventFilter;
+@class GTLRCloudFunctions_EventTrigger;
 @class GTLRCloudFunctions_Expr;
+@class GTLRCloudFunctions_Function;
+@class GTLRCloudFunctions_Function_Labels;
 @class GTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_RequestResource;
 @class GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage;
 @class GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage;
 @class GTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_RequestResource;
 @class GTLRCloudFunctions_GoogleCloudFunctionsV2betaStage;
 @class GTLRCloudFunctions_GoogleCloudFunctionsV2betaStateMessage;
+@class GTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_RequestResource;
+@class GTLRCloudFunctions_GoogleCloudFunctionsV2Stage;
+@class GTLRCloudFunctions_GoogleCloudFunctionsV2StateMessage;
 @class GTLRCloudFunctions_Location;
 @class GTLRCloudFunctions_Location_Labels;
 @class GTLRCloudFunctions_Location_Metadata;
@@ -32,8 +41,18 @@
 @class GTLRCloudFunctions_Operation_Response;
 @class GTLRCloudFunctions_OperationMetadataV1_Request;
 @class GTLRCloudFunctions_Policy;
+@class GTLRCloudFunctions_RepoSource;
+@class GTLRCloudFunctions_Runtime;
+@class GTLRCloudFunctions_SecretEnvVar;
+@class GTLRCloudFunctions_SecretVersion;
+@class GTLRCloudFunctions_SecretVolume;
+@class GTLRCloudFunctions_ServiceConfig;
+@class GTLRCloudFunctions_ServiceConfig_EnvironmentVariables;
+@class GTLRCloudFunctions_Source;
+@class GTLRCloudFunctions_SourceProvenance;
 @class GTLRCloudFunctions_Status;
 @class GTLRCloudFunctions_Status_Details_Item;
+@class GTLRCloudFunctions_StorageSource;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -72,6 +91,92 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_Da
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFunctions_EventTrigger.retryPolicy
+
+/**
+ *  Do not retry.
+ *
+ *  Value: "RETRY_POLICY_DO_NOT_RETRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_EventTrigger_RetryPolicy_RetryPolicyDoNotRetry;
+/**
+ *  Retry on any failure, retry up to 7 days with an exponential backoff (capped
+ *  at 10 seconds).
+ *
+ *  Value: "RETRY_POLICY_RETRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_EventTrigger_RetryPolicy_RetryPolicyRetry;
+/**
+ *  Not specified.
+ *
+ *  Value: "RETRY_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_EventTrigger_RetryPolicy_RetryPolicyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFunctions_Function.environment
+
+/**
+ *  Unspecified
+ *
+ *  Value: "ENVIRONMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Function_Environment_EnvironmentUnspecified;
+/**
+ *  Gen 1
+ *
+ *  Value: "GEN_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Function_Environment_Gen1;
+/**
+ *  Gen 2
+ *
+ *  Value: "GEN_2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Function_Environment_Gen2;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFunctions_Function.state
+
+/**
+ *  Function has been successfully deployed and is serving.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Function_State_Active;
+/**
+ *  Function is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Function_State_Deleting;
+/**
+ *  Function is being created or updated.
+ *
+ *  Value: "DEPLOYING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Function_State_Deploying;
+/**
+ *  Function deployment failed and the function is not serving.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Function_State_Failed;
+/**
+ *  Not specified. Invalid state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Function_State_StateUnspecified;
+/**
+ *  Function deployment failed and the function serving state is undefined. The
+ *  function should be updated or deleted to move it out of this state.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Function_State_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage.name
@@ -278,6 +383,108 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2bet
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStateMessage_Severity_Warning;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudFunctions_GoogleCloudFunctionsV2Stage.name
+
+/**
+ *  Artifact Regsitry Stage
+ *
+ *  Value: "ARTIFACT_REGISTRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_Name_ArtifactRegistry;
+/**
+ *  Build Stage
+ *
+ *  Value: "BUILD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_Name_Build;
+/**
+ *  Not specified. Invalid name.
+ *
+ *  Value: "NAME_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_Name_NameUnspecified;
+/**
+ *  Service Stage
+ *
+ *  Value: "SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_Name_Service;
+/**
+ *  Service Rollback Stage
+ *
+ *  Value: "SERVICE_ROLLBACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_Name_ServiceRollback;
+/**
+ *  Trigger Stage
+ *
+ *  Value: "TRIGGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_Name_Trigger;
+/**
+ *  Trigger Rollback Stage
+ *
+ *  Value: "TRIGGER_ROLLBACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_Name_TriggerRollback;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFunctions_GoogleCloudFunctionsV2Stage.state
+
+/**
+ *  Stage has completed.
+ *
+ *  Value: "COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_State_Complete;
+/**
+ *  Stage is in progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_State_InProgress;
+/**
+ *  Stage has not started.
+ *
+ *  Value: "NOT_STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_State_NotStarted;
+/**
+ *  Not specified. Invalid state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFunctions_GoogleCloudFunctionsV2StateMessage.severity
+
+/**
+ *  ERROR-level severity.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2StateMessage_Severity_Error;
+/**
+ *  INFO-level severity.
+ *
+ *  Value: "INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2StateMessage_Severity_Info;
+/**
+ *  Not specified. Invalid severity.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2StateMessage_Severity_SeverityUnspecified;
+/**
+ *  WARNING-level severity.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2StateMessage_Severity_Warning;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudFunctions_OperationMetadataV1.type
 
 /**
@@ -304,6 +511,125 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
  *  Value: "UPDATE_FUNCTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_UpdateFunction;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFunctions_Runtime.environment
+
+/**
+ *  Unspecified
+ *
+ *  Value: "ENVIRONMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Runtime_Environment_EnvironmentUnspecified;
+/**
+ *  Gen 1
+ *
+ *  Value: "GEN_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Runtime_Environment_Gen1;
+/**
+ *  Gen 2
+ *
+ *  Value: "GEN_2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Runtime_Environment_Gen2;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFunctions_Runtime.stage
+
+/**
+ *  The runtime is in the Alpha stage.
+ *
+ *  Value: "ALPHA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Runtime_Stage_Alpha;
+/**
+ *  The runtime is in the Beta stage.
+ *
+ *  Value: "BETA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Runtime_Stage_Beta;
+/**
+ *  The runtime is no longer supported.
+ *
+ *  Value: "DECOMMISSIONED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Runtime_Stage_Decommissioned;
+/**
+ *  The runtime is deprecated.
+ *
+ *  Value: "DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Runtime_Stage_Deprecated;
+/**
+ *  The runtime is in development.
+ *
+ *  Value: "DEVELOPMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Runtime_Stage_Development;
+/**
+ *  The runtime is generally available.
+ *
+ *  Value: "GA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Runtime_Stage_Ga;
+/**
+ *  Not specified.
+ *
+ *  Value: "RUNTIME_STAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Runtime_Stage_RuntimeStageUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFunctions_ServiceConfig.ingressSettings
+
+/**
+ *  Allow HTTP traffic from public and private sources.
+ *
+ *  Value: "ALLOW_ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_IngressSettings_AllowAll;
+/**
+ *  Allow HTTP traffic from private VPC sources and through GCLB.
+ *
+ *  Value: "ALLOW_INTERNAL_AND_GCLB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_IngressSettings_AllowInternalAndGclb;
+/**
+ *  Allow HTTP traffic from only private VPC sources.
+ *
+ *  Value: "ALLOW_INTERNAL_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_IngressSettings_AllowInternalOnly;
+/**
+ *  Unspecified.
+ *
+ *  Value: "INGRESS_SETTINGS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_IngressSettings_IngressSettingsUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFunctions_ServiceConfig.vpcConnectorEgressSettings
+
+/**
+ *  Force the use of VPC Access Connector for all egress traffic from the
+ *  function.
+ *
+ *  Value: "ALL_TRAFFIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_AllTraffic;
+/**
+ *  Use the VPC Access Connector only for private IP space from RFC1918.
+ *
+ *  Value: "PRIVATE_RANGES_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_PrivateRangesOnly;
+/**
+ *  Unspecified.
+ *
+ *  Value: "VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_VpcConnectorEgressSettingsUnspecified;
 
 /**
  *  Specifies the audit configuration for a service. The configuration
@@ -395,11 +721,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
  *  anyone who is authenticated with a Google account or a service account. *
  *  `user:{emailid}`: An email address that represents a specific Google
  *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
- *  address that represents a Google group. For example, `admins\@example.com`.
- *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
+ *  An email address that represents a Google service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
+ *  identifier for a [Kubernetes service
+ *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
+ *  `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
+ *  An email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -424,6 +755,180 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
  *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  Describes the Build step of the function that builds a container from the
+ *  given source.
+ */
+@interface GTLRCloudFunctions_BuildConfig : GTLRObject
+
+/**
+ *  Output only. The Cloud Build name of the latest successful deployment of the
+ *  function.
+ */
+@property(nonatomic, copy, nullable) NSString *build;
+
+/**
+ *  Optional. User managed repository created in Artifact Registry optionally
+ *  with a customer managed encryption key. This is the repository to which the
+ *  function docker image will be pushed after it is built by Cloud Build. If
+ *  unspecified, GCF will create and use a repository named 'gcf-artifacts' for
+ *  every deployed region. It must match the pattern
+ *  `projects/{project}/locations/{location}/repositories/{repository}`.
+ *  Cross-project repositories are not supported. Cross-location repositories
+ *  are not supported. Repository format must be 'DOCKER'.
+ */
+@property(nonatomic, copy, nullable) NSString *dockerRepository;
+
+/**
+ *  The name of the function (as defined in source code) that will be executed.
+ *  Defaults to the resource name suffix, if not specified. For backward
+ *  compatibility, if function with given name is not found, then the system
+ *  will try to use function named "function". For Node.js this is name of a
+ *  function exported by the module specified in `source_location`.
+ */
+@property(nonatomic, copy, nullable) NSString *entryPoint;
+
+/** User-provided build-time environment variables for the function */
+@property(nonatomic, strong, nullable) GTLRCloudFunctions_BuildConfig_EnvironmentVariables *environmentVariables;
+
+/**
+ *  The runtime in which to run the function. Required when deploying a new
+ *  function, optional when updating an existing function. For a complete list
+ *  of possible choices, see the [`gcloud` command
+ *  reference](https://cloud.google.com/sdk/gcloud/reference/functions/deploy#--runtime).
+ */
+@property(nonatomic, copy, nullable) NSString *runtime;
+
+/** The location of the function source code. */
+@property(nonatomic, strong, nullable) GTLRCloudFunctions_Source *source;
+
+/** Output only. A permanent fixed identifier for source. */
+@property(nonatomic, strong, nullable) GTLRCloudFunctions_SourceProvenance *sourceProvenance;
+
+/**
+ *  Name of the Cloud Build Custom Worker Pool that should be used to build the
+ *  function. The format of this field is
+ *  `projects/{project}/locations/{region}/workerPools/{workerPool}` where
+ *  {project} and {region} are the project id and region respectively where the
+ *  worker pool is defined and {workerPool} is the short name of the worker
+ *  pool. If the project id is not the same as the function, then the Cloud
+ *  Functions Service Agent (service-\@gcf-admin-robot.iam.gserviceaccount.com)
+ *  must be granted the role Cloud Build Custom Workers Builder
+ *  (roles/cloudbuild.customworkers.builder) in the project.
+ */
+@property(nonatomic, copy, nullable) NSString *workerPool;
+
+@end
+
+
+/**
+ *  User-provided build-time environment variables for the function
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudFunctions_BuildConfig_EnvironmentVariables : GTLRObject
+@end
+
+
+/**
+ *  Filters events based on exact matches on the CloudEvents attributes.
+ */
+@interface GTLRCloudFunctions_EventFilter : GTLRObject
+
+/** Required. The name of a CloudEvents attribute. */
+@property(nonatomic, copy, nullable) NSString *attribute;
+
+/**
+ *  Optional. The operator used for matching the events with the value of the
+ *  filter. If not specified, only events that have an exact key-value pair
+ *  specified in the filter are matched. The only allowed value is
+ *  `match-path-pattern`.
+ *
+ *  Remapped to 'operatorProperty' to avoid language reserved word 'operator'.
+ */
+@property(nonatomic, copy, nullable) NSString *operatorProperty;
+
+/** Required. The value for the attribute. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Describes EventTrigger, used to request events to be sent from another
+ *  service.
+ */
+@interface GTLRCloudFunctions_EventTrigger : GTLRObject
+
+/**
+ *  Optional. The name of the channel associated with the trigger in
+ *  `projects/{project}/locations/{location}/channels/{channel}` format. You
+ *  must provide a channel to receive events from Eventarc SaaS partners.
+ */
+@property(nonatomic, copy, nullable) NSString *channel;
+
+/** Criteria used to filter events. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_EventFilter *> *eventFilters;
+
+/**
+ *  Required. The type of event to observe. For example:
+ *  `google.cloud.audit.log.v1.written` or
+ *  `google.cloud.pubsub.topic.v1.messagePublished`.
+ */
+@property(nonatomic, copy, nullable) NSString *eventType;
+
+/**
+ *  Optional. The name of a Pub/Sub topic in the same project that will be used
+ *  as the transport topic for the event delivery. Format:
+ *  `projects/{project}/topics/{topic}`. This is only valid for events of type
+ *  `google.cloud.pubsub.topic.v1.messagePublished`. The topic provided here
+ *  will not be deleted at function deletion.
+ */
+@property(nonatomic, copy, nullable) NSString *pubsubTopic;
+
+/**
+ *  Optional. If unset, then defaults to ignoring failures (i.e. not retrying
+ *  them).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFunctions_EventTrigger_RetryPolicy_RetryPolicyDoNotRetry
+ *        Do not retry. (Value: "RETRY_POLICY_DO_NOT_RETRY")
+ *    @arg @c kGTLRCloudFunctions_EventTrigger_RetryPolicy_RetryPolicyRetry
+ *        Retry on any failure, retry up to 7 days with an exponential backoff
+ *        (capped at 10 seconds). (Value: "RETRY_POLICY_RETRY")
+ *    @arg @c kGTLRCloudFunctions_EventTrigger_RetryPolicy_RetryPolicyUnspecified
+ *        Not specified. (Value: "RETRY_POLICY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *retryPolicy;
+
+/**
+ *  Optional. The email of the trigger's service account. The service account
+ *  must have permission to invoke Cloud Run services, the permission is
+ *  `run.routes.invoke`. If empty, defaults to the Compute Engine default
+ *  service account: `{project_number}-compute\@developer.gserviceaccount.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
+
+/**
+ *  Output only. The resource name of the Eventarc trigger. The format of this
+ *  field is `projects/{project}/locations/{region}/triggers/{trigger}`.
+ */
+@property(nonatomic, copy, nullable) NSString *trigger;
+
+/**
+ *  The region that the trigger will be in. The trigger will only receive events
+ *  originating in this region. It can be the same region as the function, a
+ *  different region or multi-region, or the global region. If not provided,
+ *  defaults to the same region as the function.
+ */
+@property(nonatomic, copy, nullable) NSString *triggerRegion;
 
 @end
 
@@ -473,6 +978,153 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Describes a Cloud Function that contains user computation executed in
+ *  response to an event. It encapsulates function and trigger configurations.
+ */
+@interface GTLRCloudFunctions_Function : GTLRObject
+
+/**
+ *  Describes the Build step of the function that builds a container from the
+ *  given source.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFunctions_BuildConfig *buildConfig;
+
+/**
+ *  User-provided description of a function.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Describe whether the function is gen1 or gen2.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFunctions_Function_Environment_EnvironmentUnspecified
+ *        Unspecified (Value: "ENVIRONMENT_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFunctions_Function_Environment_Gen1 Gen 1 (Value:
+ *        "GEN_1")
+ *    @arg @c kGTLRCloudFunctions_Function_Environment_Gen2 Gen 2 (Value:
+ *        "GEN_2")
+ */
+@property(nonatomic, copy, nullable) NSString *environment;
+
+/**
+ *  An Eventarc trigger managed by Google Cloud Functions that fires events in
+ *  response to a condition in another service.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFunctions_EventTrigger *eventTrigger;
+
+/** Labels associated with this Cloud Function. */
+@property(nonatomic, strong, nullable) GTLRCloudFunctions_Function_Labels *labels;
+
+/**
+ *  A user-defined name of the function. Function names must be unique globally
+ *  and match pattern `projects/ * /locations/ * /functions/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Describes the Service being deployed. Currently deploys services to Cloud
+ *  Run (fully managed).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFunctions_ServiceConfig *serviceConfig;
+
+/**
+ *  Output only. State of the function.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFunctions_Function_State_Active Function has been
+ *        successfully deployed and is serving. (Value: "ACTIVE")
+ *    @arg @c kGTLRCloudFunctions_Function_State_Deleting Function is being
+ *        deleted. (Value: "DELETING")
+ *    @arg @c kGTLRCloudFunctions_Function_State_Deploying Function is being
+ *        created or updated. (Value: "DEPLOYING")
+ *    @arg @c kGTLRCloudFunctions_Function_State_Failed Function deployment
+ *        failed and the function is not serving. (Value: "FAILED")
+ *    @arg @c kGTLRCloudFunctions_Function_State_StateUnspecified Not specified.
+ *        Invalid state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFunctions_Function_State_Unknown Function deployment
+ *        failed and the function serving state is undefined. The function
+ *        should be updated or deleted to move it out of this state. (Value:
+ *        "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. State Messages for this Cloud Function. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_GoogleCloudFunctionsV2StateMessage *> *stateMessages;
+
+/** Output only. The last update timestamp of a Cloud Function. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Labels associated with this Cloud Function.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudFunctions_Function_Labels : GTLRObject
+@end
+
+
+/**
+ *  Request of `GenerateDownloadUrl` method.
+ */
+@interface GTLRCloudFunctions_GenerateDownloadUrlRequest : GTLRObject
+@end
+
+
+/**
+ *  Response of `GenerateDownloadUrl` method.
+ */
+@interface GTLRCloudFunctions_GenerateDownloadUrlResponse : GTLRObject
+
+/**
+ *  The generated Google Cloud Storage signed URL that should be used for
+ *  function source code download.
+ */
+@property(nonatomic, copy, nullable) NSString *downloadUrl;
+
+@end
+
+
+/**
+ *  Request of `GenerateSourceUploadUrl` method.
+ */
+@interface GTLRCloudFunctions_GenerateUploadUrlRequest : GTLRObject
+@end
+
+
+/**
+ *  Response of `GenerateSourceUploadUrl` method.
+ */
+@interface GTLRCloudFunctions_GenerateUploadUrlResponse : GTLRObject
+
+/**
+ *  The location of the source code in the upload bucket. Once the archive is
+ *  uploaded using the `upload_url` use this field to set the
+ *  `function.build_config.source.storage_source` during CreateFunction and
+ *  UpdateFunction. Generation defaults to 0, as Cloud Storage provides a new
+ *  generation only upon uploading a new object or version of an object.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFunctions_StorageSource *storageSource;
+
+/**
+ *  The generated Google Cloud Storage signed URL that should be used for a
+ *  function source code upload. The uploaded file should be a zip archive which
+ *  contains a function.
+ */
+@property(nonatomic, copy, nullable) NSString *uploadUrl;
 
 @end
 
@@ -754,6 +1406,177 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
 
 
 /**
+ *  Represents the metadata of the long-running operation.
+ */
+@interface GTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata : GTLRObject
+
+/** API version used to start the operation. */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/**
+ *  Identifies whether the user has requested cancellation of the operation.
+ *  Operations that have successfully been cancelled have Operation.error value
+ *  with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cancelRequested;
+
+/** The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The original request that started the operation. */
+@property(nonatomic, strong, nullable) GTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_RequestResource *requestResource;
+
+/** Mechanism for reporting in-progress stages */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_GoogleCloudFunctionsV2Stage *> *stages;
+
+/** Human-readable status of the operation, if any. */
+@property(nonatomic, copy, nullable) NSString *statusDetail;
+
+/** Server-defined resource path for the target of the operation. */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/** Name of the verb executed by the operation. */
+@property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  The original request that started the operation.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_RequestResource : GTLRObject
+@end
+
+
+/**
+ *  Each Stage of the deployment process
+ */
+@interface GTLRCloudFunctions_GoogleCloudFunctionsV2Stage : GTLRObject
+
+/** Message describing the Stage */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Name of the Stage. This will be unique for each Stage.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_Name_ArtifactRegistry
+ *        Artifact Regsitry Stage (Value: "ARTIFACT_REGISTRY")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_Name_Build Build
+ *        Stage (Value: "BUILD")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_Name_NameUnspecified
+ *        Not specified. Invalid name. (Value: "NAME_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_Name_Service
+ *        Service Stage (Value: "SERVICE")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_Name_ServiceRollback
+ *        Service Rollback Stage (Value: "SERVICE_ROLLBACK")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_Name_Trigger
+ *        Trigger Stage (Value: "TRIGGER")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_Name_TriggerRollback
+ *        Trigger Rollback Stage (Value: "TRIGGER_ROLLBACK")
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Resource of the Stage */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/** Link to the current Stage resource */
+@property(nonatomic, copy, nullable) NSString *resourceUri;
+
+/**
+ *  Current state of the Stage
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_State_Complete
+ *        Stage has completed. (Value: "COMPLETE")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_State_InProgress
+ *        Stage is in progress. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_State_NotStarted
+ *        Stage has not started. (Value: "NOT_STARTED")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_State_StateUnspecified
+ *        Not specified. Invalid state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** State messages from the current Stage. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_GoogleCloudFunctionsV2StateMessage *> *stateMessages;
+
+@end
+
+
+/**
+ *  Informational messages about the state of the Cloud Function or Operation.
+ */
+@interface GTLRCloudFunctions_GoogleCloudFunctionsV2StateMessage : GTLRObject
+
+/** The message. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Severity of the state message.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2StateMessage_Severity_Error
+ *        ERROR-level severity. (Value: "ERROR")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2StateMessage_Severity_Info
+ *        INFO-level severity. (Value: "INFO")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2StateMessage_Severity_SeverityUnspecified
+ *        Not specified. Invalid severity. (Value: "SEVERITY_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2StateMessage_Severity_Warning
+ *        WARNING-level severity. (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+/** One-word CamelCase type of the state message. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Response for the `ListFunctions` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "functions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudFunctions_ListFunctionsResponse : GTLRCollectionObject
+
+/**
+ *  The functions that match the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_Function *> *functions;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Locations that could not be reached. The response does not include any
+ *  functions from these locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  The response message for Locations.ListLocations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -797,6 +1620,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_Operation *> *operations;
+
+@end
+
+
+/**
+ *  Response for the `ListRuntimes` method.
+ */
+@interface GTLRCloudFunctions_ListRuntimesResponse : GTLRObject
+
+/** The runtimes that match the request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_Runtime *> *runtimes;
 
 @end
 
@@ -1106,6 +1940,343 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
 
 
 /**
+ *  Location of the source in a Google Cloud Source Repository.
+ */
+@interface GTLRCloudFunctions_RepoSource : GTLRObject
+
+/**
+ *  Regex matching branches to build. The syntax of the regular expressions
+ *  accepted is the syntax accepted by RE2 and described at
+ *  https://github.com/google/re2/wiki/Syntax
+ */
+@property(nonatomic, copy, nullable) NSString *branchName;
+
+/** Explicit commit SHA to build. */
+@property(nonatomic, copy, nullable) NSString *commitSha;
+
+/**
+ *  Directory, relative to the source root, in which to run the build. This must
+ *  be a relative path. If a step's `dir` is specified and is an absolute path,
+ *  this value is ignored for that step's execution. eg. helloworld (no leading
+ *  slash allowed)
+ */
+@property(nonatomic, copy, nullable) NSString *dir;
+
+/**
+ *  Only trigger a build if the revision regex does NOT match the revision
+ *  regex.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *invertRegex;
+
+/**
+ *  ID of the project that owns the Cloud Source Repository. If omitted, the
+ *  project ID requesting the build is assumed.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Name of the Cloud Source Repository. */
+@property(nonatomic, copy, nullable) NSString *repoName;
+
+/**
+ *  Regex matching tags to build. The syntax of the regular expressions accepted
+ *  is the syntax accepted by RE2 and described at
+ *  https://github.com/google/re2/wiki/Syntax
+ */
+@property(nonatomic, copy, nullable) NSString *tagName;
+
+@end
+
+
+/**
+ *  Describes a runtime and any special information (e.g., deprecation status)
+ *  related to it.
+ */
+@interface GTLRCloudFunctions_Runtime : GTLRObject
+
+/** The user facing name, eg 'Go 1.13', 'Node.js 12', etc. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The environment for the runtime.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFunctions_Runtime_Environment_EnvironmentUnspecified
+ *        Unspecified (Value: "ENVIRONMENT_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFunctions_Runtime_Environment_Gen1 Gen 1 (Value:
+ *        "GEN_1")
+ *    @arg @c kGTLRCloudFunctions_Runtime_Environment_Gen2 Gen 2 (Value:
+ *        "GEN_2")
+ */
+@property(nonatomic, copy, nullable) NSString *environment;
+
+/** The name of the runtime, e.g., 'go113', 'nodejs12', etc. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The stage of life this runtime is in, e.g., BETA, GA, etc.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFunctions_Runtime_Stage_Alpha The runtime is in the
+ *        Alpha stage. (Value: "ALPHA")
+ *    @arg @c kGTLRCloudFunctions_Runtime_Stage_Beta The runtime is in the Beta
+ *        stage. (Value: "BETA")
+ *    @arg @c kGTLRCloudFunctions_Runtime_Stage_Decommissioned The runtime is no
+ *        longer supported. (Value: "DECOMMISSIONED")
+ *    @arg @c kGTLRCloudFunctions_Runtime_Stage_Deprecated The runtime is
+ *        deprecated. (Value: "DEPRECATED")
+ *    @arg @c kGTLRCloudFunctions_Runtime_Stage_Development The runtime is in
+ *        development. (Value: "DEVELOPMENT")
+ *    @arg @c kGTLRCloudFunctions_Runtime_Stage_Ga The runtime is generally
+ *        available. (Value: "GA")
+ *    @arg @c kGTLRCloudFunctions_Runtime_Stage_RuntimeStageUnspecified Not
+ *        specified. (Value: "RUNTIME_STAGE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *stage;
+
+/** Warning messages, e.g., a deprecation warning. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *warnings;
+
+@end
+
+
+/**
+ *  Configuration for a secret environment variable. It has the information
+ *  necessary to fetch the secret value from secret manager and expose it as an
+ *  environment variable.
+ */
+@interface GTLRCloudFunctions_SecretEnvVar : GTLRObject
+
+/** Name of the environment variable. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  Project identifier (preferably project number but can also be the project
+ *  ID) of the project that contains the secret. If not set, it is assumed that
+ *  the secret is in the same project as the function.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Name of the secret in secret manager (not the full resource name). */
+@property(nonatomic, copy, nullable) NSString *secret;
+
+/**
+ *  Version of the secret (version number or the string 'latest'). It is
+ *  recommended to use a numeric version for secret environment variables as any
+ *  updates to the secret value is not reflected until new instances start.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Configuration for a single version.
+ */
+@interface GTLRCloudFunctions_SecretVersion : GTLRObject
+
+/**
+ *  Relative path of the file under the mount path where the secret value for
+ *  this version will be fetched and made available. For example, setting the
+ *  mount_path as '/etc/secrets' and path as `secret_foo` would mount the secret
+ *  value file at `/etc/secrets/secret_foo`.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Version of the secret (version number or the string 'latest'). It is
+ *  preferable to use `latest` version with secret volumes as secret value
+ *  changes are reflected immediately.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Configuration for a secret volume. It has the information necessary to fetch
+ *  the secret value from secret manager and make it available as files mounted
+ *  at the requested paths within the application container.
+ */
+@interface GTLRCloudFunctions_SecretVolume : GTLRObject
+
+/**
+ *  The path within the container to mount the secret volume. For example,
+ *  setting the mount_path as `/etc/secrets` would mount the secret value files
+ *  under the `/etc/secrets` directory. This directory will also be completely
+ *  shadowed and unavailable to mount any other secrets. Recommended mount path:
+ *  /etc/secrets
+ */
+@property(nonatomic, copy, nullable) NSString *mountPath;
+
+/**
+ *  Project identifier (preferably project number but can also be the project
+ *  ID) of the project that contains the secret. If not set, it is assumed that
+ *  the secret is in the same project as the function.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Name of the secret in secret manager (not the full resource name). */
+@property(nonatomic, copy, nullable) NSString *secret;
+
+/**
+ *  List of secret versions to mount for this secret. If empty, the `latest`
+ *  version of the secret will be made available in a file named after the
+ *  secret under the mount point.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_SecretVersion *> *versions;
+
+@end
+
+
+/**
+ *  Describes the Service being deployed. Currently Supported : Cloud Run (fully
+ *  managed).
+ */
+@interface GTLRCloudFunctions_ServiceConfig : GTLRObject
+
+/**
+ *  Whether 100% of traffic is routed to the latest revision. On CreateFunction
+ *  and UpdateFunction, when set to true, the revision being deployed will serve
+ *  100% of traffic, ignoring any traffic split settings, if any. On
+ *  GetFunction, true will be returned if the latest revision is serving 100% of
+ *  traffic.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allTrafficOnLatestRevision;
+
+/**
+ *  The amount of memory available for a function. Defaults to 256M. Supported
+ *  units are k, M, G, Mi, Gi. If no unit is supplied the value is interpreted
+ *  as bytes. See
+ *  https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/apimachinery/pkg/api/resource/quantity.go
+ *  a full description.
+ */
+@property(nonatomic, copy, nullable) NSString *availableMemory;
+
+/**
+ *  Environment variables that shall be available during function execution.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFunctions_ServiceConfig_EnvironmentVariables *environmentVariables;
+
+/**
+ *  The ingress settings for the function, controlling what traffic can reach
+ *  it.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFunctions_ServiceConfig_IngressSettings_AllowAll Allow
+ *        HTTP traffic from public and private sources. (Value: "ALLOW_ALL")
+ *    @arg @c kGTLRCloudFunctions_ServiceConfig_IngressSettings_AllowInternalAndGclb
+ *        Allow HTTP traffic from private VPC sources and through GCLB. (Value:
+ *        "ALLOW_INTERNAL_AND_GCLB")
+ *    @arg @c kGTLRCloudFunctions_ServiceConfig_IngressSettings_AllowInternalOnly
+ *        Allow HTTP traffic from only private VPC sources. (Value:
+ *        "ALLOW_INTERNAL_ONLY")
+ *    @arg @c kGTLRCloudFunctions_ServiceConfig_IngressSettings_IngressSettingsUnspecified
+ *        Unspecified. (Value: "INGRESS_SETTINGS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *ingressSettings;
+
+/**
+ *  The limit on the maximum number of function instances that may coexist at a
+ *  given time. In some cases, such as rapid traffic surges, Cloud Functions
+ *  may, for a short period of time, create more instances than the specified
+ *  max instances limit. If your function cannot tolerate this temporary
+ *  behavior, you may want to factor in a safety margin and set a lower max
+ *  instances value than your function can tolerate. See the [Max
+ *  Instances](https://cloud.google.com/functions/docs/max-instances) Guide for
+ *  more details.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxInstanceCount;
+
+/**
+ *  The limit on the minimum number of function instances that may coexist at a
+ *  given time. Function instances are kept in idle state for a short period
+ *  after they finished executing the request to reduce cold start time for
+ *  subsequent requests. Setting a minimum instance count will ensure that the
+ *  given number of instances are kept running in idle state always. This can
+ *  help with cold start times when jump in incoming request count occurs after
+ *  the idle instance would have been stopped in the default case.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minInstanceCount;
+
+/** Output only. The name of service revision. */
+@property(nonatomic, copy, nullable) NSString *revision;
+
+/** Secret environment variables configuration. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_SecretEnvVar *> *secretEnvironmentVariables;
+
+/** Secret volumes configuration. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_SecretVolume *> *secretVolumes;
+
+/**
+ *  Output only. Name of the service associated with a Function. The format of
+ *  this field is `projects/{project}/locations/{region}/services/{service}`
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/**
+ *  The email of the service's service account. If empty, defaults to
+ *  `{project_number}-compute\@developer.gserviceaccount.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
+
+/**
+ *  The function execution timeout. Execution is considered failed and can be
+ *  terminated if the function is not completed at the end of the timeout
+ *  period. Defaults to 60 seconds.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *timeoutSeconds;
+
+/** Output only. URI of the Service deployed. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+/**
+ *  The Serverless VPC Access connector that this cloud function can connect to.
+ *  The format of this field is `projects/ * /locations/ * /connectors/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *vpcConnector;
+
+/**
+ *  The egress settings for the connector, controlling what traffic is diverted
+ *  through it.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_AllTraffic
+ *        Force the use of VPC Access Connector for all egress traffic from the
+ *        function. (Value: "ALL_TRAFFIC")
+ *    @arg @c kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_PrivateRangesOnly
+ *        Use the VPC Access Connector only for private IP space from RFC1918.
+ *        (Value: "PRIVATE_RANGES_ONLY")
+ *    @arg @c kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_VpcConnectorEgressSettingsUnspecified
+ *        Unspecified. (Value: "VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *vpcConnectorEgressSettings;
+
+@end
+
+
+/**
+ *  Environment variables that shall be available during function execution.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudFunctions_ServiceConfig_EnvironmentVariables : GTLRObject
+@end
+
+
+/**
  *  Request message for `SetIamPolicy` method.
  */
 @interface GTLRCloudFunctions_SetIamPolicyRequest : GTLRObject
@@ -1125,6 +2296,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  The location of the function source code.
+ */
+@interface GTLRCloudFunctions_Source : GTLRObject
+
+/**
+ *  If provided, get the source from this location in a Cloud Source Repository.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFunctions_RepoSource *repoSource;
+
+/** If provided, get the source from this location in Google Cloud Storage. */
+@property(nonatomic, strong, nullable) GTLRCloudFunctions_StorageSource *storageSource;
+
+@end
+
+
+/**
+ *  Provenance of the source. Ways to find the original source, or verify that
+ *  some source was used for this build.
+ */
+@interface GTLRCloudFunctions_SourceProvenance : GTLRObject
+
+/**
+ *  A copy of the build's `source.repo_source`, if exists, with any revisions
+ *  resolved.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFunctions_RepoSource *resolvedRepoSource;
+
+/**
+ *  A copy of the build's `source.storage_source`, if exists, with any
+ *  generations resolved.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFunctions_StorageSource *resolvedStorageSource;
 
 @end
 
@@ -1171,6 +2379,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudFunctions_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Location of the source in an archive file in Google Cloud Storage.
+ */
+@interface GTLRCloudFunctions_StorageSource : GTLRObject
+
+/**
+ *  Google Cloud Storage bucket containing the source (see [Bucket Name
+ *  Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)).
+ */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Google Cloud Storage generation for the object. If the generation is
+ *  omitted, the latest generation will be used.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generation;
+
+/**
+ *  Google Cloud Storage object containing the source. This object must be a
+ *  gzipped archive file (`.tar.gz`) containing source to build.
+ */
+@property(nonatomic, copy, nullable) NSString *object;
+
 @end
 
 

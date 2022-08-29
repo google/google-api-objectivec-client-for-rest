@@ -347,6 +347,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
  *  Value: "UPDATE_CHANNEL_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_UpdateChannelUnspecified;
+/**
+ *  ! ! The follow channels can ONLY be used if you adopt the new MW system! ! !
+ *  NOTE: all WEEK channels are assumed to be under a weekly window. ! There is
+ *  currently no dedicated channel definitions for Daily windows. ! If you use
+ *  Daily window, the system will assume a 1d (24Hours) advanced ! notification
+ *  period b/w EARLY and LATER. ! We may consider support more flexible daily
+ *  channel specifications in ! the future. WEEK1 == EARLIER with minimum 7d
+ *  advanced notification. {7d, 14d} The system will treat them equally and will
+ *  use WEEK1 whenever it can. New customers are encouraged to use this channel
+ *  annotation.
+ *
+ *  Value: "WEEK1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_Week1;
+/**
+ *  WEEK2 == LATER with minimum 14d advanced notification {14d, 21d}.
+ *
+ *  Value: "WEEK2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_Week2;
+/**
+ *  WEEK5 == 40d support. minimum 35d advanced notification {35d, 42d}.
+ *
+ *  Value: "WEEK5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_Week5;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow.day
@@ -660,9 +686,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
 @property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_Labels *labels;
 
 /**
- *  Deprecated. The MaintenancePolicies that have been attached to the instance.
- *  The key must be of the type name of the oneof policy name defined in
- *  MaintenancePolicy, and the referenced policy must define the same policy
+ *  Optional. Deprecated. The MaintenancePolicies that have been attached to the
+ *  instance. The key must be of the type name of the oneof policy name defined
+ *  in MaintenancePolicy, and the referenced policy must define the same policy
  *  type. For complete details of MaintenancePolicy, please refer to
  *  go/cloud-saas-mw-ug.
  */
@@ -778,9 +804,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
 
 
 /**
- *  Deprecated. The MaintenancePolicies that have been attached to the instance.
- *  The key must be of the type name of the oneof policy name defined in
- *  MaintenancePolicy, and the referenced policy must define the same policy
+ *  Optional. Deprecated. The MaintenancePolicies that have been attached to the
+ *  instance. The key must be of the type name of the oneof policy name defined
+ *  in MaintenancePolicy, and the referenced policy must define the same policy
  *  type. For complete details of MaintenancePolicy, please refer to
  *  go/cloud-saas-mw-ug.
  *
@@ -916,8 +942,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
  *  The key must be of the type name of the oneof policy name defined in
  *  MaintenancePolicy, and the embedded policy must define the same policy type.
  *  For complete details of MaintenancePolicy, please refer to
- *  go/cloud-saas-mw-ug. If only the name is needed (like in the deprecated
- *  Instance.maintenance_policy_names field) then only populate
+ *  go/cloud-saas-mw-ug. If only the name is needed, then only populate
  *  MaintenancePolicy.name.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings_MaintenancePolicies *maintenancePolicies;
@@ -930,8 +955,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
  *  The key must be of the type name of the oneof policy name defined in
  *  MaintenancePolicy, and the embedded policy must define the same policy type.
  *  For complete details of MaintenancePolicy, please refer to
- *  go/cloud-saas-mw-ug. If only the name is needed (like in the deprecated
- *  Instance.maintenance_policy_names field) then only populate
+ *  go/cloud-saas-mw-ug. If only the name is needed, then only populate
  *  MaintenancePolicy.name.
  *
  *  @note This class is documented as having more properties of
@@ -1971,6 +1995,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
  *        channel within a customer project. (Value: "LATER")
  *    @arg @c kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_UpdateChannelUnspecified
  *        Unspecified channel. (Value: "UPDATE_CHANNEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_Week1 ! !
+ *        The follow channels can ONLY be used if you adopt the new MW system! !
+ *        ! NOTE: all WEEK channels are assumed to be under a weekly window. !
+ *        There is currently no dedicated channel definitions for Daily windows.
+ *        ! If you use Daily window, the system will assume a 1d (24Hours)
+ *        advanced ! notification period b/w EARLY and LATER. ! We may consider
+ *        support more flexible daily channel specifications in ! the future.
+ *        WEEK1 == EARLIER with minimum 7d advanced notification. {7d, 14d} The
+ *        system will treat them equally and will use WEEK1 whenever it can. New
+ *        customers are encouraged to use this channel annotation. (Value:
+ *        "WEEK1")
+ *    @arg @c kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_Week2 WEEK2
+ *        == LATER with minimum 14d advanced notification {14d, 21d}. (Value:
+ *        "WEEK2")
+ *    @arg @c kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_Week5 WEEK5
+ *        == 40d support. minimum 35d advanced notification {35d, 42d}. (Value:
+ *        "WEEK5")
  */
 @property(nonatomic, copy, nullable) NSString *channel;
 

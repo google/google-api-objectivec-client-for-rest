@@ -23,9 +23,11 @@
 @class GTLRTranscoder_Audio;
 @class GTLRTranscoder_AudioMapping;
 @class GTLRTranscoder_AudioStream;
+@class GTLRTranscoder_BwdifConfig;
 @class GTLRTranscoder_Color;
 @class GTLRTranscoder_Crop;
 @class GTLRTranscoder_Deblock;
+@class GTLRTranscoder_Deinterlace;
 @class GTLRTranscoder_Denoise;
 @class GTLRTranscoder_EditAtom;
 @class GTLRTranscoder_ElementaryStream;
@@ -54,6 +56,7 @@
 @class GTLRTranscoder_TextStream;
 @class GTLRTranscoder_VideoStream;
 @class GTLRTranscoder_Vp9CodecSettings;
+@class GTLRTranscoder_YadifConfig;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -378,6 +381,37 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 
 /**
+ *  Bob Weaver Deinterlacing Filter Configuration.
+ */
+@interface GTLRTranscoder_BwdifConfig : GTLRObject
+
+/**
+ *  Deinterlace all frames rather than just the frames identified as interlaced.
+ *  The default is `false`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deinterlaceAllFrames;
+
+/**
+ *  Specifies the deinterlacing mode to adopt. The default is `send_frame`.
+ *  Supported values: - `send_frame`: Output one frame for each frame -
+ *  `send_field`: Output one frame for each field
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/**
+ *  The picture field parity assumed for the input interlaced video. The default
+ *  is `auto`. Supported values: - `tff`: Assume the top field is first - `bff`:
+ *  Assume the bottom field is first - `auto`: Enable automatic detection of
+ *  field parity
+ */
+@property(nonatomic, copy, nullable) NSString *parity;
+
+@end
+
+
+/**
  *  Color preprocessing configuration. **Note:** This configuration is not
  *  supported.
  */
@@ -470,6 +504,20 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *strength;
+
+@end
+
+
+/**
+ *  Deinterlace configuration for input video.
+ */
+@interface GTLRTranscoder_Deinterlace : GTLRObject
+
+/** Specifies the Bob Weaver Deinterlacing Filter Configuration. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_BwdifConfig *bwdif;
+
+/** Specifies the Yet Another Deinterlacing Filter Configuration. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_YadifConfig *yadif;
 
 @end
 
@@ -1389,6 +1437,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 /** Deblock preprocessing configuration. */
 @property(nonatomic, strong, nullable) GTLRTranscoder_Deblock *deblock;
 
+/** Specify the video deinterlace configuration. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_Deinterlace *deinterlace;
+
 /** Denoise preprocessing configuration. */
 @property(nonatomic, strong, nullable) GTLRTranscoder_Denoise *denoise;
 
@@ -1721,6 +1772,44 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *widthPixels;
+
+@end
+
+
+/**
+ *  Yet Another Deinterlacing Filter Configuration.
+ */
+@interface GTLRTranscoder_YadifConfig : GTLRObject
+
+/**
+ *  Deinterlace all frames rather than just the frames identified as interlaced.
+ *  The default is `false`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deinterlaceAllFrames;
+
+/**
+ *  Disable spacial interlacing. The default is `false`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableSpatialInterlacing;
+
+/**
+ *  Specifies the deinterlacing mode to adopt. The default is `send_frame`.
+ *  Supported values: - `send_frame`: Output one frame for each frame -
+ *  `send_field`: Output one frame for each field
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/**
+ *  The picture field parity assumed for the input interlaced video. The default
+ *  is `auto`. Supported values: - `tff`: Assume the top field is first - `bff`:
+ *  Assume the bottom field is first - `auto`: Enable automatic detection of
+ *  field parity
+ */
+@property(nonatomic, copy, nullable) NSString *parity;
 
 @end
 

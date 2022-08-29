@@ -6059,6 +6059,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2CreateConversationDatasetOperationMetadata
+@dynamic conversationDataset;
 @end
 
 

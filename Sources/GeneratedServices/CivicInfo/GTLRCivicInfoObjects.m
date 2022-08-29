@@ -257,6 +257,7 @@ NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeLocality = @"ty
 NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeLocalPark = @"typeLocalPark";
 NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeLockerArea = @"typeLockerArea";
 NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeLodging = @"typeLodging";
+NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeLogicalBorder = @"typeLogicalBorder";
 NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeMetaFeature = @"typeMetaFeature";
 NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeMilitary = @"typeMilitary";
 NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeMonorailStation = @"typeMonorailStation";

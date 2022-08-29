@@ -2450,7 +2450,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 /** The ID of the advertiser this insertion order belongs to. */
 @property(nonatomic, assign) long long advertiserId;
 
-/** The ID of the insertion order we need to delete. */
+/** The ID of the insertion order to delete. */
 @property(nonatomic, assign) long long insertionOrderId;
 
 /**
@@ -2462,7 +2462,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *
  *  @param advertiserId The ID of the advertiser this insertion order belongs
  *    to.
- *  @param insertionOrderId The ID of the insertion order we need to delete.
+ *  @param insertionOrderId The ID of the insertion order to delete.
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersInsertionOrdersDelete
  */
@@ -3626,7 +3626,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 /** The ID of the advertiser this line item belongs to. */
 @property(nonatomic, assign) long long advertiserId;
 
-/** The ID of the line item we need to fetch. */
+/** The ID of the line item to delete. */
 @property(nonatomic, assign) long long lineItemId;
 
 /**
@@ -3637,7 +3637,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
  *
  *  @param advertiserId The ID of the advertiser this line item belongs to.
- *  @param lineItemId The ID of the line item we need to fetch.
+ *  @param lineItemId The ID of the line item to delete.
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsDelete
  */
@@ -7148,7 +7148,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  Required. Identifies the type of this assigned targeting option. Supported
  *  targeting types: * `TARGETING_TYPE_CHANNEL` *
  *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
- *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *  `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -7302,7 +7303,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  @param targetingType Required. Identifies the type of this assigned
  *    targeting option. Supported targeting types: * `TARGETING_TYPE_CHANNEL` *
  *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
- *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
+ *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *    `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL`
  *  @param assignedTargetingOptionId Required. An identifier unique to the
  *    targeting type in this advertiser that identifies the assigned targeting
  *    option being requested.
@@ -7507,7 +7509,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  Required. Identifies the type of assigned targeting options to list.
  *  Supported targeting types: * `TARGETING_TYPE_CHANNEL` *
  *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
- *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *  `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -7662,7 +7665,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  @param targetingType Required. Identifies the type of assigned targeting
  *    options to list. Supported targeting types: * `TARGETING_TYPE_CHANNEL` *
  *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
- *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
+ *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *    `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL`
  *
  *  Likely values for @c targetingType:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -8008,19 +8012,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  `AND`. * A restriction has the form of `{field} {operator} {value}`. * The
  *  operator must be `CONTAINS (:)` or `EQUALS (=)`. * The operator must be
  *  `CONTAINS (:)` for the following field: - `displayName` * The operator must
- *  be `EQUALS (=)` for the following field: - `customBiddingAlgorithmType` -
- *  `customBiddingAlgorithmState` * For `displayName`, the value is a string. We
- *  return all custom bidding algorithms whose display_name contains such
- *  string. * For `customBiddingAlgorithmType`, the value is a string. We return
- *  all algorithms whose custom_bidding_algorithm_type is equal to the given
- *  type. * For `customBiddingAlgorithmState`, the value is a string. We return
- *  all algorithms whose custom_bidding_algorithm_state is equal to the given
- *  type. Examples: * All custom bidding algorithms for which the display name
+ *  be `EQUALS (=)` for the following field: - `customBiddingAlgorithmType` *
+ *  For `displayName`, the value is a string. We return all custom bidding
+ *  algorithms whose display_name contains such string. * For
+ *  `customBiddingAlgorithmType`, the value is a string. We return all
+ *  algorithms whose custom_bidding_algorithm_type is equal to the given type.
+ *  Examples: * All custom bidding algorithms for which the display name
  *  contains "politics": `displayName:politics`. * All custom bidding algorithms
  *  for which the type is "SCRIPT_BASED":
- *  `customBiddingAlgorithmType=SCRIPT_BASED` * All custom bidding algorithms
- *  for which the state is "ENABLED": `customBiddingAlgorithmState=ENABLED` The
- *  length of this field should be no more than 500 characters.
+ *  `customBiddingAlgorithmType=SCRIPT_BASED` The length of this field should be
+ *  no more than 500 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

@@ -779,7 +779,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @interface GTLRDatastore_AllocateIdsRequest : GTLRObject
 
-/** If not empty, the ID of the database against which to make the request. */
+/**
+ *  The ID of the database against which to make the request. '(default)' is not
+ *  allowed; please use empty string '' to refer the default database.
+ */
 @property(nonatomic, copy, nullable) NSString *databaseId;
 
 /**
@@ -824,7 +827,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @interface GTLRDatastore_BeginTransactionRequest : GTLRObject
 
-/** If not empty, the ID of the database against which to make the request. */
+/**
+ *  The ID of the database against which to make the request. '(default)' is not
+ *  allowed; please use empty string '' to refer the default database.
+ */
 @property(nonatomic, copy, nullable) NSString *databaseId;
 
 /** Options for a new transaction. */
@@ -854,7 +860,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @interface GTLRDatastore_CommitRequest : GTLRObject
 
-/** If not empty, the ID of the database against which to make the request. */
+/**
+ *  The ID of the database against which to make the request. '(default)' is not
+ *  allowed; please use empty string '' to refer the default database.
+ */
 @property(nonatomic, copy, nullable) NSString *databaseId;
 
 /**
@@ -2097,7 +2106,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @interface GTLRDatastore_LookupRequest : GTLRObject
 
-/** If not empty, the ID of the database against which to make the request. */
+/**
+ *  The ID of the database against which to make the request. '(default)' is not
+ *  allowed; please use empty string '' to refer the default database.
+ */
 @property(nonatomic, copy, nullable) NSString *databaseId;
 
 /** Required. Keys of entities to look up. */
@@ -2584,8 +2596,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_ReadOptions : GTLRObject
 
 /**
- *  The non-transactional read consistency to use. Cannot be set to `STRONG` for
- *  global queries.
+ *  The non-transactional read consistency to use.
  *
  *  Likely values:
  *    @arg @c kGTLRDatastore_ReadOptions_ReadConsistency_Eventual Eventual
@@ -2638,7 +2649,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @interface GTLRDatastore_ReserveIdsRequest : GTLRObject
 
-/** If not empty, the ID of the database against which to make the request. */
+/**
+ *  The ID of the database against which to make the request. '(default)' is not
+ *  allowed; please use empty string '' to refer the default database.
+ */
 @property(nonatomic, copy, nullable) NSString *databaseId;
 
 /**
@@ -2662,7 +2676,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @interface GTLRDatastore_RollbackRequest : GTLRObject
 
-/** If not empty, the ID of the database against which to make the request. */
+/**
+ *  The ID of the database against which to make the request. '(default)' is not
+ *  allowed; please use empty string '' to refer the default database.
+ */
 @property(nonatomic, copy, nullable) NSString *databaseId;
 
 /**
@@ -2689,7 +2706,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @interface GTLRDatastore_RunQueryRequest : GTLRObject
 
-/** If not empty, the ID of the database against which to make the request. */
+/**
+ *  The ID of the database against which to make the request. '(default)' is not
+ *  allowed; please use empty string '' to refer the default database.
+ */
 @property(nonatomic, copy, nullable) NSString *databaseId;
 
 /** The GQL query to run. This query must be a non-aggregation query. */

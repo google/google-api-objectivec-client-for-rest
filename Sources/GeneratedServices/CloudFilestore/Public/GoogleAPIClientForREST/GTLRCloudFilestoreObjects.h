@@ -529,9 +529,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Late
  *  Value: "UPDATE_CHANNEL_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_UpdateChannelUnspecified;
+/**
+ *  ! ! The follow channels can ONLY be used if you adopt the new MW system! ! !
+ *  NOTE: all WEEK channels are assumed to be under a weekly window. ! There is
+ *  currently no dedicated channel definitions for Daily windows. ! If you use
+ *  Daily window, the system will assume a 1d (24Hours) advanced ! notification
+ *  period b/w EARLY and LATER. ! We may consider support more flexible daily
+ *  channel specifications in ! the future. WEEK1 == EARLIER with minimum 7d
+ *  advanced notification. {7d, 14d} The system will treat them equally and will
+ *  use WEEK1 whenever it can. New customers are encouraged to use this channel
+ *  annotation.
+ *
+ *  Value: "WEEK1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week1;
+/**
+ *  WEEK2 == LATER with minimum 14d advanced notification {14d, 21d}.
+ *
+ *  Value: "WEEK2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week2;
+/**
+ *  WEEK5 == 40d support. minimum 35d advanced notification {35d, 42d}.
+ *
+ *  Value: "WEEK5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5;
 
 /**
- *  A Cloud Filestore backup.
+ *  A Filestore backup.
  */
 @interface GTLRCloudFilestore_Backup : GTLRObject
 
@@ -579,21 +605,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
- *  Name of the file share in the source Cloud Filestore instance that the
- *  backup is created from.
+ *  Name of the file share in the source Filestore instance that the backup is
+ *  created from.
  */
 @property(nonatomic, copy, nullable) NSString *sourceFileShare;
 
 /**
- *  The resource name of the source Cloud Filestore instance, in the format
+ *  The resource name of the source Filestore instance, in the format
  *  `projects/{project_number}/locations/{location_id}/instances/{instance_id}`,
  *  used to create this backup.
  */
 @property(nonatomic, copy, nullable) NSString *sourceInstance;
 
 /**
- *  Output only. The service tier of the source Cloud Filestore instance that
- *  this backup is created from.
+ *  Output only. The service tier of the source Filestore instance that this
+ *  backup is created from.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudFilestore_Backup_SourceInstanceTier_BasicHdd BASIC
@@ -770,8 +796,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 @interface GTLRCloudFilestore_FileShareConfig : GTLRObject
 
 /**
- *  File share capacity in gigabytes (GB). Cloud Filestore defines 1 GB as
- *  1024^3 bytes.
+ *  File share capacity in gigabytes (GB). Filestore defines 1 GB as 1024^3
+ *  bytes.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -829,9 +855,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 @property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_Labels *labels;
 
 /**
- *  Deprecated. The MaintenancePolicies that have been attached to the instance.
- *  The key must be of the type name of the oneof policy name defined in
- *  MaintenancePolicy, and the referenced policy must define the same policy
+ *  Optional. Deprecated. The MaintenancePolicies that have been attached to the
+ *  instance. The key must be of the type name of the oneof policy name defined
+ *  in MaintenancePolicy, and the referenced policy must define the same policy
  *  type. For complete details of MaintenancePolicy, please refer to
  *  go/cloud-saas-mw-ug.
  */
@@ -947,9 +973,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 
 /**
- *  Deprecated. The MaintenancePolicies that have been attached to the instance.
- *  The key must be of the type name of the oneof policy name defined in
- *  MaintenancePolicy, and the referenced policy must define the same policy
+ *  Optional. Deprecated. The MaintenancePolicies that have been attached to the
+ *  instance. The key must be of the type name of the oneof policy name defined
+ *  in MaintenancePolicy, and the referenced policy must define the same policy
  *  type. For complete details of MaintenancePolicy, please refer to
  *  go/cloud-saas-mw-ug.
  *
@@ -1085,8 +1111,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  *  The key must be of the type name of the oneof policy name defined in
  *  MaintenancePolicy, and the embedded policy must define the same policy type.
  *  For complete details of MaintenancePolicy, please refer to
- *  go/cloud-saas-mw-ug. If only the name is needed (like in the deprecated
- *  Instance.maintenance_policy_names field) then only populate
+ *  go/cloud-saas-mw-ug. If only the name is needed, then only populate
  *  MaintenancePolicy.name.
  */
 @property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings_MaintenancePolicies *maintenancePolicies;
@@ -1099,8 +1124,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  *  The key must be of the type name of the oneof policy name defined in
  *  MaintenancePolicy, and the embedded policy must define the same policy type.
  *  For complete details of MaintenancePolicy, please refer to
- *  go/cloud-saas-mw-ug. If only the name is needed (like in the deprecated
- *  Instance.maintenance_policy_names field) then only populate
+ *  go/cloud-saas-mw-ug. If only the name is needed, then only populate
  *  MaintenancePolicy.name.
  *
  *  @note This class is documented as having more properties of
@@ -1273,7 +1297,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 
 /**
- *  A Cloud Filestore instance.
+ *  A Filestore instance.
  */
 @interface GTLRCloudFilestore_Instance : GTLRObject
 
@@ -1741,13 +1765,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  *  when using PRIVATE_SERVICE_ACCESS connect mode. When the name of an
  *  allocated IP address range is specified, it must be one of the ranges
  *  associated with the private service access connection. When specified as a
- *  direct CIDR value, it must be a /29 CIDR block for Basic tier or a /24 CIDR
- *  block for High Scale or Enterprise tier in one of the [internal IP address
+ *  direct CIDR value, it must be a /29 CIDR block for Basic tier, a /24 CIDR
+ *  block for High Scale tier, or a /26 CIDR block for Enterprise tier in one of
+ *  the [internal IP address
  *  ranges](https://www.arin.net/reference/research/statistics/address_filters/)
  *  that identifies the range of IP addresses reserved for this instance. For
- *  example, 10.0.0.0/29 or 192.168.0.0/24. The range you specify can't overlap
- *  with either existing subnets or assigned IP address ranges for other Cloud
- *  Filestore instances in the selected VPC network.
+ *  example, 10.0.0.0/29, 192.168.0.0/24 or 192.168.0.0/26, respectively. The
+ *  range you specify can't overlap with either existing subnets or assigned IP
+ *  address ranges for other Filestore instances in the selected VPC network.
  */
 @property(nonatomic, copy, nullable) NSString *reservedIpRange;
 
@@ -1947,8 +1972,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 @interface GTLRCloudFilestore_RestoreInstanceRequest : GTLRObject
 
 /**
- *  Required. Name of the file share in the Cloud Filestore instance that the
- *  backup is being restored to.
+ *  Required. Name of the file share in the Filestore instance that the backup
+ *  is being restored to.
  */
 @property(nonatomic, copy, nullable) NSString *fileShare;
 
@@ -2158,6 +2183,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  *        within a customer project. (Value: "LATER")
  *    @arg @c kGTLRCloudFilestore_UpdatePolicy_Channel_UpdateChannelUnspecified
  *        Unspecified channel. (Value: "UPDATE_CHANNEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFilestore_UpdatePolicy_Channel_Week1 ! ! The follow
+ *        channels can ONLY be used if you adopt the new MW system! ! ! NOTE:
+ *        all WEEK channels are assumed to be under a weekly window. ! There is
+ *        currently no dedicated channel definitions for Daily windows. ! If you
+ *        use Daily window, the system will assume a 1d (24Hours) advanced !
+ *        notification period b/w EARLY and LATER. ! We may consider support
+ *        more flexible daily channel specifications in ! the future. WEEK1 ==
+ *        EARLIER with minimum 7d advanced notification. {7d, 14d} The system
+ *        will treat them equally and will use WEEK1 whenever it can. New
+ *        customers are encouraged to use this channel annotation. (Value:
+ *        "WEEK1")
+ *    @arg @c kGTLRCloudFilestore_UpdatePolicy_Channel_Week2 WEEK2 == LATER with
+ *        minimum 14d advanced notification {14d, 21d}. (Value: "WEEK2")
+ *    @arg @c kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 WEEK5 == 40d
+ *        support. minimum 35d advanced notification {35d, 42d}. (Value:
+ *        "WEEK5")
  */
 @property(nonatomic, copy, nullable) NSString *channel;
 

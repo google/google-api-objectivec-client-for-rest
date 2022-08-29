@@ -19,11 +19,15 @@
 @class GTLRManufacturerCenter_Count;
 @class GTLRManufacturerCenter_DestinationStatus;
 @class GTLRManufacturerCenter_FeatureDescription;
+@class GTLRManufacturerCenter_FloatUnit;
+@class GTLRManufacturerCenter_Grocery;
 @class GTLRManufacturerCenter_Image;
 @class GTLRManufacturerCenter_Issue;
+@class GTLRManufacturerCenter_Nutrition;
 @class GTLRManufacturerCenter_Price;
 @class GTLRManufacturerCenter_Product;
 @class GTLRManufacturerCenter_ProductDetail;
+@class GTLRManufacturerCenter_VoluntaryNutritionFact;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -312,6 +316,11 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
 @property(nonatomic, copy, nullable) NSString *gender;
 
 /**
+ *  Grocery Attributes. For more information, see go/mfc-nutrition-attributes.
+ */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_Grocery *grocery;
+
+/**
  *  The Global Trade Item Number (GTIN) of the product. For more information,
  *  see https://support.google.com/manufacturers/answer/6124116#gtin.
  */
@@ -347,6 +356,11 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
  *  https://support.google.com/manufacturers/answer/6124116#mpn.
  */
 @property(nonatomic, copy, nullable) NSString *mpn;
+
+/**
+ *  Nutrition Attributes. For more information, see go/mfc-nutrition-attributes.
+ */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_Nutrition *nutrition;
 
 /**
  *  The pattern of the product. For more information, see
@@ -555,6 +569,63 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
 
 
 /**
+ *  Combination of float amout and unit.
+ */
+@interface GTLRManufacturerCenter_FloatUnit : GTLRObject
+
+/**
+ *  amount.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *amount;
+
+/** unit. */
+@property(nonatomic, copy, nullable) NSString *unit;
+
+@end
+
+
+/**
+ *  GTLRManufacturerCenter_Grocery
+ */
+@interface GTLRManufacturerCenter_Grocery : GTLRObject
+
+/** Active ingredients. */
+@property(nonatomic, copy, nullable) NSString *activeIngredients;
+
+/**
+ *  Alcohol by volume.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *alcoholByVolume;
+
+/** Allergens. */
+@property(nonatomic, copy, nullable) NSString *allergens;
+
+/** Derived nutrition claim. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *derivedNutritionClaim;
+
+/** Directions. */
+@property(nonatomic, copy, nullable) NSString *directions;
+
+/** Indications. */
+@property(nonatomic, copy, nullable) NSString *indications;
+
+/** Ingredients. */
+@property(nonatomic, copy, nullable) NSString *ingredients;
+
+/** Nutrition claim. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *nutritionClaim;
+
+/** Storage instructions. */
+@property(nonatomic, copy, nullable) NSString *storageInstructions;
+
+@end
+
+
+/**
  *  An image.
  */
 @interface GTLRManufacturerCenter_Image : GTLRObject
@@ -714,6 +785,207 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
 
 
 /**
+ *  GTLRManufacturerCenter_Nutrition
+ */
+@interface GTLRManufacturerCenter_Nutrition : GTLRObject
+
+/** Added sugars. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_FloatUnit *addedSugars;
+
+/**
+ *  Added sugars daily percentage.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *addedSugarsDailyPercentage;
+
+/** Calcium. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_FloatUnit *calcium;
+
+/**
+ *  Calcium daily percentage.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *calciumDailyPercentage;
+
+/** Cholesterol. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_FloatUnit *cholesterol;
+
+/**
+ *  Cholesterol daily percentage.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cholesterolDailyPercentage;
+
+/** Dietary fiber. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_FloatUnit *dietaryFiber;
+
+/**
+ *  Dietary fiber daily percentage.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dietaryFiberDailyPercentage;
+
+/** Mandatory Nutrition Facts. Energy. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_FloatUnit *energy;
+
+/** Energy from fat. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_FloatUnit *energyFromFat;
+
+/**
+ *  Folate daily percentage.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *folateDailyPercentage;
+
+/** Folate folic acid. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_FloatUnit *folateFolicAcid;
+
+/**
+ *  Folate mcg DFE.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *folateMcgDfe;
+
+/** Iron. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_FloatUnit *iron;
+
+/**
+ *  Iron daily percentage.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ironDailyPercentage;
+
+/** Monounsaturated fat. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_FloatUnit *monounsaturatedFat;
+
+/** Nutrition fact measure. */
+@property(nonatomic, copy, nullable) NSString *nutritionFactMeasure;
+
+/** Polyols. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_FloatUnit *polyols;
+
+/** Polyunsaturated fat. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_FloatUnit *polyunsaturatedFat;
+
+/** Potassium. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_FloatUnit *potassium;
+
+/**
+ *  Potassium daily percentage.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *potassiumDailyPercentage;
+
+/** Prepared size description. */
+@property(nonatomic, copy, nullable) NSString *preparedSizeDescription;
+
+/** Protein. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_FloatUnit *protein;
+
+/**
+ *  Protein daily percentage.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *proteinDailyPercentage;
+
+/** Saturated fat. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_FloatUnit *saturatedFat;
+
+/**
+ *  Saturated fat daily percentage.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *saturatedFatDailyPercentage;
+
+/** Food Serving Size. Serving size description. */
+@property(nonatomic, copy, nullable) NSString *servingSizeDescription;
+
+/** Serving size measure. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_FloatUnit *servingSizeMeasure;
+
+/** Servings per container. */
+@property(nonatomic, copy, nullable) NSString *servingsPerContainer;
+
+/** Sodium. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_FloatUnit *sodium;
+
+/**
+ *  Sodium daily percentage.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sodiumDailyPercentage;
+
+/** Starch. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_FloatUnit *starch;
+
+/** Total carbohydrate. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_FloatUnit *totalCarbohydrate;
+
+/**
+ *  Total carbohydrate daily percentage.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalCarbohydrateDailyPercentage;
+
+/** Total fat. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_FloatUnit *totalFat;
+
+/**
+ *  Total fat daily percentage.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalFatDailyPercentage;
+
+/** Total sugars. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_FloatUnit *totalSugars;
+
+/**
+ *  Total sugars daily percentage.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSugarsDailyPercentage;
+
+/** Trans fat. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_FloatUnit *transFat;
+
+/**
+ *  Trans fat daily percentage.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *transFatDailyPercentage;
+
+/** Vitamin D. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_FloatUnit *vitaminD;
+
+/**
+ *  Vitamin D daily percentage.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vitaminDDailyPercentage;
+
+/** Voluntary nutrition fact. */
+@property(nonatomic, strong, nullable) NSArray<GTLRManufacturerCenter_VoluntaryNutritionFact *> *voluntaryNutritionFact;
+
+@end
+
+
+/**
  *  A price.
  */
 @interface GTLRManufacturerCenter_Price : GTLRObject
@@ -797,6 +1069,27 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
  *  A short section name that can be reused between multiple product details.
  */
 @property(nonatomic, copy, nullable) NSString *sectionName;
+
+@end
+
+
+/**
+ *  Voluntary Nutrition Facts.
+ */
+@interface GTLRManufacturerCenter_VoluntaryNutritionFact : GTLRObject
+
+/**
+ *  Daily percentage.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dailyPercentage;
+
+/** Name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Value. */
+@property(nonatomic, strong, nullable) GTLRManufacturerCenter_FloatUnit *value;
 
 @end
 

@@ -123,6 +123,16 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTranscoder_BwdifConfig
+//
+
+@implementation GTLRTranscoder_BwdifConfig
+@dynamic deinterlaceAllFrames, mode, parity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTranscoder_Color
 //
 
@@ -148,6 +158,16 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 
 @implementation GTLRTranscoder_Deblock
 @dynamic enabled, strength;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranscoder_Deinterlace
+//
+
+@implementation GTLRTranscoder_Deinterlace
+@dynamic bwdif, yadif;
 @end
 
 
@@ -455,7 +475,7 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 //
 
 @implementation GTLRTranscoder_PreprocessingConfig
-@dynamic audio, color, crop, deblock, denoise, pad;
+@dynamic audio, color, crop, deblock, deinterlace, denoise, pad;
 @end
 
 
@@ -569,4 +589,14 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 @implementation GTLRTranscoder_Vp9CodecSettings
 @dynamic bitrateBps, crfLevel, frameRate, gopDuration, gopFrameCount,
          heightPixels, pixelFormat, profile, rateControlMode, widthPixels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranscoder_YadifConfig
+//
+
+@implementation GTLRTranscoder_YadifConfig
+@dynamic deinterlaceAllFrames, disableSpatialInterlacing, mode, parity;
 @end

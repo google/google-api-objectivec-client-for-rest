@@ -27,6 +27,11 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_Type_AliasTy
 NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_Type_Cert = @"CERT";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_Type_KeyCert = @"KEY_CERT";
 
+// GTLRApigee_GoogleCloudApigeeV1ApiProduct.quotaCounterScope
+NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiProduct_QuotaCounterScope_Operation = @"OPERATION";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiProduct_QuotaCounterScope_Proxy = @"PROXY";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiProduct_QuotaCounterScope_QuotaCounterScopeUnspecified = @"QUOTA_COUNTER_SCOPE_UNSPECIFIED";
+
 // GTLRApigee_GoogleCloudApigeeV1ApiProxy.apiProxyType
 NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiProxy_ApiProxyType_ApiProxyTypeUnspecified = @"API_PROXY_TYPE_UNSPECIFIED";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiProxy_ApiProxyType_Configurable = @"CONFIGURABLE";
@@ -69,6 +74,16 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_State_RuntimeStateUns
 NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig_BillingType_BillingTypeUnspecified = @"BILLING_TYPE_UNSPECIFIED";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig_BillingType_Postpaid = @"POSTPAID";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig_BillingType_Prepaid = @"PREPAID";
+
+// GTLRApigee_GoogleCloudApigeeV1EndpointAttachment.connectionState
+NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_Accepted = @"ACCEPTED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_Closed = @"CLOSED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_ConnectionStateUnspecified = @"CONNECTION_STATE_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_Frozen = @"FROZEN";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_NeedsAttention = @"NEEDS_ATTENTION";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_Pending = @"PENDING";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_Rejected = @"REJECTED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_Unavailable = @"UNAVAILABLE";
 
 // GTLRApigee_GoogleCloudApigeeV1EndpointAttachment.state
 NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_State_Active = @"ACTIVE";
@@ -118,6 +133,19 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_Deleting = @"DELE
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_Updating = @"UPDATING";
 
+// GTLRApigee_GoogleCloudApigeeV1MetricAggregation.aggregation
+NSString * const kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Aggregation_AggregationFunctionUnspecified = @"AGGREGATION_FUNCTION_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Aggregation_Avg = @"AVG";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Aggregation_CountDistinct = @"COUNT_DISTINCT";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Aggregation_Max = @"MAX";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Aggregation_Min = @"MIN";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Aggregation_Sum = @"SUM";
+
+// GTLRApigee_GoogleCloudApigeeV1MetricAggregation.order
+NSString * const kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Order_Ascending = @"ASCENDING";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Order_Descending = @"DESCENDING";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Order_OrderUnspecified = @"ORDER_UNSPECIFIED";
+
 // GTLRApigee_GoogleCloudApigeeV1NatAddress.state
 NSString * const kGTLRApigee_GoogleCloudApigeeV1NatAddress_State_Active = @"ACTIVE";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1NatAddress_State_Creating = @"CREATING";
@@ -146,6 +174,7 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress_State_
 // GTLRApigee_GoogleCloudApigeeV1Organization.billingType
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_BillingType_BillingTypeUnspecified = @"BILLING_TYPE_UNSPECIFIED";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_BillingType_Evaluation = @"EVALUATION";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_BillingType_Payg = @"PAYG";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_BillingType_Subscription = @"SUBSCRIPTION";
 
 // GTLRApigee_GoogleCloudApigeeV1Organization.runtimeType
@@ -170,6 +199,18 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_Type_TypeInternal =
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_Type_TypePaid = @"TYPE_PAID";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_Type_TypeTrial = @"TYPE_TRIAL";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest.timestampOrder
+NSString * const kGTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest_TimestampOrder_Ascending = @"ASCENDING";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest_TimestampOrder_Descending = @"DESCENDING";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest_TimestampOrder_OrderUnspecified = @"ORDER_UNSPECIFIED";
+
+// GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest.windowSize
+NSString * const kGTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest_WindowSize_Day = @"DAY";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest_WindowSize_Hour = @"HOUR";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest_WindowSize_Minute = @"MINUTE";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest_WindowSize_Month = @"MONTH";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest_WindowSize_WindowSizeUnspecified = @"WINDOW_SIZE_UNSPECIFIED";
 
 // GTLRApigee_GoogleCloudApigeeV1RatePlan.billingPeriod
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_BillingPeriod_BillingPeriodUnspecified = @"BILLING_PERIOD_UNSPECIFIED";
@@ -451,7 +492,8 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 @implementation GTLRApigee_GoogleCloudApigeeV1ApiProduct
 @dynamic apiResources, approvalType, attributes, createdAt, descriptionProperty,
          displayName, environments, graphqlOperationGroup, lastModifiedAt, name,
-         operationGroup, proxies, quota, quotaInterval, quotaTimeUnit, scopes;
+         operationGroup, proxies, quota, quotaCounterScope, quotaInterval,
+         quotaTimeUnit, scopes;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1301,7 +1343,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1EndpointAttachment
-@dynamic host, location, name, serviceAttachment, state;
+@dynamic connectionState, host, location, name, serviceAttachment, state;
 @end
 
 
@@ -1322,7 +1364,8 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1Environment
 @dynamic apiProxyType, createdAt, deploymentType, descriptionProperty,
-         displayName, forwardProxyUri, lastModifiedAt, name, properties, state;
+         displayName, forwardProxyUri, lastModifiedAt, name, nodeConfig,
+         properties, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2440,6 +2483,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1MetricAggregation
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1MetricAggregation
+@dynamic aggregation, name, order;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1MonetizationConfig
 //
 
@@ -2455,6 +2508,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1NatAddress
 @dynamic ipAddress, name, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1NodeConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1NodeConfig
+@dynamic currentAggregateNodeCount, maxNodeCount, minNodeCount;
 @end
 
 
@@ -2773,6 +2836,119 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"operatorProperty" : @"operator" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1QueryTabularStatsRequest
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1QueryTabularStatsRequest
+@dynamic dimensions, filter, metrics, pageSize, pageToken, timeRange;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensions" : [NSString class],
+    @"metrics" : [GTLRApigee_GoogleCloudApigeeV1MetricAggregation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1QueryTabularStatsResponse
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1QueryTabularStatsResponse
+@dynamic columns, nextPageToken, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"columns" : [NSString class],
+    @"values" : [NSObject class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsRequest
+@dynamic dimensions, filter, metrics, pageSize, pageToken, timeRange,
+         timestampOrder, windowSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensions" : [NSString class],
+    @"metrics" : [GTLRApigee_GoogleCloudApigeeV1MetricAggregation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsResponse
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsResponse
+@dynamic columns, nextPageToken, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"columns" : [NSString class],
+    @"values" : [GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsResponseSequence class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"values";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsResponseSequence
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsResponseSequence
+@dynamic dimensions, points;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"points" : [NSObject class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsResponseSequence_Dimensions
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1QueryTimeSeriesStatsResponseSequence_Dimensions
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

@@ -221,6 +221,15 @@ NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_AwsElbLoadBalancer =
 NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_Instance = @"INSTANCE";
 NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_ResourceTypeUnspecified = @"RESOURCE_TYPE_UNSPECIFIED";
 
+// GTLRMonitoring_ResponseStatusCode.statusClass
+NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClass1xx = @"STATUS_CLASS_1XX";
+NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClass2xx = @"STATUS_CLASS_2XX";
+NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClass3xx = @"STATUS_CLASS_3XX";
+NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClass4xx = @"STATUS_CLASS_4XX";
+NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClass5xx = @"STATUS_CLASS_5XX";
+NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClassAny = @"STATUS_CLASS_ANY";
+NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClassUnspecified = @"STATUS_CLASS_UNSPECIFIED";
+
 // GTLRMonitoring_ServiceLevelObjective.calendarPeriod
 NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_CalendarPeriodUnspecified = @"CALENDAR_PERIOD_UNSPECIFIED";
 NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Day = @"DAY";
@@ -854,8 +863,17 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_HttpCheck
-@dynamic authInfo, body, contentType, headers, maskHeaders, path, port,
-         requestMethod, useSsl, validateSsl;
+@dynamic acceptedResponseStatusCodes, authInfo, body, contentType, headers,
+         maskHeaders, path, pingConfig, port, requestMethod, useSsl,
+         validateSsl;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"acceptedResponseStatusCodes" : [GTLRMonitoring_ResponseStatusCode class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1574,6 +1592,16 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_PingConfig
+//
+
+@implementation GTLRMonitoring_PingConfig
+@dynamic pingsCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_Point
 //
 
@@ -1666,6 +1694,16 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 @implementation GTLRMonitoring_ResourceGroup
 @dynamic groupId, resourceType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_ResponseStatusCode
+//
+
+@implementation GTLRMonitoring_ResponseStatusCode
+@dynamic statusClass, statusValue;
 @end
 
 
@@ -1797,7 +1835,7 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_TcpCheck
-@dynamic port;
+@dynamic pingConfig, port;
 @end
 
 
@@ -1935,7 +1973,7 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 @implementation GTLRMonitoring_UptimeCheckConfig
 @dynamic checkerType, contentMatchers, displayName, httpCheck, internalCheckers,
          isInternal, monitoredResource, name, period, resourceGroup,
-         selectedRegions, tcpCheck, timeout;
+         selectedRegions, tcpCheck, timeout, userLabels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1944,6 +1982,20 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
     @"selectedRegions" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_UptimeCheckConfig_UserLabels
+//
+
+@implementation GTLRMonitoring_UptimeCheckConfig_UserLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

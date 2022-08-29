@@ -300,14 +300,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeRatingLike;
 FOUNDATION_EXTERN NSString * const kGTLRYouTubeRatingNone;
 
 // ----------------------------------------------------------------------------
-// resourceCueType
-
-/** Value: "cueTypeAd" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTubeResourceCueTypeCueTypeAd;
-/** Value: "cueTypeUnspecified" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTubeResourceCueTypeCueTypeUnspecified;
-
-// ----------------------------------------------------------------------------
 // safeSearch
 
 /**
@@ -2213,6 +2205,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  Insert cuepoints in a broadcast
  *
  *  Method: youtube.liveBroadcasts.insertCuepoint
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_LiveBroadcastsInsertCuepoint : GTLRYouTubeQuery
 
@@ -2266,43 +2261,15 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *part;
 
 /**
- *  resourceCueType
- *
- *  Likely values:
- *    @arg @c kGTLRYouTubeResourceCueTypeCueTypeUnspecified Value
- *        "cueTypeUnspecified"
- *    @arg @c kGTLRYouTubeResourceCueTypeCueTypeAd Value "cueTypeAd"
- */
-@property(nonatomic, copy, nullable) NSString *resourceCueType;
-
-/** The duration of this cuepoint. */
-@property(nonatomic, assign) NSUInteger resourceDurationSecs;
-
-@property(nonatomic, copy, nullable) NSString *resourceEtag;
-
-/** The identifier for cuepoint resource. */
-@property(nonatomic, copy, nullable) NSString *resourceId;
-
-/**
- *  The time when the cuepoint should be inserted by offset to the broadcast
- *  actual start time.
- */
-@property(nonatomic, assign) long long resourceInsertionOffsetTimeMs;
-
-/**
- *  The wall clock time at which the cuepoint should be inserted. Only one of
- *  insertion_offset_time_ms and walltime_ms may be set at a time.
- */
-@property(nonatomic, assign) unsigned long long resourceWalltimeMs;
-
-/**
  *  Fetches a @c GTLRYouTube_Cuepoint.
  *
  *  Insert cuepoints in a broadcast
  *
+ *  @param object The @c GTLRYouTube_Cuepoint to include in the query.
+ *
  *  @return GTLRYouTubeQuery_LiveBroadcastsInsertCuepoint
  */
-+ (instancetype)query;
++ (instancetype)queryWithObject:(GTLRYouTube_Cuepoint *)object;
 
 @end
 

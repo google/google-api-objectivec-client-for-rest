@@ -29,6 +29,7 @@ NSString * const kGTLRAuthScopeDfareportingDfatrafficking = @"https://www.google
   if (self) {
     // From discovery.
     self.rootURLString = @"https://dfareporting.googleapis.com/";
+    self.servicePath = @"dfareporting/v4/";
     self.simpleUploadPath = @"upload/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];

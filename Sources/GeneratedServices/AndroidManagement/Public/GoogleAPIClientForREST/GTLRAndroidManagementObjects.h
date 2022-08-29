@@ -554,6 +554,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Dele
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_ManagedConfigurations;
 /**
+ *  Grants access to network activity logs. Allows the delegated application to
+ *  call setNetworkLoggingEnabled
+ *  (https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setNetworkLoggingEnabled%28android.content.ComponentName,%20boolean%29),
+ *  isNetworkLoggingEnabled
+ *  (https://developer.android.com/reference/android/app/admin/DevicePolicyManager#isNetworkLoggingEnabled%28android.content.ComponentName%29)
+ *  and retrieveNetworkLogs
+ *  (https://developer.android.com/reference/android/app/admin/DevicePolicyManager#retrieveNetworkLogs%28android.content.ComponentName,%20long%29)
+ *  methods. This scope can be delegated to at most one application. Supported
+ *  for fully managed devices on Android 10 and above. Supported for a work
+ *  profile on Android 12 and above. When delegation is supported and set,
+ *  NETWORK_ACTIVITY_LOGS is ignored.
+ *
+ *  Value: "NETWORK_ACTIVITY_LOGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_NetworkActivityLogs;
+/**
  *  Grants access to package access state.
  *
  *  Value: "PACKAGE_ACCESS"
@@ -565,6 +581,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Dele
  *  Value: "PERMISSION_GRANT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_PermissionGrant;
+/**
+ *  Grants access to security logs. Allows the delegated application to call
+ *  setSecurityLoggingEnabled
+ *  (https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setSecurityLoggingEnabled%28android.content.ComponentName,%20boolean%29),
+ *  isSecurityLoggingEnabled
+ *  (https://developer.android.com/reference/android/app/admin/DevicePolicyManager#isSecurityLoggingEnabled%28android.content.ComponentName%29),
+ *  retrieveSecurityLogs
+ *  (https://developer.android.com/reference/android/app/admin/DevicePolicyManager#retrieveSecurityLogs%28android.content.ComponentName%29)
+ *  and retrievePreRebootSecurityLogs
+ *  (https://developer.android.com/reference/android/app/admin/DevicePolicyManager#retrievePreRebootSecurityLogs%28android.content.ComponentName%29)
+ *  methods. This scope can be delegated to at most one application. Supported
+ *  for fully managed devices and company-owned devices with a work profile on
+ *  Android 12 and above. When delegation is supported and set, SECURITY_LOGS is
+ *  ignored.
+ *
+ *  Value: "SECURITY_LOGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_SecurityLogs;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ApplicationPolicy.installType
@@ -1583,6 +1617,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_No
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_NonComplianceDetail.specificNonComplianceReason
 
+/**
+ *  The ONC Wi-Fi setting is not supported in the API level of the Android
+ *  version running on the device. fieldPath specifies which field value is not
+ *  supported. oncWifiContext is set. nonComplianceReason is set to API_LEVEL.
+ *
+ *  Value: "ONC_WIFI_API_LEVEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiApiLevel;
 /**
  *  There is an incorrect value in ONC Wi-Fi configuration. fieldPath specifies
  *  which field value is incorrect. oncWifiContext is set. nonComplianceReason
@@ -2712,7 +2754,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLog_EnabledLogTyp
  *  connections. See UsageLogEvent for a complete description of the logged
  *  network events. Supported for fully managed devices on Android 8 and above.
  *  Supported for company-owned devices with a work profile on Android 12 and
- *  above, on which only network events from the work profile are logged.
+ *  above, on which only network events from the work profile are logged. Can be
+ *  overridden by the application delegated scope NETWORK_ACTIVITY_LOGS
  *
  *  Value: "NETWORK_ACTIVITY_LOGS"
  */
@@ -2723,7 +2766,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLog_EnabledLogTyp
  *  for a complete description of the logged security events. Supported for
  *  fully managed devices on Android 7 and above. Supported for company-owned
  *  devices with a work profile on Android 12 and above, on which only security
- *  events from the work profile are logged.
+ *  events from the work profile are logged. Can be overridden by the
+ *  application delegated scope SECURITY_LOGS
  *
  *  Value: "SECURITY_LOGS"
  */
@@ -2743,7 +2787,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLog_UploadOnCellu
  *  connections. See UsageLogEvent for a complete description of the logged
  *  network events. Supported for fully managed devices on Android 8 and above.
  *  Supported for company-owned devices with a work profile on Android 12 and
- *  above, on which only network events from the work profile are logged.
+ *  above, on which only network events from the work profile are logged. Can be
+ *  overridden by the application delegated scope NETWORK_ACTIVITY_LOGS
  *
  *  Value: "NETWORK_ACTIVITY_LOGS"
  */
@@ -2754,7 +2799,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLog_UploadOnCellu
  *  for a complete description of the logged security events. Supported for
  *  fully managed devices on Android 7 and above. Supported for company-owned
  *  devices with a work profile on Android 12 and above, on which only security
- *  events from the work profile are logged.
+ *  events from the work profile are logged. Can be overridden by the
+ *  application delegated scope SECURITY_LOGS
  *
  *  Value: "SECURITY_LOGS"
  */
@@ -3728,9 +3774,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /**
  *  Package names of all packages that are associated with the particular user
- *  id. In most cases, this will be a single package name, the package that has
- *  been assigned that user id. If multiple application share a uid then all
- *  packages sharing uid will be included.
+ *  ID. In most cases, this will be a single package name, the package that has
+ *  been assigned that user ID. If multiple application share a UID then all
+ *  packages sharing UID will be included.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *packageNames;
 
@@ -4923,7 +4969,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /**
  *  The length of time the enrollment token is valid, ranging from 1 minute to
- *  90 days. If not specified, the default duration is 1 hour.
+ *  Durations.MAX_VALUE
+ *  (https://developers.google.com/protocol-buffers/docs/reference/java/com/google/protobuf/util/Durations.html#MAX_VALUE),
+ *  approximately 10,000 years. If not specified, the default duration is 1
+ *  hour. Please note that if requested duration causes the resulting
+ *  expiration_timestamp to exceed Timestamps.MAX_VALUE
+ *  (https://developers.google.com/protocol-buffers/docs/reference/java/com/google/protobuf/util/Timestamps.html#MAX_VALUE),
+ *  then expiration_timestamp is coerced to Timestamps.MAX_VALUE.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
 
@@ -6151,6 +6203,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  The policy-specific reason the device is not in compliance with the setting.
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiApiLevel
+ *        The ONC Wi-Fi setting is not supported in the API level of the Android
+ *        version running on the device. fieldPath specifies which field value
+ *        is not supported. oncWifiContext is set. nonComplianceReason is set to
+ *        API_LEVEL. (Value: "ONC_WIFI_API_LEVEL")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiInvalidValue
  *        There is an incorrect value in ONC Wi-Fi configuration. fieldPath
  *        specifies which field value is incorrect. oncWifiContext is set.
@@ -7961,7 +8018,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /**
  *  Additional context for non-compliance related to Wi-Fi configuration. See
- *  ONC_WIFI_INVALID_VALUE.
+ *  ONC_WIFI_INVALID_VALUE and ONC_WIFI_API_LEVEL
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_OncWifiContext *oncWifiContext;
 
@@ -8301,7 +8358,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /**
  *  A TCP connect event was initiated through the standard network stack. Part
- *  of NETWORK_LOGS.
+ *  of NETWORK_ACTIVITY_LOGS.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_ConnectEvent *connectEvent;
 
@@ -8314,7 +8371,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /**
  *  A DNS lookup event was initiated through the standard network stack. Part of
- *  NETWORK_LOGS.
+ *  NETWORK_ACTIVITY_LOGS.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_DnsEvent *dnsEvent;
 
@@ -8481,9 +8538,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_RemoteLockEvent *remoteLockEvent;
 
 /**
- *  The work profile or company-owned device failed to wipe when when requested.
- *  This could be user initiated or admin initiated e.g. delete was received.
- *  Part of SECURITY_LOGS.
+ *  The work profile or company-owned device failed to wipe when requested. This
+ *  could be user initiated or admin initiated e.g. delete was received. Part of
+ *  SECURITY_LOGS.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_WipeFailureEvent *wipeFailureEvent;
 
@@ -8688,8 +8745,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
- *  The work profile or company-owned device failed to wipe when when requested.
- *  This could be user initiated or admin initiated e.g. delete was received.
+ *  The work profile or company-owned device failed to wipe when requested. This
+ *  could be user initiated or admin initiated e.g. delete was received.
  *  Intentionally empty.
  */
 @interface GTLRAndroidManagement_WipeFailureEvent : GTLRObject

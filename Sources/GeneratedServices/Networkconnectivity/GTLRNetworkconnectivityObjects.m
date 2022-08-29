@@ -4,8 +4,7 @@
 // API:
 //   Network Connectivity API (networkconnectivity/v1)
 // Description:
-//   The Network Connectivity API provides access to Network Connectivity
-//   Center.
+//   This API enables connectivity with and between Google Cloud resources.
 // Documentation:
 //   https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity/rest
 
@@ -25,6 +24,7 @@ NSString * const kGTLRNetworkconnectivity_Hub_State_Active     = @"ACTIVE";
 NSString * const kGTLRNetworkconnectivity_Hub_State_Creating   = @"CREATING";
 NSString * const kGTLRNetworkconnectivity_Hub_State_Deleting   = @"DELETING";
 NSString * const kGTLRNetworkconnectivity_Hub_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRNetworkconnectivity_Hub_State_Updating   = @"UPDATING";
 
 // GTLRNetworkconnectivity_LocationMetadata.locationFeatures
 NSString * const kGTLRNetworkconnectivity_LocationMetadata_LocationFeatures_LocationFeatureUnspecified = @"LOCATION_FEATURE_UNSPECIFIED";
@@ -36,6 +36,7 @@ NSString * const kGTLRNetworkconnectivity_Spoke_State_Active   = @"ACTIVE";
 NSString * const kGTLRNetworkconnectivity_Spoke_State_Creating = @"CREATING";
 NSString * const kGTLRNetworkconnectivity_Spoke_State_Deleting = @"DELETING";
 NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //

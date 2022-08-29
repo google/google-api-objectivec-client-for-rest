@@ -2481,10 +2481,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @end
 
 /**
- *  Creates a new metric descriptor. The creation is executed asynchronously and
- *  callers may check the returned operation to track its progress. User-created
- *  metric descriptors define custom metrics
- *  (https://cloud.google.com/monitoring/custom-metrics).
+ *  Creates a new metric descriptor. The creation is executed asynchronously.
+ *  User-created metric descriptors define custom metrics
+ *  (https://cloud.google.com/monitoring/custom-metrics). The metric descriptor
+ *  is updated if it already exists, except that metric labels are never
+ *  removed.
  *
  *  Method: monitoring.projects.metricDescriptors.create
  *
@@ -2505,10 +2506,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  Fetches a @c GTLRMonitoring_MetricDescriptor.
  *
- *  Creates a new metric descriptor. The creation is executed asynchronously and
- *  callers may check the returned operation to track its progress. User-created
- *  metric descriptors define custom metrics
- *  (https://cloud.google.com/monitoring/custom-metrics).
+ *  Creates a new metric descriptor. The creation is executed asynchronously.
+ *  User-created metric descriptors define custom metrics
+ *  (https://cloud.google.com/monitoring/custom-metrics). The metric descriptor
+ *  is updated if it already exists, except that metric labels are never
+ *  removed.
  *
  *  @param object The @c GTLRMonitoring_MetricDescriptor to include in the
  *    query.
@@ -4078,6 +4080,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringRead
  */
 @interface GTLRMonitoringQuery_ProjectsUptimeCheckConfigsList : GTLRMonitoringQuery
+
+/**
+ *  If provided, this field specifies the criteria that must be met by uptime
+ *  checks to be included in the response.For more details, see Filtering syntax
+ *  (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering#filter_syntax).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results to return in a single response. The server may

@@ -246,6 +246,117 @@
 
 @end
 
+@implementation GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRTranslate_GlossaryEntry *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/glossaryEntries";
+  GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTranslate_GlossaryEntry class];
+  query.loggingName = @"translate.projects.locations.glossaries.glossaryEntries.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRTranslate_Empty class];
+  query.loggingName = @"translate.projects.locations.glossaries.glossaryEntries.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRTranslate_GlossaryEntry class];
+  query.loggingName = @"translate.projects.locations.glossaries.glossaryEntries.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/glossaryEntries";
+  GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTranslate_ListGlossaryEntriesResponse class];
+  query.loggingName = @"translate.projects.locations.glossaries.glossaryEntries.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesPatch
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRTranslate_GlossaryEntry *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRTranslate_GlossaryEntry class];
+  query.loggingName = @"translate.projects.locations.glossaries.glossaryEntries.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRTranslateQuery_ProjectsLocationsGlossariesList
 
 @dynamic filter, pageSize, pageToken, parent;
@@ -260,6 +371,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRTranslate_ListGlossariesResponse class];
   query.loggingName = @"translate.projects.locations.glossaries.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsGlossariesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRTranslate_Glossary *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRTranslateQuery_ProjectsLocationsGlossariesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRTranslate_Operation class];
+  query.loggingName = @"translate.projects.locations.glossaries.patch";
   return query;
 }
 

@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The BackupPlan within which to create the Backup. Format:
- *  projects/ * /locations/ * /backupPlans/ *
+ *  `projects/ * /locations/ * /backupPlans/ *`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -66,7 +66,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRBackupforGKE_Backup to include in the query.
  *  @param parent Required. The BackupPlan within which to create the Backup.
- *    Format: projects/ * /locations/ * /backupPlans/ *
+ *    Format: `projects/ * /locations/ * /backupPlans/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansBackupsCreate
  */
@@ -98,8 +98,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL force;
 
 /**
- *  Required. Name of the Backup resource. Format: projects/ * /locations/ *
- *  /backupPlans/ * /backups/ *
+ *  Required. Name of the Backup resource. Format: `projects/ * /locations/ *
+ *  /backupPlans/ * /backups/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -108,8 +108,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes an existing Backup.
  *
- *  @param name Required. Name of the Backup resource. Format: projects/ *
- *    /locations/ * /backupPlans/ * /backups/ *
+ *  @param name Required. Name of the Backup resource. Format: `projects/ *
+ *    /locations/ * /backupPlans/ * /backups/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansBackupsDelete
  */
@@ -128,8 +128,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansBackupsGet : GTLRBackupforGKEQuery
 
 /**
- *  Required. Full name of the Backup resource. Format: projects/ * /locations/
- *  * /backupPlans/ * /backups/ *
+ *  Required. Full name of the Backup resource. Format: `projects/ * /locations/
+ *  * /backupPlans/ * /backups/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -138,8 +138,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Retrieve the details of a single Backup.
  *
- *  @param name Required. Full name of the Backup resource. Format: projects/ *
- *    /locations/ * /backupPlans/ * /backups/ *
+ *  @param name Required. Full name of the Backup resource. Format: `projects/ *
+ *    /locations/ * /backupPlans/ * /backups/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansBackupsGet
  */
@@ -231,7 +231,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The BackupPlan that contains the Backups to list. Format:
- *  projects/ * /locations/ * /backupPlans/ *
+ *  `projects/ * /locations/ * /backupPlans/ *`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -241,7 +241,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the Backups for a given BackupPlan.
  *
  *  @param parent Required. The BackupPlan that contains the Backups to list.
- *    Format: projects/ * /locations/ * /backupPlans/ *
+ *    Format: `projects/ * /locations/ * /backupPlans/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansBackupsList
  *
@@ -264,8 +264,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansBackupsPatch : GTLRBackupforGKEQuery
 
 /**
- *  Output only. The fully qualified name of the Backup. projects/ * /locations/
- *  * /backupPlans/ * /backups/ *
+ *  Output only. The fully qualified name of the Backup. `projects/ *
+ *  /locations/ * /backupPlans/ * /backups/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -288,8 +288,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Update a Backup.
  *
  *  @param object The @c GTLRBackupforGKE_Backup to include in the query.
- *  @param name Output only. The fully qualified name of the Backup. projects/ *
- *    /locations/ * /backupPlans/ * /backups/ *
+ *  @param name Output only. The fully qualified name of the Backup. `projects/
+ *    * /locations/ * /backupPlans/ * /backups/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansBackupsPatch
  */
@@ -393,8 +393,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansBackupsVolumeBackupsGet : GTLRBackupforGKEQuery
 
 /**
- *  Required. Full name of the VolumeBackup resource. Format: projects/ *
- *  /locations/ * /backupPlans/ * /backups/ * /volumeBackups/ *
+ *  Required. Full name of the VolumeBackup resource. Format: `projects/ *
+ *  /locations/ * /backupPlans/ * /backups/ * /volumeBackups/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -404,7 +404,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Retrieve the details of a single VolumeBackup.
  *
  *  @param name Required. Full name of the VolumeBackup resource. Format:
- *    projects/ * /locations/ * /backupPlans/ * /backups/ * /volumeBackups/ *
+ *    `projects/ * /locations/ * /backupPlans/ * /backups/ * /volumeBackups/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansBackupsVolumeBackupsGet
  */
@@ -496,7 +496,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The Backup that contains the VolumeBackups to list. Format:
- *  projects/ * /locations/ * /backupPlans/ * /backups/ *
+ *  `projects/ * /locations/ * /backupPlans/ * /backups/ *`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -506,7 +506,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the VolumeBackups for a given Backup.
  *
  *  @param parent Required. The Backup that contains the VolumeBackups to list.
- *    Format: projects/ * /locations/ * /backupPlans/ * /backups/ *
+ *    Format: `projects/ * /locations/ * /backupPlans/ * /backups/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansBackupsVolumeBackupsList
  *
@@ -623,7 +623,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The location within which to create the BackupPlan. Format:
- *  projects/ * /locations/ *
+ *  `projects/ * /locations/ *`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -634,7 +634,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRBackupforGKE_BackupPlan to include in the query.
  *  @param parent Required. The location within which to create the BackupPlan.
- *    Format: projects/ * /locations/ *
+ *    Format: `projects/ * /locations/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansCreate
  */
@@ -660,8 +660,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Required. Fully qualified BackupPlan name. Format: projects/ * /locations/ *
- *  /backupPlans/ *
+ *  Required. Fully qualified BackupPlan name. Format: `projects/ * /locations/
+ *  * /backupPlans/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -670,8 +670,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes an existing BackupPlan.
  *
- *  @param name Required. Fully qualified BackupPlan name. Format: projects/ *
- *    /locations/ * /backupPlans/ *
+ *  @param name Required. Fully qualified BackupPlan name. Format: `projects/ *
+ *    /locations/ * /backupPlans/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansDelete
  */
@@ -690,8 +690,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansGet : GTLRBackupforGKEQuery
 
 /**
- *  Required. Fully qualified BackupPlan name. Format: projects/ * /locations/ *
- *  /backupPlans/ *
+ *  Required. Fully qualified BackupPlan name. Format: `projects/ * /locations/
+ *  * /backupPlans/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -700,8 +700,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Retrieve the details of a single BackupPlan.
  *
- *  @param name Required. Fully qualified BackupPlan name. Format: projects/ *
- *    /locations/ * /backupPlans/ *
+ *  @param name Required. Fully qualified BackupPlan name. Format: `projects/ *
+ *    /locations/ * /backupPlans/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansGet
  */
@@ -793,7 +793,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The location that contains the BackupPlans to list. Format:
- *  projects/ * /locations/ *
+ *  `projects/ * /locations/ *`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -803,7 +803,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists BackupPlans in a given location.
  *
  *  @param parent Required. The location that contains the BackupPlans to list.
- *    Format: projects/ * /locations/ *
+ *    Format: `projects/ * /locations/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansList
  *
@@ -826,8 +826,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansPatch : GTLRBackupforGKEQuery
 
 /**
- *  Output only. The full name of the BackupPlan resource. Format: projects/ *
- *  /locations/ * /backupPlans/ *
+ *  Output only. The full name of the BackupPlan resource. Format: `projects/ *
+ *  /locations/ * /backupPlans/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -852,7 +852,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRBackupforGKE_BackupPlan to include in the query.
  *  @param name Output only. The full name of the BackupPlan resource. Format:
- *    projects/ * /locations/ * /backupPlans/ *
+ *    `projects/ * /locations/ * /backupPlans/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansPatch
  */
@@ -1195,7 +1195,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The location within which to create the RestorePlan. Format:
- *  projects/ * /locations/ *
+ *  `projects/ * /locations/ *`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1215,7 +1215,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRBackupforGKE_RestorePlan to include in the query.
  *  @param parent Required. The location within which to create the RestorePlan.
- *    Format: projects/ * /locations/ *
+ *    Format: `projects/ * /locations/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansCreate
  */
@@ -1247,8 +1247,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL force;
 
 /**
- *  Required. Fully qualified RestorePlan name. Format: projects/ * /locations/
- *  * /restorePlans/ *
+ *  Required. Fully qualified RestorePlan name. Format: `projects/ * /locations/
+ *  * /restorePlans/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1257,8 +1257,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes an existing RestorePlan.
  *
- *  @param name Required. Fully qualified RestorePlan name. Format: projects/ *
- *    /locations/ * /restorePlans/ *
+ *  @param name Required. Fully qualified RestorePlan name. Format: `projects/ *
+ *    /locations/ * /restorePlans/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansDelete
  */
@@ -1277,8 +1277,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansGet : GTLRBackupforGKEQuery
 
 /**
- *  Required. Fully qualified RestorePlan name. Format: projects/ * /locations/
- *  * /restorePlans/ *
+ *  Required. Fully qualified RestorePlan name. Format: `projects/ * /locations/
+ *  * /restorePlans/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1287,8 +1287,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Retrieve the details of a single RestorePlan.
  *
- *  @param name Required. Fully qualified RestorePlan name. Format: projects/ *
- *    /locations/ * /restorePlans/ *
+ *  @param name Required. Fully qualified RestorePlan name. Format: `projects/ *
+ *    /locations/ * /restorePlans/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansGet
  */
@@ -1380,7 +1380,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The location that contains the RestorePlans to list. Format:
- *  projects/ * /locations/ *
+ *  `projects/ * /locations/ *`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1390,7 +1390,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists RestorePlans in a given location.
  *
  *  @param parent Required. The location that contains the RestorePlans to list.
- *    Format: projects/ * /locations/ *
+ *    Format: `projects/ * /locations/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansList
  *
@@ -1413,8 +1413,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansPatch : GTLRBackupforGKEQuery
 
 /**
- *  Output only. The full name of the RestorePlan resource. Format: projects/ *
- *  /locations/ * /restorePlans/ *.
+ *  Output only. The full name of the RestorePlan resource. Format: `projects/ *
+ *  /locations/ * /restorePlans/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1438,7 +1438,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRBackupforGKE_RestorePlan to include in the query.
  *  @param name Output only. The full name of the RestorePlan resource. Format:
- *    projects/ * /locations/ * /restorePlans/ *.
+ *    `projects/ * /locations/ * /restorePlans/ *`.
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansPatch
  */
@@ -1459,7 +1459,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The RestorePlan within which to create the Restore. Format:
- *  projects/ * /locations/ * /restorePlans/ *
+ *  `projects/ * /locations/ * /restorePlans/ *`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1479,7 +1479,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRBackupforGKE_Restore to include in the query.
  *  @param parent Required. The RestorePlan within which to create the Restore.
- *    Format: projects/ * /locations/ * /restorePlans/ *
+ *    Format: `projects/ * /locations/ * /restorePlans/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansRestoresCreate
  */
@@ -1512,8 +1512,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL force;
 
 /**
- *  Required. Full name of the Restore Format: projects/ * /locations/ *
- *  /restorePlans/ * /restores/ *
+ *  Required. Full name of the Restore Format: `projects/ * /locations/ *
+ *  /restorePlans/ * /restores/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1522,8 +1522,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes an existing Restore.
  *
- *  @param name Required. Full name of the Restore Format: projects/ *
- *    /locations/ * /restorePlans/ * /restores/ *
+ *  @param name Required. Full name of the Restore Format: `projects/ *
+ *    /locations/ * /restorePlans/ * /restores/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansRestoresDelete
  */
@@ -1542,8 +1542,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansRestoresGet : GTLRBackupforGKEQuery
 
 /**
- *  Required. Name of the restore resource. Format: projects/ * /locations/ *
- *  /restorePlans/ * /restores/ *
+ *  Required. Name of the restore resource. Format: `projects/ * /locations/ *
+ *  /restorePlans/ * /restores/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1552,8 +1552,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Retrieves the details of a single Restore.
  *
- *  @param name Required. Name of the restore resource. Format: projects/ *
- *    /locations/ * /restorePlans/ * /restores/ *
+ *  @param name Required. Name of the restore resource. Format: `projects/ *
+ *    /locations/ * /restorePlans/ * /restores/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansRestoresGet
  */
@@ -1645,7 +1645,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The RestorePlan that contains the Restores to list. Format:
- *  projects/ * /locations/ * /restorePlans/ *
+ *  `projects/ * /locations/ * /restorePlans/ *`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1655,7 +1655,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the Restores for a given RestorePlan.
  *
  *  @param parent Required. The RestorePlan that contains the Restores to list.
- *    Format: projects/ * /locations/ * /restorePlans/ *
+ *    Format: `projects/ * /locations/ * /restorePlans/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansRestoresList
  *
@@ -1678,8 +1678,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansRestoresPatch : GTLRBackupforGKEQuery
 
 /**
- *  Output only. The full name of the Restore resource. Format: projects/ *
- *  /locations/ * /restorePlans/ * /restores/ *
+ *  Output only. The full name of the Restore resource. Format: `projects/ *
+ *  /locations/ * /restorePlans/ * /restores/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1703,7 +1703,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRBackupforGKE_Restore to include in the query.
  *  @param name Output only. The full name of the Restore resource. Format:
- *    projects/ * /locations/ * /restorePlans/ * /restores/ *
+ *    `projects/ * /locations/ * /restorePlans/ * /restores/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansRestoresPatch
  */
@@ -1807,8 +1807,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansRestoresVolumeRestoresGet : GTLRBackupforGKEQuery
 
 /**
- *  Required. Full name of the VolumeRestore resource. Format: projects/ *
- *  /locations/ * /restorePlans/ * /restores/ * /volumeRestores/ *
+ *  Required. Full name of the VolumeRestore resource. Format: `projects/ *
+ *  /locations/ * /restorePlans/ * /restores/ * /volumeRestores/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1818,7 +1818,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Retrieve the details of a single VolumeRestore.
  *
  *  @param name Required. Full name of the VolumeRestore resource. Format:
- *    projects/ * /locations/ * /restorePlans/ * /restores/ * /volumeRestores/ *
+ *    `projects/ * /locations/ * /restorePlans/ * /restores/ * /volumeRestores/
+ *    *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansRestoresVolumeRestoresGet
  */
@@ -1910,7 +1911,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The Restore that contains the VolumeRestores to list. Format:
- *  projects/ * /locations/ * /restorePlans/ * /restores/ *
+ *  `projects/ * /locations/ * /restorePlans/ * /restores/ *`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1920,7 +1921,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the VolumeRestores for a given Restore.
  *
  *  @param parent Required. The Restore that contains the VolumeRestores to
- *    list. Format: projects/ * /locations/ * /restorePlans/ * /restores/ *
+ *    list. Format: `projects/ * /locations/ * /restorePlans/ * /restores/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansRestoresVolumeRestoresList
  *

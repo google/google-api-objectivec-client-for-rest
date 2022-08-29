@@ -4,10 +4,10 @@
 // API:
 //   VM Migration API (vmmigration/v1)
 // Description:
-//   Use the Migrate for Compute Engine API to programmatically migrate
+//   Use the Migrate to Virtual Machines API to programmatically migrate
 //   workloads.
 // Documentation:
-//   https://cloud.google.com/migrate/compute-engine
+//   https://cloud.google.com/migrate/virtual-machines
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -1619,85 +1619,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewUtilizationReportV
  */
 + (instancetype)queryWithObject:(GTLRVMMigrationService_PauseMigrationRequest *)object
                     migratingVm:(NSString *)migratingVm;
-
-@end
-
-/**
- *  Gets details of a single ReplicationCycle.
- *
- *  Method: vmmigration.projects.locations.sources.migratingVms.replicationCycles.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeVMMigrationServiceCloudPlatform
- */
-@interface GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsReplicationCyclesGet : GTLRVMMigrationServiceQuery
-
-/** Required. The name of the ReplicationCycle. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRVMMigrationService_ReplicationCycle.
- *
- *  Gets details of a single ReplicationCycle.
- *
- *  @param name Required. The name of the ReplicationCycle.
- *
- *  @return GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsReplicationCyclesGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists ReplicationCycles in a given MigratingVM.
- *
- *  Method: vmmigration.projects.locations.sources.migratingVms.replicationCycles.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeVMMigrationServiceCloudPlatform
- */
-@interface GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsReplicationCyclesList : GTLRVMMigrationServiceQuery
-
-/** Optional. The filter request. */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** Optional. the order by fields for the result. */
-@property(nonatomic, copy, nullable) NSString *orderBy;
-
-/**
- *  Optional. The maximum number of replication cycles to return. The service
- *  may return fewer than this value. If unspecified, at most 100 migrating VMs
- *  will be returned. The maximum value is 100; values above 100 will be coerced
- *  to 100.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  Required. A page token, received from a previous `ListReplicationCycles`
- *  call. Provide this to retrieve the subsequent page. When paginating, all
- *  other parameters provided to `ListReplicationCycles` must match the call
- *  that provided the page token.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/** Required. The parent, which owns this collection of ReplicationCycles. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRVMMigrationService_ListReplicationCyclesResponse.
- *
- *  Lists ReplicationCycles in a given MigratingVM.
- *
- *  @param parent Required. The parent, which owns this collection of
- *    ReplicationCycles.
- *
- *  @return GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsReplicationCyclesList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

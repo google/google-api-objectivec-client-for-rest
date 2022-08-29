@@ -139,6 +139,8 @@
 @class GTLRBigquery_SearchStatistics;
 @class GTLRBigquery_SessionInfo;
 @class GTLRBigquery_SnapshotDefinition;
+@class GTLRBigquery_SparkOptions;
+@class GTLRBigquery_SparkOptions_Properties;
 @class GTLRBigquery_StandardSqlDataType;
 @class GTLRBigquery_StandardSqlField;
 @class GTLRBigquery_StandardSqlStructType;
@@ -542,6 +544,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_BoostedTreeRegr
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_DnnClassifier;
 /**
+ *  Wide-and-deep classifier model.
+ *
+ *  Value: "DNN_LINEAR_COMBINED_CLASSIFIER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_DnnLinearCombinedClassifier;
+/**
+ *  Wide-and-deep regressor model.
+ *
+ *  Value: "DNN_LINEAR_COMBINED_REGRESSOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_DnnLinearCombinedRegressor;
+/**
  *  DNN regressor model.
  *
  *  Value: "DNN_REGRESSOR"
@@ -780,6 +794,46 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_BoosterType_Dar
  *  Value: "GBTREE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_BoosterType_Gbtree;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_TrainingOptions.colorSpace
+
+/**
+ *  Unspecified color space
+ *
+ *  Value: "COLOR_SPACE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_ColorSpace_ColorSpaceUnspecified;
+/**
+ *  GRAYSCALE
+ *
+ *  Value: "GRAYSCALE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_ColorSpace_Grayscale;
+/**
+ *  HSV
+ *
+ *  Value: "HSV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_ColorSpace_Hsv;
+/**
+ *  RGB
+ *
+ *  Value: "RGB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_ColorSpace_Rgb;
+/**
+ *  YIQ
+ *
+ *  Value: "YIQ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_ColorSpace_Yiq;
+/**
+ *  YUV
+ *
+ *  Value: "YUV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_ColorSpace_Yuv;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_TrainingOptions.dartNormalizeType
@@ -2363,11 +2417,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  anyone who is authenticated with a Google account or a service account. *
  *  `user:{emailid}`: An email address that represents a specific Google
  *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
- *  address that represents a Google group. For example, `admins\@example.com`.
- *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
+ *  An email address that represents a Google service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
+ *  identifier for a [Kubernetes service
+ *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
+ *  `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
+ *  An email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -2776,6 +2835,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  data.
  */
 @property(nonatomic, copy, nullable) NSString *nullMarker;
+
+/**
+ *  [Optional] Preserves the embedded ASCII control characters (the first 32
+ *  characters in the ASCII-table, from '\\x00' to '\\x1F') when loading from
+ *  CSV. Only applicable to CSV, ignored for other formats.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *preserveAsciiControlCharacters;
 
 /**
  *  [Optional] The value that is used to quote data sections in a CSV file.
@@ -3844,6 +3912,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) GTLRBigquery_ParquetOptions *parquetOptions;
 
 /**
+ *  [Optional] Provide a referencing file with the expected table schema.
+ *  Enabled for the format: AVRO, PARQUET, ORC.
+ */
+@property(nonatomic, copy, nullable) NSString *referenceFileSchemaUri;
+
+/**
  *  [Optional] The schema for the data. Schema is required for CSV and JSON
  *  formats. Schema is disallowed for Google Cloud Bigtable, Cloud Datastore
  *  backups, and Avro formats.
@@ -4844,6 +4918,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  timePartitioning and rangePartitioning should be specified.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_RangePartitioning *rangePartitioning;
+
+/**
+ *  User provided referencing file with the expected reader schema, Available
+ *  for the format: AVRO, PARQUET, ORC.
+ */
+@property(nonatomic, copy, nullable) NSString *referenceFileSchemaUri;
 
 /**
  *  [Optional] The schema for the destination table. The schema can be omitted
@@ -6083,6 +6163,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *        regressor model. (Value: "BOOSTED_TREE_REGRESSOR")
  *    @arg @c kGTLRBigquery_Model_ModelType_DnnClassifier DNN classifier model.
  *        (Value: "DNN_CLASSIFIER")
+ *    @arg @c kGTLRBigquery_Model_ModelType_DnnLinearCombinedClassifier
+ *        Wide-and-deep classifier model. (Value:
+ *        "DNN_LINEAR_COMBINED_CLASSIFIER")
+ *    @arg @c kGTLRBigquery_Model_ModelType_DnnLinearCombinedRegressor
+ *        Wide-and-deep regressor model. (Value:
+ *        "DNN_LINEAR_COMBINED_REGRESSOR")
  *    @arg @c kGTLRBigquery_Model_ModelType_DnnRegressor DNN regressor model.
  *        (Value: "DNN_REGRESSOR")
  *    @arg @c kGTLRBigquery_Model_ModelType_Kmeans K-means clustering model.
@@ -6870,7 +6956,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSNumber *estimatedRunnableUnits;
 
 /**
- *  Total parallel units of work remaining for the active stages.
+ *  Total units of work remaining for the query. This number can be revised
+ *  (increased or decreased) while the query is running.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -7028,20 +7115,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 /**
  *  Fully qualified name of the user-provided connection object which holds the
- *  authentication information to send requests to the remote service.
- *  projects/{project_id}/locations/{location_id}/connections/{connection_id}
+ *  authentication information to send requests to the remote service. Format:
+ *  ```"projects/{projectId}/locations/{locationId}/connections/{connectionId}"```
  */
 @property(nonatomic, copy, nullable) NSString *connection;
 
 /**
- *  Endpoint of the user-provided remote service (e.g. a function url in Google
- *  Cloud Functions).
+ *  Endpoint of the user-provided remote service, e.g.
+ *  ```https://us-east1-my_gcf_project.cloudfunctions.net/remote_add```
  */
 @property(nonatomic, copy, nullable) NSString *endpoint;
 
 /**
  *  Max number of rows in each batch sent to the remote service. If absent or if
- *  0, it means no limit.
+ *  0, BigQuery dynamically decides the number of rows in a batch.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -7202,6 +7289,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *        permanent TVF. (Value: "TABLE_VALUED_FUNCTION")
  */
 @property(nonatomic, copy, nullable) NSString *routineType;
+
+/** Optional. Spark specific options. */
+@property(nonatomic, strong, nullable) GTLRBigquery_SparkOptions *sparkOptions;
 
 /**
  *  Optional. Can be set for procedures only. If true (default), the definition
@@ -7459,6 +7549,82 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *snapshotTime;
 
+@end
+
+
+/**
+ *  Options for a user-defined Spark routine.
+ */
+@interface GTLRBigquery_SparkOptions : GTLRObject
+
+/**
+ *  Archive files to be extracted into the working directory of each executor.
+ *  For more information about Apache Spark, see [Apache
+ *  Spark](https://spark.apache.org/docs/latest/index.html).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *archiveUris;
+
+/**
+ *  Fully qualified name of the user-provided Spark connection object. Format:
+ *  ```"projects/{project_id}/locations/{location_id}/connections/{connection_id}"```
+ */
+@property(nonatomic, copy, nullable) NSString *connection;
+
+/** Custom container image for the runtime environment. */
+@property(nonatomic, copy, nullable) NSString *containerImage;
+
+/**
+ *  Files to be placed in the working directory of each executor. For more
+ *  information about Apache Spark, see [Apache
+ *  Spark](https://spark.apache.org/docs/latest/index.html).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fileUris;
+
+/**
+ *  JARs to include on the driver and executor CLASSPATH. For more information
+ *  about Apache Spark, see [Apache
+ *  Spark](https://spark.apache.org/docs/latest/index.html).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *jarUris;
+
+/**
+ *  The main file URI of the Spark application. Exactly one of the
+ *  definition_body field and the main_file_uri field must be set.
+ */
+@property(nonatomic, copy, nullable) NSString *mainFileUri;
+
+/**
+ *  Configuration properties as a set of key/value pairs, which will be passed
+ *  on to the Spark application. For more information, see [Apache
+ *  Spark](https://spark.apache.org/docs/latest/index.html).
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_SparkOptions_Properties *properties;
+
+/**
+ *  Python files to be placed on the PYTHONPATH for PySpark application.
+ *  Supported file types: `.py`, `.egg`, and `.zip`. For more information about
+ *  Apache Spark, see [Apache
+ *  Spark](https://spark.apache.org/docs/latest/index.html).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pyFileUris;
+
+/** Runtime version. If not specified, the default runtime version is used. */
+@property(nonatomic, copy, nullable) NSString *runtimeVersion;
+
+@end
+
+
+/**
+ *  Configuration properties as a set of key/value pairs, which will be passed
+ *  on to the Spark application. For more information, see [Apache
+ *  Spark](https://spark.apache.org/docs/latest/index.html).
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBigquery_SparkOptions_Properties : GTLRObject
 @end
 
 
@@ -8482,6 +8648,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSNumber *cleanSpikesAndDips;
 
 /**
+ *  Enums for color space, used for processing images in Object Table. See more
+ *  details at https://www.tensorflow.org/io/tutorials/colorspace.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_TrainingOptions_ColorSpace_ColorSpaceUnspecified
+ *        Unspecified color space (Value: "COLOR_SPACE_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_TrainingOptions_ColorSpace_Grayscale GRAYSCALE
+ *        (Value: "GRAYSCALE")
+ *    @arg @c kGTLRBigquery_TrainingOptions_ColorSpace_Hsv HSV (Value: "HSV")
+ *    @arg @c kGTLRBigquery_TrainingOptions_ColorSpace_Rgb RGB (Value: "RGB")
+ *    @arg @c kGTLRBigquery_TrainingOptions_ColorSpace_Yiq YIQ (Value: "YIQ")
+ *    @arg @c kGTLRBigquery_TrainingOptions_ColorSpace_Yuv YUV (Value: "YUV")
+ */
+@property(nonatomic, copy, nullable) NSString *colorSpace;
+
+/**
  *  Subsample ratio of columns for each level for boosted tree models.
  *
  *  Uses NSNumber of doubleValue.
@@ -9026,7 +9208,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSNumber *preserveInputStructs;
 
 /**
- *  Number of paths for the sampled shapley explain method.
+ *  Number of paths for the sampled Shapley explain method.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -9158,6 +9340,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  default options that were used.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TrainingOptions *trainingOptions;
+
+/**
+ *  The start time of this training run, in milliseconds since epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trainingStartTime;
 
 /** The model id in Vertex AI Model Registry for this training run */
 @property(nonatomic, copy, nullable) NSString *vertexAiModelId;

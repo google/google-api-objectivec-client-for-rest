@@ -21,6 +21,7 @@
 @class GTLRAndroidEnterprise_AdministratorWebTokenSpecStoreBuilder;
 @class GTLRAndroidEnterprise_AdministratorWebTokenSpecWebApps;
 @class GTLRAndroidEnterprise_AdministratorWebTokenSpecZeroTouch;
+@class GTLRAndroidEnterprise_AppRestrictionsSchema;
 @class GTLRAndroidEnterprise_AppRestrictionsSchemaChangeEvent;
 @class GTLRAndroidEnterprise_AppRestrictionsSchemaRestriction;
 @class GTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue;
@@ -2474,6 +2475,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *  interface.
  */
 @interface GTLRAndroidEnterprise_Product : GTLRObject
+
+/** The app restriction schema */
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AppRestrictionsSchema *appRestrictionsSchema;
 
 /** The tracks visible to the enterprise. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_TrackInfo *> *appTracks;

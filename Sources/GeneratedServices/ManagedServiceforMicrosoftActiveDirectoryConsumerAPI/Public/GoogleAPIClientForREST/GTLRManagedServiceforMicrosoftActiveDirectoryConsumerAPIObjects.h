@@ -503,6 +503,32 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  *  Value: "UPDATE_CHANNEL_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy_Channel_UpdateChannelUnspecified;
+/**
+ *  ! ! The follow channels can ONLY be used if you adopt the new MW system! ! !
+ *  NOTE: all WEEK channels are assumed to be under a weekly window. ! There is
+ *  currently no dedicated channel definitions for Daily windows. ! If you use
+ *  Daily window, the system will assume a 1d (24Hours) advanced ! notification
+ *  period b/w EARLY and LATER. ! We may consider support more flexible daily
+ *  channel specifications in ! the future. WEEK1 == EARLIER with minimum 7d
+ *  advanced notification. {7d, 14d} The system will treat them equally and will
+ *  use WEEK1 whenever it can. New customers are encouraged to use this channel
+ *  annotation.
+ *
+ *  Value: "WEEK1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy_Channel_Week1;
+/**
+ *  WEEK2 == LATER with minimum 14d advanced notification {14d, 21d}.
+ *
+ *  Value: "WEEK2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy_Channel_Week2;
+/**
+ *  WEEK5 == 40d support. minimum 35d advanced notification {35d, 42d}.
+ *
+ *  Value: "WEEK5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy_Channel_Week5;
 
 /**
  *  Request message for AttachTrust
@@ -610,11 +636,16 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  *  anyone who is authenticated with a Google account or a service account. *
  *  `user:{emailid}`: An email address that represents a specific Google
  *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
- *  address that represents a Google group. For example, `admins\@example.com`.
- *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
+ *  An email address that represents a Google service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
+ *  identifier for a [Kubernetes service
+ *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
+ *  `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
+ *  An email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -945,6 +976,36 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 
 /**
+ *  ExtendSchemaRequest is the request message for ExtendSchema method.
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ExtendSchemaRequest : GTLRObject
+
+/**
+ *  Required. Description for Schema Change.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  File uploaded as a byte stream input.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *fileContents;
+
+/**
+ *  File stored in Cloud Storage bucket and represented in the form
+ *  projects/{project_id}/buckets/{bucket_name}/objects/{object_name} File
+ *  should be in the same project as the domain.
+ */
+@property(nonatomic, copy, nullable) NSString *gcsPath;
+
+@end
+
+
+/**
  *  Represents the metadata of the long-running operation.
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudManagedidentitiesV1alpha1OpMetadata : GTLRObject
@@ -1083,9 +1144,9 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 @property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_Labels *labels;
 
 /**
- *  Deprecated. The MaintenancePolicies that have been attached to the instance.
- *  The key must be of the type name of the oneof policy name defined in
- *  MaintenancePolicy, and the referenced policy must define the same policy
+ *  Optional. Deprecated. The MaintenancePolicies that have been attached to the
+ *  instance. The key must be of the type name of the oneof policy name defined
+ *  in MaintenancePolicy, and the referenced policy must define the same policy
  *  type. For complete details of MaintenancePolicy, please refer to
  *  go/cloud-saas-mw-ug.
  */
@@ -1201,9 +1262,9 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 
 /**
- *  Deprecated. The MaintenancePolicies that have been attached to the instance.
- *  The key must be of the type name of the oneof policy name defined in
- *  MaintenancePolicy, and the referenced policy must define the same policy
+ *  Optional. Deprecated. The MaintenancePolicies that have been attached to the
+ *  instance. The key must be of the type name of the oneof policy name defined
+ *  in MaintenancePolicy, and the referenced policy must define the same policy
  *  type. For complete details of MaintenancePolicy, please refer to
  *  go/cloud-saas-mw-ug.
  *
@@ -1339,8 +1400,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  *  The key must be of the type name of the oneof policy name defined in
  *  MaintenancePolicy, and the embedded policy must define the same policy type.
  *  For complete details of MaintenancePolicy, please refer to
- *  go/cloud-saas-mw-ug. If only the name is needed (like in the deprecated
- *  Instance.maintenance_policy_names field) then only populate
+ *  go/cloud-saas-mw-ug. If only the name is needed, then only populate
  *  MaintenancePolicy.name.
  */
 @property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings_MaintenancePolicies *maintenancePolicies;
@@ -1353,8 +1413,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  *  The key must be of the type name of the oneof policy name defined in
  *  MaintenancePolicy, and the embedded policy must define the same policy type.
  *  For complete details of MaintenancePolicy, please refer to
- *  go/cloud-saas-mw-ug. If only the name is needed (like in the deprecated
- *  Instance.maintenance_policy_names field) then only populate
+ *  go/cloud-saas-mw-ug. If only the name is needed, then only populate
  *  MaintenancePolicy.name.
  *
  *  @note This class is documented as having more properties of
@@ -2562,6 +2621,23 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  *        Later channel within a customer project. (Value: "LATER")
  *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy_Channel_UpdateChannelUnspecified
  *        Unspecified channel. (Value: "UPDATE_CHANNEL_UNSPECIFIED")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy_Channel_Week1
+ *        ! ! The follow channels can ONLY be used if you adopt the new MW
+ *        system! ! ! NOTE: all WEEK channels are assumed to be under a weekly
+ *        window. ! There is currently no dedicated channel definitions for
+ *        Daily windows. ! If you use Daily window, the system will assume a 1d
+ *        (24Hours) advanced ! notification period b/w EARLY and LATER. ! We may
+ *        consider support more flexible daily channel specifications in ! the
+ *        future. WEEK1 == EARLIER with minimum 7d advanced notification. {7d,
+ *        14d} The system will treat them equally and will use WEEK1 whenever it
+ *        can. New customers are encouraged to use this channel annotation.
+ *        (Value: "WEEK1")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy_Channel_Week2
+ *        WEEK2 == LATER with minimum 14d advanced notification {14d, 21d}.
+ *        (Value: "WEEK2")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy_Channel_Week5
+ *        WEEK5 == 40d support. minimum 35d advanced notification {35d, 42d}.
+ *        (Value: "WEEK5")
  */
 @property(nonatomic, copy, nullable) NSString *channel;
 
