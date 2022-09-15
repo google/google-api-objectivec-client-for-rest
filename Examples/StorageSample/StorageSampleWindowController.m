@@ -79,8 +79,11 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
 
 - (void)awakeFromNib {
   // Attempts to deserialize authorization from keychain in GTMAppAuth format.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
   id<GTMFetcherAuthorizationProtocol> authorization =
       [GTMAppAuthFetcherAuthorization authorizationFromKeychainForName:kGTMAppAuthKeychainItemName];
+#pragma clang diagnostic pop
   self.storageService.authorizer = authorization;
 
   // Set the result text fields to have a distinctive color and mono-spaced font.
@@ -98,7 +101,10 @@ NSString *const kGTMAppAuthKeychainItemName = @"StorageSample: Google Cloud Stor
 
 - (NSString *)signedInUsername {
   // Get the email address of the signed-in user.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
   id<GTMFetcherAuthorizationProtocol> auth = self.storageService.authorizer;
+#pragma clang diagnostic pop
   BOOL isSignedIn = auth.canAuthorize;
   if (isSignedIn) {
     return auth.userEmail;
