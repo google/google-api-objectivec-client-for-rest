@@ -190,6 +190,7 @@
 @class GTLRDfareporting_UserRole;
 @class GTLRDfareporting_UserRolePermission;
 @class GTLRDfareporting_UserRolePermissionGroup;
+@class GTLRDfareporting_UvarFilter;
 @class GTLRDfareporting_VideoFormat;
 @class GTLRDfareporting_VideoOffset;
 @class GTLRDfareporting_VideoSettings;
@@ -2981,6 +2982,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availabi
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availability_SubaccountAndAccountByDefault;
 /** Value: "USER_PROFILE_ONLY" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availability_UserProfileOnly;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_UvarFilter.match
+
+/** Value: "CONTAINS" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UvarFilter_Match_Contains;
+/** Value: "EXACT" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UvarFilter_Match_Exact;
+/** Value: "UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UvarFilter_Match_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_VideoFormat.fileType
@@ -8369,7 +8380,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 /** The kind of resource this is, in this case dfareporting#dimension. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** The dimension name, e.g. dfa:advertiser */
+/** The dimension name, e.g. advertiser */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -8775,6 +8786,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /** The kind of resource this is, in this case dfareporting#eventFilter. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/** Filter on a custom variable. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_UvarFilter *uvarFilter;
 
 @end
 
@@ -15800,6 +15814,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_UserRole *> *userRoles;
+
+@end
+
+
+/**
+ *  Defines the filtering on a single uvar.
+ */
+@interface GTLRDfareporting_UvarFilter : GTLRObject
+
+/**
+ *  Return rows which don't match this filter.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *complement;
+
+/**
+ *  Custom variable index the filter is applied to.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
+
+/** The kind of resource this is, in this case dfareporting#uvarFilter. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Indicates how the filter should be matched to the values.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_UvarFilter_Match_Contains Value "CONTAINS"
+ *    @arg @c kGTLRDfareporting_UvarFilter_Match_Exact Value "EXACT"
+ *    @arg @c kGTLRDfareporting_UvarFilter_Match_Unspecified Value "UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *match;
+
+/** Values to filter on. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
 @end
 

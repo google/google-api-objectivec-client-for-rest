@@ -794,8 +794,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_
 
 /**
  *  The identity of this peer. Similar to `Request.auth.principal`, but relative
- *  to the peer instead of the request. For example, the idenity associated with
- *  a load balancer that forwared the request.
+ *  to the peer instead of the request. For example, the identity associated
+ *  with a load balancer that forwarded the request.
  */
 @property(nonatomic, copy, nullable) NSString *principal;
 

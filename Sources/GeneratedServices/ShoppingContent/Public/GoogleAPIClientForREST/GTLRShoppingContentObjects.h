@@ -3488,8 +3488,19 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @interface GTLRShoppingContent_CollectionStatusDestinationStatus : GTLRObject
 
+/** Country codes (ISO 3166-1 alpha-2) where the collection is approved. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *approvedCountries;
+
 /** The name of the destination */
 @property(nonatomic, copy, nullable) NSString *destination;
+
+/** Country codes (ISO 3166-1 alpha-2) where the collection is disapproved. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *disapprovedCountries;
+
+/**
+ *  Country codes (ISO 3166-1 alpha-2) where the collection is pending approval.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pendingCountries;
 
 /**
  *  The status for the specified destination in the collections target country.
@@ -3503,6 +3514,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Issue associated with the collection.
  */
 @interface GTLRShoppingContent_CollectionStatusItemLevelIssue : GTLRObject
+
+/** Country codes (ISO 3166-1 alpha-2) where issue applies to the offer. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *applicableCountries;
 
 /** The attribute's name, if the issue is caused by a single attribute. */
 @property(nonatomic, copy, nullable) NSString *attributeName;
@@ -5679,6 +5693,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  product inventory feed specification.
  */
 @property(nonatomic, copy, nullable) NSString *availability;
+
+/**
+ *  A list of custom (merchant-provided) attributes. Can also be used to submit
+ *  any attribute of the feed specification in its generic form, for example, `{
+ *  "name": "size type", "value": "regular" }`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_CustomAttribute *> *customAttributes;
 
 /** In-store product location. */
 @property(nonatomic, copy, nullable) NSString *instoreProductLocation;

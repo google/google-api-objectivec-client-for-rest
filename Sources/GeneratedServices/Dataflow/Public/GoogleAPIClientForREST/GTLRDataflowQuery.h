@@ -239,6 +239,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
+/** Optional. The job name. Optional. */
+@property(nonatomic, copy, nullable) NSString *name;
+
 /**
  *  If there are many jobs, limit response to at most this many. The actual
  *  number of jobs returned will be the lesser of max_responses and an
@@ -602,6 +605,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  contains this job.
  */
 @property(nonatomic, copy, nullable) NSString *location;
+
+/** Optional. The job name. Optional. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  If there are many jobs, limit response to at most this many. The actual
@@ -1388,6 +1394,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  contains this job.
  */
 @property(nonatomic, copy, nullable) NSString *location;
+
+/** Optional. The job name. Optional. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  If there are many jobs, limit response to at most this many. The actual

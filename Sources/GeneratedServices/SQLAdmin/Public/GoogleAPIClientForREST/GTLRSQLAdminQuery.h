@@ -972,8 +972,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates settings of a Cloud SQL instance. This method supports patch
- *  semantics.
+ *  Partially updates settings of a Cloud SQL instance by merging the request
+ *  with the current configuration. This method supports patch semantics.
  *
  *  Method: sql.instances.patch
  *
@@ -992,8 +992,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Updates settings of a Cloud SQL instance. This method supports patch
- *  semantics.
+ *  Partially updates settings of a Cloud SQL instance by merging the request
+ *  with the current configuration. This method supports patch semantics.
  *
  *  @param object The @c GTLRSQLAdmin_DatabaseInstance to include in the query.
  *  @param project Project ID of the project that contains the instance.

@@ -38,6 +38,7 @@ NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_GpsDataGap =
 NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_ImuDataGap = @"IMU_DATA_GAP";
 NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientGps = @"INSUFFICIENT_GPS";
 NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientImu = @"INSUFFICIENT_IMU";
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientMovement = @"INSUFFICIENT_MOVEMENT";
 NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientOverlapTimeSeries = @"INSUFFICIENT_OVERLAP_TIME_SERIES";
 NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientVideoFrames = @"INSUFFICIENT_VIDEO_FRAMES";
 NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_Internal = @"INTERNAL";

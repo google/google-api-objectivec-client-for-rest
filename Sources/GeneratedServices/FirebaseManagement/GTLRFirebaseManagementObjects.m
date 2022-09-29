@@ -131,7 +131,17 @@ NSString * const kGTLRFirebaseManagement_WebApp_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRFirebaseManagement_AndroidApp
-@dynamic apiKeyId, appId, displayName, name, packageName, projectId, state;
+@dynamic apiKeyId, appId, displayName, name, packageName, projectId, sha1Hashes,
+         sha256Hashes, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sha1Hashes" : [NSString class],
+    @"sha256Hashes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

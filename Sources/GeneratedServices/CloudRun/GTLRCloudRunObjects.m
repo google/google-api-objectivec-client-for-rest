@@ -208,8 +208,8 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2Container
-@dynamic args, command, env, image, name, ports, resources, volumeMounts,
-         workingDir;
+@dynamic args, command, env, image, livenessProbe, name, ports, resources,
+         startupProbe, volumeMounts, workingDir;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -362,6 +362,44 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunV2GRPCAction
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2GRPCAction
+@dynamic port, service;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunV2HTTPGetAction
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2HTTPGetAction
+@dynamic host, httpHeaders, path, scheme;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"httpHeaders" : [GTLRCloudRun_GoogleCloudRunV2HTTPHeader class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunV2HTTPHeader
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2HTTPHeader
+@dynamic name, value;
 @end
 
 
@@ -530,6 +568,17 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
   return @"tasks";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunV2Probe
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2Probe
+@dynamic failureThreshold, grpc, httpGet, initialDelaySeconds, periodSeconds,
+         tcpSocket, timeoutSeconds;
 @end
 
 
@@ -861,6 +910,16 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunV2TCPSocketAction
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2TCPSocketAction
+@dynamic host, port;
 @end
 
 

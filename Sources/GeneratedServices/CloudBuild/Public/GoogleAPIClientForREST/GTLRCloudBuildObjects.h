@@ -34,12 +34,20 @@
 @class GTLRCloudBuild_BuildTrigger_Substitutions;
 @class GTLRCloudBuild_BuiltImage;
 @class GTLRCloudBuild_CreateBitbucketServerConnectedRepositoryRequest;
+@class GTLRCloudBuild_CreateGitLabConnectedRepositoryRequest;
 @class GTLRCloudBuild_FailureInfo;
 @class GTLRCloudBuild_FileHashes;
 @class GTLRCloudBuild_GitFileSource;
 @class GTLRCloudBuild_GitHubEnterpriseConfig;
 @class GTLRCloudBuild_GitHubEnterpriseSecrets;
 @class GTLRCloudBuild_GitHubEventsConfig;
+@class GTLRCloudBuild_GitLabConfig;
+@class GTLRCloudBuild_GitLabConnectedRepository;
+@class GTLRCloudBuild_GitLabEnterpriseConfig;
+@class GTLRCloudBuild_GitLabEventsConfig;
+@class GTLRCloudBuild_GitLabRepository;
+@class GTLRCloudBuild_GitLabRepositoryId;
+@class GTLRCloudBuild_GitLabSecrets;
 @class GTLRCloudBuild_GitRepoSource;
 @class GTLRCloudBuild_Hash;
 @class GTLRCloudBuild_HttpBody_Extensions_Item;
@@ -67,6 +75,7 @@
 @class GTLRCloudBuild_Secret_SecretEnv;
 @class GTLRCloudBuild_SecretManagerSecret;
 @class GTLRCloudBuild_Secrets;
+@class GTLRCloudBuild_ServiceDirectoryConfig;
 @class GTLRCloudBuild_SlackDelivery;
 @class GTLRCloudBuild_SMTPDelivery;
 @class GTLRCloudBuild_Source;
@@ -318,13 +327,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_MachineType_Unsp
 // GTLRCloudBuild_BuildOptions.requestedVerifyOption
 
 /**
- *  Not a verifiable build. (default)
+ *  Not a verifiable build (the default).
  *
  *  Value: "NOT_VERIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_RequestedVerifyOption_NotVerified;
 /**
- *  Verified build.
+ *  Build must be verified.
  *
  *  Value: "VERIFIED"
  */
@@ -971,6 +980,49 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 
 
 /**
+ *  RPC request object accepted by BatchCreateGitLabConnectedRepositories RPC
+ *  method.
+ */
+@interface GTLRCloudBuild_BatchCreateGitLabConnectedRepositoriesRequest : GTLRObject
+
+/** Required. Requests to connect GitLab repositories. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_CreateGitLabConnectedRepositoryRequest *> *requests;
+
+@end
+
+
+/**
+ *  Response of BatchCreateGitLabConnectedRepositories RPC method.
+ */
+@interface GTLRCloudBuild_BatchCreateGitLabConnectedRepositoriesResponse : GTLRObject
+
+/** The GitLab connected repository requests' responses. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_GitLabConnectedRepository *> *gitlabConnectedRepositories;
+
+@end
+
+
+/**
+ *  Metadata for `BatchCreateGitLabConnectedRepositories` operation.
+ */
+@interface GTLRCloudBuild_BatchCreateGitLabConnectedRepositoriesResponseMetadata : GTLRObject
+
+/** Time the operation was completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *completeTime;
+
+/**
+ *  The name of the `GitLabConfig` that added connected repositories. Format:
+ *  `projects/{project}/locations/{location}/gitLabConfigs/{config}`
+ */
+@property(nonatomic, copy, nullable) NSString *config;
+
+/** Time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+@end
+
+
+/**
  *  BitbucketServerConfig represents the configuration for a Bitbucket Server.
  */
 @interface GTLRCloudBuild_BitbucketServerConfig : GTLRObject
@@ -1538,9 +1590,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_BuildOptions_RequestedVerifyOption_NotVerified Not
- *        a verifiable build. (default) (Value: "NOT_VERIFIED")
- *    @arg @c kGTLRCloudBuild_BuildOptions_RequestedVerifyOption_Verified
- *        Verified build. (Value: "VERIFIED")
+ *        a verifiable build (the default). (Value: "NOT_VERIFIED")
+ *    @arg @c kGTLRCloudBuild_BuildOptions_RequestedVerifyOption_Verified Build
+ *        must be verified. (Value: "VERIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *requestedVerifyOption;
 
@@ -1592,6 +1644,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 @interface GTLRCloudBuild_BuildStep : GTLRObject
 
 /**
+ *  Allow this build step to fail without failing the entire build if and only
+ *  if the exit code is one of the specified codes. If allow_failure is also
+ *  specified, this field will take precedence.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *allowExitCodes;
+
+/**
+ *  Allow this build step to fail without failing the entire build. If false,
+ *  the entire build will fail if this step fails. Otherwise, the build will
+ *  succeed, but this step will still have a failure status. Error information
+ *  will be reported in the failure_detail field.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowFailure;
+
+/**
  *  A list of arguments that will be presented to the step when it is started.
  *  If the image used to run the step's container has an entrypoint, the `args`
  *  are used as arguments to that entrypoint. If the image does not define an
@@ -1624,6 +1695,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  being given the value "VALUE".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *env;
+
+/**
+ *  Output only. Return code from running the step.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exitCode;
 
 /**
  *  Unique identifier for this build step, used in `wait_for` to reference this
@@ -1813,6 +1891,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  `trigger_template`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_GitHubEventsConfig *github;
+
+/**
+ *  GitLabEnterpriseEventsConfig describes the configuration of a trigger that
+ *  creates a build whenever a GitLab Enterprise event is received.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_GitLabEventsConfig *gitlabEnterpriseEventsConfig;
 
 /**
  *  Output only. Unique identifier of the trigger.
@@ -2046,6 +2130,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 
 
 /**
+ *  Metadata for `CreateGitLabConfig` operation.
+ */
+@interface GTLRCloudBuild_CreateGitLabConfigOperationMetadata : GTLRObject
+
+/** Time the operation was completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *completeTime;
+
+/** Time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The resource name of the GitLabConfig to be created. Format:
+ *  `projects/{project}/locations/{location}/gitlabConfigs/{id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *gitlabConfig;
+
+@end
+
+
+/**
+ *  Request to connect a repository from a connected GitLab host.
+ */
+@interface GTLRCloudBuild_CreateGitLabConnectedRepositoryRequest : GTLRObject
+
+/** Required. The GitLab repository to connect. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_GitLabConnectedRepository *gitlabConnectedRepository;
+
+/**
+ *  Required. The name of the `GitLabConfig` that adds connected repository.
+ *  Format: `projects/{project}/locations/{location}/gitLabConfigs/{config}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@end
+
+
+/**
  *  Metadata for the `CreateWorkerPool` operation.
  */
 @interface GTLRCloudBuild_CreateWorkerPoolOperationMetadata : GTLRObject
@@ -2101,6 +2222,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  `projects/{project}/locations/{location}/githubEnterpriseConfigs/{id}`.
  */
 @property(nonatomic, copy, nullable) NSString *githubEnterpriseConfig;
+
+@end
+
+
+/**
+ *  Metadata for `DeleteGitLabConfig` operation.
+ */
+@interface GTLRCloudBuild_DeleteGitLabConfigOperationMetadata : GTLRObject
+
+/** Time the operation was completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *completeTime;
+
+/** Time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The resource name of the GitLabConfig to be created. Format:
+ *  `projects/{project}/locations/{location}/gitlabConfigs/{id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *gitlabConfig;
 
 @end
 
@@ -2372,6 +2513,189 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 
 /** filter to match changes in refs like branches, tags. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_PushFilter *push;
+
+@end
+
+
+/**
+ *  GitLabConfig represents the configuration for a GitLab integration.
+ */
+@interface GTLRCloudBuild_GitLabConfig : GTLRObject
+
+/** Connected GitLab.com or GitLabEnterprise repositories for this config. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_GitLabRepositoryId *> *connectedRepositories;
+
+/** Output only. Time when the config was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. GitLabEnterprise config. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_GitLabEnterpriseConfig *enterpriseConfig;
+
+/** The resource name for the config. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Secret Manager secrets needed by the config. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_GitLabSecrets *secrets;
+
+/**
+ *  Username of the GitLab.com or GitLab Enterprise account Cloud Build will
+ *  use.
+ */
+@property(nonatomic, copy, nullable) NSString *username;
+
+/**
+ *  Output only. UUID included in webhook requests. The UUID is used to look up
+ *  the corresponding config.
+ */
+@property(nonatomic, copy, nullable) NSString *webhookKey;
+
+@end
+
+
+/**
+ *  GitLabConnectedRepository represents a GitLab connected repository request
+ *  response.
+ */
+@interface GTLRCloudBuild_GitLabConnectedRepository : GTLRObject
+
+/**
+ *  The name of the `GitLabConfig` that added connected repository. Format:
+ *  `projects/{project}/locations/{location}/gitLabConfigs/{config}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** The GitLab repositories to connect. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_GitLabRepositoryId *repo;
+
+/** Output only. The status of the repo connection request. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_Status *status;
+
+@end
+
+
+/**
+ *  GitLabEnterpriseConfig represents the configuration for a GitLabEnterprise
+ *  integration.
+ */
+@interface GTLRCloudBuild_GitLabEnterpriseConfig : GTLRObject
+
+/** Immutable. The URI of the GitlabEnterprise host. */
+@property(nonatomic, copy, nullable) NSString *hostUri;
+
+/**
+ *  The Service Directory configuration to be used when reaching out to the
+ *  GitLab Enterprise instance.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_ServiceDirectoryConfig *serviceDirectoryConfig;
+
+/** The SSL certificate to use in requests to GitLab Enterprise instances. */
+@property(nonatomic, copy, nullable) NSString *sslCa;
+
+@end
+
+
+/**
+ *  GitLabEventsConfig describes the configuration of a trigger that creates a
+ *  build whenever a GitLab event is received.
+ */
+@interface GTLRCloudBuild_GitLabEventsConfig : GTLRObject
+
+/**
+ *  Output only. The GitLabConfig specified in the gitlab_config_resource field.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_GitLabConfig *gitlabConfig;
+
+/** The GitLab config resource that this trigger config maps to. */
+@property(nonatomic, copy, nullable) NSString *gitlabConfigResource;
+
+/** Namespace of the GitLab project. */
+@property(nonatomic, copy, nullable) NSString *projectNamespace;
+
+/** Filter to match changes in pull requests. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_PullRequestFilter *pullRequest;
+
+/** Filter to match changes in refs like branches, tags. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_PushFilter *push;
+
+@end
+
+
+/**
+ *  Proto Representing a GitLabRepository
+ */
+@interface GTLRCloudBuild_GitLabRepository : GTLRObject
+
+/** Link to the browse repo page on the GitLab instance */
+@property(nonatomic, copy, nullable) NSString *browseUri;
+
+/**
+ *  Description of the repository
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Display name of the repository */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** The resource name of the repository */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Identifier for a repository */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_GitLabRepositoryId *repositoryId;
+
+@end
+
+
+/**
+ *  GitLabRepositoryId identifies a specific repository hosted on GitLab.com or
+ *  GitLabEnterprise
+ */
+@interface GTLRCloudBuild_GitLabRepositoryId : GTLRObject
+
+/**
+ *  Required. Identifier for the repository. example: "namespace/project-slug",
+ *  namespace is usually the username or group ID
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Output only. The ID of the webhook that was created for receiving events
+ *  from this repo. We only create and manage a single webhook for each repo.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *webhookId;
+
+@end
+
+
+/**
+ *  GitLabSecrets represents the secrets in Secret Manager for a GitLab
+ *  integration.
+ */
+@interface GTLRCloudBuild_GitLabSecrets : GTLRObject
+
+/** Required. The resource name for the api access token’s secret version */
+@property(nonatomic, copy, nullable) NSString *apiAccessTokenVersion;
+
+/**
+ *  Required. Immutable. API Key that will be attached to webhook requests from
+ *  GitLab to Cloud Build.
+ */
+@property(nonatomic, copy, nullable) NSString *apiKeyVersion;
+
+/** Required. The resource name for the read access token’s secret version */
+@property(nonatomic, copy, nullable) NSString *readAccessTokenVersion;
+
+/**
+ *  Required. Immutable. The resource name for the webhook secret’s secret
+ *  version. Once this field has been set, it cannot be changed. If you need to
+ *  change it, please create another GitLabConfig.
+ */
+@property(nonatomic, copy, nullable) NSString *webhookSecretVersion;
 
 @end
 
@@ -2706,6 +3030,60 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 
 /** A list of GitHubEnterpriseConfigs */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_GitHubEnterpriseConfig *> *configs;
+
+@end
+
+
+/**
+ *  RPC response object returned by ListGitLabConfigs RPC method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "gitlabConfigs" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudBuild_ListGitLabConfigsResponse : GTLRCollectionObject
+
+/**
+ *  A list of GitLabConfigs
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_GitLabConfig *> *gitlabConfigs;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  RPC response object returned by the ListGitLabRepositories RPC method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "gitlabRepositories" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRCloudBuild_ListGitLabRepositoriesResponse : GTLRCollectionObject
+
+/**
+ *  List of GitLab repositories
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_GitLabRepository *> *gitlabRepositories;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -3214,6 +3592,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 
 
 /**
+ *  RPC request object accepted by RemoveGitLabConnectedRepository RPC method.
+ */
+@interface GTLRCloudBuild_RemoveGitLabConnectedRepositoryRequest : GTLRObject
+
+/** The connected repository to remove. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_GitLabRepositoryId *connectedRepository;
+
+@end
+
+
+/**
  *  Location of the source in a Google Cloud Source Repository.
  */
 @interface GTLRCloudBuild_RepoSource : GTLRObject
@@ -3482,6 +3871,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 
 /** Secrets in Secret Manager and associated secret environment variable. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_SecretManagerSecret *> *secretManager;
+
+@end
+
+
+/**
+ *  ServiceDirectoryConfig represents Service Directory configuration for a SCM
+ *  host connection.
+ */
+@interface GTLRCloudBuild_ServiceDirectoryConfig : GTLRObject
+
+/**
+ *  The Service Directory service name. Format:
+ *  projects/{project}/locations/{location}/namespaces/{namespace}/services/{service}.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
 
 @end
 
@@ -3767,6 +4171,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  `projects/{project}/locations/{location}/githubEnterpriseConfigs/{id}`.
  */
 @property(nonatomic, copy, nullable) NSString *githubEnterpriseConfig;
+
+@end
+
+
+/**
+ *  Metadata for `UpdateGitLabConfig` operation.
+ */
+@interface GTLRCloudBuild_UpdateGitLabConfigOperationMetadata : GTLRObject
+
+/** Time the operation was completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *completeTime;
+
+/** Time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The resource name of the GitLabConfig to be created. Format:
+ *  `projects/{project}/locations/{location}/gitlabConfigs/{id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *gitlabConfig;
 
 @end
 

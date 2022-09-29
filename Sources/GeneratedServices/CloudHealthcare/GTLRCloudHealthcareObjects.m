@@ -505,7 +505,7 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_CryptoHashConfig
-@dynamic cryptoKey;
+@dynamic cryptoKey, kmsWrapped;
 @end
 
 
@@ -525,7 +525,17 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_DateShiftConfig
-@dynamic cryptoKey;
+@dynamic cryptoKey, kmsWrapped;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_DeidentifiedStoreDestination
+//
+
+@implementation GTLRCloudHealthcare_DeidentifiedStoreDestination
+@dynamic config, store;
 @end
 
 
@@ -565,7 +575,8 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_DeidentifyFhirStoreRequest
-@dynamic config, destinationStore, gcsConfigUri, resourceFilter;
+@dynamic config, destinationStore, gcsConfigUri, resourceFilter,
+         skipModifiedResources;
 @end
 
 
@@ -1296,6 +1307,16 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 @implementation GTLRCloudHealthcare_IngestMessageResponse
 @dynamic hl7Ack, message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_KmsWrappedCryptoKey
+//
+
+@implementation GTLRCloudHealthcare_KmsWrappedCryptoKey
+@dynamic cryptoKey, wrappedKey;
 @end
 
 
@@ -2105,7 +2126,7 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_StreamConfig
-@dynamic bigqueryDestination, resourceTypes;
+@dynamic bigqueryDestination, deidentifiedStoreDestination, resourceTypes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

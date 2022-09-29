@@ -1750,7 +1750,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_PipelineDescription
-@dynamic displayData, executionPipelineStage, originalPipelineTransform;
+@dynamic displayData, executionPipelineStage, originalPipelineTransform,
+         stepNamesHash;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

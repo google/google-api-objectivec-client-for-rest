@@ -26,13 +26,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Authorization scope: Private Service:
- *  https://www.googleapis.com/auth/cloud-identity
- *
- *  Value "https://www.googleapis.com/auth/cloud-identity"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentity;
-/**
- *  Authorization scope: Private Service:
  *  https://www.googleapis.com/auth/cloud-identity.devices
  *
  *  Value "https://www.googleapis.com/auth/cloud-identity.devices"
@@ -65,20 +58,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityGroup
  *  Value "https://www.googleapis.com/auth/cloud-identity.groups.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly;
-/**
- *  Authorization scope: See, send, or cancel any Cloud Identity UserInvitations
- *  to join your organization to users
- *
- *  Value "https://www.googleapis.com/auth/cloud-identity.userinvitations"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityUserinvitations;
-/**
- *  Authorization scope: See, send, or cancel any Cloud Identity UserInvitations
- *  to join your organization to users
- *
- *  Value "https://www.googleapis.com/auth/cloud-identity.userinvitations.readonly"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityUserinvitationsReadonly;
 /**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
  *  and see the email address for your Google Account.

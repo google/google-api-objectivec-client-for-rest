@@ -129,6 +129,13 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Ru
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Superseded = @"SUPERSEDED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Terminated = @"TERMINATED";
 
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig.resourceValue
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_High = @"HIGH";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_Low = @"LOW";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_Medium = @"MEDIUM";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_None = @"NONE";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_ResourceValueUnspecified = @"RESOURCE_VALUE_UNSPECIFIED";
+
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse.state
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Completed = @"COMPLETED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_StateUnspecified = @"STATE_UNSPECIFIED";
@@ -291,7 +298,7 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 @implementation GTLRSecurityCommandCenter_Access
 @dynamic callerIp, callerIpGeo, methodName, principalEmail, principalSubject,
          serviceAccountDelegationInfo, serviceAccountKeyName, serviceName,
-         userAgentFamily;
+         userAgentFamily, username;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -648,8 +655,9 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
          containers, createTime, database, descriptionProperty, eventTime,
          exfiltration, externalSystems, externalUri, findingClass, iamBindings,
          indicator, kubernetes, mitreAttack, mute, muteInitiator,
-         muteUpdateTime, name, nextSteps, parent, processes, resourceName,
-         securityMarks, severity, sourceProperties, state, vulnerability;
+         muteUpdateTime, name, nextSteps, parent, parentDisplayName, processes,
+         resourceName, securityMarks, severity, sourceProperties, state,
+         vulnerability;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -806,6 +814,24 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposurePath
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposurePath
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExternalSystem
 //
 
@@ -957,6 +983,24 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"folders" : [GTLRSecurityCommandCenter_Folder class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig
+@dynamic name, resourceValue, tagValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tagValues" : [NSString class]
   };
   return map;
 }

@@ -573,6 +573,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
  */
 @interface GTLRAdsense_CustomChannel : GTLRObject
 
+/**
+ *  Whether the custom channel is active and collecting data. See
+ *  https://support.google.com/adsense/answer/10077192.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *active;
+
 /** Required. Display name of the custom channel. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -628,6 +636,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
  */
 @property(nonatomic, strong, nullable) NSNumber *year;
 
+@end
+
+
+/**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
+ */
+@interface GTLRAdsense_Empty : GTLRObject
 @end
 
 

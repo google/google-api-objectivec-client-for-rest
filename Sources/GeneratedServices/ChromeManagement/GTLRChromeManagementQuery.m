@@ -149,6 +149,25 @@ NSString * const kGTLRChromeManagementAppTypeTheme             = @"THEME";
 
 @end
 
+@implementation GTLRChromeManagementQuery_CustomersReportsCountChromeHardwareFleetDevices
+
+@dynamic customer, orgUnitId, readMask;
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/reports:countChromeHardwareFleetDevices";
+  GTLRChromeManagementQuery_CustomersReportsCountChromeHardwareFleetDevices *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse class];
+  query.loggingName = @"chromemanagement.customers.reports.countChromeHardwareFleetDevices";
+  return query;
+}
+
+@end
+
 @implementation GTLRChromeManagementQuery_CustomersReportsCountChromeVersions
 
 @dynamic customer, filter, orgUnitId, pageSize, pageToken;

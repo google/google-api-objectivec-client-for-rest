@@ -21,6 +21,8 @@
 @class GTLRWorkflowExecutions_PubsubMessage_Attributes;
 @class GTLRWorkflowExecutions_StackTrace;
 @class GTLRWorkflowExecutions_StackTraceElement;
+@class GTLRWorkflowExecutions_Status;
+@class GTLRWorkflowExecutions_Step;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -183,6 +185,20 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/**
+ *  Output only. Status tracks the current steps and progress data of this
+ *  execution. > **Preview:** This field is covered by the > [Pre-GA Offerings
+ *  Terms](https://cloud.google.com/terms/service-terms) of > the Google Cloud
+ *  Terms of Service. Pre-GA features might have limited > support, and changes
+ *  to pre-GA features might not be compatible with > other pre-GA versions. For
+ *  more information, see the > [launch stage
+ *  descriptions](https://cloud.google.com/products#product-launch-stages). >
+ *  This field is usable only if your project has access. See the > [access
+ *  request
+ *  page](https://docs.google.com/forms/d/e/1FAIpQLSdgwrSV8Y4xZv_tvI6X2JEGX1-ty9yizv3_EAOVHWVKXvDLEA/viewform).
+ */
+@property(nonatomic, strong, nullable) GTLRWorkflowExecutions_Status *status;
+
 /** Output only. Revision of the workflow this execution is using. */
 @property(nonatomic, copy, nullable) NSString *workflowRevisionId;
 
@@ -341,6 +357,48 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
 @property(nonatomic, copy, nullable) NSString *routine;
 
 /** The step the error occurred at. */
+@property(nonatomic, copy, nullable) NSString *step;
+
+@end
+
+
+/**
+ *  > **Preview:** This field is covered by the > [Pre-GA Offerings
+ *  Terms](https://cloud.google.com/terms/service-terms) of > the Google Cloud
+ *  Terms of Service. Pre-GA features might have limited > support, and changes
+ *  to pre-GA features might not be compatible with > other pre-GA versions. For
+ *  more information, see the > [launch stage
+ *  descriptions](https://cloud.google.com/products#product-launch-stages). >
+ *  This field is usable only if your project has access. See the > [access
+ *  request
+ *  page](https://docs.google.com/forms/d/e/1FAIpQLSdgwrSV8Y4xZv_tvI6X2JEGX1-ty9yizv3_EAOVHWVKXvDLEA/viewform).
+ *  Represents the current status of this execution.
+ */
+@interface GTLRWorkflowExecutions_Status : GTLRObject
+
+/**
+ *  A list of currently executing or last executed step names for the workflow
+ *  execution currently running. If the workflow has succeeded or failed, this
+ *  is the last attempted or executed step. Presently, if the current step is
+ *  inside a subworkflow, the list only includes that step. In the future, the
+ *  list will contain items for each step in the call stack, starting with the
+ *  outermost step in the `main` subworkflow, and ending with the most deeply
+ *  nested step.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkflowExecutions_Step *> *currentSteps;
+
+@end
+
+
+/**
+ *  Represents a step of the workflow this execution is running.
+ */
+@interface GTLRWorkflowExecutions_Step : GTLRObject
+
+/** Name of a routine within the workflow. */
+@property(nonatomic, copy, nullable) NSString *routine;
+
+/** Name of a step within the routine. */
 @property(nonatomic, copy, nullable) NSString *step;
 
 @end

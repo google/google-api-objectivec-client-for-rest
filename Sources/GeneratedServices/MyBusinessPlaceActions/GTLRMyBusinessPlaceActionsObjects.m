@@ -22,6 +22,7 @@ NSString * const kGTLRMyBusinessPlaceActions_PlaceActionLink_PlaceActionType_Foo
 NSString * const kGTLRMyBusinessPlaceActions_PlaceActionLink_PlaceActionType_FoodTakeout = @"FOOD_TAKEOUT";
 NSString * const kGTLRMyBusinessPlaceActions_PlaceActionLink_PlaceActionType_OnlineAppointment = @"ONLINE_APPOINTMENT";
 NSString * const kGTLRMyBusinessPlaceActions_PlaceActionLink_PlaceActionType_PlaceActionTypeUnspecified = @"PLACE_ACTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRMyBusinessPlaceActions_PlaceActionLink_PlaceActionType_ShopOnline = @"SHOP_ONLINE";
 
 // GTLRMyBusinessPlaceActions_PlaceActionLink.providerType
 NSString * const kGTLRMyBusinessPlaceActions_PlaceActionLink_ProviderType_Aggregator3p = @"AGGREGATOR_3P";
@@ -36,6 +37,7 @@ NSString * const kGTLRMyBusinessPlaceActions_PlaceActionTypeMetadata_PlaceAction
 NSString * const kGTLRMyBusinessPlaceActions_PlaceActionTypeMetadata_PlaceActionType_FoodTakeout = @"FOOD_TAKEOUT";
 NSString * const kGTLRMyBusinessPlaceActions_PlaceActionTypeMetadata_PlaceActionType_OnlineAppointment = @"ONLINE_APPOINTMENT";
 NSString * const kGTLRMyBusinessPlaceActions_PlaceActionTypeMetadata_PlaceActionType_PlaceActionTypeUnspecified = @"PLACE_ACTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRMyBusinessPlaceActions_PlaceActionTypeMetadata_PlaceActionType_ShopOnline = @"SHOP_ONLINE";
 
 // ----------------------------------------------------------------------------
 //

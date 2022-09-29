@@ -18,6 +18,13 @@ NSString * const kGTLRDriveActivity_ApplicationReference_Type_Discuss = @"DISCUS
 NSString * const kGTLRDriveActivity_ApplicationReference_Type_Link = @"LINK";
 NSString * const kGTLRDriveActivity_ApplicationReference_Type_UnspecifiedReferenceType = @"UNSPECIFIED_REFERENCE_TYPE";
 
+// GTLRDriveActivity_AppliedLabelChangeDetail.types
+NSString * const kGTLRDriveActivity_AppliedLabelChangeDetail_Types_LabelAdded = @"LABEL_ADDED";
+NSString * const kGTLRDriveActivity_AppliedLabelChangeDetail_Types_LabelAppliedByItemCreate = @"LABEL_APPLIED_BY_ITEM_CREATE";
+NSString * const kGTLRDriveActivity_AppliedLabelChangeDetail_Types_LabelFieldValueChanged = @"LABEL_FIELD_VALUE_CHANGED";
+NSString * const kGTLRDriveActivity_AppliedLabelChangeDetail_Types_LabelRemoved = @"LABEL_REMOVED";
+NSString * const kGTLRDriveActivity_AppliedLabelChangeDetail_Types_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRDriveActivity_Assignment.subtype
 NSString * const kGTLRDriveActivity_Assignment_Subtype_Added   = @"ADDED";
 NSString * const kGTLRDriveActivity_Assignment_Subtype_Deleted = @"DELETED";
@@ -117,8 +124,8 @@ NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion = @"USER_DELET
 //
 
 @implementation GTLRDriveActivity_ActionDetail
-@dynamic comment, create, deleteProperty, dlpChange, edit, move,
-         permissionChange, reference, rename, restore, settingsChange;
+@dynamic appliedLabelChange, comment, create, deleteProperty, dlpChange, edit,
+         move, permissionChange, reference, rename, restore, settingsChange;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"deleteProperty" : @"delete" };
@@ -171,6 +178,43 @@ NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion = @"USER_DELET
 
 @implementation GTLRDriveActivity_ApplicationReference
 @dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDriveActivity_AppliedLabelChange
+//
+
+@implementation GTLRDriveActivity_AppliedLabelChange
+@dynamic changes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"changes" : [GTLRDriveActivity_AppliedLabelChangeDetail class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDriveActivity_AppliedLabelChangeDetail
+//
+
+@implementation GTLRDriveActivity_AppliedLabelChangeDetail
+@dynamic fieldChanges, label, title, types;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fieldChanges" : [GTLRDriveActivity_FieldValueChange class],
+    @"types" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -248,6 +292,16 @@ NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion = @"USER_DELET
 
 @implementation GTLRDriveActivity_DataLeakPreventionChange
 @dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDriveActivity_Date
+//
+
+@implementation GTLRDriveActivity_Date
+@dynamic value;
 @end
 
 
@@ -370,6 +424,27 @@ NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion = @"USER_DELET
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDriveActivity_FieldValue
+//
+
+@implementation GTLRDriveActivity_FieldValue
+@dynamic date, integer, selection, selectionList, text, textList, user,
+         userList;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDriveActivity_FieldValueChange
+//
+
+@implementation GTLRDriveActivity_FieldValueChange
+@dynamic displayName, fieldId, newValue, oldValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDriveActivity_File
 //
 
@@ -414,6 +489,16 @@ NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion = @"USER_DELET
 
 @implementation GTLRDriveActivity_Impersonation
 @dynamic impersonatedUser;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDriveActivity_Integer
+//
+
+@implementation GTLRDriveActivity_Integer
+@dynamic value;
 @end
 
 
@@ -587,6 +672,34 @@ NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion = @"USER_DELET
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDriveActivity_Selection
+//
+
+@implementation GTLRDriveActivity_Selection
+@dynamic displayName, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDriveActivity_SelectionList
+//
+
+@implementation GTLRDriveActivity_SelectionList
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [GTLRDriveActivity_Selection class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDriveActivity_SettingsChange
 //
 
@@ -600,6 +713,16 @@ NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion = @"USER_DELET
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDriveActivity_SingleUser
+//
+
+@implementation GTLRDriveActivity_SingleUser
+@dynamic value;
 @end
 
 
@@ -665,6 +788,34 @@ NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion = @"USER_DELET
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDriveActivity_Text
+//
+
+@implementation GTLRDriveActivity_Text
+@dynamic value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDriveActivity_TextList
+//
+
+@implementation GTLRDriveActivity_TextList
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [GTLRDriveActivity_Text class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDriveActivity_TimeRange
 //
 
@@ -698,4 +849,22 @@ NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion = @"USER_DELET
 
 @implementation GTLRDriveActivity_User
 @dynamic deletedUser, knownUser, unknownUser;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDriveActivity_UserList
+//
+
+@implementation GTLRDriveActivity_UserList
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [GTLRDriveActivity_SingleUser class]
+  };
+  return map;
+}
+
 @end

@@ -504,7 +504,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  specify multiple values for priority using the `OR` operator. For example,
  *  `priority=P1 OR priority=P2`. - [DEPRECATED] `severity`: The accepted values
  *  are `S0`, `S1`, `S2`, `S3`, or `S4`. - `creator.email`: The email address of
- *  the case creator. You must specify eitehr `organization` or `project`. To
+ *  the case creator. - `billingAccount`: A billing account in the form
+ *  `billingAccounts/` You must specify eitehr `organization` or `project`. To
  *  search across `displayName`, `description`, and comments, use a global
  *  restriction with no keyword or operator. For example, `"my search"`. To
  *  search only cases updated after a certain date, use `update_time` retricted
@@ -513,6 +514,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  supports the greater than operator (`>`). Examples: -
  *  `organization="organizations/123456789"` -
  *  `project="projects/my-project-id"` - `project="projects/123456789"` -
+ *  `billing_account="billingAccounts/123456-A0B0C0-CUZ789"` -
  *  `organization="organizations/123456789" AND state=CLOSED` -
  *  `project="projects/my-project-id" AND creator.email="tester\@example.com"` -
  *  `project="projects/my-project-id" AND (priority=P0 OR priority=P1)`

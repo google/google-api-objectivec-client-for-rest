@@ -594,11 +594,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
- *  anyone who is authenticated with a Google account or a service account. *
- *  `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a Google service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  anyone who is authenticated with a Google account or a service account. Does
+ *  not include identities that come from external identity providers (IdPs)
+ *  through identity federation. * `user:{emailid}`: An email address that
+ *  represents a specific Google account. For example, `alice\@example.com` . *
+ *  `serviceAccount:{emailid}`: An email address that represents a Google
+ *  service account. For example, `my-other-app\@appspot.gserviceaccount.com`. *
  *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
  *  identifier for a [Kubernetes service
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
@@ -1317,9 +1318,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 /**
  *  Timestamps from the underlying resource, not from the Data Catalog entry.
- *  Output only when the entry has a type listed in the `EntryType` enum. For
- *  entries with `user_specified_type`, this field is optional and defaults to
- *  an empty timestamp.
+ *  Output only when the entry has a system listed in the `IntegratedSystem`
+ *  enum. For entries with `user_specified_system`, this field is optional and
+ *  defaults to an empty timestamp.
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1SystemTimestamps *sourceSystemTimestamps;
 
@@ -1364,7 +1365,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
-/** Output only. Resource usage statistics. */
+/** Resource usage statistics. */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal *usageSignal;
 
 /**
@@ -2784,12 +2785,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal : GTLRObject
 
+/**
+ *  Favorite count in the source system.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *favoriteCount;
+
 /** The end timestamp of the duration of usage statistics. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
- *  Usage statistics over each of the predefined time ranges. Supported time
- *  ranges are `{"24H", "7D", "30D"}`.
+ *  Output only. BigQuery usage statistics over each of the predefined time
+ *  ranges. Supported time ranges are `{"24H", "7D", "30D"}`.
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal_UsageWithinTimeRange *usageWithinTimeRange;
 
@@ -2797,8 +2805,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 
 /**
- *  Usage statistics over each of the predefined time ranges. Supported time
- *  ranges are `{"24H", "7D", "30D"}`.
+ *  Output only. BigQuery usage statistics over each of the predefined time
+ *  ranges. Supported time ranges are `{"24H", "7D", "30D"}`.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDataCatalog_GoogleCloudDatacatalogV1UsageStats. Use @c

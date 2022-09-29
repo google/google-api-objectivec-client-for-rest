@@ -44,6 +44,9 @@ NSString * const kGTLRNetworkManagement_DeliverInfo_Target_GkeMaster = @"GKE_MAS
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_GoogleApi = @"GOOGLE_API";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Instance = @"INSTANCE";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Internet = @"INTERNET";
+NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PscGoogleApi = @"PSC_GOOGLE_API";
+NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PscPublishedService = @"PSC_PUBLISHED_SERVICE";
+NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PscVpcSc = @"PSC_VPC_SC";
 NSString * const kGTLRNetworkManagement_DeliverInfo_Target_TargetUnspecified = @"TARGET_UNSPECIFIED";
 
 // GTLRNetworkManagement_DropInfo.cause
@@ -65,6 +68,7 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoExternalAddress = @"NO_
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRoute = @"NO_ROUTE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessDisallowed = @"PRIVATE_GOOGLE_ACCESS_DISALLOWED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateTrafficToInternet = @"PRIVATE_TRAFFIC_TO_INTERNET";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscConnectionNotAccepted = @"PSC_CONNECTION_NOT_ACCEPTED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteBlackhole = @"ROUTE_BLACKHOLE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteWrongNetwork = @"ROUTE_WRONG_NETWORK";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_TrafficTypeBlocked = @"TRAFFIC_TYPE_BLOCKED";
@@ -82,6 +86,7 @@ NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_NonGcpNetwork = @"N
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_FirewallRuleTypeUnspecified = @"FIREWALL_RULE_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_HierarchicalFirewallPolicyRule = @"HIERARCHICAL_FIREWALL_POLICY_RULE";
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_ImpliedVpcFirewallRule = @"IMPLIED_VPC_FIREWALL_RULE";
+NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_NetworkFirewallPolicyRule = @"NETWORK_FIREWALL_POLICY_RULE";
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_ServerlessVpcAccessManagedFirewallRule = @"SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE";
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_VpcFirewallRule = @"VPC_FIREWALL_RULE";
 
@@ -102,6 +107,7 @@ NSString * const kGTLRNetworkManagement_LoadBalancerBackend_HealthCheckFirewallS
 // GTLRNetworkManagement_LoadBalancerInfo.backendType
 NSString * const kGTLRNetworkManagement_LoadBalancerInfo_BackendType_BackendService = @"BACKEND_SERVICE";
 NSString * const kGTLRNetworkManagement_LoadBalancerInfo_BackendType_BackendTypeUnspecified = @"BACKEND_TYPE_UNSPECIFIED";
+NSString * const kGTLRNetworkManagement_LoadBalancerInfo_BackendType_TargetInstance = @"TARGET_INSTANCE";
 NSString * const kGTLRNetworkManagement_LoadBalancerInfo_BackendType_TargetPool = @"TARGET_POOL";
 
 // GTLRNetworkManagement_LoadBalancerInfo.loadBalancerType
@@ -138,6 +144,7 @@ NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_Dynamic = @"DYNAMIC"
 NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_PeeringDynamic = @"PEERING_DYNAMIC";
 NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_PeeringStatic = @"PEERING_STATIC";
 NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_PeeringSubnet = @"PEERING_SUBNET";
+NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_PolicyBasedRoute = @"POLICY_BASED_ROUTE";
 NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_RouteTypeUnspecified = @"ROUTE_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_Static = @"STATIC";
 NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_Subnet = @"SUBNET";
@@ -718,12 +725,16 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 //
 
 @implementation GTLRNetworkManagement_RouteInfo
-@dynamic destIpRange, displayName, instanceTags, networkUri, nextHop,
-         nextHopType, priority, routeType, uri;
+@dynamic destIpRange, destPortRanges, displayName, instanceTags, networkUri,
+         nextHop, nextHopType, priority, protocols, routeType, srcIpRange,
+         srcPortRanges, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"instanceTags" : [NSString class]
+    @"destPortRanges" : [NSString class],
+    @"instanceTags" : [NSString class],
+    @"protocols" : [NSString class],
+    @"srcPortRanges" : [NSString class]
   };
   return map;
 }

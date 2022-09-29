@@ -2045,7 +2045,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Enable Stackdriver metric dlp.googleapis.com/finding_count. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishToStackdriver *publishToStackdriver;
 
-/** Publish a notification to a pubsub topic. */
+/** Publish a notification to a Pub/Sub topic. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishToPubSub *pubSub;
 
 /** Save resulting findings in a provided location. */
@@ -3380,7 +3380,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  A condition for determining whether a PubSub should be triggered.
+ *  A condition for determining whether a Pub/Sub should be triggered.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DataProfilePubSubCondition : GTLRObject
 
@@ -3394,7 +3394,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Pub/Sub topic message for a DataProfileAction.PubSubNotification event. To
  *  receive a message of protocol buffer schema type, convert the message data
  *  to an object of this proto class.
- *  https://cloud.google.com/pubsub/docs/samples/pubsub-subscribe-proto-messages
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DataProfilePubSubMessage : GTLRObject
 
@@ -4974,14 +4973,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  The infoType details for this column.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2InfoTypeSummary : GTLRObject
-
-/**
- *  Approximate percentage of non-null rows that contained data detected by this
- *  infotype.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *estimatedPrevalence;
 
 /** The infoType. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infoType;
@@ -7401,7 +7392,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, copy, nullable) NSString *resourceVisibility;
 
 /**
- *  Number of rows in the table when the profile was generated.
+ *  Number of rows in the table when the profile was generated. This will not be
+ *  populated for BigLake tables.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -7573,7 +7565,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  When the job is started by a JobTrigger we will automatically figure out a
  *  valid start_time to avoid scanning files that have not been modified since
  *  the last time the JobTrigger executed. This will be based on the time of the
- *  execution of the last run of the JobTrigger.
+ *  execution of the last run of the JobTrigger or the timespan end_time used in
+ *  the last run of the JobTrigger.
  *
  *  Uses NSNumber of boolValue.
  */

@@ -22,10 +22,45 @@ NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypePub
 NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
 NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRCloudDeploy_DeployJobRun.failureCause
+NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_CloudBuildUnavailable = @"CLOUD_BUILD_UNAVAILABLE";
+NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_DeadlineExceeded = @"DEADLINE_EXCEEDED";
+NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_ExecutionFailed = @"EXECUTION_FAILED";
+NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_FailureCauseUnspecified = @"FAILURE_CAUSE_UNSPECIFIED";
+
 // GTLRCloudDeploy_ExecutionConfig.usages
 NSString * const kGTLRCloudDeploy_ExecutionConfig_Usages_Deploy = @"DEPLOY";
 NSString * const kGTLRCloudDeploy_ExecutionConfig_Usages_ExecutionEnvironmentUsageUnspecified = @"EXECUTION_ENVIRONMENT_USAGE_UNSPECIFIED";
 NSString * const kGTLRCloudDeploy_ExecutionConfig_Usages_Render = @"RENDER";
+NSString * const kGTLRCloudDeploy_ExecutionConfig_Usages_Verify = @"VERIFY";
+
+// GTLRCloudDeploy_Job.state
+NSString * const kGTLRCloudDeploy_Job_State_Aborted          = @"ABORTED";
+NSString * const kGTLRCloudDeploy_Job_State_Disabled         = @"DISABLED";
+NSString * const kGTLRCloudDeploy_Job_State_Failed           = @"FAILED";
+NSString * const kGTLRCloudDeploy_Job_State_InProgress       = @"IN_PROGRESS";
+NSString * const kGTLRCloudDeploy_Job_State_Pending          = @"PENDING";
+NSString * const kGTLRCloudDeploy_Job_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudDeploy_Job_State_Succeeded        = @"SUCCEEDED";
+
+// GTLRCloudDeploy_JobRun.state
+NSString * const kGTLRCloudDeploy_JobRun_State_Failed          = @"FAILED";
+NSString * const kGTLRCloudDeploy_JobRun_State_InProgress      = @"IN_PROGRESS";
+NSString * const kGTLRCloudDeploy_JobRun_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudDeploy_JobRun_State_Succeeded       = @"SUCCEEDED";
+
+// GTLRCloudDeploy_JobRunNotificationEvent.type
+NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypePubsubNotificationFailure = @"TYPE_PUBSUB_NOTIFICATION_FAILURE";
+NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
+NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRCloudDeploy_Phase.state
+NSString * const kGTLRCloudDeploy_Phase_State_Aborted          = @"ABORTED";
+NSString * const kGTLRCloudDeploy_Phase_State_Failed           = @"FAILED";
+NSString * const kGTLRCloudDeploy_Phase_State_InProgress       = @"IN_PROGRESS";
+NSString * const kGTLRCloudDeploy_Phase_State_Pending          = @"PENDING";
+NSString * const kGTLRCloudDeploy_Phase_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudDeploy_Phase_State_Succeeded        = @"SUCCEEDED";
 
 // GTLRCloudDeploy_Release.renderState
 NSString * const kGTLRCloudDeploy_Release_RenderState_Failed   = @"FAILED";
@@ -52,6 +87,7 @@ NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_ExecutionFailed = @
 NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_FailureCauseUnspecified = @"FAILURE_CAUSE_UNSPECIFIED";
 NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_ReleaseAbandoned = @"RELEASE_ABANDONED";
 NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_ReleaseFailed = @"RELEASE_FAILED";
+NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_VerificationConfigNotFound = @"VERIFICATION_CONFIG_NOT_FOUND";
 
 // GTLRCloudDeploy_Rollout.state
 NSString * const kGTLRCloudDeploy_Rollout_State_ApprovalRejected = @"APPROVAL_REJECTED";
@@ -83,6 +119,13 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_Failed = @"FAILED"
 NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_InProgress = @"IN_PROGRESS";
 NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_Succeeded = @"SUCCEEDED";
 NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateUnspecified = @"TARGET_RENDER_STATE_UNSPECIFIED";
+
+// GTLRCloudDeploy_VerifyJobRun.failureCause
+NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_CloudBuildUnavailable = @"CLOUD_BUILD_UNAVAILABLE";
+NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_DeadlineExceeded = @"DEADLINE_EXCEEDED";
+NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_ExecutionFailed = @"EXECUTION_FAILED";
+NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_FailureCauseUnspecified = @"FAILURE_CAUSE_UNSPECIFIED";
+NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNotFound = @"VERIFICATION_CONFIG_NOT_FOUND";
 
 // ----------------------------------------------------------------------------
 //
@@ -206,6 +249,34 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_CloudRunLocation
+//
+
+@implementation GTLRCloudDeploy_CloudRunLocation
+@dynamic location;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_CloudRunMetadata
+//
+
+@implementation GTLRCloudDeploy_CloudRunMetadata
+@dynamic revision, service, serviceUrls;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"serviceUrls" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_Config
 //
 
@@ -302,6 +373,45 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_DeployJob
+//
+
+@implementation GTLRCloudDeploy_DeployJob
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_DeployJobRun
+//
+
+@implementation GTLRCloudDeploy_DeployJobRun
+@dynamic build, failureCause, failureMessage, metadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_DeployJobRunMetadata
+//
+
+@implementation GTLRCloudDeploy_DeployJobRunMetadata
+@dynamic cloudRun;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_DeploymentJobs
+//
+
+@implementation GTLRCloudDeploy_DeploymentJobs
+@dynamic deployJob, verifyJob;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_Empty
 //
 
@@ -355,6 +465,47 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_Job
+//
+
+@implementation GTLRCloudDeploy_Job
+@dynamic deployJob, identifier, jobRun, state, verifyJob;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_JobRun
+//
+
+@implementation GTLRCloudDeploy_JobRun
+@dynamic createTime, deployJobRun, endTime, ETag, jobId, name, phaseId,
+         startTime, state, uid, verifyJobRun;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_JobRunNotificationEvent
+//
+
+@implementation GTLRCloudDeploy_JobRunNotificationEvent
+@dynamic jobRun, message, pipelineUid, releaseUid, rolloutUid, targetId, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_ListDeliveryPipelinesResponse
 //
 
@@ -371,6 +522,29 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
 
 + (NSString *)collectionItemsKey {
   return @"deliveryPipelines";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_ListJobRunsResponse
+//
+
+@implementation GTLRCloudDeploy_ListJobRunsResponse
+@dynamic jobRuns, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"jobRuns" : [GTLRCloudDeploy_JobRun class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"jobRuns";
 }
 
 @end
@@ -529,6 +703,16 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_Metadata
+//
+
+@implementation GTLRCloudDeploy_Metadata
+@dynamic cloudRun;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_Operation
 //
 
@@ -573,6 +757,21 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
 @implementation GTLRCloudDeploy_OperationMetadata
 @dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
          target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_Phase
+//
+
+@implementation GTLRCloudDeploy_Phase
+@dynamic deploymentJobs, identifier, state;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 
@@ -748,19 +947,45 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_RetryJobRequest
+//
+
+@implementation GTLRCloudDeploy_RetryJobRequest
+@dynamic jobId, phaseId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_RetryJobResponse
+//
+
+@implementation GTLRCloudDeploy_RetryJobResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_Rollout
 //
 
 @implementation GTLRCloudDeploy_Rollout
 @dynamic annotations, approvalState, approveTime, createTime, deployEndTime,
          deployFailureCause, deployingBuild, deployStartTime,
-         descriptionProperty, enqueueTime, ETag, failureReason, labels, name,
-         state, targetId, uid;
+         descriptionProperty, enqueueTime, ETag, failureReason, labels,
+         metadata, name, phases, state, targetId, uid;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"descriptionProperty" : @"description",
     @"ETag" : @"etag"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"phases" : [GTLRCloudDeploy_Phase class]
   };
   return map;
 }
@@ -850,7 +1075,7 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
 //
 
 @implementation GTLRCloudDeploy_Stage
-@dynamic profiles, targetId;
+@dynamic profiles, strategy, targetId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -859,6 +1084,16 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_Standard
+//
+
+@implementation GTLRCloudDeploy_Standard
+@dynamic verify;
 @end
 
 
@@ -896,13 +1131,23 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_Strategy
+//
+
+@implementation GTLRCloudDeploy_Strategy
+@dynamic standard;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_Target
 //
 
 @implementation GTLRCloudDeploy_Target
 @dynamic annotations, anthosCluster, createTime, descriptionProperty, ETag,
-         executionConfigs, gke, labels, name, requireApproval, targetId, uid,
-         updateTime;
+         executionConfigs, gke, labels, name, requireApproval, run, targetId,
+         uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -976,7 +1221,7 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
 //
 
 @implementation GTLRCloudDeploy_TargetRender
-@dynamic failureCause, renderingBuild, renderingState;
+@dynamic failureCause, failureMessage, renderingBuild, renderingState;
 @end
 
 
@@ -1031,4 +1276,23 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_VerifyJob
+//
+
+@implementation GTLRCloudDeploy_VerifyJob
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_VerifyJobRun
+//
+
+@implementation GTLRCloudDeploy_VerifyJobRun
+@dynamic artifactUri, build, eventLogPath, failureCause, failureMessage;
 @end

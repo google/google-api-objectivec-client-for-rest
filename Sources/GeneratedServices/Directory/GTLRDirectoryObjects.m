@@ -77,6 +77,25 @@ NSString * const kGTLRDirectory_OsUpdateStatus_State_UpdateStateNeedReboot = @"u
 NSString * const kGTLRDirectory_OsUpdateStatus_State_UpdateStateNotStarted = @"updateStateNotStarted";
 NSString * const kGTLRDirectory_OsUpdateStatus_State_UpdateStateUnspecified = @"updateStateUnspecified";
 
+// GTLRDirectory_PrintServerFailureInfo.errorCode
+NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_Aborted = @"ABORTED";
+NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_AlreadyExists = @"ALREADY_EXISTS";
+NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_Cancelled = @"CANCELLED";
+NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_DataLoss = @"DATA_LOSS";
+NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_DeadlineExceeded = @"DEADLINE_EXCEEDED";
+NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_FailedPrecondition = @"FAILED_PRECONDITION";
+NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_Internal = @"INTERNAL";
+NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_InvalidArgument = @"INVALID_ARGUMENT";
+NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_NotFound = @"NOT_FOUND";
+NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_Ok = @"OK";
+NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_OutOfRange = @"OUT_OF_RANGE";
+NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_ResourceExhausted = @"RESOURCE_EXHAUSTED";
+NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_Unauthenticated = @"UNAUTHENTICATED";
+NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_Unavailable = @"UNAVAILABLE";
+NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_Unimplemented = @"UNIMPLEMENTED";
+NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCode_Unknown = @"UNKNOWN";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRDirectory_Alias
@@ -204,6 +223,43 @@ NSString * const kGTLRDirectory_OsUpdateStatus_State_UpdateStateUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_BatchCreatePrintServersRequest
+//
+
+@implementation GTLRDirectory_BatchCreatePrintServersRequest
+@dynamic requests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRDirectory_CreatePrintServerRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_BatchCreatePrintServersResponse
+//
+
+@implementation GTLRDirectory_BatchCreatePrintServersResponse
+@dynamic failures, printServers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"failures" : [GTLRDirectory_PrintServerFailureInfo class],
+    @"printServers" : [GTLRDirectory_PrintServer class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_BatchDeletePrintersRequest
 //
 
@@ -232,6 +288,43 @@ NSString * const kGTLRDirectory_OsUpdateStatus_State_UpdateStateUnspecified = @"
   NSDictionary<NSString *, Class> *map = @{
     @"failedPrinters" : [GTLRDirectory_FailureInfo class],
     @"printerIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_BatchDeletePrintServersRequest
+//
+
+@implementation GTLRDirectory_BatchDeletePrintServersRequest
+@dynamic printServerIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"printServerIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_BatchDeletePrintServersResponse
+//
+
+@implementation GTLRDirectory_BatchDeletePrintServersResponse
+@dynamic failedPrintServers, printServerIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"failedPrintServers" : [GTLRDirectory_PrintServerFailureInfo class],
+    @"printServerIds" : [NSString class]
   };
   return map;
 }
@@ -710,6 +803,16 @@ NSString * const kGTLRDirectory_OsUpdateStatus_State_UpdateStateUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_CreatePrintServerRequest
+//
+
+@implementation GTLRDirectory_CreatePrintServerRequest
+@dynamic parent, printServer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_Customer
 //
 
@@ -1022,6 +1125,28 @@ NSString * const kGTLRDirectory_OsUpdateStatus_State_UpdateStateUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_ListPrintServersResponse
+//
+
+@implementation GTLRDirectory_ListPrintServersResponse
+@dynamic nextPageToken, printServers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"printServers" : [GTLRDirectory_PrintServer class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"printServers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_Member
 //
 
@@ -1250,6 +1375,36 @@ NSString * const kGTLRDirectory_OsUpdateStatus_State_UpdateStateUnspecified = @"
 
 @implementation GTLRDirectory_PrinterModel
 @dynamic displayName, makeAndModel, manufacturer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_PrintServer
+//
+
+@implementation GTLRDirectory_PrintServer
+@dynamic createTime, descriptionProperty, displayName, identifier, name,
+         orgUnitId, uri;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_PrintServerFailureInfo
+//
+
+@implementation GTLRDirectory_PrintServerFailureInfo
+@dynamic errorCode, errorMessage, printServer, printServerId;
 @end
 
 

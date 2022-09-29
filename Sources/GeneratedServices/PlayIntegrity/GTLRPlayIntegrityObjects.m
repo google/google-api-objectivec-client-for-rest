@@ -13,11 +13,27 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRPlayIntegrity_AccountActivity.activityLevel
+NSString * const kGTLRPlayIntegrity_AccountActivity_ActivityLevel_ActivityLevelUnspecified = @"ACTIVITY_LEVEL_UNSPECIFIED";
+NSString * const kGTLRPlayIntegrity_AccountActivity_ActivityLevel_TypicalBasic = @"TYPICAL_BASIC";
+NSString * const kGTLRPlayIntegrity_AccountActivity_ActivityLevel_TypicalStrong = @"TYPICAL_STRONG";
+NSString * const kGTLRPlayIntegrity_AccountActivity_ActivityLevel_Unevaluated = @"UNEVALUATED";
+NSString * const kGTLRPlayIntegrity_AccountActivity_ActivityLevel_Unknown = @"UNKNOWN";
+NSString * const kGTLRPlayIntegrity_AccountActivity_ActivityLevel_Unusual = @"UNUSUAL";
+
 // GTLRPlayIntegrity_AccountDetails.appLicensingVerdict
 NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Licensed = @"LICENSED";
 NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unevaluated = @"UNEVALUATED";
 NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unknown = @"UNKNOWN";
 NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unlicensed = @"UNLICENSED";
+
+// GTLRPlayIntegrity_AccountRiskVerdict.risk
+NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_Risk_Higher = @"HIGHER";
+NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_Risk_Lower = @"LOWER";
+NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_Risk_Lowest = @"LOWEST";
+NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_Risk_RiskUnspecified = @"RISK_UNSPECIFIED";
+NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_Risk_Unevaluated = @"UNEVALUATED";
+NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_Risk_Unknown = @"UNKNOWN";
 
 // GTLRPlayIntegrity_AccountRiskVerdict.riskLevel
 NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelLowestRisk = @"RISK_LEVEL_LOWEST_RISK";
@@ -42,11 +58,21 @@ NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_Unk
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPlayIntegrity_AccountActivity
+//
+
+@implementation GTLRPlayIntegrity_AccountActivity
+@dynamic activityLevel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPlayIntegrity_AccountDetails
 //
 
 @implementation GTLRPlayIntegrity_AccountDetails
-@dynamic accountRiskVerdict, appLicensingVerdict;
+@dynamic accountActivity, accountRiskVerdict, appLicensingVerdict;
 @end
 
 
@@ -56,7 +82,7 @@ NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_Unk
 //
 
 @implementation GTLRPlayIntegrity_AccountRiskVerdict
-@dynamic riskLevel;
+@dynamic risk, riskLevel;
 @end
 
 

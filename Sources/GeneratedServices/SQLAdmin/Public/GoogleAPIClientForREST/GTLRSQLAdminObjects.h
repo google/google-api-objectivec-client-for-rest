@@ -329,6 +329,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8029;
 /**
+ *  The database major version is MySQL 8.0 and the minor version is 30.
+ *
+ *  Value: "MYSQL_8_0_30"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8030;
+/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -510,6 +516,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  *  Value: "MYSQL_8_0_29"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8029;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 30.
+ *
+ *  Value: "MYSQL_8_0_30"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8030;
 /**
  *  The database version is PostgreSQL 10.
  *
@@ -808,6 +820,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8028;
  *  Value: "MYSQL_8_0_29"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8029;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 30.
+ *
+ *  Value: "MYSQL_8_0_30"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8030;
 /**
  *  The database version is PostgreSQL 10.
  *
@@ -2020,6 +2038,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *status;
 
 /**
+ *  Backup time zone to prevent restores to an instance with a different time
+ *  zone. Now relevant only for SQL Server.
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
+
+/**
  *  The type of this run; can be either "AUTOMATED" or "ON_DEMAND" or "FINAL".
  *  This field defaults to "ON_DEMAND" and is ignored, when specified for insert
  *  requests.
@@ -2101,11 +2125,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @interface GTLRSQLAdmin_CloneContext : GTLRObject
 
 /**
- *  The name of the allocated ip range for the private ip CloudSQL instance. For
- *  example: "google-managed-services-default". If set, the cloned instance ip
- *  will be created in the allocated range. The range name must comply with [RFC
- *  1035](https://tools.ietf.org/html/rfc1035). Specifically, the name must be
- *  1-63 characters long and match the regular expression
+ *  The name of the allocated ip range for the private ip Cloud SQL instance.
+ *  For example: "google-managed-services-default". If set, the cloned instance
+ *  ip will be created in the allocated range. The range name must comply with
+ *  [RFC 1035](https://tools.ietf.org/html/rfc1035). Specifically, the name must
+ *  be 1-63 characters long and match the regular expression
  *  [a-z]([-a-z0-9]*[a-z0-9])?. Reserved for future use.
  */
 @property(nonatomic, copy, nullable) NSString *allocatedIpRange;
@@ -2116,6 +2140,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  up to the most recent binary log coordinates.
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_BinLogCoordinates *binLogCoordinates;
+
+/**
+ *  (SQL Server only) Clone only the specified databases from the source
+ *  instance. Clone all databases if empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *databaseNames;
 
 /** Name of the Cloud SQL instance to be created as a clone. */
 @property(nonatomic, copy, nullable) NSString *destinationInstanceName;
@@ -2198,6 +2228,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8029 The
  *        database major version is MySQL 8.0 and the minor version is 29.
  *        (Value: "MYSQL_8_0_29")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8030 The
+ *        database major version is MySQL 8.0 and the minor version is 30.
+ *        (Value: "MYSQL_8_0_30")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 The
  *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11 The
@@ -2408,6 +2441,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8029 The
  *        database major version is MySQL 8.0 and the minor version is 29.
  *        (Value: "MYSQL_8_0_29")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8030 The
+ *        database major version is MySQL 8.0 and the minor version is 30.
+ *        (Value: "MYSQL_8_0_30")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 The
  *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 The
@@ -3468,9 +3504,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @interface GTLRSQLAdmin_IpConfiguration : GTLRObject
 
 /**
- *  The name of the allocated ip range for the private ip CloudSQL instance. For
- *  example: "google-managed-services-default". If set, the instance ip will be
- *  created in the allocated range. The range name must comply with [RFC
+ *  The name of the allocated ip range for the private ip Cloud SQL instance.
+ *  For example: "google-managed-services-default". If set, the instance ip will
+ *  be created in the allocated range. The range name must comply with [RFC
  *  1035](https://tools.ietf.org/html/rfc1035). Specifically, the name must be
  *  1-63 characters long and match the regular expression
  *  `[a-z]([-a-z0-9]*[a-z0-9])?.`
@@ -4222,13 +4258,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  Specifies if connections must use Cloud SQL connectors. Option values
- *  include the following: * `NOT_REQUIRED`: Cloud SQL instances can be
- *  connected without Cloud SQL Connectors. * `REQUIRED`: Only allow connections
- *  that use Cloud SQL Connectors. Note that using REQUIRED disables all
- *  existing authorized networks. If this field is not specified when creating a
- *  new instance, NOT_REQUIRED is used. If this field is not specified when
- *  patching or updating an existing instance, it is left unchanged in the
- *  instance.
+ *  include the following: `NOT_REQUIRED` (Cloud SQL instances can be connected
+ *  without Cloud SQL Connectors) and `REQUIRED` (Only allow connections that
+ *  use Cloud SQL Connectors). Note that using REQUIRED disables all existing
+ *  authorized networks. If this field is not specified when creating a new
+ *  instance, NOT_REQUIRED is used. If this field is not specified when patching
+ *  or updating an existing instance, it is left unchanged in the instance.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_Settings_ConnectorEnforcement_ConnectorEnforcementUnspecified
@@ -4397,6 +4432,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  `db-custom-1-3840`. WARNING: Changing this restarts the instance.
  */
 @property(nonatomic, copy, nullable) NSString *tier;
+
+/** Server timezone, relevant only for Cloud SQL for SQL Server. */
+@property(nonatomic, copy, nullable) NSString *timeZone;
 
 /**
  *  User-provided labels, represented as a dictionary where each label is a

@@ -784,6 +784,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 
 
 /**
+ *  Response to LoadSnapshotRequest.
+ */
+@interface GTLRCloudComposer_LoadSnapshotResponse : GTLRObject
+@end
+
+
+/**
  *  The configuration settings for Cloud Composer maintenance window. The
  *  following example: ``` { "startTime":"2019-08-01T01:00:00Z"
  *  "endTime":"2019-08-01T07:00:00Z" "recurrence":"FREQ=WEEKLY;BYDAY=TU,WE" }
@@ -1212,6 +1219,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  composer-1.*.*-airflow-*.*.*.
  */
 @property(nonatomic, copy, nullable) NSString *webServerIpv4ReservedRange;
+
+@end
+
+
+/**
+ *  Response to SaveSnapshotRequest.
+ */
+@interface GTLRCloudComposer_SaveSnapshotResponse : GTLRObject
+
+/**
+ *  The fully-resolved Cloud Storage path of the created snapshot, e.g.:
+ *  "gs://my-bucket/snapshots/project_location_environment_timestamp". This
+ *  field is populated only if the snapshot creation was successful.
+ */
+@property(nonatomic, copy, nullable) NSString *snapshotPath;
 
 @end
 

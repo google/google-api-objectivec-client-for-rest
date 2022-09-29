@@ -14,6 +14,25 @@
 
 @end
 
+@implementation GTLRRecommenderQuery_BillingAccountsLocationsInsightTypesGetConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRecommenderQuery_BillingAccountsLocationsInsightTypesGetConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1InsightTypeConfig class];
+  query.loggingName = @"recommender.billingAccounts.locations.insightTypes.getConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRRecommenderQuery_BillingAccountsLocationsInsightTypesInsightsGet
 
 @dynamic name;
@@ -74,6 +93,52 @@
   query.name = name;
   query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1Insight class];
   query.loggingName = @"recommender.billingAccounts.locations.insightTypes.insights.markAccepted";
+  return query;
+}
+
+@end
+
+@implementation GTLRRecommenderQuery_BillingAccountsLocationsInsightTypesUpdateConfig
+
+@dynamic name, updateMask, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1InsightTypeConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRecommenderQuery_BillingAccountsLocationsInsightTypesUpdateConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1InsightTypeConfig class];
+  query.loggingName = @"recommender.billingAccounts.locations.insightTypes.updateConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRRecommenderQuery_BillingAccountsLocationsRecommendersGetConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRecommenderQuery_BillingAccountsLocationsRecommendersGetConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig class];
+  query.loggingName = @"recommender.billingAccounts.locations.recommenders.getConfig";
   return query;
 }
 
@@ -193,6 +258,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1Recommendation class];
   query.loggingName = @"recommender.billingAccounts.locations.recommenders.recommendations.markSucceeded";
+  return query;
+}
+
+@end
+
+@implementation GTLRRecommenderQuery_BillingAccountsLocationsRecommendersUpdateConfig
+
+@dynamic name, updateMask, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRecommenderQuery_BillingAccountsLocationsRecommendersUpdateConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig class];
+  query.loggingName = @"recommender.billingAccounts.locations.recommenders.updateConfig";
   return query;
 }
 

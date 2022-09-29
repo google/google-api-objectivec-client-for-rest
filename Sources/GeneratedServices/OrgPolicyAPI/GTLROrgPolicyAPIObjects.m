@@ -82,7 +82,7 @@ NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_Method
 
 @implementation GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint
 @dynamic actionType, condition, descriptionProperty, displayName, methodTypes,
-         name, resourceTypes;
+         name, resourceTypes, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

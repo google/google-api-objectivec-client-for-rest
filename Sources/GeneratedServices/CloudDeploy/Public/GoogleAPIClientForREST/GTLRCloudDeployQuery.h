@@ -678,6 +678,94 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets details of a single JobRun.
+ *
+ *  Method: clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.jobRuns.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsJobRunsGet : GTLRCloudDeployQuery
+
+/**
+ *  Required. Name of the `JobRun`. Format must be
+ *  projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/releases/{release_name}/rollouts/{rollout_name}/jobRuns/{job_run_name}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_JobRun.
+ *
+ *  Gets details of a single JobRun.
+ *
+ *  @param name Required. Name of the `JobRun`. Format must be
+ *    projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/releases/{release_name}/rollouts/{rollout_name}/jobRuns/{job_run_name}.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsJobRunsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists JobRuns in a given project and location.
+ *
+ *  Method: clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.jobRuns.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsJobRunsList : GTLRCloudDeployQuery
+
+/**
+ *  Optional. Filter results to be returned. See https://google.aip.dev/160 for
+ *  more details.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Field to sort by. See https://google.aip.dev/132#ordering for more
+ *  details.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of `JobRun` objects to return. The service may
+ *  return fewer than this value. If unspecified, at most 50 `JobRun` objects
+ *  will be returned. The maximum value is 1000; values above 1000 will be set
+ *  to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListJobRuns` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other provided
+ *  parameters match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The `Rollout` which owns this collection of `JobRun` objects. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_ListJobRunsResponse.
+ *
+ *  Lists JobRuns in a given project and location.
+ *
+ *  @param parent Required. The `Rollout` which owns this collection of `JobRun`
+ *    objects.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsJobRunsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Lists Rollouts in a given project and location.
  *
  *  Method: clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.list
@@ -734,6 +822,41 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Retries the specified Job in a Rollout.
+ *
+ *  Method: clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.retryJob
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsRetryJob : GTLRCloudDeployQuery
+
+/**
+ *  Required. Name of the Rollout. Format is
+ *  projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
+ *  releases/{release}/rollouts/{rollout}.
+ */
+@property(nonatomic, copy, nullable) NSString *rollout;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_RetryJobResponse.
+ *
+ *  Retries the specified Job in a Rollout.
+ *
+ *  @param object The @c GTLRCloudDeploy_RetryJobRequest to include in the
+ *    query.
+ *  @param rollout Required. Name of the Rollout. Format is
+ *    projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/
+ *    releases/{release}/rollouts/{rollout}.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsRetryJob
+ */
++ (instancetype)queryWithObject:(GTLRCloudDeploy_RetryJobRequest *)object
+                        rollout:(NSString *)rollout;
 
 @end
 

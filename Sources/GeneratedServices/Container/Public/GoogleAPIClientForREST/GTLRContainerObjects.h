@@ -60,6 +60,7 @@
 @class GTLRContainer_LinuxNodeConfig_Sysctls;
 @class GTLRContainer_LoggingComponentConfig;
 @class GTLRContainer_LoggingConfig;
+@class GTLRContainer_LoggingVariantConfig;
 @class GTLRContainer_MaintenanceExclusionOptions;
 @class GTLRContainer_MaintenancePolicy;
 @class GTLRContainer_MaintenanceWindow;
@@ -90,6 +91,7 @@
 @class GTLRContainer_NodePoolAutoConfig;
 @class GTLRContainer_NodePoolAutoscaling;
 @class GTLRContainer_NodePoolDefaults;
+@class GTLRContainer_NodePoolLoggingConfig;
 @class GTLRContainer_NodeTaint;
 @class GTLRContainer_NodeTaints;
 @class GTLRContainer_NotificationConfig;
@@ -483,6 +485,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingComponentConfig_EnableC
  *  Value: "WORKLOADS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_Workloads;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_LoggingVariantConfig.variant
+
+/**
+ *  default logging variant.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingVariantConfig_Variant_Default;
+/**
+ *  maximum logging throughput variant.
+ *
+ *  Value: "MAX_THROUGHPUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingVariantConfig_Variant_MaxThroughput;
+/**
+ *  Default value. This shouldn't be used.
+ *
+ *  Value: "VARIANT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingVariantConfig_Variant_VariantUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_MaintenanceExclusionOptions.scope
@@ -1579,7 +1603,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  values are the friendly names of CPU platforms, such as minCpuPlatform:
  *  Intel Haswell or minCpuPlatform: Intel Sandy Bridge. For more information,
  *  read [how to specify min CPU
- *  platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform)
+ *  platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform).
  *  This field is deprecated, min_cpu_platform should be specified using
  *  https://cloud.google.com/requested-min-cpu-platform label selector on the
  *  pod. To unset the min cpu platform field pass "automatic" as field value.
@@ -2438,6 +2462,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  pool on the cluster.
  */
 @property(nonatomic, copy, nullable) NSString *desiredNodePoolId;
+
+/** The desired node pool logging configuration defaults for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_NodePoolLoggingConfig *desiredNodePoolLoggingConfig;
 
 /**
  *  The Kubernetes version to change the nodes to (typically an upgrade). Users
@@ -3363,6 +3390,27 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  LoggingVariantConfig specifies the behaviour of the logging component.
+ */
+@interface GTLRContainer_LoggingVariantConfig : GTLRObject
+
+/**
+ *  Logging variant deployed on nodes.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_LoggingVariantConfig_Variant_Default default
+ *        logging variant. (Value: "DEFAULT")
+ *    @arg @c kGTLRContainer_LoggingVariantConfig_Variant_MaxThroughput maximum
+ *        logging throughput variant. (Value: "MAX_THROUGHPUT")
+ *    @arg @c kGTLRContainer_LoggingVariantConfig_Variant_VariantUnspecified
+ *        Default value. This shouldn't be used. (Value: "VARIANT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *variant;
+
+@end
+
+
+/**
  *  Represents the Maintenance exclusion option.
  */
 @interface GTLRContainer_MaintenanceExclusionOptions : GTLRObject
@@ -3887,6 +3935,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) NSNumber *localSsdCount;
 
+/** Logging configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_NodePoolLoggingConfig *loggingConfig;
+
 /**
  *  The name of a Google Compute Engine [machine
  *  type](https://cloud.google.com/compute/docs/machine-types) If unspecified,
@@ -4052,6 +4103,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** GCFS (Google Container File System, also known as Riptide) options. */
 @property(nonatomic, strong, nullable) GTLRContainer_GcfsConfig *gcfsConfig;
+
+/** Logging configuration for node pools. */
+@property(nonatomic, strong, nullable) GTLRContainer_NodePoolLoggingConfig *loggingConfig;
 
 @end
 
@@ -4427,6 +4481,17 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Subset of NodeConfig message that has defaults. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeConfigDefaults *nodeConfigDefaults;
+
+@end
+
+
+/**
+ *  NodePoolLoggingConfig specifies logging configuration for nodepools.
+ */
+@interface GTLRContainer_NodePoolLoggingConfig : GTLRObject
+
+/** Logging variant configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_LoggingVariantConfig *variantConfig;
 
 @end
 
@@ -4873,8 +4938,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Corresponds to the label key of a reservation resource. To target a
- *  SPECIFIC_RESERVATION by name, specify "googleapis.com/reservation-name" as
- *  the key and specify the name of your reservation as its value.
+ *  SPECIFIC_RESERVATION by name, specify
+ *  "compute.googleapis.com/reservation-name" as the key and specify the name of
+ *  your reservation as its value.
  */
 @property(nonatomic, copy, nullable) NSString *key;
 
@@ -6156,6 +6222,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  depending on whether locations are being added or removed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
+
+/** Logging configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_NodePoolLoggingConfig *loggingConfig;
 
 /**
  *  The name (project, location, cluster, node pool) of the node pool to update.

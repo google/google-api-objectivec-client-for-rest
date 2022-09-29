@@ -1688,6 +1688,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1C
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion;
 /**
+ *  Run conversation summarization model for chat.
+ *
+ *  Value: "CONVERSATION_SUMMARIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ConversationSummarization;
+/**
  *  Run FAQ model.
  *
  *  Value: "FAQ"
@@ -2347,6 +2353,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1S
  *  Value: "ARTICLE_SUGGESTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion;
+/**
+ *  Run conversation summarization model for chat.
+ *
+ *  Value: "CONVERSATION_SUMMARIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ConversationSummarization;
 /**
  *  Run FAQ model.
  *
@@ -9911,9 +9923,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSNumber *enableAudioRedaction;
 
 /**
- *  Cloud Storage bucket to export audio record to. You need to grant
- *  `service-\@gcp-sa-dialogflow.iam.gserviceaccount.com` the `Storage Object
- *  Admin` role in this bucket.
+ *  Cloud Storage bucket to export audio record to. Settings this field would
+ *  grant the Storage Object Creator role to the Dialogflow Service Agent. API
+ *  caller that tries to modify this field should have the permission of
+ *  storage.buckets.setIamPolicy.
  */
 @property(nonatomic, copy, nullable) NSString *gcsBucket;
 
@@ -11458,6 +11471,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion
  *        Run article suggestion model for chat. (Value: "ARTICLE_SUGGESTION")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ConversationSummarization
+ *        Run conversation summarization model for chat. (Value:
+ *        "CONVERSATION_SUMMARIZATION")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq
  *        Run FAQ model. (Value: "FAQ")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply
@@ -13799,6 +13815,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion
  *        Run article suggestion model for chat. (Value: "ARTICLE_SUGGESTION")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ConversationSummarization
+ *        Run conversation summarization model for chat. (Value:
+ *        "CONVERSATION_SUMMARIZATION")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq
  *        Run FAQ model. (Value: "FAQ")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply

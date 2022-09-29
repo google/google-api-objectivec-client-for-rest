@@ -5184,7 +5184,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  instead. * When a device’s system clock reads Feb. 29th, it’s treated as
  *  Feb. 28th. * When calculating the number of days in a freeze period or the
  *  time between two freeze periods, Feb. 29th is ignored and not counted as a
- *  day.
+ *  day.Note: For Freeze Periods to take effect, SystemUpdateType cannot be
+ *  specified as SYSTEM_UPDATE_TYPE_UNSPECIFIED, because freeze periods require
+ *  a defined policy to be specified.
  */
 @interface GTLRAndroidManagement_FreezePeriod : GTLRObject
 
@@ -7192,7 +7194,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *installUnknownSourcesAllowed;
 
 /**
- *  Whether the keyguard is disabled.
+ *  If true, this disables the Lock Screen
+ *  (https://source.android.com/docs/core/display/multi_display/lock-screen) for
+ *  primary and/or secondary displays.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7522,7 +7526,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *setWallpaperDisabled;
 
 /**
- *  Whether location sharing is disabled.
+ *  Whether location sharing is disabled. share_location_disabled is supported
+ *  for both fully managed devices and personally owned work profiles.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7586,7 +7591,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *tetheringConfigDisabled;
 
 /**
- *  Whether user uninstallation of applications is disabled.
+ *  Whether user uninstallation of applications is disabled. This prevents apps
+ *  from being uninstalled, even those removed using applications
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7607,7 +7613,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_UsageLog *usageLog;
 
 /**
- *  Whether transferring files over USB is disabled.
+ *  Whether transferring files over USB is disabled. This is supported only on
+ *  company-owned devices.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7636,7 +7643,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *vpnConfigDisabled;
 
 /**
- *  Whether configuring Wi-Fi access points is disabled.Note: If a network
+ *  Whether configuring Wi-Fi access points is disabled. Note: If a network
  *  connection can't be made at boot time and configuring Wi-Fi is disabled then
  *  network escape hatch will be shown in order to refresh the device policy
  *  (see networkEscapeHatchEnabled).

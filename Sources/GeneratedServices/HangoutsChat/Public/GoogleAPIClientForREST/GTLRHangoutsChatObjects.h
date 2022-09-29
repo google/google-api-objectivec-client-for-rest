@@ -234,7 +234,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ActionStatus_StatusCode_Inv
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ActionStatus_StatusCode_NotFound;
 /**
- *  Not an error; returned on success HTTP Mapping: 200 OK
+ *  Not an error; returned on success. HTTP Mapping: 200 OK
  *
  *  Value: "OK"
  */
@@ -403,6 +403,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_D
  *  Value: "GMAIL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Gmail;
+/**
+ *  The add-on launches from Google Meet.
+ *
+ *  Value: "MEET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Meet;
 /**
  *  The add-on launches from Google Sheets.
  *
@@ -1231,7 +1237,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *        users, such as user-based access control, `PERMISSION_DENIED` must be
  *        used. HTTP Mapping: 404 Not Found (Value: "NOT_FOUND")
  *    @arg @c kGTLRHangoutsChat_ActionStatus_StatusCode_Ok Not an error;
- *        returned on success HTTP Mapping: 200 OK (Value: "OK")
+ *        returned on success. HTTP Mapping: 200 OK (Value: "OK")
  *    @arg @c kGTLRHangoutsChat_ActionStatus_StatusCode_OutOfRange The operation
  *        was attempted past the valid range. E.g., seeking or reading past
  *        end-of-file. Unlike `INVALID_ARGUMENT`, this error indicates a problem
@@ -1665,6 +1671,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *        launches from Google Drive. (Value: "DRIVE")
  *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Gmail The add-on
  *        launches from Gmail. (Value: "GMAIL")
+ *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Meet The add-on
+ *        launches from Google Meet. (Value: "MEET")
  *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Sheets The add-on
  *        launches from Google Sheets. (Value: "SHEETS")
  *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Slides The add-on
@@ -2009,13 +2017,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Indicates whether form values persist after the action. The default value is
  *  `false`. If `true`, form values remain after the action is triggered. When
  *  using
- *  [LoadIndicator.NONE](workspace/add-ons/reference/rpc/google.apps.card.v1#loadindicator)
+ *  [LoadIndicator.NONE](https://developers.google.com/workspace/add-ons/reference/rpc/google.apps.card.v1#loadindicator)
  *  for actions, `persist_values` = `true`is recommended, as it ensures that any
  *  changes made by the user after form or on change actions are sent to the
  *  server are not overwritten by the response. If `false`, the form values are
  *  cleared when the action is triggered. When `persist_values` is set to
  *  `false`, it is strongly recommended that the card use
- *  [LoadIndicator.SPINNER](workspace/add-ons/reference/rpc/google.apps.card.v1#loadindicator)
+ *  [LoadIndicator.SPINNER](https://developers.google.com/workspace/add-ons/reference/rpc/google.apps.card.v1#loadindicator)
  *  for all actions, as this locks the UI to ensure no changes are made by the
  *  user while the action is being processed. Not supported by Google Chat apps.
  *
@@ -2864,7 +2872,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  A paragraph of text that supports formatting. See [Text
- *  formatting](workspace/add-ons/concepts/widgets#text_formatting) for details.
+ *  formatting](https://developers.google.com/workspace/add-ons/concepts/widgets#text_formatting)
+ *  for details.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1TextParagraph : GTLRObject
 
@@ -3532,8 +3541,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. Whether the space is a DM between a Chat app and a single
- *  human.
+ *  Optional. Whether the space is a DM between a Chat app and a single human.
  *
  *  Uses NSNumber of boolValue.
  */

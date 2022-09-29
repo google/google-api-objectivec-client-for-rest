@@ -739,7 +739,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorCo
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaA100;
 /**
- *  Accelerator type is Nvidia Tesla K80.
+ *  b/241005111 K80 deprecation in Google Managed Notebooks Accelerator type is
+ *  Nvidia Tesla K80.
  *
  *  Value: "NVIDIA_TESLA_K80"
  */
@@ -1244,14 +1245,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
- *  anyone who is authenticated with a Google account or a service account. *
- *  `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
- *  address that represents a Google group. For example, `admins\@example.com`.
- *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
+ *  anyone who is authenticated with a Google account or a service account. Does
+ *  not include identities that come from external identity providers (IdPs)
+ *  through identity federation. * `user:{emailid}`: An email address that
+ *  represents a specific Google account. For example, `alice\@example.com` . *
+ *  `serviceAccount:{emailid}`: An email address that represents a Google
+ *  service account. For example, `my-other-app\@appspot.gserviceaccount.com`. *
+ *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
+ *  identifier for a [Kubernetes service
+ *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
+ *  `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
+ *  An email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -3194,7 +3201,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaA100
  *        Accelerator type is Nvidia Tesla A100. (Value: "NVIDIA_TESLA_A100")
  *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaK80
- *        Accelerator type is Nvidia Tesla K80. (Value: "NVIDIA_TESLA_K80")
+ *        b/241005111 K80 deprecation in Google Managed Notebooks Accelerator
+ *        type is Nvidia Tesla K80. (Value: "NVIDIA_TESLA_K80")
  *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaP100
  *        Accelerator type is Nvidia Tesla P100. (Value: "NVIDIA_TESLA_P100")
  *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaP100Vws

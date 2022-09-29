@@ -165,7 +165,7 @@ NSString * const kGTLRAdsense_Site_State_StateUnspecified = @"STATE_UNSPECIFIED"
 //
 
 @implementation GTLRAdsense_CustomChannel
-@dynamic displayName, name, reportingDimensionId;
+@dynamic active, displayName, name, reportingDimensionId;
 @end
 
 
@@ -176,6 +176,15 @@ NSString * const kGTLRAdsense_Site_State_StateUnspecified = @"STATE_UNSPECIFIED"
 
 @implementation GTLRAdsense_Date
 @dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdsense_Empty
+//
+
+@implementation GTLRAdsense_Empty
 @end
 
 

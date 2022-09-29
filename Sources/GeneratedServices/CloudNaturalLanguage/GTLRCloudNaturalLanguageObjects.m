@@ -261,6 +261,11 @@ NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_Causative = @"CAUS
 NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_Passive = @"PASSIVE";
 NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceUnknown = @"VOICE_UNKNOWN";
 
+// GTLRCloudNaturalLanguage_V2Model.contentCategoriesVersion
+NSString * const kGTLRCloudNaturalLanguage_V2Model_ContentCategoriesVersion_ContentCategoriesVersionUnspecified = @"CONTENT_CATEGORIES_VERSION_UNSPECIFIED";
+NSString * const kGTLRCloudNaturalLanguage_V2Model_ContentCategoriesVersion_V1 = @"V1";
+NSString * const kGTLRCloudNaturalLanguage_V2Model_ContentCategoriesVersion_V2 = @"V2";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudNaturalLanguage_AnalyzeEntitiesRequest
@@ -417,11 +422,21 @@ NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceUnknown = @"V
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudNaturalLanguage_ClassificationModelOptions
+//
+
+@implementation GTLRCloudNaturalLanguage_ClassificationModelOptions
+@dynamic v1Model, v2Model;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudNaturalLanguage_ClassifyTextRequest
 //
 
 @implementation GTLRCloudNaturalLanguage_ClassifyTextRequest
-@dynamic document;
+@dynamic classificationModelOptions, document;
 @end
 
 
@@ -511,8 +526,8 @@ NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceUnknown = @"V
 //
 
 @implementation GTLRCloudNaturalLanguage_Features
-@dynamic classifyText, extractDocumentSentiment, extractEntities,
-         extractEntitySentiment, extractSyntax;
+@dynamic classificationModelOptions, classifyText, extractDocumentSentiment,
+         extractEntities, extractEntitySentiment, extractSyntax;
 @end
 
 
@@ -601,4 +616,23 @@ NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceUnknown = @"V
 
 @implementation GTLRCloudNaturalLanguage_Token
 @dynamic dependencyEdge, lemma, partOfSpeech, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_V1Model
+//
+
+@implementation GTLRCloudNaturalLanguage_V1Model
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNaturalLanguage_V2Model
+//
+
+@implementation GTLRCloudNaturalLanguage_V2Model
+@dynamic contentCategoriesVersion;
 @end

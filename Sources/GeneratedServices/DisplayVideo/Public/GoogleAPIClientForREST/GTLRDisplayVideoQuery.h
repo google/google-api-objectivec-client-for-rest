@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Display & Video 360 API (displayvideo/v1)
+//   Display & Video 360 API (displayvideo/v2)
 // Description:
 //   Display & Video 360 API allows users to automate complex Display & Video
 //   360 workflows, such as creating insertion orders and setting targeting
@@ -439,190 +439,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @end
 
 /**
- *  Bulk edits targeting options under a single advertiser. The operation will
- *  delete the assigned targeting options provided in
- *  BulkEditAdvertiserAssignedTargetingOptionsRequest.delete_requests and then
- *  create the assigned targeting options provided in
- *  BulkEditAdvertiserAssignedTargetingOptionsRequest.create_requests .
- *
- *  Method: displayvideo.advertisers.bulkEditAdvertiserAssignedTargetingOptions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
- */
-@interface GTLRDisplayVideoQuery_AdvertisersBulkEditAdvertiserAssignedTargetingOptions : GTLRDisplayVideoQuery
-
-/** Required. The ID of the advertiser. */
-@property(nonatomic, assign) long long advertiserId;
-
-/**
- *  Fetches a @c
- *  GTLRDisplayVideo_BulkEditAdvertiserAssignedTargetingOptionsResponse.
- *
- *  Bulk edits targeting options under a single advertiser. The operation will
- *  delete the assigned targeting options provided in
- *  BulkEditAdvertiserAssignedTargetingOptionsRequest.delete_requests and then
- *  create the assigned targeting options provided in
- *  BulkEditAdvertiserAssignedTargetingOptionsRequest.create_requests .
- *
- *  @param object The @c
- *    GTLRDisplayVideo_BulkEditAdvertiserAssignedTargetingOptionsRequest to
- *    include in the query.
- *  @param advertiserId Required. The ID of the advertiser.
- *
- *  @return GTLRDisplayVideoQuery_AdvertisersBulkEditAdvertiserAssignedTargetingOptions
- */
-+ (instancetype)queryWithObject:(GTLRDisplayVideo_BulkEditAdvertiserAssignedTargetingOptionsRequest *)object
-                   advertiserId:(long long)advertiserId;
-
-@end
-
-/**
- *  Lists assigned targeting options of an advertiser across targeting types.
- *
- *  Method: displayvideo.advertisers.bulkListAdvertiserAssignedTargetingOptions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
- */
-@interface GTLRDisplayVideoQuery_AdvertisersBulkListAdvertiserAssignedTargetingOptions : GTLRDisplayVideoQuery
-
-/** Required. The ID of the advertiser the line item belongs to. */
-@property(nonatomic, assign) long long advertiserId;
-
-/**
- *  Allows filtering by assigned targeting option properties. Supported syntax:
- *  * Filter expressions are made up of one or more restrictions. * Restrictions
- *  can be combined by the logical operator `OR`.. * A restriction has the form
- *  of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. *
- *  Supported fields: - `targetingType` Examples: * targetingType with value
- *  TARGETING_TYPE_CHANNEL `targetingType="TARGETING_TYPE_CHANNEL"` The length
- *  of this field should be no more than 500 characters.
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/**
- *  Field by which to sort the list. Acceptable values are: * `targetingType`
- *  (default) The default sorting order is ascending. To specify descending
- *  order for a field, a suffix "desc" should be added to the field name.
- *  Example: `targetingType desc`.
- */
-@property(nonatomic, copy, nullable) NSString *orderBy;
-
-/**
- *  Requested page size. The size must be an integer between `1` and `5000`. If
- *  unspecified, the default is '5000'. Returns error code `INVALID_ARGUMENT` if
- *  an invalid value is specified.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A token that lets the client fetch the next page of results. Typically, this
- *  is the value of next_page_token returned from the previous call to
- *  `BulkListAdvertiserAssignedTargetingOptions` method. If not specified, the
- *  first page of results will be returned.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c
- *  GTLRDisplayVideo_BulkListAdvertiserAssignedTargetingOptionsResponse.
- *
- *  Lists assigned targeting options of an advertiser across targeting types.
- *
- *  @param advertiserId Required. The ID of the advertiser the line item belongs
- *    to.
- *
- *  @return GTLRDisplayVideoQuery_AdvertisersBulkListAdvertiserAssignedTargetingOptions
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithAdvertiserId:(long long)advertiserId;
-
-@end
-
-/**
- *  Lists assigned targeting options of a campaign across targeting types.
- *
- *  Method: displayvideo.advertisers.campaigns.bulkListCampaignAssignedTargetingOptions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
- */
-@interface GTLRDisplayVideoQuery_AdvertisersCampaignsBulkListCampaignAssignedTargetingOptions : GTLRDisplayVideoQuery
-
-/** Required. The ID of the advertiser the campaign belongs to. */
-@property(nonatomic, assign) long long advertiserId;
-
-/**
- *  Required. The ID of the campaign to list assigned targeting options for.
- */
-@property(nonatomic, assign) long long campaignId;
-
-/**
- *  Allows filtering by assigned targeting option properties. Supported syntax:
- *  * Filter expressions are made up of one or more restrictions. * Restrictions
- *  can be combined by the logical operator `OR` on the same field. * A
- *  restriction has the form of `{field} {operator} {value}`. * The operator
- *  must be `EQUALS (=)`. * Supported fields: - `targetingType` - `inheritance`
- *  Examples: * AssignedTargetingOptions of targeting type
- *  TARGETING_TYPE_LANGUAGE or TARGETING_TYPE_GENDER
- *  `targetingType="TARGETING_TYPE_LANGUAGE" OR
- *  targetingType="TARGETING_TYPE_GENDER"` * AssignedTargetingOptions with
- *  inheritance status of NOT_INHERITED or INHERITED_FROM_PARTNER
- *  `inheritance="NOT_INHERITED" OR inheritance="INHERITED_FROM_PARTNER"` The
- *  length of this field should be no more than 500 characters.
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/**
- *  Field by which to sort the list. Acceptable values are: * `targetingType`
- *  (default) The default sorting order is ascending. To specify descending
- *  order for a field, a suffix "desc" should be added to the field name.
- *  Example: `targetingType desc`.
- */
-@property(nonatomic, copy, nullable) NSString *orderBy;
-
-/**
- *  Requested page size. The size must be an integer between `1` and `5000`. If
- *  unspecified, the default is `5000`. Returns error code `INVALID_ARGUMENT` if
- *  an invalid value is specified.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A token that lets the client fetch the next page of results. Typically, this
- *  is the value of next_page_token returned from the previous call to
- *  `BulkListCampaignAssignedTargetingOptions` method. If not specified, the
- *  first page of results will be returned.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c
- *  GTLRDisplayVideo_BulkListCampaignAssignedTargetingOptionsResponse.
- *
- *  Lists assigned targeting options of a campaign across targeting types.
- *
- *  @param advertiserId Required. The ID of the advertiser the campaign belongs
- *    to.
- *  @param campaignId Required. The ID of the campaign to list assigned
- *    targeting options for.
- *
- *  @return GTLRDisplayVideoQuery_AdvertisersCampaignsBulkListCampaignAssignedTargetingOptions
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithAdvertiserId:(long long)advertiserId
-                           campaignId:(long long)campaignId;
-
-@end
-
-/**
  *  Creates a new campaign. Returns the newly created campaign if successful.
  *
  *  Method: displayvideo.advertisers.campaigns.create
@@ -795,6 +611,85 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        information.
  */
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId;
+
+@end
+
+/**
+ *  Lists assigned targeting options of a campaign across targeting types.
+ *
+ *  Method: displayvideo.advertisers.campaigns.listAssignedTargetingOptions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersCampaignsListAssignedTargetingOptions : GTLRDisplayVideoQuery
+
+/** Required. The ID of the advertiser the campaign belongs to. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Required. The ID of the campaign to list assigned targeting options for.
+ */
+@property(nonatomic, assign) long long campaignId;
+
+/**
+ *  Allows filtering by assigned targeting option properties. Supported syntax:
+ *  * Filter expressions are made up of one or more restrictions. * Restrictions
+ *  can be combined by the logical operator `OR` on the same field. * A
+ *  restriction has the form of `{field} {operator} {value}`. * The operator
+ *  must be `EQUALS (=)`. * Supported fields: - `targetingType` - `inheritance`
+ *  Examples: * AssignedTargetingOptions of targeting type
+ *  TARGETING_TYPE_LANGUAGE or TARGETING_TYPE_GENDER
+ *  `targetingType="TARGETING_TYPE_LANGUAGE" OR
+ *  targetingType="TARGETING_TYPE_GENDER"` * AssignedTargetingOptions with
+ *  inheritance status of NOT_INHERITED or INHERITED_FROM_PARTNER
+ *  `inheritance="NOT_INHERITED" OR inheritance="INHERITED_FROM_PARTNER"` The
+ *  length of this field should be no more than 500 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Field by which to sort the list. Acceptable values are: * `targetingType`
+ *  (default) The default sorting order is ascending. To specify descending
+ *  order for a field, a suffix "desc" should be added to the field name.
+ *  Example: `targetingType desc`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Requested page size. The size must be an integer between `1` and `5000`. If
+ *  unspecified, the default is `5000`. Returns error code `INVALID_ARGUMENT` if
+ *  an invalid value is specified.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token that lets the client fetch the next page of results. Typically, this
+ *  is the value of next_page_token returned from the previous call to
+ *  `BulkListCampaignAssignedTargetingOptions` method. If not specified, the
+ *  first page of results will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRDisplayVideo_BulkListCampaignAssignedTargetingOptionsResponse.
+ *
+ *  Lists assigned targeting options of a campaign across targeting types.
+ *
+ *  @param advertiserId Required. The ID of the advertiser the campaign belongs
+ *    to.
+ *  @param campaignId Required. The ID of the campaign to list assigned
+ *    targeting options for.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersCampaignsListAssignedTargetingOptions
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                           campaignId:(long long)campaignId;
 
 @end
 
@@ -2294,6 +2189,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @end
 
 /**
+ *  Edits targeting options under a single advertiser. The operation will delete
+ *  the assigned targeting options provided in
+ *  BulkEditAdvertiserAssignedTargetingOptionsRequest.delete_requests and then
+ *  create the assigned targeting options provided in
+ *  BulkEditAdvertiserAssignedTargetingOptionsRequest.create_requests .
+ *
+ *  Method: displayvideo.advertisers.editAssignedTargetingOptions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersEditAssignedTargetingOptions : GTLRDisplayVideoQuery
+
+/** Required. The ID of the advertiser. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Fetches a @c
+ *  GTLRDisplayVideo_BulkEditAdvertiserAssignedTargetingOptionsResponse.
+ *
+ *  Edits targeting options under a single advertiser. The operation will delete
+ *  the assigned targeting options provided in
+ *  BulkEditAdvertiserAssignedTargetingOptionsRequest.delete_requests and then
+ *  create the assigned targeting options provided in
+ *  BulkEditAdvertiserAssignedTargetingOptionsRequest.create_requests .
+ *
+ *  @param object The @c
+ *    GTLRDisplayVideo_BulkEditAdvertiserAssignedTargetingOptionsRequest to
+ *    include in the query.
+ *  @param advertiserId Required. The ID of the advertiser.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersEditAssignedTargetingOptions
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_BulkEditAdvertiserAssignedTargetingOptionsRequest *)object
+                   advertiserId:(long long)advertiserId;
+
+@end
+
+/**
  *  Gets an advertiser.
  *
  *  Method: displayvideo.advertisers.get
@@ -2316,88 +2250,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  @return GTLRDisplayVideoQuery_AdvertisersGet
  */
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId;
-
-@end
-
-/**
- *  Lists assigned targeting options of an insertion order across targeting
- *  types.
- *
- *  Method: displayvideo.advertisers.insertionOrders.bulkListInsertionOrderAssignedTargetingOptions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
- */
-@interface GTLRDisplayVideoQuery_AdvertisersInsertionOrdersBulkListInsertionOrderAssignedTargetingOptions : GTLRDisplayVideoQuery
-
-/** Required. The ID of the advertiser the insertion order belongs to. */
-@property(nonatomic, assign) long long advertiserId;
-
-/**
- *  Allows filtering by assigned targeting option properties. Supported syntax:
- *  * Filter expressions are made up of one or more restrictions. * Restrictions
- *  can be combined by the logical operator `OR` on the same field. * A
- *  restriction has the form of `{field} {operator} {value}`. * The operator
- *  must be `EQUALS (=)`. * Supported fields: - `targetingType` - `inheritance`
- *  Examples: * AssignedTargetingOptions of targeting type
- *  TARGETING_TYPE_PROXIMITY_LOCATION_LIST or TARGETING_TYPE_CHANNEL
- *  `targetingType="TARGETING_TYPE_PROXIMITY_LOCATION_LIST" OR
- *  targetingType="TARGETING_TYPE_CHANNEL"` * AssignedTargetingOptions with
- *  inheritance status of NOT_INHERITED or INHERITED_FROM_PARTNER
- *  `inheritance="NOT_INHERITED" OR inheritance="INHERITED_FROM_PARTNER"` The
- *  length of this field should be no more than 500 characters.
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/**
- *  Required. The ID of the insertion order to list assigned targeting options
- *  for.
- */
-@property(nonatomic, assign) long long insertionOrderId;
-
-/**
- *  Field by which to sort the list. Acceptable values are: * `targetingType`
- *  (default) The default sorting order is ascending. To specify descending
- *  order for a field, a suffix "desc" should be added to the field name.
- *  Example: `targetingType desc`.
- */
-@property(nonatomic, copy, nullable) NSString *orderBy;
-
-/**
- *  Requested page size. The size must be an integer between `1` and `5000`. If
- *  unspecified, the default is `5000`. Returns error code `INVALID_ARGUMENT` if
- *  an invalid value is specified.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A token that lets the client fetch the next page of results. Typically, this
- *  is the value of next_page_token returned from the previous call to
- *  `BulkListInsertionOrderAssignedTargetingOptions` method. If not specified,
- *  the first page of results will be returned.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c
- *  GTLRDisplayVideo_BulkListInsertionOrderAssignedTargetingOptionsResponse.
- *
- *  Lists assigned targeting options of an insertion order across targeting
- *  types.
- *
- *  @param advertiserId Required. The ID of the advertiser the insertion order
- *    belongs to.
- *  @param insertionOrderId Required. The ID of the insertion order to list
- *    assigned targeting options for.
- *
- *  @return GTLRDisplayVideoQuery_AdvertisersInsertionOrdersBulkListInsertionOrderAssignedTargetingOptions
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithAdvertiserId:(long long)advertiserId
-                     insertionOrderId:(long long)insertionOrderId;
 
 @end
 
@@ -2586,6 +2438,88 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        information.
  */
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId;
+
+@end
+
+/**
+ *  Lists assigned targeting options of an insertion order across targeting
+ *  types.
+ *
+ *  Method: displayvideo.advertisers.insertionOrders.listAssignedTargetingOptions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersInsertionOrdersListAssignedTargetingOptions : GTLRDisplayVideoQuery
+
+/** Required. The ID of the advertiser the insertion order belongs to. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Allows filtering by assigned targeting option properties. Supported syntax:
+ *  * Filter expressions are made up of one or more restrictions. * Restrictions
+ *  can be combined by the logical operator `OR` on the same field. * A
+ *  restriction has the form of `{field} {operator} {value}`. * The operator
+ *  must be `EQUALS (=)`. * Supported fields: - `targetingType` - `inheritance`
+ *  Examples: * AssignedTargetingOptions of targeting type
+ *  TARGETING_TYPE_PROXIMITY_LOCATION_LIST or TARGETING_TYPE_CHANNEL
+ *  `targetingType="TARGETING_TYPE_PROXIMITY_LOCATION_LIST" OR
+ *  targetingType="TARGETING_TYPE_CHANNEL"` * AssignedTargetingOptions with
+ *  inheritance status of NOT_INHERITED or INHERITED_FROM_PARTNER
+ *  `inheritance="NOT_INHERITED" OR inheritance="INHERITED_FROM_PARTNER"` The
+ *  length of this field should be no more than 500 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Required. The ID of the insertion order to list assigned targeting options
+ *  for.
+ */
+@property(nonatomic, assign) long long insertionOrderId;
+
+/**
+ *  Field by which to sort the list. Acceptable values are: * `targetingType`
+ *  (default) The default sorting order is ascending. To specify descending
+ *  order for a field, a suffix "desc" should be added to the field name.
+ *  Example: `targetingType desc`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Requested page size. The size must be an integer between `1` and `5000`. If
+ *  unspecified, the default is `5000`. Returns error code `INVALID_ARGUMENT` if
+ *  an invalid value is specified.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token that lets the client fetch the next page of results. Typically, this
+ *  is the value of next_page_token returned from the previous call to
+ *  `BulkListInsertionOrderAssignedTargetingOptions` method. If not specified,
+ *  the first page of results will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRDisplayVideo_BulkListInsertionOrderAssignedTargetingOptionsResponse.
+ *
+ *  Lists assigned targeting options of an insertion order across targeting
+ *  types.
+ *
+ *  @param advertiserId Required. The ID of the advertiser the insertion order
+ *    belongs to.
+ *  @param insertionOrderId Required. The ID of the insertion order to list
+ *    assigned targeting options for.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersInsertionOrdersListAssignedTargetingOptions
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                     insertionOrderId:(long long)insertionOrderId;
 
 @end
 
@@ -3447,73 +3381,56 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @end
 
 /**
- *  Bulk edits targeting options under a single line item. The operation will
+ *  Bulk edits targeting options under multiple line items. The operation will
  *  delete the assigned targeting options provided in
- *  BulkEditLineItemAssignedTargetingOptionsRequest.delete_requests and then
- *  create the assigned targeting options provided in
- *  BulkEditLineItemAssignedTargetingOptionsRequest.create_requests. Requests to
- *  this endpoint cannot be made concurrently with the following requests
- *  updating the same line item: * BulkEditLineItemAssignedTargetingOptions *
- *  UpdateLineItem * CreateLineItemAssignedTargetingOption *
- *  DeleteLineItemAssignedTargetingOption
+ *  BulkEditAssignedTargetingOptionsRequest.delete_requests and then create the
+ *  assigned targeting options provided in
+ *  BulkEditAssignedTargetingOptionsRequest.create_requests .
  *
- *  Method: displayvideo.advertisers.lineItems.bulkEditLineItemAssignedTargetingOptions
+ *  Method: displayvideo.advertisers.lineItems.bulkEditAssignedTargetingOptions
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
  */
-@interface GTLRDisplayVideoQuery_AdvertisersLineItemsBulkEditLineItemAssignedTargetingOptions : GTLRDisplayVideoQuery
+@interface GTLRDisplayVideoQuery_AdvertisersLineItemsBulkEditAssignedTargetingOptions : GTLRDisplayVideoQuery
 
-/** Required. The ID of the advertiser the line item belongs to. */
+/** Required. The ID of the advertiser the line items belong to. */
 @property(nonatomic, assign) long long advertiserId;
 
 /**
- *  Required. The ID of the line item the assigned targeting option will belong
- *  to.
- */
-@property(nonatomic, assign) long long lineItemId;
-
-/**
- *  Fetches a @c
- *  GTLRDisplayVideo_BulkEditLineItemAssignedTargetingOptionsResponse.
+ *  Fetches a @c GTLRDisplayVideo_BulkEditAssignedTargetingOptionsResponse.
  *
- *  Bulk edits targeting options under a single line item. The operation will
+ *  Bulk edits targeting options under multiple line items. The operation will
  *  delete the assigned targeting options provided in
- *  BulkEditLineItemAssignedTargetingOptionsRequest.delete_requests and then
- *  create the assigned targeting options provided in
- *  BulkEditLineItemAssignedTargetingOptionsRequest.create_requests. Requests to
- *  this endpoint cannot be made concurrently with the following requests
- *  updating the same line item: * BulkEditLineItemAssignedTargetingOptions *
- *  UpdateLineItem * CreateLineItemAssignedTargetingOption *
- *  DeleteLineItemAssignedTargetingOption
+ *  BulkEditAssignedTargetingOptionsRequest.delete_requests and then create the
+ *  assigned targeting options provided in
+ *  BulkEditAssignedTargetingOptionsRequest.create_requests .
  *
  *  @param object The @c
- *    GTLRDisplayVideo_BulkEditLineItemAssignedTargetingOptionsRequest to
- *    include in the query.
- *  @param advertiserId Required. The ID of the advertiser the line item belongs
+ *    GTLRDisplayVideo_BulkEditAssignedTargetingOptionsRequest to include in the
+ *    query.
+ *  @param advertiserId Required. The ID of the advertiser the line items belong
  *    to.
- *  @param lineItemId Required. The ID of the line item the assigned targeting
- *    option will belong to.
  *
- *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsBulkEditLineItemAssignedTargetingOptions
+ *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsBulkEditAssignedTargetingOptions
  */
-+ (instancetype)queryWithObject:(GTLRDisplayVideo_BulkEditLineItemAssignedTargetingOptionsRequest *)object
-                   advertiserId:(long long)advertiserId
-                     lineItemId:(long long)lineItemId;
++ (instancetype)queryWithObject:(GTLRDisplayVideo_BulkEditAssignedTargetingOptionsRequest *)object
+                   advertiserId:(long long)advertiserId;
 
 @end
 
 /**
- *  Lists assigned targeting options of a line item across targeting types.
+ *  Lists assigned targeting options for multiple line items across targeting
+ *  types.
  *
- *  Method: displayvideo.advertisers.lineItems.bulkListLineItemAssignedTargetingOptions
+ *  Method: displayvideo.advertisers.lineItems.bulkListAssignedTargetingOptions
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
  */
-@interface GTLRDisplayVideoQuery_AdvertisersLineItemsBulkListLineItemAssignedTargetingOptions : GTLRDisplayVideoQuery
+@interface GTLRDisplayVideoQuery_AdvertisersLineItemsBulkListAssignedTargetingOptions : GTLRDisplayVideoQuery
 
-/** Required. The ID of the advertiser the line item belongs to. */
+/** Required. The ID of the advertiser the line items belongs to. */
 @property(nonatomic, assign) long long advertiserId;
 
 /**
@@ -3533,15 +3450,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Required. The ID of the line item to list assigned targeting options for.
+ *  Required. The IDs of the line items to list assigned targeting options for.
+ *
+ *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, assign) long long lineItemId;
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *lineItemIds;
 
 /**
- *  Field by which to sort the list. Acceptable values are: * `targetingType`
- *  (default) The default sorting order is ascending. To specify descending
- *  order for a field, a suffix "desc" should be added to the field name.
- *  Example: `targetingType desc`.
+ *  Field by which to sort the list. Acceptable values are: * `lineItemId`
+ *  (default) * `assignedTargetingOption.targetingType` The default sorting
+ *  order is ascending. To specify descending order for a field, a suffix "desc"
+ *  should be added to the field name. Example: `targetingType desc`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -3554,31 +3473,56 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 
 /**
  *  A token that lets the client fetch the next page of results. Typically, this
- *  is the value of next_page_token returned from the previous call to
- *  `BulkListLineItemAssignedTargetingOptions` method. If not specified, the
- *  first page of results will be returned.
+ *  is the value of next_page_token returned from the previous call to the
+ *  `BulkListAssignedTargetingOptions` method. If not specified, the first page
+ *  of results will be returned.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Fetches a @c
- *  GTLRDisplayVideo_BulkListLineItemAssignedTargetingOptionsResponse.
+ *  Fetches a @c GTLRDisplayVideo_BulkListAssignedTargetingOptionsResponse.
  *
- *  Lists assigned targeting options of a line item across targeting types.
+ *  Lists assigned targeting options for multiple line items across targeting
+ *  types.
  *
- *  @param advertiserId Required. The ID of the advertiser the line item belongs
- *    to.
- *  @param lineItemId Required. The ID of the line item to list assigned
- *    targeting options for.
+ *  @param advertiserId Required. The ID of the advertiser the line items
+ *    belongs to.
  *
- *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsBulkListLineItemAssignedTargetingOptions
+ *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsBulkListAssignedTargetingOptions
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithAdvertiserId:(long long)advertiserId
-                           lineItemId:(long long)lineItemId;
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId;
+
+@end
+
+/**
+ *  Updates multiple line items.
+ *
+ *  Method: displayvideo.advertisers.lineItems.bulkUpdate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersLineItemsBulkUpdate : GTLRDisplayVideoQuery
+
+@property(nonatomic, copy, nullable) NSString *advertisersId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_BulkUpdateLineItemsResponse.
+ *
+ *  Updates multiple line items.
+ *
+ *  @param object The @c GTLRDisplayVideo_BulkUpdateLineItemsRequest to include
+ *    in the query.
+ *  @param advertisersId NSString
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsBulkUpdate
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_BulkUpdateLineItemsRequest *)object
+                  advertisersId:(NSString *)advertisersId;
 
 @end
 
@@ -5313,6 +5257,72 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        information.
  */
 + (instancetype)query;
+
+@end
+
+/**
+ *  Lists assigned targeting options of an advertiser across targeting types.
+ *
+ *  Method: displayvideo.advertisers.listAssignedTargetingOptions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersListAssignedTargetingOptions : GTLRDisplayVideoQuery
+
+/** Required. The ID of the advertiser the line item belongs to. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Allows filtering by assigned targeting option properties. Supported syntax:
+ *  * Filter expressions are made up of one or more restrictions. * Restrictions
+ *  can be combined by the logical operator `OR`.. * A restriction has the form
+ *  of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. *
+ *  Supported fields: - `targetingType` Examples: * targetingType with value
+ *  TARGETING_TYPE_CHANNEL `targetingType="TARGETING_TYPE_CHANNEL"` The length
+ *  of this field should be no more than 500 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Field by which to sort the list. Acceptable values are: * `targetingType`
+ *  (default) The default sorting order is ascending. To specify descending
+ *  order for a field, a suffix "desc" should be added to the field name.
+ *  Example: `targetingType desc`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Requested page size. The size must be an integer between `1` and `5000`. If
+ *  unspecified, the default is '5000'. Returns error code `INVALID_ARGUMENT` if
+ *  an invalid value is specified.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token that lets the client fetch the next page of results. Typically, this
+ *  is the value of next_page_token returned from the previous call to
+ *  `BulkListAdvertiserAssignedTargetingOptions` method. If not specified, the
+ *  first page of results will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRDisplayVideo_BulkListAdvertiserAssignedTargetingOptionsResponse.
+ *
+ *  Lists assigned targeting options of an advertiser across targeting types.
+ *
+ *  @param advertiserId Required. The ID of the advertiser the line item belongs
+ *    to.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersListAssignedTargetingOptions
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId;
 
 @end
 
@@ -7148,8 +7158,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  Required. Identifies the type of this assigned targeting option. Supported
  *  targeting types: * `TARGETING_TYPE_CHANNEL` *
  *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
- *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
- *  `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL`
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -7303,8 +7312,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  @param targetingType Required. Identifies the type of this assigned
  *    targeting option. Supported targeting types: * `TARGETING_TYPE_CHANNEL` *
  *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
- *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
- *    `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL`
+ *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
  *  @param assignedTargetingOptionId Required. An identifier unique to the
  *    targeting type in this advertiser that identifies the assigned targeting
  *    option being requested.
@@ -7509,8 +7517,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  Required. Identifies the type of assigned targeting options to list.
  *  Supported targeting types: * `TARGETING_TYPE_CHANNEL` *
  *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
- *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
- *  `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL`
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -7665,8 +7672,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  @param targetingType Required. Identifies the type of assigned targeting
  *    options to list. Supported targeting types: * `TARGETING_TYPE_CHANNEL` *
  *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
- *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
- *    `TARGETING_TYPE_YOUTUBE_VIDEO` * `TARGETING_TYPE_YOUTUBE_CHANNEL`
+ *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
  *
  *  Likely values for @c targetingType:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -9808,45 +9814,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @end
 
 /**
- *  Bulk edits targeting options under a single partner. The operation will
- *  delete the assigned targeting options provided in
- *  BulkEditPartnerAssignedTargetingOptionsRequest.deleteRequests and then
- *  create the assigned targeting options provided in
- *  BulkEditPartnerAssignedTargetingOptionsRequest.createRequests .
- *
- *  Method: displayvideo.partners.bulkEditPartnerAssignedTargetingOptions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
- */
-@interface GTLRDisplayVideoQuery_PartnersBulkEditPartnerAssignedTargetingOptions : GTLRDisplayVideoQuery
-
-/** Required. The ID of the partner. */
-@property(nonatomic, assign) long long partnerId;
-
-/**
- *  Fetches a @c
- *  GTLRDisplayVideo_BulkEditPartnerAssignedTargetingOptionsResponse.
- *
- *  Bulk edits targeting options under a single partner. The operation will
- *  delete the assigned targeting options provided in
- *  BulkEditPartnerAssignedTargetingOptionsRequest.deleteRequests and then
- *  create the assigned targeting options provided in
- *  BulkEditPartnerAssignedTargetingOptionsRequest.createRequests .
- *
- *  @param object The @c
- *    GTLRDisplayVideo_BulkEditPartnerAssignedTargetingOptionsRequest to include
- *    in the query.
- *  @param partnerId Required. The ID of the partner.
- *
- *  @return GTLRDisplayVideoQuery_PartnersBulkEditPartnerAssignedTargetingOptions
- */
-+ (instancetype)queryWithObject:(GTLRDisplayVideo_BulkEditPartnerAssignedTargetingOptionsRequest *)object
-                      partnerId:(long long)partnerId;
-
-@end
-
-/**
  *  Creates a new channel. Returns the newly created channel if successful.
  *
  *  Method: displayvideo.partners.channels.create
@@ -10248,6 +10215,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 + (instancetype)queryWithObject:(GTLRDisplayVideo_ReplaceSitesRequest *)object
                       partnerId:(long long)partnerId
                       channelId:(long long)channelId;
+
+@end
+
+/**
+ *  Edits targeting options under a single partner. The operation will delete
+ *  the assigned targeting options provided in
+ *  BulkEditPartnerAssignedTargetingOptionsRequest.deleteRequests and then
+ *  create the assigned targeting options provided in
+ *  BulkEditPartnerAssignedTargetingOptionsRequest.createRequests .
+ *
+ *  Method: displayvideo.partners.editAssignedTargetingOptions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_PartnersEditAssignedTargetingOptions : GTLRDisplayVideoQuery
+
+/** Required. The ID of the partner. */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Fetches a @c
+ *  GTLRDisplayVideo_BulkEditPartnerAssignedTargetingOptionsResponse.
+ *
+ *  Edits targeting options under a single partner. The operation will delete
+ *  the assigned targeting options provided in
+ *  BulkEditPartnerAssignedTargetingOptionsRequest.deleteRequests and then
+ *  create the assigned targeting options provided in
+ *  BulkEditPartnerAssignedTargetingOptionsRequest.createRequests .
+ *
+ *  @param object The @c
+ *    GTLRDisplayVideo_BulkEditPartnerAssignedTargetingOptionsRequest to include
+ *    in the query.
+ *  @param partnerId Required. The ID of the partner.
+ *
+ *  @return GTLRDisplayVideoQuery_PartnersEditAssignedTargetingOptions
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_BulkEditPartnerAssignedTargetingOptionsRequest *)object
+                      partnerId:(long long)partnerId;
 
 @end
 

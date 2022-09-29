@@ -1282,8 +1282,8 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1Task
 @dynamic createTime, descriptionProperty, displayName, executionSpec,
-         executionStatus, labels, name, spark, state, triggerSpec, uid,
-         updateTime;
+         executionStatus, labels, name, notebook, spark, state, triggerSpec,
+         uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1404,6 +1404,25 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"networkTags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1TaskNotebookTaskConfig
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1TaskNotebookTaskConfig
+@dynamic archiveUris, fileUris, infrastructureSpec, notebook;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"archiveUris" : [NSString class],
+    @"fileUris" : [NSString class]
   };
   return map;
 }

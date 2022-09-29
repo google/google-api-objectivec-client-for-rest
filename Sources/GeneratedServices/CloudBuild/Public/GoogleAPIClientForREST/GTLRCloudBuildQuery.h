@@ -1404,6 +1404,294 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Batch connecting GitLab repositories to Cloud Build. This API is
+ *  experimental.
+ *
+ *  Method: cloudbuild.projects.locations.gitLabConfigs.connectedRepositories.batchCreate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsConnectedRepositoriesBatchCreate : GTLRCloudBuildQuery
+
+/**
+ *  The name of the `GitLabConfig` that adds connected repositories. Format:
+ *  `projects/{project}/locations/{location}/gitLabConfigs/{config}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Operation.
+ *
+ *  Batch connecting GitLab repositories to Cloud Build. This API is
+ *  experimental.
+ *
+ *  @param object The @c
+ *    GTLRCloudBuild_BatchCreateGitLabConnectedRepositoriesRequest to include in
+ *    the query.
+ *  @param parent The name of the `GitLabConfig` that adds connected
+ *    repositories. Format:
+ *    `projects/{project}/locations/{location}/gitLabConfigs/{config}`
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsConnectedRepositoriesBatchCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudBuild_BatchCreateGitLabConnectedRepositoriesRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new `GitLabConfig`. This API is experimental
+ *
+ *  Method: cloudbuild.projects.locations.gitLabConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsCreate : GTLRCloudBuildQuery
+
+/**
+ *  Optional. The ID to use for the GitLabConfig, which will become the final
+ *  component of the GitLabConfig’s resource name. gitlab_config_id must meet
+ *  the following requirements: + They must contain only alphanumeric characters
+ *  and dashes. + They can be 1-64 characters long. + They must begin and end
+ *  with an alphanumeric character
+ */
+@property(nonatomic, copy, nullable) NSString *gitlabConfigId;
+
+/** Required. Name of the parent resource. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Operation.
+ *
+ *  Creates a new `GitLabConfig`. This API is experimental
+ *
+ *  @param object The @c GTLRCloudBuild_GitLabConfig to include in the query.
+ *  @param parent Required. Name of the parent resource.
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudBuild_GitLabConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a `GitLabConfig`. This API is experimental
+ *
+ *  Method: cloudbuild.projects.locations.gitLabConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsDelete : GTLRCloudBuildQuery
+
+/** Required. The config resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Operation.
+ *
+ *  Delete a `GitLabConfig`. This API is experimental
+ *
+ *  @param name Required. The config resource name.
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a `GitLabConfig`. This API is experimental
+ *
+ *  Method: cloudbuild.projects.locations.gitLabConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsGet : GTLRCloudBuildQuery
+
+/** Required. The config resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_GitLabConfig.
+ *
+ *  Retrieves a `GitLabConfig`. This API is experimental
+ *
+ *  @param name Required. The config resource name.
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List all `GitLabConfigs` for a given project. This API is experimental
+ *
+ *  Method: cloudbuild.projects.locations.gitLabConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsList : GTLRCloudBuildQuery
+
+/**
+ *  The maximum number of configs to return. The service may return fewer than
+ *  this value. If unspecified, at most 50 configs will be returned. The maximum
+ *  value is 1000;, values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous ‘ListGitlabConfigsRequest’ call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to ‘ListGitlabConfigsRequest’ must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Name of the parent resource */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_ListGitLabConfigsResponse.
+ *
+ *  List all `GitLabConfigs` for a given project. This API is experimental
+ *
+ *  @param parent Required. Name of the parent resource
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an existing `GitLabConfig`. This API is experimental
+ *
+ *  Method: cloudbuild.projects.locations.gitLabConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsPatch : GTLRCloudBuildQuery
+
+/** The resource name for the config. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Update mask for the resource. If this is set, the server will only update
+ *  the fields specified in the field mask. Otherwise, a full update of the
+ *  mutable resource fields will be performed.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Operation.
+ *
+ *  Updates an existing `GitLabConfig`. This API is experimental
+ *
+ *  @param object The @c GTLRCloudBuild_GitLabConfig to include in the query.
+ *  @param name The resource name for the config.
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudBuild_GitLabConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Remove a GitLab repository from a given GitLabConfig's connected
+ *  repositories. This API is experimental.
+ *
+ *  Method: cloudbuild.projects.locations.gitLabConfigs.removeGitLabConnectedRepository
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsRemoveGitLabConnectedRepository : GTLRCloudBuildQuery
+
+/**
+ *  Required. The name of the `GitLabConfig` to remove a connected repository.
+ *  Format: `projects/{project}/locations/{location}/gitLabConfigs/{config}`
+ */
+@property(nonatomic, copy, nullable) NSString *config;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Empty.
+ *
+ *  Remove a GitLab repository from a given GitLabConfig's connected
+ *  repositories. This API is experimental.
+ *
+ *  @param object The @c GTLRCloudBuild_RemoveGitLabConnectedRepositoryRequest
+ *    to include in the query.
+ *  @param config Required. The name of the `GitLabConfig` to remove a connected
+ *    repository. Format:
+ *    `projects/{project}/locations/{location}/gitLabConfigs/{config}`
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsRemoveGitLabConnectedRepository
+ */
++ (instancetype)queryWithObject:(GTLRCloudBuild_RemoveGitLabConnectedRepositoryRequest *)object
+                         config:(NSString *)config;
+
+@end
+
+/**
+ *  List all repositories for a given `GitLabConfig`. This API is experimental
+ *
+ *  Method: cloudbuild.projects.locations.gitLabConfigs.repos.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsReposList : GTLRCloudBuildQuery
+
+/**
+ *  The maximum number of repositories to return. The service may return fewer
+ *  than this value.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous ListGitLabRepositoriesRequest` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListGitLabRepositoriesRequest` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Name of the parent resource. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_ListGitLabRepositoriesResponse.
+ *
+ *  List all repositories for a given `GitLabConfig`. This API is experimental
+ *
+ *  @param parent Required. Name of the parent resource.
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsGitLabConfigsReposList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not guaranteed.
  *  If the server doesn't support this method, it returns

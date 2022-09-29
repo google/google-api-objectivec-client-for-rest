@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Version History API (versionhistory/v1)
+//   versionhistory.googleapis.com API (versionhistory/v1)
 // Description:
 //   Version History API - Prod
 // Documentation:

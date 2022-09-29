@@ -672,14 +672,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_
  */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_DestinationNotCrawlableEvidence_Reason_ReasonUnspecified;
 /**
- *  Crawler was disallowed by the site's robots exclusion file (e.g.,
+ *  Crawler was disallowed by the site's robots exclusion file (for example,
  *  robots.txt).
  *
  *  Value: "ROBOTED_DENIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_DestinationNotCrawlableEvidence_Reason_RobotedDenied;
 /**
- *  Timed out reading site's robots exclusion file (e.g., robots.txt).
+ *  Timed out reading site's robots exclusion file (for example, robots.txt).
  *
  *  Value: "TIMEOUT_ROBOTS"
  */
@@ -691,7 +691,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_DestinationNotCrawlableE
  */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_DestinationNotCrawlableEvidence_Reason_Unknown;
 /**
- *  Site's robots exclusion file (e.g., robots.txt) was unreachable.
+ *  Site's robots exclusion file (for example, robots.txt) was unreachable.
  *
  *  Value: "UNREACHABLE_ROBOTS"
  */
@@ -1041,6 +1041,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_MediaFile_MimeType_Video
  *  Value: "APPROVED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_PolicyCompliance_Status_Approved;
+/**
+ *  Certificates are required for the creative to be served in some regions. For
+ *  more information about creative certification, refer to:
+ *  https://support.google.com/authorizedbuyers/answer/7450776
+ *
+ *  Value: "CERTIFICATE_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_PolicyCompliance_Status_CertificateRequired;
 /**
  *  Creative cannot serve.
  *
@@ -1724,7 +1732,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @interface GTLRRealTimeBidding_Bidder : GTLRObject
 
 /**
- *  Output only. A flag to bypass pretargeting for private auctions and
+ *  Output only. An option to bypass pretargeting for private auctions and
  *  preferred deals. When true, bid requests from these nonguaranteed deals will
  *  always be sent. When false, bid requests will be subject to regular
  *  pretargeting configurations. Programmatic Guaranteed deals will always be
@@ -1777,9 +1785,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @interface GTLRRealTimeBidding_Buyer : GTLRObject
 
 /**
- *  Output only. The number of creatives that this buyer submitted via the API
- *  or bid with in the last 30 days. This is counted against the maximum number
- *  of active creatives.
+ *  Output only. The number of creatives that this buyer submitted through the
+ *  API or bid with in the last 30 days. This is counted against the maximum
+ *  number of active creatives.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1869,7 +1877,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
  */
 @property(nonatomic, strong, nullable) NSNumber *agencyId;
 
-/** Output only. The last update timestamp of the creative via API. */
+/** Output only. The last update timestamp of the creative through the API. */
 @property(nonatomic, strong, nullable) GTLRDateTime *apiUpdateTime;
 
 /**
@@ -1959,6 +1967,15 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 
 /** A native creative. */
 @property(nonatomic, strong, nullable) GTLRRealTimeBidding_NativeContent *native;
+
+/**
+ *  Experimental field that can be used during the [FLEDGE Origin
+ *  Trial](/authorized-buyers/rtb/fledge-origin-trial). The URL to fetch an
+ *  interest group ad used in [TURTLEDOVE on-device
+ *  auction](https://github.com/WICG/turtledove/blob/main/FLEDGE.md#1-browsers-record-interest-groups").
+ *  This should be unique among all creatives for a given `accountId`.
+ */
+@property(nonatomic, copy, nullable) NSString *renderUrl;
 
 /**
  *  All restricted categories for the ads that may be shown from this creative.
@@ -2178,16 +2195,16 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
  *    @arg @c kGTLRRealTimeBidding_DestinationNotCrawlableEvidence_Reason_ReasonUnspecified
  *        Default value that should never be used. (Value: "REASON_UNSPECIFIED")
  *    @arg @c kGTLRRealTimeBidding_DestinationNotCrawlableEvidence_Reason_RobotedDenied
- *        Crawler was disallowed by the site's robots exclusion file (e.g.,
- *        robots.txt). (Value: "ROBOTED_DENIED")
+ *        Crawler was disallowed by the site's robots exclusion file (for
+ *        example, robots.txt). (Value: "ROBOTED_DENIED")
  *    @arg @c kGTLRRealTimeBidding_DestinationNotCrawlableEvidence_Reason_TimeoutRobots
- *        Timed out reading site's robots exclusion file (e.g., robots.txt).
- *        (Value: "TIMEOUT_ROBOTS")
+ *        Timed out reading site's robots exclusion file (for example,
+ *        robots.txt). (Value: "TIMEOUT_ROBOTS")
  *    @arg @c kGTLRRealTimeBidding_DestinationNotCrawlableEvidence_Reason_Unknown
  *        Unknown reason. (Value: "UNKNOWN")
  *    @arg @c kGTLRRealTimeBidding_DestinationNotCrawlableEvidence_Reason_UnreachableRobots
- *        Site's robots exclusion file (e.g., robots.txt) was unreachable.
- *        (Value: "UNREACHABLE_ROBOTS")
+ *        Site's robots exclusion file (for example, robots.txt) was
+ *        unreachable. (Value: "UNREACHABLE_ROBOTS")
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -2220,7 +2237,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, copy, nullable) NSString *expandedUrl;
 
 /**
- *  HTTP error code (e.g. 404 or 5xx)
+ *  HTTP error code (for example, 404 or 5xx)
  *
  *  Uses NSNumber of intValue.
  */
@@ -2312,7 +2329,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
  */
 @interface GTLRRealTimeBidding_DomainCallEvidence : GTLRObject
 
-/** Breakdown of the most frequent domains called via HTTP by the creative. */
+/**
+ *  Breakdown of the most frequent domains called through HTTP by the creative.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRRealTimeBidding_DomainCalls *> *topHttpCallDomains;
 
 /**
@@ -2903,13 +2922,18 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @interface GTLRRealTimeBidding_PolicyCompliance : GTLRObject
 
 /**
- *  Serving status for the given transaction type (e.g., open auction, deals) or
- *  region (e.g., China, Russia). Can be used to filter the response of the
- *  creatives.list method.
+ *  Serving status for the given transaction type (for example, open auction,
+ *  deals) or region (for example, China, Russia). Can be used to filter the
+ *  response of the creatives.list method.
  *
  *  Likely values:
  *    @arg @c kGTLRRealTimeBidding_PolicyCompliance_Status_Approved Creative is
  *        approved. (Value: "APPROVED")
+ *    @arg @c kGTLRRealTimeBidding_PolicyCompliance_Status_CertificateRequired
+ *        Certificates are required for the creative to be served in some
+ *        regions. For more information about creative certification, refer to:
+ *        https://support.google.com/authorizedbuyers/answer/7450776 (Value:
+ *        "CERTIFICATE_REQUIRED")
  *    @arg @c kGTLRRealTimeBidding_PolicyCompliance_Status_Disapproved Creative
  *        cannot serve. (Value: "DISAPPROVED")
  *    @arg @c kGTLRRealTimeBidding_PolicyCompliance_Status_PendingReview
@@ -2920,9 +2944,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, copy, nullable) NSString *status;
 
 /**
- *  Topics related to the policy compliance for this transaction type (e.g.,
- *  open auction, deals) or region (e.g., China, Russia). Topics may be present
- *  only if status is DISAPPROVED.
+ *  Topics related to the policy compliance for this transaction type (for
+ *  example, open auction, deals) or region (for example, China, Russia). Topics
+ *  may be present only if status is DISAPPROVED.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRealTimeBidding_PolicyTopicEntry *> *topics;
 
@@ -3167,6 +3191,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
  *  or the `BidRequest.site.publisher.id` / `BidRequest.app.publisher.id` field
  *  on the [OpenRTB
  *  protocol](https://developers.google.com/authorized-buyers/rtb/downloads/openrtb-adx-proto).
+ *  Publisher IDs will be returned in the order that they were entered.
  */
 @property(nonatomic, strong, nullable) GTLRRealTimeBidding_StringTargetingDimension *publisherTargeting;
 
@@ -3597,8 +3622,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
  *  `projects/{project_id}/subscriptions/{subscription_id}`. Subscription is
  *  created with pull delivery. All service accounts belonging to the bidder
  *  will have read access to this subscription. Subscriptions that are inactive
- *  for more than 90 days will be disabled. Please use watchCreatives to
- *  re-enable the subscription.
+ *  for more than 90 days will be disabled. Use watchCreatives to re-enable the
+ *  subscription.
  */
 @property(nonatomic, copy, nullable) NSString *subscription;
 

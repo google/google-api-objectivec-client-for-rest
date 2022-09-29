@@ -281,6 +281,38 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Deletes a transfer job. Deleting a transfer job sets its status to DELETED.
+ *
+ *  Method: storagetransfer.transferJobs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageTransferCloudPlatform
+ */
+@interface GTLRStorageTransferQuery_TransferJobsDelete : GTLRStorageTransferQuery
+
+/** Required. The job to delete. */
+@property(nonatomic, copy, nullable) NSString *jobName;
+
+/** Required. The ID of the Google Cloud project that owns the job. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRStorageTransfer_Empty.
+ *
+ *  Deletes a transfer job. Deleting a transfer job sets its status to DELETED.
+ *
+ *  @param jobName Required. The job to delete.
+ *  @param projectId Required. The ID of the Google Cloud project that owns the
+ *    job.
+ *
+ *  @return GTLRStorageTransferQuery_TransferJobsDelete
+ */
++ (instancetype)queryWithJobName:(NSString *)jobName
+                       projectId:(NSString *)projectId;
+
+@end
+
+/**
  *  Gets a transfer job.
  *
  *  Method: storagetransfer.transferJobs.get
@@ -399,9 +431,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Attempts to start a new TransferOperation for the current TransferJob. A
- *  TransferJob has a maximum of one active TransferOperation. If this method is
- *  called while a TransferOperation is active, an error will be returned.
+ *  Starts a new operation for the specified transfer job. A `TransferJob` has a
+ *  maximum of one active `TransferOperation`. If this method is called while a
+ *  `TransferOperation` is active, an error is returned.
  *
  *  Method: storagetransfer.transferJobs.run
  *
@@ -416,9 +448,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRStorageTransfer_Operation.
  *
- *  Attempts to start a new TransferOperation for the current TransferJob. A
- *  TransferJob has a maximum of one active TransferOperation. If this method is
- *  called while a TransferOperation is active, an error will be returned.
+ *  Starts a new operation for the specified transfer job. A `TransferJob` has a
+ *  maximum of one active `TransferOperation`. If this method is called while a
+ *  `TransferOperation` is active, an error is returned.
  *
  *  @param object The @c GTLRStorageTransfer_RunTransferJobRequest to include in
  *    the query.

@@ -64,6 +64,7 @@ NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Docs = @"DOCS";
 NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Drawings = @"DRAWINGS";
 NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Drive = @"DRIVE";
 NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Gmail = @"GMAIL";
+NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Meet = @"MEET";
 NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Sheets = @"SHEETS";
 NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Slides = @"SLIDES";
 NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_UnspecifiedHostApp = @"UNSPECIFIED_HOST_APP";

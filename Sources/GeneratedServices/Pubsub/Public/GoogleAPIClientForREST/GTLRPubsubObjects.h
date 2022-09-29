@@ -274,11 +274,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
- *  anyone who is authenticated with a Google account or a service account. *
- *  `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a Google service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  anyone who is authenticated with a Google account or a service account. Does
+ *  not include identities that come from external identity providers (IdPs)
+ *  through identity federation. * `user:{emailid}`: An email address that
+ *  represents a specific Google account. For example, `alice\@example.com` . *
+ *  `serviceAccount:{emailid}`: An email address that represents a Google
+ *  service account. For example, `my-other-app\@appspot.gserviceaccount.com`. *
  *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
  *  identifier for a [Kubernetes service
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
@@ -320,7 +321,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  */
 @interface GTLRPubsub_CreateSnapshotRequest : GTLRObject
 
-/** See Creating and managing labels. */
+/**
+ *  See [Creating and managing
+ *  labels](https://cloud.google.com/pubsub/docs/labels).
+ */
 @property(nonatomic, strong, nullable) GTLRPubsub_CreateSnapshotRequest_Labels *labels;
 
 /**
@@ -339,7 +343,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 
 /**
- *  See Creating and managing labels.
+ *  See [Creating and managing
+ *  labels](https://cloud.google.com/pubsub/docs/labels).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -949,8 +954,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  subscription was created without this attribute. The only supported values
  *  for the `x-goog-version` attribute are: * `v1beta1`: uses the push format
  *  defined in the v1beta1 Pub/Sub API. * `v1` or `v1beta2`: uses the push
- *  format defined in the v1 Pub/Sub API. For example: attributes {
- *  "x-goog-version": "v1" }
+ *  format defined in the v1 Pub/Sub API. For example: `attributes {
+ *  "x-goog-version": "v1" }`
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_PushConfig_Attributes *attributes;
 
@@ -982,8 +987,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  subscription was created without this attribute. The only supported values
  *  for the `x-goog-version` attribute are: * `v1beta1`: uses the push format
  *  defined in the v1beta1 Pub/Sub API. * `v1` or `v1beta2`: uses the push
- *  format defined in the v1 Pub/Sub API. For example: attributes {
- *  "x-goog-version": "v1" }
+ *  format defined in the v1 Pub/Sub API. For example: `attributes {
+ *  "x-goog-version": "v1" }`
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1245,7 +1250,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  The approximate amount of time (on a best-effort basis) Pub/Sub waits for
  *  the subscriber to acknowledge receipt before resending the message. In the
  *  interval after the message is delivered and before it is acknowledged, it is
- *  considered to be *outstanding*. During that time period, the message will
+ *  considered to be _outstanding_. During that time period, the message will
  *  not be redelivered (on a best-effort basis). For pull subscriptions, this
  *  value is used as the initial value for the ack deadline. To override this
  *  value for a given message, call `ModifyAckDeadline` with the corresponding
@@ -1331,7 +1336,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** See Creating and managing labels. */
+/**
+ *  See [Creating and managing
+ *  labels](https://cloud.google.com/pubsub/docs/labels).
+ */
 @property(nonatomic, strong, nullable) GTLRPubsub_Subscription_Labels *labels;
 
 /**
@@ -1417,7 +1425,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 
 /**
- *  See Creating and managing labels.
+ *  See [Creating and managing
+ *  labels](https://cloud.google.com/pubsub/docs/labels).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

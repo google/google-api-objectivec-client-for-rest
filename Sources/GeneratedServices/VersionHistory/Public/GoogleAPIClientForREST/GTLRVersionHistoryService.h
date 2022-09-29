@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Version History API (versionhistory/v1)
+//   versionhistory.googleapis.com API (versionhistory/v1)
 // Description:
 //   Version History API - Prod
 // Documentation:
@@ -22,7 +22,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  Service for executing Version History API queries.
+ *  Service for executing versionhistory.googleapis.com API queries.
  *
  *  Version History API - Prod
  */

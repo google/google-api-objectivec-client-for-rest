@@ -91,9 +91,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 
 /**
  *  Requested page size. The server may return fewer creatives than requested
- *  (due to timeout constraint) even if more are available via another call. If
- *  unspecified, server will pick an appropriate default. Acceptable values are
- *  1 to 1000, inclusive.
+ *  (due to timeout constraint) even if more are available through another call.
+ *  If unspecified, server will pick an appropriate default. Acceptable values
+ *  are 1 to 1000, inclusive.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -117,8 +117,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *  `buyers/456`. 3. The ID of the bidder itself. So for listing creatives
  *  pertaining to bidder (`123`), you would use `buyers/123`. If you want to
  *  access all creatives pertaining to both the bidder and all of its child seat
- *  accounts, you would use `bidders/{bidderAccountId}`, e.g., for all creatives
- *  pertaining to bidder (`123`), use `bidders/123`.
+ *  accounts, you would use `bidders/{bidderAccountId}`, for example, for all
+ *  creatives pertaining to bidder (`123`), use `bidders/123`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -161,8 +161,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    `buyers/456`. 3. The ID of the bidder itself. So for listing creatives
  *    pertaining to bidder (`123`), you would use `buyers/123`. If you want to
  *    access all creatives pertaining to both the bidder and all of its child
- *    seat accounts, you would use `bidders/{bidderAccountId}`, e.g., for all
- *    creatives pertaining to bidder (`123`), use `bidders/123`.
+ *    seat accounts, you would use `bidders/{bidderAccountId}`, for example, for
+ *    all creatives pertaining to bidder (`123`), use `bidders/123`.
  *
  *  @return GTLRRealTimeBiddingQuery_BiddersCreativesList
  *
@@ -996,14 +996,15 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 
 /**
  *  Order specification by which results should be sorted. If no sort order is
- *  specified, the results will be returned in an arbitrary order. Currently
- *  results can be sorted by `createTime`. Example: 'createTime DESC'.
+ *  specified, the results will be returned in alphabetic order based on the
+ *  publisher's publisher code. Results can be sorted by `createTime`. Example:
+ *  'createTime DESC'.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Requested page size. The server may return fewer results than requested (due
- *  to timeout constraint) even if more are available via another call. If
+ *  to timeout constraint) even if more are available through another call. If
  *  unspecified, the server will pick an appropriate default. Acceptable values
  *  are 1 to 5000, inclusive.
  */
@@ -1151,9 +1152,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 
 /**
  *  Requested page size. The server may return fewer creatives than requested
- *  (due to timeout constraint) even if more are available via another call. If
- *  unspecified, server will pick an appropriate default. Acceptable values are
- *  1 to 1000, inclusive.
+ *  (due to timeout constraint) even if more are available through another call.
+ *  If unspecified, server will pick an appropriate default. Acceptable values
+ *  are 1 to 1000, inclusive.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -1177,8 +1178,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *  `buyers/456`. 3. The ID of the bidder itself. So for listing creatives
  *  pertaining to bidder (`123`), you would use `buyers/123`. If you want to
  *  access all creatives pertaining to both the bidder and all of its child seat
- *  accounts, you would use `bidders/{bidderAccountId}`, e.g., for all creatives
- *  pertaining to bidder (`123`), use `bidders/123`.
+ *  accounts, you would use `bidders/{bidderAccountId}`, for example, for all
+ *  creatives pertaining to bidder (`123`), use `bidders/123`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1221,8 +1222,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    `buyers/456`. 3. The ID of the bidder itself. So for listing creatives
  *    pertaining to bidder (`123`), you would use `buyers/123`. If you want to
  *    access all creatives pertaining to both the bidder and all of its child
- *    seat accounts, you would use `bidders/{bidderAccountId}`, e.g., for all
- *    creatives pertaining to bidder (`123`), use `bidders/123`.
+ *    seat accounts, you would use `bidders/{bidderAccountId}`, for example, for
+ *    all creatives pertaining to bidder (`123`), use `bidders/123`.
  *
  *  @return GTLRRealTimeBiddingQuery_BuyersCreativesList
  *

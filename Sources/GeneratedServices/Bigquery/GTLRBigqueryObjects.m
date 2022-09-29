@@ -107,6 +107,7 @@ NSString * const kGTLRBigquery_Routine_DeterminismLevel_NotDeterministic = @"NOT
 // GTLRBigquery_Routine.language
 NSString * const kGTLRBigquery_Routine_Language_Javascript     = @"JAVASCRIPT";
 NSString * const kGTLRBigquery_Routine_Language_LanguageUnspecified = @"LANGUAGE_UNSPECIFIED";
+NSString * const kGTLRBigquery_Routine_Language_Python         = @"PYTHON";
 NSString * const kGTLRBigquery_Routine_Language_Sql            = @"SQL";
 
 // GTLRBigquery_Routine.routineType
@@ -796,6 +797,16 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
   return @{ @"nullMarker" : @"null_marker" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_DataMaskingStatistics
+//
+
+@implementation GTLRBigquery_DataMaskingStatistics
+@dynamic dataMaskingApplied;
 @end
 
 
@@ -1508,9 +1519,9 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 @implementation GTLRBigquery_JobConfigurationLoad
 @dynamic allowJaggedRows, allowQuotedNewlines, autodetect, clustering,
-         createDisposition, decimalTargetTypes,
-         destinationEncryptionConfiguration, destinationTable,
-         destinationTableProperties, encoding, fieldDelimiter,
+         connectionProperties, createDisposition, createSession,
+         decimalTargetTypes, destinationEncryptionConfiguration,
+         destinationTable, destinationTableProperties, encoding, fieldDelimiter,
          hivePartitioningOptions, ignoreUnknownValues, jsonExtension,
          maxBadRecords, nullMarker, parquetOptions,
          preserveAsciiControlCharacters, projectionFields, quote,
@@ -1520,6 +1531,7 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"connectionProperties" : [GTLRBigquery_ConnectionProperty class],
     @"decimalTargetTypes" : [NSString class],
     @"projectionFields" : [NSString class],
     @"schemaUpdateOptions" : [NSString class],
@@ -1654,11 +1666,11 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 //
 
 @implementation GTLRBigquery_JobStatistics
-@dynamic completionRatio, copyProperty, creationTime, endTime, extract, load,
-         numChildJobs, parentJobId, query, quotaDeferments, reservationId,
-         reservationUsage, rowLevelSecurityStatistics, scriptStatistics,
-         sessionInfo, startTime, totalBytesProcessed, totalSlotMs,
-         transactionInfo;
+@dynamic completionRatio, copyProperty, creationTime, dataMaskingStatistics,
+         endTime, extract, load, numChildJobs, parentJobId, query,
+         quotaDeferments, reservationId, reservationUsage,
+         rowLevelSecurityStatistics, scriptStatistics, sessionInfo, startTime,
+         totalBytesProcessed, totalSlotMs, transactionInfo;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1702,9 +1714,10 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
          estimatedBytesProcessed, mlStatistics, modelTraining,
          modelTrainingCurrentIteration, modelTrainingExpectedTotalIteration,
          numDmlAffectedRows, queryPlan, referencedRoutines, referencedTables,
-         reservationUsage, schema, searchStatistics, statementType, timeline,
-         totalBytesBilled, totalBytesProcessed, totalBytesProcessedAccuracy,
-         totalPartitionsProcessed, totalSlotMs, undeclaredQueryParameters;
+         reservationUsage, schema, searchStatistics, sparkStatistics,
+         statementType, timeline, totalBytesBilled, totalBytesProcessed,
+         totalBytesProcessedAccuracy, totalPartitionsProcessed, totalSlotMs,
+         undeclaredQueryParameters;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2512,6 +2525,25 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_SparkLoggingInfo
+//
+
+@implementation GTLRBigquery_SparkLoggingInfo
+@dynamic projectId, resourceType;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"projectId" : @"project_id",
+    @"resourceType" : @"resource_type"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_SparkOptions
 //
 
@@ -2538,6 +2570,40 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 //
 
 @implementation GTLRBigquery_SparkOptions_Properties
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_SparkStatistics
+//
+
+@implementation GTLRBigquery_SparkStatistics
+@dynamic endpoints, loggingInfo, sparkJobId, sparkJobLocation;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"loggingInfo" : @"logging_info",
+    @"sparkJobId" : @"spark_job_id",
+    @"sparkJobLocation" : @"spark_job_location"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_SparkStatistics_Endpoints
+//
+
+@implementation GTLRBigquery_SparkStatistics_Endpoints
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

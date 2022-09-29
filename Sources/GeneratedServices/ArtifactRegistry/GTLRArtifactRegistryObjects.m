@@ -301,6 +301,16 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRArtifactRegistry_KfpArtifact
+//
+
+@implementation GTLRArtifactRegistry_KfpArtifact
+@dynamic name, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRArtifactRegistry_ListDockerImagesResponse
 //
 
@@ -851,6 +861,47 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"aptArtifacts" : [GTLRArtifactRegistry_AptArtifact class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_UploadKfpArtifactMediaResponse
+//
+
+@implementation GTLRArtifactRegistry_UploadKfpArtifactMediaResponse
+@dynamic operation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_UploadKfpArtifactMetadata
+//
+
+@implementation GTLRArtifactRegistry_UploadKfpArtifactMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_UploadKfpArtifactRequest
+//
+
+@implementation GTLRArtifactRegistry_UploadKfpArtifactRequest
+@dynamic descriptionProperty, tags;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tags" : [NSString class]
   };
   return map;
 }

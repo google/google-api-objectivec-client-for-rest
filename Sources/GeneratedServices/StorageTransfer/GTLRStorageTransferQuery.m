@@ -169,6 +169,27 @@
 
 @end
 
+@implementation GTLRStorageTransferQuery_TransferJobsDelete
+
+@dynamic jobName, projectId;
+
++ (instancetype)queryWithJobName:(NSString *)jobName
+                       projectId:(NSString *)projectId {
+  NSArray *pathParams = @[ @"jobName" ];
+  NSString *pathURITemplate = @"v1/{+jobName}";
+  GTLRStorageTransferQuery_TransferJobsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.jobName = jobName;
+  query.projectId = projectId;
+  query.expectedObjectClass = [GTLRStorageTransfer_Empty class];
+  query.loggingName = @"storagetransfer.transferJobs.delete";
+  return query;
+}
+
+@end
+
 @implementation GTLRStorageTransferQuery_TransferJobsGet
 
 @dynamic jobName, projectId;

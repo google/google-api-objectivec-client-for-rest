@@ -2927,12 +2927,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *  checks at runtime. An example quota configuration in yaml format: quota:
  *  limits: - name: apiWriteQpsPerProject metric:
  *  library.googleapis.com/write_calls unit: "1/min/{project}" # rate limit for
- *  consumer projects values: STANDARD: 10000 # The metric rules bind all
- *  methods to the read_calls metric, # except for the UpdateBook and DeleteBook
- *  methods. These two methods # are mapped to the write_calls metric, with the
- *  UpdateBook method # consuming at twice rate as the DeleteBook method.
- *  metric_rules: - selector: "*" metric_costs:
- *  library.googleapis.com/read_calls: 1 - selector:
+ *  consumer projects values: STANDARD: 10000 (The metric rules bind all methods
+ *  to the read_calls metric, except for the UpdateBook and DeleteBook methods.
+ *  These two methods are mapped to the write_calls metric, with the UpdateBook
+ *  method consuming at twice rate as the DeleteBook method.) metric_rules: -
+ *  selector: "*" metric_costs: library.googleapis.com/read_calls: 1 - selector:
  *  google.example.library.v1.LibraryService.UpdateBook metric_costs:
  *  library.googleapis.com/write_calls: 2 - selector:
  *  google.example.library.v1.LibraryService.DeleteBook metric_costs:
@@ -2944,12 +2943,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  */
 @interface GTLRServiceConsumerManagement_Quota : GTLRObject
 
-/** List of `QuotaLimit` definitions for the service. */
+/** List of QuotaLimit definitions for the service. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_QuotaLimit *> *limits;
 
 /**
- *  List of `MetricRule` definitions, each one mapping a selected method to one
- *  or more metrics.
+ *  List of MetricRule definitions, each one mapping a selected method to one or
+ *  more metrics.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_MetricRule *> *metricRules;
 

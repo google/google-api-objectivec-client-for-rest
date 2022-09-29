@@ -208,7 +208,7 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_InvalidArgu
  */
 FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_NotFound;
 /**
- *  Not an error; returned on success HTTP Mapping: 200 OK
+ *  Not an error; returned on success. HTTP Mapping: 200 OK
  *
  *  Value: "OK"
  */
@@ -369,11 +369,12 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
- *  anyone who is authenticated with a Google account or a service account. *
- *  `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a Google service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  anyone who is authenticated with a Google account or a service account. Does
+ *  not include identities that come from external identity providers (IdPs)
+ *  through identity federation. * `user:{emailid}`: An email address that
+ *  represents a specific Google account. For example, `alice\@example.com` . *
+ *  `serviceAccount:{emailid}`: An email address that represents a Google
+ *  service account. For example, `my-other-app\@appspot.gserviceaccount.com`. *
  *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
  *  identifier for a [Kubernetes service
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
@@ -1440,7 +1441,7 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
  *        user-based access control, `PERMISSION_DENIED` must be used. HTTP
  *        Mapping: 404 Not Found (Value: "NOT_FOUND")
  *    @arg @c kGTLREventarc_StateCondition_Code_Ok Not an error; returned on
- *        success HTTP Mapping: 200 OK (Value: "OK")
+ *        success. HTTP Mapping: 200 OK (Value: "OK")
  *    @arg @c kGTLREventarc_StateCondition_Code_OutOfRange The operation was
  *        attempted past the valid range. E.g., seeking or reading past
  *        end-of-file. Unlike `INVALID_ARGUMENT`, this error indicates a problem

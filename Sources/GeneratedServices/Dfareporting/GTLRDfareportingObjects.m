@@ -1403,6 +1403,11 @@ NSString * const kGTLRDfareporting_UserRolePermission_Availability_SubaccountAnd
 NSString * const kGTLRDfareporting_UserRolePermission_Availability_SubaccountAndAccountByDefault = @"SUBACCOUNT_AND_ACCOUNT_BY_DEFAULT";
 NSString * const kGTLRDfareporting_UserRolePermission_Availability_UserProfileOnly = @"USER_PROFILE_ONLY";
 
+// GTLRDfareporting_UvarFilter.match
+NSString * const kGTLRDfareporting_UvarFilter_Match_Contains   = @"CONTAINS";
+NSString * const kGTLRDfareporting_UvarFilter_Match_Exact      = @"EXACT";
+NSString * const kGTLRDfareporting_UvarFilter_Match_Unspecified = @"UNSPECIFIED";
+
 // GTLRDfareporting_VideoFormat.fileType
 NSString * const kGTLRDfareporting_VideoFormat_FileType_Flv    = @"FLV";
 NSString * const kGTLRDfareporting_VideoFormat_FileType_M3u8   = @"M3U8";
@@ -3696,7 +3701,7 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 //
 
 @implementation GTLRDfareporting_EventFilter
-@dynamic dimensionFilter, kind;
+@dynamic dimensionFilter, kind, uvarFilter;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -6657,6 +6662,30 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 + (NSString *)collectionItemsKey {
   return @"userRoles";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_UvarFilter
+//
+
+@implementation GTLRDfareporting_UvarFilter
+@dynamic complement, index, kind, match, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end

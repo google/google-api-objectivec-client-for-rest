@@ -795,8 +795,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges;
 
 /**
- *  Cloud Endpoints (https://cloud.google.com/endpoints/) configuration for API
- *  handlers.
+ *  Google Cloud Endpoints (https://cloud.google.com/endpoints) configuration
+ *  for API handlers.
  */
 @interface GTLRAppengine_ApiConfigHandler : GTLRObject
 
@@ -1508,8 +1508,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 
 
 /**
- *  Cloud Endpoints (https://cloud.google.com/endpoints) configuration. The
- *  Endpoints API Service provides tooling for serving Open API and gRPC
+ *  Google Cloud Endpoints (https://cloud.google.com/endpoints) configuration.
+ *  The Endpoints API Service provides tooling for serving Open API and gRPC
  *  endpoints via an NGINX proxy. Only valid for App Engine Flexible environment
  *  deployments.The fields here refer to the name and configuration ID of a
  *  "service" resource in the Service Management API
@@ -3381,8 +3381,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @interface GTLRAppengine_Version : GTLRObject
 
 /**
- *  Serving configuration for Cloud Endpoints
- *  (https://cloud.google.com/endpoints/).Only returned in GET requests if
+ *  Serving configuration for Google Cloud Endpoints
+ *  (https://cloud.google.com/endpoints).Only returned in GET requests if
  *  view=FULL is set.
  */
 @property(nonatomic, strong, nullable) GTLRAppengine_ApiConfigHandler *apiConfig;

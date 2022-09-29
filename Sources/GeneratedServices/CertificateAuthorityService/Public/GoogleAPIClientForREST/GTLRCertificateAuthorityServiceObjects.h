@@ -469,7 +469,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_Reconciliati
  *  Value: "RETRY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_Retry;
-/** Value: "UNKNOWN_REPAIR_ACTION" */
+/**
+ *  Unknown repair action.
+ *
+ *  Value: "UNKNOWN_REPAIR_ACTION"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction;
 
 // ----------------------------------------------------------------------------
@@ -817,11 +821,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
- *  anyone who is authenticated with a Google account or a service account. *
- *  `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a Google service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  anyone who is authenticated with a Google account or a service account. Does
+ *  not include identities that come from external identity providers (IdPs)
+ *  through identity federation. * `user:{emailid}`: An email address that
+ *  represents a specific Google account. For example, `alice\@example.com` . *
+ *  `serviceAccount:{emailid}`: An email address that represents a Google
+ *  service account. For example, `my-other-app\@appspot.gserviceaccount.com`. *
  *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
  *  identifier for a [Kubernetes service
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
@@ -2591,7 +2596,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) NSNumber *deleteResource;
 
 /**
- *  exclusiveAction
+ *  Excluisive action returned by the CLH.
  *
  *  Likely values:
  *    @arg @c kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_Delete
@@ -2606,7 +2611,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *        needs to be resolved first- e.g. if a parent resource must be repaired
  *        before a child resource. (Value: "RETRY")
  *    @arg @c kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction
- *        Value "UNKNOWN_REPAIR_ACTION"
+ *        Unknown repair action. (Value: "UNKNOWN_REPAIR_ACTION")
  */
 @property(nonatomic, copy, nullable) NSString *exclusiveAction;
 

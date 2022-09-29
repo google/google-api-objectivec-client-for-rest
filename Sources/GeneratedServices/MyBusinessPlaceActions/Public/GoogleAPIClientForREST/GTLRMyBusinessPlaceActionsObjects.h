@@ -73,6 +73,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessPlaceActions_PlaceActionLink_P
  *  Value: "PLACE_ACTION_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessPlaceActions_PlaceActionLink_PlaceActionType_PlaceActionTypeUnspecified;
+/**
+ *  The action type is shopping, that can be delivery and/or pickup.
+ *
+ *  Value: "SHOP_ONLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessPlaceActions_PlaceActionLink_PlaceActionType_ShopOnline;
 
 // ----------------------------------------------------------------------------
 // GTLRMyBusinessPlaceActions_PlaceActionLink.providerType
@@ -141,6 +147,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessPlaceActions_PlaceActionTypeMe
  *  Value: "PLACE_ACTION_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessPlaceActions_PlaceActionTypeMetadata_PlaceActionType_PlaceActionTypeUnspecified;
+/**
+ *  The action type is shopping, that can be delivery and/or pickup.
+ *
+ *  Value: "SHOP_ONLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessPlaceActions_PlaceActionTypeMetadata_PlaceActionType_ShopOnline;
 
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
@@ -266,6 +278,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessPlaceActions_PlaceActionTypeMe
  *        "ONLINE_APPOINTMENT")
  *    @arg @c kGTLRMyBusinessPlaceActions_PlaceActionLink_PlaceActionType_PlaceActionTypeUnspecified
  *        Not specified. (Value: "PLACE_ACTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessPlaceActions_PlaceActionLink_PlaceActionType_ShopOnline
+ *        The action type is shopping, that can be delivery and/or pickup.
+ *        (Value: "SHOP_ONLINE")
  */
 @property(nonatomic, copy, nullable) NSString *placeActionType;
 
@@ -330,6 +345,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessPlaceActions_PlaceActionTypeMe
  *        "ONLINE_APPOINTMENT")
  *    @arg @c kGTLRMyBusinessPlaceActions_PlaceActionTypeMetadata_PlaceActionType_PlaceActionTypeUnspecified
  *        Not specified. (Value: "PLACE_ACTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessPlaceActions_PlaceActionTypeMetadata_PlaceActionType_ShopOnline
+ *        The action type is shopping, that can be delivery and/or pickup.
+ *        (Value: "SHOP_ONLINE")
  */
 @property(nonatomic, copy, nullable) NSString *placeActionType;
 

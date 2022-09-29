@@ -287,6 +287,52 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_BatchCreateGitLabConnectedRepositoriesRequest
+//
+
+@implementation GTLRCloudBuild_BatchCreateGitLabConnectedRepositoriesRequest
+@dynamic requests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRCloudBuild_CreateGitLabConnectedRepositoryRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_BatchCreateGitLabConnectedRepositoriesResponse
+//
+
+@implementation GTLRCloudBuild_BatchCreateGitLabConnectedRepositoriesResponse
+@dynamic gitlabConnectedRepositories;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"gitlabConnectedRepositories" : [GTLRCloudBuild_GitLabConnectedRepository class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_BatchCreateGitLabConnectedRepositoriesResponseMetadata
+//
+
+@implementation GTLRCloudBuild_BatchCreateGitLabConnectedRepositoriesResponseMetadata
+@dynamic completeTime, config, createTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_BitbucketServerConfig
 //
 
@@ -468,8 +514,9 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 //
 
 @implementation GTLRCloudBuild_BuildStep
-@dynamic args, dir, entrypoint, env, identifier, name, pullTiming, script,
-         secretEnv, status, timeout, timing, volumes, waitFor;
+@dynamic allowExitCodes, allowFailure, args, dir, entrypoint, env, exitCode,
+         identifier, name, pullTiming, script, secretEnv, status, timeout,
+         timing, volumes, waitFor;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -477,6 +524,7 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"allowExitCodes" : [NSNumber class],
     @"args" : [NSString class],
     @"env" : [NSString class],
     @"secretEnv" : [NSString class],
@@ -497,9 +545,10 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 @implementation GTLRCloudBuild_BuildTrigger
 @dynamic approvalConfig, autodetect, bitbucketServerTriggerConfig, build,
          createTime, descriptionProperty, disabled, eventType, filename, filter,
-         gitFileSource, github, identifier, ignoredFiles, includeBuildLogs,
-         includedFiles, name, pubsubConfig, resourceName, serviceAccount,
-         sourceToBuild, substitutions, tags, triggerTemplate, webhookConfig;
+         gitFileSource, github, gitlabEnterpriseEventsConfig, identifier,
+         ignoredFiles, includeBuildLogs, includedFiles, name, pubsubConfig,
+         resourceName, serviceAccount, sourceToBuild, substitutions, tags,
+         triggerTemplate, webhookConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -601,6 +650,26 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_CreateGitLabConfigOperationMetadata
+//
+
+@implementation GTLRCloudBuild_CreateGitLabConfigOperationMetadata
+@dynamic completeTime, createTime, gitlabConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_CreateGitLabConnectedRepositoryRequest
+//
+
+@implementation GTLRCloudBuild_CreateGitLabConnectedRepositoryRequest
+@dynamic gitlabConnectedRepository, parent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_CreateWorkerPoolOperationMetadata
 //
 
@@ -626,6 +695,16 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 @implementation GTLRCloudBuild_DeleteGitHubEnterpriseConfigOperationMetadata
 @dynamic completeTime, createTime, githubEnterpriseConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_DeleteGitLabConfigOperationMetadata
+//
+
+@implementation GTLRCloudBuild_DeleteGitLabConfigOperationMetadata
+@dynamic completeTime, createTime, gitlabConfig;
 @end
 
 
@@ -718,6 +797,97 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 @implementation GTLRCloudBuild_GitHubEventsConfig
 @dynamic enterpriseConfigResourceName, installationId, name, owner, pullRequest,
          push;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_GitLabConfig
+//
+
+@implementation GTLRCloudBuild_GitLabConfig
+@dynamic connectedRepositories, createTime, enterpriseConfig, name, secrets,
+         username, webhookKey;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"connectedRepositories" : [GTLRCloudBuild_GitLabRepositoryId class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_GitLabConnectedRepository
+//
+
+@implementation GTLRCloudBuild_GitLabConnectedRepository
+@dynamic parent, repo, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_GitLabEnterpriseConfig
+//
+
+@implementation GTLRCloudBuild_GitLabEnterpriseConfig
+@dynamic hostUri, serviceDirectoryConfig, sslCa;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_GitLabEventsConfig
+//
+
+@implementation GTLRCloudBuild_GitLabEventsConfig
+@dynamic gitlabConfig, gitlabConfigResource, projectNamespace, pullRequest,
+         push;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_GitLabRepository
+//
+
+@implementation GTLRCloudBuild_GitLabRepository
+@dynamic browseUri, descriptionProperty, displayName, name, repositoryId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_GitLabRepositoryId
+//
+
+@implementation GTLRCloudBuild_GitLabRepositoryId
+@dynamic identifier, webhookId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_GitLabSecrets
+//
+
+@implementation GTLRCloudBuild_GitLabSecrets
+@dynamic apiAccessTokenVersion, apiKeyVersion, readAccessTokenVersion,
+         webhookSecretVersion;
 @end
 
 
@@ -919,6 +1089,50 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
     @"configs" : [GTLRCloudBuild_GitHubEnterpriseConfig class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_ListGitLabConfigsResponse
+//
+
+@implementation GTLRCloudBuild_ListGitLabConfigsResponse
+@dynamic gitlabConfigs, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"gitlabConfigs" : [GTLRCloudBuild_GitLabConfig class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"gitlabConfigs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_ListGitLabRepositoriesResponse
+//
+
+@implementation GTLRCloudBuild_ListGitLabRepositoriesResponse
+@dynamic gitlabRepositories, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"gitlabRepositories" : [GTLRCloudBuild_GitLabRepository class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"gitlabRepositories";
 }
 
 @end
@@ -1175,6 +1389,16 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_RemoveGitLabConnectedRepositoryRequest
+//
+
+@implementation GTLRCloudBuild_RemoveGitLabConnectedRepositoryRequest
+@dynamic connectedRepository;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_RepoSource
 //
 
@@ -1309,6 +1533,16 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_ServiceDirectoryConfig
+//
+
+@implementation GTLRCloudBuild_ServiceDirectoryConfig
+@dynamic service;
 @end
 
 
@@ -1454,6 +1688,16 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 @implementation GTLRCloudBuild_UpdateGitHubEnterpriseConfigOperationMetadata
 @dynamic completeTime, createTime, githubEnterpriseConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_UpdateGitLabConfigOperationMetadata
+//
+
+@implementation GTLRCloudBuild_UpdateGitLabConfigOperationMetadata
+@dynamic completeTime, createTime, gitlabConfig;
 @end
 
 

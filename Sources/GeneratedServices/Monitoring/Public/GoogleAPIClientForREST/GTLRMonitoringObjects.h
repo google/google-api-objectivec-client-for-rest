@@ -21,6 +21,8 @@
 @class GTLRMonitoring_AppEngine;
 @class GTLRMonitoring_AvailabilityCriteria;
 @class GTLRMonitoring_BasicAuthentication;
+@class GTLRMonitoring_BasicService;
+@class GTLRMonitoring_BasicService_ServiceLabels;
 @class GTLRMonitoring_BasicSli;
 @class GTLRMonitoring_BucketOptions;
 @class GTLRMonitoring_CloudEndpoints;
@@ -2274,6 +2276,46 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 /** The username to use when authenticating with the HTTP server. */
 @property(nonatomic, copy, nullable) NSString *username;
 
+@end
+
+
+/**
+ *  A well-known service type, defined by its service type and service labels.
+ *  Documentation and examples here
+ *  (https://cloud.google.com/stackdriver/docs/solutions/slo-monitoring/api/api-structures#basic-svc-w-basic-sli).
+ */
+@interface GTLRMonitoring_BasicService : GTLRObject
+
+/**
+ *  Labels that specify the resource that emits the monitoring data which is
+ *  used for SLO reporting of this Service. Documentation and valid values for
+ *  given service types here
+ *  (https://cloud.google.com/stackdriver/docs/solutions/slo-monitoring/api/api-structures#basic-svc-w-basic-sli).
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_BasicService_ServiceLabels *serviceLabels;
+
+/**
+ *  The type of service that this basic service defines, e.g. APP_ENGINE service
+ *  type. Documentation and valid values here
+ *  (https://cloud.google.com/stackdriver/docs/solutions/slo-monitoring/api/api-structures#basic-svc-w-basic-sli).
+ */
+@property(nonatomic, copy, nullable) NSString *serviceType;
+
+@end
+
+
+/**
+ *  Labels that specify the resource that emits the monitoring data which is
+ *  used for SLO reporting of this Service. Documentation and valid values for
+ *  given service types here
+ *  (https://cloud.google.com/stackdriver/docs/solutions/slo-monitoring/api/api-structures#basic-svc-w-basic-sli).
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRMonitoring_BasicService_ServiceLabels : GTLRObject
 @end
 
 
@@ -5611,6 +5653,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /** Type used for App Engine services. */
 @property(nonatomic, strong, nullable) GTLRMonitoring_AppEngine *appEngine;
+
+/**
+ *  Message that contains the service type and service labels of this service if
+ *  it is a basic service. Documentation and examples here
+ *  (https://cloud.google.com/stackdriver/docs/solutions/slo-monitoring/api/api-structures#basic-svc-w-basic-sli).
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_BasicService *basicService;
 
 /** Type used for Cloud Endpoints services. */
 @property(nonatomic, strong, nullable) GTLRMonitoring_CloudEndpoints *cloudEndpoints;

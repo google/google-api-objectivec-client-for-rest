@@ -371,6 +371,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/CloudIdentity/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/CloudIdentity/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'CloudIot' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/CloudIot/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/CloudIot/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'CloudKMS' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/CloudKMS/**/*.{h,m}'
@@ -820,6 +825,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Indexing/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Indexing/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'Integrations' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/Integrations/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/Integrations/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'Keep' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

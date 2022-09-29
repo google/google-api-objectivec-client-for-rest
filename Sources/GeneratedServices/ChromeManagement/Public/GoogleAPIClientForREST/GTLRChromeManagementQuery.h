@@ -344,6 +344,51 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @end
 
 /**
+ *  Counts of devices with a specific hardware specification from the requested
+ *  hardware type (for example model name, processor type). Further information
+ *  can be found here https://support.google.com/chrome/a/answer/10564947
+ *
+ *  Method: chromemanagement.customers.reports.countChromeHardwareFleetDevices
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersReportsCountChromeHardwareFleetDevices : GTLRChromeManagementQuery
+
+/** Required. The customer ID or "my_customer". */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Optional. The ID of the organizational unit. If omitted, all data will be
+ *  returned.
+ */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+/**
+ *  Required. Mask of the fields that should be populated in the returned
+ *  report.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse.
+ *
+ *  Counts of devices with a specific hardware specification from the requested
+ *  hardware type (for example model name, processor type). Further information
+ *  can be found here https://support.google.com/chrome/a/answer/10564947
+ *
+ *  @param customer Required. The customer ID or "my_customer".
+ *
+ *  @return GTLRChromeManagementQuery_CustomersReportsCountChromeHardwareFleetDevices
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
  *  Generate report of installed Chrome versions.
  *
  *  Method: chromemanagement.customers.reports.countChromeVersions

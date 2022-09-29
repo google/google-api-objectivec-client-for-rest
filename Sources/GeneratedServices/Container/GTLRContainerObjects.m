@@ -88,6 +88,11 @@ NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_Componen
 NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_SystemComponents = @"SYSTEM_COMPONENTS";
 NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_Workloads = @"WORKLOADS";
 
+// GTLRContainer_LoggingVariantConfig.variant
+NSString * const kGTLRContainer_LoggingVariantConfig_Variant_Default = @"DEFAULT";
+NSString * const kGTLRContainer_LoggingVariantConfig_Variant_MaxThroughput = @"MAX_THROUGHPUT";
+NSString * const kGTLRContainer_LoggingVariantConfig_Variant_VariantUnspecified = @"VARIANT_UNSPECIFIED";
+
 // GTLRContainer_MaintenanceExclusionOptions.scope
 NSString * const kGTLRContainer_MaintenanceExclusionOptions_Scope_NoMinorOrNodeUpgrades = @"NO_MINOR_OR_NODE_UPGRADES";
 NSString * const kGTLRContainer_MaintenanceExclusionOptions_Scope_NoMinorUpgrades = @"NO_MINOR_UPGRADES";
@@ -533,7 +538,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          desiredMasterAuthorizedNetworksConfig, desiredMasterVersion,
          desiredMeshCertificates, desiredMonitoringConfig,
          desiredMonitoringService, desiredNodePoolAutoConfigNetworkTags,
-         desiredNodePoolAutoscaling, desiredNodePoolId, desiredNodeVersion,
+         desiredNodePoolAutoscaling, desiredNodePoolId,
+         desiredNodePoolLoggingConfig, desiredNodeVersion,
          desiredNotificationConfig, desiredPrivateClusterConfig,
          desiredPrivateIpv6GoogleAccess, desiredReleaseChannel,
          desiredResourceUsageExportConfig, desiredServiceExternalIpsConfig,
@@ -1040,6 +1046,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_LoggingVariantConfig
+//
+
+@implementation GTLRContainer_LoggingVariantConfig
+@dynamic variant;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_MaintenanceExclusionOptions
 //
 
@@ -1247,9 +1263,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 @implementation GTLRContainer_NodeConfig
 @dynamic accelerators, advancedMachineFeatures, bootDiskKmsKey,
          confidentialNodes, diskSizeGb, diskType, gcfsConfig, gvnic, imageType,
-         kubeletConfig, labels, linuxNodeConfig, localSsdCount, machineType,
-         metadata, minCpuPlatform, nodeGroup, oauthScopes, preemptible,
-         reservationAffinity, sandboxConfig, serviceAccount,
+         kubeletConfig, labels, linuxNodeConfig, localSsdCount, loggingConfig,
+         machineType, metadata, minCpuPlatform, nodeGroup, oauthScopes,
+         preemptible, reservationAffinity, sandboxConfig, serviceAccount,
          shieldedInstanceConfig, spot, tags, taints, workloadMetadataConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1299,7 +1315,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_NodeConfigDefaults
-@dynamic gcfsConfig;
+@dynamic gcfsConfig, loggingConfig;
 @end
 
 
@@ -1408,6 +1424,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_NodePoolDefaults
 @dynamic nodeConfigDefaults;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_NodePoolLoggingConfig
+//
+
+@implementation GTLRContainer_NodePoolLoggingConfig
+@dynamic variantConfig;
 @end
 
 
@@ -2026,7 +2052,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_UpdateNodePoolRequest
 @dynamic clusterId, confidentialNodes, gcfsConfig, gvnic, imageType,
-         kubeletConfig, labels, linuxNodeConfig, locations, name,
+         kubeletConfig, labels, linuxNodeConfig, locations, loggingConfig, name,
          nodeNetworkConfig, nodePoolId, nodeVersion, projectId, tags, taints,
          upgradeSettings, workloadMetadataConfig, zoneProperty;
 

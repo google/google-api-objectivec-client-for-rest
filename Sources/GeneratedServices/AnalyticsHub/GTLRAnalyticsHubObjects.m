@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Analytics Hub API (analyticshub/v1beta1)
+//   Analytics Hub API (analyticshub/v1)
 // Description:
 //   Exchange data and analytics assets securely and efficiently.
 // Documentation:
@@ -288,28 +288,6 @@ NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecified = @"STATE_UNSP
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalyticsHub_ListLocationsResponse
-//
-
-@implementation GTLRAnalyticsHub_ListLocationsResponse
-@dynamic locations, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"locations" : [GTLRAnalyticsHub_Location class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"locations";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAnalyticsHub_ListOrgDataExchangesResponse
 //
 
@@ -325,44 +303,6 @@ NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecified = @"STATE_UNSP
 
 + (NSString *)collectionItemsKey {
   return @"dataExchanges";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAnalyticsHub_Location
-//
-
-@implementation GTLRAnalyticsHub_Location
-@dynamic displayName, labels, locationId, metadata, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAnalyticsHub_Location_Labels
-//
-
-@implementation GTLRAnalyticsHub_Location_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAnalyticsHub_Location_Metadata
-//
-
-@implementation GTLRAnalyticsHub_Location_Metadata
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
 }
 
 @end

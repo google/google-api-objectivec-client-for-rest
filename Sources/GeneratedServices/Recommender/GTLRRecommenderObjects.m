@@ -16,14 +16,18 @@ NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Impact_Category_Catego
 NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Impact_Category_Cost = @"COST";
 NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Impact_Category_Manageability = @"MANAGEABILITY";
 NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Impact_Category_Performance = @"PERFORMANCE";
+NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Impact_Category_Reliability = @"RELIABILITY";
 NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Impact_Category_Security = @"SECURITY";
+NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Impact_Category_Sustainability = @"SUSTAINABILITY";
 
 // GTLRRecommender_GoogleCloudRecommenderV1Insight.category
 NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_CategoryUnspecified = @"CATEGORY_UNSPECIFIED";
 NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Cost = @"COST";
 NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Manageability = @"MANAGEABILITY";
 NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Performance = @"PERFORMANCE";
+NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Reliability = @"RELIABILITY";
 NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Security = @"SECURITY";
+NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Sustainability = @"SUSTAINABILITY";
 
 // GTLRRecommender_GoogleCloudRecommenderV1Insight.severity
 NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_Critical = @"CRITICAL";
@@ -53,6 +57,12 @@ NSString * const kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInf
 NSString * const kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo_State_Succeeded = @"SUCCEEDED";
 
+// GTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection.risks
+NSString * const kGTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection_Risks_AccessDeny = @"ACCESS_DENY";
+NSString * const kGTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection_Risks_DataLoss = @"DATA_LOSS";
+NSString * const kGTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection_Risks_RiskTypeUnspecified = @"RISK_TYPE_UNSPECIFIED";
+NSString * const kGTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection_Risks_ServiceDisruption = @"SERVICE_DISRUPTION";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRRecommender_GoogleCloudRecommenderV1CostProjection
@@ -69,7 +79,8 @@ NSString * const kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInf
 //
 
 @implementation GTLRRecommender_GoogleCloudRecommenderV1Impact
-@dynamic category, costProjection, securityProjection;
+@dynamic category, costProjection, reliabilityProjection, securityProjection,
+         sustainabilityProjection;
 @end
 
 
@@ -572,6 +583,38 @@ NSString * const kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInf
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection
+//
+
+@implementation GTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection
+@dynamic details, risks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"risks" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection_Details
+//
+
+@implementation GTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection_Details
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection
 //
 
@@ -591,6 +634,16 @@ NSString * const kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInf
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecommender_GoogleCloudRecommenderV1SustainabilityProjection
+//
+
+@implementation GTLRRecommender_GoogleCloudRecommenderV1SustainabilityProjection
+@dynamic duration, kgCO2e;
 @end
 
 

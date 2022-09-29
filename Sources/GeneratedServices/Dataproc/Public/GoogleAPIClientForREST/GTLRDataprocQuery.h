@@ -497,7 +497,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesDelete : GTLRDataprocQuery
 
-/** Required. The name of the batch resource to delete. */
+/**
+ *  Required. The fully qualified name of the batch to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID"
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -506,7 +509,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Deletes the batch workload resource. If the batch is not in terminal state,
  *  the delete fails and the response returns FAILED_PRECONDITION.
  *
- *  @param name Required. The name of the batch resource to delete.
+ *  @param name Required. The fully qualified name of the batch to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID"
  *
  *  @return GTLRDataprocQuery_ProjectsLocationsBatchesDelete
  */
@@ -524,7 +529,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesGet : GTLRDataprocQuery
 
-/** Required. The name of the batch to retrieve. */
+/**
+ *  Required. The fully qualified name of the batch to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID"
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -532,7 +540,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  Gets the batch workload resource representation.
  *
- *  @param name Required. The name of the batch to retrieve.
+ *  @param name Required. The fully qualified name of the batch to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID"
  *
  *  @return GTLRDataprocQuery_ProjectsLocationsBatchesGet
  */

@@ -1375,11 +1375,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
- *  anyone who is authenticated with a Google account or a service account. *
- *  `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a Google service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  anyone who is authenticated with a Google account or a service account. Does
+ *  not include identities that come from external identity providers (IdPs)
+ *  through identity federation. * `user:{emailid}`: An email address that
+ *  represents a specific Google account. For example, `alice\@example.com` . *
+ *  `serviceAccount:{emailid}`: An email address that represents a Google
+ *  service account. For example, `my-other-app\@appspot.gserviceaccount.com`. *
  *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
  *  identifier for a [Kubernetes service
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
@@ -3342,18 +3343,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @interface GTLRServiceManagement_OAuthRequirements : GTLRObject
 
 /**
- *  UNIMPLEMENTED: If enabled, ESF will allow OAuth credentials with any scope,
- *  more details in http://go/esf-oauth-any-scope. WARNING: Enabling this option
- *  will bring security risks. Customers enabling this feature accidentally may
- *  have the risk of losing authentication enforcement. Please reach out to
- *  api-auth\@ and esf-team\@ for approval and allowlisting before you enable
- *  this option.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *allowAnyScope;
-
-/**
  *  The list of publicly documented OAuth scopes that are allowed access. An
  *  OAuth token containing any of these scopes will be accepted. Example:
  *  canonical_scopes: https://www.googleapis.com/auth/calendar,
@@ -3671,12 +3660,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  checks at runtime. An example quota configuration in yaml format: quota:
  *  limits: - name: apiWriteQpsPerProject metric:
  *  library.googleapis.com/write_calls unit: "1/min/{project}" # rate limit for
- *  consumer projects values: STANDARD: 10000 # The metric rules bind all
- *  methods to the read_calls metric, # except for the UpdateBook and DeleteBook
- *  methods. These two methods # are mapped to the write_calls metric, with the
- *  UpdateBook method # consuming at twice rate as the DeleteBook method.
- *  metric_rules: - selector: "*" metric_costs:
- *  library.googleapis.com/read_calls: 1 - selector:
+ *  consumer projects values: STANDARD: 10000 (The metric rules bind all methods
+ *  to the read_calls metric, except for the UpdateBook and DeleteBook methods.
+ *  These two methods are mapped to the write_calls metric, with the UpdateBook
+ *  method consuming at twice rate as the DeleteBook method.) metric_rules: -
+ *  selector: "*" metric_costs: library.googleapis.com/read_calls: 1 - selector:
  *  google.example.library.v1.LibraryService.UpdateBook metric_costs:
  *  library.googleapis.com/write_calls: 2 - selector:
  *  google.example.library.v1.LibraryService.DeleteBook metric_costs:
@@ -3688,12 +3676,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  */
 @interface GTLRServiceManagement_Quota : GTLRObject
 
-/** List of `QuotaLimit` definitions for the service. */
+/** List of QuotaLimit definitions for the service. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_QuotaLimit *> *limits;
 
 /**
- *  List of `MetricRule` definitions, each one mapping a selected method to one
- *  or more metrics.
+ *  List of MetricRule definitions, each one mapping a selected method to one or
+ *  more metrics.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_MetricRule *> *metricRules;
 

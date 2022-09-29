@@ -1708,8 +1708,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesPatch : GTLRDataprocMetastoreQuery
 
 /**
- *  Immutable. The relative resource name of the metastore service, of the
- *  form:projects/{project_number}/locations/{location_id}/services/{service_id}.
+ *  Immutable. The relative resource name of the metastore service, in the
+ *  following
+ *  format:projects/{project_number}/locations/{location_id}/services/{service_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1743,8 +1744,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDataprocMetastore_Service to include in the query.
  *  @param name Immutable. The relative resource name of the metastore service,
- *    of the
- *    form:projects/{project_number}/locations/{location_id}/services/{service_id}.
+ *    in the following
+ *    format:projects/{project_number}/locations/{location_id}/services/{service_id}.
  *
  *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesPatch
  */

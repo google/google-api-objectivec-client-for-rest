@@ -45,6 +45,7 @@
 @class GTLRBigquery_ConfusionMatrix;
 @class GTLRBigquery_ConnectionProperty;
 @class GTLRBigquery_CsvOptions;
+@class GTLRBigquery_DataMaskingStatistics;
 @class GTLRBigquery_Dataset_Access_Item;
 @class GTLRBigquery_Dataset_Labels;
 @class GTLRBigquery_Dataset_Tags_Item;
@@ -139,8 +140,11 @@
 @class GTLRBigquery_SearchStatistics;
 @class GTLRBigquery_SessionInfo;
 @class GTLRBigquery_SnapshotDefinition;
+@class GTLRBigquery_SparkLoggingInfo;
 @class GTLRBigquery_SparkOptions;
 @class GTLRBigquery_SparkOptions_Properties;
+@class GTLRBigquery_SparkStatistics;
+@class GTLRBigquery_SparkStatistics_Endpoints;
 @class GTLRBigquery_StandardSqlDataType;
 @class GTLRBigquery_StandardSqlField;
 @class GTLRBigquery_StandardSqlStructType;
@@ -634,6 +638,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_DeterminismLevel_NotDet
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_Language_Javascript;
 /** Value: "LANGUAGE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_Language_LanguageUnspecified;
+/**
+ *  Python language.
+ *
+ *  Value: "PYTHON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_Language_Python;
 /**
  *  SQL language.
  *
@@ -2414,11 +2424,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
- *  anyone who is authenticated with a Google account or a service account. *
- *  `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a Google service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  anyone who is authenticated with a Google account or a service account. Does
+ *  not include identities that come from external identity providers (IdPs)
+ *  through identity federation. * `user:{emailid}`: An email address that
+ *  represents a specific Google account. For example, `alice\@example.com` . *
+ *  `serviceAccount:{emailid}`: An email address that represents a Google
+ *  service account. For example, `my-other-app\@appspot.gserviceaccount.com`. *
  *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
  *  identifier for a [Kubernetes service
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
@@ -2872,6 +2883,25 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *skipLeadingRows;
+
+@end
+
+
+/**
+ *  GTLRBigquery_DataMaskingStatistics
+ */
+@interface GTLRBigquery_DataMaskingStatistics : GTLRObject
+
+/**
+ *  [Output-only] [Preview] Whether any accessed data was protected by data
+ *  masking. The actual evaluation is done by accessStats.masked_field_count >
+ *  0. Since this is only used for the discovery_doc generation purpose, as long
+ *  as the type (boolean) matches, client library can leverage this. The actual
+ *  evaluation of the variable is done else-where.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataMaskingApplied;
 
 @end
 
@@ -4773,6 +4803,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_Clustering *clustering;
 
+/** Connection properties. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ConnectionProperty *> *connectionProperties;
+
 /**
  *  [Optional] Specifies whether the job is allowed to create new tables. The
  *  following values are supported: CREATE_IF_NEEDED: If the table does not
@@ -4782,6 +4815,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  occur as one atomic update upon job completion.
  */
 @property(nonatomic, copy, nullable) NSString *createDisposition;
+
+/**
+ *  If true, creates a new session, where session id will be a server generated
+ *  random id. If false, runs query with an existing session_id passed in
+ *  ConnectionProperty, otherwise runs the load job in non-session mode.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createSession;
 
 /**
  *  [Optional] Defines the list of possible SQL data types to which the source
@@ -5404,6 +5446,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSNumber *creationTime;
 
 /**
+ *  [Output-only] Statistics for data masking. Present only for query and
+ *  extract jobs.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_DataMaskingStatistics *dataMaskingStatistics;
+
+/**
  *  [Output-only] End time of this job, in milliseconds since the epoch. This
  *  field will be present whenever a job is in the DONE state.
  *
@@ -5518,26 +5566,26 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @interface GTLRBigquery_JobStatistics2 : GTLRObject
 
 /**
- *  BI Engine specific Statistics. [Output-only] BI Engine specific Statistics.
+ *  BI Engine specific Statistics. [Output only] BI Engine specific Statistics.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_BiEngineStatistics *biEngineStatistics;
 
 /**
- *  [Output-only] Billing tier for the job.
+ *  [Output only] Billing tier for the job.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *billingTier;
 
 /**
- *  [Output-only] Whether the query result was fetched from the query cache.
+ *  [Output only] Whether the query result was fetched from the query cache.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cacheHit;
 
 /**
- *  [Output-only] [Preview] The number of row access policies affected by a DDL
+ *  [Output only] [Preview] The number of row access policies affected by a DDL
  *  statement. Present only for DROP ALL ROW ACCESS POLICIES queries.
  *
  *  Uses NSNumber of longLongValue.
@@ -5545,7 +5593,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSNumber *ddlAffectedRowAccessPolicyCount;
 
 /**
- *  [Output-only] The DDL destination table. Present only for ALTER TABLE RENAME
+ *  [Output only] The DDL destination table. Present only for ALTER TABLE RENAME
  *  TO queries. Note that ddl_target_table is used just for its type
  *  information.
  */
@@ -5564,7 +5612,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, copy, nullable) NSString *ddlOperationPerformed;
 
 /**
- *  [Output-only] The DDL target dataset. Present only for CREATE/ALTER/DROP
+ *  [Output only] The DDL target dataset. Present only for CREATE/ALTER/DROP
  *  SCHEMA queries.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_DatasetReference *ddlTargetDataset;
@@ -5576,84 +5624,87 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) GTLRBigquery_RoutineReference *ddlTargetRoutine;
 
 /**
- *  [Output-only] [Preview] The DDL target row access policy. Present only for
+ *  [Output only] [Preview] The DDL target row access policy. Present only for
  *  CREATE/DROP ROW ACCESS POLICY queries.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_RowAccessPolicyReference *ddlTargetRowAccessPolicy;
 
 /**
- *  [Output-only] The DDL target table. Present only for CREATE/DROP TABLE/VIEW
+ *  [Output only] The DDL target table. Present only for CREATE/DROP TABLE/VIEW
  *  and DROP ALL ROW ACCESS POLICIES queries.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *ddlTargetTable;
 
 /**
- *  [Output-only] Detailed statistics for DML statements Present only for DML
+ *  [Output only] Detailed statistics for DML statements Present only for DML
  *  statements INSERT, UPDATE, DELETE or TRUNCATE.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_DmlStatistics *dmlStats;
 
 /**
- *  [Output-only] The original estimate of bytes processed for the job.
+ *  [Output only] The original estimate of bytes processed for the job.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *estimatedBytesProcessed;
 
-/** [Output-only] Statistics of a BigQuery ML training job. */
+/** [Output only] Statistics of a BigQuery ML training job. */
 @property(nonatomic, strong, nullable) GTLRBigquery_MlStatistics *mlStatistics;
 
-/** [Output-only, Beta] Information about create model query job progress. */
+/** [Output only, Beta] Information about create model query job progress. */
 @property(nonatomic, strong, nullable) GTLRBigquery_ModelTraining *modelTraining;
 
 /**
- *  [Output-only, Beta] Deprecated; do not use.
+ *  [Output only, Beta] Deprecated; do not use.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *modelTrainingCurrentIteration;
 
 /**
- *  [Output-only, Beta] Deprecated; do not use.
+ *  [Output only, Beta] Deprecated; do not use.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *modelTrainingExpectedTotalIteration;
 
 /**
- *  [Output-only] The number of rows affected by a DML statement. Present only
+ *  [Output only] The number of rows affected by a DML statement. Present only
  *  for DML statements INSERT, UPDATE or DELETE.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numDmlAffectedRows;
 
-/** [Output-only] Describes execution plan for the query. */
+/** [Output only] Describes execution plan for the query. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ExplainQueryStage *> *queryPlan;
 
 /**
- *  [Output-only] Referenced routines (persistent user-defined functions and
+ *  [Output only] Referenced routines (persistent user-defined functions and
  *  stored procedures) for the job.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_RoutineReference *> *referencedRoutines;
 
 /**
- *  [Output-only] Referenced tables for the job. Queries that reference more
+ *  [Output only] Referenced tables for the job. Queries that reference more
  *  than 50 tables will not have a complete list.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TableReference *> *referencedTables;
 
-/** [Output-only] Job resource usage breakdown by reservation. */
+/** [Output only] Job resource usage breakdown by reservation. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_JobStatistics2_ReservationUsage_Item *> *reservationUsage;
 
 /**
- *  [Output-only] The schema of the results. Present only for successful dry run
+ *  [Output only] The schema of the results. Present only for successful dry run
  *  of non-legacy SQL queries.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableSchema *schema;
 
-/** [Output-only] Search query specific statistics. */
+/** [Output only] Search query specific statistics. */
 @property(nonatomic, strong, nullable) GTLRBigquery_SearchStatistics *searchStatistics;
+
+/** [Output only] Statistics of a Spark procedure job. */
+@property(nonatomic, strong, nullable) GTLRBigquery_SparkStatistics *sparkStatistics;
 
 /**
  *  The type of query statement, if valid. Possible values (new values might be
@@ -5677,25 +5728,25 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  */
 @property(nonatomic, copy, nullable) NSString *statementType;
 
-/** [Output-only] [Beta] Describes a timeline of job execution. */
+/** [Output only] [Beta] Describes a timeline of job execution. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_QueryTimelineSample *> *timeline;
 
 /**
- *  [Output-only] Total bytes billed for the job.
+ *  [Output only] Total bytes billed for the job.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalBytesBilled;
 
 /**
- *  [Output-only] Total bytes processed for the job.
+ *  [Output only] Total bytes processed for the job.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalBytesProcessed;
 
 /**
- *  [Output-only] For dry-run jobs, totalBytesProcessed is an estimate and this
+ *  [Output only] For dry-run jobs, totalBytesProcessed is an estimate and this
  *  field specifies the accuracy of the estimate. Possible values can be:
  *  UNKNOWN: accuracy of the estimate is unknown. PRECISE: estimate is precise.
  *  LOWER_BOUND: estimate is lower bound of what the query would cost.
@@ -5704,7 +5755,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, copy, nullable) NSString *totalBytesProcessedAccuracy;
 
 /**
- *  [Output-only] Total number of partitions processed from all partitioned
+ *  [Output only] Total number of partitions processed from all partitioned
  *  tables referenced in the job.
  *
  *  Uses NSNumber of longLongValue.
@@ -5712,7 +5763,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) NSNumber *totalPartitionsProcessed;
 
 /**
- *  [Output-only] Slot-milliseconds for the job.
+ *  [Output only] Slot-milliseconds for the job.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5733,13 +5784,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @interface GTLRBigquery_JobStatistics2_ReservationUsage_Item : GTLRObject
 
 /**
- *  [Output-only] Reservation name or "unreserved" for on-demand resources
+ *  [Output only] Reservation name or "unreserved" for on-demand resources
  *  usage.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  [Output-only] Slot-milliseconds the job spent in the given reservation.
+ *  [Output only] Slot-milliseconds the job spent in the given reservation.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -6199,10 +6250,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *optimalTrialIds;
 
-/**
- *  Output only. Information for all training runs in increasing order of
- *  start_time.
- */
+/** Information for all training runs in increasing order of start_time. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TrainingRun *> *trainingRuns;
 
 @end
@@ -7230,6 +7278,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *        (Value: "JAVASCRIPT")
  *    @arg @c kGTLRBigquery_Routine_Language_LanguageUnspecified Value
  *        "LANGUAGE_UNSPECIFIED"
+ *    @arg @c kGTLRBigquery_Routine_Language_Python Python language. (Value:
+ *        "PYTHON")
  *    @arg @c kGTLRBigquery_Routine_Language_Sql SQL language. (Value: "SQL")
  */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -7553,6 +7603,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 
 /**
+ *  GTLRBigquery_SparkLoggingInfo
+ */
+@interface GTLRBigquery_SparkLoggingInfo : GTLRObject
+
+/** [Output-only] Project ID used for logging */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** [Output-only] Resource type used for logging */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+@end
+
+
+/**
  *  Options for a user-defined Spark routine.
  */
 @interface GTLRBigquery_SparkOptions : GTLRObject
@@ -7629,12 +7693,44 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 
 /**
+ *  GTLRBigquery_SparkStatistics
+ */
+@interface GTLRBigquery_SparkStatistics : GTLRObject
+
+/** [Output-only] Endpoints generated for the Spark job. */
+@property(nonatomic, strong, nullable) GTLRBigquery_SparkStatistics_Endpoints *endpoints;
+
+/** [Output-only] Logging info is used to generate a link to Cloud Logging. */
+@property(nonatomic, strong, nullable) GTLRBigquery_SparkLoggingInfo *loggingInfo;
+
+/** [Output-only] Spark job id if a Spark job is created successfully. */
+@property(nonatomic, copy, nullable) NSString *sparkJobId;
+
+/** [Output-only] Location where the Spark job is executed. */
+@property(nonatomic, copy, nullable) NSString *sparkJobLocation;
+
+@end
+
+
+/**
+ *  [Output-only] Endpoints generated for the Spark job.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBigquery_SparkStatistics_Endpoints : GTLRObject
+@end
+
+
+/**
  *  The data type of a variable such as a function argument. Examples include: *
  *  INT64: `{"typeKind": "INT64"}` * ARRAY: { "typeKind": "ARRAY",
  *  "arrayElementType": {"typeKind": "STRING"} } * STRUCT>: { "typeKind":
- *  "STRUCT", "structType": { "fields": [ { "name": "x", "type": {"typeKind:
+ *  "STRUCT", "structType": { "fields": [ { "name": "x", "type": {"typeKind":
  *  "STRING"} }, { "name": "y", "type": { "typeKind": "ARRAY",
- *  "arrayElementType": {"typekind": "DATE"} } } ] } }
+ *  "arrayElementType": {"typeKind": "DATE"} } } ] } }
  */
 @interface GTLRBigquery_StandardSqlDataType : GTLRObject
 
@@ -9306,43 +9402,46 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @interface GTLRBigquery_TrainingRun : GTLRObject
 
 /**
- *  Global explanation contains the explanation of top features on the class
- *  level. Applies to classification models only.
+ *  Output only. Global explanation contains the explanation of top features on
+ *  the class level. Applies to classification models only.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_GlobalExplanation *> *classLevelGlobalExplanations;
 
 /**
- *  Data split result of the training run. Only set when the input data is
- *  actually split.
+ *  Output only. Data split result of the training run. Only set when the input
+ *  data is actually split.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_DataSplitResult *dataSplitResult;
 
 /**
- *  The evaluation metrics over training/eval data that were computed at the end
- *  of training.
+ *  Output only. The evaluation metrics over training/eval data that were
+ *  computed at the end of training.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_EvaluationMetrics *evaluationMetrics;
 
 /**
- *  Global explanation contains the explanation of top features on the model
- *  level. Applies to both regression and classification models.
+ *  Output only. Global explanation contains the explanation of top features on
+ *  the model level. Applies to both regression and classification models.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_GlobalExplanation *modelLevelGlobalExplanation;
 
-/** Output of each iteration run, results.size() <= max_iterations. */
+/**
+ *  Output only. Output of each iteration run, results.size() <= max_iterations.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_IterationResult *> *results;
 
-/** The start time of this training run. */
+/** Output only. The start time of this training run. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
- *  Options that were used for this training run, includes user specified and
- *  default options that were used.
+ *  Output only. Options that were used for this training run, includes user
+ *  specified and default options that were used.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TrainingOptions *trainingOptions;
 
 /**
- *  The start time of this training run, in milliseconds since epoch.
+ *  Output only. The start time of this training run, in milliseconds since
+ *  epoch.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -9351,7 +9450,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 /** The model id in Vertex AI Model Registry for this training run */
 @property(nonatomic, copy, nullable) NSString *vertexAiModelId;
 
-/** The model version in Vertex AI Model Registry for this training run */
+/**
+ *  Output only. The model version in Vertex AI Model Registry for this training
+ *  run
+ */
 @property(nonatomic, copy, nullable) NSString *vertexAiModelVersion;
 
 @end

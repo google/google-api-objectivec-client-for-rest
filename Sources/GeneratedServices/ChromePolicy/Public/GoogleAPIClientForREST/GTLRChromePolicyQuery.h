@@ -415,21 +415,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
- *  Fetches a @c GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileResponse.
+ *  Fetches a @c
+ *  GTLRChromePolicy_GoogleChromePolicyVersionsV1UploadPolicyFileResponse.
  *
  *  Creates an enterprise file from the content provided by user. Returns a
  *  public download url for end user.
  *
  *  @param object The @c
- *    GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileRequest to include in
- *    the query.
+ *    GTLRChromePolicy_GoogleChromePolicyVersionsV1UploadPolicyFileRequest to
+ *    include in the query.
  *  @param customer Required. The customer for which the file upload will apply.
  *  @param uploadParameters The media to include in this query. Accepted MIME
  *    type: * / *
  *
  *  @return GTLRChromePolicyQuery_MediaUpload
  */
-+ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileRequest *)object
++ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyVersionsV1UploadPolicyFileRequest *)object
                        customer:(NSString *)customer
                uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
 

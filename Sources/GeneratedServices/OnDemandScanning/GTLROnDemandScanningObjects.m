@@ -130,6 +130,11 @@ NSString * const kGTLROnDemandScanning_Version_Kind_Minimum    = @"MINIMUM";
 NSString * const kGTLROnDemandScanning_Version_Kind_Normal     = @"NORMAL";
 NSString * const kGTLROnDemandScanning_Version_Kind_VersionKindUnspecified = @"VERSION_KIND_UNSPECIFIED";
 
+// GTLROnDemandScanning_VulnerabilityOccurrence.cvssVersion
+NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_CvssVersion_CvssVersion2 = @"CVSS_VERSION_2";
+NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_CvssVersion_CvssVersion3 = @"CVSS_VERSION_3";
+NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_CvssVersion_CvssVersionUnspecified = @"CVSS_VERSION_UNSPECIFIED";
+
 // GTLROnDemandScanning_VulnerabilityOccurrence.effectiveSeverity
 NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_EffectiveSeverity_Critical = @"CRITICAL";
 NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_EffectiveSeverity_High = @"HIGH";
@@ -1419,8 +1424,9 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_VulnerabilityOccurrence
-@dynamic cvssScore, cvssv3, effectiveSeverity, fixAvailable, longDescription,
-         packageIssue, relatedUrls, severity, shortDescription, type;
+@dynamic cvssScore, cvssv3, cvssVersion, effectiveSeverity, fixAvailable,
+         longDescription, packageIssue, relatedUrls, severity, shortDescription,
+         type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

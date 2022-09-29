@@ -32,6 +32,7 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1CpuTemperatureInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1Device;
 @class GTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1DeviceHardwareCountReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1DiskInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1DisplayInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1GraphicsAdapterInfo;
@@ -834,7 +835,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  Audio report.
+ *  Status data for storage. * This field is telemetry information and this will
+ *  change over time as the device is utilized. * Data for this field is
+ *  controlled via policy:
+ *  [ReportDeviceAudioStatus](https://chromeenterprise.google/policies/#ReportDeviceAudioStatus)
+ *  * Data Collection Frequency: 10 minutes * Default Data Reporting Frequency:
+ *  3 hours - Policy Controlled: Yes * Cache: If the device is offline, the
+ *  collected data is stored locally, and will be reported when the device is
+ *  next online: No * Reported for affiliated users only: N/A
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1AudioStatusReport : GTLRObject
 
@@ -879,7 +887,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  Battery info
+ *  Information about the battery. * This field provides device information,
+ *  which is static and will not change over time. * Data for this field is
+ *  controlled via policy:
+ *  [ReportDevicePowerStatus](https://chromeenterprise.google/policies/#ReportDevicePowerStatus)
+ *  * Data Collection Frequency: Only at Upload * Default Data Reporting
+ *  Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is
+ *  offline, the collected data is stored locally, and will be reported when the
+ *  device is next online: No * Reported for affiliated users only: N/A
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1BatteryInfo : GTLRObject
 
@@ -913,7 +928,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  Sampling data for battery.
+ *  Sampling data for battery. * This field is telemetry information and this
+ *  will change over time as the device is utilized. * Data for this field is
+ *  controlled via policy:
+ *  [ReportDevicePowerStatus](https://chromeenterprise.google/policies/#ReportDevicePowerStatus)
+ *  * Data Collection Frequency: Only at Upload * Default Data Reporting
+ *  Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is
+ *  offline, the collected data is stored locally, and will be reported when the
+ *  device is next online: No * Reported for affiliated users only: N/A
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1BatterySampleReport : GTLRObject
 
@@ -970,7 +992,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  Status data for battery.
+ *  Status data for battery. * This field is telemetry information and this will
+ *  change over time as the device is utilized. * Data for this field is
+ *  controlled via policy:
+ *  [ReportDevicePowerStatus](https://chromeenterprise.google/policies/#ReportDevicePowerStatus)
+ *  * Data Collection Frequency: Only at Upload * Default Data Reporting
+ *  Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is
+ *  offline, the collected data is stored locally, and will be reported when the
+ *  device is next online: No * Reported for affiliated users only: N/A
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport : GTLRObject
 
@@ -1102,6 +1131,13 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isCwsHosted;
+
+/**
+ *  Output only. Whether an app supports policy for extensions.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isExtensionPolicySupported;
 
 /**
  *  Output only. Whether the app is only for Kiosk mode on ChromeOS devices
@@ -1333,6 +1369,39 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Response containing a list of devices with a specific type of hardware
+ *  specification from the requested hardware type.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse : GTLRObject
+
+/**
+ *  The DeviceHardwareCountReport for device cpu type (for example Intel(R)
+ *  Core(TM) i7-10610U CPU \@ 1.80GHz).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1DeviceHardwareCountReport *> *cpuReports;
+
+/**
+ *  The DeviceHardwareCountReport for device memory amount in gigabytes (for
+ *  example 16).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1DeviceHardwareCountReport *> *memoryReports;
+
+/**
+ *  The DeviceHardwareCountReport for device model type (for example Acer C7
+ *  Chromebook).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1DeviceHardwareCountReport *> *modelReports;
+
+/**
+ *  The DeviceHardwareCountReport for device storage amount in gigabytes (for
+ *  example 128).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1DeviceHardwareCountReport *> *storageReports;
+
+@end
+
+
+/**
  *  Response containing requested browser versions details and counts.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1395,12 +1464,26 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  CPU specs for a CPU.
+ *  CPU specifications for the device * This field provides device information,
+ *  which is static and will not change over time. * Data for this field is
+ *  controlled via policy:
+ *  [ReportDeviceCpuInfo](https://chromeenterprise.google/policies/#ReportDeviceCpuInfo)
+ *  * Data Collection Frequency: Only at Upload * Default Data Reporting
+ *  Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is
+ *  offline, the collected data is stored locally, and will be reported when the
+ *  device is next online: No * Reported for affiliated users only: N/A
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1CpuInfo : GTLRObject
 
 /**
- *  Output only. The CPU architecture.
+ *  Output only. Architecture type for the CPU. * This field provides device
+ *  information, which is static and will not change over time. * Data for this
+ *  field is controlled via policy:
+ *  [ReportDeviceCpuInfo](https://chromeenterprise.google/policies/#ReportDeviceCpuInfo)
+ *  * Data Collection Frequency: Only at Upload * Default Data Reporting
+ *  Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is
+ *  offline, the collected data is stored locally, and will be reported when the
+ *  device is next online: No * Reported for affiliated users only: N/A
  *
  *  Likely values:
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1CpuInfo_Architecture_ArchitectureUnspecified
@@ -1442,7 +1525,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  Contains samples of the cpu status reports.
+ *  Provides information about the status of the CPU. * This field is telemetry
+ *  information and this will change over time as the device is utilized. * Data
+ *  for this field is controlled via policy:
+ *  [ReportDeviceCpuInfo](https://chromeenterprise.google/policies/#ReportDeviceCpuInfo)
+ *  * Data Collection Frequency: Every 10 minutes * Default Data Reporting
+ *  Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is
+ *  offline, the collected data is stored locally, and will be reported when the
+ *  device is next online: No * Reported for affiliated users only: N/A
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1CpuStatusReport : GTLRObject
 
@@ -1469,7 +1559,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  CPU temperature of a device. Sampled per CPU core in Celsius
+ *  CPU temperature of a device. Sampled per CPU core in Celsius. * This field
+ *  is telemetry information and this will change over time as the device is
+ *  utilized. * Data for this field is controlled via policy:
+ *  [ReportDeviceCpuInfo](https://chromeenterprise.google/policies/#ReportDeviceCpuInfo)
+ *  * Data Collection Frequency: Every 10 minutes * Default Data Reporting
+ *  Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is
+ *  offline, the collected data is stored locally, and will be reported when the
+ *  device is next online: No * Reported for affiliated users only: N/A
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1CpuTemperatureInfo : GTLRObject
 
@@ -1567,6 +1664,25 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** Public model name of the devices. */
 @property(nonatomic, copy, nullable) NSString *model;
+
+@end
+
+
+/**
+ *  Report for CountChromeDevicesPerHardwareSpecResponse, contains the count of
+ *  devices with a unique hardware specification.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1DeviceHardwareCountReport : GTLRObject
+
+/** Public name of the hardware specification. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Count of devices with a unique hardware specification.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
 
 @end
 
@@ -1736,7 +1852,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  Information of the graphics subsystem.
+ *  Information of the graphics subsystem. * This field provides device
+ *  information, which is static and will not change over time. * Data for this
+ *  field is controlled via policy:
+ *  [ReportDeviceGraphicsStatus](https://chromeenterprise.google/policies/#ReportDeviceGraphicsStatus)
+ *  * Data Collection Frequency: Only at Upload * Default Data Reporting
+ *  Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is
+ *  offline, the collected data is stored locally, and will be reported when the
+ *  device is next online: No * Reported for affiliated users only: N/A
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1GraphicsInfo : GTLRObject
 
@@ -1747,7 +1870,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  Information of the graphics subsystem.
+ *  Information of the graphics subsystem. * This field is telemetry information
+ *  and this will change over time as the device is utilized. * Data for this
+ *  field is controlled via policy:
+ *  [ReportDeviceGraphicsInfo](https://chromeenterprise.google/policies/#ReportDeviceGraphicsInfo)
+ *  * Data Collection Frequency: Only at Upload * Default Data Reporting
+ *  Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is
+ *  offline, the collected data is stored locally, and will be reported when the
+ *  device is next online: No * Reported for affiliated users only: N/A
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1GraphicsStatusReport : GTLRObject
 
@@ -1928,7 +2058,18 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  Memory information of a device.
+ *  Memory information of a device. * This field has both telemetry and device
+ *  information: - `totalRamBytes` - Device information - `availableRamBytes` -
+ *  Telemetry information - `totalMemoryEncryption` - Device information * Data
+ *  for this field is controlled via policy:
+ *  [ReportDeviceMemoryInfo](https://chromeenterprise.google/policies/#ReportDeviceMemoryInfo)
+ *  * Data Collection Frequency: - `totalRamBytes` - Only at upload -
+ *  `availableRamBytes` - Every 10 minutes - `totalMemoryEncryption` - at device
+ *  startup * Default Data Reporting Frequency: - `totalRamBytes` - 3 hours -
+ *  `availableRamBytes` - 3 hours - `totalMemoryEncryption` - at device startup
+ *  - Policy Controlled: Yes * Cache: If the device is offline, the collected
+ *  data is stored locally, and will be reported when the device is next online:
+ *  only for `totalMemoryEncryption` * Reported for affiliated users only: N/A
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1MemoryInfo : GTLRObject
 
@@ -1953,7 +2094,15 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  Contains samples of memory status reports.
+ *  Contains samples of memory status reports. * This field is telemetry
+ *  information and this will change over time as the device is utilized. * Data
+ *  for this field is controlled via policy:
+ *  [ReportDeviceMemoryInfo](https://chromeenterprise.google/policies/#ReportDeviceMemoryInfo)
+ *  * Data Collection Frequency: Only at upload, SystemRamFreeByes is collected
+ *  every 10 minutes * Default Data Reporting Frequency: Every 3 hours - Policy
+ *  Controlled: Yes * Cache: If the device is offline, the collected data is
+ *  stored locally, and will be reported when the device is next online: No *
+ *  Reported for affiliated users only: N/A
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1MemoryStatusReport : GTLRObject
 
@@ -1985,7 +2134,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  Network device.
+ *  Details about the network device. * This field provides device information,
+ *  which is static and will not change over time. * Data for this field is
+ *  controlled via policy:
+ *  [ReportNetworkDeviceConfiguration](https://chromeenterprise.google/policies/#ReportNetworkDeviceConfiguration)
+ *  * Data Collection Frequency: At device startup * Default Data Reporting
+ *  Frequency: At device startup - Policy Controlled: Yes * Cache: If the device
+ *  is offline, the collected data is stored locally, and will be reported when
+ *  the device is next online: Yes * Reported for affiliated users only: N/A
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1NetworkDevice : GTLRObject
 
@@ -2048,7 +2204,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  Network devices info.
+ *  Network device information. * This field provides device information, which
+ *  is static and will not change over time. * Data for this field is controlled
+ *  via policy:
+ *  [ReportNetworkDeviceConfiguration](https://chromeenterprise.google/policies/#ReportNetworkDeviceConfiguration)
+ *  * Data Collection Frequency: At device startup * Default Data Reporting
+ *  Frequency: At device startup - Policy Controlled: Yes * Cache: If the device
+ *  is offline, the collected data is stored locally, and will be reported when
+ *  the device is next online: Yes * Reported for affiliated users only: N/A
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1NetworkInfo : GTLRObject
 
@@ -2059,7 +2222,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  State of visible/configured networks.
+ *  State of visible/configured networks. * This field is telemetry information
+ *  and this will change over time as the device is utilized. * Data for this
+ *  field is controlled via policy:
+ *  [ReportNetworkStatus](https://chromeenterprise.google/policies/#ReportNetworkStatus)
+ *  * Data Collection Frequency: 60 minutes * Default Data Reporting Frequency:
+ *  3 hours - Policy Controlled: Yes * Cache: If the device is offline, the
+ *  collected data is stored locally, and will be reported when the device is
+ *  next online: Yes * Reported for affiliated users only: Yes
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport : GTLRObject
 
@@ -2175,7 +2345,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  Contains information regarding the current OS update status.
+ *  Contains information regarding the current OS update status. * This field is
+ *  telemetry information and this will change over time as the device is
+ *  utilized. * Data for this field is controlled via policy:
+ *  [ReportDeviceOsUpdateStatus](https://chromeenterprise.google/policies/#ReportDeviceOsUpdateStatus)
+ *  * Data Collection Frequency: Only at Upload * Default Data Reporting
+ *  Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is
+ *  offline, the collected data is stored locally, and will be reported when the
+ *  device is next online: No * Reported for affiliated users only: N/A
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus : GTLRObject
 
@@ -2224,7 +2401,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  Status data for storage.
+ *  Status data for storage. * This field is telemetry information and this will
+ *  change over time as the device is utilized. * Data for this field is
+ *  controlled via policy:
+ *  [ReportDeviceStorageStatus](https://chromeenterprise.google/policies/#ReportDeviceStorageStatus)
+ *  * Data Collection Frequency: Only at Upload * Default Data Reporting
+ *  Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is
+ *  offline, the collected data is stored locally, and will be reported when the
+ *  device is next online: No * Reported for affiliated users only: N/A
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1StorageInfo : GTLRObject
 
@@ -2274,7 +2458,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  Status data for storage.
+ *  Status data for storage. * This field is telemetry information and this will
+ *  change over time as the device is utilized. * Data for this field is
+ *  controlled via policy:
+ *  [ReportDeviceStorageStatus](https://chromeenterprise.google/policies/#ReportDeviceStorageStatus)
+ *  * Data Collection Frequency: Only at Upload * Default Data Reporting
+ *  Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is
+ *  offline, the collected data is stored locally, and will be reported when the
+ *  device is next online: No * Reported for affiliated users only: N/A
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1StorageStatusReport : GTLRObject
 
@@ -2381,7 +2572,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  Thunderbolt bus info.
+ *  Thunderbolt bus info. * This field provides device information, which is
+ *  static and will not change over time. * Data for this field is controlled
+ *  via policy:
+ *  [ReportDeviceSecurityStatus](https://chromeenterprise.google/policies/#ReportDeviceSecurityStatus)
+ *  * Data Collection Frequency: At device startup * Default Data Reporting
+ *  Frequency: At device startup - Policy Controlled: No * Cache: If the device
+ *  is offline, the collected data is stored locally, and will be reported when
+ *  the device is next online: Yes * Reported for affiliated users only: N/A
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo : GTLRObject
 
@@ -2420,7 +2618,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
- *  Memory encryption information of a device.
+ *  Memory encryption information of a device. * This field provides device
+ *  information, which is static and will not change over time. * Data for this
+ *  field is controlled via policy:
+ *  [ReportDeviceMemoryInfo](https://chromeenterprise.google/policies/#ReportDeviceMemoryInfo)
+ *  * Data Collection Frequency: At device startup * Default Data Reporting
+ *  Frequency: At device startup - Policy Controlled: Yes * Cache: If the device
+ *  is offline, the collected data is stored locally, and will be reported when
+ *  the device is next online: Yes * Reported for affiliated users only: N/A
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo : GTLRObject
 

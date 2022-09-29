@@ -1597,7 +1597,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2InfoTypeSummary
-@dynamic estimatedPrevalence, infoType;
+@dynamic infoType;
 @end
 
 

@@ -49,11 +49,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
- *  anyone who is authenticated with a Google account or a service account. *
- *  `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a Google service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  anyone who is authenticated with a Google account or a service account. Does
+ *  not include identities that come from external identity providers (IdPs)
+ *  through identity federation. * `user:{emailid}`: An email address that
+ *  represents a specific Google account. For example, `alice\@example.com` . *
+ *  `serviceAccount:{emailid}`: An email address that represents a Google
+ *  service account. For example, `my-other-app\@appspot.gserviceaccount.com`. *
  *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
  *  identifier for a [Kubernetes service
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
@@ -254,8 +255,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The full resource name of the identity provider; for example:
- *  `//iam.googleapis.com/projects//locations/global/workloadIdentityPools//providers/`.
- *  Required when exchanging an external credential for a Google access token.
+ *  `//iam.googleapis.com/projects//locations/global/workloadIdentityPools//providers/`
+ *  for workload identity pool providers, or
+ *  `//iam.googleapis.com/locations/global/workforcePools//providers/` for
+ *  workforce pool providers. Required when exchanging an external credential
+ *  for a Google access token.
  */
 @property(nonatomic, copy, nullable) NSString *audience;
 
@@ -310,7 +314,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  pools, this must be a value specified in the allowed audiences for the
  *  workload identity pool provider, or one of the audiences allowed by default
  *  if no audiences were specified. See
- *  https://cloud.google.com/iam/docs/reference/rest/v1/projects.locations.workloadIdentityPools.providers#oidc
+ *  https://cloud.google.com/iam/docs/reference/rest/v1/projects.locations.workloadIdentityPools.providers#oidc.
+ *  For workforce pools, this must match the client ID specified in the provider
+ *  configuration. See
+ *  https://cloud.google.com/iam/docs/reference/rest/v1/locations.workforcePools.providers#oidc.
  *  Example header: ``` { "alg": "RS256", "kid": "us-east-11" } ``` Example
  *  payload: ``` { "iss": "https://accounts.google.com", "iat": 1517963104,
  *  "exp": 1517966704, "aud":
@@ -491,7 +498,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  The human-readable identifier for the token principal subject. For example,
  *  if the provided token is associated with a workload identity pool, this
  *  field contains a value in the following format:
- *  `principal://iam.googleapis.com/projects//locations/global/workloadIdentityPools//subject/`
+ *  `principal://iam.googleapis.com/projects//locations/global/workloadIdentityPools//subject/`.
+ *  If the provided token is associated with a workforce pool, this field
+ *  contains a value in the following format:
+ *  `principal://iam.googleapis.com/locations/global/workforcePools//subject/`.
  */
 @property(nonatomic, copy, nullable) NSString *username;
 

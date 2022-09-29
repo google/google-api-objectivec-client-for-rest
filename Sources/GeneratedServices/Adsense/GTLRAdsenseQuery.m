@@ -11,8 +11,6 @@
 
 #import <GoogleAPIClientForREST/GTLRAdsenseQuery.h>
 
-#import <GoogleAPIClientForREST/GTLRAdsenseObjects.h>
-
 // ----------------------------------------------------------------------------
 // Constants
 
@@ -56,6 +54,7 @@ NSString * const kGTLRAdsenseDimensionsDimensionUnspecified  = @"DIMENSION_UNSPE
 NSString * const kGTLRAdsenseDimensionsDomainCode            = @"DOMAIN_CODE";
 NSString * const kGTLRAdsenseDimensionsDomainName            = @"DOMAIN_NAME";
 NSString * const kGTLRAdsenseDimensionsDomainRegistrant      = @"DOMAIN_REGISTRANT";
+NSString * const kGTLRAdsenseDimensionsHostedAdClientId      = @"HOSTED_AD_CLIENT_ID";
 NSString * const kGTLRAdsenseDimensionsMonth                 = @"MONTH";
 NSString * const kGTLRAdsenseDimensionsOwnedSiteDomainName   = @"OWNED_SITE_DOMAIN_NAME";
 NSString * const kGTLRAdsenseDimensionsOwnedSiteId           = @"OWNED_SITE_ID";
@@ -121,6 +120,33 @@ NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZoneUnspecified = @"R
 @implementation GTLRAdsenseQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRAdsenseQuery_AccountsAdclientsAdunitsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRAdsense_AdUnit *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/adunits";
+  GTLRAdsenseQuery_AccountsAdclientsAdunitsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAdsense_AdUnit class];
+  query.loggingName = @"adsense.accounts.adclients.adunits.create";
+  return query;
+}
 
 @end
 
@@ -200,6 +226,79 @@ NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZoneUnspecified = @"R
 
 @end
 
+@implementation GTLRAdsenseQuery_AccountsAdclientsAdunitsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRAdsense_AdUnit *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRAdsenseQuery_AccountsAdclientsAdunitsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAdsense_AdUnit class];
+  query.loggingName = @"adsense.accounts.adclients.adunits.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdsenseQuery_AccountsAdclientsCustomchannelsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRAdsense_CustomChannel *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/customchannels";
+  GTLRAdsenseQuery_AccountsAdclientsCustomchannelsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAdsense_CustomChannel class];
+  query.loggingName = @"adsense.accounts.adclients.customchannels.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdsenseQuery_AccountsAdclientsCustomchannelsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRAdsenseQuery_AccountsAdclientsCustomchannelsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAdsense_Empty class];
+  query.loggingName = @"adsense.accounts.adclients.customchannels.delete";
+  return query;
+}
+
+@end
+
 @implementation GTLRAdsenseQuery_AccountsAdclientsCustomchannelsGet
 
 @dynamic name;
@@ -252,6 +351,33 @@ NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZoneUnspecified = @"R
   query.parent = parent;
   query.expectedObjectClass = [GTLRAdsense_ListLinkedAdUnitsResponse class];
   query.loggingName = @"adsense.accounts.adclients.customchannels.listLinkedAdUnits";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdsenseQuery_AccountsAdclientsCustomchannelsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRAdsense_CustomChannel *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRAdsenseQuery_AccountsAdclientsCustomchannelsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAdsense_CustomChannel class];
+  query.loggingName = @"adsense.accounts.adclients.customchannels.patch";
   return query;
 }
 

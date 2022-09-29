@@ -281,7 +281,7 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_DeploymentOccurrence_Pl
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_AnalysisStatus_AnalysisStatusUnspecified;
 /**
- *  Analysis has completed
+ *  Analysis has completed.
  *
  *  Value: "COMPLETE"
  */
@@ -528,6 +528,16 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Version_Kind_Normal;
  *  Value: "VERSION_KIND_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Version_Kind_VersionKindUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_VulnerabilityOccurrence.cvssVersion
+
+/** Value: "CVSS_VERSION_2" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_CvssVersion_CvssVersion2;
+/** Value: "CVSS_VERSION_3" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_CvssVersion_CvssVersion3;
+/** Value: "CVSS_VERSION_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_CvssVersion_CvssVersionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_VulnerabilityOccurrence.effectiveSeverity
@@ -1267,7 +1277,7 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *    @arg @c kGTLROnDemandScanning_DiscoveryOccurrence_AnalysisStatus_AnalysisStatusUnspecified
  *        Unknown. (Value: "ANALYSIS_STATUS_UNSPECIFIED")
  *    @arg @c kGTLROnDemandScanning_DiscoveryOccurrence_AnalysisStatus_Complete
- *        Analysis has completed (Value: "COMPLETE")
+ *        Analysis has completed. (Value: "COMPLETE")
  *    @arg @c kGTLROnDemandScanning_DiscoveryOccurrence_AnalysisStatus_FinishedFailed
  *        Analysis has finished unsuccessfully, the analysis itself is in a bad
  *        state. (Value: "FINISHED_FAILED")
@@ -3046,6 +3056,19 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 /** The cvss v3 score for the vulnerability. */
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_CVSS *cvssv3;
+
+/**
+ *  Output only. CVSS version used to populate cvss_score and severity.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_VulnerabilityOccurrence_CvssVersion_CvssVersion2
+ *        Value "CVSS_VERSION_2"
+ *    @arg @c kGTLROnDemandScanning_VulnerabilityOccurrence_CvssVersion_CvssVersion3
+ *        Value "CVSS_VERSION_3"
+ *    @arg @c kGTLROnDemandScanning_VulnerabilityOccurrence_CvssVersion_CvssVersionUnspecified
+ *        Value "CVSS_VERSION_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *cvssVersion;
 
 /**
  *  The distro assigned severity for this vulnerability when it is available,

@@ -497,7 +497,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 
 
 /**
- *  Resource representing a policy schema. Next ID: 13
+ *  Resource representing a policy schema. Next ID: 14
  */
 @interface GTLRChromePolicy_GoogleChromePolicyV1PolicySchema : GTLRObject
 
@@ -511,6 +511,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
  *  `additionalTargetKeys` map.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromePolicy_GoogleChromePolicyV1AdditionalTargetKeyName *> *additionalTargetKeyNames;
+
+/** Output only. Title of the category in which a setting belongs. */
+@property(nonatomic, copy, nullable) NSString *categoryTitle;
 
 /** Schema definition using proto descriptor. */
 @property(nonatomic, strong, nullable) GTLRChromePolicy_Proto2FileDescriptorProto *definition;
@@ -582,7 +585,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 @interface GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldDescription : GTLRObject
 
 /**
- *  Output only. The description for the field.
+ *  Deprecated. Use name and field_description instead. The description for the
+ *  field.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -600,6 +604,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldDependencies *> *fieldDependencies;
 
+/** Output only. The description of the field. */
+@property(nonatomic, copy, nullable) NSString *fieldDescription;
+
 /**
  *  Output only. Any input constraints associated on the values for the field.
  */
@@ -610,6 +617,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
  *  a description for these values.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldKnownValueDescription *> *knownValueDescriptions;
+
+/** Output only. The name of the field. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Output only. Provides the description of the fields nested in this field, if
@@ -887,7 +897,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 /**
  *  Request message for uploading a file for a policy. Next ID: 5
  */
-@interface GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileRequest : GTLRObject
+@interface GTLRChromePolicy_GoogleChromePolicyVersionsV1UploadPolicyFileRequest : GTLRObject
 
 /**
  *  Required. The fully qualified policy schema and field name this file is
@@ -902,7 +912,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 /**
  *  Response message for downloading an uploaded file. Next ID: 2
  */
-@interface GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileResponse : GTLRObject
+@interface GTLRChromePolicy_GoogleChromePolicyVersionsV1UploadPolicyFileResponse : GTLRObject
 
 /** The uri for end user to download the file. */
 @property(nonatomic, copy, nullable) NSString *downloadUri;

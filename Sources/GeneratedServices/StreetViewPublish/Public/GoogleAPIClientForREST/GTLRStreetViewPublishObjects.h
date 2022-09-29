@@ -173,6 +173,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureR
  */
 FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientImu;
 /**
+ *  Not enough moving data.
+ *
+ *  Value: "INSUFFICIENT_MOVEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientMovement;
+/**
  *  Insufficient overlap in the time frame between GPS, IMU, and other time
  *  series data.
  *
@@ -925,6 +931,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_PhotoSequence_Processi
  *        Too few GPS points. (Value: "INSUFFICIENT_GPS")
  *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientImu
  *        Too few IMU points. (Value: "INSUFFICIENT_IMU")
+ *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientMovement
+ *        Not enough moving data. (Value: "INSUFFICIENT_MOVEMENT")
  *    @arg @c kGTLRStreetViewPublish_PhotoSequence_FailureReason_InsufficientOverlapTimeSeries
  *        Insufficient overlap in the time frame between GPS, IMU, and other
  *        time series data. (Value: "INSUFFICIENT_OVERLAP_TIME_SERIES")

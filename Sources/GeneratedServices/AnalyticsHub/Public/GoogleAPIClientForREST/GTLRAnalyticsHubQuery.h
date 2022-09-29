@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Analytics Hub API (analyticshub/v1beta1)
+//   Analytics Hub API (analyticshub/v1)
 // Description:
 //   Exchange data and analytics assets securely and efficiently.
 // Documentation:
@@ -724,83 +724,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRAnalyticsHub_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
-
-@end
-
-/**
- *  Gets information about a location.
- *
- *  Method: analyticshub.projects.locations.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAnalyticsHubBigquery
- *    @c kGTLRAuthScopeAnalyticsHubCloudPlatform
- */
-@interface GTLRAnalyticsHubQuery_ProjectsLocationsGet : GTLRAnalyticsHubQuery
-
-/** Resource name for the location. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRAnalyticsHub_Location.
- *
- *  Gets information about a location.
- *
- *  @param name Resource name for the location.
- *
- *  @return GTLRAnalyticsHubQuery_ProjectsLocationsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists information about the supported locations for this service.
- *
- *  Method: analyticshub.projects.locations.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAnalyticsHubBigquery
- *    @c kGTLRAuthScopeAnalyticsHubCloudPlatform
- */
-@interface GTLRAnalyticsHubQuery_ProjectsLocationsList : GTLRAnalyticsHubQuery
-
-/**
- *  A filter to narrow down results to a preferred subset. The filtering
- *  language accepts strings like `"displayName=tokyo"`, and is documented in
- *  more detail in [AIP-160](https://google.aip.dev/160).
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** The resource that owns the locations collection, if applicable. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The maximum number of results to return. If not set, the service selects a
- *  default.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A page token received from the `next_page_token` field in the response. Send
- *  that page token to receive the subsequent page.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c GTLRAnalyticsHub_ListLocationsResponse.
- *
- *  Lists information about the supported locations for this service.
- *
- *  @param name The resource that owns the locations collection, if applicable.
- *
- *  @return GTLRAnalyticsHubQuery_ProjectsLocationsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

@@ -317,6 +317,44 @@
 
 @end
 
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsJobRunsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsJobRunsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudDeploy_JobRun class];
+  query.loggingName = @"clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.jobRuns.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsJobRunsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/jobRuns";
+  GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsJobRunsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudDeploy_ListJobRunsResponse class];
+  query.loggingName = @"clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.jobRuns.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
@@ -331,6 +369,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudDeploy_ListRolloutsResponse class];
   query.loggingName = @"clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsRetryJob
+
+@dynamic rollout;
+
++ (instancetype)queryWithObject:(GTLRCloudDeploy_RetryJobRequest *)object
+                        rollout:(NSString *)rollout {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"rollout" ];
+  NSString *pathURITemplate = @"v1/{+rollout}:retryJob";
+  GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsRetryJob *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.rollout = rollout;
+  query.expectedObjectClass = [GTLRCloudDeploy_RetryJobResponse class];
+  query.loggingName = @"clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.retryJob";
   return query;
 }
 

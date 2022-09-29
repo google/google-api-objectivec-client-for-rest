@@ -17,20 +17,30 @@
 @class GTLRCloudDeploy_AuditLogConfig;
 @class GTLRCloudDeploy_Binding;
 @class GTLRCloudDeploy_BuildArtifact;
+@class GTLRCloudDeploy_CloudRunLocation;
+@class GTLRCloudDeploy_CloudRunMetadata;
 @class GTLRCloudDeploy_Date;
 @class GTLRCloudDeploy_DefaultPool;
 @class GTLRCloudDeploy_DeliveryPipeline;
 @class GTLRCloudDeploy_DeliveryPipeline_Annotations;
 @class GTLRCloudDeploy_DeliveryPipeline_Labels;
+@class GTLRCloudDeploy_DeployJob;
+@class GTLRCloudDeploy_DeployJobRun;
+@class GTLRCloudDeploy_DeployJobRunMetadata;
+@class GTLRCloudDeploy_DeploymentJobs;
 @class GTLRCloudDeploy_ExecutionConfig;
 @class GTLRCloudDeploy_Expr;
 @class GTLRCloudDeploy_GkeCluster;
+@class GTLRCloudDeploy_Job;
+@class GTLRCloudDeploy_JobRun;
 @class GTLRCloudDeploy_Location;
 @class GTLRCloudDeploy_Location_Labels;
 @class GTLRCloudDeploy_Location_Metadata;
+@class GTLRCloudDeploy_Metadata;
 @class GTLRCloudDeploy_Operation;
 @class GTLRCloudDeploy_Operation_Metadata;
 @class GTLRCloudDeploy_Operation_Response;
+@class GTLRCloudDeploy_Phase;
 @class GTLRCloudDeploy_PipelineCondition;
 @class GTLRCloudDeploy_PipelineReadyCondition;
 @class GTLRCloudDeploy_Policy;
@@ -46,14 +56,18 @@
 @class GTLRCloudDeploy_SerialPipeline;
 @class GTLRCloudDeploy_SkaffoldVersion;
 @class GTLRCloudDeploy_Stage;
+@class GTLRCloudDeploy_Standard;
 @class GTLRCloudDeploy_Status;
 @class GTLRCloudDeploy_Status_Details_Item;
+@class GTLRCloudDeploy_Strategy;
 @class GTLRCloudDeploy_Target;
 @class GTLRCloudDeploy_Target_Annotations;
 @class GTLRCloudDeploy_Target_Labels;
 @class GTLRCloudDeploy_TargetArtifact;
 @class GTLRCloudDeploy_TargetRender;
 @class GTLRCloudDeploy_TargetsPresentCondition;
+@class GTLRCloudDeploy_VerifyJob;
+@class GTLRCloudDeploy_VerifyJobRun;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -116,6 +130,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotification
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudDeploy_DeployJobRun.failureCause
+
+/**
+ *  Cloud Build is not available, either because it is not enabled or because
+ *  Google Cloud Deploy has insufficient permissions. See [Required
+ *  permission](/deploy/docs/cloud-deploy-service-account#required_permissions).
+ *
+ *  Value: "CLOUD_BUILD_UNAVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_CloudBuildUnavailable;
+/**
+ *  The deploy build did not complete within the alloted time.
+ *
+ *  Value: "DEADLINE_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_DeadlineExceeded;
+/**
+ *  The deploy operation did not complete successfully; check Cloud Build logs.
+ *
+ *  Value: "EXECUTION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_ExecutionFailed;
+/**
+ *  No reason for failure is specified.
+ *
+ *  Value: "FAILURE_CAUSE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_FailureCauseUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudDeploy_ExecutionConfig.usages
 
 /**
@@ -136,6 +180,148 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ExecutionConfig_Usages_Execu
  *  Value: "RENDER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ExecutionConfig_Usages_Render;
+/**
+ *  Use for deployment verification.
+ *
+ *  Value: "VERIFY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ExecutionConfig_Usages_Verify;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDeploy_Job.state
+
+/**
+ *  The Job was aborted.
+ *
+ *  Value: "ABORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Job_State_Aborted;
+/**
+ *  The Job is disabled.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Job_State_Disabled;
+/**
+ *  The Job failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Job_State_Failed;
+/**
+ *  The Job is in progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Job_State_InProgress;
+/**
+ *  The Job is waiting for an earlier Phase(s) or Job(s) to complete.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Job_State_Pending;
+/**
+ *  The Job has an unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Job_State_StateUnspecified;
+/**
+ *  The Job succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Job_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDeploy_JobRun.state
+
+/**
+ *  The `JobRun` has failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRun_State_Failed;
+/**
+ *  The `JobRun` is in progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRun_State_InProgress;
+/**
+ *  The `JobRun` has an unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRun_State_StateUnspecified;
+/**
+ *  The `JobRun` has succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRun_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDeploy_JobRunNotificationEvent.type
+
+/**
+ *  A Pub/Sub notification failed to be sent.
+ *
+ *  Value: "TYPE_PUBSUB_NOTIFICATION_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypePubsubNotificationFailure;
+/**
+ *  Release render status changed notification.
+ *
+ *  Value: "TYPE_RENDER_STATUES_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeRenderStatuesChange;
+/**
+ *  Type is unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDeploy_Phase.state
+
+/**
+ *  The Phase was aborted.
+ *
+ *  Value: "ABORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Phase_State_Aborted;
+/**
+ *  The Phase has failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Phase_State_Failed;
+/**
+ *  The Phase is in progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Phase_State_InProgress;
+/**
+ *  The Phase is waiting for an earlier Phase(s) to complete.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Phase_State_Pending;
+/**
+ *  The Phase has an unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Phase_State_StateUnspecified;
+/**
+ *  The Phase has succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Phase_State_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDeploy_Release.renderState
@@ -262,6 +448,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_R
  *  Value: "RELEASE_FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_ReleaseFailed;
+/**
+ *  No skaffold verify configuration was found.
+ *
+ *  Value: "VERIFICATION_CONFIG_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_VerificationConfigNotFound;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDeploy_Rollout.state
@@ -365,7 +557,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type
 
 /**
  *  Cloud Build is not available, either because it is not enabled or because
- *  Cloud Deploy has insufficient permissions. See [required
+ *  Google Cloud Deploy has insufficient permissions. See [required
  *  permission](/deploy/docs/cloud-deploy-service-account#required_permissions).
  *
  *  Value: "CLOUD_BUILD_UNAVAILABLE"
@@ -411,6 +603,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
  *  Value: "TARGET_RENDER_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDeploy_VerifyJobRun.failureCause
+
+/**
+ *  Cloud Build is not available, either because it is not enabled or because
+ *  Google Cloud Deploy has insufficient permissions. See [required
+ *  permission](/deploy/docs/cloud-deploy-service-account#required_permissions).
+ *
+ *  Value: "CLOUD_BUILD_UNAVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_CloudBuildUnavailable;
+/**
+ *  The verify build did not complete within the alloted time.
+ *
+ *  Value: "DEADLINE_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_DeadlineExceeded;
+/**
+ *  The verify operation did not complete successfully; check Cloud Build logs.
+ *
+ *  Value: "EXECUTION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_ExecutionFailed;
+/**
+ *  No reason for failure is specified.
+ *
+ *  Value: "FAILURE_CAUSE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_FailureCauseUnspecified;
+/**
+ *  No Skaffold verify configuration was found.
+ *
+ *  Value: "VERIFICATION_CONFIG_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNotFound;
 
 /**
  *  The request object used by `AbandonRelease`.
@@ -550,11 +778,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
- *  anyone who is authenticated with a Google account or a service account. *
- *  `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a Google service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  anyone who is authenticated with a Google account or a service account. Does
+ *  not include identities that come from external identity providers (IdPs)
+ *  through identity federation. * `user:{emailid}`: An email address that
+ *  represents a specific Google account. For example, `alice\@example.com` . *
+ *  `serviceAccount:{emailid}`: An email address that represents a Google
+ *  service account. For example, `my-other-app\@appspot.gserviceaccount.com`. *
  *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
  *  identifier for a [Kubernetes service
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
@@ -613,6 +842,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRCloudDeploy_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  Information specifying where to deploy a Cloud Run Service.
+ */
+@interface GTLRCloudDeploy_CloudRunLocation : GTLRObject
+
+/**
+ *  Required. The location for the Cloud Run Service. Format must be
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+@end
+
+
+/**
+ *  CloudRunMetadata contains information from a Cloud Run deployment.
+ */
+@interface GTLRCloudDeploy_CloudRunMetadata : GTLRObject
+
+/** Output only. The Cloud Run Revision id associated with a `Rollout`. */
+@property(nonatomic, copy, nullable) NSString *revision;
+
+/**
+ *  Output only. The name of the Cloud Run Service that is associated with a
+ *  `Rollout`. Format is
+ *  projects/{project}/locations/{location}/services/{service}.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/**
+ *  Output only. The Cloud Run Service urls that are associated with a
+ *  `Rollout`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *serviceUrls;
+
 @end
 
 
@@ -708,8 +975,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
 
 /**
  *  User annotations. These attributes can only be set and used by the user, and
- *  not by Google Cloud Deploy. See https://google.aip.dev/128#annotations for
- *  more details such as format and size limitations.
+ *  not by Google Cloud Deploy.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_DeliveryPipeline_Annotations *annotations;
 
@@ -775,8 +1041,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
 
 /**
  *  User annotations. These attributes can only be set and used by the user, and
- *  not by Google Cloud Deploy. See https://google.aip.dev/128#annotations for
- *  more details such as format and size limitations.
+ *  not by Google Cloud Deploy.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -833,6 +1098,90 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
  *        Type is unspecified. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  A deploy Job.
+ */
+@interface GTLRCloudDeploy_DeployJob : GTLRObject
+@end
+
+
+/**
+ *  DeployJobRun contains information specific to a deploy `JobRun`.
+ */
+@interface GTLRCloudDeploy_DeployJobRun : GTLRObject
+
+/**
+ *  Output only. The resource name of the Cloud Build `Build` object that is
+ *  used to deploy. Format is
+ *  projects/{project}/locations/{location}/builds/{build}.
+ */
+@property(nonatomic, copy, nullable) NSString *build;
+
+/**
+ *  Output only. The reason the deploy failed. This will always be unspecified
+ *  while the deploy is in progress or if it succeeded.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_DeployJobRun_FailureCause_CloudBuildUnavailable
+ *        Cloud Build is not available, either because it is not enabled or
+ *        because Google Cloud Deploy has insufficient permissions. See
+ *        [Required
+ *        permission](/deploy/docs/cloud-deploy-service-account#required_permissions).
+ *        (Value: "CLOUD_BUILD_UNAVAILABLE")
+ *    @arg @c kGTLRCloudDeploy_DeployJobRun_FailureCause_DeadlineExceeded The
+ *        deploy build did not complete within the alloted time. (Value:
+ *        "DEADLINE_EXCEEDED")
+ *    @arg @c kGTLRCloudDeploy_DeployJobRun_FailureCause_ExecutionFailed The
+ *        deploy operation did not complete successfully; check Cloud Build
+ *        logs. (Value: "EXECUTION_FAILED")
+ *    @arg @c kGTLRCloudDeploy_DeployJobRun_FailureCause_FailureCauseUnspecified
+ *        No reason for failure is specified. (Value:
+ *        "FAILURE_CAUSE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *failureCause;
+
+/**
+ *  Output only. Additional information about the deploy failure, if available.
+ */
+@property(nonatomic, copy, nullable) NSString *failureMessage;
+
+/** Output only. Metadata containing information about the deploy job run. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_DeployJobRunMetadata *metadata;
+
+@end
+
+
+/**
+ *  DeployJobRunMetadata surfaces information associated with a `DeployJobRun`
+ *  to the user.
+ */
+@interface GTLRCloudDeploy_DeployJobRunMetadata : GTLRObject
+
+/**
+ *  Output only. The name of the Cloud Run Service that is associated with a
+ *  `DeployJobRun`.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_CloudRunMetadata *cloudRun;
+
+@end
+
+
+/**
+ *  Deployment job composition.
+ */
+@interface GTLRCloudDeploy_DeploymentJobs : GTLRObject
+
+/** Output only. The deploy Job. This is the first job run in the phase. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Job *deployJob;
+
+/**
+ *  Output only. The verify Job. Runs after a deploy if the deploy succeeds.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Job *verifyJob;
 
 @end
 
@@ -969,6 +1318,160 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
 
 
 /**
+ *  Job represents an operation for a `Rollout`.
+ */
+@interface GTLRCloudDeploy_Job : GTLRObject
+
+/** Output only. A deploy Job. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_DeployJob *deployJob;
+
+/**
+ *  Output only. The ID of the Job.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Output only. The name of the `JobRun` responsible for the most recent
+ *  invocation of this Job.
+ */
+@property(nonatomic, copy, nullable) NSString *jobRun;
+
+/**
+ *  Output only. The current state of the Job.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_Job_State_Aborted The Job was aborted. (Value:
+ *        "ABORTED")
+ *    @arg @c kGTLRCloudDeploy_Job_State_Disabled The Job is disabled. (Value:
+ *        "DISABLED")
+ *    @arg @c kGTLRCloudDeploy_Job_State_Failed The Job failed. (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRCloudDeploy_Job_State_InProgress The Job is in progress.
+ *        (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRCloudDeploy_Job_State_Pending The Job is waiting for an
+ *        earlier Phase(s) or Job(s) to complete. (Value: "PENDING")
+ *    @arg @c kGTLRCloudDeploy_Job_State_StateUnspecified The Job has an
+ *        unspecified state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDeploy_Job_State_Succeeded The Job succeeded. (Value:
+ *        "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. A verify Job. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_VerifyJob *verifyJob;
+
+@end
+
+
+/**
+ *  A `JobRun` resource in the Google Cloud Deploy API. A `JobRun` contains
+ *  information of a single `Rollout` job evaluation.
+ */
+@interface GTLRCloudDeploy_JobRun : GTLRObject
+
+/** Output only. Time at which the `JobRun` was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. Information specific to a deploy `JobRun`. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_DeployJobRun *deployJobRun;
+
+/** Output only. Time at which the `JobRun` ended. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. This checksum is computed by the server based on the value of
+ *  other fields, and may be sent on update and delete requests to ensure the
+ *  client has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Output only. ID of the `Rollout` job this `JobRun` corresponds to. */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+/**
+ *  Optional. Name of the `JobRun`. Format is
+ *  projects/{project}/locations/{location}/
+ *  deliveryPipelines/{deliveryPipeline}/releases/{releases}/rollouts/
+ *  {rollouts}/jobRuns/{uuid}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. ID of the `Rollout` phase this `JobRun` belongs in. */
+@property(nonatomic, copy, nullable) NSString *phaseId;
+
+/** Output only. Time at which the `JobRun` was started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. The current state of the `JobRun`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_JobRun_State_Failed The `JobRun` has failed.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRCloudDeploy_JobRun_State_InProgress The `JobRun` is in
+ *        progress. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRCloudDeploy_JobRun_State_StateUnspecified The `JobRun` has an
+ *        unspecified state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDeploy_JobRun_State_Succeeded The `JobRun` has
+ *        succeeded. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Unique identifier of the `JobRun`. */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. Information specific to a verify `JobRun`. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_VerifyJobRun *verifyJobRun;
+
+@end
+
+
+/**
+ *  Payload proto for "clouddeploy.googleapis.com/jobrun_notification" Platform
+ *  Log event that describes the failure to send JobRun resource update Pub/Sub
+ *  notification.
+ */
+@interface GTLRCloudDeploy_JobRunNotificationEvent : GTLRObject
+
+/** The name of the `JobRun`. */
+@property(nonatomic, copy, nullable) NSString *jobRun;
+
+/** Debug message for when a notification fails to send. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** Unique identifier of the `DeliveryPipeline`. */
+@property(nonatomic, copy, nullable) NSString *pipelineUid;
+
+/** Unique identifier of the `Release`. */
+@property(nonatomic, copy, nullable) NSString *releaseUid;
+
+/** Unique identifier of the `Rollout`. */
+@property(nonatomic, copy, nullable) NSString *rolloutUid;
+
+/** ID of the `Target`. */
+@property(nonatomic, copy, nullable) NSString *targetId;
+
+/**
+ *  Type of this notification, e.g. for a Pub/Sub failure.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypePubsubNotificationFailure
+ *        A Pub/Sub notification failed to be sent. (Value:
+ *        "TYPE_PUBSUB_NOTIFICATION_FAILURE")
+ *    @arg @c kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeRenderStatuesChange
+ *        Release render status changed notification. (Value:
+ *        "TYPE_RENDER_STATUES_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeUnspecified Type
+ *        is unspecified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  The response object from `ListDeliveryPipelines`.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -993,6 +1496,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  ListJobRunsResponse is the response object returned by `ListJobRuns`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "jobRuns" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudDeploy_ListJobRunsResponse : GTLRCollectionObject
+
+/**
+ *  The `JobRun` objects.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_JobRun *> *jobRuns;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
@@ -1198,6 +1731,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
 
 
 /**
+ *  Metadata includes information associated with a `Rollout`.
+ */
+@interface GTLRCloudDeploy_Metadata : GTLRObject
+
+/**
+ *  Output only. The name of the Cloud Run Service that is associated with a
+ *  `Rollout`.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_CloudRunMetadata *cloudRun;
+
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -1311,6 +1858,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
 
 /** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  Phase represents a collection of jobs that are logically grouped together
+ *  for a `Rollout`.
+ */
+@interface GTLRCloudDeploy_Phase : GTLRObject
+
+/** Output only. Deployment job composition. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_DeploymentJobs *deploymentJobs;
+
+/**
+ *  Output only. The ID of the Phase.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Output only. Current state of the Phase.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_Phase_State_Aborted The Phase was aborted.
+ *        (Value: "ABORTED")
+ *    @arg @c kGTLRCloudDeploy_Phase_State_Failed The Phase has failed. (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRCloudDeploy_Phase_State_InProgress The Phase is in progress.
+ *        (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRCloudDeploy_Phase_State_Pending The Phase is waiting for an
+ *        earlier Phase(s) to complete. (Value: "PENDING")
+ *    @arg @c kGTLRCloudDeploy_Phase_State_StateUnspecified The Phase has an
+ *        unspecified state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDeploy_Phase_State_Succeeded The Phase has succeeded.
+ *        (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -1708,6 +2293,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
 
 
 /**
+ *  RetryJobRequest is the request object used by `RetryJob`.
+ */
+@interface GTLRCloudDeploy_RetryJobRequest : GTLRObject
+
+/** Required. The job ID for the Job to retry. */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+/** Required. The phase ID the Job to retry belongs to. */
+@property(nonatomic, copy, nullable) NSString *phaseId;
+
+@end
+
+
+/**
+ *  The response object from 'RetryJob'.
+ */
+@interface GTLRCloudDeploy_RetryJobResponse : GTLRObject
+@end
+
+
+/**
  *  A `Rollout` resource in the Google Cloud Deploy API. A `Rollout` contains
  *  information around a specific deployment to a `Target`.
  */
@@ -1770,6 +2376,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
  *        Release is abandoned. (Value: "RELEASE_ABANDONED")
  *    @arg @c kGTLRCloudDeploy_Rollout_DeployFailureCause_ReleaseFailed Release
  *        is in a failed state. (Value: "RELEASE_FAILED")
+ *    @arg @c kGTLRCloudDeploy_Rollout_DeployFailureCause_VerificationConfigNotFound
+ *        No skaffold verify configuration was found. (Value:
+ *        "VERIFICATION_CONFIG_NOT_FOUND")
  */
 @property(nonatomic, copy, nullable) NSString *deployFailureCause;
 
@@ -1818,12 +2427,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Rollout_Labels *labels;
 
+/** Output only. Metadata contains information about the rollout. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Metadata *metadata;
+
 /**
  *  Optional. Name of the `Rollout`. Format is projects/{project}/
  *  locations/{location}/deliveryPipelines/{deliveryPipeline}/
  *  releases/{release}/rollouts/a-z{0,62}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The phases that represent the workflows of this `Rollout`. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_Phase *> *phases;
 
 /**
  *  Output only. Current state of the `Rollout`.
@@ -1995,6 +2610,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *profiles;
 
+/** Optional. The strategy to use for a `Rollout` to this stage. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Strategy *strategy;
+
 /**
  *  The target_id to which this stage points. This field refers exclusively to
  *  the last segment of a target name. For example, this field would just be
@@ -2004,6 +2622,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
  *  `DeliveryPipeline` that contains this `Stage`.
  */
 @property(nonatomic, copy, nullable) NSString *targetId;
+
+@end
+
+
+/**
+ *  Standard represents the standard deployment strategy.
+ */
+@interface GTLRCloudDeploy_Standard : GTLRObject
+
+/**
+ *  Whether to verify a deployment.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verify;
 
 @end
 
@@ -2050,6 +2683,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudDeploy_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Strategy contains deployment strategy information.
+ */
+@interface GTLRCloudDeploy_Strategy : GTLRObject
+
+/**
+ *  Standard deployment strategy executes a single deploy and allows verifying
+ *  the deployment.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Standard *standard;
+
 @end
 
 
@@ -2124,6 +2771,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *requireApproval;
+
+/** Information specifying a Cloud Run deployment target. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_CloudRunLocation *run;
 
 /** Output only. Resource id of the `Target`. */
 @property(nonatomic, copy, nullable) NSString *targetId;
@@ -2238,7 +2888,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
  *  Likely values:
  *    @arg @c kGTLRCloudDeploy_TargetRender_FailureCause_CloudBuildUnavailable
  *        Cloud Build is not available, either because it is not enabled or
- *        because Cloud Deploy has insufficient permissions. See [required
+ *        because Google Cloud Deploy has insufficient permissions. See
+ *        [required
  *        permission](/deploy/docs/cloud-deploy-service-account#required_permissions).
  *        (Value: "CLOUD_BUILD_UNAVAILABLE")
  *    @arg @c kGTLRCloudDeploy_TargetRender_FailureCause_ExecutionFailed The
@@ -2249,6 +2900,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
  *        "FAILURE_CAUSE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *failureCause;
+
+/**
+ *  Output only. Additional information about the render failure, if available.
+ */
+@property(nonatomic, copy, nullable) NSString *failureMessage;
 
 /**
  *  Output only. The resource name of the Cloud Build `Build` object that is
@@ -2325,6 +2981,71 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  A verify Job.
+ */
+@interface GTLRCloudDeploy_VerifyJob : GTLRObject
+@end
+
+
+/**
+ *  VerifyJobRun contains information specific to a verify `JobRun`.
+ */
+@interface GTLRCloudDeploy_VerifyJobRun : GTLRObject
+
+/**
+ *  Output only. URI of a directory containing the verify artifacts. This
+ *  contains the Skaffold event log.
+ */
+@property(nonatomic, copy, nullable) NSString *artifactUri;
+
+/**
+ *  Output only. The resource name of the Cloud Build `Build` object that is
+ *  used to verify. Format is
+ *  projects/{project}/locations/{location}/builds/{build}.
+ */
+@property(nonatomic, copy, nullable) NSString *build;
+
+/**
+ *  Output only. File path of the Skaffold event log relative to the artifact
+ *  URI.
+ */
+@property(nonatomic, copy, nullable) NSString *eventLogPath;
+
+/**
+ *  Output only. The reason the verify failed. This will always be unspecified
+ *  while the verify is in progress or if it succeeded.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_VerifyJobRun_FailureCause_CloudBuildUnavailable
+ *        Cloud Build is not available, either because it is not enabled or
+ *        because Google Cloud Deploy has insufficient permissions. See
+ *        [required
+ *        permission](/deploy/docs/cloud-deploy-service-account#required_permissions).
+ *        (Value: "CLOUD_BUILD_UNAVAILABLE")
+ *    @arg @c kGTLRCloudDeploy_VerifyJobRun_FailureCause_DeadlineExceeded The
+ *        verify build did not complete within the alloted time. (Value:
+ *        "DEADLINE_EXCEEDED")
+ *    @arg @c kGTLRCloudDeploy_VerifyJobRun_FailureCause_ExecutionFailed The
+ *        verify operation did not complete successfully; check Cloud Build
+ *        logs. (Value: "EXECUTION_FAILED")
+ *    @arg @c kGTLRCloudDeploy_VerifyJobRun_FailureCause_FailureCauseUnspecified
+ *        No reason for failure is specified. (Value:
+ *        "FAILURE_CAUSE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNotFound
+ *        No Skaffold verify configuration was found. (Value:
+ *        "VERIFICATION_CONFIG_NOT_FOUND")
+ */
+@property(nonatomic, copy, nullable) NSString *failureCause;
+
+/**
+ *  Output only. Additional information about the verify failure, if available.
+ */
+@property(nonatomic, copy, nullable) NSString *failureMessage;
 
 @end
 

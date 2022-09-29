@@ -412,6 +412,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  */
 @property(nonatomic, assign) BOOL ackBundleInstallationWarning;
 
+/**
+ *  Device tier config (DTC) to be used for generating deliverables (APKs).
+ *  Contains id of the DTC or "LATEST" for last uploaded DTC.
+ */
+@property(nonatomic, copy, nullable) NSString *deviceTierConfigId;
+
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 

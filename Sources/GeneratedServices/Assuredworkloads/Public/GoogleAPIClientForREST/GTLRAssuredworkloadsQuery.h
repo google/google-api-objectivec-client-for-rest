@@ -384,6 +384,138 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  Acknowledges an existing violation. By acknowledging a violation, users
+ *  acknowledge the existence of a compliance violation in their workload and
+ *  decide to ignore it due to a valid business justification. Acknowledgement
+ *  is a permanent operation and it cannot be reverted.
+ *
+ *  Method: assuredworkloads.organizations.locations.workloads.violations.acknowledge
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsAcknowledge : GTLRAssuredworkloadsQuery
+
+/**
+ *  Required. The resource name of the Violation to acknowledge. Format:
+ *  organizations/{organization}/locations/{location}/workloads/{workload}/violations/{violation}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationResponse.
+ *
+ *  Acknowledges an existing violation. By acknowledging a violation, users
+ *  acknowledge the existence of a compliance violation in their workload and
+ *  decide to ignore it due to a valid business justification. Acknowledgement
+ *  is a permanent operation and it cannot be reverted.
+ *
+ *  @param object The @c
+ *    GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest
+ *    to include in the query.
+ *  @param name Required. The resource name of the Violation to acknowledge.
+ *    Format:
+ *    organizations/{organization}/locations/{location}/workloads/{workload}/violations/{violation}
+ *
+ *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsAcknowledge
+ */
++ (instancetype)queryWithObject:(GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves Assured Workload Violation based on ID.
+ *
+ *  Method: assuredworkloads.organizations.locations.workloads.violations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsGet : GTLRAssuredworkloadsQuery
+
+/**
+ *  Required. The resource name of the Violation to fetch (ie. Violation.name).
+ *  Format:
+ *  organizations/{organization}/locations/{location}/workloads/{workload}/violations/{violation}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation.
+ *
+ *  Retrieves Assured Workload Violation based on ID.
+ *
+ *  @param name Required. The resource name of the Violation to fetch (ie.
+ *    Violation.name). Format:
+ *    organizations/{organization}/locations/{location}/workloads/{workload}/violations/{violation}
+ *
+ *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the Violations in the AssuredWorkload Environment. Callers may also
+ *  choose to read across multiple Workloads as per
+ *  [AIP-159](https://google.aip.dev/159) by using '-' (the hyphen or dash
+ *  character) as a wildcard character instead of workload-id in the parent.
+ *  Format `organizations/{org_id}/locations/{location}/workloads/-`
+ *
+ *  Method: assuredworkloads.organizations.locations.workloads.violations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsList : GTLRAssuredworkloadsQuery
+
+/** Optional. A custom filter for filtering by the Violations properties. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The end of the time window. */
+@property(nonatomic, strong, nullable) GTLRDateTime *intervalEndTime;
+
+/** The start of the time window. */
+@property(nonatomic, strong, nullable) GTLRDateTime *intervalStartTime;
+
+/** Optional. Page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. Page token returned from previous request. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The Workload name. Format
+ *  `organizations/{org_id}/locations/{location}/workloads/{workload}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListViolationsResponse.
+ *
+ *  Lists the Violations in the AssuredWorkload Environment. Callers may also
+ *  choose to read across multiple Workloads as per
+ *  [AIP-159](https://google.aip.dev/159) by using '-' (the hyphen or dash
+ *  character) as a wildcard character instead of workload-id in the parent.
+ *  Format `organizations/{org_id}/locations/{location}/workloads/-`
+ *
+ *  @param parent Required. The Workload name. Format
+ *    `organizations/{org_id}/locations/{location}/workloads/{workload}`.
+ *
+ *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

@@ -47,6 +47,7 @@
 @class GTLRDataproc_Expr;
 @class GTLRDataproc_GceClusterConfig;
 @class GTLRDataproc_GceClusterConfig_Metadata;
+@class GTLRDataproc_GceNodePoolOperationMetadata_Labels;
 @class GTLRDataproc_GetPolicyOptions;
 @class GTLRDataproc_GkeClusterConfig;
 @class GTLRDataproc_GkeNodeConfig;
@@ -135,6 +136,8 @@
 @class GTLRDataproc_Status;
 @class GTLRDataproc_Status_Details_Item;
 @class GTLRDataproc_TemplateParameter;
+@class GTLRDataproc_TrinoJob;
+@class GTLRDataproc_TrinoJob_Properties;
 @class GTLRDataproc_ValueValidation;
 @class GTLRDataproc_VirtualClusterConfig;
 @class GTLRDataproc_WorkflowGraph;
@@ -377,6 +380,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6Goo
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataproc_GceNodePoolOperationMetadata.operationType
+
+/**
+ *  Create Compute Engine node pool operation type.
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_Create;
+/**
+ *  Delete Compute Engine node pool operation type.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_Delete;
+/**
+ *  Compute Engine node pool operation type is unknown.
+ *
+ *  Value: "GCE_NODE_POOL_OPERATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_GceNodePoolOperationTypeUnspecified;
+/**
+ *  Resize Compute Engine node pool operation type.
+ *
+ *  Value: "RESIZE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_Resize;
+/**
+ *  Update Compute Engine node pool operation type.
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_Update;
+
+// ----------------------------------------------------------------------------
 // GTLRDataproc_GkeNodePoolTarget.roles
 
 /**
@@ -439,6 +476,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibil
  *  Value: "PREEMPTIBLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_Preemptible;
+/**
+ *  Instances are Spot VMsThis option is allowed only for secondary worker
+ *  groups. See Spot VMs (https://cloud.google.com/compute/docs/instances/spot).
+ *
+ *  Value: "SPOT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_Spot;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_JobStatus.state
@@ -1375,11 +1419,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  members can have the following values: allUsers: A special identifier that
  *  represents anyone who is on the internet; with or without a Google account.
  *  allAuthenticatedUsers: A special identifier that represents anyone who is
- *  authenticated with a Google account or a service account. user:{emailid}: An
- *  email address that represents a specific Google account. For example,
- *  alice\@example.com . serviceAccount:{emailid}: An email address that
- *  represents a Google service account. For example,
- *  my-other-app\@appspot.gserviceaccount.com.
+ *  authenticated with a Google account or a service account. Does not include
+ *  identities that come from external identity providers (IdPs) through
+ *  identity federation. user:{emailid}: An email address that represents a
+ *  specific Google account. For example, alice\@example.com .
+ *  serviceAccount:{emailid}: An email address that represents a Google service
+ *  account. For example, my-other-app\@appspot.gserviceaccount.com.
  *  serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]: An
  *  identifier for a Kubernetes service account
  *  (https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
@@ -2023,10 +2068,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_ExecutionConfig : GTLRObject
 
 /**
- *  Optional. The duration to keep the underlying cluster alive while idling
- *  Passing this threshold will cause the cluster to be terminated. Minimum
- *  value is 30 minutes; maximum value is 14 days (see JSON representation of
- *  Duration (https://developers.google.com/protocol-buffers/docs/proto3#json)).
+ *  Optional. The duration to keep the session alive while it's idling. Passing
+ *  this threshold will cause the session to be terminated. Minimum value is 30
+ *  minutes; maximum value is 14 days (see JSON representation of Duration
+ *  (https://developers.google.com/protocol-buffers/docs/proto3#json)).
  */
 @property(nonatomic, strong, nullable) GTLRDuration *idleTtl;
 
@@ -2239,6 +2284,72 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        fetch them all at once.
  */
 @interface GTLRDataproc_GceClusterConfig_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Metadata describing the Compute Engine node pool operation.
+ */
+@interface GTLRDataproc_GceNodePoolOperationMetadata : GTLRObject
+
+/**
+ *  Output only. Cluster UUID associated with the Compute Engine node pool
+ *  operation.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterUuid;
+
+/**
+ *  Output only. Short description of operation.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. Compute Engine node pool ID for the operation. */
+@property(nonatomic, copy, nullable) NSString *gceNodePoolId;
+
+/** Output only. Labels associated with the operation */
+@property(nonatomic, strong, nullable) GTLRDataproc_GceNodePoolOperationMetadata_Labels *labels;
+
+/**
+ *  The operation type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_Create
+ *        Create Compute Engine node pool operation type. (Value: "CREATE")
+ *    @arg @c kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_Delete
+ *        Delete Compute Engine node pool operation type. (Value: "DELETE")
+ *    @arg @c kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_GceNodePoolOperationTypeUnspecified
+ *        Compute Engine node pool operation type is unknown. (Value:
+ *        "GCE_NODE_POOL_OPERATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_Resize
+ *        Resize Compute Engine node pool operation type. (Value: "RESIZE")
+ *    @arg @c kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_Update
+ *        Update Compute Engine node pool operation type. (Value: "UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *operationType;
+
+/** Output only. Current operation status. */
+@property(nonatomic, strong, nullable) GTLRDataproc_ClusterOperationStatus *status;
+
+/** Output only. The previous operation status. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_ClusterOperationStatus *> *statusHistory;
+
+/** Output only. Errors encountered during operation execution. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *warnings;
+
+@end
+
+
+/**
+ *  Output only. Labels associated with the operation
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_GceNodePoolOperationMetadata_Labels : GTLRObject
 @end
 
 
@@ -2822,6 +2933,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *    @arg @c kGTLRDataproc_InstanceGroupConfig_Preemptibility_Preemptible
  *        Instances are preemptible.This option is allowed only for secondary
  *        worker groups. (Value: "PREEMPTIBLE")
+ *    @arg @c kGTLRDataproc_InstanceGroupConfig_Preemptibility_Spot Instances
+ *        are Spot VMsThis option is allowed only for secondary worker groups.
+ *        See Spot VMs (https://cloud.google.com/compute/docs/instances/spot).
+ *        (Value: "SPOT")
  */
 @property(nonatomic, copy, nullable) NSString *preemptibility;
 
@@ -2986,6 +3101,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /** Output only. The previous job status. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_JobStatus *> *statusHistory;
+
+/** Optional. Job is a Trino job. */
+@property(nonatomic, strong, nullable) GTLRDataproc_TrinoJob *trinoJob;
 
 /**
  *  Output only. The collection of YARN applications spun up by this job.Beta
@@ -3985,6 +4103,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  hyphen. Must consist of between 3 and 50 characters.
  */
 @property(nonatomic, copy, nullable) NSString *stepId;
+
+/** Optional. Job is a Trino job. */
+@property(nonatomic, strong, nullable) GTLRDataproc_TrinoJob *trinoJob;
 
 @end
 
@@ -5358,6 +5479,65 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
+@end
+
+
+/**
+ *  A Dataproc job for running Trino (https://trino.io/) queries. IMPORTANT: The
+ *  Dataproc Trino Optional Component
+ *  (https://cloud.google.com/dataproc/docs/concepts/components/trino) must be
+ *  enabled when the cluster is created to submit a Trino job to the cluster.
+ */
+@interface GTLRDataproc_TrinoJob : GTLRObject
+
+/** Optional. Trino client tags to attach to this query */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *clientTags;
+
+/**
+ *  Optional. Whether to continue executing queries if a query fails. The
+ *  default value is false. Setting to true can be useful when executing
+ *  independent parallel queries.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *continueOnFailure;
+
+/** Optional. The runtime log config for job execution. */
+@property(nonatomic, strong, nullable) GTLRDataproc_LoggingConfig *loggingConfig;
+
+/**
+ *  Optional. The format in which query output will be displayed. See the Trino
+ *  documentation for supported output formats
+ */
+@property(nonatomic, copy, nullable) NSString *outputFormat;
+
+/**
+ *  Optional. A mapping of property names to values. Used to set Trino session
+ *  properties (https://trino.io/docs/current/sql/set-session.html) Equivalent
+ *  to using the --session flag in the Trino CLI
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_TrinoJob_Properties *properties;
+
+/** The HCFS URI of the script that contains SQL queries. */
+@property(nonatomic, copy, nullable) NSString *queryFileUri;
+
+/** A list of queries. */
+@property(nonatomic, strong, nullable) GTLRDataproc_QueryList *queryList;
+
+@end
+
+
+/**
+ *  Optional. A mapping of property names to values. Used to set Trino session
+ *  properties (https://trino.io/docs/current/sql/set-session.html) Equivalent
+ *  to using the --session flag in the Trino CLI
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_TrinoJob_Properties : GTLRObject
 @end
 
 

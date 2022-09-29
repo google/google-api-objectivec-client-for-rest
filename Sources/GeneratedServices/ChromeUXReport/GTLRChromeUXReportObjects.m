@@ -38,6 +38,26 @@ NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_Tablet = @"TABLET";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeUXReport_CollectionPeriod
+//
+
+@implementation GTLRChromeUXReport_CollectionPeriod
+@dynamic firstDate, lastDate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeUXReport_Date
+//
+
+@implementation GTLRChromeUXReport_Date
+@dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeUXReport_Key
 //
 
@@ -108,7 +128,7 @@ NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_Tablet = @"TABLET";
 //
 
 @implementation GTLRChromeUXReport_Record
-@dynamic key, metrics;
+@dynamic collectionPeriod, key, metrics;
 @end
 
 

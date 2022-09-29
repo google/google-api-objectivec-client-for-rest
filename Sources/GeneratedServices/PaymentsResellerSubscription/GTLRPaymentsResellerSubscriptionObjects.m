@@ -81,6 +81,16 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Amount
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Amount
+@dynamic amountMicros, currencyCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest
 //
 
@@ -250,16 +260,28 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 //
 
 @implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Product
-@dynamic name, regionCodes, subscriptionBillingCycleDuration, titles;
+@dynamic name, priceConfigs, regionCodes, subscriptionBillingCycleDuration,
+         titles;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"priceConfigs" : [GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ProductPriceConfig class],
     @"regionCodes" : [NSString class],
     @"titles" : [GTLRPaymentsResellerSubscription_GoogleTypeLocalizedText class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ProductPriceConfig
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ProductPriceConfig
+@dynamic amount, regionCode;
 @end
 
 
@@ -309,7 +331,7 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 //
 
 @implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1PromotionIntroductoryPricingDetailsIntroductoryPricingSpec
-@dynamic recurrenceCount;
+@dynamic discountAmount, discountRatioMicros, recurrenceCount;
 @end
 
 

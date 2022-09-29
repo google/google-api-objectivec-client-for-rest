@@ -100,6 +100,8 @@
 @class GTLRCloudSearch_AppsDynamiteSharedPhoneNumber;
 @class GTLRCloudSearch_AppsDynamiteSharedReaction;
 @class GTLRCloudSearch_AppsDynamiteSharedRetentionSettings;
+@class GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount;
+@class GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCounts;
 @class GTLRCloudSearch_AppsDynamiteSharedSelectionInput;
 @class GTLRCloudSearch_AppsDynamiteSharedSelectionInputSelectionItem;
 @class GTLRCloudSearch_AppsDynamiteSharedSuggestions;
@@ -824,6 +826,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_Activity
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_AssistiveSuggestionApp;
 /** Value: "CALENDAR_APP" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_CalendarApp;
+/** Value: "CHAT_IN_MEET_APP" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_ChatInMeetApp;
 /** Value: "CONTACTS_APP" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_ContactsApp;
 /** Value: "DOCS_APP" */
@@ -1356,7 +1360,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGr
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_OneToOneHumanDm;
 /**
  *  A post room. Topics in this room are organized in a post/reply style. See
- *  the design doc for more details: go/PostRoomsInDynamite.
+ *  the design doc for more details: go/PostRoomsInDynamite. Deprecated. Post
+ *  rooms are no longer supported.
  *
  *  Value: "POST_ROOM"
  */
@@ -1492,11 +1497,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentRep
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_ExplicitContent;
 /**
+ *  Phishing, impersonation/misrepresentation, or deceiving other users into
+ *  sharing information under false pretenses.
+ *
+ *  Value: "FRAUD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_Fraud;
+/**
  *  "Harassment, offensive, or rude behavior"
  *
  *  Value: "HARASSMENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_Harassment;
+/**
+ *  Promoting, organizing, or engaging in illegal activities.
+ *
+ *  Value: "ILLEGAL_ACTIVITIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_IllegalActivities;
+/**
+ *  Malware, viruses, Trojan horses, corrupted files, destructive code, etc.
+ *
+ *  Value: "MALWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_Malware;
 /**
  *  "Something else"
  *
@@ -1825,6 +1849,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustificat
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustification_ActionType_Viewed;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsDynamiteSharedMessageInfo.messageType
+
+/**
+ *  The source chat message is a threaded reply to another message.
+ *
+ *  Value: "INLINE_REPLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedMessageInfo_MessageType_InlineReply;
+/**
+ *  Default value where type is not specified.
+ *
+ *  Value: "MESSAGE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedMessageInfo_MessageType_MessageTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudSearch_AppsDynamiteSharedMessageIntegrationPayload.type
 
 /** Value: "PAYLOAD_TYPE_UNSPECIFIED" */
@@ -1882,6 +1922,64 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedRetentionS
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedRetentionSettings_State_Permanent;
 /** Value: "UNKNOWN_RETENTION_STATE" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedRetentionSettings_State_UnknownRetentionState;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount.membershipState
+
+/**
+ *  This state should never be stored in Spanner. It is a state for responses to
+ *  the clients to indicate that membership mutations have failed and the member
+ *  is in its previous state.
+ *
+ *  Value: "MEMBER_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MembershipState_MemberFailed;
+/**
+ *  An invitation to the space has been sent
+ *
+ *  Value: "MEMBER_INVITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MembershipState_MemberInvited;
+/**
+ *  User has joined the space
+ *
+ *  Value: "MEMBER_JOINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MembershipState_MemberJoined;
+/**
+ *  User is not a member
+ *
+ *  Value: "MEMBER_NOT_A_MEMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MembershipState_MemberNotAMember;
+/**
+ *  Default state, do not use
+ *
+ *  Value: "MEMBER_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MembershipState_MemberUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount.memberType
+
+/**
+ *  member is a human user
+ *
+ *  Value: "HUMAN_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MemberType_HumanUser;
+/**
+ *  default value
+ *
+ *  Value: "MEMBER_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MemberType_MemberTypeUnspecified;
+/**
+ *  member is a roster
+ *
+ *  Value: "ROSTER_MEMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MemberType_RosterMember;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_AppsDynamiteSharedSelectionInput.type
@@ -1968,10 +2066,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedTextInput_
 
 /** Value: "ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_Error;
+/** Value: "GO_LIVE_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_GoLiveSuccess;
 /** Value: "NOT_APPLICABLE" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_NotApplicable;
 /** Value: "SUCCESS" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_Success;
+/** Value: "THUMBNAIL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_ThumbnailSuccess;
 /** Value: "UNKNOWN_STATUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_UnknownStatus;
 
@@ -2026,6 +2128,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_BorderStyle_Type_NoBorder;
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_BorderStyle_Type_Stroke;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudSearch_BotInfo.appAllowlistStatus
+
+/**
+ *  For both ALL_APPS_DISABLED_BY_ADMIN and APP_NOT_ALLOWLISTED_BY_ADMIN, the
+ *  app should still be visible in the catalog, but usage of the app will be
+ *  disabled. Indicates that all apps have been disabled by the dasher admin.
+ *
+ *  Value: "ALL_APPS_DISABLED_BY_ADMIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_BotInfo_AppAllowlistStatus_AllAppsDisabledByAdmin;
+/** Value: "ALLOWED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_BotInfo_AppAllowlistStatus_Allowed;
+/**
+ *  Indicates that the customer is using allowlisting, but that the bot is not
+ *  allowlisted.
+ *
+ *  Value: "APP_NOT_ALLOWLISTED_BY_ADMIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_BotInfo_AppAllowlistStatus_AppNotAllowlistedByAdmin;
+/** Value: "UNSPECIFIED_STATUS" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_BotInfo_AppAllowlistStatus_UnspecifiedStatus;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudSearch_BotInfo.status
 
 /**
@@ -2051,29 +2176,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_BotInfo_SupportedUses_CanAdd
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_BotInfo_SupportedUses_CanAddToRoom;
 /** Value: "UNKNOWN" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_BotInfo_SupportedUses_Unknown;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudSearch_BotInfo.whitelistStatus
-
-/**
- *  For both ALL_BOTS_DISABLED_BY_ADMIN and BOT_NOT_WHITELISTED_BY_ADMIN, the
- *  bot should still be visible in the catalog, but usage of the bot will be
- *  disabled. Indicates that all bots has been disabled by the dasher admin.
- *
- *  Value: "ALL_BOTS_DISABLED_BY_ADMIN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_BotInfo_WhitelistStatus_AllBotsDisabledByAdmin;
-/** Value: "ALLOWED" */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_BotInfo_WhitelistStatus_Allowed;
-/**
- *  Indicates that the customer is using whitelisting, but that the bot is not
- *  whitelisted.
- *
- *  Value: "BOT_NOT_WHITELISTED_BY_ADMIN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_BotInfo_WhitelistStatus_BotNotWhitelistedByAdmin;
-/** Value: "UNSPECIFIED_STATUS" */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_BotInfo_WhitelistStatus_UnspecifiedStatus;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_BotResponse.requiredAction
@@ -5672,10 +5774,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QuotedMessageMetadata_BotAtt
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_QuotedMessageMetadata.messageState
 
-/** Value: "MESSAGE_STATE_ACTIVE" */
+/**
+ *  The original message is present in storage and not deleted; the message
+ *  contents can be hydrated.
+ *
+ *  Value: "MESSAGE_STATE_ACTIVE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QuotedMessageMetadata_MessageState_MessageStateActive;
-/** Value: "MESSAGE_STATE_DELETED" */
+/**
+ *  The original message has been deleted; the message contents cannot be
+ *  hydrated.
+ *
+ *  Value: "MESSAGE_STATE_DELETED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QuotedMessageMetadata_MessageState_MessageStateDeleted;
+/**
+ *  The OTR original message was edited and therefore no longer retrievable from
+ *  storage; the message contents cannot be hydrated. See
+ *  go/message-quoting-otr-edits for more context.
+ *
+ *  Value: "MESSAGE_STATE_OTR_EDITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QuotedMessageMetadata_MessageState_MessageStateOtrEdited;
 /** Value: "MESSAGE_STATE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QuotedMessageMetadata_MessageState_MessageStateUnspecified;
 
@@ -5757,13 +5877,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RecordingEvent_Type_UserActi
 // GTLRCloudSearch_RecordingInfo.recordingApplicationType
 
 /**
- *  A meeting broadcast. See go/thor-streaming-prd.
+ *  A meeting broadcast.
  *
  *  Value: "BROADCAST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RecordingInfo_RecordingApplicationType_Broadcast;
 /**
- *  A *Google Live* managed stream. See go/thor-managed-streaming.
+ *  A *Google Live* managed stream.
  *
  *  Value: "GLIVE_STREAM"
  */
@@ -5883,6 +6003,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_Unknown
 
 /** Value: "REQUIRED_FEATURE_MESSAGE_QUOTING" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureMessageQuoting;
+/** Value: "REQUIRED_FEATURE_TOMBSTONES_IN_DMS_AND_UFRS" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureTombstonesInDmsAndUfrs;
 /** Value: "REQUIRED_FEATURE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureUnspecified;
 
@@ -6329,13 +6451,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SourceScoringConfig_SourceIm
 // GTLRCloudSearch_StreamingSessionInfo.applicationType
 
 /**
- *  A meeting broadcast. See go/thor-streaming-prd.
+ *  A meeting broadcast.
  *
  *  Value: "BROADCAST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_StreamingSessionInfo_ApplicationType_Broadcast;
 /**
- *  A *Google Live* managed stream. See go/thor-managed-streaming.
+ *  A *Google Live* managed stream.
  *
  *  Value: "GLIVE_STREAM"
  */
@@ -6593,6 +6715,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UploadMetadata_VirusScanResu
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UploadMetadata_VirusScanResult_UnknownVirusScanResult;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudSearch_UrlMetadata.urlSource
+
+/** Value: "SERVER_SUPPLIED_POLICY_VIOLATION" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UrlMetadata_UrlSource_ServerSuppliedPolicyViolation;
+/** Value: "URL_SOURCE_UNKNOWN" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UrlMetadata_UrlSource_UrlSourceUnknown;
+/** Value: "USER_SUPPLIED_URL" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UrlMetadata_UrlSource_UserSuppliedUrl;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudSearch_User.userAccountState
 
 /**
@@ -6695,14 +6827,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserId_Type_Human;
 /**
  *  A precise updater count is known and the value set in updater_count_to_show
  *  should be used. If set, updater_count_to_show is set to the total number of
- *  updaters minus the one set in updater_to_show.
+ *  updaters minus the one set in updater_to_show. Shows up in clients as
+ *  "$USERNAME and $NUM others replied".
  *
  *  Value: "EXACT_COUNT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserInfo_UpdaterCountDisplayType_ExactCount;
 /**
+ *  No additional updaters where involved. Shows up in clients as "$USERNAME
+ *  replied".
+ *
+ *  Value: "NO_DISPLAY_COUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UserInfo_UpdaterCountDisplayType_NoDisplayCount;
+/**
  *  A precise updater count could not be calculated, but there is at least one.
- *  Any value set in updater_count_to_show should NOT be used.
+ *  Any value set in updater_count_to_show should NOT be used. Shows up in
+ *  clients as "$USERNAME and others replied".
  *
  *  Value: "NONZERO_COUNT"
  */
@@ -7276,6 +7417,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        Powered by Bullseye (Value: "ASSISTIVE_SUGGESTION_APP")
  *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_CalendarApp Value
  *        "CALENDAR_APP"
+ *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_ChatInMeetApp Value
+ *        "CHAT_IN_MEET_APP"
  *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_ContactsApp Value
  *        "CONTACTS_APP"
  *    @arg @c kGTLRCloudSearch_AppId_GsuiteAppType_DocsApp Value "DOCS_APP"
@@ -7363,19 +7506,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
- *  Next Id: 5
+ *  Next Id: 7
  */
 @interface GTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationData : GTLRObject
 
 /**
- *  Unique id of the Activity Feed message. This will be in the form of
- *  "space-id/message-id" or "dm-id/message-id", where the space-/dm-id and
- *  message-id components are extracted from the top-level MessageId in
- *  message.proto (http://shortn/_SulV51DNfF). This is copied into annotations
- *  so that no client changes are needed to access this value. Clients will need
- *  a unique id for every Activity Feed message to implement click-to-source.
+ *  Timestamp of when the Activity Feed message that contains this annotation
+ *  was created. This is roughly when the activity happened, such as when a
+ *  reaction happened, but will have at least some small delay, since the
+ *  Activity Feed message is created asynchronously after. This timestamp should
+ *  only be used for display when the activity create time is not available in
+ *  the Chat UI, like the time of a reaction.
  */
-@property(nonatomic, copy, nullable) NSString *activityFeedMessageId;
+@property(nonatomic, strong, nullable) GTLRDateTime *activityFeedMessageCreateTime;
+
+/**
+ *  Unique id of the Activity Feed message used by clients to implement
+ *  click-to-source. This is the same messageId as the top-level id field for
+ *  the Activity Feed item.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_MessageId *activityFeedMessageId;
 
 @property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedChatItem *chatItem;
 
@@ -8277,8 +8427,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        IMMUTABLE_MEMBERSHIP_HUMAN_DM instead. (Value: "ONE_TO_ONE_HUMAN_DM")
  *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_PostRoom
  *        A post room. Topics in this room are organized in a post/reply style.
- *        See the design doc for more details: go/PostRoomsInDynamite. (Value:
- *        "POST_ROOM")
+ *        See the design doc for more details: go/PostRoomsInDynamite.
+ *        Deprecated. Post rooms are no longer supported. (Value: "POST_ROOM")
  *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedChatItemGroupInfo_AttributeCheckerGroupType_ThreadedRoom
  *        A threaded room. Topics in this room are threaded, and users can reply
  *        to any topic. (Value: "THREADED_ROOM")
@@ -8436,8 +8586,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_ExplicitContent
  *        "Explicit content that's graphic, violent, or otherwise inappropriate"
  *        (Value: "EXPLICIT_CONTENT")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_Fraud
+ *        Phishing, impersonation/misrepresentation, or deceiving other users
+ *        into sharing information under false pretenses. (Value: "FRAUD")
  *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_Harassment
  *        "Harassment, offensive, or rude behavior" (Value: "HARASSMENT")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_IllegalActivities
+ *        Promoting, organizing, or engaging in illegal activities. (Value:
+ *        "ILLEGAL_ACTIVITIES")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_Malware
+ *        Malware, viruses, Trojan horses, corrupted files, destructive code,
+ *        etc. (Value: "MALWARE")
  *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_Other
  *        "Something else" (Value: "OTHER")
  *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_SensitiveInformation
@@ -9161,7 +9320,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
- *  Information that references a Dynamite chat message.
+ *  Information that references a Dynamite chat message. This is only used for
+ *  Activity Feed messages.
  */
 @interface GTLRCloudSearch_AppsDynamiteSharedMessageInfo : GTLRObject
 
@@ -9170,6 +9330,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  message ID to refers the AF message ID.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_MessageId *messageId;
+
+/**
+ *  The type of the source chat message.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedMessageInfo_MessageType_InlineReply
+ *        The source chat message is a threaded reply to another message.
+ *        (Value: "INLINE_REPLY")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedMessageInfo_MessageType_MessageTypeUnspecified
+ *        Default value where type is not specified. (Value:
+ *        "MESSAGE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *messageType;
 
 /**
  *  Timestamp of when the topic containing the message has been read by the
@@ -9454,6 +9627,65 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        Value "UNKNOWN_RETENTION_STATE"
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Contains info on membership count for member types: HUMAN_USER, APP_USER &
+ *  ROSTER_MEMBER different states: INVITED, JOINED
+ */
+@interface GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount : GTLRObject
+
+/**
+ *  count of members with given type and state
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *membershipCount;
+
+/**
+ *  membershipState
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MembershipState_MemberFailed
+ *        This state should never be stored in Spanner. It is a state for
+ *        responses to the clients to indicate that membership mutations have
+ *        failed and the member is in its previous state. (Value:
+ *        "MEMBER_FAILED")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MembershipState_MemberInvited
+ *        An invitation to the space has been sent (Value: "MEMBER_INVITED")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MembershipState_MemberJoined
+ *        User has joined the space (Value: "MEMBER_JOINED")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MembershipState_MemberNotAMember
+ *        User is not a member (Value: "MEMBER_NOT_A_MEMBER")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MembershipState_MemberUnknown
+ *        Default state, do not use (Value: "MEMBER_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *membershipState;
+
+/**
+ *  memberType
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MemberType_HumanUser
+ *        member is a human user (Value: "HUMAN_USER")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MemberType_MemberTypeUnspecified
+ *        default value (Value: "MEMBER_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MemberType_RosterMember
+ *        member is a roster (Value: "ROSTER_MEMBER")
+ */
+@property(nonatomic, copy, nullable) NSString *memberType;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCounts
+ */
+@interface GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCounts : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount *> *value;
 
 @end
 
@@ -9851,10 +10083,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_Error
  *        Value "ERROR"
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_GoLiveSuccess
+ *        Value "GO_LIVE_SUCCESS"
  *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_NotApplicable
  *        Value "NOT_APPLICABLE"
  *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_Success
  *        Value "SUCCESS"
+ *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_ThumbnailSuccess
+ *        Value "THUMBNAIL_SUCCESS"
  *    @arg @c kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_UnknownStatus
  *        Value "UNKNOWN_STATUS"
  */
@@ -10389,6 +10625,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  */
 @interface GTLRCloudSearch_BotInfo : GTLRObject
 
+/**
+ *  appAllowlistStatus
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_BotInfo_AppAllowlistStatus_AllAppsDisabledByAdmin
+ *        For both ALL_APPS_DISABLED_BY_ADMIN and APP_NOT_ALLOWLISTED_BY_ADMIN,
+ *        the app should still be visible in the catalog, but usage of the app
+ *        will be disabled. Indicates that all apps have been disabled by the
+ *        dasher admin. (Value: "ALL_APPS_DISABLED_BY_ADMIN")
+ *    @arg @c kGTLRCloudSearch_BotInfo_AppAllowlistStatus_Allowed Value
+ *        "ALLOWED"
+ *    @arg @c kGTLRCloudSearch_BotInfo_AppAllowlistStatus_AppNotAllowlistedByAdmin
+ *        Indicates that the customer is using allowlisting, but that the bot is
+ *        not allowlisted. (Value: "APP_NOT_ALLOWLISTED_BY_ADMIN")
+ *    @arg @c kGTLRCloudSearch_BotInfo_AppAllowlistStatus_UnspecifiedStatus
+ *        Value "UNSPECIFIED_STATUS"
+ */
+@property(nonatomic, copy, nullable) NSString *appAllowlistStatus;
+
 /** Identifier of the application associated with the bot. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_AppId *appId;
 
@@ -10440,29 +10695,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedUses;
 
 /**
+ *  If the app supports a home screen.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportHomeScreen;
+
+/**
  *  Urls with additional information related to the bot. This field should
  *  always be set even if all the fields within it are empty, so that it is
  *  convenient for clients to work with this field in javascript.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_SupportUrls *supportUrls;
-
-/**
- *  whitelistStatus
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_BotInfo_WhitelistStatus_AllBotsDisabledByAdmin
- *        For both ALL_BOTS_DISABLED_BY_ADMIN and BOT_NOT_WHITELISTED_BY_ADMIN,
- *        the bot should still be visible in the catalog, but usage of the bot
- *        will be disabled. Indicates that all bots has been disabled by the
- *        dasher admin. (Value: "ALL_BOTS_DISABLED_BY_ADMIN")
- *    @arg @c kGTLRCloudSearch_BotInfo_WhitelistStatus_Allowed Value "ALLOWED"
- *    @arg @c kGTLRCloudSearch_BotInfo_WhitelistStatus_BotNotWhitelistedByAdmin
- *        Indicates that the customer is using whitelisting, but that the bot is
- *        not whitelisted. (Value: "BOT_NOT_WHITELISTED_BY_ADMIN")
- *    @arg @c kGTLRCloudSearch_BotInfo_WhitelistStatus_UnspecifiedStatus Value
- *        "UNSPECIFIED_STATUS"
- */
-@property(nonatomic, copy, nullable) NSString *whitelistStatus;
 
 @end
 
@@ -10786,7 +11030,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, strong, nullable) NSNumber *cseEnabled;
 
 /**
- *  Indicates whether the current call is moderated. go/meet-multimod-dd
+ *  Indicates whether the current call is moderated.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -14116,7 +14360,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 /**
  *  The corpus specific metadata for office-type documents, from Google Docs and
- *  other sources. This message is passed to the scorer and beyond. Next tag: 7
+ *  other sources. This message is passed to the scorer and beyond. Next tag: 9
  */
 @interface GTLRCloudSearch_GoogleDocsMetadata : GTLRObject
 
@@ -14176,6 +14420,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *lastContentModifiedTimestamp;
+
+/**
+ *  Contains number of subscribers for the document.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numSubscribers;
+
+/**
+ *  Size of untruncated viewers list.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numViewers;
 
 /**
  *  Additional per-result information, akin to Gmail's SingleThreadResponse.
@@ -16203,7 +16461,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  An optional alias for the meeting space. The alias can in some cases be
  *  resolved to the meeting space, similar to the meeting code. The limitation
  *  is that the user needs to be in the same meeting domain as the meeting
- *  space. See go/thor-backend/meeting-alias for more details.
+ *  space.
  */
 @property(nonatomic, copy, nullable) NSString *meetingAlias;
 
@@ -16230,7 +16488,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  Output only. A URL that clients (e.g. Calendar) can use to show the web page
  *  with all join methods available for this meeting space. This link is also
  *  used in iOS universal links and Android intents, used for opening the "More
- *  ways to join" view in the Thor mobile apps. Example:
+ *  ways to join" view in the Meet mobile apps. Example:
  *  https://tel.meet/mee-ting-cod?pin=1234567891011 Here, "pin" is the universal
  *  phone PIN. We include it explicitly to better support the offline case on
  *  the mobile. This is set when the meeting space has either a universal PIN or
@@ -16649,6 +16907,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_MessageId *identifier;
+
+/**
+ *  Whether the message is content purged. Content purged messages contain only
+ *  data required for tombstone (see go/chat-infinite-tombstone). This field is
+ *  only used by Vault to display tombstone and should only be set to true if
+ *  the message is a tombstone.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isContentPurged;
 
 /**
  *  Output only. Indicates if the message is an inline reply. Set to true only
@@ -17988,7 +18256,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  Indicates that users can perform wildcard search for this property. Only
  *  supported for Text properties. IsReturnable must be true to set this option.
  *  In a given datasource maximum of 5 properties can be marked as
- *  is_wildcard_searchable.
+ *  is_wildcard_searchable. For more details, see [Define object
+ *  properties](https://developers.google.com/cloud-search/docs/guides/schema-guide#properties)
  *
  *  Uses NSNumber of boolValue.
  */
@@ -18536,9 +18805,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_QuotedMessageMetadata_MessageState_MessageStateActive
- *        Value "MESSAGE_STATE_ACTIVE"
+ *        The original message is present in storage and not deleted; the
+ *        message contents can be hydrated. (Value: "MESSAGE_STATE_ACTIVE")
  *    @arg @c kGTLRCloudSearch_QuotedMessageMetadata_MessageState_MessageStateDeleted
- *        Value "MESSAGE_STATE_DELETED"
+ *        The original message has been deleted; the message contents cannot be
+ *        hydrated. (Value: "MESSAGE_STATE_DELETED")
+ *    @arg @c kGTLRCloudSearch_QuotedMessageMetadata_MessageState_MessageStateOtrEdited
+ *        The OTR original message was edited and therefore no longer
+ *        retrievable from storage; the message contents cannot be hydrated. See
+ *        go/message-quoting-otr-edits for more context. (Value:
+ *        "MESSAGE_STATE_OTR_EDITED")
  *    @arg @c kGTLRCloudSearch_QuotedMessageMetadata_MessageState_MessageStateUnspecified
  *        Value "MESSAGE_STATE_UNSPECIFIED"
  */
@@ -18705,10 +18981,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_RecordingInfo_RecordingApplicationType_Broadcast
- *        A meeting broadcast. See go/thor-streaming-prd. (Value: "BROADCAST")
+ *        A meeting broadcast. (Value: "BROADCAST")
  *    @arg @c kGTLRCloudSearch_RecordingInfo_RecordingApplicationType_GliveStream
- *        A *Google Live* managed stream. See go/thor-managed-streaming. (Value:
- *        "GLIVE_STREAM")
+ *        A *Google Live* managed stream. (Value: "GLIVE_STREAM")
  *    @arg @c kGTLRCloudSearch_RecordingInfo_RecordingApplicationType_Recording
  *        A meeting recording saved to a video file in Google Drive. (Value:
  *        "RECORDING")
@@ -18842,9 +19117,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  translations. Set this field using the language set in browser or for the
  *  page. In the event that the user's language preference is known, set this
  *  field to the known user language. When specified, the documents in search
- *  results are biased towards the specified language. The suggest API does not
- *  use this parameter. Instead, suggest autocompletes only based on characters
- *  in the query.
+ *  results are biased towards the specified language. From Suggest API
+ *  perspective, for 3p suggest this is used as a hint while making predictions
+ *  to add language boosting.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -19140,6 +19415,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        "ROSTER_STATE_UNKNOWN"
  */
 @property(nonatomic, copy, nullable) NSString *rosterState;
+
+/**
+ *  Roster membership count. May contain counts based on member type and
+ *  membership state.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCounts *segmentedMembershipCounts;
 
 @end
 
@@ -19925,7 +20206,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, strong, nullable) NSNumber *chatLock;
 
 /**
- *  Whether meeting artifacts will be shared with co-hosts.
+ *  Whether meeting artifacts will be shared with cohosts.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -19946,7 +20227,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, strong, nullable) NSNumber *defaultAsViewer;
 
 /**
- *  Indicates whether the meeting space is moderated. go/meet-multimod-dd
+ *  Indicates whether the meeting space is moderated.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -20568,10 +20849,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_StreamingSessionInfo_ApplicationType_Broadcast A
- *        meeting broadcast. See go/thor-streaming-prd. (Value: "BROADCAST")
+ *        meeting broadcast. (Value: "BROADCAST")
  *    @arg @c kGTLRCloudSearch_StreamingSessionInfo_ApplicationType_GliveStream
- *        A *Google Live* managed stream. See go/thor-managed-streaming. (Value:
- *        "GLIVE_STREAM")
+ *        A *Google Live* managed stream. (Value: "GLIVE_STREAM")
  *    @arg @c kGTLRCloudSearch_StreamingSessionInfo_ApplicationType_Recording A
  *        meeting recording saved to a video file in Google Drive. (Value:
  *        "RECORDING")
@@ -21491,7 +21771,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  ItemType) Note that this is not necessarily the mime type of the http
  *  resource. For example a text/html from youtube or vimeo may actually be
  *  classified as a video type. Then we shall mark it as video/ * since we don't
- *  know exactly what type of video it is. NEXT TAG : 16
+ *  know exactly what type of video it is.
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
@@ -21514,6 +21794,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 /** The original URL. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_SafeUrlProto *url;
+
+/**
+ *  NEXT TAG : 17
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_UrlMetadata_UrlSource_ServerSuppliedPolicyViolation
+ *        Value "SERVER_SUPPLIED_POLICY_VIOLATION"
+ *    @arg @c kGTLRCloudSearch_UrlMetadata_UrlSource_UrlSourceUnknown Value
+ *        "URL_SOURCE_UNKNOWN"
+ *    @arg @c kGTLRCloudSearch_UrlMetadata_UrlSource_UserSuppliedUrl Value
+ *        "USER_SUPPLIED_URL"
+ */
+@property(nonatomic, copy, nullable) NSString *urlSource;
 
 @end
 
@@ -21699,9 +21992,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
- *  Contains info regarding the updater of an Activity Feed item. Next Id: 6
+ *  Contains info regarding the updater of an Activity Feed item. Next Id: 8
  */
 @interface GTLRCloudSearch_UserInfo : GTLRObject
+
+/**
+ *  Avatar url of the user who triggered the Drive Notification email. This
+ *  field will be populated if we can extract such information from the Drive
+ *  Notification email. This should only be used to fetch user avatars when
+ *  updater_to_show_email is not populated. This field is not set for non-Drive
+ *  Notification items. This is not the actual sender of the email, as the
+ *  sender is always comments-noreply\@docs.google.com.
+ */
+@property(nonatomic, copy, nullable) NSString *driveNotificationAvatarUrl;
 
 /**
  *  Describes how updater_count_to_show should be used.
@@ -21711,11 +22014,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *        precise updater count is known and the value set in
  *        updater_count_to_show should be used. If set, updater_count_to_show is
  *        set to the total number of updaters minus the one set in
- *        updater_to_show. (Value: "EXACT_COUNT")
+ *        updater_to_show. Shows up in clients as "$USERNAME and $NUM others
+ *        replied". (Value: "EXACT_COUNT")
+ *    @arg @c kGTLRCloudSearch_UserInfo_UpdaterCountDisplayType_NoDisplayCount
+ *        No additional updaters where involved. Shows up in clients as
+ *        "$USERNAME replied". (Value: "NO_DISPLAY_COUNT")
  *    @arg @c kGTLRCloudSearch_UserInfo_UpdaterCountDisplayType_NonzeroCount A
  *        precise updater count could not be calculated, but there is at least
- *        one. Any value set in updater_count_to_show should NOT be used.
- *        (Value: "NONZERO_COUNT")
+ *        one. Any value set in updater_count_to_show should NOT be used. Shows
+ *        up in clients as "$USERNAME and others replied". (Value:
+ *        "NONZERO_COUNT")
  *    @arg @c kGTLRCloudSearch_UserInfo_UpdaterCountDisplayType_UpdaterCountDisplayTypeUnspecified
  *        Value "UPDATER_COUNT_DISPLAY_TYPE_UNSPECIFIED"
  */
@@ -21729,7 +22037,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  */
 @property(nonatomic, strong, nullable) NSNumber *updaterCountToShow;
 
-/** The email of the updater for clients to show used for Gmail items. */
+/**
+ *  The email of the updater for clients to show used for Gmail items. For Drive
+ *  Notifications, this is the email of the user who triggered the Drive
+ *  Notification email. This field will be populated if we can extract such
+ *  information from the Drive Notification email. This is not the actual sender
+ *  of the email, as the sender is always comments-noreply\@docs.google.com.
+ */
 @property(nonatomic, copy, nullable) NSString *updaterToShowEmail;
 
 /**
@@ -21739,6 +22053,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *updaterToShowGaiaId;
+
+/**
+ *  The display name of the updater for clients to show used for Gmail items.
+ *  For non-Drive Notification items, this field will always be populated. If
+ *  the display name cannot be found for the user, the fallback string will be
+ *  the email address. For Drive Notification items, this is the email of the
+ *  user who triggered the Drive notification email. This field will be
+ *  populated if we can extract such information from the Drive Notification
+ *  email. This is not the actual sender of the email, as the sender is always
+ *  comments-noreply\@docs.google.com.
+ */
+@property(nonatomic, copy, nullable) NSString *updaterToShowName;
 
 /** The updater for clients to show used for Dynamite Chat items. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_UserId *updaterToShowUserId;

@@ -273,7 +273,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_AutoRenewingBasePlanType
 @dynamic billingPeriodDuration, gracePeriodDuration, legacyCompatible,
-         prorationMode, resubscribeState;
+         legacyCompatibleSubscriptionOfferId, prorationMode, resubscribeState;
 @end
 
 

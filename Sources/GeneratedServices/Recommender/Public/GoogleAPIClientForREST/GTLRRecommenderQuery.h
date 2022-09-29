@@ -32,6 +32,51 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the requested InsightTypeConfig. There is only one instance of the
+ *  config for each InsightType.
+ *
+ *  Method: recommender.billingAccounts.locations.insightTypes.getConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_BillingAccountsLocationsInsightTypesGetConfig : GTLRRecommenderQuery
+
+/**
+ *  Required. Name of the InsightTypeConfig to get. Acceptable formats: *
+ *  `projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config`
+ *  *
+ *  `projects/[PROJECT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config`
+ *  *
+ *  `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config`
+ *  *
+ *  `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1InsightTypeConfig.
+ *
+ *  Gets the requested InsightTypeConfig. There is only one instance of the
+ *  config for each InsightType.
+ *
+ *  @param name Required. Name of the InsightTypeConfig to get. Acceptable
+ *    formats: *
+ *    `projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config`
+ *    *
+ *    `projects/[PROJECT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config`
+ *    *
+ *    `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config`
+ *    *
+ *    `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config`
+ *
+ *  @return GTLRRecommenderQuery_BillingAccountsLocationsInsightTypesGetConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the requested insight. Requires the recommender.*.get IAM permission
  *  for the specified insight type.
  *
@@ -181,6 +226,100 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkInsightAcceptedRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates an InsightTypeConfig change. This will create a new revision of the
+ *  config.
+ *
+ *  Method: recommender.billingAccounts.locations.insightTypes.updateConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_BillingAccountsLocationsInsightTypesUpdateConfig : GTLRRecommenderQuery
+
+/**
+ *  Name of insight type config. Eg,
+ *  projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  If true, validate the request and preview the change, but do not actually
+ *  update it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1InsightTypeConfig.
+ *
+ *  Updates an InsightTypeConfig change. This will create a new revision of the
+ *  config.
+ *
+ *  @param object The @c
+ *    GTLRRecommender_GoogleCloudRecommenderV1InsightTypeConfig to include in
+ *    the query.
+ *  @param name Name of insight type config. Eg,
+ *    projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config
+ *
+ *  @return GTLRRecommenderQuery_BillingAccountsLocationsInsightTypesUpdateConfig
+ */
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1InsightTypeConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the requested Recommender Config. There is only one instance of the
+ *  config for each Recommender.
+ *
+ *  Method: recommender.billingAccounts.locations.recommenders.getConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_BillingAccountsLocationsRecommendersGetConfig : GTLRRecommenderQuery
+
+/**
+ *  Required. Name of the Recommendation Config to get. Acceptable formats: *
+ *  `projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config`
+ *  *
+ *  `projects/[PROJECT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config`
+ *  *
+ *  `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config`
+ *  *
+ *  `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig.
+ *
+ *  Gets the requested Recommender Config. There is only one instance of the
+ *  config for each Recommender.
+ *
+ *  @param name Required. Name of the Recommendation Config to get. Acceptable
+ *    formats: *
+ *    `projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config`
+ *    *
+ *    `projects/[PROJECT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config`
+ *    *
+ *    `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config`
+ *    *
+ *    `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config`
+ *
+ *  @return GTLRRecommenderQuery_BillingAccountsLocationsRecommendersGetConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -418,6 +557,53 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRRecommenderQuery_BillingAccountsLocationsRecommendersRecommendationsMarkSucceeded
  */
 + (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationSucceededRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates a Recommender Config. This will create a new revision of the config.
+ *
+ *  Method: recommender.billingAccounts.locations.recommenders.updateConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_BillingAccountsLocationsRecommendersUpdateConfig : GTLRRecommenderQuery
+
+/**
+ *  Name of recommender config. Eg,
+ *  projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  If true, validate the request and preview the change, but do not actually
+ *  update it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig.
+ *
+ *  Updates a Recommender Config. This will create a new revision of the config.
+ *
+ *  @param object The @c
+ *    GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig to include in
+ *    the query.
+ *  @param name Name of recommender config. Eg,
+ *    projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config
+ *
+ *  @return GTLRRecommenderQuery_BillingAccountsLocationsRecommendersUpdateConfig
+ */
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig *)object
                            name:(NSString *)name;
 
 @end
@@ -826,11 +1012,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the InsightTypeConfig to get. Acceptable formats: *
- *  `projects/[PROJECT_NUMBER]/locations/global/recommenders/[INSIGHT_TYPE_ID]/config`
+ *  `projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config`
  *  *
- *  `projects/[PROJECT_ID]/locations/global/recommenders/[INSIGHT_TYPE_ID]/config`
+ *  `projects/[PROJECT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config`
  *  *
- *  `organizations/[ORGANIZATION_ID]/locations/global/recommenders/[INSIGHT_TYPE_ID]/config`
+ *  `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config`
+ *  *
+ *  `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -842,11 +1030,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. Name of the InsightTypeConfig to get. Acceptable
  *    formats: *
- *    `projects/[PROJECT_NUMBER]/locations/global/recommenders/[INSIGHT_TYPE_ID]/config`
+ *    `projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config`
  *    *
- *    `projects/[PROJECT_ID]/locations/global/recommenders/[INSIGHT_TYPE_ID]/config`
+ *    `projects/[PROJECT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config`
  *    *
- *    `organizations/[ORGANIZATION_ID]/locations/global/recommenders/[INSIGHT_TYPE_ID]/config`
+ *    `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config`
+ *    *
+ *    `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config`
  *
  *  @return GTLRRecommenderQuery_OrganizationsLocationsInsightTypesGetConfig
  */
@@ -1074,6 +1264,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/[PROJECT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config`
  *  *
  *  `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config`
+ *  *
+ *  `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1090,6 +1282,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    `projects/[PROJECT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config`
  *    *
  *    `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config`
+ *    *
+ *    `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config`
  *
  *  @return GTLRRecommenderQuery_OrganizationsLocationsRecommendersGetConfig
  */
@@ -1395,11 +1589,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the InsightTypeConfig to get. Acceptable formats: *
- *  `projects/[PROJECT_NUMBER]/locations/global/recommenders/[INSIGHT_TYPE_ID]/config`
+ *  `projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config`
  *  *
- *  `projects/[PROJECT_ID]/locations/global/recommenders/[INSIGHT_TYPE_ID]/config`
+ *  `projects/[PROJECT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config`
  *  *
- *  `organizations/[ORGANIZATION_ID]/locations/global/recommenders/[INSIGHT_TYPE_ID]/config`
+ *  `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config`
+ *  *
+ *  `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1411,11 +1607,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. Name of the InsightTypeConfig to get. Acceptable
  *    formats: *
- *    `projects/[PROJECT_NUMBER]/locations/global/recommenders/[INSIGHT_TYPE_ID]/config`
+ *    `projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config`
  *    *
- *    `projects/[PROJECT_ID]/locations/global/recommenders/[INSIGHT_TYPE_ID]/config`
+ *    `projects/[PROJECT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config`
  *    *
- *    `organizations/[ORGANIZATION_ID]/locations/global/recommenders/[INSIGHT_TYPE_ID]/config`
+ *    `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config`
+ *    *
+ *    `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config`
  *
  *  @return GTLRRecommenderQuery_ProjectsLocationsInsightTypesGetConfig
  */
@@ -1643,6 +1841,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/[PROJECT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config`
  *  *
  *  `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config`
+ *  *
+ *  `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1659,6 +1859,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    `projects/[PROJECT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config`
  *    *
  *    `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config`
+ *    *
+ *    `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config`
  *
  *  @return GTLRRecommenderQuery_ProjectsLocationsRecommendersGetConfig
  */

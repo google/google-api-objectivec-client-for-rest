@@ -149,13 +149,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderBySerialNumber;
 /** Value: "status" */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByStatus;
 /**
- *  Chrome device support end date. This is applicable only for devices
- *  purchased directly from Google.
- *
- *  Value: "supportEndDate"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderBySupportEndDate;
-/**
  *  Type of the device.
  *
  *  Value: "type"
@@ -541,9 +534,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *        information, see the <a
  *        [chromeosdevices](/admin-sdk/directory/v1/reference/chromeosdevices.html).
  *        (Value: "status")
- *    @arg @c kGTLRDirectoryOrderBySupportEndDate Chrome device support end
- *        date. This is applicable only for devices purchased directly from
- *        Google. (Value: "supportEndDate")
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -1161,6 +1151,290 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  @return GTLRDirectoryQuery_CustomersChromePrintersPatch
  */
 + (instancetype)queryWithObject:(GTLRDirectory_Printer *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates multiple print servers.
+ *
+ *  Method: admin.customers.chrome.printServers.batchCreatePrintServers
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryChromePrinters
+ */
+@interface GTLRDirectoryQuery_CustomersChromePrintServersBatchCreatePrintServers : GTLRDirectoryQuery
+
+/**
+ *  Required. The [unique
+ *  ID](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers)
+ *  of the customer's Google Workspace account. Format: `customers/{id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDirectory_BatchCreatePrintServersResponse.
+ *
+ *  Creates multiple print servers.
+ *
+ *  @param object The @c GTLRDirectory_BatchCreatePrintServersRequest to include
+ *    in the query.
+ *  @param parent Required. The [unique
+ *    ID](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers)
+ *    of the customer's Google Workspace account. Format: `customers/{id}`
+ *
+ *  @return GTLRDirectoryQuery_CustomersChromePrintServersBatchCreatePrintServers
+ */
++ (instancetype)queryWithObject:(GTLRDirectory_BatchCreatePrintServersRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes multiple print servers.
+ *
+ *  Method: admin.customers.chrome.printServers.batchDeletePrintServers
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryChromePrinters
+ */
+@interface GTLRDirectoryQuery_CustomersChromePrintServersBatchDeletePrintServers : GTLRDirectoryQuery
+
+/**
+ *  Required. The [unique
+ *  ID](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers)
+ *  of the customer's Google Workspace account. Format:
+ *  `customers/{customer.id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDirectory_BatchDeletePrintServersResponse.
+ *
+ *  Deletes multiple print servers.
+ *
+ *  @param object The @c GTLRDirectory_BatchDeletePrintServersRequest to include
+ *    in the query.
+ *  @param parent Required. The [unique
+ *    ID](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers)
+ *    of the customer's Google Workspace account. Format:
+ *    `customers/{customer.id}`
+ *
+ *  @return GTLRDirectoryQuery_CustomersChromePrintServersBatchDeletePrintServers
+ */
++ (instancetype)queryWithObject:(GTLRDirectory_BatchDeletePrintServersRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a print server.
+ *
+ *  Method: admin.customers.chrome.printServers.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryChromePrinters
+ */
+@interface GTLRDirectoryQuery_CustomersChromePrintServersCreate : GTLRDirectoryQuery
+
+/**
+ *  Required. The [unique
+ *  ID](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers)
+ *  of the customer's Google Workspace account. Format: `customers/{id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDirectory_PrintServer.
+ *
+ *  Creates a print server.
+ *
+ *  @param object The @c GTLRDirectory_PrintServer to include in the query.
+ *  @param parent Required. The [unique
+ *    ID](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers)
+ *    of the customer's Google Workspace account. Format: `customers/{id}`
+ *
+ *  @return GTLRDirectoryQuery_CustomersChromePrintServersCreate
+ */
++ (instancetype)queryWithObject:(GTLRDirectory_PrintServer *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a print server.
+ *
+ *  Method: admin.customers.chrome.printServers.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryChromePrinters
+ */
+@interface GTLRDirectoryQuery_CustomersChromePrintServersDelete : GTLRDirectoryQuery
+
+/**
+ *  Required. The name of the print server to be deleted. Format:
+ *  `customers/{customer.id}/chrome/printServers/{print_server.id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDirectory_Empty.
+ *
+ *  Deletes a print server.
+ *
+ *  @param name Required. The name of the print server to be deleted. Format:
+ *    `customers/{customer.id}/chrome/printServers/{print_server.id}`
+ *
+ *  @return GTLRDirectoryQuery_CustomersChromePrintServersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a print server's configuration.
+ *
+ *  Method: admin.customers.chrome.printServers.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryChromePrinters
+ *    @c kGTLRAuthScopeDirectoryChromePrintersReadonly
+ */
+@interface GTLRDirectoryQuery_CustomersChromePrintServersGet : GTLRDirectoryQuery
+
+/**
+ *  Required. The [unique
+ *  ID](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers)
+ *  of the customer's Google Workspace account. Format: `customers/{id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDirectory_PrintServer.
+ *
+ *  Returns a print server's configuration.
+ *
+ *  @param name Required. The [unique
+ *    ID](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers)
+ *    of the customer's Google Workspace account. Format: `customers/{id}`
+ *
+ *  @return GTLRDirectoryQuery_CustomersChromePrintServersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists print server configurations.
+ *
+ *  Method: admin.customers.chrome.printServers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryChromePrinters
+ *    @c kGTLRAuthScopeDirectoryChromePrintersReadonly
+ */
+@interface GTLRDirectoryQuery_CustomersChromePrintServersList : GTLRDirectoryQuery
+
+/**
+ *  Search query in [Common Expression Language
+ *  syntax](https://github.com/google/cel-spec). Supported filters are
+ *  `display_name`, `description`, and `uri`. Example:
+ *  `printServer.displayName=='marketing-queue'`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Sort order for results. Supported values are `display_name`, `description`,
+ *  or `create_time`. Default order is ascending, but descending order can be
+ *  returned by appending "desc" to the `order_by` field. For instance,
+ *  `orderBy=='description desc'` returns the print servers sorted by
+ *  description in descending order.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  If `org_unit_id` is present in the request, only print servers owned or
+ *  inherited by the organizational unit (OU) are returned. If the `PrintServer`
+ *  resource's `org_unit_id` matches the one in the request, the OU owns the
+ *  server. If `org_unit_id` is not specified in the request, all print servers
+ *  are returned or filtered against.
+ */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+/**
+ *  The maximum number of objects to return (default `100`, max `100`). The
+ *  service might return fewer than this value.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A generated token to paginate results (the `next_page_token` from a previous
+ *  call).
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The [unique
+ *  ID](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers)
+ *  of the customer's Google Workspace account. Format: `customers/{id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDirectory_ListPrintServersResponse.
+ *
+ *  Lists print server configurations.
+ *
+ *  @param parent Required. The [unique
+ *    ID](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers)
+ *    of the customer's Google Workspace account. Format: `customers/{id}`
+ *
+ *  @return GTLRDirectoryQuery_CustomersChromePrintServersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a print server's configuration.
+ *
+ *  Method: admin.customers.chrome.printServers.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryChromePrinters
+ */
+@interface GTLRDirectoryQuery_CustomersChromePrintServersPatch : GTLRDirectoryQuery
+
+/**
+ *  Immutable. Resource name of the print server. Leave empty when creating.
+ *  Format: `customers/{customer.id}/printServers/{print_server.id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to update. Some fields are read-only and cannot be
+ *  updated. Values for unspecified fields are patched.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDirectory_PrintServer.
+ *
+ *  Updates a print server's configuration.
+ *
+ *  @param object The @c GTLRDirectory_PrintServer to include in the query.
+ *  @param name Immutable. Resource name of the print server. Leave empty when
+ *    creating. Format: `customers/{customer.id}/printServers/{print_server.id}`
+ *
+ *  @return GTLRDirectoryQuery_CustomersChromePrintServersPatch
+ */
++ (instancetype)queryWithObject:(GTLRDirectory_PrintServer *)object
                            name:(NSString *)name;
 
 @end

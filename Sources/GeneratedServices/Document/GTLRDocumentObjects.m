@@ -35,6 +35,12 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMeta
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata_State_Succeeded = @"SUCCEEDED";
 
+// GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat.splitType
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat_SplitType_DatasetSplitTest = @"DATASET_SPLIT_TEST";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat_SplitType_DatasetSplitTrain = @"DATASET_SPLIT_TRAIN";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat_SplitType_DatasetSplitTypeUnspecified = @"DATASET_SPLIT_TYPE_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat_SplitType_DatasetSplitUnassigned = @"DATASET_SPLIT_UNASSIGNED";
+
 // GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataDatasetResyncStatus.datasetInconsistencyType
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataDatasetResyncStatus_DatasetInconsistencyType_DatasetInconsistencyTypeNoStorageMarker = @"DATASET_INCONSISTENCY_TYPE_NO_STORAGE_MARKER";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataDatasetResyncStatus_DatasetInconsistencyType_DatasetInconsistencyTypeUnspecified = @"DATASET_INCONSISTENCY_TYPE_UNSPECIFIED";
@@ -514,6 +520,54 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadata
+@dynamic commonMetadata, individualExportStatuses, splitExportStats;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"individualExportStatuses" : [GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataIndividualExportStatus class],
+    @"splitExportStats" : [GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataIndividualExportStatus
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataIndividualExportStatus
+@dynamic documentId, outputGcsDestination, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat
+@dynamic splitType, totalDocumentCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsResponse
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportProcessorVersionMetadata
 //
 
@@ -956,8 +1010,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPage
 @dynamic blocks, detectedBarcodes, detectedLanguages, dimension, formFields,
-         image, layout, lines, pageNumber, paragraphs, provenance, symbols,
-         tables, tokens, transforms, visualElements;
+         image, imageQualityScores, layout, lines, pageNumber, paragraphs,
+         provenance, symbols, tables, tokens, transforms, visualElements;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1082,6 +1136,34 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageImage
 @dynamic content, height, mimeType, width;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageImageQualityScores
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageImageQualityScores
+@dynamic detectedDefects, qualityScore;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"detectedDefects" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageImageQualityScoresDetectedDefect class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageImageQualityScoresDetectedDefect
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageImageQualityScoresDetectedDefect
+@dynamic confidence, type;
 @end
 
 
@@ -1348,7 +1430,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentStyle
-@dynamic backgroundColor, color, fontSize, fontWeight, textAnchor,
+@dynamic backgroundColor, color, fontFamily, fontSize, fontWeight, textAnchor,
          textDecoration, textStyle;
 @end
 
@@ -1622,8 +1704,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPage
 @dynamic blocks, detectedBarcodes, detectedLanguages, dimension, formFields,
-         image, layout, lines, pageNumber, paragraphs, provenance, symbols,
-         tables, tokens, transforms, visualElements;
+         image, imageQualityScores, layout, lines, pageNumber, paragraphs,
+         provenance, symbols, tables, tokens, transforms, visualElements;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1748,6 +1830,34 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageImage
 @dynamic content, height, mimeType, width;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageImageQualityScores
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageImageQualityScores
+@dynamic detectedDefects, qualityScore;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"detectedDefects" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageImageQualityScoresDetectedDefect class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageImageQualityScoresDetectedDefect
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageImageQualityScoresDetectedDefect
+@dynamic confidence, type;
 @end
 
 
@@ -2014,7 +2124,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentStyle
-@dynamic backgroundColor, color, fontSize, fontWeight, textAnchor,
+@dynamic backgroundColor, color, fontFamily, fontSize, fontWeight, textAnchor,
          textDecoration, textStyle;
 @end
 
@@ -2538,7 +2648,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentOutputConfigGcsOutputConfig
-@dynamic gcsUri;
+@dynamic fieldMask, gcsUri;
 @end
 
 
@@ -2549,8 +2659,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentPage
 @dynamic blocks, detectedBarcodes, detectedLanguages, dimension, formFields,
-         image, layout, lines, pageNumber, paragraphs, provenance, symbols,
-         tables, tokens, transforms, visualElements;
+         image, imageQualityScores, layout, lines, pageNumber, paragraphs,
+         provenance, symbols, tables, tokens, transforms, visualElements;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2675,6 +2785,34 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImage
 @dynamic content, height, mimeType, width;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImageQualityScores
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImageQualityScores
+@dynamic detectedDefects, qualityScore;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"detectedDefects" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImageQualityScoresDetectedDefect class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImageQualityScoresDetectedDefect
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImageQualityScoresDetectedDefect
+@dynamic confidence, type;
 @end
 
 
@@ -3022,7 +3160,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentStyle
-@dynamic backgroundColor, color, fontSize, fontWeight, textAnchor,
+@dynamic backgroundColor, color, fontFamily, fontSize, fontWeight, textAnchor,
          textDecoration, textStyle;
 @end
 
@@ -3117,8 +3255,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1EntityTypeMetadata
-@dynamic humanReviewLabelingMetadata, humanReviewMetadata, inactive,
-         prefixedNamingOnProperties;
+@dynamic humanReviewLabelingMetadata, humanReviewMetadata, inactive;
 @end
 
 

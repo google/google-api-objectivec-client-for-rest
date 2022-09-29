@@ -520,6 +520,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRTranslate_DocumentRequest : GTLRObject
 
+/**
+ *  Optional. This flag is to support user customized attribution. If not
+ *  provided, the default is `Machine Translated by Google`. Customized
+ *  attribution should follow rules in
+ *  https://cloud.google.com/translate/attribution#attribution_and_logos
+ */
+@property(nonatomic, copy, nullable) NSString *customizedAttribution;
+
 /** Required. Input configurations. */
 @property(nonatomic, strong, nullable) GTLRTranslate_DocumentInputConfig *documentInputConfig;
 
