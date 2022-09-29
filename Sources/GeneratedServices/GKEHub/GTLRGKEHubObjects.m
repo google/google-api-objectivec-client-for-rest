@@ -77,6 +77,12 @@ NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_Gatekeepe
 NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperControllerManagerState_Installed = @"INSTALLED";
 NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperControllerManagerState_NotInstalled = @"NOT_INSTALLED";
 
+// GTLRGKEHub_ConfigManagementGatekeeperDeploymentState.gatekeeperMutation
+NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperMutation_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperMutation_Error = @"ERROR";
+NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperMutation_Installed = @"INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperMutation_NotInstalled = @"NOT_INSTALLED";
+
 // GTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState.extension
 NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Extension_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
 NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Extension_Error = @"ERROR";
@@ -160,10 +166,25 @@ NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_NeedsAttent
 NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Provisioning = @"PROVISIONING";
 NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Stalled = @"STALLED";
 
+// GTLRGKEHub_ServiceMeshDataPlaneManagement.state
+NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Active = @"ACTIVE";
+NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Degraded = @"DEGRADED";
+NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Disabled = @"DISABLED";
+NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_FailedPrecondition = @"FAILED_PRECONDITION";
+NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_LifecycleStateUnspecified = @"LIFECYCLE_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_NeedsAttention = @"NEEDS_ATTENTION";
+NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Provisioning = @"PROVISIONING";
+NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Stalled = @"STALLED";
+
 // GTLRGKEHub_ServiceMeshMembershipSpec.controlPlane
 NSString * const kGTLRGKEHub_ServiceMeshMembershipSpec_ControlPlane_Automatic = @"AUTOMATIC";
 NSString * const kGTLRGKEHub_ServiceMeshMembershipSpec_ControlPlane_ControlPlaneManagementUnspecified = @"CONTROL_PLANE_MANAGEMENT_UNSPECIFIED";
 NSString * const kGTLRGKEHub_ServiceMeshMembershipSpec_ControlPlane_Manual = @"MANUAL";
+
+// GTLRGKEHub_ServiceMeshMembershipSpec.management
+NSString * const kGTLRGKEHub_ServiceMeshMembershipSpec_Management_ManagementAutomatic = @"MANAGEMENT_AUTOMATIC";
+NSString * const kGTLRGKEHub_ServiceMeshMembershipSpec_Management_ManagementManual = @"MANAGEMENT_MANUAL";
+NSString * const kGTLRGKEHub_ServiceMeshMembershipSpec_Management_ManagementUnspecified = @"MANAGEMENT_UNSPECIFIED";
 
 // GTLRGKEHub_Status.code
 NSString * const kGTLRGKEHub_Status_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
@@ -360,7 +381,7 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_ConfigManagementConfigSync
-@dynamic enabled, git, oci, preventDrift, sourceFormat;
+@dynamic allowVerticalScale, enabled, git, oci, preventDrift, sourceFormat;
 @end
 
 
@@ -412,7 +433,7 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_ConfigManagementGatekeeperDeploymentState
-@dynamic gatekeeperAudit, gatekeeperControllerManagerState;
+@dynamic gatekeeperAudit, gatekeeperControllerManagerState, gatekeeperMutation;
 @end
 
 
@@ -826,7 +847,17 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_IdentityServiceAuthMethod
-@dynamic name, oidcConfig, proxy;
+@dynamic googleConfig, name, oidcConfig, proxy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_IdentityServiceGoogleConfig
+//
+
+@implementation GTLRGKEHub_IdentityServiceGoogleConfig
+@dynamic disable;
 @end
 
 
@@ -865,9 +896,9 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 @implementation GTLRGKEHub_IdentityServiceOidcConfig
 @dynamic certificateAuthorityData, clientId, clientSecret,
-         deployCloudConsoleProxy, encryptedClientSecret, extraParams,
-         groupPrefix, groupsClaim, issuerUri, kubectlRedirectUri, scopes,
-         userClaim, userPrefix;
+         deployCloudConsoleProxy, enableAccessToken, encryptedClientSecret,
+         extraParams, groupPrefix, groupsClaim, issuerUri, kubectlRedirectUri,
+         scopes, userClaim, userPrefix;
 @end
 
 
@@ -1277,11 +1308,29 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEHub_ServiceMeshDataPlaneManagement
+//
+
+@implementation GTLRGKEHub_ServiceMeshDataPlaneManagement
+@dynamic details, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRGKEHub_ServiceMeshStatusDetails class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEHub_ServiceMeshMembershipSpec
 //
 
 @implementation GTLRGKEHub_ServiceMeshMembershipSpec
-@dynamic controlPlane;
+@dynamic controlPlane, management;
 @end
 
 
@@ -1291,7 +1340,7 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_ServiceMeshMembershipState
-@dynamic controlPlaneManagement;
+@dynamic controlPlaneManagement, dataPlaneManagement;
 @end
 
 

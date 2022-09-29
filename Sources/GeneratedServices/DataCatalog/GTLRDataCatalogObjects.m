@@ -1208,7 +1208,7 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal
-@dynamic updateTime, usageWithinTimeRange;
+@dynamic favoriteCount, updateTime, usageWithinTimeRange;
 @end
 
 

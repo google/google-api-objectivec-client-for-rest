@@ -207,6 +207,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_RefundFraud;
 /**
+ *  Indicates that the user sent unwanted and abusive messages to other users of
+ *  the platform, such as spam, scams, phishing, or social engineering.
+ *
+ *  Value: "SOCIAL_SPAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_SocialSpam;
+/**
  *  Indicates that the payment transaction was accepted, and the user was
  *  charged.
  *
@@ -1136,7 +1143,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 /** The timestamp corresponding to the generation of the token. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** The hostname of the page on which the token was generated. */
+/**
+ *  The hostname of the page on which the token was generated (Web keys only).
+ */
 @property(nonatomic, copy, nullable) NSString *hostname;
 
 /**

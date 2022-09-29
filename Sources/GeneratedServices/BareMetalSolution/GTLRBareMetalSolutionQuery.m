@@ -109,6 +109,60 @@
 
 @end
 
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesDisableInteractiveSerialConsole
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_DisableInteractiveSerialConsoleRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:disableInteractiveSerialConsole";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesDisableInteractiveSerialConsole *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Operation class];
+  query.loggingName = @"baremetalsolution.projects.locations.instances.disableInteractiveSerialConsole";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesEnableInteractiveSerialConsole
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_EnableInteractiveSerialConsoleRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:enableInteractiveSerialConsole";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesEnableInteractiveSerialConsole *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Operation class];
+  query.loggingName = @"baremetalsolution.projects.locations.instances.enableInteractiveSerialConsole";
+  return query;
+}
+
+@end
+
 @implementation GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesGet
 
 @dynamic name;
@@ -602,6 +656,71 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRBareMetalSolution_ListProvisioningQuotasResponse class];
   query.loggingName = @"baremetalsolution.projects.locations.provisioningQuotas.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsSshKeysCreate
+
+@dynamic parent, sshKeyId;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_SSHKey *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/sshKeys";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsSshKeysCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBareMetalSolution_SSHKey class];
+  query.loggingName = @"baremetalsolution.projects.locations.sshKeys.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsSshKeysDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsSshKeysDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Empty class];
+  query.loggingName = @"baremetalsolution.projects.locations.sshKeys.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsSshKeysList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/sshKeys";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsSshKeysList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBareMetalSolution_ListSSHKeysResponse class];
+  query.loggingName = @"baremetalsolution.projects.locations.sshKeys.list";
   return query;
 }
 

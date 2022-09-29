@@ -48,13 +48,17 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRFirebaseManagement_AndroidApp.state
 
 /**
- *  The normal and active state.
+ *  The App is active.
  *
  *  Value: "ACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_AndroidApp_State_Active;
 /**
- *  The app has been soft deleted.
+ *  The App has been soft-deleted. Firebase permanantely deletes an App after it
+ *  has been in the `DELETED` state for more than 30 days. Up until this time,
+ *  you can restore the App by calling `Undelete`
+ *  ([Android](projects.androidApps/undelete) | [iOS](projects.iosApps/undelete)
+ *  | [web](projects.webApps/undelete)).
  *
  *  Value: "DELETED"
  */
@@ -98,13 +102,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_Platf
 // GTLRFirebaseManagement_FirebaseAppInfo.state
 
 /**
- *  The normal and active state.
+ *  The App is active.
  *
  *  Value: "ACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_State_Active;
 /**
- *  The app has been soft deleted.
+ *  The App has been soft-deleted. Firebase permanantely deletes an App after it
+ *  has been in the `DELETED` state for more than 30 days. Up until this time,
+ *  you can restore the App by calling `Undelete`
+ *  ([Android](projects.androidApps/undelete) | [iOS](projects.iosApps/undelete)
+ *  | [web](projects.webApps/undelete)).
  *
  *  Value: "DELETED"
  */
@@ -120,13 +128,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_State
 // GTLRFirebaseManagement_FirebaseProject.state
 
 /**
- *  The normal and active state.
+ *  The Project is active.
  *
  *  Value: "ACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseProject_State_Active;
 /**
- *  The Project has been marked for deletion by the user.
+ *  The Project has been soft-deleted.
  *
  *  Value: "DELETED"
  */
@@ -142,13 +150,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseProject_State
 // GTLRFirebaseManagement_IosApp.state
 
 /**
- *  The normal and active state.
+ *  The App is active.
  *
  *  Value: "ACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_IosApp_State_Active;
 /**
- *  The app has been soft deleted.
+ *  The App has been soft-deleted. Firebase permanantely deletes an App after it
+ *  has been in the `DELETED` state for more than 30 days. Up until this time,
+ *  you can restore the App by calling `Undelete`
+ *  ([Android](projects.androidApps/undelete) | [iOS](projects.iosApps/undelete)
+ *  | [web](projects.webApps/undelete)).
  *
  *  Value: "DELETED"
  */
@@ -245,13 +257,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 // GTLRFirebaseManagement_WebApp.state
 
 /**
- *  The normal and active state.
+ *  The App is active.
  *
  *  Value: "ACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_Active;
 /**
- *  The app has been soft deleted.
+ *  The App has been soft-deleted. Firebase permanantely deletes an App after it
+ *  has been in the `DELETED` state for more than 30 days. Up until this time,
+ *  you can restore the App by calling `Undelete`
+ *  ([Android](projects.androidApps/undelete) | [iOS](projects.iosApps/undelete)
+ *  | [web](projects.webApps/undelete)).
  *
  *  Value: "DELETED"
  */
@@ -455,14 +471,25 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
+/** The SHA1 certificate hashes for the AndroidApp. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sha1Hashes;
+
+/** The SHA256 certificate hashes for the AndroidApp. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sha256Hashes;
+
 /**
  *  Output only. The lifecycle state of the App.
  *
  *  Likely values:
- *    @arg @c kGTLRFirebaseManagement_AndroidApp_State_Active The normal and
- *        active state. (Value: "ACTIVE")
- *    @arg @c kGTLRFirebaseManagement_AndroidApp_State_Deleted The app has been
- *        soft deleted. (Value: "DELETED")
+ *    @arg @c kGTLRFirebaseManagement_AndroidApp_State_Active The App is active.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRFirebaseManagement_AndroidApp_State_Deleted The App has been
+ *        soft-deleted. Firebase permanantely deletes an App after it has been
+ *        in the `DELETED` state for more than 30 days. Up until this time, you
+ *        can restore the App by calling `Undelete`
+ *        ([Android](projects.androidApps/undelete) |
+ *        [iOS](projects.iosApps/undelete) | [web](projects.webApps/undelete)).
+ *        (Value: "DELETED")
  *    @arg @c kGTLRFirebaseManagement_AndroidApp_State_StateUnspecified
  *        Unspecified state. (Value: "STATE_UNSPECIFIED")
  */
@@ -645,10 +672,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
  *  Output only. The lifecycle state of the App.
  *
  *  Likely values:
- *    @arg @c kGTLRFirebaseManagement_FirebaseAppInfo_State_Active The normal
- *        and active state. (Value: "ACTIVE")
- *    @arg @c kGTLRFirebaseManagement_FirebaseAppInfo_State_Deleted The app has
- *        been soft deleted. (Value: "DELETED")
+ *    @arg @c kGTLRFirebaseManagement_FirebaseAppInfo_State_Active The App is
+ *        active. (Value: "ACTIVE")
+ *    @arg @c kGTLRFirebaseManagement_FirebaseAppInfo_State_Deleted The App has
+ *        been soft-deleted. Firebase permanantely deletes an App after it has
+ *        been in the `DELETED` state for more than 30 days. Up until this time,
+ *        you can restore the App by calling `Undelete`
+ *        ([Android](projects.androidApps/undelete) |
+ *        [iOS](projects.iosApps/undelete) | [web](projects.webApps/undelete)).
+ *        (Value: "DELETED")
  *    @arg @c kGTLRFirebaseManagement_FirebaseAppInfo_State_StateUnspecified
  *        Unspecified state. (Value: "STATE_UNSPECIFIED")
  */
@@ -704,17 +736,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. A user-assigned unique identifier for the Project. This
- *  identifier may appear in URLs or names for some Firebase resources
+ *  Output only. Immutable. A user-assigned unique identifier for the Project.
+ *  This identifier may appear in URLs or names for some Firebase resources
  *  associated with the Project, but it should generally be treated as a
  *  convenience alias to reference the Project.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  Output only. The globally unique, Google-assigned canonical identifier for
- *  the Project. Use this identifier when configuring integrations and/or making
- *  API calls to Firebase or third-party services.
+ *  Output only. Immutable. The globally unique, Google-assigned canonical
+ *  identifier for the Project. Use this identifier when configuring
+ *  integrations and/or making API calls to Firebase or third-party services.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -726,15 +758,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @property(nonatomic, strong, nullable) GTLRFirebaseManagement_DefaultResources *resources;
 
 /**
- *  Output only. The lifecycle state of the Project. Updates to the state must
- *  be performed via com.google.cloudresourcemanager.v1.Projects.DeleteProject
- *  and com.google.cloudresourcemanager.v1.Projects.UndeleteProject
+ *  Output only. The lifecycle state of the Project.
  *
  *  Likely values:
- *    @arg @c kGTLRFirebaseManagement_FirebaseProject_State_Active The normal
- *        and active state. (Value: "ACTIVE")
+ *    @arg @c kGTLRFirebaseManagement_FirebaseProject_State_Active The Project
+ *        is active. (Value: "ACTIVE")
  *    @arg @c kGTLRFirebaseManagement_FirebaseProject_State_Deleted The Project
- *        has been marked for deletion by the user. (Value: "DELETED")
+ *        has been soft-deleted. (Value: "DELETED")
  *    @arg @c kGTLRFirebaseManagement_FirebaseProject_State_StateUnspecified
  *        Unspecified state. (Value: "STATE_UNSPECIFIED")
  */
@@ -829,10 +859,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
  *  Output only. The lifecycle state of the App.
  *
  *  Likely values:
- *    @arg @c kGTLRFirebaseManagement_IosApp_State_Active The normal and active
- *        state. (Value: "ACTIVE")
- *    @arg @c kGTLRFirebaseManagement_IosApp_State_Deleted The app has been soft
- *        deleted. (Value: "DELETED")
+ *    @arg @c kGTLRFirebaseManagement_IosApp_State_Active The App is active.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRFirebaseManagement_IosApp_State_Deleted The App has been
+ *        soft-deleted. Firebase permanantely deletes an App after it has been
+ *        in the `DELETED` state for more than 30 days. Up until this time, you
+ *        can restore the App by calling `Undelete`
+ *        ([Android](projects.androidApps/undelete) |
+ *        [iOS](projects.iosApps/undelete) | [web](projects.webApps/undelete)).
+ *        (Value: "DELETED")
  *    @arg @c kGTLRFirebaseManagement_IosApp_State_StateUnspecified Unspecified
  *        state. (Value: "STATE_UNSPECIFIED")
  */
@@ -1252,7 +1287,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  If set to true, only validate the request and do not delete the app.
+ *  If set to true, the request is only validated. The App will _not_ be
+ *  removed.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1281,7 +1317,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  If set to true, only validate the request and do not delete the app.
+ *  If set to true, the request is only validated. The App will _not_ be
+ *  removed.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1310,7 +1347,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  If set to true, only validate the request and do not delete the app.
+ *  If set to true, the request is only validated. The App will _not_ be
+ *  removed.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1520,7 +1558,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  If set to true, only validate the request and do not undelete the app.
+ *  If set to true, the request is only validated. The App will _not_ be
+ *  undeleted.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1541,7 +1580,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  If set to true, only validate the request and do not undelete the app.
+ *  If set to true, the request is only validated. The App will _not_ be
+ *  undeleted.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1562,7 +1602,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  If set to true, only validate the request and do not undelete the app.
+ *  If set to true, the request is only validated. The App will _not_ be
+ *  undeleted.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1633,10 +1674,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
  *  Output only. The lifecycle state of the App.
  *
  *  Likely values:
- *    @arg @c kGTLRFirebaseManagement_WebApp_State_Active The normal and active
- *        state. (Value: "ACTIVE")
- *    @arg @c kGTLRFirebaseManagement_WebApp_State_Deleted The app has been soft
- *        deleted. (Value: "DELETED")
+ *    @arg @c kGTLRFirebaseManagement_WebApp_State_Active The App is active.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRFirebaseManagement_WebApp_State_Deleted The App has been
+ *        soft-deleted. Firebase permanantely deletes an App after it has been
+ *        in the `DELETED` state for more than 30 days. Up until this time, you
+ *        can restore the App by calling `Undelete`
+ *        ([Android](projects.androidApps/undelete) |
+ *        [iOS](projects.iosApps/undelete) | [web](projects.webApps/undelete)).
+ *        (Value: "DELETED")
  *    @arg @c kGTLRFirebaseManagement_WebApp_State_StateUnspecified Unspecified
  *        state. (Value: "STATE_UNSPECIFIED")
  */

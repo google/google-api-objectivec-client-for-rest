@@ -5554,7 +5554,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  Model to use for the feature. Supported values: "builtin/stable" (the
- *  default if unset) and "builtin/latest".
+ *  default if unset) and "builtin/latest". `DOCUMENT_TEXT_DETECTION` and
+ *  `TEXT_DETECTION` also support "builtin/weekly" for the bleeding edge release
+ *  updated weekly.
  */
 @property(nonatomic, copy, nullable) NSString *model;
 

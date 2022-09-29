@@ -594,7 +594,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** GTM Accounts's API relative path. Example: accounts/{account_id}. */
+/** GTM Account's API relative path. Example: accounts/{account_id}. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -602,7 +602,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Lists all Containers that belongs to a GTM Account.
  *
- *  @param parent GTM Accounts's API relative path. Example:
+ *  @param parent GTM Account's API relative path. Example:
  *    accounts/{account_id}.
  *
  *  @return GTLRTagManagerQuery_AccountsContainersList
@@ -3446,7 +3446,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  */
 @interface GTLRTagManagerQuery_AccountsGet : GTLRTagManagerQuery
 
-/** GTM Accounts's API relative path. Example: accounts/{account_id} */
+/** GTM Account's API relative path. Example: accounts/{account_id} */
 @property(nonatomic, copy, nullable) NSString *path;
 
 /**
@@ -3454,7 +3454,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a GTM Account.
  *
- *  @param path GTM Accounts's API relative path. Example: accounts/{account_id}
+ *  @param path GTM Account's API relative path. Example: accounts/{account_id}
  *
  *  @return GTLRTagManagerQuery_AccountsGet
  */
@@ -3508,7 +3508,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
-/** GTM Accounts's API relative path. Example: accounts/{account_id} */
+/** GTM Account's API relative path. Example: accounts/{account_id} */
 @property(nonatomic, copy, nullable) NSString *path;
 
 /**
@@ -3517,7 +3517,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Updates a GTM Account.
  *
  *  @param object The @c GTLRTagManager_Account to include in the query.
- *  @param path GTM Accounts's API relative path. Example: accounts/{account_id}
+ *  @param path GTM Account's API relative path. Example: accounts/{account_id}
  *
  *  @return GTLRTagManagerQuery_AccountsUpdate
  */
@@ -3632,7 +3632,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** GTM Accounts's API relative path. Example: accounts/{account_id} */
+/** GTM Account's API relative path. Example: accounts/{account_id} */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -3641,7 +3641,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  List all users that have access to the account along with Account and
  *  Container user access granted to each of them.
  *
- *  @param parent GTM Accounts's API relative path. Example:
+ *  @param parent GTM Account's API relative path. Example:
  *    accounts/{account_id}
  *
  *  @return GTLRTagManagerQuery_AccountsUserPermissionsList

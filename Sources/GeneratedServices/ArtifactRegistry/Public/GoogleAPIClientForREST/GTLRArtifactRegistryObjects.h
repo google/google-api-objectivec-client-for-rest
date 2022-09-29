@@ -300,11 +300,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
- *  anyone who is authenticated with a Google account or a service account. *
- *  `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a Google service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  anyone who is authenticated with a Google account or a service account. Does
+ *  not include identities that come from external identity providers (IdPs)
+ *  through identity federation. * `user:{emailid}`: An email address that
+ *  represents a specific Google account. For example, `alice\@example.com` . *
+ *  `serviceAccount:{emailid}`: An email address that represents a Google
+ *  service account. For example, `my-other-app\@appspot.gserviceaccount.com`. *
  *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
  *  identifier for a [Kubernetes service
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
@@ -648,6 +649,28 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /** The yum artifacts imported. */
 @property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_YumArtifact *> *yumArtifacts;
+
+@end
+
+
+/**
+ *  A detailed representation of a GooGet artifact.
+ */
+@interface GTLRArtifactRegistry_KfpArtifact : GTLRObject
+
+/**
+ *  Output only. Resource name of the KFP artifact. Since users don't directly
+ *  interact with this resource, the name will be derived from the associated
+ *  version. For example, when version = ".../versions/sha256:abcdef...", the
+ *  name will be ".../kfpArtifacts/sha256:abcdef...".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The version associated with the KFP artifact. Must follow the Semantic
+ *  Versioning standard.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -1598,6 +1621,42 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /** The Apt artifacts updated. */
 @property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_AptArtifact *> *aptArtifacts;
+
+@end
+
+
+/**
+ *  The response to upload an artifact.
+ */
+@interface GTLRArtifactRegistry_UploadKfpArtifactMediaResponse : GTLRObject
+
+/** Operation that will be returned to the user. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_Operation *operation;
+
+@end
+
+
+/**
+ *  The operation metadata for uploading KFP artifacts.
+ */
+@interface GTLRArtifactRegistry_UploadKfpArtifactMetadata : GTLRObject
+@end
+
+
+/**
+ *  The request to upload an artifact.
+ */
+@interface GTLRArtifactRegistry_UploadKfpArtifactRequest : GTLRObject
+
+/**
+ *  Description of the package version.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Tags to be created with the version. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
 @end
 

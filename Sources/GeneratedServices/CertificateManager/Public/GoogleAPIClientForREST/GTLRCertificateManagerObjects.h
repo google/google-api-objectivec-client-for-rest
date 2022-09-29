@@ -359,7 +359,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Output only. A list of GCLB targets which use this Certificate Map. */
+/**
+ *  Output only. A list of GCLB targets which use this Certificate Map. A Target
+ *  Proxy is only present on this list if it's attached to a Forwarding Rule.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateManager_GclbTarget *> *gclbTargets;
 
 /** Set of labels associated with a Certificate Map. */

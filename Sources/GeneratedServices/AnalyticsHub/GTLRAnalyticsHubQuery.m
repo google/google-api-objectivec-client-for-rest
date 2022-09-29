@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Analytics Hub API (analyticshub/v1beta1)
+//   Analytics Hub API (analyticshub/v1)
 // Description:
 //   Exchange data and analytics assets securely and efficiently.
 // Documentation:
@@ -22,7 +22,7 @@
 
 + (instancetype)queryWithOrganization:(NSString *)organization {
   NSArray *pathParams = @[ @"organization" ];
-  NSString *pathURITemplate = @"v1beta1/{+organization}/dataExchanges";
+  NSString *pathURITemplate = @"v1/{+organization}/dataExchanges";
   GTLRAnalyticsHubQuery_OrganizationsLocationsDataExchangesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -48,7 +48,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/dataExchanges";
+  NSString *pathURITemplate = @"v1/{+parent}/dataExchanges";
   GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -68,7 +68,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -87,7 +87,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -113,7 +113,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -133,7 +133,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/dataExchanges";
+  NSString *pathURITemplate = @"v1/{+parent}/dataExchanges";
   GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -159,7 +159,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/listings";
+  NSString *pathURITemplate = @"v1/{+parent}/listings";
   GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListingsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -179,7 +179,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListingsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -198,7 +198,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListingsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -224,7 +224,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListingsGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -244,7 +244,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/listings";
+  NSString *pathURITemplate = @"v1/{+parent}/listings";
   GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListingsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -270,7 +270,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListingsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -297,7 +297,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListingsSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -324,7 +324,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:subscribe";
+  NSString *pathURITemplate = @"v1/{+name}:subscribe";
   GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListingsSubscribe *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -351,7 +351,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListingsTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -378,7 +378,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -405,7 +405,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -432,7 +432,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -441,44 +441,6 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRAnalyticsHub_TestIamPermissionsResponse class];
   query.loggingName = @"analyticshub.projects.locations.dataExchanges.testIamPermissions";
-  return query;
-}
-
-@end
-
-@implementation GTLRAnalyticsHubQuery_ProjectsLocationsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRAnalyticsHubQuery_ProjectsLocationsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRAnalyticsHub_Location class];
-  query.loggingName = @"analyticshub.projects.locations.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRAnalyticsHubQuery_ProjectsLocationsList
-
-@dynamic filter, name, pageSize, pageToken;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}/locations";
-  GTLRAnalyticsHubQuery_ProjectsLocationsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRAnalyticsHub_ListLocationsResponse class];
-  query.loggingName = @"analyticshub.projects.locations.list";
   return query;
 }
 

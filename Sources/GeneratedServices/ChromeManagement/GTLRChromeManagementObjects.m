@@ -256,8 +256,9 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1ChromeAppInfo
-@dynamic googleOwned, isCwsHosted, isKioskOnly, isTheme, kioskEnabled,
-         minUserCount, permissions, siteAccess, supportEnabled;
+@dynamic googleOwned, isCwsHosted, isExtensionPolicySupported, isKioskOnly,
+         isTheme, kioskEnabled, minUserCount, permissions, siteAccess,
+         supportEnabled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -349,6 +350,27 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 @implementation GTLRChromeManagement_GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse
 @dynamic noRecentPolicySyncCount, noRecentUserActivityCount,
          osVersionNotCompliantCount, pendingUpdate, unsupportedPolicyCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse
+@dynamic cpuReports, memoryReports, modelReports, storageReports;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cpuReports" : [GTLRChromeManagement_GoogleChromeManagementV1DeviceHardwareCountReport class],
+    @"memoryReports" : [GTLRChromeManagement_GoogleChromeManagementV1DeviceHardwareCountReport class],
+    @"modelReports" : [GTLRChromeManagement_GoogleChromeManagementV1DeviceHardwareCountReport class],
+    @"storageReports" : [GTLRChromeManagement_GoogleChromeManagementV1DeviceHardwareCountReport class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -452,6 +474,16 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport
 @dynamic aueMonth, aueYear, count, expired, model;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1DeviceHardwareCountReport
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1DeviceHardwareCountReport
+@dynamic bucket, count;
 @end
 
 

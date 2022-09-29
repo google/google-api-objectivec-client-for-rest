@@ -96,8 +96,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_StateUnspe
 FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
 
 /**
- *  An Api is a top-level description of an API. Apis are produced by producers
- *  and are commitments to provide services.
+ *  A top-level description of an API. Produced by producers and are commitments
+ *  to provide services.
  */
 @interface GTLRApigeeRegistry_Api : GTLRObject
 
@@ -111,7 +111,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
 
 /**
  *  A user-definable description of the availability of this service. Format:
- *  free-form, but we expect single words that describe availability, e.g.
+ *  free-form, but we expect single words that describe availability, e.g.,
  *  "NONE", "TESTING", "PREVIEW", "GENERAL", "DEPRECATED", "SHUTDOWN".
  */
 @property(nonatomic, copy, nullable) NSString *availability;
@@ -133,11 +133,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
  *  Labels attach identifying metadata to resources. Identifying metadata can be
  *  used to filter list operations. Label keys and values can be no longer than
  *  64 characters (Unicode codepoints), can only contain lowercase letters,
- *  numeric characters, underscores and dashes. International characters are
+ *  numeric characters, underscores, and dashes. International characters are
  *  allowed. No more than 64 user labels can be associated with one resource
  *  (System labels are excluded). See https://goo.gl/xmQnxf for more information
  *  and examples of labels. System reserved label keys are prefixed with
- *  "apigeeregistry.googleapis.com/" and cannot be changed.
+ *  `apigeeregistry.googleapis.com/` and cannot be changed.
  */
 @property(nonatomic, strong, nullable) GTLRApigeeRegistry_Api_Labels *labels;
 
@@ -146,12 +146,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
 
 /**
  *  The recommended deployment of the API. Format:
- *  apis/{api}/deployments/{deployment}
+ *  `apis/{api}/deployments/{deployment}`
  */
 @property(nonatomic, copy, nullable) NSString *recommendedDeployment;
 
 /**
- *  The recommended version of the API. Format: apis/{api}/versions/{version}
+ *  The recommended version of the API. Format: `apis/{api}/versions/{version}`
  */
 @property(nonatomic, copy, nullable) NSString *recommendedVersion;
 
@@ -180,11 +180,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
  *  Labels attach identifying metadata to resources. Identifying metadata can be
  *  used to filter list operations. Label keys and values can be no longer than
  *  64 characters (Unicode codepoints), can only contain lowercase letters,
- *  numeric characters, underscores and dashes. International characters are
+ *  numeric characters, underscores, and dashes. International characters are
  *  allowed. No more than 64 user labels can be associated with one resource
  *  (System labels are excluded). See https://goo.gl/xmQnxf for more information
  *  and examples of labels. System reserved label keys are prefixed with
- *  "apigeeregistry.googleapis.com/" and cannot be changed.
+ *  `apigeeregistry.googleapis.com/` and cannot be changed.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -196,11 +196,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
 
 
 /**
- *  An ApiDeployment describes a service running at particular address that
- *  provides a particular version of an API. ApiDeployments have revisions which
- *  correspond to different configurations of a single deployment in time.
- *  Revision identifiers should be updated whenever the served API spec or
- *  endpoint address changes.
+ *  Describes a service running at particular address that provides a particular
+ *  version of an API. ApiDeployments have revisions which correspond to
+ *  different configurations of a single deployment in time. Revision
+ *  identifiers should be updated whenever the served API spec or endpoint
+ *  address changes.
  */
 @interface GTLRApigeeRegistry_ApiDeployment : GTLRObject
 
@@ -219,9 +219,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
 @property(nonatomic, strong, nullable) GTLRApigeeRegistry_ApiDeployment_Annotations *annotations;
 
 /**
- *  The full resource name (including revision id) of the spec of the API being
+ *  The full resource name (including revision ID) of the spec of the API being
  *  served by the deployment. Changes to this value will update the revision.
- *  Format: apis/{api}/deployments/{deployment}
+ *  Format: `apis/{api}/deployments/{deployment}`
  */
 @property(nonatomic, copy, nullable) NSString *apiSpecRevision;
 
@@ -247,7 +247,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
 @property(nonatomic, copy, nullable) NSString *endpointUri;
 
 /**
- *  The address of the external channel of the API (e.g. the Developer Portal).
+ *  The address of the external channel of the API (e.g., the Developer Portal).
  *  Changes to this value will not affect the revision.
  */
 @property(nonatomic, copy, nullable) NSString *externalChannelUri;
@@ -266,7 +266,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
  *  allowed. No more than 64 user labels can be associated with one resource
  *  (System labels are excluded). See https://goo.gl/xmQnxf for more information
  *  and examples of labels. System reserved label keys are prefixed with
- *  "apigeeregistry.googleapis.com/" and cannot be changed.
+ *  `apigeeregistry.googleapis.com/` and cannot be changed.
  */
 @property(nonatomic, strong, nullable) GTLRApigeeRegistry_ApiDeployment_Labels *labels;
 
@@ -318,7 +318,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
  *  allowed. No more than 64 user labels can be associated with one resource
  *  (System labels are excluded). See https://goo.gl/xmQnxf for more information
  *  and examples of labels. System reserved label keys are prefixed with
- *  "apigeeregistry.googleapis.com/" and cannot be changed.
+ *  `apigeeregistry.googleapis.com/` and cannot be changed.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -330,11 +330,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
 
 
 /**
- *  An ApiSpec describes a version of an API in a structured way. ApiSpecs
- *  provide formal descriptions that consumers can use to use a version. ApiSpec
- *  resources are intended to be fully-resolved descriptions of an ApiVersion.
- *  When specs consist of multiple files, these should be bundled together (e.g.
- *  in a zip archive) and stored as a unit. Multiple specs can exist to provide
+ *  Describes a version of an API in a structured way. ApiSpecs provide formal
+ *  descriptions that consumers can use to use a version. ApiSpec resources are
+ *  intended to be fully-resolved descriptions of an ApiVersion. When specs
+ *  consist of multiple files, these should be bundled together (e.g., in a zip
+ *  archive) and stored as a unit. Multiple specs can exist to provide
  *  representations in different API description formats. Synchronization of
  *  these representations would be provided by tooling and background services.
  */
@@ -389,15 +389,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
  *  allowed. No more than 64 user labels can be associated with one resource
  *  (System labels are excluded). See https://goo.gl/xmQnxf for more information
  *  and examples of labels. System reserved label keys are prefixed with
- *  "apigeeregistry.googleapis.com/" and cannot be changed.
+ *  `apigeeregistry.googleapis.com/` and cannot be changed.
  */
 @property(nonatomic, strong, nullable) GTLRApigeeRegistry_ApiSpec_Labels *labels;
 
 /**
  *  A style (format) descriptor for this spec that is specified as a Media Type
  *  (https://en.wikipedia.org/wiki/Media_type). Possible values include
- *  "application/vnd.apigee.proto", "application/vnd.apigee.openapi", and
- *  "application/vnd.apigee.graphql", with possible suffixes representing
+ *  `application/vnd.apigee.proto`, `application/vnd.apigee.openapi`, and
+ *  `application/vnd.apigee.graphql`, with possible suffixes representing
  *  compression types. These hypothetical names are defined in the vendor tree
  *  defined in RFC6838 (https://tools.ietf.org/html/rfc6838) and are not final.
  *  Content types can specify compression. Currently only GZip compression is
@@ -469,7 +469,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
  *  allowed. No more than 64 user labels can be associated with one resource
  *  (System labels are excluded). See https://goo.gl/xmQnxf for more information
  *  and examples of labels. System reserved label keys are prefixed with
- *  "apigeeregistry.googleapis.com/" and cannot be changed.
+ *  `apigeeregistry.googleapis.com/` and cannot be changed.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -481,8 +481,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
 
 
 /**
- *  An ApiVersion describes a particular version of an API. ApiVersions are what
- *  consumers actually use.
+ *  Describes a particular version of an API. ApiVersions are what consumers
+ *  actually use.
  */
 @interface GTLRApigeeRegistry_ApiVersion : GTLRObject
 
@@ -515,7 +515,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
  *  allowed. No more than 64 user labels can be associated with one resource
  *  (System labels are excluded). See https://goo.gl/xmQnxf for more information
  *  and examples of labels. System reserved label keys are prefixed with
- *  "apigeeregistry.googleapis.com/" and cannot be changed.
+ *  `apigeeregistry.googleapis.com/` and cannot be changed.
  */
 @property(nonatomic, strong, nullable) GTLRApigeeRegistry_ApiVersion_Labels *labels;
 
@@ -525,7 +525,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
 /**
  *  A user-definable description of the lifecycle phase of this API version.
  *  Format: free-form, but we expect single words that describe API maturity,
- *  e.g. "CONCEPT", "DESIGN", "DEVELOPMENT", "STAGING", "PRODUCTION",
+ *  e.g., "CONCEPT", "DESIGN", "DEVELOPMENT", "STAGING", "PRODUCTION",
  *  "DEPRECATED", "RETIRED".
  */
 @property(nonatomic, copy, nullable) NSString *state;
@@ -559,7 +559,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
  *  allowed. No more than 64 user labels can be associated with one resource
  *  (System labels are excluded). See https://goo.gl/xmQnxf for more information
  *  and examples of labels. System reserved label keys are prefixed with
- *  "apigeeregistry.googleapis.com/" and cannot be changed.
+ *  `apigeeregistry.googleapis.com/` and cannot be changed.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -575,8 +575,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
  *  are used to store metadata that is too large or numerous to be stored
  *  directly on the resource. Since artifacts are stored separately from parent
  *  resources, they should generally be used for metadata that is needed
- *  infrequently, i.e. not for display in primary views of the resource but
- *  perhaps displayed or downloaded upon request. The ListArtifacts method
+ *  infrequently, i.e., not for display in primary views of the resource but
+ *  perhaps displayed or downloaded upon request. The `ListArtifacts` method
  *  allows artifacts to be quickly enumerated and checked for presence without
  *  downloading their (potentially-large) contents.
  */
@@ -650,14 +650,20 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
- *  anyone who is authenticated with a Google account or a service account. *
- *  `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
- *  address that represents a Google group. For example, `admins\@example.com`.
- *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For example,
+ *  anyone who is authenticated with a Google account or a service account. Does
+ *  not include identities that come from external identity providers (IdPs)
+ *  through identity federation. * `user:{emailid}`: An email address that
+ *  represents a specific Google account. For example, `alice\@example.com` . *
+ *  `serviceAccount:{emailid}`: An email address that represents a Google
+ *  service account. For example, `my-other-app\@appspot.gserviceaccount.com`. *
+ *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
+ *  identifier for a [Kubernetes service
+ *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
+ *  `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`:
+ *  An email address (plus unique identifier) representing a user that has been
+ *  recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
  *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
@@ -840,7 +846,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
 
 /**
  *  Format: `projects/ * /locations/ * /instance`. Currently only
- *  locations/global is supported.
+ *  `locations/global` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1384,7 +1390,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
 
 /**
  *  Required. The revision ID to roll back to. It must be a revision of the same
- *  deployment. Example: c7cfa2a8
+ *  deployment. Example: `c7cfa2a8`
  */
 @property(nonatomic, copy, nullable) NSString *revisionId;
 
@@ -1398,7 +1404,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
 
 /**
  *  Required. The revision ID to roll back to. It must be a revision of the same
- *  spec. Example: c7cfa2a8
+ *  spec. Example: `c7cfa2a8`
  */
 @property(nonatomic, copy, nullable) NSString *revisionId;
 

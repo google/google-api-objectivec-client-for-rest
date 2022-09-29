@@ -65,7 +65,7 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @implementation GTLRDataflowQuery_ProjectsJobsAggregated
 
-@dynamic filter, location, pageSize, pageToken, projectId, view;
+@dynamic filter, location, name, pageSize, pageToken, projectId, view;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId {
   NSArray *pathParams = @[ @"projectId" ];
@@ -219,7 +219,7 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @implementation GTLRDataflowQuery_ProjectsJobsList
 
-@dynamic filter, location, pageSize, pageToken, projectId, view;
+@dynamic filter, location, name, pageSize, pageToken, projectId, view;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId {
   NSArray *pathParams = @[ @"projectId" ];
@@ -589,7 +589,7 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @implementation GTLRDataflowQuery_ProjectsLocationsJobsList
 
-@dynamic filter, location, pageSize, pageToken, projectId, view;
+@dynamic filter, location, name, pageSize, pageToken, projectId, view;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId
                           location:(NSString *)location {

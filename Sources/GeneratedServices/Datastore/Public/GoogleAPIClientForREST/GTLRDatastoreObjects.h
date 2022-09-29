@@ -1609,6 +1609,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /**
  *  Required. An ordered sequence of property names and their index attributes.
+ *  Requires: * A maximum of 100 properties.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_GoogleDatastoreAdminV1IndexedProperty *> *properties;
 

@@ -505,15 +505,26 @@ NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_
 //
 
 @implementation GTLRDns_ManagedZonePrivateVisibilityConfig
-@dynamic kind, networks;
+@dynamic gkeClusters, kind, networks;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"gkeClusters" : [GTLRDns_ManagedZonePrivateVisibilityConfigGKECluster class],
     @"networks" : [GTLRDns_ManagedZonePrivateVisibilityConfigNetwork class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ManagedZonePrivateVisibilityConfigGKECluster
+//
+
+@implementation GTLRDns_ManagedZonePrivateVisibilityConfigGKECluster
+@dynamic gkeClusterName, kind;
 @end
 
 
@@ -877,7 +888,8 @@ NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_
 //
 
 @implementation GTLRDns_ResponsePolicy
-@dynamic descriptionProperty, identifier, kind, networks, responsePolicyName;
+@dynamic descriptionProperty, gkeClusters, identifier, kind, labels, networks,
+         responsePolicyName;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -889,11 +901,36 @@ NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"gkeClusters" : [GTLRDns_ResponsePolicyGKECluster class],
     @"networks" : [GTLRDns_ResponsePolicyNetwork class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ResponsePolicy_Labels
+//
+
+@implementation GTLRDns_ResponsePolicy_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ResponsePolicyGKECluster
+//
+
+@implementation GTLRDns_ResponsePolicyGKECluster
+@dynamic gkeClusterName, kind;
 @end
 
 

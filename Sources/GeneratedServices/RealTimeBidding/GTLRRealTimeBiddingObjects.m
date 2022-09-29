@@ -200,6 +200,7 @@ NSString * const kGTLRRealTimeBidding_MediaFile_MimeType_VideoMimeTypeUnspecifie
 
 // GTLRRealTimeBidding_PolicyCompliance.status
 NSString * const kGTLRRealTimeBidding_PolicyCompliance_Status_Approved = @"APPROVED";
+NSString * const kGTLRRealTimeBidding_PolicyCompliance_Status_CertificateRequired = @"CERTIFICATE_REQUIRED";
 NSString * const kGTLRRealTimeBidding_PolicyCompliance_Status_Disapproved = @"DISAPPROVED";
 NSString * const kGTLRRealTimeBidding_PolicyCompliance_Status_PendingReview = @"PENDING_REVIEW";
 NSString * const kGTLRRealTimeBidding_PolicyCompliance_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
@@ -506,8 +507,8 @@ NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersion_VastVersionUnspe
          apiUpdateTime, creativeFormat, creativeId, creativeServingDecision,
          dealIds, declaredAttributes, declaredClickThroughUrls,
          declaredRestrictedCategories, declaredVendorIds, html,
-         impressionTrackingUrls, name, native, restrictedCategories, version,
-         video;
+         impressionTrackingUrls, name, native, renderUrl, restrictedCategories,
+         version, video;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

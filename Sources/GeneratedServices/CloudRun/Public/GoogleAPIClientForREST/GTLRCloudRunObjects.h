@@ -31,9 +31,13 @@
 @class GTLRCloudRun_GoogleCloudRunV2ExecutionTemplate;
 @class GTLRCloudRun_GoogleCloudRunV2ExecutionTemplate_Annotations;
 @class GTLRCloudRun_GoogleCloudRunV2ExecutionTemplate_Labels;
+@class GTLRCloudRun_GoogleCloudRunV2GRPCAction;
+@class GTLRCloudRun_GoogleCloudRunV2HTTPGetAction;
+@class GTLRCloudRun_GoogleCloudRunV2HTTPHeader;
 @class GTLRCloudRun_GoogleCloudRunV2Job;
 @class GTLRCloudRun_GoogleCloudRunV2Job_Annotations;
 @class GTLRCloudRun_GoogleCloudRunV2Job_Labels;
+@class GTLRCloudRun_GoogleCloudRunV2Probe;
 @class GTLRCloudRun_GoogleCloudRunV2ResourceRequirements;
 @class GTLRCloudRun_GoogleCloudRunV2ResourceRequirements_Limits;
 @class GTLRCloudRun_GoogleCloudRunV2Revision;
@@ -53,6 +57,7 @@
 @class GTLRCloudRun_GoogleCloudRunV2Task_Labels;
 @class GTLRCloudRun_GoogleCloudRunV2TaskAttemptResult;
 @class GTLRCloudRun_GoogleCloudRunV2TaskTemplate;
+@class GTLRCloudRun_GoogleCloudRunV2TCPSocketAction;
 @class GTLRCloudRun_GoogleCloudRunV2TrafficTarget;
 @class GTLRCloudRun_GoogleCloudRunV2TrafficTargetStatus;
 @class GTLRCloudRun_GoogleCloudRunV2VersionToPath;
@@ -1164,6 +1169,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, copy, nullable) NSString *image;
 
+/**
+ *  Not Supported By Cloud Run. Periodic probe of container liveness. Container
+ *  will be restarted if the probe fails. More info:
+ *  https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Probe *livenessProbe;
+
 /** Name of the container specified as a DNS_LABEL. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1181,6 +1193,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2ResourceRequirements *resources;
+
+/**
+ *  Startup probe of application within the container. All other probes are
+ *  disabled if a startup probe is provided, until it succeeds. Container will
+ *  not be added to service endpoints if the probe fails. More info:
+ *  https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Probe *startupProbe;
 
 /** Volume to mount into the container's filesystem. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2VolumeMount *> *volumeMounts;
@@ -1585,6 +1605,65 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
+ *  GRPCAction describes an action involving a GRPC port.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2GRPCAction : GTLRObject
+
+/**
+ *  Port number of the gRPC service. Number must be in the range 1 to 65535.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  Service is the name of the service to place in the gRPC HealthCheckRequest
+ *  (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). If
+ *  this is not specified, the default behavior is defined by gRPC.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  HTTPGetAction describes an action based on HTTP Get requests.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2HTTPGetAction : GTLRObject
+
+/**
+ *  Host name to connect to, defaults to the pod IP. You probably want to set
+ *  "Host" in httpHeaders instead.
+ */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/** Custom headers to set in the request. HTTP allows repeated headers. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2HTTPHeader *> *httpHeaders;
+
+/** Path to access on the HTTP server. Defaults to '/'. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/** Scheme to use for connecting to the host. Defaults to HTTP. */
+@property(nonatomic, copy, nullable) NSString *scheme;
+
+@end
+
+
+/**
+ *  HTTPHeader describes a custom header to be used in HTTP probes
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2HTTPHeader : GTLRObject
+
+/** Required. The header field name */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The header field value */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  Job represents the configuration of a single job. A job an immutable
  *  resource that references a container image which is run to completion.
  */
@@ -1951,6 +2030,70 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Task *> *tasks;
+
+@end
+
+
+/**
+ *  Probe describes a health check to be performed against a container to
+ *  determine whether it is alive or ready to receive traffic.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2Probe : GTLRObject
+
+/**
+ *  Minimum consecutive failures for the probe to be considered failed after
+ *  having succeeded. Defaults to 3. Minimum value is 1.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failureThreshold;
+
+/**
+ *  GRPC specifies an action involving a GRPC port. Exactly one of HTTPGet,
+ *  TCPSocket, or GRPC must be specified.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2GRPCAction *grpc;
+
+/**
+ *  HTTPGet specifies the http request to perform. Exactly one of HTTPGet,
+ *  TCPSocket, or gRPC must be specified.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2HTTPGetAction *httpGet;
+
+/**
+ *  Number of seconds after the container has started before the probe is
+ *  initiated. Defaults to 0 seconds. Minimum value is 0. Maximum value for
+ *  liveness probe is 3600. Maximum value for startup probe is 240. More info:
+ *  https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *initialDelaySeconds;
+
+/**
+ *  How often (in seconds) to perform the probe. Default to 10 seconds. Minimum
+ *  value is 1. Maximum value for liveness probe is 3600. Maximum value for
+ *  startup probe is 240. Must be greater or equal than timeout_seconds.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *periodSeconds;
+
+/**
+ *  TCPSocket specifies an action involving a TCP port. Exactly one of HTTPGet,
+ *  TCPSocket, or gRPC must be specified. TCP hooks not yet supported
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2TCPSocketAction *tcpSocket;
+
+/**
+ *  Number of seconds after which the probe times out. Defaults to 1 second.
+ *  Minimum value is 1. Maximum value is 3600. Must be smaller than
+ *  period_seconds. More info:
+ *  https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *timeoutSeconds;
 
 @end
 
@@ -3104,6 +3247,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
+ *  TCPSocketAction describes an action based on opening a socket
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2TCPSocketAction : GTLRObject
+
+/** Host name to connect to, defaults to the pod IP. */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  Number or name of the port to access on the container. Number must be in the
+ *  range 1 to 65535. Name must be an IANA_SVC_NAME. This field is currently
+ *  limited to integer types only because of proto's inability to properly
+ *  support the IntOrString golang type.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+@end
+
+
+/**
  *  Holds a single traffic routing entry for the Service. Allocations can be
  *  done to a specific Revision name, or pointing to the latest Ready Revision.
  */
@@ -3387,11 +3551,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
- *  anyone who is authenticated with a Google account or a service account. *
- *  `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a Google service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  anyone who is authenticated with a Google account or a service account. Does
+ *  not include identities that come from external identity providers (IdPs)
+ *  through identity federation. * `user:{emailid}`: An email address that
+ *  represents a specific Google account. For example, `alice\@example.com` . *
+ *  `serviceAccount:{emailid}`: An email address that represents a Google
+ *  service account. For example, `my-other-app\@appspot.gserviceaccount.com`. *
  *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
  *  identifier for a [Kubernetes service
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).

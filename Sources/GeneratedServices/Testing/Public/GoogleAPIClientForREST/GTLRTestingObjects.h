@@ -1338,6 +1338,16 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /** Permissions declared to be used by the application */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *usesPermission;
 
+/**
+ *  Version number used internally by the app.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *versionCode;
+
+/** Version number shown to users. */
+@property(nonatomic, copy, nullable) NSString *versionName;
+
 @end
 
 

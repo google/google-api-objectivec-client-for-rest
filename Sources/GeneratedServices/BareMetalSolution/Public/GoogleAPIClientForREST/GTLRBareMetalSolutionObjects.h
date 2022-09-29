@@ -47,6 +47,7 @@
 @class GTLRBareMetalSolution_QosPolicy;
 @class GTLRBareMetalSolution_ServerNetworkTemplate;
 @class GTLRBareMetalSolution_SnapshotReservationDetail;
+@class GTLRBareMetalSolution_SSHKey;
 @class GTLRBareMetalSolution_Status;
 @class GTLRBareMetalSolution_Status_Details_Item;
 @class GTLRBareMetalSolution_VlanAttachment;
@@ -131,11 +132,35 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Instance_State_Provisi
  */
 FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Instance_State_Running;
 /**
+ *  The server is shutdown.
+ *
+ *  Value: "SHUTDOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Instance_State_Shutdown;
+/**
+ *  The server is starting.
+ *
+ *  Value: "STARTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Instance_State_Starting;
+/**
  *  The server is in an unknown state.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Instance_State_StateUnspecified;
+/**
+ *  The server is stopping.
+ *
+ *  Value: "STOPPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Instance_State_Stopping;
+/**
+ *  The server is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Instance_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRBareMetalSolution_InstanceConfig.networkConfig
@@ -280,6 +305,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Network_State_Provisio
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Network_State_StateUnspecified;
+/**
+ *  The Network is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Network_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRBareMetalSolution_Network.type
@@ -555,6 +586,34 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_ProvisioningQuota_Asse
 FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_ProvisioningQuota_AssetType_AssetTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRBareMetalSolution_Volume.performanceTier
+
+/**
+ *  Assigned aggregates.
+ *
+ *  Value: "VOLUME_PERFORMANCE_TIER_ASSIGNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Volume_PerformanceTier_VolumePerformanceTierAssigned;
+/**
+ *  High throughput aggregates.
+ *
+ *  Value: "VOLUME_PERFORMANCE_TIER_HT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Volume_PerformanceTier_VolumePerformanceTierHt;
+/**
+ *  Regular volumes, shared aggregates.
+ *
+ *  Value: "VOLUME_PERFORMANCE_TIER_SHARED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Volume_PerformanceTier_VolumePerformanceTierShared;
+/**
+ *  Value is not specified.
+ *
+ *  Value: "VOLUME_PERFORMANCE_TIER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Volume_PerformanceTier_VolumePerformanceTierUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRBareMetalSolution_Volume.protocol
 
 /**
@@ -633,6 +692,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Volume_State_Ready;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Volume_State_StateUnspecified;
+/**
+ *  The storage volume is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Volume_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRBareMetalSolution_Volume.storageType
@@ -655,6 +720,34 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Volume_StorageType_Ssd
  *  Value: "STORAGE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_Volume_StorageType_StorageTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBareMetalSolution_VolumeConfig.performanceTier
+
+/**
+ *  Assigned aggregates.
+ *
+ *  Value: "VOLUME_PERFORMANCE_TIER_ASSIGNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VolumeConfig_PerformanceTier_VolumePerformanceTierAssigned;
+/**
+ *  High throughput aggregates.
+ *
+ *  Value: "VOLUME_PERFORMANCE_TIER_HT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VolumeConfig_PerformanceTier_VolumePerformanceTierHt;
+/**
+ *  Regular volumes, shared aggregates.
+ *
+ *  Value: "VOLUME_PERFORMANCE_TIER_SHARED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VolumeConfig_PerformanceTier_VolumePerformanceTierShared;
+/**
+ *  Value is not specified.
+ *
+ *  Value: "VOLUME_PERFORMANCE_TIER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VolumeConfig_PerformanceTier_VolumePerformanceTierUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBareMetalSolution_VolumeConfig.protocol
@@ -802,6 +895,30 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  */
 @property(nonatomic, strong, nullable) NSNumber *skipReboot;
 
+@end
+
+
+/**
+ *  Message for disabling the interactive serial console on an instance.
+ */
+@interface GTLRBareMetalSolution_DisableInteractiveSerialConsoleRequest : GTLRObject
+@end
+
+
+/**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
+ */
+@interface GTLRBareMetalSolution_Empty : GTLRObject
+@end
+
+
+/**
+ *  Message for enabling the interactive serial console on an instance.
+ */
+@interface GTLRBareMetalSolution_EnableInteractiveSerialConsoleRequest : GTLRObject
 @end
 
 
@@ -973,8 +1090,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *        being provisioned. (Value: "PROVISIONING")
  *    @arg @c kGTLRBareMetalSolution_Instance_State_Running The server is
  *        running. (Value: "RUNNING")
+ *    @arg @c kGTLRBareMetalSolution_Instance_State_Shutdown The server is
+ *        shutdown. (Value: "SHUTDOWN")
+ *    @arg @c kGTLRBareMetalSolution_Instance_State_Starting The server is
+ *        starting. (Value: "STARTING")
  *    @arg @c kGTLRBareMetalSolution_Instance_State_StateUnspecified The server
  *        is in an unknown state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBareMetalSolution_Instance_State_Stopping The server is
+ *        stopping. (Value: "STOPPING")
+ *    @arg @c kGTLRBareMetalSolution_Instance_State_Updating The server is being
+ *        updated. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -1310,6 +1435,33 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 
 /**
+ *  Message for response of ListSSHKeys.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sshKeys" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRBareMetalSolution_ListSSHKeysResponse : GTLRCollectionObject
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The SSH keys registered in the project.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_SSHKey *> *sshKeys;
+
+@end
+
+
+/**
  *  Response message containing the list of storage volumes.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1559,6 +1711,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 /** The cidr of the Network. */
 @property(nonatomic, copy, nullable) NSString *cidr;
 
+/** Output only. Gateway ip address. */
+@property(nonatomic, copy, nullable) NSString *gatewayIp;
+
 /**
  *  An identifier for the `Network`, generated by the backend.
  *
@@ -1618,6 +1773,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *        provisioning. (Value: "PROVISIONING")
  *    @arg @c kGTLRBareMetalSolution_Network_State_StateUnspecified The Network
  *        is in an unknown state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBareMetalSolution_Network_State_Updating The Network is being
+ *        updated. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -2135,6 +2292,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 /** Output only. URI to Cloud Console UI view of this provisioning config. */
 @property(nonatomic, copy, nullable) NSString *cloudConsoleUri;
 
+/** Optional. The user-defined identifier of the provisioning config. */
+@property(nonatomic, copy, nullable) NSString *customId;
+
 /**
  *  Email provided to send a confirmation with provisioning config to.
  *  Deprecated in favour of email field in request messages.
@@ -2156,7 +2316,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** Output only. The name of the provisioning config. */
+/**
+ *  Output only. The system-generated name of the provisioning config. This
+ *  follows the UUID format.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Networks to be created. */
@@ -2379,6 +2542,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 
 /**
+ *  An SSH key, used for authorizing with the interactive serial console
+ *  feature.
+ */
+@interface GTLRBareMetalSolution_SSHKey : GTLRObject
+
+/**
+ *  Output only. The name of this SSH key. Currently, the only valid value for
+ *  the location is "global".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The public SSH key. This must be in OpenSSH .authorized_keys format. */
+@property(nonatomic, copy, nullable) NSString *publicKey;
+
+@end
+
+
+/**
  *  Message requesting to start a server.
  */
 @interface GTLRBareMetalSolution_StartInstanceRequest : GTLRObject
@@ -2469,6 +2650,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  */
 @interface GTLRBareMetalSolution_VlanAttachment : GTLRObject
 
+/**
+ *  Immutable. The identifier of the attachment within vrf.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
 /** Input only. Pairing key. */
 @property(nonatomic, copy, nullable) NSString *pairingKey;
 
@@ -2558,11 +2746,33 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Input only. User-specified notes for new Volume. Used to provision Volumes
+ *  that require manual intervention.
+ */
+@property(nonatomic, copy, nullable) NSString *notes;
+
+/**
  *  Originally requested size, in GiB.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *originallyRequestedSizeGib;
+
+/**
+ *  Immutable. Performance tier of the Volume. Default is SHARED.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBareMetalSolution_Volume_PerformanceTier_VolumePerformanceTierAssigned
+ *        Assigned aggregates. (Value: "VOLUME_PERFORMANCE_TIER_ASSIGNED")
+ *    @arg @c kGTLRBareMetalSolution_Volume_PerformanceTier_VolumePerformanceTierHt
+ *        High throughput aggregates. (Value: "VOLUME_PERFORMANCE_TIER_HT")
+ *    @arg @c kGTLRBareMetalSolution_Volume_PerformanceTier_VolumePerformanceTierShared
+ *        Regular volumes, shared aggregates. (Value:
+ *        "VOLUME_PERFORMANCE_TIER_SHARED")
+ *    @arg @c kGTLRBareMetalSolution_Volume_PerformanceTier_VolumePerformanceTierUnspecified
+ *        Value is not specified. (Value: "VOLUME_PERFORMANCE_TIER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *performanceTier;
 
 /** Immutable. Pod name. */
 @property(nonatomic, copy, nullable) NSString *pod;
@@ -2642,6 +2852,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
  *        ready for use. (Value: "READY")
  *    @arg @c kGTLRBareMetalSolution_Volume_State_StateUnspecified The storage
  *        volume is in an unknown state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBareMetalSolution_Volume_State_Updating The storage volume is
+ *        being updated. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -2706,6 +2918,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspeci
 
 /** NFS exports. Set only when protocol is PROTOCOL_NFS. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBareMetalSolution_NfsExport *> *nfsExports;
+
+/**
+ *  Performance tier of the Volume. Default is SHARED.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBareMetalSolution_VolumeConfig_PerformanceTier_VolumePerformanceTierAssigned
+ *        Assigned aggregates. (Value: "VOLUME_PERFORMANCE_TIER_ASSIGNED")
+ *    @arg @c kGTLRBareMetalSolution_VolumeConfig_PerformanceTier_VolumePerformanceTierHt
+ *        High throughput aggregates. (Value: "VOLUME_PERFORMANCE_TIER_HT")
+ *    @arg @c kGTLRBareMetalSolution_VolumeConfig_PerformanceTier_VolumePerformanceTierShared
+ *        Regular volumes, shared aggregates. (Value:
+ *        "VOLUME_PERFORMANCE_TIER_SHARED")
+ *    @arg @c kGTLRBareMetalSolution_VolumeConfig_PerformanceTier_VolumePerformanceTierUnspecified
+ *        Value is not specified. (Value: "VOLUME_PERFORMANCE_TIER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *performanceTier;
 
 /**
  *  Volume protocol.

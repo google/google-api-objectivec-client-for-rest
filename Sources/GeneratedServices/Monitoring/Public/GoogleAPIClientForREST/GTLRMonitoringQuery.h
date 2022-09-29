@@ -1899,7 +1899,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @end
 
 /**
- *  Creates a new alerting policy.
+ *  Creates a new alerting policy.Design your application to single-thread API
+ *  calls that modify the state of alerting policies in a single project. This
+ *  includes calls to CreateAlertPolicy, DeleteAlertPolicy and
+ *  UpdateAlertPolicy.
  *
  *  Method: monitoring.projects.alertPolicies.create
  *
@@ -1926,7 +1929,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  Fetches a @c GTLRMonitoring_AlertPolicy.
  *
- *  Creates a new alerting policy.
+ *  Creates a new alerting policy.Design your application to single-thread API
+ *  calls that modify the state of alerting policies in a single project. This
+ *  includes calls to CreateAlertPolicy, DeleteAlertPolicy and
+ *  UpdateAlertPolicy.
  *
  *  @param object The @c GTLRMonitoring_AlertPolicy to include in the query.
  *  @param name Required. The project
@@ -1948,7 +1954,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @end
 
 /**
- *  Deletes an alerting policy.
+ *  Deletes an alerting policy.Design your application to single-thread API
+ *  calls that modify the state of alerting policies in a single project. This
+ *  includes calls to CreateAlertPolicy, DeleteAlertPolicy and
+ *  UpdateAlertPolicy.
  *
  *  Method: monitoring.projects.alertPolicies.delete
  *
@@ -1968,7 +1977,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  Fetches a @c GTLRMonitoring_Empty.
  *
- *  Deletes an alerting policy.
+ *  Deletes an alerting policy.Design your application to single-thread API
+ *  calls that modify the state of alerting policies in a single project. This
+ *  includes calls to CreateAlertPolicy, DeleteAlertPolicy and
+ *  UpdateAlertPolicy.
  *
  *  @param name Required. The alerting policy to delete. The format is:
  *    projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID] For more
@@ -2087,7 +2099,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Updates an alerting policy. You can either replace the entire policy with a
  *  new one or replace only certain fields in the current alerting policy by
  *  specifying the fields to be updated via updateMask. Returns the updated
- *  alerting policy.
+ *  alerting policy.Design your application to single-thread API calls that
+ *  modify the state of alerting policies in a single project. This includes
+ *  calls to CreateAlertPolicy, DeleteAlertPolicy and UpdateAlertPolicy.
  *
  *  Method: monitoring.projects.alertPolicies.patch
  *
@@ -2133,7 +2147,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Updates an alerting policy. You can either replace the entire policy with a
  *  new one or replace only certain fields in the current alerting policy by
  *  specifying the fields to be updated via updateMask. Returns the updated
- *  alerting policy.
+ *  alerting policy.Design your application to single-thread API calls that
+ *  modify the state of alerting policies in a single project. This includes
+ *  calls to CreateAlertPolicy, DeleteAlertPolicy and UpdateAlertPolicy.
  *
  *  @param object The @c GTLRMonitoring_AlertPolicy to include in the query.
  *  @param name Required if the policy exists. The resource name for this
@@ -2849,7 +2865,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Creates a new notification channel, representing a single notification
- *  endpoint such as an email address, SMS number, or PagerDuty service.
+ *  endpoint such as an email address, SMS number, or PagerDuty service.Design
+ *  your application to single-thread API calls that modify the state of
+ *  notification channels in a single project. This includes calls to
+ *  CreateNotificationChannel, DeleteNotificationChannel and
+ *  UpdateNotificationChannel.
  *
  *  Method: monitoring.projects.notificationChannels.create
  *
@@ -2874,7 +2894,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Fetches a @c GTLRMonitoring_NotificationChannel.
  *
  *  Creates a new notification channel, representing a single notification
- *  endpoint such as an email address, SMS number, or PagerDuty service.
+ *  endpoint such as an email address, SMS number, or PagerDuty service.Design
+ *  your application to single-thread API calls that modify the state of
+ *  notification channels in a single project. This includes calls to
+ *  CreateNotificationChannel, DeleteNotificationChannel and
+ *  UpdateNotificationChannel.
  *
  *  @param object The @c GTLRMonitoring_NotificationChannel to include in the
  *    query.
@@ -2894,7 +2918,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @end
 
 /**
- *  Deletes a notification channel.
+ *  Deletes a notification channel.Design your application to single-thread API
+ *  calls that modify the state of notification channels in a single project.
+ *  This includes calls to CreateNotificationChannel, DeleteNotificationChannel
+ *  and UpdateNotificationChannel.
  *
  *  Method: monitoring.projects.notificationChannels.delete
  *
@@ -2921,7 +2948,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  Fetches a @c GTLRMonitoring_Empty.
  *
- *  Deletes a notification channel.
+ *  Deletes a notification channel.Design your application to single-thread API
+ *  calls that modify the state of notification channels in a single project.
+ *  This includes calls to CreateNotificationChannel, DeleteNotificationChannel
+ *  and UpdateNotificationChannel.
  *
  *  @param name Required. The channel for which to execute the request. The
  *    format is:
@@ -3120,7 +3150,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Updates a notification channel. Fields not specified in the field mask
- *  remain unchanged.
+ *  remain unchanged.Design your application to single-thread API calls that
+ *  modify the state of notification channels in a single project. This includes
+ *  calls to CreateNotificationChannel, DeleteNotificationChannel and
+ *  UpdateNotificationChannel.
  *
  *  Method: monitoring.projects.notificationChannels.patch
  *
@@ -3148,7 +3181,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Fetches a @c GTLRMonitoring_NotificationChannel.
  *
  *  Updates a notification channel. Fields not specified in the field mask
- *  remain unchanged.
+ *  remain unchanged.Design your application to single-thread API calls that
+ *  modify the state of notification channels in a single project. This includes
+ *  calls to CreateNotificationChannel, DeleteNotificationChannel and
+ *  UpdateNotificationChannel.
  *
  *  @param object The @c GTLRMonitoring_NotificationChannel to include in the
  *    query.

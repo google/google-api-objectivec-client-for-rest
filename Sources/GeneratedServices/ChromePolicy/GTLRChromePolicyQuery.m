@@ -249,7 +249,7 @@
 
 @dynamic customer;
 
-+ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileRequest *)object
++ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyVersionsV1UploadPolicyFileRequest *)object
                        customer:(NSString *)customer
                uploadParameters:(GTLRUploadParameters *)uploadParameters {
   if (object == nil) {
@@ -267,7 +267,7 @@
   query.bodyObject = object;
   query.customer = customer;
   query.uploadParameters = uploadParameters;
-  query.expectedObjectClass = [GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileResponse class];
+  query.expectedObjectClass = [GTLRChromePolicy_GoogleChromePolicyVersionsV1UploadPolicyFileResponse class];
   query.loggingName = @"chromepolicy.media.upload";
   return query;
 }

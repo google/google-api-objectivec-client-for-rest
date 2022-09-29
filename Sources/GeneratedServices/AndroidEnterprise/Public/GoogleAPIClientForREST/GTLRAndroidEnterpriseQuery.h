@@ -833,7 +833,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 @end
 
 /**
- *  Removes an entitlement to an app for a user.
+ *  Removes an entitlement to an app for a user. **Note:** This item has been
+ *  deprecated. New integrations cannot use this method and can refer to our new
+ *  recommendations.
  *
  *  Method: androidenterprise.entitlements.delete
  *
@@ -857,7 +859,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Removes an entitlement to an app for a user.
+ *  Removes an entitlement to an app for a user. **Note:** This item has been
+ *  deprecated. New integrations cannot use this method and can refer to our new
+ *  recommendations.
  *
  *  @param enterpriseId The ID of the enterprise.
  *  @param userId The ID of the user.
@@ -873,7 +877,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 @end
 
 /**
- *  Retrieves details of an entitlement.
+ *  Retrieves details of an entitlement. **Note:** This item has been
+ *  deprecated. New integrations cannot use this method and can refer to our new
+ *  recommendations.
  *
  *  Method: androidenterprise.entitlements.get
  *
@@ -896,7 +902,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 /**
  *  Fetches a @c GTLRAndroidEnterprise_Entitlement.
  *
- *  Retrieves details of an entitlement.
+ *  Retrieves details of an entitlement. **Note:** This item has been
+ *  deprecated. New integrations cannot use this method and can refer to our new
+ *  recommendations.
  *
  *  @param enterpriseId The ID of the enterprise.
  *  @param userId The ID of the user.
@@ -912,7 +920,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 @end
 
 /**
- *  Lists all entitlements for the specified user. Only the ID is set.
+ *  Lists all entitlements for the specified user. Only the ID is set. **Note:**
+ *  This item has been deprecated. New integrations cannot use this method and
+ *  can refer to our new recommendations.
  *
  *  Method: androidenterprise.entitlements.list
  *
@@ -930,7 +940,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 /**
  *  Fetches a @c GTLRAndroidEnterprise_EntitlementsListResponse.
  *
- *  Lists all entitlements for the specified user. Only the ID is set.
+ *  Lists all entitlements for the specified user. Only the ID is set. **Note:**
+ *  This item has been deprecated. New integrations cannot use this method and
+ *  can refer to our new recommendations.
  *
  *  @param enterpriseId The ID of the enterprise.
  *  @param userId The ID of the user.
@@ -943,7 +955,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 @end
 
 /**
- *  Adds or updates an entitlement to an app for a user.
+ *  Adds or updates an entitlement to an app for a user. **Note:** This item has
+ *  been deprecated. New integrations cannot use this method and can refer to
+ *  our new recommendations.
  *
  *  Method: androidenterprise.entitlements.update
  *
@@ -974,7 +988,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 /**
  *  Fetches a @c GTLRAndroidEnterprise_Entitlement.
  *
- *  Adds or updates an entitlement to an app for a user.
+ *  Adds or updates an entitlement to an app for a user. **Note:** This item has
+ *  been deprecated. New integrations cannot use this method and can refer to
+ *  our new recommendations.
  *
  *  @param object The @c GTLRAndroidEnterprise_Entitlement to include in the
  *    query.
@@ -993,7 +1009,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 @end
 
 /**
- *  Retrieves details of an enterprise's group license for a product.
+ *  Retrieves details of an enterprise's group license for a product. **Note:**
+ *  This item has been deprecated. New integrations cannot use this method and
+ *  can refer to our new recommendations.
  *
  *  Method: androidenterprise.grouplicenses.get
  *
@@ -1014,7 +1032,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 /**
  *  Fetches a @c GTLRAndroidEnterprise_GroupLicense.
  *
- *  Retrieves details of an enterprise's group license for a product.
+ *  Retrieves details of an enterprise's group license for a product. **Note:**
+ *  This item has been deprecated. New integrations cannot use this method and
+ *  can refer to our new recommendations.
  *
  *  @param enterpriseId The ID of the enterprise.
  *  @param groupLicenseId The ID of the product the group license is for, e.g.
@@ -1029,6 +1049,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 
 /**
  *  Retrieves IDs of all products for which the enterprise has a group license.
+ *  **Note:** This item has been deprecated. New integrations cannot use this
+ *  method and can refer to our new recommendations.
  *
  *  Method: androidenterprise.grouplicenses.list
  *
@@ -1044,6 +1066,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *  Fetches a @c GTLRAndroidEnterprise_GroupLicensesListResponse.
  *
  *  Retrieves IDs of all products for which the enterprise has a group license.
+ *  **Note:** This item has been deprecated. New integrations cannot use this
+ *  method and can refer to our new recommendations.
  *
  *  @param enterpriseId The ID of the enterprise.
  *
@@ -1055,7 +1079,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 
 /**
  *  Retrieves the IDs of the users who have been granted entitlements under the
- *  license.
+ *  license. **Note:** This item has been deprecated. New integrations cannot
+ *  use this method and can refer to our new recommendations.
  *
  *  Method: androidenterprise.grouplicenseusers.list
  *
@@ -1077,7 +1102,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *  Fetches a @c GTLRAndroidEnterprise_GroupLicenseUsersListResponse.
  *
  *  Retrieves the IDs of the users who have been granted entitlements under the
- *  license.
+ *  license. **Note:** This item has been deprecated. New integrations cannot
+ *  use this method and can refer to our new recommendations.
  *
  *  @param enterpriseId The ID of the enterprise.
  *  @param groupLicenseId The ID of the product the group license is for, e.g.
@@ -1691,6 +1717,8 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  maximum number of products that you can approve per enterprise customer is
  *  1,000. To learn how to use managed Google Play to design and create a store
  *  layout to display approved products to your users, see Store Layout Design.
+ *  **Note:** This item has been deprecated. New integrations cannot use this
+ *  method and can refer to our new recommendations.
  *
  *  Method: androidenterprise.products.approve
  *
@@ -1713,6 +1741,8 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  maximum number of products that you can approve per enterprise customer is
  *  1,000. To learn how to use managed Google Play to design and create a store
  *  layout to display approved products to your users, see Store Layout Design.
+ *  **Note:** This item has been deprecated. New integrations cannot use this
+ *  method and can refer to our new recommendations.
  *
  *  @param object The @c GTLRAndroidEnterprise_ProductsApproveRequest to include
  *    in the query.
@@ -1735,7 +1765,9 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  a separate UI element in the EMM console, which in turn should trigger the
  *  use of this URL as the approvalUrlInfo.approvalUrl property in a
  *  Products.approve call to approve the product. This URL can only be used to
- *  display permissions for up to 1 day.
+ *  display permissions for up to 1 day. **Note:** This item has been
+ *  deprecated. New integrations cannot use this method and can refer to our new
+ *  recommendations.
  *
  *  Method: androidenterprise.products.generateApprovalUrl
  *
@@ -1766,7 +1798,9 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  a separate UI element in the EMM console, which in turn should trigger the
  *  use of this URL as the approvalUrlInfo.approvalUrl property in a
  *  Products.approve call to approve the product. This URL can only be used to
- *  display permissions for up to 1 day.
+ *  display permissions for up to 1 day. **Note:** This item has been
+ *  deprecated. New integrations cannot use this method and can refer to our new
+ *  recommendations.
  *
  *  @param enterpriseId The ID of the enterprise.
  *  @param productId The ID of the product.
@@ -1889,7 +1923,8 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 
 /**
  *  Finds approved products that match a query, or all approved products if
- *  there is no query.
+ *  there is no query. **Note:** This item has been deprecated. New integrations
+ *  cannot use this method and can refer to our new recommendations.
  *
  *  Method: androidenterprise.products.list
  *
@@ -1937,7 +1972,8 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  Fetches a @c GTLRAndroidEnterprise_ProductsListResponse.
  *
  *  Finds approved products that match a query, or all approved products if
- *  there is no query.
+ *  there is no query. **Note:** This item has been deprecated. New integrations
+ *  cannot use this method and can refer to our new recommendations.
  *
  *  @param enterpriseId The ID of the enterprise.
  *
@@ -1949,6 +1985,8 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 
 /**
  *  Unapproves the specified product (and the relevant app permissions, if any)
+ *  **Note:** This item has been deprecated. New integrations cannot use this
+ *  method and can refer to our new recommendations.
  *
  *  Method: androidenterprise.products.unapprove
  *
@@ -1968,6 +2006,8 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  be nil. This query does not fetch an object.
  *
  *  Unapproves the specified product (and the relevant app permissions, if any)
+ *  **Note:** This item has been deprecated. New integrations cannot use this
+ *  method and can refer to our new recommendations.
  *
  *  @param enterpriseId The ID of the enterprise.
  *  @param productId The ID of the product.
@@ -2520,7 +2560,9 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 @end
 
 /**
- *  Retrieves the set of products a user is entitled to access.
+ *  Retrieves the set of products a user is entitled to access. **Note:** This
+ *  item has been deprecated. New integrations cannot use this method and can
+ *  refer to our new recommendations.
  *
  *  Method: androidenterprise.users.getAvailableProductSet
  *
@@ -2538,7 +2580,9 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 /**
  *  Fetches a @c GTLRAndroidEnterprise_ProductSet.
  *
- *  Retrieves the set of products a user is entitled to access.
+ *  Retrieves the set of products a user is entitled to access. **Note:** This
+ *  item has been deprecated. New integrations cannot use this method and can
+ *  refer to our new recommendations.
  *
  *  @param enterpriseId The ID of the enterprise.
  *  @param userId The ID of the user.
@@ -2662,7 +2706,8 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  Modifies the set of products that a user is entitled to access (referred to
  *  as *whitelisted* products). Only products that are approved or products that
  *  were previously approved (products with revoked approval) can be
- *  whitelisted.
+ *  whitelisted. **Note:** This item has been deprecated. New integrations
+ *  cannot use this method and can refer to our new recommendations.
  *
  *  Method: androidenterprise.users.setAvailableProductSet
  *
@@ -2683,7 +2728,8 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  Modifies the set of products that a user is entitled to access (referred to
  *  as *whitelisted* products). Only products that are approved or products that
  *  were previously approved (products with revoked approval) can be
- *  whitelisted.
+ *  whitelisted. **Note:** This item has been deprecated. New integrations
+ *  cannot use this method and can refer to our new recommendations.
  *
  *  @param object The @c GTLRAndroidEnterprise_ProductSet to include in the
  *    query.

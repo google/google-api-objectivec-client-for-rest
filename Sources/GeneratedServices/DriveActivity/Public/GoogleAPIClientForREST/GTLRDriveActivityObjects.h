@@ -21,12 +21,15 @@
 @class GTLRDriveActivity_AnonymousUser;
 @class GTLRDriveActivity_Anyone;
 @class GTLRDriveActivity_ApplicationReference;
+@class GTLRDriveActivity_AppliedLabelChange;
+@class GTLRDriveActivity_AppliedLabelChangeDetail;
 @class GTLRDriveActivity_Assignment;
 @class GTLRDriveActivity_Comment;
 @class GTLRDriveActivity_ConsolidationStrategy;
 @class GTLRDriveActivity_Copy;
 @class GTLRDriveActivity_Create;
 @class GTLRDriveActivity_DataLeakPreventionChange;
+@class GTLRDriveActivity_Date;
 @class GTLRDriveActivity_Delete;
 @class GTLRDriveActivity_DeletedUser;
 @class GTLRDriveActivity_Domain;
@@ -38,11 +41,14 @@
 @class GTLRDriveActivity_DriveItemReference;
 @class GTLRDriveActivity_DriveReference;
 @class GTLRDriveActivity_Edit;
+@class GTLRDriveActivity_FieldValue;
+@class GTLRDriveActivity_FieldValueChange;
 @class GTLRDriveActivity_File;
 @class GTLRDriveActivity_FileComment;
 @class GTLRDriveActivity_Folder;
 @class GTLRDriveActivity_Group;
 @class GTLRDriveActivity_Impersonation;
+@class GTLRDriveActivity_Integer;
 @class GTLRDriveActivity_KnownUser;
 @class GTLRDriveActivity_Legacy;
 @class GTLRDriveActivity_Move;
@@ -55,17 +61,23 @@
 @class GTLRDriveActivity_Rename;
 @class GTLRDriveActivity_Restore;
 @class GTLRDriveActivity_RestrictionChange;
+@class GTLRDriveActivity_Selection;
+@class GTLRDriveActivity_SelectionList;
 @class GTLRDriveActivity_SettingsChange;
+@class GTLRDriveActivity_SingleUser;
 @class GTLRDriveActivity_Suggestion;
 @class GTLRDriveActivity_SystemEvent;
 @class GTLRDriveActivity_Target;
 @class GTLRDriveActivity_TargetReference;
 @class GTLRDriveActivity_TeamDrive;
 @class GTLRDriveActivity_TeamDriveReference;
+@class GTLRDriveActivity_Text;
+@class GTLRDriveActivity_TextList;
 @class GTLRDriveActivity_TimeRange;
 @class GTLRDriveActivity_UnknownUser;
 @class GTLRDriveActivity_Upload;
 @class GTLRDriveActivity_User;
+@class GTLRDriveActivity_UserList;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -98,6 +110,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_ApplicationReference_Type_
  *  Value: "UNSPECIFIED_REFERENCE_TYPE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_ApplicationReference_Type_UnspecifiedReferenceType;
+
+// ----------------------------------------------------------------------------
+// GTLRDriveActivity_AppliedLabelChangeDetail.types
+
+/**
+ *  The identified Label was added to the Target.
+ *
+ *  Value: "LABEL_ADDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_AppliedLabelChangeDetail_Types_LabelAdded;
+/**
+ *  The Label was applied as a side-effect of Drive item creation.
+ *
+ *  Value: "LABEL_APPLIED_BY_ITEM_CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_AppliedLabelChangeDetail_Types_LabelAppliedByItemCreate;
+/**
+ *  Field values were changed on the Target.
+ *
+ *  Value: "LABEL_FIELD_VALUE_CHANGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_AppliedLabelChangeDetail_Types_LabelFieldValueChanged;
+/**
+ *  The identified Label was removed from the Target.
+ *
+ *  Value: "LABEL_REMOVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_AppliedLabelChangeDetail_Types_LabelRemoved;
+/**
+ *  The type of change to this Label is not available.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_AppliedLabelChangeDetail_Types_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDriveActivity_Assignment.subtype
@@ -540,6 +586,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
  */
 @interface GTLRDriveActivity_ActionDetail : GTLRObject
 
+/** Label was changed. */
+@property(nonatomic, strong, nullable) GTLRDriveActivity_AppliedLabelChange *appliedLabelChange;
+
 /** A change about comments was made. */
 @property(nonatomic, strong, nullable) GTLRDriveActivity_Comment *comment;
 
@@ -642,6 +691,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
  *        The type is not available. (Value: "UNSPECIFIED_REFERENCE_TYPE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Label changes that were made on the Target.
+ */
+@interface GTLRDriveActivity_AppliedLabelChange : GTLRObject
+
+/** Changes that were made to the Label on the Target. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDriveActivity_AppliedLabelChangeDetail *> *changes;
+
+@end
+
+
+/**
+ *  A change made to a Label on the Target.
+ */
+@interface GTLRDriveActivity_AppliedLabelChangeDetail : GTLRObject
+
+/**
+ *  Field Changes. Only present if `types` contains `LABEL_FIELD_VALUE_CHANGED`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDriveActivity_FieldValueChange *> *fieldChanges;
+
+/**
+ *  The Label name representing the Label that changed. This name always
+ *  contains the revision of the Label that was used when this Action occurred.
+ *  The format is `labels/id\@revision`.
+ */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/** The human-readable title of the label that changed. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** The types of changes made to the Label on the Target. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *types;
 
 @end
 
@@ -778,6 +864,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
  *        "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Wrapper for Date Field value.
+ */
+@interface GTLRDriveActivity_Date : GTLRObject
+
+/** Date value. */
+@property(nonatomic, strong, nullable) GTLRDateTime *value;
 
 @end
 
@@ -1005,6 +1102,64 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 
 
 /**
+ *  Contains a value of a Field.
+ */
+@interface GTLRDriveActivity_FieldValue : GTLRObject
+
+/** Date Field value. */
+@property(nonatomic, strong, nullable) GTLRDriveActivity_Date *date;
+
+/** Integer Field value. */
+@property(nonatomic, strong, nullable) GTLRDriveActivity_Integer *integer;
+
+/** Selection Field value. */
+@property(nonatomic, strong, nullable) GTLRDriveActivity_Selection *selection;
+
+/** Selection List Field value. */
+@property(nonatomic, strong, nullable) GTLRDriveActivity_SelectionList *selectionList;
+
+/** Text Field value. */
+@property(nonatomic, strong, nullable) GTLRDriveActivity_Text *text;
+
+/** Text List Field value. */
+@property(nonatomic, strong, nullable) GTLRDriveActivity_TextList *textList;
+
+/** User Field value. */
+@property(nonatomic, strong, nullable) GTLRDriveActivity_SingleUser *user;
+
+/** User List Field value. */
+@property(nonatomic, strong, nullable) GTLRDriveActivity_UserList *userList;
+
+@end
+
+
+/**
+ *  Change to a Field value.
+ */
+@interface GTLRDriveActivity_FieldValueChange : GTLRObject
+
+/** The human-readable display name for this field. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** The ID of this field. Field IDs are unique within a Label. */
+@property(nonatomic, copy, nullable) NSString *fieldId;
+
+/**
+ *  The value that is now set on the field. If not present, the field was
+ *  cleared. At least one of {old_value|new_value} is always set.
+ */
+@property(nonatomic, strong, nullable) GTLRDriveActivity_FieldValue *newValue NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  The value that was previously set on the field. If not present, the field
+ *  was newly set. At least one of {old_value|new_value} is always set.
+ */
+@property(nonatomic, strong, nullable) GTLRDriveActivity_FieldValue *oldValue;
+
+@end
+
+
+/**
  *  This item is deprecated; please see `DriveFile` instead.
  */
 @interface GTLRDriveActivity_File : GTLRObject
@@ -1092,6 +1247,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 
 /** The impersonated user. */
 @property(nonatomic, strong, nullable) GTLRDriveActivity_User *impersonatedUser;
+
+@end
+
+
+/**
+ *  Wrapper for Integer Field value.
+ */
+@interface GTLRDriveActivity_Integer : GTLRObject
+
+/**
+ *  Integer value.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
 
 @end
 
@@ -1441,12 +1611,49 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 
 
 /**
+ *  Wrapper for Selection Field value as combined value/display_name pair for
+ *  selected choice.
+ */
+@interface GTLRDriveActivity_Selection : GTLRObject
+
+/** Selection value as human-readable display string. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Selection value as Field Choice ID. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Wrapper for SelectionList Field value.
+ */
+@interface GTLRDriveActivity_SelectionList : GTLRObject
+
+/** Selection values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDriveActivity_Selection *> *values;
+
+@end
+
+
+/**
  *  Information about settings changes.
  */
 @interface GTLRDriveActivity_SettingsChange : GTLRObject
 
 /** The set of changes made to restrictions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDriveActivity_RestrictionChange *> *restrictionChanges;
+
+@end
+
+
+/**
+ *  Wrapper for User Field value.
+ */
+@interface GTLRDriveActivity_SingleUser : GTLRObject
+
+/** User value as email. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -1575,6 +1782,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 
 
 /**
+ *  Wrapper for Text Field value.
+ */
+@interface GTLRDriveActivity_Text : GTLRObject
+
+/** Value of Text Field. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Wrapper for Text List Field value.
+ */
+@interface GTLRDriveActivity_TextList : GTLRObject
+
+/** Text values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDriveActivity_Text *> *values;
+
+@end
+
+
+/**
  *  Information about time ranges.
  */
 @interface GTLRDriveActivity_TimeRange : GTLRObject
@@ -1615,6 +1844,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 
 /** A user about whom nothing is currently known. */
 @property(nonatomic, strong, nullable) GTLRDriveActivity_UnknownUser *unknownUser;
+
+@end
+
+
+/**
+ *  Wrapper for UserList Field value.
+ */
+@interface GTLRDriveActivity_UserList : GTLRObject
+
+/** User values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDriveActivity_SingleUser *> *values;
 
 @end
 

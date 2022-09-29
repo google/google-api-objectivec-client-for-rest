@@ -151,6 +151,66 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Disable the interactive serial console feature on an instance.
+ *
+ *  Method: baremetalsolution.projects.locations.instances.disableInteractiveSerialConsole
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesDisableInteractiveSerialConsole : GTLRBareMetalSolutionQuery
+
+/** Required. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_Operation.
+ *
+ *  Disable the interactive serial console feature on an instance.
+ *
+ *  @param object The @c
+ *    GTLRBareMetalSolution_DisableInteractiveSerialConsoleRequest to include in
+ *    the query.
+ *  @param name Required. Name of the resource.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesDisableInteractiveSerialConsole
+ */
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_DisableInteractiveSerialConsoleRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Enable the interactive serial console feature on an instance.
+ *
+ *  Method: baremetalsolution.projects.locations.instances.enableInteractiveSerialConsole
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesEnableInteractiveSerialConsole : GTLRBareMetalSolutionQuery
+
+/** Required. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_Operation.
+ *
+ *  Enable the interactive serial console feature on an instance.
+ *
+ *  @param object The @c
+ *    GTLRBareMetalSolution_EnableInteractiveSerialConsoleRequest to include in
+ *    the query.
+ *  @param name Required. Name of the resource.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesEnableInteractiveSerialConsole
+ */
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_EnableInteractiveSerialConsoleRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Get details about a single server.
  *
  *  Method: baremetalsolution.projects.locations.instances.get
@@ -516,7 +576,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The list of fields to update. The only currently supported fields are:
- *  `labels`, `reservations`
+ *  `labels`, `reservations`, `vrf.vlan_attachments`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -804,7 +864,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *email;
 
-/** Output only. The name of the provisioning config. */
+/**
+ *  Output only. The system-generated name of the provisioning config. This
+ *  follows the UUID format.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -821,7 +884,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRBareMetalSolution_ProvisioningConfig to include in
  *    the query.
- *  @param name Output only. The name of the provisioning config.
+ *  @param name Output only. The system-generated name of the provisioning
+ *    config. This follows the UUID format.
  *
  *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsProvisioningConfigsPatch
  */
@@ -894,6 +958,117 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. Parent value for ListProvisioningQuotasRequest.
  *
  *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsProvisioningQuotasList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Register a public SSH key in the specified project for use with the
+ *  interactive serial console feature.
+ *
+ *  Method: baremetalsolution.projects.locations.sshKeys.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsSshKeysCreate : GTLRBareMetalSolutionQuery
+
+/** Required. The parent containing the SSH keys. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The ID to use for the key, which will become the final component
+ *  of the key's resource name. This value must match the regex:
+ *  [a-zA-Z0-9\@.\\-_]{1,64}
+ */
+@property(nonatomic, copy, nullable) NSString *sshKeyId;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_SSHKey.
+ *
+ *  Register a public SSH key in the specified project for use with the
+ *  interactive serial console feature.
+ *
+ *  @param object The @c GTLRBareMetalSolution_SSHKey to include in the query.
+ *  @param parent Required. The parent containing the SSH keys.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsSshKeysCreate
+ */
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_SSHKey *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a public SSH key registered in the specified project.
+ *
+ *  Method: baremetalsolution.projects.locations.sshKeys.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsSshKeysDelete : GTLRBareMetalSolutionQuery
+
+/**
+ *  Required. The name of the SSH key to delete. Currently, the only valid value
+ *  for the location is "global".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_Empty.
+ *
+ *  Deletes a public SSH key registered in the specified project.
+ *
+ *  @param name Required. The name of the SSH key to delete. Currently, the only
+ *    valid value for the location is "global".
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsSshKeysDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the public SSH keys registered for the specified project. These SSH
+ *  keys are used only for the interactive serial console feature.
+ *
+ *  Method: baremetalsolution.projects.locations.sshKeys.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsSshKeysList : GTLRBareMetalSolutionQuery
+
+/** The maximum number of items to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value returned from a previous List request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent containing the SSH keys. Currently, the only valid
+ *  value for the location is "global".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_ListSSHKeysResponse.
+ *
+ *  Lists the public SSH keys registered for the specified project. These SSH
+ *  keys are used only for the interactive serial console feature.
+ *
+ *  @param parent Required. The parent containing the SSH keys. Currently, the
+ *    only valid value for the location is "global".
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsSshKeysList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

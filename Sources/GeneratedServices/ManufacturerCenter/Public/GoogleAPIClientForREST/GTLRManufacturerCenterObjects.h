@@ -316,7 +316,8 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
 @property(nonatomic, copy, nullable) NSString *gender;
 
 /**
- *  Grocery Attributes. For more information, see go/mfc-nutrition-attributes.
+ *  Grocery Attributes. See more at
+ *  https://support.google.com/manufacturers/answer/12098458#grocery.
  */
 @property(nonatomic, strong, nullable) GTLRManufacturerCenter_Grocery *grocery;
 
@@ -358,7 +359,8 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
 @property(nonatomic, copy, nullable) NSString *mpn;
 
 /**
- *  Nutrition Attributes. For more information, see go/mfc-nutrition-attributes.
+ *  Nutrition Attributes. See more at
+ *  https://support.google.com/manufacturers/answer/12098458#food-servings.
  */
 @property(nonatomic, strong, nullable) GTLRManufacturerCenter_Nutrition *nutrition;
 
@@ -569,7 +571,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
 
 
 /**
- *  Combination of float amout and unit.
+ *  Combination of float amount and unit.
  */
 @interface GTLRManufacturerCenter_FloatUnit : GTLRObject
 

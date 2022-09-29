@@ -61,6 +61,7 @@
 @class GTLRGKEHub_GoogleRpcStatus;
 @class GTLRGKEHub_GoogleRpcStatus_Details_Item;
 @class GTLRGKEHub_IdentityServiceAuthMethod;
+@class GTLRGKEHub_IdentityServiceGoogleConfig;
 @class GTLRGKEHub_IdentityServiceMembershipSpec;
 @class GTLRGKEHub_IdentityServiceMembershipState;
 @class GTLRGKEHub_IdentityServiceOidcConfig;
@@ -88,6 +89,7 @@
 @class GTLRGKEHub_ResourceManifest;
 @class GTLRGKEHub_ResourceOptions;
 @class GTLRGKEHub_ServiceMeshControlPlaneManagement;
+@class GTLRGKEHub_ServiceMeshDataPlaneManagement;
 @class GTLRGKEHub_ServiceMeshMembershipSpec;
 @class GTLRGKEHub_ServiceMeshMembershipState;
 @class GTLRGKEHub_ServiceMeshSpec;
@@ -413,6 +415,34 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploym
  *  Value: "NOT_INSTALLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperControllerManagerState_NotInstalled;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_ConfigManagementGatekeeperDeploymentState.gatekeeperMutation
+
+/**
+ *  Deployment's state cannot be determined
+ *
+ *  Value: "DEPLOYMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperMutation_DeploymentStateUnspecified;
+/**
+ *  Deployment was attempted to be installed, but has errors
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperMutation_Error;
+/**
+ *  Deployment is installed
+ *
+ *  Value: "INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperMutation_Installed;
+/**
+ *  Deployment is not installed
+ *
+ *  Value: "NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperMutation_NotInstalled;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState.extension
@@ -829,6 +859,62 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshControlPlaneManagement_State_Stalled;
 
 // ----------------------------------------------------------------------------
+// GTLRGKEHub_ServiceMeshDataPlaneManagement.state
+
+/**
+ *  ACTIVE means that the component is ready for use.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Active;
+/**
+ *  DEGRADED means that the component is ready, but operating in a degraded
+ *  state.
+ *
+ *  Value: "DEGRADED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Degraded;
+/**
+ *  DISABLED means that the component is not enabled.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Disabled;
+/**
+ *  FAILED_PRECONDITION means that provisioning cannot proceed because of some
+ *  characteristic of the member cluster.
+ *
+ *  Value: "FAILED_PRECONDITION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_FailedPrecondition;
+/**
+ *  Unspecified
+ *
+ *  Value: "LIFECYCLE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_LifecycleStateUnspecified;
+/**
+ *  NEEDS_ATTENTION means that the component is ready, but some user
+ *  intervention is required. (For example that the user should migrate
+ *  workloads to a new control plane revision.)
+ *
+ *  Value: "NEEDS_ATTENTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_NeedsAttention;
+/**
+ *  PROVISIONING means that provisioning is in progress.
+ *
+ *  Value: "PROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Provisioning;
+/**
+ *  STALLED means that provisioning could not be done.
+ *
+ *  Value: "STALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Stalled;
+
+// ----------------------------------------------------------------------------
 // GTLRGKEHub_ServiceMeshMembershipSpec.controlPlane
 
 /**
@@ -853,6 +939,28 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshMembershipSpec_Control
  *  Value: "MANUAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshMembershipSpec_ControlPlane_Manual;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_ServiceMeshMembershipSpec.management
+
+/**
+ *  Google should manage my Service Mesh for the cluster.
+ *
+ *  Value: "MANAGEMENT_AUTOMATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshMembershipSpec_Management_ManagementAutomatic;
+/**
+ *  User will manually configure their service mesh components.
+ *
+ *  Value: "MANAGEMENT_MANUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshMembershipSpec_Management_ManagementManual;
+/**
+ *  Unspecified
+ *
+ *  Value: "MANAGEMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshMembershipSpec_Management_ManagementUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_Status.code
@@ -1150,11 +1258,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
- *  anyone who is authenticated with a Google account or a service account. *
- *  `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a Google service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  anyone who is authenticated with a Google account or a service account. Does
+ *  not include identities that come from external identity providers (IdPs)
+ *  through identity federation. * `user:{emailid}`: An email address that
+ *  represents a specific Google account. For example, `alice\@example.com` . *
+ *  `serviceAccount:{emailid}`: An email address that represents a Google
+ *  service account. For example, `my-other-app\@appspot.gserviceaccount.com`. *
  *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
  *  identifier for a [Kubernetes service
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
@@ -1232,6 +1341,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 @interface GTLRGKEHub_ConfigManagementConfigSync : GTLRObject
 
 /**
+ *  Set to true to allow the vertical scaling. Defaults to false which disallows
+ *  vertical scaling.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowVerticalScale;
+
+/**
  *  Enables the installation of ConfigSync. If set to true, ConfigSync resources
  *  will be created and the other ConfigSync fields will be applied if exist. If
  *  set to false, all other ConfigSync fields will be ignored, ConfigSync
@@ -1258,8 +1375,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 @property(nonatomic, strong, nullable) NSNumber *preventDrift;
 
 /**
- *  Specifies whether the Config Sync Repo is in “hierarchical” or
- *  “unstructured” mode.
+ *  Specifies whether the Config Sync Repo is in "hierarchical" or
+ *  "unstructured" mode.
  */
 @property(nonatomic, copy, nullable) NSString *sourceFormat;
 
@@ -1500,6 +1617,23 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *        Deployment is not installed (Value: "NOT_INSTALLED")
  */
 @property(nonatomic, copy, nullable) NSString *gatekeeperControllerManagerState;
+
+/**
+ *  Status of the pod serving the mutation webhook.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperMutation_DeploymentStateUnspecified
+ *        Deployment's state cannot be determined (Value:
+ *        "DEPLOYMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperMutation_Error
+ *        Deployment was attempted to be installed, but has errors (Value:
+ *        "ERROR")
+ *    @arg @c kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperMutation_Installed
+ *        Deployment is installed (Value: "INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperMutation_NotInstalled
+ *        Deployment is not installed (Value: "NOT_INSTALLED")
+ */
+@property(nonatomic, copy, nullable) NSString *gatekeeperMutation;
 
 @end
 
@@ -2352,6 +2486,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  */
 @interface GTLRGKEHub_IdentityServiceAuthMethod : GTLRObject
 
+/** GoogleConfig specific configuration */
+@property(nonatomic, strong, nullable) GTLRGKEHub_IdentityServiceGoogleConfig *googleConfig;
+
 /** Identifier for auth config. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2360,6 +2497,21 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /** Proxy server address to use for auth method. */
 @property(nonatomic, copy, nullable) NSString *proxy;
+
+@end
+
+
+/**
+ *  Configuration for the Google Plugin Auth flow.
+ */
+@interface GTLRGKEHub_IdentityServiceGoogleConfig : GTLRObject
+
+/**
+ *  Disable automatic configuration of Google Plugin on supported platforms.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disable;
 
 @end
 
@@ -2433,6 +2585,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deployCloudConsoleProxy;
+
+/**
+ *  Enable access token.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableAccessToken;
 
 /**
  *  Output only. Encrypted OIDC Client secret
@@ -3382,6 +3541,46 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 
 /**
+ *  Status of data plane management. Only reported per-member.
+ */
+@interface GTLRGKEHub_ServiceMeshDataPlaneManagement : GTLRObject
+
+/** Explanation of the status. */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_ServiceMeshStatusDetails *> *details;
+
+/**
+ *  Lifecycle status of data plane management.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Active ACTIVE
+ *        means that the component is ready for use. (Value: "ACTIVE")
+ *    @arg @c kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Degraded DEGRADED
+ *        means that the component is ready, but operating in a degraded state.
+ *        (Value: "DEGRADED")
+ *    @arg @c kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Disabled DISABLED
+ *        means that the component is not enabled. (Value: "DISABLED")
+ *    @arg @c kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_FailedPrecondition
+ *        FAILED_PRECONDITION means that provisioning cannot proceed because of
+ *        some characteristic of the member cluster. (Value:
+ *        "FAILED_PRECONDITION")
+ *    @arg @c kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_LifecycleStateUnspecified
+ *        Unspecified (Value: "LIFECYCLE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_NeedsAttention
+ *        NEEDS_ATTENTION means that the component is ready, but some user
+ *        intervention is required. (For example that the user should migrate
+ *        workloads to a new control plane revision.) (Value: "NEEDS_ATTENTION")
+ *    @arg @c kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Provisioning
+ *        PROVISIONING means that provisioning is in progress. (Value:
+ *        "PROVISIONING")
+ *    @arg @c kGTLRGKEHub_ServiceMeshDataPlaneManagement_State_Stalled STALLED
+ *        means that provisioning could not be done. (Value: "STALLED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  **Service Mesh**: Spec for a single Membership for the servicemesh feature
  */
 @interface GTLRGKEHub_ServiceMeshMembershipSpec : GTLRObject
@@ -3403,6 +3602,21 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  */
 @property(nonatomic, copy, nullable) NSString *controlPlane;
 
+/**
+ *  Enables automatic Service Mesh management.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ServiceMeshMembershipSpec_Management_ManagementAutomatic
+ *        Google should manage my Service Mesh for the cluster. (Value:
+ *        "MANAGEMENT_AUTOMATIC")
+ *    @arg @c kGTLRGKEHub_ServiceMeshMembershipSpec_Management_ManagementManual
+ *        User will manually configure their service mesh components. (Value:
+ *        "MANAGEMENT_MANUAL")
+ *    @arg @c kGTLRGKEHub_ServiceMeshMembershipSpec_Management_ManagementUnspecified
+ *        Unspecified (Value: "MANAGEMENT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *management;
+
 @end
 
 
@@ -3414,6 +3628,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /** Output only. Status of control plane management */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ServiceMeshControlPlaneManagement *controlPlaneManagement;
+
+/** Output only. Status of data plane management. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ServiceMeshDataPlaneManagement *dataPlaneManagement;
 
 @end
 

@@ -1573,8 +1573,8 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 @implementation GTLRCloudAsset_ResourceSearchResult
 @dynamic additionalAttributes, assetType, attachedResources, createTime,
-         descriptionProperty, displayName, folders, kmsKey, labels, location,
-         name, networkTags, organization, parentAssetType,
+         descriptionProperty, displayName, folders, kmsKey, kmsKeys, labels,
+         location, name, networkTags, organization, parentAssetType,
          parentFullResourceName, project, relationships, state, tagKeys,
          tagValueIds, tagValues, updateTime, versionedResources;
 
@@ -1586,6 +1586,7 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
   NSDictionary<NSString *, Class> *map = @{
     @"attachedResources" : [GTLRCloudAsset_AttachedResource class],
     @"folders" : [NSString class],
+    @"kmsKeys" : [NSString class],
     @"networkTags" : [NSString class],
     @"tagKeys" : [NSString class],
     @"tagValueIds" : [NSString class],

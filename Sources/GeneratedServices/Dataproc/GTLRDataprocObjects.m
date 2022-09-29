@@ -56,6 +56,13 @@ NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_InheritF
 NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_Outbound = @"OUTBOUND";
 NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessUnspecified = @"PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED";
 
+// GTLRDataproc_GceNodePoolOperationMetadata.operationType
+NSString * const kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_Create = @"CREATE";
+NSString * const kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_Delete = @"DELETE";
+NSString * const kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_GceNodePoolOperationTypeUnspecified = @"GCE_NODE_POOL_OPERATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_Resize = @"RESIZE";
+NSString * const kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_Update = @"UPDATE";
+
 // GTLRDataproc_GkeNodePoolTarget.roles
 NSString * const kGTLRDataproc_GkeNodePoolTarget_Roles_Controller = @"CONTROLLER";
 NSString * const kGTLRDataproc_GkeNodePoolTarget_Roles_Default = @"DEFAULT";
@@ -67,6 +74,7 @@ NSString * const kGTLRDataproc_GkeNodePoolTarget_Roles_SparkExecutor = @"SPARK_E
 NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_NonPreemptible = @"NON_PREEMPTIBLE";
 NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_PreemptibilityUnspecified = @"PREEMPTIBILITY_UNSPECIFIED";
 NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_Preemptible = @"PREEMPTIBLE";
+NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_Spot = @"SPOT";
 
 // GTLRDataproc_JobStatus.state
 NSString * const kGTLRDataproc_JobStatus_State_AttemptFailure  = @"ATTEMPT_FAILURE";
@@ -705,6 +713,44 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_GceNodePoolOperationMetadata
+//
+
+@implementation GTLRDataproc_GceNodePoolOperationMetadata
+@dynamic clusterUuid, descriptionProperty, gceNodePoolId, labels, operationType,
+         status, statusHistory, warnings;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"statusHistory" : [GTLRDataproc_ClusterOperationStatus class],
+    @"warnings" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_GceNodePoolOperationMetadata_Labels
+//
+
+@implementation GTLRDataproc_GceNodePoolOperationMetadata_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_GetIamPolicyRequest
 //
 
@@ -1008,7 +1054,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 @dynamic done, driverControlFilesUri, driverOutputResourceUri, hadoopJob,
          hiveJob, jobUuid, labels, pigJob, placement, prestoJob, pysparkJob,
          reference, scheduling, sparkJob, sparkRJob, sparkSqlJob, status,
-         statusHistory, yarnApplications;
+         statusHistory, trinoJob, yarnApplications;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1504,7 +1550,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_OrderedJob
 @dynamic hadoopJob, hiveJob, labels, pigJob, prerequisiteStepIds, prestoJob,
-         pysparkJob, scheduling, sparkJob, sparkRJob, sparkSqlJob, stepId;
+         pysparkJob, scheduling, sparkJob, sparkRJob, sparkSqlJob, stepId,
+         trinoJob;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2268,6 +2315,39 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
     @"permissions" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_TrinoJob
+//
+
+@implementation GTLRDataproc_TrinoJob
+@dynamic clientTags, continueOnFailure, loggingConfig, outputFormat, properties,
+         queryFileUri, queryList;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"clientTags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_TrinoJob_Properties
+//
+
+@implementation GTLRDataproc_TrinoJob_Properties
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

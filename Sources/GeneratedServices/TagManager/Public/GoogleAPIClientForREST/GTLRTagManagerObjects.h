@@ -1168,7 +1168,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** GTM ContainerVersions's API relative path. */
+/** GTM Container Version's API relative path. */
 @property(nonatomic, copy, nullable) NSString *path;
 
 /** The tags in the container that this version was taken from. */

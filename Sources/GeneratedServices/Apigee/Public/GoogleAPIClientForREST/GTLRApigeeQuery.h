@@ -1241,7 +1241,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Creates key value entries in a key value map scoped to an organization,
- *  environment, or API proxy.
+ *  environment, or API proxy. **Note**: Supported for Apigee hybrid 1.8.x and
+ *  higher.
  *
  *  Method: apigee.organizations.apis.keyvaluemaps.entries.create
  *
@@ -1263,7 +1264,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry.
  *
  *  Creates key value entries in a key value map scoped to an organization,
- *  environment, or API proxy.
+ *  environment, or API proxy. **Note**: Supported for Apigee hybrid 1.8.x and
+ *  higher.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry to include
  *    in the query.
@@ -1283,9 +1285,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Deletes a key value entry from a key value map scoped to an organization,
- *  environment, or API proxy. **Note:** After you delete the key value entry,
- *  the policy consuming the entry will continue to function with its cached
- *  values for a few minutes. This is expected behavior.
+ *  environment, or API proxy. **Notes:** * After you delete the key value
+ *  entry, the policy consuming the entry will continue to function with its
+ *  cached values for a few minutes. This is expected behavior. * Supported for
+ *  Apigee hybrid 1.8.x and higher.
  *
  *  Method: apigee.organizations.apis.keyvaluemaps.entries.delete
  *
@@ -1308,9 +1311,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry.
  *
  *  Deletes a key value entry from a key value map scoped to an organization,
- *  environment, or API proxy. **Note:** After you delete the key value entry,
- *  the policy consuming the entry will continue to function with its cached
- *  values for a few minutes. This is expected behavior.
+ *  environment, or API proxy. **Notes:** * After you delete the key value
+ *  entry, the policy consuming the entry will continue to function with its
+ *  cached values for a few minutes. This is expected behavior. * Supported for
+ *  Apigee hybrid 1.8.x and higher.
  *
  *  @param name Required. Scope as indicated by the URI in which to delete the
  *    key value map entry. Use **one** of the following structures in your
@@ -1328,7 +1332,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Get the Key value entry value for org, env or apis scoped Key value map.
+ *  Get the key value entry value for a key value map scoped to an organization,
+ *  environment, or API proxy. **Note**: Supported for Apigee hybrid 1.8.x and
+ *  higher.
  *
  *  Method: apigee.organizations.apis.keyvaluemaps.entries.get
  *
@@ -1350,7 +1356,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry.
  *
- *  Get the Key value entry value for org, env or apis scoped Key value map.
+ *  Get the key value entry value for a key value map scoped to an organization,
+ *  environment, or API proxy. **Note**: Supported for Apigee hybrid 1.8.x and
+ *  higher.
  *
  *  @param name Required. Scope as indicated by the URI in which to fetch the
  *    key value map entry/value. Use **one** of the following structures in your
@@ -1369,7 +1377,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Lists key value entries for key values maps scoped to an organization,
- *  environment, or API proxy.
+ *  environment, or API proxy. **Note**: Supported for Apigee hybrid 1.8.x and
+ *  higher.
  *
  *  Method: apigee.organizations.apis.keyvaluemaps.entries.list
  *
@@ -1403,7 +1412,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListKeyValueEntriesResponse.
  *
  *  Lists key value entries for key values maps scoped to an organization,
- *  environment, or API proxy.
+ *  environment, or API proxy. **Note**: Supported for Apigee hybrid 1.8.x and
+ *  higher.
  *
  *  @param parent Required. Scope as indicated by the URI in which to list key
  *    value maps. Use **one** of the following structures in your request: *
@@ -5992,7 +6002,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Creates key value entries in a key value map scoped to an organization,
- *  environment, or API proxy.
+ *  environment, or API proxy. **Note**: Supported for Apigee hybrid 1.8.x and
+ *  higher.
  *
  *  Method: apigee.organizations.environments.keyvaluemaps.entries.create
  *
@@ -6014,7 +6025,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry.
  *
  *  Creates key value entries in a key value map scoped to an organization,
- *  environment, or API proxy.
+ *  environment, or API proxy. **Note**: Supported for Apigee hybrid 1.8.x and
+ *  higher.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry to include
  *    in the query.
@@ -6034,9 +6046,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Deletes a key value entry from a key value map scoped to an organization,
- *  environment, or API proxy. **Note:** After you delete the key value entry,
- *  the policy consuming the entry will continue to function with its cached
- *  values for a few minutes. This is expected behavior.
+ *  environment, or API proxy. **Notes:** * After you delete the key value
+ *  entry, the policy consuming the entry will continue to function with its
+ *  cached values for a few minutes. This is expected behavior. * Supported for
+ *  Apigee hybrid 1.8.x and higher.
  *
  *  Method: apigee.organizations.environments.keyvaluemaps.entries.delete
  *
@@ -6059,9 +6072,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry.
  *
  *  Deletes a key value entry from a key value map scoped to an organization,
- *  environment, or API proxy. **Note:** After you delete the key value entry,
- *  the policy consuming the entry will continue to function with its cached
- *  values for a few minutes. This is expected behavior.
+ *  environment, or API proxy. **Notes:** * After you delete the key value
+ *  entry, the policy consuming the entry will continue to function with its
+ *  cached values for a few minutes. This is expected behavior. * Supported for
+ *  Apigee hybrid 1.8.x and higher.
  *
  *  @param name Required. Scope as indicated by the URI in which to delete the
  *    key value map entry. Use **one** of the following structures in your
@@ -6079,7 +6093,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Get the Key value entry value for org, env or apis scoped Key value map.
+ *  Get the key value entry value for a key value map scoped to an organization,
+ *  environment, or API proxy. **Note**: Supported for Apigee hybrid 1.8.x and
+ *  higher.
  *
  *  Method: apigee.organizations.environments.keyvaluemaps.entries.get
  *
@@ -6101,7 +6117,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry.
  *
- *  Get the Key value entry value for org, env or apis scoped Key value map.
+ *  Get the key value entry value for a key value map scoped to an organization,
+ *  environment, or API proxy. **Note**: Supported for Apigee hybrid 1.8.x and
+ *  higher.
  *
  *  @param name Required. Scope as indicated by the URI in which to fetch the
  *    key value map entry/value. Use **one** of the following structures in your
@@ -6120,7 +6138,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Lists key value entries for key values maps scoped to an organization,
- *  environment, or API proxy.
+ *  environment, or API proxy. **Note**: Supported for Apigee hybrid 1.8.x and
+ *  higher.
  *
  *  Method: apigee.organizations.environments.keyvaluemaps.entries.list
  *
@@ -6154,7 +6173,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListKeyValueEntriesResponse.
  *
  *  Lists key value entries for key values maps scoped to an organization,
- *  environment, or API proxy.
+ *  environment, or API proxy. **Note**: Supported for Apigee hybrid 1.8.x and
+ *  higher.
  *
  *  @param parent Required. Scope as indicated by the URI in which to list key
  *    value maps. Use **one** of the following structures in your request: *
@@ -9580,7 +9600,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Creates key value entries in a key value map scoped to an organization,
- *  environment, or API proxy.
+ *  environment, or API proxy. **Note**: Supported for Apigee hybrid 1.8.x and
+ *  higher.
  *
  *  Method: apigee.organizations.keyvaluemaps.entries.create
  *
@@ -9602,7 +9623,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry.
  *
  *  Creates key value entries in a key value map scoped to an organization,
- *  environment, or API proxy.
+ *  environment, or API proxy. **Note**: Supported for Apigee hybrid 1.8.x and
+ *  higher.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry to include
  *    in the query.
@@ -9622,9 +9644,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Deletes a key value entry from a key value map scoped to an organization,
- *  environment, or API proxy. **Note:** After you delete the key value entry,
- *  the policy consuming the entry will continue to function with its cached
- *  values for a few minutes. This is expected behavior.
+ *  environment, or API proxy. **Notes:** * After you delete the key value
+ *  entry, the policy consuming the entry will continue to function with its
+ *  cached values for a few minutes. This is expected behavior. * Supported for
+ *  Apigee hybrid 1.8.x and higher.
  *
  *  Method: apigee.organizations.keyvaluemaps.entries.delete
  *
@@ -9647,9 +9670,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry.
  *
  *  Deletes a key value entry from a key value map scoped to an organization,
- *  environment, or API proxy. **Note:** After you delete the key value entry,
- *  the policy consuming the entry will continue to function with its cached
- *  values for a few minutes. This is expected behavior.
+ *  environment, or API proxy. **Notes:** * After you delete the key value
+ *  entry, the policy consuming the entry will continue to function with its
+ *  cached values for a few minutes. This is expected behavior. * Supported for
+ *  Apigee hybrid 1.8.x and higher.
  *
  *  @param name Required. Scope as indicated by the URI in which to delete the
  *    key value map entry. Use **one** of the following structures in your
@@ -9667,7 +9691,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Get the Key value entry value for org, env or apis scoped Key value map.
+ *  Get the key value entry value for a key value map scoped to an organization,
+ *  environment, or API proxy. **Note**: Supported for Apigee hybrid 1.8.x and
+ *  higher.
  *
  *  Method: apigee.organizations.keyvaluemaps.entries.get
  *
@@ -9689,7 +9715,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueEntry.
  *
- *  Get the Key value entry value for org, env or apis scoped Key value map.
+ *  Get the key value entry value for a key value map scoped to an organization,
+ *  environment, or API proxy. **Note**: Supported for Apigee hybrid 1.8.x and
+ *  higher.
  *
  *  @param name Required. Scope as indicated by the URI in which to fetch the
  *    key value map entry/value. Use **one** of the following structures in your
@@ -9708,7 +9736,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Lists key value entries for key values maps scoped to an organization,
- *  environment, or API proxy.
+ *  environment, or API proxy. **Note**: Supported for Apigee hybrid 1.8.x and
+ *  higher.
  *
  *  Method: apigee.organizations.keyvaluemaps.entries.list
  *
@@ -9742,7 +9771,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListKeyValueEntriesResponse.
  *
  *  Lists key value entries for key values maps scoped to an organization,
- *  environment, or API proxy.
+ *  environment, or API proxy. **Note**: Supported for Apigee hybrid 1.8.x and
+ *  higher.
  *
  *  @param parent Required. Scope as indicated by the URI in which to list key
  *    value maps. Use **one** of the following structures in your request: *

@@ -245,8 +245,8 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 //
 
 @implementation GTLRChromePolicy_GoogleChromePolicyV1PolicySchema
-@dynamic accessRestrictions, additionalTargetKeyNames, definition,
-         fieldDescriptions, name, notices, policyApiLifecycle,
+@dynamic accessRestrictions, additionalTargetKeyNames, categoryTitle,
+         definition, fieldDescriptions, name, notices, policyApiLifecycle,
          policyApiLifeycle, policyDescription, schemaName, supportUri,
          validTargetResources;
 
@@ -280,8 +280,9 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 //
 
 @implementation GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldDescription
-@dynamic descriptionProperty, field, fieldDependencies, inputConstraint,
-         knownValueDescriptions, nestedFieldDescriptions, requiredItems;
+@dynamic descriptionProperty, field, fieldDependencies, fieldDescription,
+         inputConstraint, knownValueDescriptions, name, nestedFieldDescriptions,
+         requiredItems;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -454,20 +455,20 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileRequest
+//   GTLRChromePolicy_GoogleChromePolicyVersionsV1UploadPolicyFileRequest
 //
 
-@implementation GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileRequest
+@implementation GTLRChromePolicy_GoogleChromePolicyVersionsV1UploadPolicyFileRequest
 @dynamic policyField;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileResponse
+//   GTLRChromePolicy_GoogleChromePolicyVersionsV1UploadPolicyFileResponse
 //
 
-@implementation GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileResponse
+@implementation GTLRChromePolicy_GoogleChromePolicyVersionsV1UploadPolicyFileResponse
 @dynamic downloadUri;
 @end
 

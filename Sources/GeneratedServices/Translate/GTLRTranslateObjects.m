@@ -241,8 +241,8 @@
 //
 
 @implementation GTLRTranslate_DocumentRequest
-@dynamic documentInputConfig, documentOutputConfig, glossaryConfig, labels,
-         model, sourceLanguageCode, targetLanguageCode;
+@dynamic customizedAttribution, documentInputConfig, documentOutputConfig,
+         glossaryConfig, labels, model, sourceLanguageCode, targetLanguageCode;
 @end
 
 

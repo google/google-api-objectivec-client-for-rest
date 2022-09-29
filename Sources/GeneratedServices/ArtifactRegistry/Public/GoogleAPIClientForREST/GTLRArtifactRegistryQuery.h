@@ -574,6 +574,47 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @end
 
 /**
+ *  Directly uploads a KFP artifact. The returned Operation will complete once
+ *  the resource is uploaded. Package, Version, and File resources will be
+ *  created based on the uploaded artifact. Uploaded artifacts that conflict
+ *  with existing resources will be overwritten.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.kfpArtifacts.upload
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesKfpArtifactsUpload : GTLRArtifactRegistryQuery
+
+/**
+ *  The resource name of the repository where the KFP artifact will be uploaded.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_UploadKfpArtifactMediaResponse.
+ *
+ *  Directly uploads a KFP artifact. The returned Operation will complete once
+ *  the resource is uploaded. Package, Version, and File resources will be
+ *  created based on the uploaded artifact. Uploaded artifacts that conflict
+ *  with existing resources will be overwritten.
+ *
+ *  @param object The @c GTLRArtifactRegistry_UploadKfpArtifactRequest to
+ *    include in the query.
+ *  @param parent The resource name of the repository where the KFP artifact
+ *    will be uploaded.
+ *  @param uploadParameters The media to include in this query. Accepted MIME
+ *    type: * / *
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesKfpArtifactsUpload
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_UploadKfpArtifactRequest *)object
+                         parent:(NSString *)parent
+               uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
+
+@end
+
+/**
  *  Lists repositories.
  *
  *  Method: artifactregistry.projects.locations.repositories.list

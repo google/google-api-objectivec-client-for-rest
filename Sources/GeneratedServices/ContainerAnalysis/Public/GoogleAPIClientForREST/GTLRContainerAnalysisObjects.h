@@ -536,7 +536,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryNote_Analysis
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_AnalysisStatusUnspecified;
 /**
- *  Analysis has completed
+ *  Analysis has completed.
  *
  *  Value: "COMPLETE"
  */
@@ -926,13 +926,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbui
 // GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions.requestedVerifyOption
 
 /**
- *  Not a verifiable build. (default)
+ *  Not a verifiable build (the default).
  *
  *  Value: "NOT_VERIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_RequestedVerifyOption_NotVerified;
 /**
- *  Verified build.
+ *  Build must be verified.
  *
  *  Value: "VERIFIED"
  */
@@ -1345,6 +1345,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Version_Kind_Normal;
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Version_Kind_VersionKindUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_VulnerabilityNote.cvssVersion
+
+/** Value: "CVSS_VERSION_2" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityNote_CvssVersion_CvssVersion2;
+/** Value: "CVSS_VERSION_3" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityNote_CvssVersion_CvssVersion3;
+/** Value: "CVSS_VERSION_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityNote_CvssVersion_CvssVersionUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_VulnerabilityNote.severity
 
 /**
@@ -1383,6 +1393,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityNote_Seve
  *  Value: "SEVERITY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityNote_Severity_SeverityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_VulnerabilityOccurrence.cvssVersion
+
+/** Value: "CVSS_VERSION_2" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_CvssVersion_CvssVersion2;
+/** Value: "CVSS_VERSION_3" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_CvssVersion_CvssVersion3;
+/** Value: "CVSS_VERSION_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_CvssVersion_CvssVersionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_VulnerabilityOccurrence.effectiveSeverity
@@ -1672,11 +1692,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
- *  anyone who is authenticated with a Google account or a service account. *
- *  `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a Google service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  anyone who is authenticated with a Google account or a service account. Does
+ *  not include identities that come from external identity providers (IdPs)
+ *  through identity federation. * `user:{emailid}`: An email address that
+ *  represents a specific Google account. For example, `alice\@example.com` . *
+ *  `serviceAccount:{emailid}`: An email address that represents a Google
+ *  service account. For example, `my-other-app\@appspot.gserviceaccount.com`. *
  *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
  *  identifier for a [Kubernetes service
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
@@ -2609,7 +2630,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *    @arg @c kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_AnalysisStatusUnspecified
  *        Unknown. (Value: "ANALYSIS_STATUS_UNSPECIFIED")
  *    @arg @c kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_Complete
- *        Analysis has completed (Value: "COMPLETE")
+ *        Analysis has completed. (Value: "COMPLETE")
  *    @arg @c kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_FinishedFailed
  *        Analysis has finished unsuccessfully, the analysis itself is in a bad
  *        state. (Value: "FINISHED_FAILED")
@@ -3519,9 +3540,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *
  *  Likely values:
  *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_RequestedVerifyOption_NotVerified
- *        Not a verifiable build. (default) (Value: "NOT_VERIFIED")
+ *        Not a verifiable build (the default). (Value: "NOT_VERIFIED")
  *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_RequestedVerifyOption_Verified
- *        Verified build. (Value: "VERIFIED")
+ *        Build must be verified. (Value: "VERIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *requestedVerifyOption;
 
@@ -3591,6 +3612,25 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildStep : GTLRObject
 
 /**
+ *  Allow this build step to fail without failing the entire build if and only
+ *  if the exit code is one of the specified codes. If allow_failure is also
+ *  specified, this field will take precedence.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *allowExitCodes;
+
+/**
+ *  Allow this build step to fail without failing the entire build. If false,
+ *  the entire build will fail if this step fails. Otherwise, the build will
+ *  succeed, but this step will still have a failure status. Error information
+ *  will be reported in the failure_detail field.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowFailure;
+
+/**
  *  A list of arguments that will be presented to the step when it is started.
  *  If the image used to run the step's container has an entrypoint, the `args`
  *  are used as arguments to that entrypoint. If the image does not define an
@@ -3623,6 +3663,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  being given the value "VALUE".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *env;
+
+/**
+ *  Output only. Return code from running the step.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exitCode;
 
 /**
  *  Unique identifier for this build step, used in `wait_for` to reference this
@@ -6059,6 +6106,19 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_CVSSv3 *cvssV3;
 
 /**
+ *  CVSS version used to populate cvss_score and severity.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityNote_CvssVersion_CvssVersion2
+ *        Value "CVSS_VERSION_2"
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityNote_CvssVersion_CvssVersion3
+ *        Value "CVSS_VERSION_3"
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityNote_CvssVersion_CvssVersionUnspecified
+ *        Value "CVSS_VERSION_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *cvssVersion;
+
+/**
  *  Details of all known distros and packages affected by this vulnerability.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Detail *> *details;
@@ -6115,6 +6175,19 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /** The cvss v3 score for the vulnerability. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_CVSS *cvssv3;
+
+/**
+ *  Output only. CVSS version used to populate cvss_score and severity.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityOccurrence_CvssVersion_CvssVersion2
+ *        Value "CVSS_VERSION_2"
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityOccurrence_CvssVersion_CvssVersion3
+ *        Value "CVSS_VERSION_3"
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityOccurrence_CvssVersion_CvssVersionUnspecified
+ *        Value "CVSS_VERSION_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *cvssVersion;
 
 /**
  *  The distro assigned severity for this vulnerability when it is available,

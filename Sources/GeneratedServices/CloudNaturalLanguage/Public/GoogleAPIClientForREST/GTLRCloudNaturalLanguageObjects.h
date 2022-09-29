@@ -17,6 +17,7 @@
 #endif
 
 @class GTLRCloudNaturalLanguage_ClassificationCategory;
+@class GTLRCloudNaturalLanguage_ClassificationModelOptions;
 @class GTLRCloudNaturalLanguage_DependencyEdge;
 @class GTLRCloudNaturalLanguage_Document;
 @class GTLRCloudNaturalLanguage_Entity;
@@ -29,6 +30,8 @@
 @class GTLRCloudNaturalLanguage_Status_Details_Item;
 @class GTLRCloudNaturalLanguage_TextSpan;
 @class GTLRCloudNaturalLanguage_Token;
+@class GTLRCloudNaturalLanguage_V1Model;
+@class GTLRCloudNaturalLanguage_V2Model;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -1397,6 +1400,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceUnknown;
 
+// ----------------------------------------------------------------------------
+// GTLRCloudNaturalLanguage_V2Model.contentCategoriesVersion
+
+/**
+ *  If `ContentCategoriesVersion` is not specified, this option will default to
+ *  `V1`.
+ *
+ *  Value: "CONTENT_CATEGORIES_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_V2Model_ContentCategoriesVersion_ContentCategoriesVersionUnspecified;
+/**
+ *  Legacy content categories of our initial launch in 2017.
+ *
+ *  Value: "V1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_V2Model_ContentCategoriesVersion_V1;
+/**
+ *  Updated content categories in 2022.
+ *
+ *  Value: "V2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_V2Model_ContentCategoriesVersion_V2;
+
 /**
  *  The entity analysis request message.
  */
@@ -1716,9 +1742,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
 
 
 /**
+ *  Model options available for classification requests.
+ */
+@interface GTLRCloudNaturalLanguage_ClassificationModelOptions : GTLRObject
+
+/**
+ *  Setting this field will use the V1 model and V1 content categories version.
+ *  The V1 model is a legacy model; support for this will be discontinued in the
+ *  future.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_V1Model *v1Model;
+
+/**
+ *  Setting this field will use the V2 model with the appropriate content
+ *  categories version. The V2 model is a better performing model.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_V2Model *v2Model;
+
+@end
+
+
+/**
  *  The document classification request message.
  */
 @interface GTLRCloudNaturalLanguage_ClassifyTextRequest : GTLRObject
+
+/**
+ *  Model options to use for classification. Defaults to v1 options if not
+ *  specified.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_ClassificationModelOptions *classificationModelOptions;
 
 /** Required. Input document. */
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Document *document;
@@ -2123,6 +2176,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
  *  each one to true will enable that specific analysis for the input.
  */
 @interface GTLRCloudNaturalLanguage_Features : GTLRObject
+
+/**
+ *  The model options to use for classification. Defaults to v1 options if not
+ *  specified. Only used if `classify_text` is set to true.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_ClassificationModelOptions *classificationModelOptions;
 
 /**
  *  Classify the full document into categories.
@@ -2557,6 +2616,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
 
 /** The token text. */
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_TextSpan *text;
+
+@end
+
+
+/**
+ *  Options for the V1 model.
+ */
+@interface GTLRCloudNaturalLanguage_V1Model : GTLRObject
+@end
+
+
+/**
+ *  Options for the V2 model.
+ */
+@interface GTLRCloudNaturalLanguage_V2Model : GTLRObject
+
+/**
+ *  The content categories used for classification.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudNaturalLanguage_V2Model_ContentCategoriesVersion_ContentCategoriesVersionUnspecified
+ *        If `ContentCategoriesVersion` is not specified, this option will
+ *        default to `V1`. (Value: "CONTENT_CATEGORIES_VERSION_UNSPECIFIED")
+ *    @arg @c kGTLRCloudNaturalLanguage_V2Model_ContentCategoriesVersion_V1
+ *        Legacy content categories of our initial launch in 2017. (Value: "V1")
+ *    @arg @c kGTLRCloudNaturalLanguage_V2Model_ContentCategoriesVersion_V2
+ *        Updated content categories in 2022. (Value: "V2")
+ */
+@property(nonatomic, copy, nullable) NSString *contentCategoriesVersion;
 
 @end
 

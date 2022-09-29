@@ -177,7 +177,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_I
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_NotFound;
 /**
- *  Not an error; returned on success HTTP Mapping: 200 OK
+ *  Not an error; returned on success. HTTP Mapping: 200 OK
  *
  *  Value: "OK"
  */
@@ -1128,7 +1128,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
  *        `PERMISSION_DENIED` must be used. HTTP Mapping: 404 Not Found (Value:
  *        "NOT_FOUND")
  *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Ok Not an error;
- *        returned on success HTTP Mapping: 200 OK (Value: "OK")
+ *        returned on success. HTTP Mapping: 200 OK (Value: "OK")
  *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_OutOfRange The
  *        operation was attempted past the valid range. E.g., seeking or reading
  *        past end-of-file. Unlike `INVALID_ARGUMENT`, this error indicates a
@@ -2505,7 +2505,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
  *  more of five fields: description, transfer_spec, notification_config,
  *  logging_config, and status. An `UpdateTransferJobRequest` that specifies
  *  other fields are rejected with the error INVALID_ARGUMENT. Updating a job
- *  status to DELETED requires `storagetransfer.jobs.delete` permissions.
+ *  status to DELETED requires `storagetransfer.jobs.delete` permission.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_TransferJob *transferJob;
 

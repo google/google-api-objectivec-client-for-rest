@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Analytics Hub API (analyticshub/v1beta1)
+//   Analytics Hub API (analyticshub/v1)
 // Description:
 //   Exchange data and analytics assets securely and efficiently.
 // Documentation:

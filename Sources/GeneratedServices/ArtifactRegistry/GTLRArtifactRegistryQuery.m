@@ -325,6 +325,35 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
 
 @end
 
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesKfpArtifactsUpload
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_UploadKfpArtifactRequest *)object
+                         parent:(NSString *)parent
+               uploadParameters:(GTLRUploadParameters *)uploadParameters {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/kfpArtifacts:create";
+  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesKfpArtifactsUpload *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.uploadParameters = uploadParameters;
+  query.expectedObjectClass = [GTLRArtifactRegistry_UploadKfpArtifactMediaResponse class];
+  query.loggingName = @"artifactregistry.projects.locations.repositories.kfpArtifacts.upload";
+  return query;
+}
+
+@end
+
 @implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesList
 
 @dynamic pageSize, pageToken, parent;

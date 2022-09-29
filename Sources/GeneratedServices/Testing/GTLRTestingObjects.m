@@ -368,7 +368,8 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 @implementation GTLRTesting_ApkManifest
 @dynamic applicationLabel, intentFilters, maxSdkVersion, minSdkVersion,
-         packageName, targetSdkVersion, usesPermission;
+         packageName, targetSdkVersion, usesPermission, versionCode,
+         versionName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

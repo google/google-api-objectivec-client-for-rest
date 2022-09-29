@@ -33,6 +33,7 @@
 @class GTLRCloudHealthcare_CryptoHashConfig;
 @class GTLRCloudHealthcare_Dataset;
 @class GTLRCloudHealthcare_DateShiftConfig;
+@class GTLRCloudHealthcare_DeidentifiedStoreDestination;
 @class GTLRCloudHealthcare_DeidentifyConfig;
 @class GTLRCloudHealthcare_DicomConfig;
 @class GTLRCloudHealthcare_DicomFilterConfig;
@@ -72,6 +73,7 @@
 @class GTLRCloudHealthcare_Image;
 @class GTLRCloudHealthcare_ImageConfig;
 @class GTLRCloudHealthcare_InfoTypeTransformation;
+@class GTLRCloudHealthcare_KmsWrappedCryptoKey;
 @class GTLRCloudHealthcare_LinkedEntity;
 @class GTLRCloudHealthcare_Location;
 @class GTLRCloudHealthcare_Location_Labels;
@@ -1025,11 +1027,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
- *  anyone who is authenticated with a Google account or a service account. *
- *  `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a Google service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  anyone who is authenticated with a Google account or a service account. Does
+ *  not include identities that come from external identity providers (IdPs)
+ *  through identity federation. * `user:{emailid}`: An email address that
+ *  represents a specific Google account. For example, `alice\@example.com` . *
+ *  `serviceAccount:{emailid}`: An email address that represents a Google
+ *  service account. For example, `my-other-app\@appspot.gserviceaccount.com`. *
  *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
  *  identifier for a [Kubernetes service
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
@@ -1481,6 +1484,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  */
 @property(nonatomic, copy, nullable) NSString *cryptoKey;
 
+/** KMS wrapped key. Must not be set if `crypto_key` is set. */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_KmsWrappedCryptoKey *kmsWrapped;
+
 @end
 
 
@@ -1525,6 +1531,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *cryptoKey;
+
+/** KMS wrapped key. Must not be set if `crypto_key` is set. */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_KmsWrappedCryptoKey *kmsWrapped;
+
+@end
+
+
+/**
+ *  Contains configuration for streaming de-identified FHIR export.
+ */
+@interface GTLRCloudHealthcare_DeidentifiedStoreDestination : GTLRObject
+
+/**
+ *  The configuration to use when de-identifying resources that are added to
+ *  this store.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_DeidentifyConfig *config;
+
+/**
+ *  The full resource name of a Cloud Healthcare FHIR store, for example,
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *store;
 
 @end
 
@@ -1666,6 +1695,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  specified, all resources are included in the output.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_FhirFilter *resourceFilter;
+
+/**
+ *  If true, skips resources that are created or modified after the de-identify
+ *  operation is created.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipModifiedResources;
 
 @end
 
@@ -3332,6 +3369,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 
 /**
+ *  Include to use an existing data crypto key wrapped by KMS. The wrapped key
+ *  must be a 128-, 192-, or 256-bit key. The key must grant the Cloud IAM
+ *  permission `cloudkms.cryptoKeyVersions.useToDecrypt` to the project's Cloud
+ *  Healthcare Service Agent service account. For more information, see
+ *  [Creating a wrapped key]
+ *  (https://cloud.google.com/dlp/docs/create-wrapped-key).
+ */
+@interface GTLRCloudHealthcare_KmsWrappedCryptoKey : GTLRObject
+
+/**
+ *  Required. The resource name of the KMS CryptoKey to use for unwrapping. For
+ *  example,
+ *  `projects/{project_id}/locations/{location_id}/keyRings/{keyring}/cryptoKeys/{key}`.
+ */
+@property(nonatomic, copy, nullable) NSString *cryptoKey;
+
+/**
+ *  Required. The wrapped data crypto key.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *wrappedKey;
+
+@end
+
+
+/**
  *  EntityMentions can be linked to multiple entities using a LinkedEntity
  *  message lets us add other fields, e.g. confidence.
  */
@@ -4758,6 +4823,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination *bigqueryDestination;
+
+/**
+ *  The destination FHIR store for de-identified resources. After this field is
+ *  added, all subsequent creates/updates/patches to the source store will be
+ *  de-identified using the provided configuration and applied to the
+ *  destination store. Importing resources to the source store will not trigger
+ *  the streaming. If the source store already contains resources when this
+ *  option is enabled, those resources will not be copied to the destination
+ *  store unless they are subsequently updated. This may result in invalid
+ *  references in the destination store. Before adding this config, you must
+ *  grant the healthcare.fhirResources.update permission on the destination
+ *  store to your project's **Cloud Healthcare Service Agent** [service
+ *  account](https://cloud.google.com/healthcare/docs/how-tos/permissions-healthcare-api-gcp-products#the_cloud_healthcare_service_agent).
+ *  The destination store must set enable_update_create to true. The destination
+ *  store must have disable_referential_integrity set to true. If a resource
+ *  cannot be de-identified, errors will be logged to Cloud Logging (see
+ *  [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_DeidentifiedStoreDestination *deidentifiedStoreDestination;
 
 /**
  *  Supply a FHIR resource type (such as "Patient" or "Observation"). See

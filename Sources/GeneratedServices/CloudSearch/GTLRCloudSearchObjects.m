@@ -104,6 +104,7 @@ NSString * const kGTLRCloudSearch_AppId_AppType_IncomingWebhook = @"INCOMING_WEB
 NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_ActivityFeedApp = @"ACTIVITY_FEED_APP";
 NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_AssistiveSuggestionApp = @"ASSISTIVE_SUGGESTION_APP";
 NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_CalendarApp = @"CALENDAR_APP";
+NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_ChatInMeetApp = @"CHAT_IN_MEET_APP";
 NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_ContactsApp = @"CONTACTS_APP";
 NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_DocsApp  = @"DOCS_APP";
 NSString * const kGTLRCloudSearch_AppId_GsuiteAppType_DriveApp = @"DRIVE_APP";
@@ -246,7 +247,10 @@ NSString * const kGTLRCloudSearch_AppsDynamiteSharedColumnsColumn_VerticalAlignm
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_ConfidentialInformation = @"CONFIDENTIAL_INFORMATION";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_Discrimination = @"DISCRIMINATION";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_ExplicitContent = @"EXPLICIT_CONTENT";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_Fraud = @"FRAUD";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_Harassment = @"HARASSMENT";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_IllegalActivities = @"ILLEGAL_ACTIVITIES";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_Malware = @"MALWARE";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_Other = @"OTHER";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_SensitiveInformation = @"SENSITIVE_INFORMATION";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedContentReportType_SystemViolation_Spam = @"SPAM";
@@ -317,6 +321,10 @@ NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustification_ActionType_Sen
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustification_ActionType_Shared = @"SHARED";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedJustification_ActionType_Viewed = @"VIEWED";
 
+// GTLRCloudSearch_AppsDynamiteSharedMessageInfo.messageType
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedMessageInfo_MessageType_InlineReply = @"INLINE_REPLY";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedMessageInfo_MessageType_MessageTypeUnspecified = @"MESSAGE_TYPE_UNSPECIFIED";
+
 // GTLRCloudSearch_AppsDynamiteSharedMessageIntegrationPayload.type
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedMessageIntegrationPayload_Type_PayloadTypeUnspecified = @"PAYLOAD_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedMessageIntegrationPayload_Type_Tasks = @"TASKS";
@@ -333,6 +341,18 @@ NSString * const kGTLRCloudSearch_AppsDynamiteSharedOpenLink_OpenAs_Overlay = @"
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedRetentionSettings_State_EphemeralOneDay = @"EPHEMERAL_ONE_DAY";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedRetentionSettings_State_Permanent = @"PERMANENT";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedRetentionSettings_State_UnknownRetentionState = @"UNKNOWN_RETENTION_STATE";
+
+// GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount.membershipState
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MembershipState_MemberFailed = @"MEMBER_FAILED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MembershipState_MemberInvited = @"MEMBER_INVITED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MembershipState_MemberJoined = @"MEMBER_JOINED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MembershipState_MemberNotAMember = @"MEMBER_NOT_A_MEMBER";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MembershipState_MemberUnknown = @"MEMBER_UNKNOWN";
+
+// GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount.memberType
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MemberType_HumanUser = @"HUMAN_USER";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MemberType_MemberTypeUnspecified = @"MEMBER_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount_MemberType_RosterMember = @"ROSTER_MEMBER";
 
 // GTLRCloudSearch_AppsDynamiteSharedSelectionInput.type
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedSelectionInput_Type_CheckBox = @"CHECK_BOX";
@@ -353,8 +373,10 @@ NSString * const kGTLRCloudSearch_AppsDynamiteSharedTextInput_Type_SingleLine = 
 
 // GTLRCloudSearch_AppsDynamiteSharedVideoReference.status
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_Error = @"ERROR";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_GoLiveSuccess = @"GO_LIVE_SUCCESS";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_NotApplicable = @"NOT_APPLICABLE";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_Success = @"SUCCESS";
+NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_ThumbnailSuccess = @"THUMBNAIL_SUCCESS";
 NSString * const kGTLRCloudSearch_AppsDynamiteSharedVideoReference_Status_UnknownStatus = @"UNKNOWN_STATUS";
 
 // GTLRCloudSearch_AppsDynamiteSharedWidget.horizontalAlignment
@@ -368,6 +390,12 @@ NSString * const kGTLRCloudSearch_BorderStyle_Type_BorderTypeNotSet = @"BORDER_T
 NSString * const kGTLRCloudSearch_BorderStyle_Type_NoBorder    = @"NO_BORDER";
 NSString * const kGTLRCloudSearch_BorderStyle_Type_Stroke      = @"STROKE";
 
+// GTLRCloudSearch_BotInfo.appAllowlistStatus
+NSString * const kGTLRCloudSearch_BotInfo_AppAllowlistStatus_AllAppsDisabledByAdmin = @"ALL_APPS_DISABLED_BY_ADMIN";
+NSString * const kGTLRCloudSearch_BotInfo_AppAllowlistStatus_Allowed = @"ALLOWED";
+NSString * const kGTLRCloudSearch_BotInfo_AppAllowlistStatus_AppNotAllowlistedByAdmin = @"APP_NOT_ALLOWLISTED_BY_ADMIN";
+NSString * const kGTLRCloudSearch_BotInfo_AppAllowlistStatus_UnspecifiedStatus = @"UNSPECIFIED_STATUS";
+
 // GTLRCloudSearch_BotInfo.status
 NSString * const kGTLRCloudSearch_BotInfo_Status_DisabledByDeveloper = @"DISABLED_BY_DEVELOPER";
 NSString * const kGTLRCloudSearch_BotInfo_Status_Enabled       = @"ENABLED";
@@ -378,12 +406,6 @@ NSString * const kGTLRCloudSearch_BotInfo_SupportedUses_CanAddToDm = @"CAN_ADD_T
 NSString * const kGTLRCloudSearch_BotInfo_SupportedUses_CanAddToHumanDm = @"CAN_ADD_TO_HUMAN_DM";
 NSString * const kGTLRCloudSearch_BotInfo_SupportedUses_CanAddToRoom = @"CAN_ADD_TO_ROOM";
 NSString * const kGTLRCloudSearch_BotInfo_SupportedUses_Unknown = @"UNKNOWN";
-
-// GTLRCloudSearch_BotInfo.whitelistStatus
-NSString * const kGTLRCloudSearch_BotInfo_WhitelistStatus_AllBotsDisabledByAdmin = @"ALL_BOTS_DISABLED_BY_ADMIN";
-NSString * const kGTLRCloudSearch_BotInfo_WhitelistStatus_Allowed = @"ALLOWED";
-NSString * const kGTLRCloudSearch_BotInfo_WhitelistStatus_BotNotWhitelistedByAdmin = @"BOT_NOT_WHITELISTED_BY_ADMIN";
-NSString * const kGTLRCloudSearch_BotInfo_WhitelistStatus_UnspecifiedStatus = @"UNSPECIFIED_STATUS";
 
 // GTLRCloudSearch_BotResponse.requiredAction
 NSString * const kGTLRCloudSearch_BotResponse_RequiredAction_Authentication = @"AUTHENTICATION";
@@ -1568,6 +1590,7 @@ NSString * const kGTLRCloudSearch_QuotedMessageMetadata_BotAttachmentState_BotAt
 // GTLRCloudSearch_QuotedMessageMetadata.messageState
 NSString * const kGTLRCloudSearch_QuotedMessageMetadata_MessageState_MessageStateActive = @"MESSAGE_STATE_ACTIVE";
 NSString * const kGTLRCloudSearch_QuotedMessageMetadata_MessageState_MessageStateDeleted = @"MESSAGE_STATE_DELETED";
+NSString * const kGTLRCloudSearch_QuotedMessageMetadata_MessageState_MessageStateOtrEdited = @"MESSAGE_STATE_OTR_EDITED";
 NSString * const kGTLRCloudSearch_QuotedMessageMetadata_MessageState_MessageStateUnspecified = @"MESSAGE_STATE_UNSPECIFIED";
 
 // GTLRCloudSearch_RecordingEvent.type
@@ -1609,6 +1632,7 @@ NSString * const kGTLRCloudSearch_RepositoryError_Type_Unknown = @"UNKNOWN";
 
 // GTLRCloudSearch_RequiredMessageFeaturesMetadata.requiredFeatures
 NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureMessageQuoting = @"REQUIRED_FEATURE_MESSAGE_QUOTING";
+NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureTombstonesInDmsAndUfrs = @"REQUIRED_FEATURE_TOMBSTONES_IN_DMS_AND_UFRS";
 NSString * const kGTLRCloudSearch_RequiredMessageFeaturesMetadata_RequiredFeatures_RequiredFeatureUnspecified = @"REQUIRED_FEATURE_UNSPECIFIED";
 
 // GTLRCloudSearch_RetrievalImportance.importance
@@ -1773,6 +1797,11 @@ NSString * const kGTLRCloudSearch_UploadMetadata_VirusScanResult_Infected = @"IN
 NSString * const kGTLRCloudSearch_UploadMetadata_VirusScanResult_PolicyViolation = @"POLICY_VIOLATION";
 NSString * const kGTLRCloudSearch_UploadMetadata_VirusScanResult_UnknownVirusScanResult = @"UNKNOWN_VIRUS_SCAN_RESULT";
 
+// GTLRCloudSearch_UrlMetadata.urlSource
+NSString * const kGTLRCloudSearch_UrlMetadata_UrlSource_ServerSuppliedPolicyViolation = @"SERVER_SUPPLIED_POLICY_VIOLATION";
+NSString * const kGTLRCloudSearch_UrlMetadata_UrlSource_UrlSourceUnknown = @"URL_SOURCE_UNKNOWN";
+NSString * const kGTLRCloudSearch_UrlMetadata_UrlSource_UserSuppliedUrl = @"USER_SUPPLIED_URL";
+
 // GTLRCloudSearch_User.userAccountState
 NSString * const kGTLRCloudSearch_User_UserAccountState_Deleted = @"DELETED";
 NSString * const kGTLRCloudSearch_User_UserAccountState_Disabled = @"DISABLED";
@@ -1795,6 +1824,7 @@ NSString * const kGTLRCloudSearch_UserId_Type_Human = @"HUMAN";
 
 // GTLRCloudSearch_UserInfo.updaterCountDisplayType
 NSString * const kGTLRCloudSearch_UserInfo_UpdaterCountDisplayType_ExactCount = @"EXACT_COUNT";
+NSString * const kGTLRCloudSearch_UserInfo_UpdaterCountDisplayType_NoDisplayCount = @"NO_DISPLAY_COUNT";
 NSString * const kGTLRCloudSearch_UserInfo_UpdaterCountDisplayType_NonzeroCount = @"NONZERO_COUNT";
 NSString * const kGTLRCloudSearch_UserInfo_UpdaterCountDisplayType_UpdaterCountDisplayTypeUnspecified = @"UPDATER_COUNT_DISPLAY_TYPE_UNSPECIFIED";
 
@@ -1993,7 +2023,8 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 //
 
 @implementation GTLRCloudSearch_AppsDynamiteSharedActivityFeedAnnotationData
-@dynamic activityFeedMessageId, chatItem, sharedUserInfo, userInfo;
+@dynamic activityFeedMessageCreateTime, activityFeedMessageId, chatItem,
+         sharedUserInfo, userInfo;
 @end
 
 
@@ -2670,7 +2701,7 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 //
 
 @implementation GTLRCloudSearch_AppsDynamiteSharedMessageInfo
-@dynamic messageId, topicReadTimeUsec;
+@dynamic messageId, messageType, topicReadTimeUsec;
 @end
 
 
@@ -2808,6 +2839,34 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 @implementation GTLRCloudSearch_AppsDynamiteSharedRetentionSettings
 @dynamic expiryTimestamp, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount
+@dynamic membershipCount, membershipState, memberType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCounts
+//
+
+@implementation GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCounts
+@dynamic value;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"value" : [GTLRCloudSearch_AppsDynamiteSharedSegmentedMembershipCount class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3228,9 +3287,9 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 //
 
 @implementation GTLRCloudSearch_BotInfo
-@dynamic appId, botAvatarUrl, botName, descriptionProperty, developerName,
-         marketPlaceBannerUrl, status, supportedUses, supportUrls,
-         whitelistStatus;
+@dynamic appAllowlistStatus, appId, botAvatarUrl, botName, descriptionProperty,
+         developerName, marketPlaceBannerUrl, status, supportedUses,
+         supportHomeScreen, supportUrls;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -4888,7 +4947,7 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 @implementation GTLRCloudSearch_GoogleDocsMetadata
 @dynamic aclInfo, documentType, fileExtension, lastContentModifiedTimestamp,
-         resultInfo, typeInfo;
+         numSubscribers, numViewers, resultInfo, typeInfo;
 @end
 
 
@@ -5797,7 +5856,7 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
          communalLabels, contentReportSummary, createTime, creatorId,
          deletableBy, deletedByVault, deleteTime, deleteTimeForRequester,
          dlpScanOutcome, dlpScanSummary, editableBy, fallbackText, identifier,
-         isInlineReply, lastEditTime, lastUpdateTime, localId,
+         isContentPurged, isInlineReply, lastEditTime, lastUpdateTime, localId,
          messageIntegrationPayload, messageOrigin, messageState,
          originAppSuggestions, personalLabels, privateMessageInfos,
          privateMessageViewer, props, quotedByState, quotedMessageMetadata,
@@ -6807,7 +6866,7 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 
 @implementation GTLRCloudSearch_Roster
 @dynamic avatarUrl, identifier, membershipCount, name, rosterGaiaKey,
-         rosterState;
+         rosterState, segmentedMembershipCounts;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -7751,7 +7810,7 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 @implementation GTLRCloudSearch_UrlMetadata
 @dynamic domain, gwsUrl, gwsUrlExpirationTimestamp, imageHeight, imageUrl,
          imageWidth, intImageHeight, intImageWidth, mimeType, redirectUrl,
-         shouldNotRender, snippet, title, url;
+         shouldNotRender, snippet, title, url, urlSource;
 @end
 
 
@@ -7810,8 +7869,9 @@ NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlignment_Start = @"STA
 //
 
 @implementation GTLRCloudSearch_UserInfo
-@dynamic updaterCountDisplayType, updaterCountToShow, updaterToShowEmail,
-         updaterToShowGaiaId, updaterToShowUserId;
+@dynamic driveNotificationAvatarUrl, updaterCountDisplayType,
+         updaterCountToShow, updaterToShowEmail, updaterToShowGaiaId,
+         updaterToShowName, updaterToShowUserId;
 @end
 
 

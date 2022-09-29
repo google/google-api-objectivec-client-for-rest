@@ -1085,6 +1085,54 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Runs an aggregation query. Rather than producing Document results like
+ *  Firestore.RunQuery, this API allows running an aggregation to produce a
+ *  series of AggregationResult server-side. High-Level Example: ``` -- Return
+ *  the number of documents in table given a filter. SELECT COUNT(*) FROM (
+ *  SELECT * FROM k where a = true ); ```
+ *
+ *  Method: firestore.projects.databases.documents.runAggregationQuery
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesDocumentsRunAggregationQuery : GTLRFirestoreQuery
+
+/**
+ *  Required. The parent resource name. In the format:
+ *  `projects/{project_id}/databases/{database_id}/documents` or
+ *  `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
+ *  For example: `projects/my-project/databases/my-database/documents` or
+ *  `projects/my-project/databases/my-database/documents/chatrooms/my-chatroom`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirestore_RunAggregationQueryResponse.
+ *
+ *  Runs an aggregation query. Rather than producing Document results like
+ *  Firestore.RunQuery, this API allows running an aggregation to produce a
+ *  series of AggregationResult server-side. High-Level Example: ``` -- Return
+ *  the number of documents in table given a filter. SELECT COUNT(*) FROM (
+ *  SELECT * FROM k where a = true ); ```
+ *
+ *  @param object The @c GTLRFirestore_RunAggregationQueryRequest to include in
+ *    the query.
+ *  @param parent Required. The parent resource name. In the format:
+ *    `projects/{project_id}/databases/{database_id}/documents` or
+ *    `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
+ *    For example: `projects/my-project/databases/my-database/documents` or
+ *    `projects/my-project/databases/my-database/documents/chatrooms/my-chatroom`
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsRunAggregationQuery
+ */
++ (instancetype)queryWithObject:(GTLRFirestore_RunAggregationQueryRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Runs a query.
  *
  *  Method: firestore.projects.databases.documents.runQuery

@@ -8667,8 +8667,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Order of sorted results.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingSortOrderAscending Value "ASCENDING"
- *    @arg @c kGTLRDfareportingSortOrderDescending Value "DESCENDING"
+ *    @arg @c kGTLRDfareportingSortOrderAscending Ascending order. (Value:
+ *        "ASCENDING")
+ *    @arg @c kGTLRDfareportingSortOrderDescending Descending order. (Value:
+ *        "DESCENDING")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDfareportingSortOrderDescending.
@@ -8845,7 +8847,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  */
 @interface GTLRDfareportingQuery_ReportsPatch : GTLRDfareportingQuery
 
-/** The DFA user profile ID. */
+/** The Campaign Manager 360 user profile ID. */
 @property(nonatomic, assign) long long profileId;
 
 /** The ID of the report. */
@@ -8857,7 +8859,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Updates an existing report. This method supports patch semantics.
  *
  *  @param object The @c GTLRDfareporting_Report to include in the query.
- *  @param profileId The DFA user profile ID.
+ *  @param profileId The Campaign Manager 360 user profile ID.
  *  @param reportId The ID of the report.
  *
  *  @return GTLRDfareportingQuery_ReportsPatch

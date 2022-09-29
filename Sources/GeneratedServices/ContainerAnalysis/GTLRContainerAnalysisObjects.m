@@ -311,6 +311,11 @@ NSString * const kGTLRContainerAnalysis_Version_Kind_Minimum   = @"MINIMUM";
 NSString * const kGTLRContainerAnalysis_Version_Kind_Normal    = @"NORMAL";
 NSString * const kGTLRContainerAnalysis_Version_Kind_VersionKindUnspecified = @"VERSION_KIND_UNSPECIFIED";
 
+// GTLRContainerAnalysis_VulnerabilityNote.cvssVersion
+NSString * const kGTLRContainerAnalysis_VulnerabilityNote_CvssVersion_CvssVersion2 = @"CVSS_VERSION_2";
+NSString * const kGTLRContainerAnalysis_VulnerabilityNote_CvssVersion_CvssVersion3 = @"CVSS_VERSION_3";
+NSString * const kGTLRContainerAnalysis_VulnerabilityNote_CvssVersion_CvssVersionUnspecified = @"CVSS_VERSION_UNSPECIFIED";
+
 // GTLRContainerAnalysis_VulnerabilityNote.severity
 NSString * const kGTLRContainerAnalysis_VulnerabilityNote_Severity_Critical = @"CRITICAL";
 NSString * const kGTLRContainerAnalysis_VulnerabilityNote_Severity_High = @"HIGH";
@@ -318,6 +323,11 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityNote_Severity_Low = @"LOW";
 NSString * const kGTLRContainerAnalysis_VulnerabilityNote_Severity_Medium = @"MEDIUM";
 NSString * const kGTLRContainerAnalysis_VulnerabilityNote_Severity_Minimal = @"MINIMAL";
 NSString * const kGTLRContainerAnalysis_VulnerabilityNote_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+
+// GTLRContainerAnalysis_VulnerabilityOccurrence.cvssVersion
+NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_CvssVersion_CvssVersion2 = @"CVSS_VERSION_2";
+NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_CvssVersion_CvssVersion3 = @"CVSS_VERSION_3";
+NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_CvssVersion_CvssVersionUnspecified = @"CVSS_VERSION_UNSPECIFIED";
 
 // GTLRContainerAnalysis_VulnerabilityOccurrence.effectiveSeverity
 NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_EffectiveSeverity_Critical = @"CRITICAL";
@@ -1181,8 +1191,9 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildStep
-@dynamic args, dir, entrypoint, env, identifier, name, pullTiming, script,
-         secretEnv, status, timeout, timing, volumes, waitFor;
+@dynamic allowExitCodes, allowFailure, args, dir, entrypoint, env, exitCode,
+         identifier, name, pullTiming, script, secretEnv, status, timeout,
+         timing, volumes, waitFor;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1190,6 +1201,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"allowExitCodes" : [NSNumber class],
     @"args" : [NSString class],
     @"env" : [NSString class],
     @"secretEnv" : [NSString class],
@@ -2423,7 +2435,8 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_VulnerabilityNote
-@dynamic cvssScore, cvssV3, details, severity, sourceUpdateTime, windowsDetails;
+@dynamic cvssScore, cvssV3, cvssVersion, details, severity, sourceUpdateTime,
+         windowsDetails;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2442,8 +2455,9 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_VulnerabilityOccurrence
-@dynamic cvssScore, cvssv3, effectiveSeverity, fixAvailable, longDescription,
-         packageIssue, relatedUrls, severity, shortDescription, type;
+@dynamic cvssScore, cvssv3, cvssVersion, effectiveSeverity, fixAvailable,
+         longDescription, packageIssue, relatedUrls, severity, shortDescription,
+         type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

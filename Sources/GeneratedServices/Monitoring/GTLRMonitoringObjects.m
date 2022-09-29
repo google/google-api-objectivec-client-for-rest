@@ -387,6 +387,30 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_BasicService
+//
+
+@implementation GTLRMonitoring_BasicService
+@dynamic serviceLabels, serviceType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_BasicService_ServiceLabels
+//
+
+@implementation GTLRMonitoring_BasicService_ServiceLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_BasicSli
 //
 
@@ -1722,9 +1746,9 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_Service
-@dynamic appEngine, cloudEndpoints, cloudRun, clusterIstio, custom, displayName,
-         gkeNamespace, gkeService, gkeWorkload, istioCanonicalService,
-         meshIstio, name, telemetry, userLabels;
+@dynamic appEngine, basicService, cloudEndpoints, cloudRun, clusterIstio,
+         custom, displayName, gkeNamespace, gkeService, gkeWorkload,
+         istioCanonicalService, meshIstio, name, telemetry, userLabels;
 @end
 
 

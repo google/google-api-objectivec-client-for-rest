@@ -85,12 +85,22 @@ NSString * const kGTLRSpanner_Instance_State_Creating         = @"CREATING";
 NSString * const kGTLRSpanner_Instance_State_Ready            = @"READY";
 NSString * const kGTLRSpanner_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRSpanner_InstanceConfig.configType
+NSString * const kGTLRSpanner_InstanceConfig_ConfigType_GoogleManaged = @"GOOGLE_MANAGED";
+NSString * const kGTLRSpanner_InstanceConfig_ConfigType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRSpanner_InstanceConfig_ConfigType_UserManaged = @"USER_MANAGED";
+
 // GTLRSpanner_InstanceConfig.freeInstanceAvailability
 NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_Available = @"AVAILABLE";
 NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_Disabled = @"DISABLED";
 NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_FreeInstanceAvailabilityUnspecified = @"FREE_INSTANCE_AVAILABILITY_UNSPECIFIED";
 NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_QuotaExceeded = @"QUOTA_EXCEEDED";
 NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_Unsupported = @"UNSUPPORTED";
+
+// GTLRSpanner_InstanceConfig.state
+NSString * const kGTLRSpanner_InstanceConfig_State_Creating    = @"CREATING";
+NSString * const kGTLRSpanner_InstanceConfig_State_Ready       = @"READY";
+NSString * const kGTLRSpanner_InstanceConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRSpanner_Metric.aggregation
 NSString * const kGTLRSpanner_Metric_Aggregation_AggregationUnspecified = @"AGGREGATION_UNSPECIFIED";
@@ -101,6 +111,11 @@ NSString * const kGTLRSpanner_Metric_Aggregation_Sum           = @"SUM";
 NSString * const kGTLRSpanner_PlanNode_Kind_KindUnspecified = @"KIND_UNSPECIFIED";
 NSString * const kGTLRSpanner_PlanNode_Kind_Relational      = @"RELATIONAL";
 NSString * const kGTLRSpanner_PlanNode_Kind_Scalar          = @"SCALAR";
+
+// GTLRSpanner_ReadWrite.readLockMode
+NSString * const kGTLRSpanner_ReadWrite_ReadLockMode_Optimistic = @"OPTIMISTIC";
+NSString * const kGTLRSpanner_ReadWrite_ReadLockMode_Pessimistic = @"PESSIMISTIC";
+NSString * const kGTLRSpanner_ReadWrite_ReadLockMode_ReadLockModeUnspecified = @"READ_LOCK_MODE_UNSPECIFIED";
 
 // GTLRSpanner_ReplicaInfo.type
 NSString * const kGTLRSpanner_ReplicaInfo_Type_ReadOnly        = @"READ_ONLY";
@@ -143,6 +158,7 @@ NSString * const kGTLRSpanner_Type_Code_Timestamp           = @"TIMESTAMP";
 NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPECIFIED";
 
 // GTLRSpanner_Type.typeAnnotation
+NSString * const kGTLRSpanner_Type_TypeAnnotation_PgJsonb      = @"PG_JSONB";
 NSString * const kGTLRSpanner_Type_TypeAnnotation_PgNumeric    = @"PG_NUMERIC";
 NSString * const kGTLRSpanner_Type_TypeAnnotation_TypeAnnotationCodeUnspecified = @"TYPE_ANNOTATION_CODE_UNSPECIFIED";
 
@@ -362,6 +378,26 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_CreateInstanceConfigMetadata
+//
+
+@implementation GTLRSpanner_CreateInstanceConfigMetadata
+@dynamic cancelTime, instanceConfig, progress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_CreateInstanceConfigRequest
+//
+
+@implementation GTLRSpanner_CreateInstanceConfigRequest
+@dynamic instanceConfig, instanceConfigId, validateOnly;
 @end
 
 
@@ -720,16 +756,47 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_InstanceConfig
-@dynamic displayName, freeInstanceAvailability, leaderOptions, name, replicas;
+@dynamic baseConfig, configType, displayName, ETag, freeInstanceAvailability,
+         labels, leaderOptions, name, optionalReplicas, reconciling, replicas,
+         state;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"leaderOptions" : [NSString class],
+    @"optionalReplicas" : [GTLRSpanner_ReplicaInfo class],
     @"replicas" : [GTLRSpanner_ReplicaInfo class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_InstanceConfig_Labels
+//
+
+@implementation GTLRSpanner_InstanceConfig_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_InstanceOperationProgress
+//
+
+@implementation GTLRSpanner_InstanceOperationProgress
+@dynamic endTime, progressPercent, startTime;
 @end
 
 
@@ -915,6 +982,28 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 + (NSString *)collectionItemsKey {
   return @"databases";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_ListInstanceConfigOperationsResponse
+//
+
+@implementation GTLRSpanner_ListInstanceConfigOperationsResponse
+@dynamic nextPageToken, operations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRSpanner_Operation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
 }
 
 @end
@@ -1473,6 +1562,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_ReadWrite
+@dynamic readLockMode;
 @end
 
 
@@ -1561,7 +1651,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_ResultSetMetadata
-@dynamic rowType, transaction;
+@dynamic rowType, transaction, undeclaredParameters;
 @end
 
 
@@ -1905,6 +1995,26 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_UpdateInstanceConfigMetadata
+//
+
+@implementation GTLRSpanner_UpdateInstanceConfigMetadata
+@dynamic cancelTime, instanceConfig, progress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_UpdateInstanceConfigRequest
+//
+
+@implementation GTLRSpanner_UpdateInstanceConfigRequest
+@dynamic instanceConfig, updateMask, validateOnly;
 @end
 
 

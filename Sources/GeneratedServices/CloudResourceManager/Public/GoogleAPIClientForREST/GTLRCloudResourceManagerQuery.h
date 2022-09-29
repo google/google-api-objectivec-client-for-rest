@@ -1456,8 +1456,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  to legacy projects that no longer have owners who have accepted the ToS.
  *  Edits to IAM policies will be rejected until the lack of a ToS-accepting
  *  owner is rectified. If the project is part of an organization, you can
- *  remove all owners, potentially making the organization inaccessible. +
- *  Calling this method requires enabling the App Engine Admin API.
+ *  remove all owners, potentially making the organization inaccessible.
  *
  *  Method: cloudresourcemanager.projects.setIamPolicy
  *
@@ -1502,8 +1501,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  to legacy projects that no longer have owners who have accepted the ToS.
  *  Edits to IAM policies will be rejected until the lack of a ToS-accepting
  *  owner is rectified. If the project is part of an organization, you can
- *  remove all owners, potentially making the organization inaccessible. +
- *  Calling this method requires enabling the App Engine Admin API.
+ *  remove all owners, potentially making the organization inaccessible.
  *
  *  @param object The @c GTLRCloudResourceManager_SetIamPolicyRequest to include
  *    in the query.
@@ -1679,15 +1677,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. The maximum number of TagBindings to return in the response. The
  *  server allows a maximum of 300 TagBindings to return. If unspecified, the
- *  server will use 100 as the default. Currently this api returns unpaginated
- *  response and `page_size` is ignored.
+ *  server will use 100 as the default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  Optional. A pagination token returned from a previous call to
  *  `ListTagBindings` that indicates where this listing should continue from.
- *  Currently this api returns unpaginated response and `page_token` is ignored.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

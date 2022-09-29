@@ -994,7 +994,8 @@ FOUNDATION_EXTERN NSString * const kGTLRForms_Watch_State_Suspended;
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The returned responses.
+ *  The returned form responses. Note: The `formId` field is not returned in the
+ *  `FormResponse` object for list requests.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.

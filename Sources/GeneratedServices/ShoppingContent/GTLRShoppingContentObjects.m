@@ -1245,7 +1245,18 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_CollectionStatusDestinationStatus
-@dynamic destination, status;
+@dynamic approvedCountries, destination, disapprovedCountries, pendingCountries,
+         status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"approvedCountries" : [NSString class],
+    @"disapprovedCountries" : [NSString class],
+    @"pendingCountries" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1255,11 +1266,18 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_CollectionStatusItemLevelIssue
-@dynamic attributeName, code, descriptionProperty, destination, detail,
-         documentation, resolution, servability;
+@dynamic applicableCountries, attributeName, code, descriptionProperty,
+         destination, detail, documentation, resolution, servability;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"applicableCountries" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -2484,8 +2502,16 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_LocalInventory
-@dynamic availability, instoreProductLocation, kind, pickupMethod, pickupSla,
-         price, quantity, salePrice, salePriceEffectiveDate, storeCode;
+@dynamic availability, customAttributes, instoreProductLocation, kind,
+         pickupMethod, pickupSla, price, quantity, salePrice,
+         salePriceEffectiveDate, storeCode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customAttributes" : [GTLRShoppingContent_CustomAttribute class]
+  };
+  return map;
+}
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to

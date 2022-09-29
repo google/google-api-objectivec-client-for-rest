@@ -193,3 +193,77 @@
 }
 
 @end
+
+@implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsAcknowledge
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:acknowledge";
+  GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsAcknowledge *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationResponse class];
+  query.loggingName = @"assuredworkloads.organizations.locations.workloads.violations.acknowledge";
+  return query;
+}
+
+@end
+
+@implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation class];
+  query.loggingName = @"assuredworkloads.organizations.locations.workloads.violations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsList
+
+@dynamic filter, intervalEndTime, intervalStartTime, pageSize, pageToken,
+         parent;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"intervalEndTime" : @"interval.endTime",
+    @"intervalStartTime" : @"interval.startTime"
+  };
+  return map;
+}
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/violations";
+  GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListViolationsResponse class];
+  query.loggingName = @"assuredworkloads.organizations.locations.workloads.violations.list";
+  return query;
+}
+
+@end

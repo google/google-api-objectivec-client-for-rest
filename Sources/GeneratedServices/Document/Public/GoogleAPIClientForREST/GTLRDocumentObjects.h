@@ -21,6 +21,8 @@
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentId;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentIdGCSManagedDocumentId;
+@class GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataIndividualExportStatus;
+@class GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3ImportDocumentsMetadataImportConfigValidationResult;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3ImportDocumentsMetadataIndividualImportStatus;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataDatasetResyncStatus;
@@ -45,6 +47,8 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageDimension;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageFormField;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageImage;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageImageQualityScores;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageImageQualityScoresDetectedDefect;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageLayout;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageLine;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageMatrix;
@@ -88,6 +92,8 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageDimension;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageFormField;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageImage;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageImageQualityScores;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageImageQualityScoresDetectedDefect;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageLayout;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageLine;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageMatrix;
@@ -136,6 +142,8 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDimension;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageFormField;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImage;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImageQualityScores;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImageQualityScoresDetectedDefect;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLine;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageMatrix;
@@ -300,6 +308,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3C
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat.splitType
+
+/**
+ *  Identifies the test documents.
+ *
+ *  Value: "DATASET_SPLIT_TEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat_SplitType_DatasetSplitTest;
+/**
+ *  Identifies the train documents.
+ *
+ *  Value: "DATASET_SPLIT_TRAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat_SplitType_DatasetSplitTrain;
+/**
+ *  Default value if the enum is not set.
+ *  go/protodosdonts#do-include-an-unspecified-value-in-an-enum
+ *
+ *  Value: "DATASET_SPLIT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat_SplitType_DatasetSplitTypeUnspecified;
+/**
+ *  Identifies the unassigned documents.
+ *
+ *  Value: "DATASET_SPLIT_UNASSIGNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat_SplitType_DatasetSplitUnassigned;
 
 // ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataDatasetResyncStatus.datasetInconsistencyType
@@ -1879,6 +1916,83 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
+ *  Metadata of the batch export documents operation.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
+
+/** The list of response details of each document. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataIndividualExportStatus *> *individualExportStatuses;
+
+/** The list of statistics for each dataset split type. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat *> *splitExportStats;
+
+@end
+
+
+/**
+ *  The status of each individual document in the export process.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataIndividualExportStatus : GTLRObject
+
+/** The path to source docproto of the document. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentId *documentId;
+
+/**
+ *  The output_gcs_destination of the exported document if it was successful,
+ *  otherwise empty.
+ */
+@property(nonatomic, copy, nullable) NSString *outputGcsDestination;
+
+/** The status of the exporting of the document. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleRpcStatus *status;
+
+@end
+
+
+/**
+ *  The statistic representing a dataset split type for this export.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat : GTLRObject
+
+/**
+ *  The dataset split type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat_SplitType_DatasetSplitTest
+ *        Identifies the test documents. (Value: "DATASET_SPLIT_TEST")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat_SplitType_DatasetSplitTrain
+ *        Identifies the train documents. (Value: "DATASET_SPLIT_TRAIN")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat_SplitType_DatasetSplitTypeUnspecified
+ *        Default value if the enum is not set.
+ *        go/protodosdonts#do-include-an-unspecified-value-in-an-enum (Value:
+ *        "DATASET_SPLIT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat_SplitType_DatasetSplitUnassigned
+ *        Identifies the unassigned documents. (Value:
+ *        "DATASET_SPLIT_UNASSIGNED")
+ */
+@property(nonatomic, copy, nullable) NSString *splitType;
+
+/**
+ *  Total number of documents with the given dataset split type to be exported.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalDocumentCount;
+
+@end
+
+
+/**
+ *  The response proto of ExportDocuments method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsResponse : GTLRObject
+@end
+
+
+/**
  *  Metadata message associated with the ExportProcessorVersion operation.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportProcessorVersionMetadata : GTLRObject
@@ -2585,10 +2699,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** Optional. Deprecated. Use `id` field instead. */
 @property(nonatomic, copy, nullable) NSString *mentionId;
 
-/**
- *  Optional. Text value in the document e.g. `1600 Amphitheatre Pkwy`. If the
- *  entity is not present in the document, this field will be empty.
- */
+/** Optional. Text value of the entity e.g. `1600 Amphitheatre Pkwy`. */
 @property(nonatomic, copy, nullable) NSString *mentionText;
 
 /**
@@ -2747,6 +2858,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  upright and axis-aligned.
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageImage *image;
+
+/** Image Quality Scores. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageImageQualityScores *imageQualityScores;
 
 /** Layout for the page. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageLayout *layout;
@@ -3022,6 +3136,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *width;
+
+@end
+
+
+/**
+ *  Image Quality Scores for the page image
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageImageQualityScores : GTLRObject
+
+/** A list of detected defects. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageImageQualityScoresDetectedDefect *> *detectedDefects;
+
+/**
+ *  The overall quality score. Range [0, 1] where 1 is perfect quality.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *qualityScore;
+
+@end
+
+
+/**
+ *  Image Quality Defects
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageImageQualityScoresDetectedDefect : GTLRObject
+
+/**
+ *  Confidence of detected defect. Range [0, 1] where 1 indicates strong
+ *  confidence of that the defect exists.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  Name of the defect type. Supported values are "quality/defect_blurry",
+ *  "quality/defect_noisy", "quality/defect_dark", "quality/defect_faint",
+ *  "quality/defect_text_too_small", "quality/defect_document_cutoff",
+ *  "quality/defect_text_cutoff", "quality/defect_glare"
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -3474,6 +3630,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** Text color. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeColor *color;
 
+/**
+ *  Font family such as "Arial", "Times New Roman".
+ *  https://www.w3schools.com/cssref/pr_font_font-family.asp
+ */
+@property(nonatomic, copy, nullable) NSString *fontFamily;
+
 /** Font size. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentStyleFontSize *fontSize;
 
@@ -3916,10 +4078,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** Optional. Deprecated. Use `id` field instead. */
 @property(nonatomic, copy, nullable) NSString *mentionId;
 
-/**
- *  Optional. Text value in the document e.g. `1600 Amphitheatre Pkwy`. If the
- *  entity is not present in the document, this field will be empty.
- */
+/** Optional. Text value of the entity e.g. `1600 Amphitheatre Pkwy`. */
 @property(nonatomic, copy, nullable) NSString *mentionText;
 
 /**
@@ -4109,6 +4268,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  upright and axis-aligned.
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageImage *image;
+
+/** Image Quality Scores. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageImageQualityScores *imageQualityScores;
 
 /** Layout for the page. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageLayout *layout;
@@ -4384,6 +4546,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *width;
+
+@end
+
+
+/**
+ *  Image Quality Scores for the page image
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageImageQualityScores : GTLRObject
+
+/** A list of detected defects. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageImageQualityScoresDetectedDefect *> *detectedDefects;
+
+/**
+ *  The overall quality score. Range [0, 1] where 1 is perfect quality.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *qualityScore;
+
+@end
+
+
+/**
+ *  Image Quality Defects
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageImageQualityScoresDetectedDefect : GTLRObject
+
+/**
+ *  Confidence of detected defect. Range [0, 1] where 1 indicates strong
+ *  confidence of that the defect exists.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  Name of the defect type. Supported values are "quality/defect_blurry",
+ *  "quality/defect_noisy", "quality/defect_dark", "quality/defect_faint",
+ *  "quality/defect_text_too_small", "quality/defect_document_cutoff",
+ *  "quality/defect_text_cutoff", "quality/defect_glare"
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -4835,6 +5039,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /** Text color. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeColor *color;
+
+/**
+ *  Font family such as "Arial", "Times New Roman".
+ *  https://www.w3schools.com/cssref/pr_font_font-family.asp
+ */
+@property(nonatomic, copy, nullable) NSString *fontFamily;
 
 /** Font size. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentStyleFontSize *fontSize;
@@ -5713,10 +5923,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** Optional. Deprecated. Use `id` field instead. */
 @property(nonatomic, copy, nullable) NSString *mentionId;
 
-/**
- *  Optional. Text value in the document e.g. `1600 Amphitheatre Pkwy`. If the
- *  entity is not present in the document, this field will be empty.
- */
+/** Optional. Text value of the entity e.g. `1600 Amphitheatre Pkwy`. */
 @property(nonatomic, copy, nullable) NSString *mentionText;
 
 /**
@@ -5862,6 +6069,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentOutputConfigGcsOutputConfig : GTLRObject
 
+/**
+ *  Specifies which fields to include in the output documents.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *fieldMask;
+
 /** The Cloud Storage uri (a directory) of the output. */
 @property(nonatomic, copy, nullable) NSString *gcsUri;
 
@@ -5898,6 +6112,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  upright and axis-aligned.
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImage *image;
+
+/** Image Quality Scores. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImageQualityScores *imageQualityScores;
 
 /** Layout for the page. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout *layout;
@@ -6173,6 +6390,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *width;
+
+@end
+
+
+/**
+ *  Image Quality Scores for the page image
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImageQualityScores : GTLRObject
+
+/** A list of detected defects. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImageQualityScoresDetectedDefect *> *detectedDefects;
+
+/**
+ *  The overall quality score. Range [0, 1] where 1 is perfect quality.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *qualityScore;
+
+@end
+
+
+/**
+ *  Image Quality Defects
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImageQualityScoresDetectedDefect : GTLRObject
+
+/**
+ *  Confidence of detected defect. Range [0, 1] where 1 indicates strong
+ *  confidence of that the defect exists.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  Name of the defect type. Supported values are "quality/defect_blurry",
+ *  "quality/defect_noisy", "quality/defect_dark", "quality/defect_faint",
+ *  "quality/defect_text_too_small", "quality/defect_document_cutoff",
+ *  "quality/defect_text_cutoff", "quality/defect_glare"
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -6791,6 +7050,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** Text color. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeColor *color;
 
+/**
+ *  Font family such as "Arial", "Times New Roman".
+ *  https://www.w3schools.com/cssref/pr_font_font-family.asp
+ */
+@property(nonatomic, copy, nullable) NSString *fontFamily;
+
 /** Font size. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentStyleFontSize *fontSize;
 
@@ -6942,14 +7207,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *inactive;
-
-/**
- *  If set, the properties of this entity type must be prefixed with the
- *  parents.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *prefixedNamingOnProperties;
 
 @end
 

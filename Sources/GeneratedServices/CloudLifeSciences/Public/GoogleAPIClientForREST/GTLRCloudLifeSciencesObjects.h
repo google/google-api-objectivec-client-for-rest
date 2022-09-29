@@ -157,7 +157,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Inval
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_NotFound;
 /**
- *  Not an error; returned on success HTTP Mapping: 200 OK
+ *  Not an error; returned on success. HTTP Mapping: 200 OK
  *
  *  Value: "OK"
  */
@@ -813,7 +813,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
  *        users, such as user-based access control, `PERMISSION_DENIED` must be
  *        used. HTTP Mapping: 404 Not Found (Value: "NOT_FOUND")
  *    @arg @c kGTLRCloudLifeSciences_FailedEvent_Code_Ok Not an error; returned
- *        on success HTTP Mapping: 200 OK (Value: "OK")
+ *        on success. HTTP Mapping: 200 OK (Value: "OK")
  *    @arg @c kGTLRCloudLifeSciences_FailedEvent_Code_OutOfRange The operation
  *        was attempted past the valid range. E.g., seeking or reading past
  *        end-of-file. Unlike `INVALID_ARGUMENT`, this error indicates a problem

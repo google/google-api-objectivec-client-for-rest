@@ -602,7 +602,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_IamPolicyAnalysisState_Code_I
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_IamPolicyAnalysisState_Code_NotFound;
 /**
- *  Not an error; returned on success HTTP Mapping: 200 OK
+ *  Not an error; returned on success. HTTP Mapping: 200 OK
  *
  *  Value: "OK"
  */
@@ -1220,11 +1220,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
- *  anyone who is authenticated with a Google account or a service account. *
- *  `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a Google service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  anyone who is authenticated with a Google account or a service account. Does
+ *  not include identities that come from external identity providers (IdPs)
+ *  through identity federation. * `user:{emailid}`: An email address that
+ *  represents a specific Google account. For example, `alice\@example.com` . *
+ *  `serviceAccount:{emailid}`: An email address that represents a Google
+ *  service account. For example, `my-other-app\@appspot.gserviceaccount.com`. *
  *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
  *  identifier for a [Kubernetes service
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
@@ -3326,7 +3327,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *        `PERMISSION_DENIED` must be used. HTTP Mapping: 404 Not Found (Value:
  *        "NOT_FOUND")
  *    @arg @c kGTLRCloudAsset_IamPolicyAnalysisState_Code_Ok Not an error;
- *        returned on success HTTP Mapping: 200 OK (Value: "OK")
+ *        returned on success. HTTP Mapping: 200 OK (Value: "OK")
  *    @arg @c kGTLRCloudAsset_IamPolicyAnalysisState_Code_OutOfRange The
  *        operation was attempted past the valid range. E.g., seeking or reading
  *        past end-of-file. Unlike `INVALID_ARGUMENT`, this error indicates a
@@ -4365,15 +4366,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, strong, nullable) NSArray<NSString *> *folders;
 
 /**
- *  The Cloud KMS
- *  [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys)
- *  name or
- *  [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
- *  name. This field is available only when the resource's Protobuf contains it.
- *  To search against the `kms_key`: * Use a field query. Example: `kmsKey:key`
- *  * Use a free text query. Example: `key`
+ *  This field only presents for the purpose of backward-compatibility. Please
+ *  use `kms_keys` field to retrieve KMS key information. This field will only
+ *  be populated for the resource types included in this list for backward
+ *  compatible purpose. To search against the `kms_key`: * Use a field query.
+ *  Example: `kmsKey:key` * Use a free text query. Example: `key`
  */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
+
+/**
+ *  The Cloud KMS
+ *  [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys)
+ *  names or
+ *  [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
+ *  names. This field is available only when the resource's Protobuf contains
+ *  it. To search against the `kms_keys`: * Use a field query. Example:
+ *  `kmsKeys:key` * Use a free text query. Example: `key`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *kmsKeys;
 
 /**
  *  Labels associated with this resource. See [Labelling and grouping GCP

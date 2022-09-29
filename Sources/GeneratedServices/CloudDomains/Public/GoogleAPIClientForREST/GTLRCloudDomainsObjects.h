@@ -141,7 +141,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ContactSettings_Privacy_Red
 
 /**
  *  A `Registration` resource cannot be created for this domain because it is
- *  deleted, but can be restored with Google Domains.
+ *  deleted, but it may be possible to restore it with Google Domains.
  *
  *  Value: "DELETED"
  */
@@ -1202,7 +1202,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  *  Likely values:
  *    @arg @c kGTLRCloudDomains_Domain_ResourceState_Deleted A `Registration`
  *        resource cannot be created for this domain because it is deleted, but
- *        can be restored with Google Domains. (Value: "DELETED")
+ *        it may be possible to restore it with Google Domains. (Value:
+ *        "DELETED")
  *    @arg @c kGTLRCloudDomains_Domain_ResourceState_Expired A `Registration`
  *        resource cannot be created for this domain because it is expired and
  *        needs to be renewed with Google Domains. (Value: "EXPIRED")
@@ -2492,7 +2493,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
 /** The registrar that currently manages the domain. */
 @property(nonatomic, copy, nullable) NSString *currentRegistrar;
 
-/** The URL of registrar that currently manages the domain. */
+/** The URL of the registrar that currently manages the domain. */
 @property(nonatomic, copy, nullable) NSString *currentRegistrarUri;
 
 /** The domain name. Unicode domain names are expressed in Punycode format. */

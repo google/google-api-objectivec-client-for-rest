@@ -699,6 +699,40 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Terminated;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig.resourceValue
+
+/**
+ *  High resource value
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_High;
+/**
+ *  Low resource value
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_Low;
+/**
+ *  Medium resource value
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_Medium;
+/**
+ *  No resource value, e.g. ignore these resources
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_None;
+/**
+ *  Unspecific value
+ *
+ *  Value: "RESOURCE_VALUE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_ResourceValueUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse.state
 
 /**
@@ -1561,7 +1595,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *  compared to `principal_email`, supports principals that aren't associated
  *  with email addresses, such as third party principals. For most identities,
  *  the format will be `principal://iam.googleapis.com/{identity pool
- *  name}/subject/{subject)` except for some GKE identities (GKE_WORKLOAD,
+ *  name}/subjects/{subject}` except for some GKE identities (GKE_WORKLOAD,
  *  FREEFORM, GKE_HUB_WORKLOAD) that are still in the legacy format
  *  `serviceAccount:{identity pool name}[{subject}]`
  */
@@ -1595,6 +1629,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *  embedded or stand-alone applications, etc.
  */
 @property(nonatomic, copy, nullable) NSString *userAgentFamily;
+
+/**
+ *  A string representing a username. This is likely not an IAM principal. For
+ *  instance, this may be the system user name if the finding is VM-related, or
+ *  this may be some type of application login user name, depending on the type
+ *  of finding.
+ */
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 
@@ -1829,11 +1871,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
- *  anyone who is authenticated with a Google account or a service account. *
- *  `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a Google service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  anyone who is authenticated with a Google account or a service account. Does
+ *  not include identities that come from external identity providers (IdPs)
+ *  through identity federation. * `user:{emailid}`: An email address that
+ *  represents a specific Google account. For example, `alice\@example.com` . *
+ *  `serviceAccount:{emailid}`: An email address that represents a Google
+ *  service account. For example, `my-other-app\@appspot.gserviceaccount.com`. *
  *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
  *  identifier for a [Kubernetes service
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
@@ -2491,7 +2534,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Connection *> *connections;
 
 /**
- *  Output only. Map containing the point of contacts for the given finding. The
+ *  Output only. Map containing the points of contact for the given finding. The
  *  key represents the type of contact, while the value contains a list of all
  *  the contacts that pertain. Please refer to:
  *  https://cloud.google.com/resource-manager/docs/managing-notification-contacts#notification-categories
@@ -2635,6 +2678,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
+/**
+ *  Output only. The human readable display name of the finding source such as
+ *  "Event Threat Detection" or "Security Health Analytics".
+ */
+@property(nonatomic, copy, nullable) NSString *parentDisplayName;
+
 /** Represents operating system processes associated with the Finding. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Process *> *processes;
 
@@ -2738,7 +2787,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 
 /**
- *  Output only. Map containing the point of contacts for the given finding. The
+ *  Output only. Map containing the points of contact for the given finding. The
  *  key represents the type of contact, while the value contains a list of all
  *  the contacts that pertain. Please refer to:
  *  https://cloud.google.com/resource-manager/docs/managing-notification-contacts#notification-categories
@@ -2981,6 +3030,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *  The response to a BulkMute request. Contains the LRO information.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BulkMuteFindingsResponse : GTLRObject
+@end
+
+
+/**
+ *  A resource that is exposed as a result of a finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource : GTLRObject
+@end
+
+
+/**
+ *  A path that an attacker could take to reach an exposed resource.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposurePath : GTLRObject
 @end
 
 
@@ -3429,6 +3492,42 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 /** The full resource type of the resource. */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  A resource value config is a mapping configuration of user's tag values to
+ *  resource values. Used by the attack path simulation.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig : GTLRObject
+
+/** Name for the resource value config */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Resource value level this expression represents
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_High
+ *        High resource value (Value: "HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_Low
+ *        Low resource value (Value: "LOW")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_Medium
+ *        Medium resource value (Value: "MEDIUM")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_None
+ *        No resource value, e.g. ignore these resources (Value: "NONE")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceValue_ResourceValueUnspecified
+ *        Unspecific value (Value: "RESOURCE_VALUE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *resourceValue;
+
+/**
+ *  Required. Tag values combined with AND to check against. Values in the form
+ *  "tagValues/123" E.g. [ "tagValues/123", "tagValues/456", "tagValues/789" ]
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tagValues;
 
 @end
 
@@ -4825,7 +4924,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  */
 @interface GTLRSecurityCommandCenter_ServiceAccountDelegationInfo : GTLRObject
 
-/** The email address of a Google account. . */
+/** The email address of a Google account. */
 @property(nonatomic, copy, nullable) NSString *principalEmail;
 
 /**
@@ -4833,7 +4932,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *  compared to `principal_email`, supports principals that aren't associated
  *  with email addresses, such as third party principals. For most identities,
  *  the format will be `principal://iam.googleapis.com/{identity pool
- *  name}/subject/{subject)` except for some GKE identities (GKE_WORKLOAD,
+ *  name}/subjects/{subject}` except for some GKE identities (GKE_WORKLOAD,
  *  FREEFORM, GKE_HUB_WORKLOAD) that are still in the legacy format
  *  `serviceAccount:{identity pool name}[{subject}]`
  */

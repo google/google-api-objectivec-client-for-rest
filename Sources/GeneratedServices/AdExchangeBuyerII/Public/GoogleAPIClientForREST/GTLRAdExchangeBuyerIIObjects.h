@@ -107,8 +107,8 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRAdExchangeBuyerII_AdSize.sizeType
 
 /**
- *  Fluid size (i.e., responsive size) can be resized automatically with the
- *  change of outside environment.
+ *  Fluid size (for example, responsive size) can be resized automatically with
+ *  the change of outside environment.
  *
  *  Value: "FLUID"
  */
@@ -1864,7 +1864,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Environment_
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_FormatUnspecified;
 /**
- *  The ad impression is a native ad, and display (i.e., image) format.
+ *  The ad impression is a native ad, and display (for example, image) format.
  *
  *  Value: "NATIVE_DISPLAY"
  */
@@ -1876,7 +1876,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_Nativ
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NativeVideo;
 /**
- *  The ad impression is not a native ad, and display (i.e., image) format.
+ *  The ad impression is not a native ad, and display (for example, image)
+ *  format.
  *
  *  Value: "NON_NATIVE_DISPLAY"
  */
@@ -1899,7 +1900,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NonNa
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_FormatUnspecified;
 /**
- *  The ad impression is a native ad, and display (i.e., image) format.
+ *  The ad impression is a native ad, and display (for example, image) format.
  *
  *  Value: "NATIVE_DISPLAY"
  */
@@ -1911,7 +1912,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_Nati
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_NativeVideo;
 /**
- *  The ad impression is not a native ad, and display (i.e., image) format.
+ *  The ad impression is not a native ad, and display (for example, image)
+ *  format.
  *
  *  Value: "NON_NATIVE_DISPLAY"
  */
@@ -2626,9 +2628,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *  The size type of the ad slot.
  *
  *  Likely values:
- *    @arg @c kGTLRAdExchangeBuyerII_AdSize_SizeType_Fluid Fluid size (i.e.,
- *        responsive size) can be resized automatically with the change of
- *        outside environment. (Value: "FLUID")
+ *    @arg @c kGTLRAdExchangeBuyerII_AdSize_SizeType_Fluid Fluid size (for
+ *        example, responsive size) can be resized automatically with the change
+ *        of outside environment. (Value: "FLUID")
  *    @arg @c kGTLRAdExchangeBuyerII_AdSize_SizeType_Interstitial Special size
  *        to describe an interstitial ad slot. (Value: "INTERSTITIAL")
  *    @arg @c kGTLRAdExchangeBuyerII_AdSize_SizeType_Native Native (mobile) ads
@@ -2982,7 +2984,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *  A client user is created under a client buyer and has restricted access to
  *  the Marketplace and certain other sections of the Authorized Buyers UI based
  *  on the role granted to the associated client buyer. The only way a new
- *  client user can be created is via accepting an email invitation (see the
+ *  client user can be created is through accepting an email invitation (see the
  *  accounts.clients.invitations.create method). All fields are required unless
  *  otherwise specified.
  */
@@ -3169,7 +3171,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  */
 @property(nonatomic, strong, nullable) NSNumber *agencyId;
 
-/** Output only. The last update timestamp of the creative via API. */
+/** Output only. The last update timestamp of the creative through the API. */
 @property(nonatomic, strong, nullable) GTLRDateTime *apiUpdateTime;
 
 /**
@@ -3304,7 +3306,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 /**
  *  Output only. The granular status of this ad in specific contexts. A context
  *  here relates to where something ultimately serves (for example, a physical
- *  location, a platform, an HTTPS vs HTTP request, or the type of auction).
+ *  location, a platform, an HTTPS versus HTTP request, or the type of auction).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_ServingRestriction *> *servingRestrictions;
 
@@ -3673,8 +3675,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 /**
  *  Optional. Proposed flight start time of the deal. This will generally be
  *  stored in the granularity of one second since deal serving starts at seconds
- *  boundary. Any time specified with more granularity (e.g., in milliseconds)
- *  will be truncated towards the start of time in seconds.
+ *  boundary. Any time specified with more granularity (for example, in
+ *  milliseconds) will be truncated towards the start of time in seconds.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *availableStartTime;
 
@@ -3719,8 +3721,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, copy, nullable) NSString *creativePreApprovalPolicy;
 
 /**
- *  Output only. Restricitions about the creatives associated with the deal
- *  (i.e., size) This is available for Programmatic Guaranteed/Preferred Deals
+ *  Output only. Restricitions about the creatives associated with the deal (for
+ *  example, size) This is available for Programmatic Guaranteed/Preferred Deals
  *  in Ad Manager.
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_CreativeRestrictions *creativeRestrictions;
@@ -3896,8 +3898,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 /**
  *  The deal terms specify the details of a Product/deal. They specify things
- *  like price per buyer, the type of pricing model (e.g., fixed price, auction)
- *  and expected impressions from the publisher.
+ *  like price per buyer, the type of pricing model (for example, fixed price,
+ *  auction) and expected impressions from the publisher.
  */
 @interface GTLRAdExchangeBuyerII_DealTerms : GTLRObject
 
@@ -4322,8 +4324,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 /**
  *  The number of filtered bids with the specified dimension values, among those
- *  filtered due to the requested filtering reason (i.e. creative status), that
- *  have the specified detail.
+ *  filtered due to the requested filtering reason (for example, creative
+ *  status), that have the specified detail.
  */
 @interface GTLRAdExchangeBuyerII_FilteredBidDetailRow : GTLRObject
 
@@ -4358,7 +4360,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *  A set of filters that is applied to a request for data. Within a filter set,
  *  an AND operation is performed across the filters represented by each field.
  *  An OR operation is performed across the filters represented by the multiple
- *  values of a repeated field, e.g., "format=VIDEO AND deal_id=12 AND
+ *  values of a repeated field, for example, "format=VIDEO AND deal_id=12 AND
  *  (seller_network_id=34 OR seller_network_id=56)".
  */
 @interface GTLRAdExchangeBuyerII_FilterSet : GTLRObject
@@ -4378,16 +4380,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 /**
  *  The ID of the creative on which to filter; optional. This field may be set
- *  only for a filter set that accesses account-level troubleshooting data,
- *  i.e., one whose name matches the `bidders/ * /accounts/ * /filterSets/ *`
+ *  only for a filter set that accesses account-level troubleshooting data, for
+ *  example, one whose name matches the `bidders/ * /accounts/ * /filterSets/ *`
  *  pattern.
  */
 @property(nonatomic, copy, nullable) NSString *creativeId;
 
 /**
  *  The ID of the deal on which to filter; optional. This field may be set only
- *  for a filter set that accesses account-level troubleshooting data, i.e., one
- *  whose name matches the `bidders/ * /accounts/ * /filterSets/ *` pattern.
+ *  for a filter set that accesses account-level troubleshooting data, for
+ *  example, one whose name matches the `bidders/ * /accounts/ * /filterSets/ *`
+ *  pattern.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4415,13 +4418,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *        placeholder for an undefined format; indicates that no format filter
  *        will be applied. (Value: "FORMAT_UNSPECIFIED")
  *    @arg @c kGTLRAdExchangeBuyerII_FilterSet_Format_NativeDisplay The ad
- *        impression is a native ad, and display (i.e., image) format. (Value:
- *        "NATIVE_DISPLAY")
+ *        impression is a native ad, and display (for example, image) format.
+ *        (Value: "NATIVE_DISPLAY")
  *    @arg @c kGTLRAdExchangeBuyerII_FilterSet_Format_NativeVideo The ad
  *        impression is a native ad, and video format. (Value: "NATIVE_VIDEO")
  *    @arg @c kGTLRAdExchangeBuyerII_FilterSet_Format_NonNativeDisplay The ad
- *        impression is not a native ad, and display (i.e., image) format.
- *        (Value: "NON_NATIVE_DISPLAY")
+ *        impression is not a native ad, and display (for example, image)
+ *        format. (Value: "NON_NATIVE_DISPLAY")
  *    @arg @c kGTLRAdExchangeBuyerII_FilterSet_Format_NonNativeVideo The ad
  *        impression is not a native ad, and video format. (Value:
  *        "NON_NATIVE_VIDEO")
@@ -4447,8 +4450,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 /**
  *  The list of platforms on which to filter; may be empty. The filters
- *  represented by multiple platforms are ORed together (i.e., if non-empty,
- *  results must match any one of the platforms).
+ *  represented by multiple platforms are ORed together (for example, if
+ *  non-empty, results must match any one of the platforms).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *platforms;
 
@@ -4474,8 +4477,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 /**
  *  For Authorized Buyers only. The list of IDs of the seller (publisher)
  *  networks on which to filter; may be empty. The filters represented by
- *  multiple seller network IDs are ORed together (i.e., if non-empty, results
- *  must match any one of the publisher networks). See
+ *  multiple seller network IDs are ORed together (for example, if non-empty,
+ *  results must match any one of the publisher networks). See
  *  [seller-network-ids](https://developers.google.com/authorized-buyers/rtb/downloads/seller-network-ids)
  *  file for the set of existing seller network IDs.
  *
@@ -4484,7 +4487,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *sellerNetworkIds;
 
 /**
- *  The granularity of time intervals if a time series breakdown is desired;
+ *  The granularity of time intervals if a time series breakdown is preferred;
  *  optional.
  *
  *  Likely values:
@@ -5136,7 +5139,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 /**
  *  List of rows, with counts of filtered bids aggregated by filtering reason
- *  (i.e. creative status).
+ *  (for example, creative status).
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -5221,8 +5224,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @interface GTLRAdExchangeBuyerII_ListLosingBidsResponse : GTLRCollectionObject
 
 /**
- *  List of rows, with counts of losing bids aggregated by loss reason (i.e.
- *  creative status).
+ *  List of rows, with counts of losing bids aggregated by loss reason (for
+ *  example, creative status).
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -5346,7 +5349,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @interface GTLRAdExchangeBuyerII_LocationContext : GTLRObject
 
 /**
- *  IDs representing the geo location for this context. Please refer to the
+ *  IDs representing the geo location for this context. Refer to the
  *  [geo-table.csv](https://storage.googleapis.com/adx-rtb-dictionaries/geo-table.csv)
  *  file for different geo criteria IDs.
  *
@@ -5371,11 +5374,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 /** Inventory sizes to be included/excluded. */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_InventorySizeTargeting *inventorySizeTargeting;
 
-/** Placement targeting information, e.g., URL, mobile applications. */
+/** Placement targeting information, for example, URL, mobile applications. */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_PlacementTargeting *placementTargeting;
 
 /**
- *  Technology targeting information, e.g., operating system, device category.
+ *  Technology targeting information, for example, operating system, device
+ *  category.
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_TechnologyTargeting *technologyTargeting;
 
@@ -5387,7 +5391,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 /**
  *  A metric value, with an expected value and a variance; represents a count
- *  that may be either exact or estimated (i.e. when sampled).
+ *  that may be either exact or estimated (for example, when sampled).
  */
 @interface GTLRAdExchangeBuyerII_MetricValue : GTLRObject
 
@@ -5399,12 +5403,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSNumber *value;
 
 /**
- *  The variance (i.e. square of the standard deviation) of the metric value. If
- *  value is exact, variance is 0. Can be used to calculate margin of error as a
- *  percentage of value, using the following formula, where Z is the standard
- *  constant that depends on the desired size of the confidence interval (e.g.
- *  for 90% confidence interval, use Z = 1.645): marginOfError = 100 * Z *
- *  sqrt(variance) / value
+ *  The variance (for example, square of the standard deviation) of the metric
+ *  value. If value is exact, variance is 0. Can be used to calculate margin of
+ *  error as a percentage of value, using the following formula, where Z is the
+ *  standard constant that depends on the preferred size of the confidence
+ *  interval (for example, for 90% confidence interval, use Z = 1.645):
+ *  marginOfError = 100 * Z * sqrt(variance) / value
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5669,9 +5673,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 
 /**
- *  Represents targeting about where the ads can appear, e.g., certain sites or
- *  mobile applications. Different placement targeting types will be logically
- *  OR'ed.
+ *  Represents targeting about where the ads can appear, for example, certain
+ *  sites or mobile applications. Different placement targeting types will be
+ *  logically OR'ed.
  */
 @interface GTLRAdExchangeBuyerII_PlacementTargeting : GTLRObject
 
@@ -5769,7 +5773,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 
 /**
- *  A product is a segment of inventory that a seller wishes to sell. It is
+ *  A product is a segment of inventory that a seller wants to sell. It is
  *  associated with certain terms and targeting information which helps the
  *  buyer know more about the inventory.
  */
@@ -6173,15 +6177,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 /**
  *  A relative date range, specified by an offset and a duration. The supported
- *  range of dates begins 30 days before today and ends today, i.e., the limits
- *  for these values are: offset_days >= 0 duration_days >= 1 offset_days +
- *  duration_days <= 30
+ *  range of dates begins 30 days before today and ends today, for example, the
+ *  limits for these values are: offset_days >= 0 duration_days >= 1 offset_days
+ *  + duration_days <= 30
  */
 @interface GTLRAdExchangeBuyerII_RelativeDateRange : GTLRObject
 
 /**
- *  The number of days in the requested date range, e.g., for a range spanning
- *  today: 1. For a range spanning the last 7 days: 7.
+ *  The number of days in the requested date range, for example, for a range
+ *  spanning today: 1. For a range spanning the last 7 days: 7.
  *
  *  Uses NSNumber of intValue.
  */
@@ -6189,7 +6193,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 /**
  *  The end date of the filter set, specified as the number of days before
- *  today, e.g., for a range where the last date is today: 0.
+ *  today, for example, for a range where the last date is today: 0.
  *
  *  Uses NSNumber of intValue.
  */
@@ -6317,8 +6321,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 /**
  *  Output only. A representation of the status of an ad in a specific context.
  *  A context here relates to where something ultimately serves (for example, a
- *  user or publisher geo, a platform, an HTTPS vs HTTP request, or the type of
- *  auction).
+ *  user or publisher geo, a platform, an HTTPS versus HTTP request, or the type
+ *  of auction).
  */
 @interface GTLRAdExchangeBuyerII_ServingRestriction : GTLRObject
 
@@ -6334,7 +6338,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 /**
  *  Any disapprovals bound to this restriction. Only present if
  *  status=DISAPPROVED. Can be used to filter the response of the creatives.list
- *  method. Deprecated; please use disapproval field instead.
+ *  method. Deprecated; use disapproval field instead.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_Disapproval *> *disapprovalReasons;
 
@@ -6523,8 +6527,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 
 /**
- *  Represents a list of targeted and excluded URLs (e.g., google.com). For
- *  Private Auction and AdX Preferred Deals, URLs are either included or
+ *  Represents a list of targeted and excluded URLs (for example, google.com).
+ *  For Private Auction and AdX Preferred Deals, URLs are either included or
  *  excluded. For Programmatic Guaranteed and Preferred Deals, this doesn't
  *  apply.
  */

@@ -123,7 +123,7 @@
 
 @implementation GTLRApigeeRegistryQuery_ProjectsLocationsApisArtifactsList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -353,7 +353,7 @@
 
 @implementation GTLRApigeeRegistryQuery_ProjectsLocationsApisDeploymentsArtifactsList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -506,7 +506,7 @@
 
 @implementation GTLRApigeeRegistryQuery_ProjectsLocationsApisDeploymentsList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -721,7 +721,7 @@
 
 @implementation GTLRApigeeRegistryQuery_ProjectsLocationsApisList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -928,7 +928,7 @@
 
 @implementation GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsArtifactsList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -1116,7 +1116,7 @@
 
 @implementation GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -1296,7 +1296,7 @@
 
 @implementation GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsArtifactsList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -1522,7 +1522,7 @@
 
 @implementation GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -1829,7 +1829,7 @@
 
 @implementation GTLRApigeeRegistryQuery_ProjectsLocationsArtifactsList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

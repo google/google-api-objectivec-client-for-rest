@@ -31,6 +31,7 @@
 @class GTLRDns_ManagedZonePeeringConfig;
 @class GTLRDns_ManagedZonePeeringConfigTargetNetwork;
 @class GTLRDns_ManagedZonePrivateVisibilityConfig;
+@class GTLRDns_ManagedZonePrivateVisibilityConfigGKECluster;
 @class GTLRDns_ManagedZonePrivateVisibilityConfigNetwork;
 @class GTLRDns_ManagedZoneReverseLookupConfig;
 @class GTLRDns_ManagedZoneServiceDirectoryConfig;
@@ -46,6 +47,8 @@
 @class GTLRDns_ResourceRecordSet;
 @class GTLRDns_ResponseHeader;
 @class GTLRDns_ResponsePolicy;
+@class GTLRDns_ResponsePolicy_Labels;
+@class GTLRDns_ResponsePolicyGKECluster;
 @class GTLRDns_ResponsePolicyNetwork;
 @class GTLRDns_ResponsePolicyRule;
 @class GTLRDns_ResponsePolicyRuleLocalData;
@@ -687,11 +690,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
- *  anyone who is authenticated with a Google account or a service account. *
- *  `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a Google service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  anyone who is authenticated with a Google account or a service account. Does
+ *  not include identities that come from external identity providers (IdPs)
+ *  through identity federation. * `user:{emailid}`: An email address that
+ *  represents a specific Google account. For example, `alice\@example.com` . *
+ *  `serviceAccount:{emailid}`: An email address that represents a Google
+ *  service account. For example, `my-other-app\@appspot.gserviceaccount.com`. *
  *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
  *  identifier for a [Kubernetes service
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
@@ -1240,10 +1244,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @interface GTLRDns_ManagedZonePrivateVisibilityConfig : GTLRObject
 
+/** The list of Google Kubernetes Engine clusters that can see this zone. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_ManagedZonePrivateVisibilityConfigGKECluster *> *gkeClusters;
+
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The list of VPC networks that can see this zone. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_ManagedZonePrivateVisibilityConfigNetwork *> *networks;
+
+@end
+
+
+/**
+ *  GTLRDns_ManagedZonePrivateVisibilityConfigGKECluster
+ */
+@interface GTLRDns_ManagedZonePrivateVisibilityConfigGKECluster : GTLRObject
+
+/**
+ *  The resource name of the cluster to bind this ManagedZone to. This should be
+ *  specified in the format like: projects/ * /locations/ * /clusters/ *. This
+ *  is referenced from GKE projects.locations.clusters.get API:
+ *  https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/get
+ */
+@property(nonatomic, copy, nullable) NSString *gkeClusterName;
+
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -2003,6 +2028,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  The list of Google Kubernetes Engine clusters to which this response policy
+ *  is applied.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_ResponsePolicyGKECluster *> *gkeClusters;
+
+/**
  *  Unique identifier for the resource; defined by the server (output only).
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -2013,6 +2044,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** User labels. */
+@property(nonatomic, strong, nullable) GTLRDns_ResponsePolicy_Labels *labels;
+
 /**
  *  List of network names specifying networks to which this policy is applied.
  */
@@ -2020,6 +2054,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 
 /** User assigned name for this Response Policy. */
 @property(nonatomic, copy, nullable) NSString *responsePolicyName;
+
+@end
+
+
+/**
+ *  User labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDns_ResponsePolicy_Labels : GTLRObject
+@end
+
+
+/**
+ *  GTLRDns_ResponsePolicyGKECluster
+ */
+@interface GTLRDns_ResponsePolicyGKECluster : GTLRObject
+
+/**
+ *  The resource name of the cluster to bind this response policy to. This
+ *  should be specified in the format like: projects/ * /locations/ * /clusters/
+ *  *. This is referenced from GKE projects.locations.clusters.get API:
+ *  https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/get
+ */
+@property(nonatomic, copy, nullable) NSString *gkeClusterName;
+
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 

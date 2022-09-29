@@ -649,7 +649,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The field paths to update. Separate multiple values with commas.
  *  Currently supported field paths: - text - cards (Requires [service account
- *  authentication](/chat/api/guides/auth/service-accounts).)
+ *  authentication](/chat/api/guides/auth/service-accounts).) - cards_v2
  *
  *  String format is a comma-separated list of fields.
  */

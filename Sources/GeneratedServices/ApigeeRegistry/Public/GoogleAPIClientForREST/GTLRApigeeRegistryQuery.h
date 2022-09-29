@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  CreateArtifact creates a specified artifact.
+ *  Creates a specified artifact.
  *
  *  Method: apigeeregistry.projects.locations.apis.artifacts.create
  *
@@ -51,18 +51,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent, which owns this collection of artifacts. Format:
- *  {parent}
+ *  `{parent}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_Artifact.
  *
- *  CreateArtifact creates a specified artifact.
+ *  Creates a specified artifact.
  *
  *  @param object The @c GTLRApigeeRegistry_Artifact to include in the query.
  *  @param parent Required. The parent, which owns this collection of artifacts.
- *    Format: {parent}
+ *    Format: `{parent}`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisArtifactsCreate
  */
@@ -72,7 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  DeleteArtifact removes a specified artifact.
+ *  Removes a specified artifact.
  *
  *  Method: apigeeregistry.projects.locations.apis.artifacts.delete
  *
@@ -82,17 +82,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisArtifactsDelete : GTLRApigeeRegistryQuery
 
 /**
- *  Required. The name of the artifact to delete. Format: {parent}/artifacts/ *
+ *  Required. The name of the artifact to delete. Format: `{parent}/artifacts/
+ *  *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_Empty.
  *
- *  DeleteArtifact removes a specified artifact.
+ *  Removes a specified artifact.
  *
  *  @param name Required. The name of the artifact to delete. Format:
- *    {parent}/artifacts/ *
+ *    `{parent}/artifacts/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisArtifactsDelete
  */
@@ -101,7 +102,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  GetArtifact returns a specified artifact.
+ *  Returns a specified artifact.
  *
  *  Method: apigeeregistry.projects.locations.apis.artifacts.get
  *
@@ -111,18 +112,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisArtifactsGet : GTLRApigeeRegistryQuery
 
 /**
- *  Required. The name of the artifact to retrieve. Format: {parent}/artifacts/
- *  *
+ *  Required. The name of the artifact to retrieve. Format: `{parent}/artifacts/
+ *  *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_Artifact.
  *
- *  GetArtifact returns a specified artifact.
+ *  Returns a specified artifact.
  *
  *  @param name Required. The name of the artifact to retrieve. Format:
- *    {parent}/artifacts/ *
+ *    `{parent}/artifacts/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisArtifactsGet
  */
@@ -131,10 +132,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  GetArtifactContents returns the contents of a specified artifact. If
- *  artifacts are stored with GZip compression, the default behavior is to
- *  return the artifact uncompressed (the mime_type response field indicates the
- *  exact format returned).
+ *  Returns the contents of a specified artifact. If artifacts are stored with
+ *  GZip compression, the default behavior is to return the artifact
+ *  uncompressed (the mime_type response field indicates the exact format
+ *  returned).
  *
  *  Method: apigeeregistry.projects.locations.apis.artifacts.getContents
  *
@@ -145,20 +146,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the artifact whose contents should be retrieved.
- *  Format: {parent}/artifacts/ *
+ *  Format: `{parent}/artifacts/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_HttpBody.
  *
- *  GetArtifactContents returns the contents of a specified artifact. If
- *  artifacts are stored with GZip compression, the default behavior is to
- *  return the artifact uncompressed (the mime_type response field indicates the
- *  exact format returned).
+ *  Returns the contents of a specified artifact. If artifacts are stored with
+ *  GZip compression, the default behavior is to return the artifact
+ *  uncompressed (the mime_type response field indicates the exact format
+ *  returned).
  *
  *  @param name Required. The name of the artifact whose contents should be
- *    retrieved. Format: {parent}/artifacts/ *
+ *    retrieved. Format: `{parent}/artifacts/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisArtifactsGetContents
  */
@@ -216,7 +217,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  ListArtifacts returns matching artifacts.
+ *  Returns matching artifacts.
  *
  *  Method: apigeeregistry.projects.locations.apis.artifacts.list
  *
@@ -230,6 +231,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Expression Language and can refer to all message fields except contents.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  A comma-separated list of fields, e.g. "foo,bar" Fields can be sorted in
+ *  descending order using the "desc" identifier, e.g. "foo desc,bar"
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  The maximum number of artifacts to return. The service may return fewer than
@@ -247,17 +254,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent, which owns this collection of artifacts. Format:
- *  {parent}
+ *  `{parent}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_ListArtifactsResponse.
  *
- *  ListArtifacts returns matching artifacts.
+ *  Returns matching artifacts.
  *
  *  @param parent Required. The parent, which owns this collection of artifacts.
- *    Format: {parent}
+ *    Format: `{parent}`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisArtifactsList
  *
@@ -270,7 +277,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  ReplaceArtifact can be used to replace a specified artifact.
+ *  Used to replace a specified artifact.
  *
  *  Method: apigeeregistry.projects.locations.apis.artifacts.replaceArtifact
  *
@@ -285,7 +292,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigeeRegistry_Artifact.
  *
- *  ReplaceArtifact can be used to replace a specified artifact.
+ *  Used to replace a specified artifact.
  *
  *  @param object The @c GTLRApigeeRegistry_Artifact to include in the query.
  *  @param name Resource name.
@@ -382,7 +389,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  CreateApi creates a specified API.
+ *  Creates a specified API.
  *
  *  Method: apigeeregistry.projects.locations.apis.create
  *
@@ -392,27 +399,27 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisCreate : GTLRApigeeRegistryQuery
 
 /**
- *  Required. The ID to use for the api, which will become the final component
- *  of the api's resource name. This value should be 4-63 characters, and valid
+ *  Required. The ID to use for the API, which will become the final component
+ *  of the API's resource name. This value should be 4-63 characters, and valid
  *  characters are /a-z-/. Following AIP-162, IDs must not have the form of a
  *  UUID.
  */
 @property(nonatomic, copy, nullable) NSString *apiId;
 
 /**
- *  Required. The parent, which owns this collection of APIs. Format: projects/
- *  * /locations/ *
+ *  Required. The parent, which owns this collection of APIs. Format: `projects/
+ *  * /locations/ *`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_Api.
  *
- *  CreateApi creates a specified API.
+ *  Creates a specified API.
  *
  *  @param object The @c GTLRApigeeRegistry_Api to include in the query.
  *  @param parent Required. The parent, which owns this collection of APIs.
- *    Format: projects/ * /locations/ *
+ *    Format: `projects/ * /locations/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisCreate
  */
@@ -422,7 +429,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  DeleteApi removes a specified API and all of the resources that it owns.
+ *  Removes a specified API and all of the resources that it owns.
  *
  *  Method: apigeeregistry.projects.locations.apis.delete
  *
@@ -438,18 +445,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL force;
 
 /**
- *  Required. The name of the API to delete. Format: projects/ * /locations/ *
- *  /apis/ *
+ *  Required. The name of the API to delete. Format: `projects/ * /locations/ *
+ *  /apis/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_Empty.
  *
- *  DeleteApi removes a specified API and all of the resources that it owns.
+ *  Removes a specified API and all of the resources that it owns.
  *
- *  @param name Required. The name of the API to delete. Format: projects/ *
- *    /locations/ * /apis/ *
+ *  @param name Required. The name of the API to delete. Format: `projects/ *
+ *    /locations/ * /apis/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisDelete
  */
@@ -458,7 +465,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  CreateArtifact creates a specified artifact.
+ *  Creates a specified artifact.
  *
  *  Method: apigeeregistry.projects.locations.apis.deployments.artifacts.create
  *
@@ -477,18 +484,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent, which owns this collection of artifacts. Format:
- *  {parent}
+ *  `{parent}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_Artifact.
  *
- *  CreateArtifact creates a specified artifact.
+ *  Creates a specified artifact.
  *
  *  @param object The @c GTLRApigeeRegistry_Artifact to include in the query.
  *  @param parent Required. The parent, which owns this collection of artifacts.
- *    Format: {parent}
+ *    Format: `{parent}`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisDeploymentsArtifactsCreate
  */
@@ -498,7 +505,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  DeleteArtifact removes a specified artifact.
+ *  Removes a specified artifact.
  *
  *  Method: apigeeregistry.projects.locations.apis.deployments.artifacts.delete
  *
@@ -508,17 +515,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisDeploymentsArtifactsDelete : GTLRApigeeRegistryQuery
 
 /**
- *  Required. The name of the artifact to delete. Format: {parent}/artifacts/ *
+ *  Required. The name of the artifact to delete. Format: `{parent}/artifacts/
+ *  *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_Empty.
  *
- *  DeleteArtifact removes a specified artifact.
+ *  Removes a specified artifact.
  *
  *  @param name Required. The name of the artifact to delete. Format:
- *    {parent}/artifacts/ *
+ *    `{parent}/artifacts/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisDeploymentsArtifactsDelete
  */
@@ -527,7 +535,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  GetArtifact returns a specified artifact.
+ *  Returns a specified artifact.
  *
  *  Method: apigeeregistry.projects.locations.apis.deployments.artifacts.get
  *
@@ -537,18 +545,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisDeploymentsArtifactsGet : GTLRApigeeRegistryQuery
 
 /**
- *  Required. The name of the artifact to retrieve. Format: {parent}/artifacts/
- *  *
+ *  Required. The name of the artifact to retrieve. Format: `{parent}/artifacts/
+ *  *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_Artifact.
  *
- *  GetArtifact returns a specified artifact.
+ *  Returns a specified artifact.
  *
  *  @param name Required. The name of the artifact to retrieve. Format:
- *    {parent}/artifacts/ *
+ *    `{parent}/artifacts/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisDeploymentsArtifactsGet
  */
@@ -557,10 +565,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  GetArtifactContents returns the contents of a specified artifact. If
- *  artifacts are stored with GZip compression, the default behavior is to
- *  return the artifact uncompressed (the mime_type response field indicates the
- *  exact format returned).
+ *  Returns the contents of a specified artifact. If artifacts are stored with
+ *  GZip compression, the default behavior is to return the artifact
+ *  uncompressed (the mime_type response field indicates the exact format
+ *  returned).
  *
  *  Method: apigeeregistry.projects.locations.apis.deployments.artifacts.getContents
  *
@@ -571,20 +579,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the artifact whose contents should be retrieved.
- *  Format: {parent}/artifacts/ *
+ *  Format: `{parent}/artifacts/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_HttpBody.
  *
- *  GetArtifactContents returns the contents of a specified artifact. If
- *  artifacts are stored with GZip compression, the default behavior is to
- *  return the artifact uncompressed (the mime_type response field indicates the
- *  exact format returned).
+ *  Returns the contents of a specified artifact. If artifacts are stored with
+ *  GZip compression, the default behavior is to return the artifact
+ *  uncompressed (the mime_type response field indicates the exact format
+ *  returned).
  *
  *  @param name Required. The name of the artifact whose contents should be
- *    retrieved. Format: {parent}/artifacts/ *
+ *    retrieved. Format: `{parent}/artifacts/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisDeploymentsArtifactsGetContents
  */
@@ -593,7 +601,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  ListArtifacts returns matching artifacts.
+ *  Returns matching artifacts.
  *
  *  Method: apigeeregistry.projects.locations.apis.deployments.artifacts.list
  *
@@ -607,6 +615,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Expression Language and can refer to all message fields except contents.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  A comma-separated list of fields, e.g. "foo,bar" Fields can be sorted in
+ *  descending order using the "desc" identifier, e.g. "foo desc,bar"
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  The maximum number of artifacts to return. The service may return fewer than
@@ -624,17 +638,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent, which owns this collection of artifacts. Format:
- *  {parent}
+ *  `{parent}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_ListArtifactsResponse.
  *
- *  ListArtifacts returns matching artifacts.
+ *  Returns matching artifacts.
  *
  *  @param parent Required. The parent, which owns this collection of artifacts.
- *    Format: {parent}
+ *    Format: `{parent}`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisDeploymentsArtifactsList
  *
@@ -647,7 +661,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  ReplaceArtifact can be used to replace a specified artifact.
+ *  Used to replace a specified artifact.
  *
  *  Method: apigeeregistry.projects.locations.apis.deployments.artifacts.replaceArtifact
  *
@@ -662,7 +676,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigeeRegistry_Artifact.
  *
- *  ReplaceArtifact can be used to replace a specified artifact.
+ *  Used to replace a specified artifact.
  *
  *  @param object The @c GTLRApigeeRegistry_Artifact to include in the query.
  *  @param name Resource name.
@@ -675,7 +689,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  CreateApiDeployment creates a specified deployment.
+ *  Creates a specified deployment.
  *
  *  Method: apigeeregistry.projects.locations.apis.deployments.create
  *
@@ -694,19 +708,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent, which owns this collection of deployments. Format:
- *  projects/ * /locations/ * /apis/ *
+ *  `projects/ * /locations/ * /apis/ *`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_ApiDeployment.
  *
- *  CreateApiDeployment creates a specified deployment.
+ *  Creates a specified deployment.
  *
  *  @param object The @c GTLRApigeeRegistry_ApiDeployment to include in the
  *    query.
  *  @param parent Required. The parent, which owns this collection of
- *    deployments. Format: projects/ * /locations/ * /apis/ *
+ *    deployments. Format: `projects/ * /locations/ * /apis/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisDeploymentsCreate
  */
@@ -716,8 +730,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  DeleteApiDeployment removes a specified deployment, all revisions, and all
- *  child resources (e.g. artifacts).
+ *  Removes a specified deployment, all revisions, and all child resources
+ *  (e.g., artifacts).
  *
  *  Method: apigeeregistry.projects.locations.apis.deployments.delete
  *
@@ -733,19 +747,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL force;
 
 /**
- *  Required. The name of the deployment to delete. Format: projects/ *
- *  /locations/ * /apis/ * /deployments/ *
+ *  Required. The name of the deployment to delete. Format: `projects/ *
+ *  /locations/ * /apis/ * /deployments/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_Empty.
  *
- *  DeleteApiDeployment removes a specified deployment, all revisions, and all
- *  child resources (e.g. artifacts).
+ *  Removes a specified deployment, all revisions, and all child resources
+ *  (e.g., artifacts).
  *
  *  @param name Required. The name of the deployment to delete. Format:
- *    projects/ * /locations/ * /apis/ * /deployments/ *
+ *    `projects/ * /locations/ * /apis/ * /deployments/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisDeploymentsDelete
  */
@@ -754,7 +768,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  DeleteApiDeploymentRevision deletes a revision of a deployment.
+ *  Deletes a revision of a deployment.
  *
  *  Method: apigeeregistry.projects.locations.apis.deployments.deleteRevision
  *
@@ -766,18 +780,18 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The name of the deployment revision to be deleted, with a revision
  *  ID explicitly included. Example:
- *  projects/sample/locations/global/apis/petstore/deployments/prod\@c7cfa2a8
+ *  `projects/sample/locations/global/apis/petstore/deployments/prod\@c7cfa2a8`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_ApiDeployment.
  *
- *  DeleteApiDeploymentRevision deletes a revision of a deployment.
+ *  Deletes a revision of a deployment.
  *
  *  @param name Required. The name of the deployment revision to be deleted,
  *    with a revision ID explicitly included. Example:
- *    projects/sample/locations/global/apis/petstore/deployments/prod\@c7cfa2a8
+ *    `projects/sample/locations/global/apis/petstore/deployments/prod\@c7cfa2a8`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisDeploymentsDeleteRevision
  */
@@ -786,7 +800,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  GetApiDeployment returns a specified deployment.
+ *  Returns a specified deployment.
  *
  *  Method: apigeeregistry.projects.locations.apis.deployments.get
  *
@@ -796,18 +810,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisDeploymentsGet : GTLRApigeeRegistryQuery
 
 /**
- *  Required. The name of the deployment to retrieve. Format: projects/ *
- *  /locations/ * /apis/ * /deployments/ *
+ *  Required. The name of the deployment to retrieve. Format: `projects/ *
+ *  /locations/ * /apis/ * /deployments/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_ApiDeployment.
  *
- *  GetApiDeployment returns a specified deployment.
+ *  Returns a specified deployment.
  *
  *  @param name Required. The name of the deployment to retrieve. Format:
- *    projects/ * /locations/ * /apis/ * /deployments/ *
+ *    `projects/ * /locations/ * /apis/ * /deployments/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisDeploymentsGet
  */
@@ -865,7 +879,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  ListApiDeployments returns matching deployments.
+ *  Returns matching deployments.
  *
  *  Method: apigeeregistry.projects.locations.apis.deployments.list
  *
@@ -879,6 +893,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Expression Language and can refer to all message fields.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  A comma-separated list of fields, e.g. "foo,bar" Fields can be sorted in
+ *  descending order using the "desc" identifier, e.g. "foo desc,bar"
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  The maximum number of deployments to return. The service may return fewer
@@ -897,17 +917,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent, which owns this collection of deployments. Format:
- *  projects/ * /locations/ * /apis/ *
+ *  `projects/ * /locations/ * /apis/ *`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_ListApiDeploymentsResponse.
  *
- *  ListApiDeployments returns matching deployments.
+ *  Returns matching deployments.
  *
  *  @param parent Required. The parent, which owns this collection of
- *    deployments. Format: projects/ * /locations/ * /apis/ *
+ *    deployments. Format: `projects/ * /locations/ * /apis/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisDeploymentsList
  *
@@ -920,8 +940,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  ListApiDeploymentRevisions lists all revisions of a deployment. Revisions
- *  are returned in descending order of revision creation time.
+ *  Lists all revisions of a deployment. Revisions are returned in descending
+ *  order of revision creation time.
  *
  *  Method: apigeeregistry.projects.locations.apis.deployments.listRevisions
  *
@@ -945,8 +965,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigeeRegistry_ListApiDeploymentRevisionsResponse.
  *
- *  ListApiDeploymentRevisions lists all revisions of a deployment. Revisions
- *  are returned in descending order of revision creation time.
+ *  Lists all revisions of a deployment. Revisions are returned in descending
+ *  order of revision creation time.
  *
  *  @param name Required. The name of the deployment to list revisions for.
  *
@@ -961,7 +981,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  UpdateApiDeployment can be used to modify a specified deployment.
+ *  Used to modify a specified deployment.
  *
  *  Method: apigeeregistry.projects.locations.apis.deployments.patch
  *
@@ -982,8 +1002,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The list of fields to be updated. If omitted, all fields are updated that
  *  are set in the request message (fields set to default values are ignored).
- *  If a "*" is specified, all fields are updated, including fields that are
- *  unspecified/default in the request.
+ *  If an asterisk "*" is specified, all fields are updated, including fields
+ *  that are unspecified/default in the request.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -992,7 +1012,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigeeRegistry_ApiDeployment.
  *
- *  UpdateApiDeployment can be used to modify a specified deployment.
+ *  Used to modify a specified deployment.
  *
  *  @param object The @c GTLRApigeeRegistry_ApiDeployment to include in the
  *    query.
@@ -1006,8 +1026,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  RollbackApiDeployment sets the current revision to a specified prior
- *  revision. Note that this creates a new revision with a new revision ID.
+ *  Sets the current revision to a specified prior revision. Note that this
+ *  creates a new revision with a new revision ID.
  *
  *  Method: apigeeregistry.projects.locations.apis.deployments.rollback
  *
@@ -1022,8 +1042,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigeeRegistry_ApiDeployment.
  *
- *  RollbackApiDeployment sets the current revision to a specified prior
- *  revision. Note that this creates a new revision with a new revision ID.
+ *  Sets the current revision to a specified prior revision. Note that this
+ *  creates a new revision with a new revision ID.
  *
  *  @param object The @c GTLRApigeeRegistry_RollbackApiDeploymentRequest to
  *    include in the query.
@@ -1077,7 +1097,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  TagApiDeploymentRevision adds a tag to a specified revision of a deployment.
+ *  Adds a tag to a specified revision of a deployment.
  *
  *  Method: apigeeregistry.projects.locations.apis.deployments.tagRevision
  *
@@ -1095,7 +1115,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigeeRegistry_ApiDeployment.
  *
- *  TagApiDeploymentRevision adds a tag to a specified revision of a deployment.
+ *  Adds a tag to a specified revision of a deployment.
  *
  *  @param object The @c GTLRApigeeRegistry_TagApiDeploymentRevisionRequest to
  *    include in the query.
@@ -1154,7 +1174,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  GetApi returns a specified API.
+ *  Returns a specified API.
  *
  *  Method: apigeeregistry.projects.locations.apis.get
  *
@@ -1164,18 +1184,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisGet : GTLRApigeeRegistryQuery
 
 /**
- *  Required. The name of the API to retrieve. Format: projects/ * /locations/ *
- *  /apis/ *
+ *  Required. The name of the API to retrieve. Format: `projects/ * /locations/
+ *  * /apis/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_Api.
  *
- *  GetApi returns a specified API.
+ *  Returns a specified API.
  *
- *  @param name Required. The name of the API to retrieve. Format: projects/ *
- *    /locations/ * /apis/ *
+ *  @param name Required. The name of the API to retrieve. Format: `projects/ *
+ *    /locations/ * /apis/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisGet
  */
@@ -1233,7 +1253,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  ListApis returns matching APIs.
+ *  Returns matching APIs.
  *
  *  Method: apigeeregistry.projects.locations.apis.list
  *
@@ -1247,6 +1267,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Expression Language and can refer to all message fields.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  A comma-separated list of fields, e.g. "foo,bar" Fields can be sorted in
+ *  descending order using the "desc" identifier, e.g. "foo desc,bar"
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  The maximum number of APIs to return. The service may return fewer than this
@@ -1263,18 +1289,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent, which owns this collection of APIs. Format: projects/
- *  * /locations/ *
+ *  Required. The parent, which owns this collection of APIs. Format: `projects/
+ *  * /locations/ *`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_ListApisResponse.
  *
- *  ListApis returns matching APIs.
+ *  Returns matching APIs.
  *
  *  @param parent Required. The parent, which owns this collection of APIs.
- *    Format: projects/ * /locations/ *
+ *    Format: `projects/ * /locations/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisList
  *
@@ -1287,7 +1313,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  UpdateApi can be used to modify a specified API.
+ *  Used to modify a specified API.
  *
  *  Method: apigeeregistry.projects.locations.apis.patch
  *
@@ -1297,7 +1323,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisPatch : GTLRApigeeRegistryQuery
 
 /**
- *  If set to true, and the api is not found, a new api will be created. In this
+ *  If set to true, and the API is not found, a new API will be created. In this
  *  situation, `update_mask` is ignored.
  */
 @property(nonatomic, assign) BOOL allowMissing;
@@ -1308,8 +1334,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The list of fields to be updated. If omitted, all fields are updated that
  *  are set in the request message (fields set to default values are ignored).
- *  If a "*" is specified, all fields are updated, including fields that are
- *  unspecified/default in the request.
+ *  If an asterisk "*" is specified, all fields are updated, including fields
+ *  that are unspecified/default in the request.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1318,7 +1344,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigeeRegistry_Api.
  *
- *  UpdateApi can be used to modify a specified API.
+ *  Used to modify a specified API.
  *
  *  @param object The @c GTLRApigeeRegistry_Api to include in the query.
  *  @param name Resource name.
@@ -1415,7 +1441,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  CreateArtifact creates a specified artifact.
+ *  Creates a specified artifact.
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.artifacts.create
  *
@@ -1434,18 +1460,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent, which owns this collection of artifacts. Format:
- *  {parent}
+ *  `{parent}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_Artifact.
  *
- *  CreateArtifact creates a specified artifact.
+ *  Creates a specified artifact.
  *
  *  @param object The @c GTLRApigeeRegistry_Artifact to include in the query.
  *  @param parent Required. The parent, which owns this collection of artifacts.
- *    Format: {parent}
+ *    Format: `{parent}`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsArtifactsCreate
  */
@@ -1455,7 +1481,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  DeleteArtifact removes a specified artifact.
+ *  Removes a specified artifact.
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.artifacts.delete
  *
@@ -1465,17 +1491,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsArtifactsDelete : GTLRApigeeRegistryQuery
 
 /**
- *  Required. The name of the artifact to delete. Format: {parent}/artifacts/ *
+ *  Required. The name of the artifact to delete. Format: `{parent}/artifacts/
+ *  *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_Empty.
  *
- *  DeleteArtifact removes a specified artifact.
+ *  Removes a specified artifact.
  *
  *  @param name Required. The name of the artifact to delete. Format:
- *    {parent}/artifacts/ *
+ *    `{parent}/artifacts/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsArtifactsDelete
  */
@@ -1484,7 +1511,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  GetArtifact returns a specified artifact.
+ *  Returns a specified artifact.
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.artifacts.get
  *
@@ -1494,18 +1521,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsArtifactsGet : GTLRApigeeRegistryQuery
 
 /**
- *  Required. The name of the artifact to retrieve. Format: {parent}/artifacts/
- *  *
+ *  Required. The name of the artifact to retrieve. Format: `{parent}/artifacts/
+ *  *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_Artifact.
  *
- *  GetArtifact returns a specified artifact.
+ *  Returns a specified artifact.
  *
  *  @param name Required. The name of the artifact to retrieve. Format:
- *    {parent}/artifacts/ *
+ *    `{parent}/artifacts/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsArtifactsGet
  */
@@ -1514,10 +1541,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  GetArtifactContents returns the contents of a specified artifact. If
- *  artifacts are stored with GZip compression, the default behavior is to
- *  return the artifact uncompressed (the mime_type response field indicates the
- *  exact format returned).
+ *  Returns the contents of a specified artifact. If artifacts are stored with
+ *  GZip compression, the default behavior is to return the artifact
+ *  uncompressed (the mime_type response field indicates the exact format
+ *  returned).
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.artifacts.getContents
  *
@@ -1528,20 +1555,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the artifact whose contents should be retrieved.
- *  Format: {parent}/artifacts/ *
+ *  Format: `{parent}/artifacts/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_HttpBody.
  *
- *  GetArtifactContents returns the contents of a specified artifact. If
- *  artifacts are stored with GZip compression, the default behavior is to
- *  return the artifact uncompressed (the mime_type response field indicates the
- *  exact format returned).
+ *  Returns the contents of a specified artifact. If artifacts are stored with
+ *  GZip compression, the default behavior is to return the artifact
+ *  uncompressed (the mime_type response field indicates the exact format
+ *  returned).
  *
  *  @param name Required. The name of the artifact whose contents should be
- *    retrieved. Format: {parent}/artifacts/ *
+ *    retrieved. Format: `{parent}/artifacts/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsArtifactsGetContents
  */
@@ -1599,7 +1626,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  ListArtifacts returns matching artifacts.
+ *  Returns matching artifacts.
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.artifacts.list
  *
@@ -1613,6 +1640,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Expression Language and can refer to all message fields except contents.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  A comma-separated list of fields, e.g. "foo,bar" Fields can be sorted in
+ *  descending order using the "desc" identifier, e.g. "foo desc,bar"
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  The maximum number of artifacts to return. The service may return fewer than
@@ -1630,17 +1663,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent, which owns this collection of artifacts. Format:
- *  {parent}
+ *  `{parent}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_ListArtifactsResponse.
  *
- *  ListArtifacts returns matching artifacts.
+ *  Returns matching artifacts.
  *
  *  @param parent Required. The parent, which owns this collection of artifacts.
- *    Format: {parent}
+ *    Format: `{parent}`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsArtifactsList
  *
@@ -1653,7 +1686,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  ReplaceArtifact can be used to replace a specified artifact.
+ *  Used to replace a specified artifact.
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.artifacts.replaceArtifact
  *
@@ -1668,7 +1701,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigeeRegistry_Artifact.
  *
- *  ReplaceArtifact can be used to replace a specified artifact.
+ *  Used to replace a specified artifact.
  *
  *  @param object The @c GTLRApigeeRegistry_Artifact to include in the query.
  *  @param name Resource name.
@@ -1765,7 +1798,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  CreateApiVersion creates a specified version.
+ *  Creates a specified version.
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.create
  *
@@ -1784,18 +1817,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent, which owns this collection of versions. Format:
- *  projects/ * /locations/ * /apis/ *
+ *  `projects/ * /locations/ * /apis/ *`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_ApiVersion.
  *
- *  CreateApiVersion creates a specified version.
+ *  Creates a specified version.
  *
  *  @param object The @c GTLRApigeeRegistry_ApiVersion to include in the query.
  *  @param parent Required. The parent, which owns this collection of versions.
- *    Format: projects/ * /locations/ * /apis/ *
+ *    Format: `projects/ * /locations/ * /apis/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsCreate
  */
@@ -1805,8 +1838,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  DeleteApiVersion removes a specified version and all of the resources that
- *  it owns.
+ *  Removes a specified version and all of the resources that it owns.
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.delete
  *
@@ -1822,19 +1854,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL force;
 
 /**
- *  Required. The name of the version to delete. Format: projects/ * /locations/
- *  * /apis/ * /versions/ *
+ *  Required. The name of the version to delete. Format: `projects/ *
+ *  /locations/ * /apis/ * /versions/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_Empty.
  *
- *  DeleteApiVersion removes a specified version and all of the resources that
- *  it owns.
+ *  Removes a specified version and all of the resources that it owns.
  *
- *  @param name Required. The name of the version to delete. Format: projects/ *
- *    /locations/ * /apis/ * /versions/ *
+ *  @param name Required. The name of the version to delete. Format: `projects/
+ *    * /locations/ * /apis/ * /versions/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsDelete
  */
@@ -1843,7 +1874,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  GetApiVersion returns a specified version.
+ *  Returns a specified version.
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.get
  *
@@ -1853,18 +1884,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsGet : GTLRApigeeRegistryQuery
 
 /**
- *  Required. The name of the version to retrieve. Format: projects/ *
- *  /locations/ * /apis/ * /versions/ *
+ *  Required. The name of the version to retrieve. Format: `projects/ *
+ *  /locations/ * /apis/ * /versions/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_ApiVersion.
  *
- *  GetApiVersion returns a specified version.
+ *  Returns a specified version.
  *
- *  @param name Required. The name of the version to retrieve. Format: projects/
- *    * /locations/ * /apis/ * /versions/ *
+ *  @param name Required. The name of the version to retrieve. Format:
+ *    `projects/ * /locations/ * /apis/ * /versions/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsGet
  */
@@ -1922,7 +1953,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  ListApiVersions returns matching versions.
+ *  Returns matching versions.
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.list
  *
@@ -1936,6 +1967,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Expression Language and can refer to all message fields.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  A comma-separated list of fields, e.g. "foo,bar" Fields can be sorted in
+ *  descending order using the "desc" identifier, e.g. "foo desc,bar"
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  The maximum number of versions to return. The service may return fewer than
@@ -1954,17 +1991,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent, which owns this collection of versions. Format:
- *  projects/ * /locations/ * /apis/ *
+ *  `projects/ * /locations/ * /apis/ *`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_ListApiVersionsResponse.
  *
- *  ListApiVersions returns matching versions.
+ *  Returns matching versions.
  *
  *  @param parent Required. The parent, which owns this collection of versions.
- *    Format: projects/ * /locations/ * /apis/ *
+ *    Format: `projects/ * /locations/ * /apis/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsList
  *
@@ -1977,7 +2014,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  UpdateApiVersion can be used to modify a specified version.
+ *  Used to modify a specified version.
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.patch
  *
@@ -1998,8 +2035,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The list of fields to be updated. If omitted, all fields are updated that
  *  are set in the request message (fields set to default values are ignored).
- *  If a "*" is specified, all fields are updated, including fields that are
- *  unspecified/default in the request.
+ *  If an asterisk "*" is specified, all fields are updated, including fields
+ *  that are unspecified/default in the request.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2008,7 +2045,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigeeRegistry_ApiVersion.
  *
- *  UpdateApiVersion can be used to modify a specified version.
+ *  Used to modify a specified version.
  *
  *  @param object The @c GTLRApigeeRegistry_ApiVersion to include in the query.
  *  @param name Resource name.
@@ -2061,7 +2098,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  CreateArtifact creates a specified artifact.
+ *  Creates a specified artifact.
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.specs.artifacts.create
  *
@@ -2080,18 +2117,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent, which owns this collection of artifacts. Format:
- *  {parent}
+ *  `{parent}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_Artifact.
  *
- *  CreateArtifact creates a specified artifact.
+ *  Creates a specified artifact.
  *
  *  @param object The @c GTLRApigeeRegistry_Artifact to include in the query.
  *  @param parent Required. The parent, which owns this collection of artifacts.
- *    Format: {parent}
+ *    Format: `{parent}`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsArtifactsCreate
  */
@@ -2101,7 +2138,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  DeleteArtifact removes a specified artifact.
+ *  Removes a specified artifact.
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.specs.artifacts.delete
  *
@@ -2111,17 +2148,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsArtifactsDelete : GTLRApigeeRegistryQuery
 
 /**
- *  Required. The name of the artifact to delete. Format: {parent}/artifacts/ *
+ *  Required. The name of the artifact to delete. Format: `{parent}/artifacts/
+ *  *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_Empty.
  *
- *  DeleteArtifact removes a specified artifact.
+ *  Removes a specified artifact.
  *
  *  @param name Required. The name of the artifact to delete. Format:
- *    {parent}/artifacts/ *
+ *    `{parent}/artifacts/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsArtifactsDelete
  */
@@ -2130,7 +2168,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  GetArtifact returns a specified artifact.
+ *  Returns a specified artifact.
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.specs.artifacts.get
  *
@@ -2140,18 +2178,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsArtifactsGet : GTLRApigeeRegistryQuery
 
 /**
- *  Required. The name of the artifact to retrieve. Format: {parent}/artifacts/
- *  *
+ *  Required. The name of the artifact to retrieve. Format: `{parent}/artifacts/
+ *  *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_Artifact.
  *
- *  GetArtifact returns a specified artifact.
+ *  Returns a specified artifact.
  *
  *  @param name Required. The name of the artifact to retrieve. Format:
- *    {parent}/artifacts/ *
+ *    `{parent}/artifacts/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsArtifactsGet
  */
@@ -2160,10 +2198,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  GetArtifactContents returns the contents of a specified artifact. If
- *  artifacts are stored with GZip compression, the default behavior is to
- *  return the artifact uncompressed (the mime_type response field indicates the
- *  exact format returned).
+ *  Returns the contents of a specified artifact. If artifacts are stored with
+ *  GZip compression, the default behavior is to return the artifact
+ *  uncompressed (the mime_type response field indicates the exact format
+ *  returned).
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.specs.artifacts.getContents
  *
@@ -2174,20 +2212,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the artifact whose contents should be retrieved.
- *  Format: {parent}/artifacts/ *
+ *  Format: `{parent}/artifacts/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_HttpBody.
  *
- *  GetArtifactContents returns the contents of a specified artifact. If
- *  artifacts are stored with GZip compression, the default behavior is to
- *  return the artifact uncompressed (the mime_type response field indicates the
- *  exact format returned).
+ *  Returns the contents of a specified artifact. If artifacts are stored with
+ *  GZip compression, the default behavior is to return the artifact
+ *  uncompressed (the mime_type response field indicates the exact format
+ *  returned).
  *
  *  @param name Required. The name of the artifact whose contents should be
- *    retrieved. Format: {parent}/artifacts/ *
+ *    retrieved. Format: `{parent}/artifacts/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsArtifactsGetContents
  */
@@ -2245,7 +2283,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  ListArtifacts returns matching artifacts.
+ *  Returns matching artifacts.
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.specs.artifacts.list
  *
@@ -2259,6 +2297,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Expression Language and can refer to all message fields except contents.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  A comma-separated list of fields, e.g. "foo,bar" Fields can be sorted in
+ *  descending order using the "desc" identifier, e.g. "foo desc,bar"
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  The maximum number of artifacts to return. The service may return fewer than
@@ -2276,17 +2320,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent, which owns this collection of artifacts. Format:
- *  {parent}
+ *  `{parent}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_ListArtifactsResponse.
  *
- *  ListArtifacts returns matching artifacts.
+ *  Returns matching artifacts.
  *
  *  @param parent Required. The parent, which owns this collection of artifacts.
- *    Format: {parent}
+ *    Format: `{parent}`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsArtifactsList
  *
@@ -2299,7 +2343,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  ReplaceArtifact can be used to replace a specified artifact.
+ *  Used to replace a specified artifact.
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.specs.artifacts.replaceArtifact
  *
@@ -2314,7 +2358,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigeeRegistry_Artifact.
  *
- *  ReplaceArtifact can be used to replace a specified artifact.
+ *  Used to replace a specified artifact.
  *
  *  @param object The @c GTLRApigeeRegistry_Artifact to include in the query.
  *  @param name Resource name.
@@ -2411,7 +2455,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  CreateApiSpec creates a specified spec.
+ *  Creates a specified spec.
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.specs.create
  *
@@ -2429,19 +2473,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *apiSpecId;
 
 /**
- *  Required. The parent, which owns this collection of specs. Format: projects/
- *  * /locations/ * /apis/ * /versions/ *
+ *  Required. The parent, which owns this collection of specs. Format:
+ *  `projects/ * /locations/ * /apis/ * /versions/ *`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_ApiSpec.
  *
- *  CreateApiSpec creates a specified spec.
+ *  Creates a specified spec.
  *
  *  @param object The @c GTLRApigeeRegistry_ApiSpec to include in the query.
  *  @param parent Required. The parent, which owns this collection of specs.
- *    Format: projects/ * /locations/ * /apis/ * /versions/ *
+ *    Format: `projects/ * /locations/ * /apis/ * /versions/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsCreate
  */
@@ -2451,8 +2495,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  DeleteApiSpec removes a specified spec, all revisions, and all child
- *  resources (e.g. artifacts).
+ *  Removes a specified spec, all revisions, and all child resources (e.g.,
+ *  artifacts).
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.specs.delete
  *
@@ -2468,19 +2512,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL force;
 
 /**
- *  Required. The name of the spec to delete. Format: projects/ * /locations/ *
- *  /apis/ * /versions/ * /specs/ *
+ *  Required. The name of the spec to delete. Format: `projects/ * /locations/ *
+ *  /apis/ * /versions/ * /specs/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_Empty.
  *
- *  DeleteApiSpec removes a specified spec, all revisions, and all child
- *  resources (e.g. artifacts).
+ *  Removes a specified spec, all revisions, and all child resources (e.g.,
+ *  artifacts).
  *
- *  @param name Required. The name of the spec to delete. Format: projects/ *
- *    /locations/ * /apis/ * /versions/ * /specs/ *
+ *  @param name Required. The name of the spec to delete. Format: `projects/ *
+ *    /locations/ * /apis/ * /versions/ * /specs/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsDelete
  */
@@ -2489,7 +2533,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  DeleteApiSpecRevision deletes a revision of a spec.
+ *  Deletes a revision of a spec.
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.specs.deleteRevision
  *
@@ -2501,18 +2545,18 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The name of the spec revision to be deleted, with a revision ID
  *  explicitly included. Example:
- *  projects/sample/locations/global/apis/petstore/versions/1.0.0/specs/openapi.yaml\@c7cfa2a8
+ *  `projects/sample/locations/global/apis/petstore/versions/1.0.0/specs/openapi.yaml\@c7cfa2a8`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_ApiSpec.
  *
- *  DeleteApiSpecRevision deletes a revision of a spec.
+ *  Deletes a revision of a spec.
  *
  *  @param name Required. The name of the spec revision to be deleted, with a
  *    revision ID explicitly included. Example:
- *    projects/sample/locations/global/apis/petstore/versions/1.0.0/specs/openapi.yaml\@c7cfa2a8
+ *    `projects/sample/locations/global/apis/petstore/versions/1.0.0/specs/openapi.yaml\@c7cfa2a8`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsDeleteRevision
  */
@@ -2521,7 +2565,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  GetApiSpec returns a specified spec.
+ *  Returns a specified spec.
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.specs.get
  *
@@ -2531,18 +2575,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsGet : GTLRApigeeRegistryQuery
 
 /**
- *  Required. The name of the spec to retrieve. Format: projects/ * /locations/
- *  * /apis/ * /versions/ * /specs/ *
+ *  Required. The name of the spec to retrieve. Format: `projects/ * /locations/
+ *  * /apis/ * /versions/ * /specs/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_ApiSpec.
  *
- *  GetApiSpec returns a specified spec.
+ *  Returns a specified spec.
  *
- *  @param name Required. The name of the spec to retrieve. Format: projects/ *
- *    /locations/ * /apis/ * /versions/ * /specs/ *
+ *  @param name Required. The name of the spec to retrieve. Format: `projects/ *
+ *    /locations/ * /apis/ * /versions/ * /specs/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsGet
  */
@@ -2551,10 +2595,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  GetApiSpecContents returns the contents of a specified spec. If specs are
- *  stored with GZip compression, the default behavior is to return the spec
- *  uncompressed (the mime_type response field indicates the exact format
- *  returned).
+ *  Returns the contents of a specified spec. If specs are stored with GZip
+ *  compression, the default behavior is to return the spec uncompressed (the
+ *  mime_type response field indicates the exact format returned).
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.specs.getContents
  *
@@ -2565,21 +2608,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the spec whose contents should be retrieved. Format:
- *  projects/ * /locations/ * /apis/ * /versions/ * /specs/ *
+ *  `projects/ * /locations/ * /apis/ * /versions/ * /specs/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_HttpBody.
  *
- *  GetApiSpecContents returns the contents of a specified spec. If specs are
- *  stored with GZip compression, the default behavior is to return the spec
- *  uncompressed (the mime_type response field indicates the exact format
- *  returned).
+ *  Returns the contents of a specified spec. If specs are stored with GZip
+ *  compression, the default behavior is to return the spec uncompressed (the
+ *  mime_type response field indicates the exact format returned).
  *
  *  @param name Required. The name of the spec whose contents should be
- *    retrieved. Format: projects/ * /locations/ * /apis/ * /versions/ * /specs/
- *    *
+ *    retrieved. Format: `projects/ * /locations/ * /apis/ * /versions/ *
+ *    /specs/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsGetContents
  */
@@ -2637,7 +2679,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  ListApiSpecs returns matching specs.
+ *  Returns matching specs.
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.specs.list
  *
@@ -2651,6 +2693,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Expression Language and can refer to all message fields except contents.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  A comma-separated list of fields, e.g. "foo,bar" Fields can be sorted in
+ *  descending order using the "desc" identifier, e.g. "foo desc,bar"
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  The maximum number of specs to return. The service may return fewer than
@@ -2667,18 +2715,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent, which owns this collection of specs. Format: projects/
- *  * /locations/ * /apis/ * /versions/ *
+ *  Required. The parent, which owns this collection of specs. Format:
+ *  `projects/ * /locations/ * /apis/ * /versions/ *`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_ListApiSpecsResponse.
  *
- *  ListApiSpecs returns matching specs.
+ *  Returns matching specs.
  *
  *  @param parent Required. The parent, which owns this collection of specs.
- *    Format: projects/ * /locations/ * /apis/ * /versions/ *
+ *    Format: `projects/ * /locations/ * /apis/ * /versions/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsApisVersionsSpecsList
  *
@@ -2691,8 +2739,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  ListApiSpecRevisions lists all revisions of a spec. Revisions are returned
- *  in descending order of revision creation time.
+ *  Lists all revisions of a spec. Revisions are returned in descending order of
+ *  revision creation time.
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.specs.listRevisions
  *
@@ -2716,8 +2764,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigeeRegistry_ListApiSpecRevisionsResponse.
  *
- *  ListApiSpecRevisions lists all revisions of a spec. Revisions are returned
- *  in descending order of revision creation time.
+ *  Lists all revisions of a spec. Revisions are returned in descending order of
+ *  revision creation time.
  *
  *  @param name Required. The name of the spec to list revisions for.
  *
@@ -2732,7 +2780,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  UpdateApiSpec can be used to modify a specified spec.
+ *  Used to modify a specified spec.
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.specs.patch
  *
@@ -2753,8 +2801,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The list of fields to be updated. If omitted, all fields are updated that
  *  are set in the request message (fields set to default values are ignored).
- *  If a "*" is specified, all fields are updated, including fields that are
- *  unspecified/default in the request.
+ *  If an asterisk "*" is specified, all fields are updated, including fields
+ *  that are unspecified/default in the request.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2763,7 +2811,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigeeRegistry_ApiSpec.
  *
- *  UpdateApiSpec can be used to modify a specified spec.
+ *  Used to modify a specified spec.
  *
  *  @param object The @c GTLRApigeeRegistry_ApiSpec to include in the query.
  *  @param name Resource name.
@@ -2776,8 +2824,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  RollbackApiSpec sets the current revision to a specified prior revision.
- *  Note that this creates a new revision with a new revision ID.
+ *  Sets the current revision to a specified prior revision. Note that this
+ *  creates a new revision with a new revision ID.
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.specs.rollback
  *
@@ -2792,8 +2840,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigeeRegistry_ApiSpec.
  *
- *  RollbackApiSpec sets the current revision to a specified prior revision.
- *  Note that this creates a new revision with a new revision ID.
+ *  Sets the current revision to a specified prior revision. Note that this
+ *  creates a new revision with a new revision ID.
  *
  *  @param object The @c GTLRApigeeRegistry_RollbackApiSpecRequest to include in
  *    the query.
@@ -2847,7 +2895,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  TagApiSpecRevision adds a tag to a specified revision of a spec.
+ *  Adds a tag to a specified revision of a spec.
  *
  *  Method: apigeeregistry.projects.locations.apis.versions.specs.tagRevision
  *
@@ -2862,7 +2910,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigeeRegistry_ApiSpec.
  *
- *  TagApiSpecRevision adds a tag to a specified revision of a spec.
+ *  Adds a tag to a specified revision of a spec.
  *
  *  @param object The @c GTLRApigeeRegistry_TagApiSpecRevisionRequest to include
  *    in the query.
@@ -2965,7 +3013,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  CreateArtifact creates a specified artifact.
+ *  Creates a specified artifact.
  *
  *  Method: apigeeregistry.projects.locations.artifacts.create
  *
@@ -2984,18 +3032,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent, which owns this collection of artifacts. Format:
- *  {parent}
+ *  `{parent}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_Artifact.
  *
- *  CreateArtifact creates a specified artifact.
+ *  Creates a specified artifact.
  *
  *  @param object The @c GTLRApigeeRegistry_Artifact to include in the query.
  *  @param parent Required. The parent, which owns this collection of artifacts.
- *    Format: {parent}
+ *    Format: `{parent}`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsArtifactsCreate
  */
@@ -3005,7 +3053,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  DeleteArtifact removes a specified artifact.
+ *  Removes a specified artifact.
  *
  *  Method: apigeeregistry.projects.locations.artifacts.delete
  *
@@ -3015,17 +3063,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsArtifactsDelete : GTLRApigeeRegistryQuery
 
 /**
- *  Required. The name of the artifact to delete. Format: {parent}/artifacts/ *
+ *  Required. The name of the artifact to delete. Format: `{parent}/artifacts/
+ *  *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_Empty.
  *
- *  DeleteArtifact removes a specified artifact.
+ *  Removes a specified artifact.
  *
  *  @param name Required. The name of the artifact to delete. Format:
- *    {parent}/artifacts/ *
+ *    `{parent}/artifacts/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsArtifactsDelete
  */
@@ -3034,7 +3083,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  GetArtifact returns a specified artifact.
+ *  Returns a specified artifact.
  *
  *  Method: apigeeregistry.projects.locations.artifacts.get
  *
@@ -3044,18 +3093,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeRegistryQuery_ProjectsLocationsArtifactsGet : GTLRApigeeRegistryQuery
 
 /**
- *  Required. The name of the artifact to retrieve. Format: {parent}/artifacts/
- *  *
+ *  Required. The name of the artifact to retrieve. Format: `{parent}/artifacts/
+ *  *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_Artifact.
  *
- *  GetArtifact returns a specified artifact.
+ *  Returns a specified artifact.
  *
  *  @param name Required. The name of the artifact to retrieve. Format:
- *    {parent}/artifacts/ *
+ *    `{parent}/artifacts/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsArtifactsGet
  */
@@ -3064,10 +3113,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  GetArtifactContents returns the contents of a specified artifact. If
- *  artifacts are stored with GZip compression, the default behavior is to
- *  return the artifact uncompressed (the mime_type response field indicates the
- *  exact format returned).
+ *  Returns the contents of a specified artifact. If artifacts are stored with
+ *  GZip compression, the default behavior is to return the artifact
+ *  uncompressed (the mime_type response field indicates the exact format
+ *  returned).
  *
  *  Method: apigeeregistry.projects.locations.artifacts.getContents
  *
@@ -3078,20 +3127,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the artifact whose contents should be retrieved.
- *  Format: {parent}/artifacts/ *
+ *  Format: `{parent}/artifacts/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_HttpBody.
  *
- *  GetArtifactContents returns the contents of a specified artifact. If
- *  artifacts are stored with GZip compression, the default behavior is to
- *  return the artifact uncompressed (the mime_type response field indicates the
- *  exact format returned).
+ *  Returns the contents of a specified artifact. If artifacts are stored with
+ *  GZip compression, the default behavior is to return the artifact
+ *  uncompressed (the mime_type response field indicates the exact format
+ *  returned).
  *
  *  @param name Required. The name of the artifact whose contents should be
- *    retrieved. Format: {parent}/artifacts/ *
+ *    retrieved. Format: `{parent}/artifacts/ *`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsArtifactsGetContents
  */
@@ -3149,7 +3198,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  ListArtifacts returns matching artifacts.
+ *  Returns matching artifacts.
  *
  *  Method: apigeeregistry.projects.locations.artifacts.list
  *
@@ -3163,6 +3212,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Expression Language and can refer to all message fields except contents.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  A comma-separated list of fields, e.g. "foo,bar" Fields can be sorted in
+ *  descending order using the "desc" identifier, e.g. "foo desc,bar"
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  The maximum number of artifacts to return. The service may return fewer than
@@ -3180,17 +3235,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent, which owns this collection of artifacts. Format:
- *  {parent}
+ *  `{parent}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigeeRegistry_ListArtifactsResponse.
  *
- *  ListArtifacts returns matching artifacts.
+ *  Returns matching artifacts.
  *
  *  @param parent Required. The parent, which owns this collection of artifacts.
- *    Format: {parent}
+ *    Format: `{parent}`
  *
  *  @return GTLRApigeeRegistryQuery_ProjectsLocationsArtifactsList
  *
@@ -3203,7 +3258,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  ReplaceArtifact can be used to replace a specified artifact.
+ *  Used to replace a specified artifact.
  *
  *  Method: apigeeregistry.projects.locations.artifacts.replaceArtifact
  *
@@ -3218,7 +3273,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigeeRegistry_Artifact.
  *
- *  ReplaceArtifact can be used to replace a specified artifact.
+ *  Used to replace a specified artifact.
  *
  *  @param object The @c GTLRApigeeRegistry_Artifact to include in the query.
  *  @param name Resource name.

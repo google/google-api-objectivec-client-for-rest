@@ -189,6 +189,7 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#sslCertificate" : [GTLRCompute_SslCertificate class],
     @"compute#sslCertificateAggregatedList" : [GTLRCompute_SslCertificateAggregatedList class],
     @"compute#sslCertificateList" : [GTLRCompute_SslCertificateList class],
+    @"compute#sslPoliciesAggregatedList" : [GTLRCompute_SslPoliciesAggregatedList class],
     @"compute#sslPoliciesList" : [GTLRCompute_SslPoliciesList class],
     @"compute#sslPolicy" : [GTLRCompute_SslPolicy class],
     @"compute#subnetwork" : [GTLRCompute_Subnetwork class],

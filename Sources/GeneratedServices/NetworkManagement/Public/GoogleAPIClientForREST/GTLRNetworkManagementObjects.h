@@ -240,6 +240,27 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Ins
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Internet;
 /**
+ *  Target is all Google APIs using [Private Service
+ *  Connect](https://cloud.google.com/vpc/docs/configure-private-service-connect-apis).
+ *
+ *  Value: "PSC_GOOGLE_API"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PscGoogleApi;
+/**
+ *  Target is a published service using [Private Service
+ *  Connect](https://cloud.google.com/vpc/docs/configure-private-service-connect-services).
+ *
+ *  Value: "PSC_PUBLISHED_SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PscPublishedService;
+/**
+ *  Target is VPC-SC using [Private Service
+ *  Connect](https://cloud.google.com/vpc/docs/configure-private-service-connect-apis).
+ *
+ *  Value: "PSC_VPC_SC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PscVpcSc;
+/**
  *  Target not specified.
  *
  *  Value: "TARGET_UNSPECIFIED"
@@ -256,7 +277,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Tar
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CauseUnspecified;
 /**
- *  Packet could be dropped because the Cloud function is not in an active
+ *  Packet could be dropped because the Cloud Function is not in an active
  *  status.
  *
  *  Value: "CLOUD_FUNCTION_NOT_ACTIVE"
@@ -375,6 +396,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_Private
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateTrafficToInternet;
 /**
+ *  Privte Service Connect (PSC) connection is not in accepted state.
+ *
+ *  Value: "PSC_CONNECTION_NOT_ACCEPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscConnectionNotAccepted;
+/**
  *  Dropped due to invalid route. Route's next hop is a blackhole.
  *
  *  Value: "ROUTE_BLACKHOLE"
@@ -474,6 +501,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallR
  *  Value: "IMPLIED_VPC_FIREWALL_RULE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_ImpliedVpcFirewallRule;
+/**
+ *  Global network firewall policy rule. For details, see [Network firewall
+ *  policies](https://cloud.google.com/vpc/docs/network-firewall-policies).
+ *
+ *  Value: "NETWORK_FIREWALL_POLICY_RULE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_NetworkFirewallPolicyRule;
 /**
  *  Implicit firewall rules that are managed by serverless VPC access to allow
  *  ingress access. They are not visible in the Google Cloud console. For
@@ -578,6 +612,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_Backe
  *  Value: "BACKEND_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_BackendType_BackendTypeUnspecified;
+/**
+ *  Target Instance as the load balancer's backend.
+ *
+ *  Value: "TARGET_INSTANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_BackendType_TargetInstance;
 /**
  *  Target Pool as the load balancer's backend.
  *
@@ -780,6 +820,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_Pe
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_PeeringSubnet;
 /**
+ *  Policy based route.
+ *
+ *  Value: "POLICY_BASED_ROUTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_PolicyBasedRoute;
+/**
  *  Unspecified type. Default value.
  *
  *  Value: "ROUTE_TYPE_UNSPECIFIED"
@@ -908,7 +954,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ProxyConnec
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_SpoofingApproved;
 /**
- *  Initial state: packet originating from a Cloud function. A CloudFunctionInfo
+ *  Initial state: packet originating from a Cloud Function. A CloudFunctionInfo
  *  is populated with starting function information.
  *
  *  Value: "START_FROM_CLOUD_FUNCTION"
@@ -1156,11 +1202,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
- *  anyone who is authenticated with a Google account or a service account. *
- *  `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a Google service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  anyone who is authenticated with a Google account or a service account. Does
+ *  not include identities that come from external identity providers (IdPs)
+ *  through identity federation. * `user:{emailid}`: An email address that
+ *  represents a specific Google account. For example, `alice\@example.com` . *
+ *  `serviceAccount:{emailid}`: An email address that represents a Google
+ *  service account. For example, `my-other-app\@appspot.gserviceaccount.com`. *
  *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
  *  identifier for a [Kubernetes service
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
@@ -1205,32 +1252,32 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
- *  Wrapper for cloud function attributes.
+ *  Wrapper for Cloud Function attributes.
  */
 @interface GTLRNetworkManagement_CloudFunctionEndpoint : GTLRObject
 
-/** A [Cloud function](https://cloud.google.com/functions) name. */
+/** A [Cloud Function](https://cloud.google.com/functions) name. */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
 
 /**
- *  For display only. Metadata associated with a Cloud function.
+ *  For display only. Metadata associated with a Cloud Function.
  */
 @interface GTLRNetworkManagement_CloudFunctionInfo : GTLRObject
 
-/** Name of a Cloud function. */
+/** Name of a Cloud Function. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** Location in which the Cloud function is deployed. */
+/** Location in which the Cloud Function is deployed. */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** URI of a Cloud function. */
+/** URI of a Cloud Function. */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 /**
- *  Latest successfully deployed version id of the Cloud function.
+ *  Latest successfully deployed version id of the Cloud Function.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1385,6 +1432,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Compute Engine instance. (Value: "INSTANCE")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_Internet Target is the
  *        internet. (Value: "INTERNET")
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_PscGoogleApi Target is
+ *        all Google APIs using [Private Service
+ *        Connect](https://cloud.google.com/vpc/docs/configure-private-service-connect-apis).
+ *        (Value: "PSC_GOOGLE_API")
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_PscPublishedService
+ *        Target is a published service using [Private Service
+ *        Connect](https://cloud.google.com/vpc/docs/configure-private-service-connect-services).
+ *        (Value: "PSC_PUBLISHED_SERVICE")
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_PscVpcSc Target is
+ *        VPC-SC using [Private Service
+ *        Connect](https://cloud.google.com/vpc/docs/configure-private-service-connect-apis).
+ *        (Value: "PSC_VPC_SC")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_TargetUnspecified Target
  *        not specified. (Value: "TARGET_UNSPECIFIED")
  */
@@ -1405,7 +1464,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CauseUnspecified Cause is
  *        unspecified. (Value: "CAUSE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CloudFunctionNotActive
- *        Packet could be dropped because the Cloud function is not in an active
+ *        Packet could be dropped because the Cloud Function is not in an active
  *        status. (Value: "CLOUD_FUNCTION_NOT_ACTIVE")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNoIpAddress
  *        Packet was dropped because the Cloud SQL instance has neither a
@@ -1466,6 +1525,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PrivateTrafficToInternet
  *        Packet with internal destination address sent to the internet gateway.
  *        (Value: "PRIVATE_TRAFFIC_TO_INTERNET")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PscConnectionNotAccepted
+ *        Privte Service Connect (PSC) connection is not in accepted state.
+ *        (Value: "PSC_CONNECTION_NOT_ACCEPTED")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RouteBlackhole Dropped due
  *        to invalid route. Route's next hop is a blackhole. (Value:
  *        "ROUTE_BLACKHOLE")
@@ -1518,7 +1580,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  */
 @interface GTLRNetworkManagement_Endpoint : GTLRObject
 
-/** A [Cloud function](https://cloud.google.com/functions). */
+/** A [Cloud Function](https://cloud.google.com/functions). */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_CloudFunctionEndpoint *cloudFunction;
 
 /** A [Cloud SQL](https://cloud.google.com/sql) instance URI. */
@@ -1704,6 +1766,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Implied VPC firewall rule. For details, see [Implied
  *        rules](https://cloud.google.com/vpc/docs/firewalls#default_firewall_rules).
  *        (Value: "IMPLIED_VPC_FIREWALL_RULE")
+ *    @arg @c kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_NetworkFirewallPolicyRule
+ *        Global network firewall policy rule. For details, see [Network
+ *        firewall
+ *        policies](https://cloud.google.com/vpc/docs/network-firewall-policies).
+ *        (Value: "NETWORK_FIREWALL_POLICY_RULE")
  *    @arg @c kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_ServerlessVpcAccessManagedFirewallRule
  *        Implicit firewall rules that are managed by serverless VPC access to
  *        allow ingress access. They are not visible in the Google Cloud
@@ -2007,6 +2074,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        "BACKEND_SERVICE")
  *    @arg @c kGTLRNetworkManagement_LoadBalancerInfo_BackendType_BackendTypeUnspecified
  *        Type is unspecified. (Value: "BACKEND_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagement_LoadBalancerInfo_BackendType_TargetInstance
+ *        Target Instance as the load balancer's backend. (Value:
+ *        "TARGET_INSTANCE")
  *    @arg @c kGTLRNetworkManagement_LoadBalancerInfo_BackendType_TargetPool
  *        Target Pool as the load balancer's backend. (Value: "TARGET_POOL")
  */
@@ -2391,6 +2461,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /** Destination IP range of the route. */
 @property(nonatomic, copy, nullable) NSString *destIpRange;
 
+/** Destination port ranges of the route. Policy based routes only. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *destPortRanges;
+
 /** Name of a Compute Engine route. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -2449,6 +2522,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  */
 @property(nonatomic, strong, nullable) NSNumber *priority;
 
+/** Protocols of the route. Policy based routes only. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *protocols;
+
 /**
  *  Type of route.
  *
@@ -2462,6 +2538,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        route received from peering network. (Value: "PEERING_STATIC")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteType_PeeringSubnet A subnet
  *        route received from peering network. (Value: "PEERING_SUBNET")
+ *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteType_PolicyBasedRoute Policy
+ *        based route. (Value: "POLICY_BASED_ROUTE")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteType_RouteTypeUnspecified
  *        Unspecified type. Default value. (Value: "ROUTE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteType_Static Static route
@@ -2471,6 +2549,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        subnet route automatically created by the system. (Value: "SUBNET")
  */
 @property(nonatomic, copy, nullable) NSString *routeType;
+
+/** Source IP address range of the route. Policy based routes only. */
+@property(nonatomic, copy, nullable) NSString *srcIpRange;
+
+/** Source port ranges of the route. Policy based routes only. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *srcPortRanges;
 
 /**
  *  URI of a Compute Engine route. Dynamic route from cloud router does not have
@@ -2567,7 +2651,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  */
 @property(nonatomic, strong, nullable) NSNumber *causesDrop;
 
-/** Display information of a Cloud function. */
+/** Display information of a Cloud Function. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_CloudFunctionInfo *cloudFunction;
 
 /** Display information of a Cloud SQL instance. */
@@ -2669,7 +2753,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        state: packet sent or received under foreign IP address and allowed.
  *        (Value: "SPOOFING_APPROVED")
  *    @arg @c kGTLRNetworkManagement_Step_State_StartFromCloudFunction Initial
- *        state: packet originating from a Cloud function. A CloudFunctionInfo
+ *        state: packet originating from a Cloud Function. A CloudFunctionInfo
  *        is populated with starting function information. (Value:
  *        "START_FROM_CLOUD_FUNCTION")
  *    @arg @c kGTLRNetworkManagement_Step_State_StartFromCloudSqlInstance

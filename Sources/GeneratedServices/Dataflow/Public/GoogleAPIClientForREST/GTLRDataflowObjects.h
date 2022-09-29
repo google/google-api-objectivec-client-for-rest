@@ -5029,6 +5029,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_TransformSummary *> *originalPipelineTransform;
 
+/**
+ *  A hash value of the submitted pipeline portable graph step names if exists.
+ */
+@property(nonatomic, copy, nullable) NSString *stepNamesHash;
+
 @end
 
 

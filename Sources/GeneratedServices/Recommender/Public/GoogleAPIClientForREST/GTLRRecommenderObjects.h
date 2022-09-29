@@ -39,8 +39,11 @@
 @class GTLRRecommender_GoogleCloudRecommenderV1RecommenderConfig_Annotations;
 @class GTLRRecommender_GoogleCloudRecommenderV1RecommenderGenerationConfig;
 @class GTLRRecommender_GoogleCloudRecommenderV1RecommenderGenerationConfig_Params;
+@class GTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection;
+@class GTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection_Details;
 @class GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection;
 @class GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection_Details;
+@class GTLRRecommender_GoogleCloudRecommenderV1SustainabilityProjection;
 @class GTLRRecommender_GoogleCloudRecommenderV1ValueMatcher;
 @class GTLRRecommender_GoogleTypeMoney;
 
@@ -82,11 +85,23 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Impa
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Impact_Category_Performance;
 /**
+ *  Indicates a potential increase or decrease in reliability.
+ *
+ *  Value: "RELIABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Impact_Category_Reliability;
+/**
  *  Indicates a potential increase or decrease in security.
  *
  *  Value: "SECURITY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Impact_Category_Security;
+/**
+ *  Indicates a potential increase or decrease in sustainability.
+ *
+ *  Value: "SUSTAINABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Impact_Category_Sustainability;
 
 // ----------------------------------------------------------------------------
 // GTLRRecommender_GoogleCloudRecommenderV1Insight.category
@@ -116,11 +131,23 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insi
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Performance;
 /**
+ *  This insight is related to reliability.
+ *
+ *  Value: "RELIABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Reliability;
+/**
  *  The insight is related to security.
  *
  *  Value: "SECURITY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Security;
+/**
+ *  The insight is related to sustainability.
+ *
+ *  Value: "SUSTAINABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Sustainability;
 
 // ----------------------------------------------------------------------------
 // GTLRRecommender_GoogleCloudRecommenderV1Insight.severity
@@ -273,6 +300,35 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo_State_Succeeded;
 
+// ----------------------------------------------------------------------------
+// GTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection.risks
+
+/**
+ *  Potential access denial. The service is still up but some or all clients
+ *  can't access it.
+ *
+ *  Value: "ACCESS_DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection_Risks_AccessDeny;
+/**
+ *  Potential data loss.
+ *
+ *  Value: "DATA_LOSS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection_Risks_DataLoss;
+/**
+ *  Default unspecified risk. Don't use directly.
+ *
+ *  Value: "RISK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection_Risks_RiskTypeUnspecified;
+/**
+ *  Potential service downtime.
+ *
+ *  Value: "SERVICE_DISRUPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection_Risks_ServiceDisruption;
+
 /**
  *  Contains metadata about how much money a recommendation can save or incur.
  */
@@ -313,24 +369,36 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
  *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Impact_Category_Performance
  *        Indicates a potential increase or decrease in performance. (Value:
  *        "PERFORMANCE")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Impact_Category_Reliability
+ *        Indicates a potential increase or decrease in reliability. (Value:
+ *        "RELIABILITY")
  *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Impact_Category_Security
  *        Indicates a potential increase or decrease in security. (Value:
  *        "SECURITY")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Impact_Category_Sustainability
+ *        Indicates a potential increase or decrease in sustainability. (Value:
+ *        "SUSTAINABILITY")
  */
 @property(nonatomic, copy, nullable) NSString *category;
 
 /** Use with CategoryType.COST */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1CostProjection *costProjection;
 
+/** Use with CategoryType.RELAIBILITY */
+@property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection *reliabilityProjection;
+
 /** Use with CategoryType.SECURITY */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection *securityProjection;
+
+/** Use with CategoryType.SUSTAINABILITY */
+@property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1SustainabilityProjection *sustainabilityProjection;
 
 @end
 
 
 /**
  *  An insight along with the information used to derive the insight. The
- *  insight may have associated recomendations as well.
+ *  insight may have associated recommendations as well.
  */
 @interface GTLRRecommender_GoogleCloudRecommenderV1Insight : GTLRObject
 
@@ -349,8 +417,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
  *        This insight is related to manageability. (Value: "MANAGEABILITY")
  *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Performance
  *        The insight is related to performance. (Value: "PERFORMANCE")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Reliability
+ *        This insight is related to reliability. (Value: "RELIABILITY")
  *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Security
  *        The insight is related to security. (Value: "SECURITY")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Sustainability
+ *        The insight is related to sustainability. (Value: "SUSTAINABILITY")
  */
 @property(nonatomic, copy, nullable) NSString *category;
 
@@ -1210,6 +1282,32 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 
 /**
+ *  Contains information on the impact of a reliability recommendation.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection : GTLRObject
+
+/** Per-recommender projection. */
+@property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection_Details *details;
+
+/** Reliability risks mitigated by this recommendation. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *risks;
+
+@end
+
+
+/**
+ *  Per-recommender projection.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection_Details : GTLRObject
+@end
+
+
+/**
  *  Contains various ways of describing the impact on Security.
  */
 @interface GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection : GTLRObject
@@ -1229,6 +1327,26 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection_Details : GTLRObject
+@end
+
+
+/**
+ *  Contains metadata about how much sustainability a recommendation can save or
+ *  incur.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1SustainabilityProjection : GTLRObject
+
+/** Duration for which this sustainability applies. */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/**
+ *  Carbon Footprint generated in kg of CO2 equivalent. Chose kg_c_o2e so that
+ *  the name renders correctly in camelCase (kgCO2e).
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *kgCO2e;
+
 @end
 
 

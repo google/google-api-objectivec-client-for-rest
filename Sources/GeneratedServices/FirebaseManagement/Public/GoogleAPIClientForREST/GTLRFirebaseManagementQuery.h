@@ -486,8 +486,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Controls whether Apps in the DELETED state should be returned. Defaults to
- *  false.
+ *  Controls whether Apps in the DELETED state should be returned in the
+ *  response. If not specified, only `ACTIVE` Apps will be returned.
  */
 @property(nonatomic, assign) BOOL showDeleted;
 
@@ -541,8 +541,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Specifies which fields to update. Note that the fields `name`, `app_id`,
- *  `project_id`, `package_name`, and `state` are all immutable.
+ *  Specifies which fields of the AndroidApp to update. Note that the following
+ *  fields are immutable: `name`, `app_id`, `project_id`, and `package_name`. To
+ *  update `state`, use any of the following endpoints: RemoveAndroidApp or
+ *  UndeleteAndroidApp.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -575,7 +577,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Removes the specified AndroidApp from the project.
+ *  Removes the specified AndroidApp from the FirebaseProject.
  *
  *  Method: firebase.projects.androidApps.remove
  *
@@ -598,7 +600,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRFirebaseManagement_Operation.
  *
- *  Removes the specified AndroidApp from the project.
+ *  Removes the specified AndroidApp from the FirebaseProject.
  *
  *  @param object The @c GTLRFirebaseManagement_RemoveAndroidAppRequest to
  *    include in the query.
@@ -748,7 +750,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Restores the specified AndroidApp to the project.
+ *  Restores the specified AndroidApp to the FirebaseProject.
  *
  *  Method: firebase.projects.androidApps.undelete
  *
@@ -771,7 +773,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRFirebaseManagement_Operation.
  *
- *  Restores the specified AndroidApp to the project.
+ *  Restores the specified AndroidApp to the FirebaseProject.
  *
  *  @param object The @c GTLRFirebaseManagement_UndeleteAndroidAppRequest to
  *    include in the query.
@@ -1256,8 +1258,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Controls whether Apps in the DELETED state should be returned. Defaults to
- *  false.
+ *  Controls whether Apps in the DELETED state should be returned in the
+ *  response. If not specified, only `ACTIVE` Apps will be returned.
  */
 @property(nonatomic, assign) BOOL showDeleted;
 
@@ -1310,8 +1312,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Specifies which fields to update. Note that the fields `name`, `appId`,
- *  `projectId`, `bundleId`, and `state` are all immutable
+ *  Specifies which fields of the IosApp to update. Note that the following
+ *  fields are immutable: `name`, `app_id`, `project_id`, and `bundle_id`. To
+ *  update `state`, use any of the following endpoints: RemoveIosApp or
+ *  UndeleteIosApp.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1343,7 +1347,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Removes the specified IosApp from the project.
+ *  Removes the specified IosApp from the FirebaseProject.
  *
  *  Method: firebase.projects.iosApps.remove
  *
@@ -1366,7 +1370,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRFirebaseManagement_Operation.
  *
- *  Removes the specified IosApp from the project.
+ *  Removes the specified IosApp from the FirebaseProject.
  *
  *  @param object The @c GTLRFirebaseManagement_RemoveIosAppRequest to include
  *    in the query.
@@ -1385,7 +1389,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Restores the specified IosApp to the project.
+ *  Restores the specified IosApp to the FirebaseProject.
  *
  *  Method: firebase.projects.iosApps.undelete
  *
@@ -1408,7 +1412,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRFirebaseManagement_Operation.
  *
- *  Restores the specified IosApp to the project.
+ *  Restores the specified IosApp to the FirebaseProject.
  *
  *  @param object The @c GTLRFirebaseManagement_UndeleteIosAppRequest to include
  *    in the query.
@@ -1461,8 +1465,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Optional. Controls whether Projects in the DELETING state should be
- *  returned. Defaults to false.
+ *  Optional. Controls whether Projects in the DELETED state should be returned
+ *  in the response. If not specified, only `ACTIVE` Projects will be returned.
  */
 @property(nonatomic, assign) BOOL showDeleted;
 
@@ -1513,9 +1517,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Specifies which fields to update. If this list is empty, then no state will
- *  be updated. Note that the fields `name`, `projectId`, and `projectNumber`
- *  are all immutable.
+ *  Specifies which fields of the FirebaseProject to update. Note that the
+ *  following fields are immutable: `name`, `project_id`, and `project_number`.
+ *  To update `state`, use any of the following Google Cloud endpoints:
+ *  [`projects.delete`](https://cloud.google.com/resource-manager/reference/rest/v1/projects/delete)
+ *  or
+ *  [`projects.undelete`](https://cloud.google.com/resource-manager/reference/rest/v1/projects/undelete)
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1668,8 +1675,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Controls whether Apps in the DELETED state should be returned. Defaults to
- *  false.
+ *  Controls whether Apps in the DELETED state should be returned. If not
+ *  specified, only `ACTIVE` Apps will be returned.
  */
 @property(nonatomic, assign) BOOL showDeleted;
 
@@ -1858,8 +1865,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Controls whether Apps in the DELETED state should be returned. Defaults to
- *  false.
+ *  Controls whether Apps in the DELETED state should be returned in the
+ *  response. If not specified, only `ACTIVE` Apps will be returned.
  */
 @property(nonatomic, assign) BOOL showDeleted;
 
@@ -1912,8 +1919,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Specifies which fields to update. Note that the fields `name`, `appId`,
- *  `projectId` and `state` are all immutable
+ *  Specifies which fields of the WebApp to update. Note that the following
+ *  fields are immutable: `name`, `app_id`, and `project_id`. To update `state`,
+ *  use any of the following endpoints: RemoveWebApp or UndeleteWebApp.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1945,7 +1953,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Removes the specified WebApp from the project.
+ *  Removes the specified WebApp from the FirebaseProject.
  *
  *  Method: firebase.projects.webApps.remove
  *
@@ -1968,7 +1976,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRFirebaseManagement_Operation.
  *
- *  Removes the specified WebApp from the project.
+ *  Removes the specified WebApp from the FirebaseProject.
  *
  *  @param object The @c GTLRFirebaseManagement_RemoveWebAppRequest to include
  *    in the query.
@@ -1987,7 +1995,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Restores the specified WebApp to the project.
+ *  Restores the specified WebApp to the FirebaseProject.
  *
  *  Method: firebase.projects.webApps.undelete
  *
@@ -2010,7 +2018,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRFirebaseManagement_Operation.
  *
- *  Restores the specified WebApp to the project.
+ *  Restores the specified WebApp to the FirebaseProject.
  *
  *  @param object The @c GTLRFirebaseManagement_UndeleteWebAppRequest to include
  *    in the query.

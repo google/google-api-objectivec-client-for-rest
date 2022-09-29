@@ -14501,7 +14501,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachine
 @property(nonatomic, strong, nullable) NSArray<GTLRMyBusinessLodging_EcoCertification *> *ecoCertifications;
 
 /**
- *  LEED certification.
+ *  LEED certification. Deprecated: this field is no longer populated. LEED
+ *  certification status is now provided directly by USGBC.
  *
  *  Likely values:
  *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertification_LeedCertificationUnspecified
@@ -14521,7 +14522,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachine
 @property(nonatomic, copy, nullable) NSString *leedCertification;
 
 /**
- *  LEED certification exception.
+ *  LEED certification exception. Deprecated: this field is no longer populated.
+ *  LEED certification status is now provided directly by USGBC.
  *
  *  Likely values:
  *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertificationException_DependentOnDayOfWeek

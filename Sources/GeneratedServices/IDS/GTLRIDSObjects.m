@@ -36,6 +36,7 @@ NSString * const kGTLRIDS_Endpoint_State_Creating         = @"CREATING";
 NSString * const kGTLRIDS_Endpoint_State_Deleting         = @"DELETING";
 NSString * const kGTLRIDS_Endpoint_State_Ready            = @"READY";
 NSString * const kGTLRIDS_Endpoint_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRIDS_Endpoint_State_Updating         = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //

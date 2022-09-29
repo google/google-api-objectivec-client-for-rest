@@ -1176,7 +1176,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_T
  */
 FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeLodging;
 /**
- *  RESERVED
+ *  A grouping of TYPE_BORDER features ("border segments"), which together
+ *  represent a border between two features of the same type.
  *
  *  Value: "typeLogicalBorder"
  */
@@ -3298,8 +3299,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOff
  *        "typeLockerArea"
  *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeLodging DEPRECATED
  *        (Value: "typeLodging")
- *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeLogicalBorder
- *        RESERVED (Value: "typeLogicalBorder")
+ *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeLogicalBorder A
+ *        grouping of TYPE_BORDER features ("border segments"), which together
+ *        represent a border between two features of the same type. (Value:
+ *        "typeLogicalBorder")
  *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeMetaFeature
  *        ABSTRACT (Value: "typeMetaFeature")
  *    @arg @c kGTLRCivicInfo_GeocodingSummary_FeatureType_TypeMilitary

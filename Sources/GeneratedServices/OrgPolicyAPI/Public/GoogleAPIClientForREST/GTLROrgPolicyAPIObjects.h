@@ -284,6 +284,13 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceTypes;
 
+/**
+ *  Output only. The last time this custom constraint was updated. This
+ *  represents the last time that the `CreateCustomConstraint` or
+ *  `UpdateCustomConstraint` RPC was called
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
 @end
 
 

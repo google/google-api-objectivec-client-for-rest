@@ -1585,7 +1585,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists publisher profiles
+ *  Lists publisher profiles. The returned publisher profiles aren't in any
+ *  defined order. The order of the results might change. A new publisher
+ *  profile can appear in any place in the list of returned results.
  *
  *  Method: authorizedbuyersmarketplace.buyers.publisherProfiles.list
  *
@@ -1622,7 +1624,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAuthorizedBuyersMarketplace_ListPublisherProfilesResponse.
  *
- *  Lists publisher profiles
+ *  Lists publisher profiles. The returned publisher profiles aren't in any
+ *  defined order. The order of the results might change. A new publisher
+ *  profile can appear in any place in the list of returned results.
  *
  *  @param parent Required. Parent that owns the collection of publisher
  *    profiles Format: `buyers/{buyerId}`

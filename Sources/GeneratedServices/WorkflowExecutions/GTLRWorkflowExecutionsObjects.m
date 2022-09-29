@@ -51,7 +51,7 @@ NSString * const kGTLRWorkflowExecutions_Execution_State_Succeeded = @"SUCCEEDED
 
 @implementation GTLRWorkflowExecutions_Execution
 @dynamic argument, callLogLevel, endTime, error, name, result, startTime, state,
-         workflowRevisionId;
+         status, workflowRevisionId;
 @end
 
 
@@ -136,6 +136,34 @@ NSString * const kGTLRWorkflowExecutions_Execution_State_Succeeded = @"SUCCEEDED
 
 @implementation GTLRWorkflowExecutions_StackTraceElement
 @dynamic position, routine, step;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkflowExecutions_Status
+//
+
+@implementation GTLRWorkflowExecutions_Status
+@dynamic currentSteps;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"currentSteps" : [GTLRWorkflowExecutions_Step class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkflowExecutions_Step
+//
+
+@implementation GTLRWorkflowExecutions_Step
+@dynamic routine, step;
 @end
 
 

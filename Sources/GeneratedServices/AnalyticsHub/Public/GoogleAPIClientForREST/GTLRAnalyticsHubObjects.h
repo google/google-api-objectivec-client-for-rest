@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Analytics Hub API (analyticshub/v1beta1)
+//   Analytics Hub API (analyticshub/v1)
 // Description:
 //   Exchange data and analytics assets securely and efficiently.
 // Documentation:
@@ -26,9 +26,6 @@
 @class GTLRAnalyticsHub_Expr;
 @class GTLRAnalyticsHub_GetPolicyOptions;
 @class GTLRAnalyticsHub_Listing;
-@class GTLRAnalyticsHub_Location;
-@class GTLRAnalyticsHub_Location_Labels;
-@class GTLRAnalyticsHub_Location_Metadata;
 @class GTLRAnalyticsHub_Policy;
 @class GTLRAnalyticsHub_Publisher;
 
@@ -237,11 +234,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecif
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
- *  anyone who is authenticated with a Google account or a service account. *
- *  `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a Google service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  anyone who is authenticated with a Google account or a service account. Does
+ *  not include identities that come from external identity providers (IdPs)
+ *  through identity federation. * `user:{emailid}`: An email address that
+ *  represents a specific Google account. For example, `alice\@example.com` . *
+ *  `serviceAccount:{emailid}`: An email address that represents a Google
+ *  service account. For example, `my-other-app\@appspot.gserviceaccount.com`. *
  *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
  *  identifier for a [Kubernetes service
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
@@ -659,30 +657,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecif
 
 
 /**
- *  The response message for Locations.ListLocations.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "locations" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRAnalyticsHub_ListLocationsResponse : GTLRCollectionObject
-
-/**
- *  A list of locations that matches the specified filter in the request.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsHub_Location *> *locations;
-
-/** The standard List next-page token. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
  *  Message for response to listing data exchanges in an organization and
  *  location.
  *
@@ -704,67 +678,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Listing_State_StateUnspecif
 /** A token to request the next page of results. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-@end
-
-
-/**
- *  A resource that represents Google Cloud Platform location.
- */
-@interface GTLRAnalyticsHub_Location : GTLRObject
-
-/**
- *  The friendly name for this location, typically a nearby city name. For
- *  example, "Tokyo".
- */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  Cross-service attributes for the location. For example
- *  {"cloud.googleapis.com/region": "us-east1"}
- */
-@property(nonatomic, strong, nullable) GTLRAnalyticsHub_Location_Labels *labels;
-
-/** The canonical id for this location. For example: `"us-east1"`. */
-@property(nonatomic, copy, nullable) NSString *locationId;
-
-/**
- *  Service-specific metadata. For example the available capacity at the given
- *  location.
- */
-@property(nonatomic, strong, nullable) GTLRAnalyticsHub_Location_Metadata *metadata;
-
-/**
- *  Resource name for the location, which may vary between implementations. For
- *  example: `"projects/example-project/locations/us-east1"`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-@end
-
-
-/**
- *  Cross-service attributes for the location. For example
- *  {"cloud.googleapis.com/region": "us-east1"}
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRAnalyticsHub_Location_Labels : GTLRObject
-@end
-
-
-/**
- *  Service-specific metadata. For example the available capacity at the given
- *  location.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRAnalyticsHub_Location_Metadata : GTLRObject
 @end
 
 

@@ -580,6 +580,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 @property(nonatomic, strong, nullable) GTLRSpeech_Status *outputError;
 
 /**
+ *  The ID associated with the request. This is a unique ID specific only to the
+ *  given request.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestId;
+
+/**
  *  Sequential list of transcription results corresponding to sequential
  *  portions of audio.
  */
@@ -1256,6 +1264,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *  messages.
  */
 @interface GTLRSpeech_RecognizeResponse : GTLRObject
+
+/**
+ *  The ID associated with the request. This is a unique ID specific only to the
+ *  given request.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestId;
 
 /**
  *  Sequential list of transcription results corresponding to sequential

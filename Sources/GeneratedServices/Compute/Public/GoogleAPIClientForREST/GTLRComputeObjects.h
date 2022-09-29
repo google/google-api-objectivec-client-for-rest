@@ -385,6 +385,7 @@
 @class GTLRCompute_NetworkEndpointGroupCloudRun;
 @class GTLRCompute_NetworkEndpointGroupList_Warning;
 @class GTLRCompute_NetworkEndpointGroupList_Warning_Data_Item;
+@class GTLRCompute_NetworkEndpointGroupPscData;
 @class GTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning;
 @class GTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Data_Item;
 @class GTLRCompute_NetworkEndpointGroupsScopedList;
@@ -545,6 +546,7 @@
 @class GTLRCompute_ResourcePolicySnapshotSchedulePolicySnapshotProperties_Labels;
 @class GTLRCompute_ResourcePolicyWeeklyCycle;
 @class GTLRCompute_ResourcePolicyWeeklyCycleDayOfWeek;
+@class GTLRCompute_ResourceStatus;
 @class GTLRCompute_Route;
 @class GTLRCompute_Route_Warnings_Item;
 @class GTLRCompute_Route_Warnings_Item_Data_Item;
@@ -562,6 +564,7 @@
 @class GTLRCompute_RouterInterface;
 @class GTLRCompute_RouterList_Warning;
 @class GTLRCompute_RouterList_Warning_Data_Item;
+@class GTLRCompute_RouterMd5AuthenticationKey;
 @class GTLRCompute_RouterNat;
 @class GTLRCompute_RouterNatLogConfig;
 @class GTLRCompute_RouterNatRule;
@@ -645,8 +648,14 @@
 @class GTLRCompute_SslCertificatesScopedList_Warning;
 @class GTLRCompute_SslCertificatesScopedList_Warning_Data_Item;
 @class GTLRCompute_SSLHealthCheck;
+@class GTLRCompute_SslPoliciesAggregatedList_Items;
+@class GTLRCompute_SslPoliciesAggregatedList_Warning;
+@class GTLRCompute_SslPoliciesAggregatedList_Warning_Data_Item;
 @class GTLRCompute_SslPoliciesList_Warning;
 @class GTLRCompute_SslPoliciesList_Warning_Data_Item;
+@class GTLRCompute_SslPoliciesScopedList;
+@class GTLRCompute_SslPoliciesScopedList_Warning;
+@class GTLRCompute_SslPoliciesScopedList_Warning_Data_Item;
 @class GTLRCompute_SslPolicy;
 @class GTLRCompute_SslPolicy_Warnings_Item;
 @class GTLRCompute_SslPolicy_Warnings_Item_Data_Item;
@@ -1379,6 +1388,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_AddressType_Internal;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_AddressType_UnspecifiedType;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_Address.ipv6EndpointType
+
+/**
+ *  Reserved IPv6 address can be used on network load balancer.
+ *
+ *  Value: "NETLB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_Ipv6EndpointType_Netlb;
+/**
+ *  Reserved IPv6 address can be used on VM.
+ *
+ *  Value: "VM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_Ipv6EndpointType_Vm;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_Address.ipVersion
 
 /** Value: "IPV4" */
@@ -1435,12 +1460,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_Purpose_DnsResolver;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_Purpose_GceEndpoint;
 /**
  *  A regional internal IP address range reserved for the VLAN attachment that
- *  is used in IPsec-encrypted Cloud Interconnect. This regional internal IP
- *  address range must not overlap with any IP address range of subnet/route in
- *  the VPC network and its peering networks. After the VLAN attachment is
- *  created with the reserved IP address range, when creating a new VPN gateway,
- *  its interface IP address is allocated from the associated VLAN attachment’s
- *  IP address range.
+ *  is used in HA VPN over Cloud Interconnect. This regional internal IP address
+ *  range must not overlap with any IP address range of subnet/route in the VPC
+ *  network and its peering networks. After the VLAN attachment is created with
+ *  the reserved IP address range, when creating a new VPN gateway, its
+ *  interface IP address is allocated from the associated VLAN attachment’s IP
+ *  address range.
  *
  *  Value: "IPSEC_INTERCONNECT"
  */
@@ -2999,6 +3024,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Backend_BalancingMode_Rate;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Backend_BalancingMode_Utilization;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_BackendBucket.compressionMode
+
+/**
+ *  Automatically uses the best compression based on the Accept-Encoding header
+ *  sent by the client.
+ *
+ *  Value: "AUTOMATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucket_CompressionMode_Automatic;
+/**
+ *  Disables compression. Existing compressed responses cached by Cloud CDN will
+ *  not be served to clients.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucket_CompressionMode_Disabled;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_BackendBucketCdnPolicy.cacheMode
 
 /**
@@ -3206,6 +3249,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_U
  *  Value: "UNREACHABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_BackendService.compressionMode
+
+/**
+ *  Automatically uses the best compression based on the Accept-Encoding header
+ *  sent by the client.
+ *
+ *  Value: "AUTOMATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_CompressionMode_Automatic;
+/**
+ *  Disables compression. Existing compressed responses cached by Cloud CDN will
+ *  not be served to clients.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_CompressionMode_Disabled;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_BackendService.loadBalancingScheme
@@ -7538,21 +7599,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warnin
 // GTLRCompute_GRPCHealthCheck.portSpecification
 
 /**
- *  The port number in port is used for health checking.
+ *  The port number in the health check's port is used for health checking.
+ *  Applies to network endpoint group and instance group backends.
  *
  *  Value: "USE_FIXED_PORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_GRPCHealthCheck_PortSpecification_UseFixedPort;
 /**
- *  The portName is used for health checking.
+ *  Not supported.
  *
  *  Value: "USE_NAMED_PORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_GRPCHealthCheck_PortSpecification_UseNamedPort;
 /**
- *  For NetworkEndpointGroup, the port specified for each network endpoint is
- *  used for health checking. For other backends, the port or named port
- *  specified in the Backend Service is used for health checking.
+ *  For network endpoint group backends, the health check uses the port number
+ *  specified on each endpoint in the network endpoint group. For instance group
+ *  backends, the health check uses the port number specified for the backend
+ *  service's named port defined in the instance group's named ports.
  *
  *  Value: "USE_SERVING_PORT"
  */
@@ -8387,21 +8450,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthStatusForNetworkEndpoint_H
 // GTLRCompute_HTTP2HealthCheck.portSpecification
 
 /**
- *  The port number in port is used for health checking.
+ *  The port number in the health check's port is used for health checking.
+ *  Applies to network endpoint group and instance group backends.
  *
  *  Value: "USE_FIXED_PORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HTTP2HealthCheck_PortSpecification_UseFixedPort;
 /**
- *  The portName is used for health checking.
+ *  Not supported.
  *
  *  Value: "USE_NAMED_PORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HTTP2HealthCheck_PortSpecification_UseNamedPort;
 /**
- *  For NetworkEndpointGroup, the port specified for each network endpoint is
- *  used for health checking. For other backends, the port or named port
- *  specified in the Backend Service is used for health checking.
+ *  For network endpoint group backends, the health check uses the port number
+ *  specified on each endpoint in the network endpoint group. For instance group
+ *  backends, the health check uses the port number specified for the backend
+ *  service's named port defined in the instance group's named ports.
  *
  *  Value: "USE_SERVING_PORT"
  */
@@ -8419,21 +8484,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HTTP2HealthCheck_ProxyHeader_Pro
 // GTLRCompute_HTTPHealthCheck.portSpecification
 
 /**
- *  The port number in port is used for health checking.
+ *  The port number in the health check's port is used for health checking.
+ *  Applies to network endpoint group and instance group backends.
  *
  *  Value: "USE_FIXED_PORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HTTPHealthCheck_PortSpecification_UseFixedPort;
 /**
- *  The portName is used for health checking.
+ *  Not supported.
  *
  *  Value: "USE_NAMED_PORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HTTPHealthCheck_PortSpecification_UseNamedPort;
 /**
- *  For NetworkEndpointGroup, the port specified for each network endpoint is
- *  used for health checking. For other backends, the port or named port
- *  specified in the Backend Service is used for health checking.
+ *  For network endpoint group backends, the health check uses the port number
+ *  specified on each endpoint in the network endpoint group. For instance group
+ *  backends, the health check uses the port number specified for the backend
+ *  service's named port defined in the instance group's named ports.
  *
  *  Value: "USE_SERVING_PORT"
  */
@@ -8662,21 +8729,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpRedirectAction_RedirectRespo
 // GTLRCompute_HTTPSHealthCheck.portSpecification
 
 /**
- *  The port number in port is used for health checking.
+ *  The port number in the health check's port is used for health checking.
+ *  Applies to network endpoint group and instance group backends.
  *
  *  Value: "USE_FIXED_PORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HTTPSHealthCheck_PortSpecification_UseFixedPort;
 /**
- *  The portName is used for health checking.
+ *  Not supported.
  *
  *  Value: "USE_NAMED_PORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HTTPSHealthCheck_PortSpecification_UseNamedPort;
 /**
- *  For NetworkEndpointGroup, the port specified for each network endpoint is
- *  used for health checking. For other backends, the port or named port
- *  specified in the Backend Service is used for health checking.
+ *  For network endpoint group backends, the health check uses the port number
+ *  specified on each endpoint in the network endpoint group. For instance group
+ *  backends, the health check uses the port number specified for the backend
+ *  service's named port defined in the instance group's named ports.
  *
  *  Value: "USE_SERVING_PORT"
  */
@@ -12096,7 +12165,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_EdgeAvail
  *  The interconnect attachment will carry only encrypted traffic that is
  *  encrypted by an IPsec device such as HA VPN gateway; VMs cannot directly
  *  send traffic to or receive traffic from such an interconnect attachment. To
- *  use IPsec-encrypted Cloud Interconnect, the interconnect attachment must be
+ *  use HA VPN over Cloud Interconnect, the interconnect attachment must be
  *  created with this option.
  *
  *  Value: "IPSEC"
@@ -15325,6 +15394,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning
  *  Value: "UNREACHABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_NetworkEndpointGroupPscData.pscConnectionStatus
+
+/**
+ *  The connection has been accepted by the producer.
+ *
+ *  Value: "ACCEPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupPscData_PscConnectionStatus_Accepted;
+/**
+ *  The connection has been closed by the producer and will not serve traffic
+ *  going forward.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupPscData_PscConnectionStatus_Closed;
+/**
+ *  The connection has been accepted by the producer, but the producer needs to
+ *  take further action before the forwarding rule can serve traffic.
+ *
+ *  Value: "NEEDS_ATTENTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupPscData_PscConnectionStatus_NeedsAttention;
+/**
+ *  The connection is pending acceptance by the producer.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupPscData_PscConnectionStatus_Pending;
+/**
+ *  The connection has been rejected by the producer.
+ *
+ *  Value: "REJECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupPscData_PscConnectionStatus_Rejected;
+/** Value: "STATUS_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupPscData_PscConnectionStatus_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NetworkEndpointGroupsListEndpointsRequest.healthStatus
@@ -24273,6 +24380,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status_Up;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_RouterStatusBgpPeerStatus.statusReason
+
+/**
+ *  Indicates internal problems with configuration of MD5 authentication. This
+ *  particular reason can only be returned when md5AuthEnabled is true and
+ *  status is DOWN.
+ *
+ *  Value: "MD5_AUTH_INTERNAL_PROBLEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_StatusReason_Md5AuthInternalProblem;
+/** Value: "STATUS_REASON_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_StatusReason_StatusReasonUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_Rule.action
 
 /**
@@ -26636,21 +26757,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warnin
 // GTLRCompute_SSLHealthCheck.portSpecification
 
 /**
- *  The port number in port is used for health checking.
+ *  The port number in the health check's port is used for health checking.
+ *  Applies to network endpoint group and instance group backends.
  *
  *  Value: "USE_FIXED_PORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SSLHealthCheck_PortSpecification_UseFixedPort;
 /**
- *  The portName is used for health checking.
+ *  Not supported.
  *
  *  Value: "USE_NAMED_PORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SSLHealthCheck_PortSpecification_UseNamedPort;
 /**
- *  For NetworkEndpointGroup, the port specified for each network endpoint is
- *  used for health checking. For other backends, the port or named port
- *  specified in the Backend Service is used for health checking.
+ *  For network endpoint group backends, the health check uses the port number
+ *  specified on each endpoint in the network endpoint group. For instance group
+ *  backends, the health check uses the port number specified for the backend
+ *  service's named port defined in the instance group's named ports.
  *
  *  Value: "USE_SERVING_PORT"
  */
@@ -26663,6 +26786,183 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SSLHealthCheck_PortSpecification
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SSLHealthCheck_ProxyHeader_None;
 /** Value: "PROXY_V1" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SSLHealthCheck_ProxyHeader_ProxyV1;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_SslPoliciesAggregatedList_Warning.code
+
+/**
+ *  Warning about failed cleanup of transient changes made by a failed
+ *  operation.
+ *
+ *  Value: "CLEANUP_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_CleanupFailed;
+/**
+ *  A link to a deprecated resource was created.
+ *
+ *  Value: "DEPRECATED_RESOURCE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/**
+ *  When deploying and at least one of the resources has a type marked as
+ *  deprecated
+ *
+ *  Value: "DEPRECATED_TYPE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_DeprecatedTypeUsed;
+/**
+ *  The user created a boot disk that is larger than image size.
+ *
+ *  Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/**
+ *  When deploying and at least one of the resources has a type marked as
+ *  experimental
+ *
+ *  Value: "EXPERIMENTAL_TYPE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_ExperimentalTypeUsed;
+/**
+ *  Warning that is present in an external api call
+ *
+ *  Value: "EXTERNAL_API_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_ExternalApiWarning;
+/**
+ *  Warning that value of a field has been overridden. Deprecated unused field.
+ *
+ *  Value: "FIELD_VALUE_OVERRIDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_FieldValueOverriden;
+/**
+ *  The operation involved use of an injected kernel, which is deprecated.
+ *
+ *  Value: "INJECTED_KERNELS_DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
+ *  When deploying a deployment with a exceedingly large number of resources
+ *
+ *  Value: "LARGE_DEPLOYMENT_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  A resource depends on a missing type
+ *
+ *  Value: "MISSING_TYPE_DEPENDENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_MissingTypeDependency;
+/**
+ *  The route's nextHopIp address is not assigned to an instance on the network.
+ *
+ *  Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+/**
+ *  The route's next hop instance cannot ip forward.
+ *
+ *  Value: "NEXT_HOP_CANNOT_IP_FORWARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_NextHopCannotIpForward;
+/**
+ *  The route's nextHopInstance URL refers to an instance that does not have an
+ *  ipv6 interface on the same network as the route.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_NextHopInstanceHasNoIpv6Interface;
+/**
+ *  The route's nextHopInstance URL refers to an instance that does not exist.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_NextHopInstanceNotFound;
+/**
+ *  The route's nextHopInstance URL refers to an instance that is not on the
+ *  same network as the route.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+/**
+ *  The route's next hop instance does not have a status of RUNNING.
+ *
+ *  Value: "NEXT_HOP_NOT_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_NextHopNotRunning;
+/**
+ *  No results are present on a particular list page.
+ *
+ *  Value: "NO_RESULTS_ON_PAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_NoResultsOnPage;
+/**
+ *  Error which is not critical. We decided to continue the process despite the
+ *  mentioned error.
+ *
+ *  Value: "NOT_CRITICAL_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_NotCriticalError;
+/**
+ *  Success is reported, but some results may be missing due to errors
+ *
+ *  Value: "PARTIAL_SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_PartialSuccess;
+/**
+ *  The user attempted to use a resource that requires a TOS they have not
+ *  accepted.
+ *
+ *  Value: "REQUIRED_TOS_AGREEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_RequiredTosAgreement;
+/**
+ *  Warning that a resource is in use.
+ *
+ *  Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/**
+ *  One or more of the resources set to auto-delete could not be deleted because
+ *  they were in use.
+ *
+ *  Value: "RESOURCE_NOT_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_ResourceNotDeleted;
+/**
+ *  When a resource schema validation is ignored.
+ *
+ *  Value: "SCHEMA_VALIDATION_IGNORED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_SchemaValidationIgnored;
+/**
+ *  Instance template used in instance group manager is valid as such, but its
+ *  application does not make a lot of sense, because it allows only single
+ *  instance in instance group.
+ *
+ *  Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+/**
+ *  When undeclared properties in the schema are present
+ *
+ *  Value: "UNDECLARED_PROPERTIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_UndeclaredProperties;
+/**
+ *  A given scope cannot be reached.
+ *
+ *  Value: "UNREACHABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SslPoliciesList_Warning.code
@@ -26840,6 +27140,183 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_Und
  *  Value: "UNREACHABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_SslPoliciesScopedList_Warning.code
+
+/**
+ *  Warning about failed cleanup of transient changes made by a failed
+ *  operation.
+ *
+ *  Value: "CLEANUP_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_CleanupFailed;
+/**
+ *  A link to a deprecated resource was created.
+ *
+ *  Value: "DEPRECATED_RESOURCE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_DeprecatedResourceUsed;
+/**
+ *  When deploying and at least one of the resources has a type marked as
+ *  deprecated
+ *
+ *  Value: "DEPRECATED_TYPE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_DeprecatedTypeUsed;
+/**
+ *  The user created a boot disk that is larger than image size.
+ *
+ *  Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/**
+ *  When deploying and at least one of the resources has a type marked as
+ *  experimental
+ *
+ *  Value: "EXPERIMENTAL_TYPE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_ExperimentalTypeUsed;
+/**
+ *  Warning that is present in an external api call
+ *
+ *  Value: "EXTERNAL_API_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_ExternalApiWarning;
+/**
+ *  Warning that value of a field has been overridden. Deprecated unused field.
+ *
+ *  Value: "FIELD_VALUE_OVERRIDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_FieldValueOverriden;
+/**
+ *  The operation involved use of an injected kernel, which is deprecated.
+ *
+ *  Value: "INJECTED_KERNELS_DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
+ *  When deploying a deployment with a exceedingly large number of resources
+ *
+ *  Value: "LARGE_DEPLOYMENT_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  A resource depends on a missing type
+ *
+ *  Value: "MISSING_TYPE_DEPENDENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_MissingTypeDependency;
+/**
+ *  The route's nextHopIp address is not assigned to an instance on the network.
+ *
+ *  Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_NextHopAddressNotAssigned;
+/**
+ *  The route's next hop instance cannot ip forward.
+ *
+ *  Value: "NEXT_HOP_CANNOT_IP_FORWARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_NextHopCannotIpForward;
+/**
+ *  The route's nextHopInstance URL refers to an instance that does not have an
+ *  ipv6 interface on the same network as the route.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_NextHopInstanceHasNoIpv6Interface;
+/**
+ *  The route's nextHopInstance URL refers to an instance that does not exist.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_NextHopInstanceNotFound;
+/**
+ *  The route's nextHopInstance URL refers to an instance that is not on the
+ *  same network as the route.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+/**
+ *  The route's next hop instance does not have a status of RUNNING.
+ *
+ *  Value: "NEXT_HOP_NOT_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_NextHopNotRunning;
+/**
+ *  No results are present on a particular list page.
+ *
+ *  Value: "NO_RESULTS_ON_PAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_NoResultsOnPage;
+/**
+ *  Error which is not critical. We decided to continue the process despite the
+ *  mentioned error.
+ *
+ *  Value: "NOT_CRITICAL_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_NotCriticalError;
+/**
+ *  Success is reported, but some results may be missing due to errors
+ *
+ *  Value: "PARTIAL_SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_PartialSuccess;
+/**
+ *  The user attempted to use a resource that requires a TOS they have not
+ *  accepted.
+ *
+ *  Value: "REQUIRED_TOS_AGREEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_RequiredTosAgreement;
+/**
+ *  Warning that a resource is in use.
+ *
+ *  Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/**
+ *  One or more of the resources set to auto-delete could not be deleted because
+ *  they were in use.
+ *
+ *  Value: "RESOURCE_NOT_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_ResourceNotDeleted;
+/**
+ *  When a resource schema validation is ignored.
+ *
+ *  Value: "SCHEMA_VALIDATION_IGNORED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_SchemaValidationIgnored;
+/**
+ *  Instance template used in instance group manager is valid as such, but its
+ *  application does not make a lot of sense, because it allows only single
+ *  instance in instance group.
+ *
+ *  Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_SingleInstancePropertyTemplate;
+/**
+ *  When undeclared properties in the schema are present
+ *
+ *  Value: "UNDECLARED_PROPERTIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_UndeclaredProperties;
+/**
+ *  A given scope cannot be reached.
+ *
+ *  Value: "UNREACHABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SslPolicy.minTlsVersion
@@ -30965,21 +31442,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warn
 // GTLRCompute_TCPHealthCheck.portSpecification
 
 /**
- *  The port number in port is used for health checking.
+ *  The port number in the health check's port is used for health checking.
+ *  Applies to network endpoint group and instance group backends.
  *
  *  Value: "USE_FIXED_PORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TCPHealthCheck_PortSpecification_UseFixedPort;
 /**
- *  The portName is used for health checking.
+ *  Not supported.
  *
  *  Value: "USE_NAMED_PORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TCPHealthCheck_PortSpecification_UseNamedPort;
 /**
- *  For NetworkEndpointGroup, the port specified for each network endpoint is
- *  used for health checking. For other backends, the port or named port
- *  specified in the Backend Service is used for health checking.
+ *  For network endpoint group backends, the health check uses the port number
+ *  specified on each endpoint in the network endpoint group. For instance group
+ *  backends, the health check uses the port number specified for the backend
+ *  service's named port defined in the instance group's named ports.
  *
  *  Value: "USE_SERVING_PORT"
  */
@@ -34300,6 +34779,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
+ *  The endpoint type of this address, which should be VM or NETLB. This is used
+ *  for deciding which type of endpoint this address can be used after the
+ *  external IPv6 address reservation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Address_Ipv6EndpointType_Netlb Reserved IPv6 address
+ *        can be used on network load balancer. (Value: "NETLB")
+ *    @arg @c kGTLRCompute_Address_Ipv6EndpointType_Vm Reserved IPv6 address can
+ *        be used on VM. (Value: "VM")
+ */
+@property(nonatomic, copy, nullable) NSString *ipv6EndpointType;
+
+/**
  *  The IP version that will be used by this address. Valid options are IPV4 or
  *  IPV6. This can only be specified for a global address.
  *
@@ -34373,13 +34865,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  ranges. - NAT_AUTO for the regional external IP addresses used by Cloud NAT
  *  when allocating addresses using automatic NAT IP address allocation. -
  *  IPSEC_INTERCONNECT for addresses created from a private IP range that are
- *  reserved for a VLAN attachment in an *IPsec-encrypted Cloud Interconnect*
- *  configuration. These addresses are regional resources. Not currently
- *  available publicly. - `SHARED_LOADBALANCER_VIP` for an internal IP address
- *  that is assigned to multiple internal forwarding rules. -
- *  `PRIVATE_SERVICE_CONNECT` for a private network address that is used to
- *  configure Private Service Connect. Only global internal addresses can use
- *  this purpose.
+ *  reserved for a VLAN attachment in an *HA VPN over Cloud Interconnect*
+ *  configuration. These addresses are regional resources. -
+ *  `SHARED_LOADBALANCER_VIP` for an internal IP address that is assigned to
+ *  multiple internal forwarding rules. - `PRIVATE_SERVICE_CONNECT` for a
+ *  private network address that is used to configure Private Service Connect.
+ *  Only global internal addresses can use this purpose.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Address_Purpose_DnsResolver DNS resolver address in
@@ -34387,13 +34878,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_Address_Purpose_GceEndpoint VM internal/alias IP,
  *        Internal LB service IP, etc. (Value: "GCE_ENDPOINT")
  *    @arg @c kGTLRCompute_Address_Purpose_IpsecInterconnect A regional internal
- *        IP address range reserved for the VLAN attachment that is used in
- *        IPsec-encrypted Cloud Interconnect. This regional internal IP address
- *        range must not overlap with any IP address range of subnet/route in
- *        the VPC network and its peering networks. After the VLAN attachment is
- *        created with the reserved IP address range, when creating a new VPN
- *        gateway, its interface IP address is allocated from the associated
- *        VLAN attachment’s IP address range. (Value: "IPSEC_INTERCONNECT")
+ *        IP address range reserved for the VLAN attachment that is used in HA
+ *        VPN over Cloud Interconnect. This regional internal IP address range
+ *        must not overlap with any IP address range of subnet/route in the VPC
+ *        network and its peering networks. After the VLAN attachment is created
+ *        with the reserved IP address range, when creating a new VPN gateway,
+ *        its interface IP address is allocated from the associated VLAN
+ *        attachment’s IP address range. (Value: "IPSEC_INTERCONNECT")
  *    @arg @c kGTLRCompute_Address_Purpose_NatAuto External IP automatically
  *        reserved for Cloud NAT. (Value: "NAT_AUTO")
  *    @arg @c kGTLRCompute_Address_Purpose_PrivateServiceConnect A private
@@ -34997,6 +35488,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, strong, nullable) NSNumber *threadsPerCore;
 
+/**
+ *  The number of physical cores to expose to an instance. Multiply by the
+ *  number of threads per core to compute the total number of virtual CPUs to
+ *  expose to the instance. If unset, the number of cores is inferred from the
+ *  instance's nominal CPU count and the underlying platform's SMT width.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *visibleCoreCount;
+
 @end
 
 
@@ -35224,10 +35725,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Specifies the disk interface to use for attaching this disk, which is either
- *  SCSI or NVME. The default is SCSI. Persistent disks must always use SCSI and
- *  the request will fail if you attempt to attach a persistent disk in any
- *  other format than SCSI. Local SSDs can use either NVME or SCSI. For
- *  performance characteristics of SCSI over NVMe, see Local SSD performance.
+ *  SCSI or NVME. For most machine types, the default is SCSI. Local SSDs can
+ *  use either NVME or SCSI. In certain configurations, persistent disks can use
+ *  NVMe. For more information, see About persistent disks.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_AttachedDisk_Interface_Nvme Value "NVME"
@@ -36827,6 +37327,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** Cloud CDN configuration for this BackendBucket. */
 @property(nonatomic, strong, nullable) GTLRCompute_BackendBucketCdnPolicy *cdnPolicy;
 
+/**
+ *  Compress text responses using Brotli or gzip compression, based on the
+ *  client's Accept-Encoding header.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_BackendBucket_CompressionMode_Automatic Automatically
+ *        uses the best compression based on the Accept-Encoding header sent by
+ *        the client. (Value: "AUTOMATIC")
+ *    @arg @c kGTLRCompute_BackendBucket_CompressionMode_Disabled Disables
+ *        compression. Existing compressed responses cached by Cloud CDN will
+ *        not be served to clients. (Value: "DISABLED")
+ */
+@property(nonatomic, copy, nullable) NSString *compressionMode;
+
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
@@ -37331,6 +37845,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) GTLRCompute_BackendServiceCdnPolicy *cdnPolicy;
 
 @property(nonatomic, strong, nullable) GTLRCompute_CircuitBreakers *circuitBreakers;
+
+/**
+ *  Compress text responses using Brotli or gzip compression, based on the
+ *  client's Accept-Encoding header.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_BackendService_CompressionMode_Automatic
+ *        Automatically uses the best compression based on the Accept-Encoding
+ *        header sent by the client. (Value: "AUTOMATIC")
+ *    @arg @c kGTLRCompute_BackendService_CompressionMode_Disabled Disables
+ *        compression. Existing compressed responses cached by Cloud CDN will
+ *        not be served to clients. (Value: "DISABLED")
+ */
+@property(nonatomic, copy, nullable) NSString *compressionMode;
+
 @property(nonatomic, strong, nullable) GTLRCompute_ConnectionDraining *connectionDraining;
 
 /**
@@ -38594,8 +39123,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_BackendServiceLogConfig : GTLRObject
 
 /**
- *  This field denotes whether to enable logging for the load balancer traffic
- *  served by this backend service.
+ *  Denotes whether to enable logging for the load balancer traffic served by
+ *  this backend service. The default value is false.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -38606,7 +39135,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  service. The value of the field must be in [0, 1]. This configures the
  *  sampling rate of requests to the load balancer where 1.0 means all logged
  *  requests are reported and 0.0 means no logged requests are reported. The
- *  default value is 0.0.
+ *  default value is 1.0.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -39100,11 +39629,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
- *  anyone who is authenticated with a Google account or a service account. *
- *  `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a Google service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  anyone who is authenticated with a Google account or a service account. Does
+ *  not include identities that come from external identity providers (IdPs)
+ *  through identity federation. * `user:{emailid}`: An email address that
+ *  represents a specific Google account. For example, `alice\@example.com` . *
+ *  `serviceAccount:{emailid}`: An email address that represents a Google
+ *  service account. For example, `my-other-app\@appspot.gserviceaccount.com`. *
  *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
  *  identifier for a [Kubernetes service
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
@@ -42861,9 +43391,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Direction of traffic to which this firewall applies, either `INGRESS` or
- *  `EGRESS`. The default is `INGRESS`. For `INGRESS` traffic, you cannot
- *  specify the destinationRanges field, and for `EGRESS` traffic, you cannot
- *  specify the sourceRanges or sourceTags fields.
+ *  `EGRESS`. The default is `INGRESS`. For `EGRESS` traffic, you cannot specify
+ *  the sourceTags fields.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Firewall_Direction_Egress Indicates that firewall
@@ -43299,13 +43828,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  Deprecated, please use short name instead. User-provided name of the
  *  Organization firewall policy. The name should be unique in the organization
- *  in which the firewall policy is created. This name must be set on creation
- *  and cannot be changed. The name must be 1-63 characters long, and comply
- *  with RFC1035. Specifically, the name must be 1-63 characters long and match
- *  the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first
- *  character must be a lowercase letter, and all following characters must be a
- *  dash, lowercase letter, or digit, except the last character, which cannot be
- *  a dash.
+ *  in which the firewall policy is created. This field is not applicable to
+ *  network firewall policies. This name must be set on creation and cannot be
+ *  changed. The name must be 1-63 characters long, and comply with RFC1035.
+ *  Specifically, the name must be 1-63 characters long and match the regular
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
+ *  be a lowercase letter, and all following characters must be a dash,
+ *  lowercase letter, or digit, except the last character, which cannot be a
+ *  dash.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -43340,12 +43870,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  [Output Only] Name of the resource. It is a numeric ID allocated by GCP
- *  which uniquely identifies the Firewall Policy.
+ *  Name of the resource. For Organization Firewall Policies it's a [Output
+ *  Only] numeric ID allocated by GCP which uniquely identifies the Organization
+ *  Firewall Policy.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** [Output Only] The parent of the firewall policy. */
+/**
+ *  [Output Only] The parent of the firewall policy. This field is not
+ *  applicable to network firewall policies.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -43381,14 +43915,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *selfLinkWithId;
 
 /**
- *  User-provided name of the Organization firewall plicy. The name should be
+ *  User-provided name of the Organization firewall policy. The name should be
  *  unique in the organization in which the firewall policy is created. This
- *  name must be set on creation and cannot be changed. The name must be 1-63
- *  characters long, and comply with RFC1035. Specifically, the name must be
- *  1-63 characters long and match the regular expression
- *  `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a
- *  lowercase letter, and all following characters must be a dash, lowercase
- *  letter, or digit, except the last character, which cannot be a dash.
+ *  field is not applicable to network firewall policies. This name must be set
+ *  on creation and cannot be changed. The name must be 1-63 characters long,
+ *  and comply with RFC1035. Specifically, the name must be 1-63 characters long
+ *  and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means
+ *  the first character must be a lowercase letter, and all following characters
+ *  must be a dash, lowercase letter, or digit, except the last character, which
+ *  cannot be a dash.
  */
 @property(nonatomic, copy, nullable) NSString *shortName;
 
@@ -44190,6 +44725,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
+/**
+ *  The URL of the target resource to receive the matched traffic. For regional
+ *  forwarding rules, this target must be in the same region as the forwarding
+ *  rule. For global forwarding rules, this target must be a global load
+ *  balancing resource. The forwarded traffic must be of a type appropriate to
+ *  the target object. For more information, see the "Target" column in [Port
+ *  specifications](https://cloud.google.com/load-balancing/docs/forwarding-rule-concepts#ip_address_specifications).
+ *  For Private Service Connect forwarding rules that forward traffic to Google
+ *  APIs, provide the name of a supported Google API bundle: - vpc-sc - APIs
+ *  that support VPC Service Controls. - all-apis - All supported Google APIs.
+ */
 @property(nonatomic, copy, nullable) NSString *target;
 
 @end
@@ -44900,42 +45446,49 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *grpcServiceName;
 
 /**
- *  The port number for the health check request. Must be specified if port_name
- *  and port_specification are not set or if port_specification is
- *  USE_FIXED_PORT. Valid values are 1 through 65535.
+ *  The TCP port number to which the health check prober sends packets. Valid
+ *  values are 1 through 65535.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
 
-/**
- *  Port name as defined in InstanceGroup#NamedPort#name. If both port and
- *  port_name are defined, port takes precedence. The port_name should conform
- *  to RFC1035.
- */
+/** Not supported. */
 @property(nonatomic, copy, nullable) NSString *portName;
 
 /**
- *  Specifies how port is selected for health checking, can be one of following
- *  values: USE_FIXED_PORT: The port number in port is used for health checking.
- *  USE_NAMED_PORT: The portName is used for health checking. USE_SERVING_PORT:
- *  For NetworkEndpointGroup, the port specified for each network endpoint is
- *  used for health checking. For other backends, the port or named port
- *  specified in the Backend Service is used for health checking. If not
- *  specified, gRPC health check follows behavior specified in port and portName
- *  fields.
+ *  Specifies how a port is selected for health checking. Can be one of the
+ *  following values: USE_FIXED_PORT: Specifies a port number explicitly using
+ *  the port field in the health check. Supported by backend services for
+ *  pass-through load balancers and backend services for proxy load balancers.
+ *  Not supported by target pools. The health check supports all backends
+ *  supported by the backend service provided the backend can be health checked.
+ *  For example, GCE_VM_IP network endpoint groups, GCE_VM_IP_PORT network
+ *  endpoint groups, and instance group backends. USE_NAMED_PORT: Not supported.
+ *  USE_SERVING_PORT: Provides an indirect method of specifying the health check
+ *  port by referring to the backend service. Only supported by backend services
+ *  for proxy load balancers. Not supported by target pools. Not supported by
+ *  backend services for pass-through load balancers. Supports all backends that
+ *  can be health checked; for example, GCE_VM_IP_PORT network endpoint groups
+ *  and instance group backends. For GCE_VM_IP_PORT network endpoint group
+ *  backends, the health check uses the port number specified for each endpoint
+ *  in the network endpoint group. For instance group backends, the health check
+ *  uses the port number determined by looking up the backend service's named
+ *  port in the instance group's list of named ports.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_GRPCHealthCheck_PortSpecification_UseFixedPort The
- *        port number in port is used for health checking. (Value:
+ *        port number in the health check's port is used for health checking.
+ *        Applies to network endpoint group and instance group backends. (Value:
  *        "USE_FIXED_PORT")
- *    @arg @c kGTLRCompute_GRPCHealthCheck_PortSpecification_UseNamedPort The
- *        portName is used for health checking. (Value: "USE_NAMED_PORT")
+ *    @arg @c kGTLRCompute_GRPCHealthCheck_PortSpecification_UseNamedPort Not
+ *        supported. (Value: "USE_NAMED_PORT")
  *    @arg @c kGTLRCompute_GRPCHealthCheck_PortSpecification_UseServingPort For
- *        NetworkEndpointGroup, the port specified for each network endpoint is
- *        used for health checking. For other backends, the port or named port
- *        specified in the Backend Service is used for health checking. (Value:
- *        "USE_SERVING_PORT")
+ *        network endpoint group backends, the health check uses the port number
+ *        specified on each endpoint in the network endpoint group. For instance
+ *        group backends, the health check uses the port number specified for
+ *        the backend service's named port defined in the instance group's named
+ *        ports. (Value: "USE_SERVING_PORT")
  */
 @property(nonatomic, copy, nullable) NSString *portSpecification;
 
@@ -46236,46 +46789,57 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The value of the host header in the HTTP/2 health check request. If left
- *  empty (default value), the IP on behalf of which this health check is
- *  performed will be used.
+ *  empty (default value), the host header is set to the destination IP address
+ *  to which health check packets are sent. The destination IP address depends
+ *  on the type of load balancer. For details, see:
+ *  https://cloud.google.com/load-balancing/docs/health-check-concepts#hc-packet-dest
  */
 @property(nonatomic, copy, nullable) NSString *host;
 
 /**
- *  The TCP port number for the health check request. The default value is 443.
- *  Valid values are 1 through 65535.
+ *  The TCP port number to which the health check prober sends packets. The
+ *  default value is 443. Valid values are 1 through 65535.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
 
-/**
- *  Port name as defined in InstanceGroup#NamedPort#name. If both port and
- *  port_name are defined, port takes precedence.
- */
+/** Not supported. */
 @property(nonatomic, copy, nullable) NSString *portName;
 
 /**
- *  Specifies how port is selected for health checking, can be one of following
- *  values: USE_FIXED_PORT: The port number in port is used for health checking.
- *  USE_NAMED_PORT: The portName is used for health checking. USE_SERVING_PORT:
- *  For NetworkEndpointGroup, the port specified for each network endpoint is
- *  used for health checking. For other backends, the port or named port
- *  specified in the Backend Service is used for health checking. If not
- *  specified, HTTP2 health check follows behavior specified in port and
- *  portName fields.
+ *  Specifies how a port is selected for health checking. Can be one of the
+ *  following values: USE_FIXED_PORT: Specifies a port number explicitly using
+ *  the port field in the health check. Supported by backend services for
+ *  pass-through load balancers and backend services for proxy load balancers.
+ *  Not supported by target pools. The health check supports all backends
+ *  supported by the backend service provided the backend can be health checked.
+ *  For example, GCE_VM_IP network endpoint groups, GCE_VM_IP_PORT network
+ *  endpoint groups, and instance group backends. USE_NAMED_PORT: Not supported.
+ *  USE_SERVING_PORT: Provides an indirect method of specifying the health check
+ *  port by referring to the backend service. Only supported by backend services
+ *  for proxy load balancers. Not supported by target pools. Not supported by
+ *  backend services for pass-through load balancers. Supports all backends that
+ *  can be health checked; for example, GCE_VM_IP_PORT network endpoint groups
+ *  and instance group backends. For GCE_VM_IP_PORT network endpoint group
+ *  backends, the health check uses the port number specified for each endpoint
+ *  in the network endpoint group. For instance group backends, the health check
+ *  uses the port number determined by looking up the backend service's named
+ *  port in the instance group's list of named ports.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_HTTP2HealthCheck_PortSpecification_UseFixedPort The
- *        port number in port is used for health checking. (Value:
+ *        port number in the health check's port is used for health checking.
+ *        Applies to network endpoint group and instance group backends. (Value:
  *        "USE_FIXED_PORT")
- *    @arg @c kGTLRCompute_HTTP2HealthCheck_PortSpecification_UseNamedPort The
- *        portName is used for health checking. (Value: "USE_NAMED_PORT")
+ *    @arg @c kGTLRCompute_HTTP2HealthCheck_PortSpecification_UseNamedPort Not
+ *        supported. (Value: "USE_NAMED_PORT")
  *    @arg @c kGTLRCompute_HTTP2HealthCheck_PortSpecification_UseServingPort For
- *        NetworkEndpointGroup, the port specified for each network endpoint is
- *        used for health checking. For other backends, the port or named port
- *        specified in the Backend Service is used for health checking. (Value:
- *        "USE_SERVING_PORT")
+ *        network endpoint group backends, the health check uses the port number
+ *        specified on each endpoint in the network endpoint group. For instance
+ *        group backends, the health check uses the port number specified for
+ *        the backend service's named port defined in the instance group's named
+ *        ports. (Value: "USE_SERVING_PORT")
  */
 @property(nonatomic, copy, nullable) NSString *portSpecification;
 
@@ -46295,9 +46859,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *requestPath;
 
 /**
- *  The string to match anywhere in the first 1024 bytes of the response body.
- *  If left empty (the default value), the status code determines health. The
- *  response data can only be ASCII.
+ *  Creates a content-based HTTP/2 health check. In addition to the required
+ *  HTTP 200 (OK) status code, you can configure the health check to pass only
+ *  when the backend sends this specific ASCII response string within the first
+ *  1024 bytes of the HTTP response body. For details, see:
+ *  https://cloud.google.com/load-balancing/docs/health-check-concepts#criteria-protocol-http
  */
 @property(nonatomic, copy, nullable) NSString *response;
 
@@ -46526,46 +47092,58 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The value of the host header in the HTTP health check request. If left empty
- *  (default value), the IP on behalf of which this health check is performed
- *  will be used.
+ *  (default value), the host header is set to the destination IP address to
+ *  which health check packets are sent. The destination IP address depends on
+ *  the type of load balancer. For details, see:
+ *  https://cloud.google.com/load-balancing/docs/health-check-concepts#hc-packet-dest
  */
 @property(nonatomic, copy, nullable) NSString *host;
 
 /**
- *  The TCP port number for the health check request. The default value is 80.
- *  Valid values are 1 through 65535.
+ *  The TCP port number to which the health check prober sends packets. The
+ *  default value is 80. Valid values are 1 through 65535.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
 
-/**
- *  Port name as defined in InstanceGroup#NamedPort#name. If both port and
- *  port_name are defined, port takes precedence.
- */
+/** Not supported. */
 @property(nonatomic, copy, nullable) NSString *portName;
 
 /**
- *  Specifies how port is selected for health checking, can be one of following
- *  values: USE_FIXED_PORT: The port number in port is used for health checking.
- *  USE_NAMED_PORT: The portName is used for health checking. USE_SERVING_PORT:
- *  For NetworkEndpointGroup, the port specified for each network endpoint is
- *  used for health checking. For other backends, the port or named port
- *  specified in the Backend Service is used for health checking. If not
- *  specified, HTTP health check follows behavior specified in port and portName
- *  fields.
+ *  Specifies how a port is selected for health checking. Can be one of the
+ *  following values: USE_FIXED_PORT: Specifies a port number explicitly using
+ *  the port field in the health check. Supported by backend services for
+ *  pass-through load balancers and backend services for proxy load balancers.
+ *  Also supported in legacy HTTP health checks for target pools. The health
+ *  check supports all backends supported by the backend service provided the
+ *  backend can be health checked. For example, GCE_VM_IP network endpoint
+ *  groups, GCE_VM_IP_PORT network endpoint groups, and instance group backends.
+ *  USE_NAMED_PORT: Not supported. USE_SERVING_PORT: Provides an indirect method
+ *  of specifying the health check port by referring to the backend service.
+ *  Only supported by backend services for proxy load balancers. Not supported
+ *  by target pools. Not supported by backend services for pass-through load
+ *  balancers. Supports all backends that can be health checked; for example,
+ *  GCE_VM_IP_PORT network endpoint groups and instance group backends. For
+ *  GCE_VM_IP_PORT network endpoint group backends, the health check uses the
+ *  port number specified for each endpoint in the network endpoint group. For
+ *  instance group backends, the health check uses the port number determined by
+ *  looking up the backend service's named port in the instance group's list of
+ *  named ports.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_HTTPHealthCheck_PortSpecification_UseFixedPort The
- *        port number in port is used for health checking. (Value:
+ *        port number in the health check's port is used for health checking.
+ *        Applies to network endpoint group and instance group backends. (Value:
  *        "USE_FIXED_PORT")
- *    @arg @c kGTLRCompute_HTTPHealthCheck_PortSpecification_UseNamedPort The
- *        portName is used for health checking. (Value: "USE_NAMED_PORT")
+ *    @arg @c kGTLRCompute_HTTPHealthCheck_PortSpecification_UseNamedPort Not
+ *        supported. (Value: "USE_NAMED_PORT")
  *    @arg @c kGTLRCompute_HTTPHealthCheck_PortSpecification_UseServingPort For
- *        NetworkEndpointGroup, the port specified for each network endpoint is
- *        used for health checking. For other backends, the port or named port
- *        specified in the Backend Service is used for health checking. (Value:
- *        "USE_SERVING_PORT")
+ *        network endpoint group backends, the health check uses the port number
+ *        specified on each endpoint in the network endpoint group. For instance
+ *        group backends, the health check uses the port number specified for
+ *        the backend service's named port defined in the instance group's named
+ *        ports. (Value: "USE_SERVING_PORT")
  */
 @property(nonatomic, copy, nullable) NSString *portSpecification;
 
@@ -46585,9 +47163,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *requestPath;
 
 /**
- *  The string to match anywhere in the first 1024 bytes of the response body.
- *  If left empty (the default value), the status code determines health. The
- *  response data can only be ASCII.
+ *  Creates a content-based HTTP health check. In addition to the required HTTP
+ *  200 (OK) status code, you can configure the health check to pass only when
+ *  the backend sends this specific ASCII response string within the first 1024
+ *  bytes of the HTTP response body. For details, see:
+ *  https://cloud.google.com/load-balancing/docs/health-check-concepts#criteria-protocol-http
  */
 @property(nonatomic, copy, nullable) NSString *response;
 
@@ -47307,46 +47887,57 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The value of the host header in the HTTPS health check request. If left
- *  empty (default value), the IP on behalf of which this health check is
- *  performed will be used.
+ *  empty (default value), the host header is set to the destination IP address
+ *  to which health check packets are sent. The destination IP address depends
+ *  on the type of load balancer. For details, see:
+ *  https://cloud.google.com/load-balancing/docs/health-check-concepts#hc-packet-dest
  */
 @property(nonatomic, copy, nullable) NSString *host;
 
 /**
- *  The TCP port number for the health check request. The default value is 443.
- *  Valid values are 1 through 65535.
+ *  The TCP port number to which the health check prober sends packets. The
+ *  default value is 443. Valid values are 1 through 65535.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
 
-/**
- *  Port name as defined in InstanceGroup#NamedPort#name. If both port and
- *  port_name are defined, port takes precedence.
- */
+/** Not supported. */
 @property(nonatomic, copy, nullable) NSString *portName;
 
 /**
- *  Specifies how port is selected for health checking, can be one of following
- *  values: USE_FIXED_PORT: The port number in port is used for health checking.
- *  USE_NAMED_PORT: The portName is used for health checking. USE_SERVING_PORT:
- *  For NetworkEndpointGroup, the port specified for each network endpoint is
- *  used for health checking. For other backends, the port or named port
- *  specified in the Backend Service is used for health checking. If not
- *  specified, HTTPS health check follows behavior specified in port and
- *  portName fields.
+ *  Specifies how a port is selected for health checking. Can be one of the
+ *  following values: USE_FIXED_PORT: Specifies a port number explicitly using
+ *  the port field in the health check. Supported by backend services for
+ *  pass-through load balancers and backend services for proxy load balancers.
+ *  Not supported by target pools. The health check supports all backends
+ *  supported by the backend service provided the backend can be health checked.
+ *  For example, GCE_VM_IP network endpoint groups, GCE_VM_IP_PORT network
+ *  endpoint groups, and instance group backends. USE_NAMED_PORT: Not supported.
+ *  USE_SERVING_PORT: Provides an indirect method of specifying the health check
+ *  port by referring to the backend service. Only supported by backend services
+ *  for proxy load balancers. Not supported by target pools. Not supported by
+ *  backend services for pass-through load balancers. Supports all backends that
+ *  can be health checked; for example, GCE_VM_IP_PORT network endpoint groups
+ *  and instance group backends. For GCE_VM_IP_PORT network endpoint group
+ *  backends, the health check uses the port number specified for each endpoint
+ *  in the network endpoint group. For instance group backends, the health check
+ *  uses the port number determined by looking up the backend service's named
+ *  port in the instance group's list of named ports.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_HTTPSHealthCheck_PortSpecification_UseFixedPort The
- *        port number in port is used for health checking. (Value:
+ *        port number in the health check's port is used for health checking.
+ *        Applies to network endpoint group and instance group backends. (Value:
  *        "USE_FIXED_PORT")
- *    @arg @c kGTLRCompute_HTTPSHealthCheck_PortSpecification_UseNamedPort The
- *        portName is used for health checking. (Value: "USE_NAMED_PORT")
+ *    @arg @c kGTLRCompute_HTTPSHealthCheck_PortSpecification_UseNamedPort Not
+ *        supported. (Value: "USE_NAMED_PORT")
  *    @arg @c kGTLRCompute_HTTPSHealthCheck_PortSpecification_UseServingPort For
- *        NetworkEndpointGroup, the port specified for each network endpoint is
- *        used for health checking. For other backends, the port or named port
- *        specified in the Backend Service is used for health checking. (Value:
- *        "USE_SERVING_PORT")
+ *        network endpoint group backends, the health check uses the port number
+ *        specified on each endpoint in the network endpoint group. For instance
+ *        group backends, the health check uses the port number specified for
+ *        the backend service's named port defined in the instance group's named
+ *        ports. (Value: "USE_SERVING_PORT")
  */
 @property(nonatomic, copy, nullable) NSString *portSpecification;
 
@@ -47366,9 +47957,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *requestPath;
 
 /**
- *  The string to match anywhere in the first 1024 bytes of the response body.
- *  If left empty (the default value), the status code determines health. The
- *  response data can only be ASCII.
+ *  Creates a content-based HTTPS health check. In addition to the required HTTP
+ *  200 (OK) status code, you can configure the health check to pass only when
+ *  the backend sends this specific ASCII response string within the first 1024
+ *  bytes of the HTTP response body. For details, see:
+ *  https://cloud.google.com/load-balancing/docs/health-check-concepts#criteria-protocol-http
  */
 @property(nonatomic, copy, nullable) NSString *response;
 
@@ -48387,6 +48980,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** Resource policies applied to this instance. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourcePolicies;
+
+/**
+ *  [Output Only] Specifies values set for instance attributes as compared to
+ *  the values requested by user in the corresponding input only field.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_ResourceStatus *resourceStatus;
 
 /**
  *  [Output Only] Reserved for future use.
@@ -52907,18 +53506,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  VLAN attachment. - IPSEC - The VLAN attachment carries only encrypted
  *  traffic that is encrypted by an IPsec device, such as an HA VPN gateway or
  *  third-party IPsec VPN. VMs cannot directly send traffic to, or receive
- *  traffic from, such a VLAN attachment. To use *IPsec-encrypted Cloud
- *  Interconnect*, the VLAN attachment must be created with this option. Not
- *  currently available publicly.
+ *  traffic from, such a VLAN attachment. To use *HA VPN over Cloud
+ *  Interconnect*, the VLAN attachment must be created with this option.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_InterconnectAttachment_Encryption_Ipsec The
  *        interconnect attachment will carry only encrypted traffic that is
  *        encrypted by an IPsec device such as HA VPN gateway; VMs cannot
  *        directly send traffic to or receive traffic from such an interconnect
- *        attachment. To use IPsec-encrypted Cloud Interconnect, the
- *        interconnect attachment must be created with this option. (Value:
- *        "IPSEC")
+ *        attachment. To use HA VPN over Cloud Interconnect, the interconnect
+ *        attachment must be created with this option. (Value: "IPSEC")
  *    @arg @c kGTLRCompute_InterconnectAttachment_Encryption_None This is the
  *        default value, which means the Interconnect Attachment will carry
  *        unencrypted traffic. VMs will be able to send traffic to or receive
@@ -56670,8 +57267,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Maximum Transmission Unit in bytes. The minimum value for this field is 1460
- *  and the maximum value is 1500 bytes. If unspecified, defaults to 1460.
+ *  Maximum Transmission Unit in bytes. The minimum value for this field is 1300
+ *  and the maximum value is 8896. The suggested value is 1500, which is the
+ *  default MTU used on the Internet, or 8896 if you want to use Jumbo frames.
+ *  If unspecified, the value defaults to 1460.
  *
  *  Uses NSNumber of intValue.
  */
@@ -57316,6 +57915,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *networkEndpointType;
 
+@property(nonatomic, strong, nullable) GTLRCompute_NetworkEndpointGroupPscData *pscData;
+
 /**
  *  The target service url used to set up private service connection to a Google
  *  API or a PSC Producer Service Attachment. An example value is:
@@ -57833,6 +58434,53 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  All data that is specifically relevant to only network endpoint groups of
+ *  type PRIVATE_SERVICE_CONNECT.
+ */
+@interface GTLRCompute_NetworkEndpointGroupPscData : GTLRObject
+
+/**
+ *  [Output Only] Address allocated from given subnetwork for PSC. This IP
+ *  address acts as a VIP for a PSC NEG, allowing it to act as an endpoint in L7
+ *  PSC-XLB.
+ */
+@property(nonatomic, copy, nullable) NSString *consumerPscAddress;
+
+/**
+ *  [Output Only] The PSC connection id of the PSC Network Endpoint Group
+ *  Consumer.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pscConnectionId;
+
+/**
+ *  [Output Only] The connection status of the PSC Forwarding Rule.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_NetworkEndpointGroupPscData_PscConnectionStatus_Accepted
+ *        The connection has been accepted by the producer. (Value: "ACCEPTED")
+ *    @arg @c kGTLRCompute_NetworkEndpointGroupPscData_PscConnectionStatus_Closed
+ *        The connection has been closed by the producer and will not serve
+ *        traffic going forward. (Value: "CLOSED")
+ *    @arg @c kGTLRCompute_NetworkEndpointGroupPscData_PscConnectionStatus_NeedsAttention
+ *        The connection has been accepted by the producer, but the producer
+ *        needs to take further action before the forwarding rule can serve
+ *        traffic. (Value: "NEEDS_ATTENTION")
+ *    @arg @c kGTLRCompute_NetworkEndpointGroupPscData_PscConnectionStatus_Pending
+ *        The connection is pending acceptance by the producer. (Value:
+ *        "PENDING")
+ *    @arg @c kGTLRCompute_NetworkEndpointGroupPscData_PscConnectionStatus_Rejected
+ *        The connection has been rejected by the producer. (Value: "REJECTED")
+ *    @arg @c kGTLRCompute_NetworkEndpointGroupPscData_PscConnectionStatus_StatusUnspecified
+ *        Value "STATUS_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *pscConnectionStatus;
 
 @end
 
@@ -68562,6 +69210,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  Contains output only fields. Use this sub-message for actual values set on
+ *  Instance attributes as compared to the value requested by the user (intent)
+ *  in their instance CRUD calls.
+ */
+@interface GTLRCompute_ResourceStatus : GTLRObject
+
+/** [Output Only] An opaque ID of the host on which the VM is running. */
+@property(nonatomic, copy, nullable) NSString *physicalHost;
+
+@end
+
+
+/**
  *  Represents a Route resource. A route defines a path from VM instances in the
  *  VPC network to a specific destination. This destination can be inside or
  *  outside the VPC network. For more information, read the Routes overview.
@@ -69089,7 +69750,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Indicates if a router is dedicated for use with encrypted VLAN attachments
- *  (interconnectAttachments). Not currently available publicly.
+ *  (interconnectAttachments).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -69114,6 +69775,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] Type of resource. Always compute#router for routers. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/** Keys used for MD5 authentication. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_RouterMd5AuthenticationKey *> *md5AuthenticationKeys;
 
 /**
  *  Name of the resource. Provided by the client when the resource is created.
@@ -69507,6 +70171,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *managementType;
 
 /**
+ *  Present if MD5 authentication is enabled for the peering. Must be the name
+ *  of one of the entries in the Router.md5_authentication_keys. The field must
+ *  comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *md5AuthenticationKeyName;
+
+/**
  *  Name of this BGP peer. The name must be 1-63 characters long, and comply
  *  with RFC1035. Specifically, the name must be 1-63 characters long and match
  *  the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first
@@ -69864,6 +70535,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_RouterMd5AuthenticationKey
+ */
+@interface GTLRCompute_RouterMd5AuthenticationKey : GTLRObject
+
+/**
+ *  [Input only] Value of the key. For patch and update calls, it can be skipped
+ *  to copy the value from the previous configuration. This is allowed if the
+ *  key with the same name existed before the operation. Maximum length is 80
+ *  characters. Can only contain printable ASCII characters.
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  Name used to identify the key. Must be unique within a router. Must be
+ *  referenced by at least one bgpPeer. Must comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -70351,11 +71044,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 @property(nonatomic, strong, nullable) GTLRCompute_BfdStatus *bfdStatus;
 
+/**
+ *  Enable IPv6 traffic over BGP Peer. If not specified, it is disabled by
+ *  default.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableIpv6;
+
 /** IP address of the local BGP interface. */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
+/** IPv6 address of the local BGP interface. */
+@property(nonatomic, copy, nullable) NSString *ipv6NexthopAddress;
+
 /** URL of the VPN tunnel that this BGP peer controls. */
 @property(nonatomic, copy, nullable) NSString *linkedVpnTunnel;
+
+/**
+ *  Informs whether MD5 authentication is enabled on this BGP peer.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *md5AuthEnabled;
 
 /** Name of this BGP peer. Unique within the Routers resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -70369,6 +71080,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** IP address of the remote BGP interface. */
 @property(nonatomic, copy, nullable) NSString *peerIpAddress;
+
+/** IPv6 address of the remote BGP interface. */
+@property(nonatomic, copy, nullable) NSString *peerIpv6NexthopAddress;
 
 /**
  *  [Output only] URI of the VM instance that is used as third-party router
@@ -70393,6 +71107,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_RouterStatusBgpPeerStatus_Status_Up Value "UP"
  */
 @property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  Indicates why particular status was returned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_RouterStatusBgpPeerStatus_StatusReason_Md5AuthInternalProblem
+ *        Indicates internal problems with configuration of MD5 authentication.
+ *        This particular reason can only be returned when md5AuthEnabled is
+ *        true and status is DOWN. (Value: "MD5_AUTH_INTERNAL_PROBLEM")
+ *    @arg @c kGTLRCompute_RouterStatusBgpPeerStatus_StatusReason_StatusReasonUnspecified
+ *        Value "STATUS_REASON_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *statusReason;
 
 /**
  *  Time this session has been up. Format: 14 years, 51 weeks, 6 days, 23 hours,
@@ -74312,40 +75039,49 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_SSLHealthCheck : GTLRObject
 
 /**
- *  The TCP port number for the health check request. The default value is 443.
- *  Valid values are 1 through 65535.
+ *  The TCP port number to which the health check prober sends packets. The
+ *  default value is 443. Valid values are 1 through 65535.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
 
-/**
- *  Port name as defined in InstanceGroup#NamedPort#name. If both port and
- *  port_name are defined, port takes precedence.
- */
+/** Not supported. */
 @property(nonatomic, copy, nullable) NSString *portName;
 
 /**
- *  Specifies how port is selected for health checking, can be one of following
- *  values: USE_FIXED_PORT: The port number in port is used for health checking.
- *  USE_NAMED_PORT: The portName is used for health checking. USE_SERVING_PORT:
- *  For NetworkEndpointGroup, the port specified for each network endpoint is
- *  used for health checking. For other backends, the port or named port
- *  specified in the Backend Service is used for health checking. If not
- *  specified, SSL health check follows behavior specified in port and portName
- *  fields.
+ *  Specifies how a port is selected for health checking. Can be one of the
+ *  following values: USE_FIXED_PORT: Specifies a port number explicitly using
+ *  the port field in the health check. Supported by backend services for
+ *  pass-through load balancers and backend services for proxy load balancers.
+ *  Not supported by target pools. The health check supports all backends
+ *  supported by the backend service provided the backend can be health checked.
+ *  For example, GCE_VM_IP network endpoint groups, GCE_VM_IP_PORT network
+ *  endpoint groups, and instance group backends. USE_NAMED_PORT: Not supported.
+ *  USE_SERVING_PORT: Provides an indirect method of specifying the health check
+ *  port by referring to the backend service. Only supported by backend services
+ *  for proxy load balancers. Not supported by target pools. Not supported by
+ *  backend services for pass-through load balancers. Supports all backends that
+ *  can be health checked; for example, GCE_VM_IP_PORT network endpoint groups
+ *  and instance group backends. For GCE_VM_IP_PORT network endpoint group
+ *  backends, the health check uses the port number specified for each endpoint
+ *  in the network endpoint group. For instance group backends, the health check
+ *  uses the port number determined by looking up the backend service's named
+ *  port in the instance group's list of named ports.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_SSLHealthCheck_PortSpecification_UseFixedPort The
- *        port number in port is used for health checking. (Value:
+ *        port number in the health check's port is used for health checking.
+ *        Applies to network endpoint group and instance group backends. (Value:
  *        "USE_FIXED_PORT")
- *    @arg @c kGTLRCompute_SSLHealthCheck_PortSpecification_UseNamedPort The
- *        portName is used for health checking. (Value: "USE_NAMED_PORT")
+ *    @arg @c kGTLRCompute_SSLHealthCheck_PortSpecification_UseNamedPort Not
+ *        supported. (Value: "USE_NAMED_PORT")
  *    @arg @c kGTLRCompute_SSLHealthCheck_PortSpecification_UseServingPort For
- *        NetworkEndpointGroup, the port specified for each network endpoint is
- *        used for health checking. For other backends, the port or named port
- *        specified in the Backend Service is used for health checking. (Value:
- *        "USE_SERVING_PORT")
+ *        network endpoint group backends, the health check uses the port number
+ *        specified on each endpoint in the network endpoint group. For instance
+ *        group backends, the health check uses the port number specified for
+ *        the backend service's named port defined in the instance group's named
+ *        ports. (Value: "USE_SERVING_PORT")
  */
 @property(nonatomic, copy, nullable) NSString *portSpecification;
 
@@ -74360,19 +75096,208 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *proxyHeader;
 
 /**
- *  The application data to send once the SSL connection has been established
- *  (default value is empty). If both request and response are empty, the
- *  connection establishment alone will indicate health. The request data can
- *  only be ASCII.
+ *  Instructs the health check prober to send this exact ASCII string, up to
+ *  1024 bytes in length, after establishing the TCP connection and SSL
+ *  handshake.
  */
 @property(nonatomic, copy, nullable) NSString *request;
 
 /**
- *  The bytes to match against the beginning of the response data. If left empty
- *  (the default value), any response will indicate health. The response data
- *  can only be ASCII.
+ *  Creates a content-based SSL health check. In addition to establishing a TCP
+ *  connection and the TLS handshake, you can configure the health check to pass
+ *  only when the backend sends this exact response ASCII string, up to 1024
+ *  bytes in length. For details, see:
+ *  https://cloud.google.com/load-balancing/docs/health-check-concepts#criteria-protocol-ssl-tcp
  */
 @property(nonatomic, copy, nullable) NSString *response;
+
+@end
+
+
+/**
+ *  GTLRCompute_SslPoliciesAggregatedList
+ */
+@interface GTLRCompute_SslPoliciesAggregatedList : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  [Output Only] Unique identifier for the resource; defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** A list of SslPoliciesScopedList resources. */
+@property(nonatomic, strong, nullable) GTLRCompute_SslPoliciesAggregatedList_Items *items;
+
+/**
+ *  [Output Only] Type of resource. Always compute#sslPolicyAggregatedList for
+ *  lists of SSL Policies.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
+/** [Output Only] Informational warning message. */
+@property(nonatomic, strong, nullable) GTLRCompute_SslPoliciesAggregatedList_Warning *warning;
+
+@end
+
+
+/**
+ *  A list of SslPoliciesScopedList resources.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCompute_SslPoliciesScopedList. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCompute_SslPoliciesAggregatedList_Items : GTLRObject
+@end
+
+
+/**
+ *  [Output Only] Informational warning message.
+ */
+@interface GTLRCompute_SslPoliciesAggregatedList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_CleanupFailed
+ *        Warning about failed cleanup of transient changes made by a failed
+ *        operation. (Value: "CLEANUP_FAILED")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_DeprecatedResourceUsed
+ *        A link to a deprecated resource was created. (Value:
+ *        "DEPRECATED_RESOURCE_USED")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        When deploying and at least one of the resources has a type marked as
+ *        deprecated (Value: "DEPRECATED_TYPE_USED")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
+ *        The user created a boot disk that is larger than image size. (Value:
+ *        "DISK_SIZE_LARGER_THAN_IMAGE_SIZE")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        When deploying and at least one of the resources has a type marked as
+ *        experimental (Value: "EXPERIMENTAL_TYPE_USED")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_ExternalApiWarning
+ *        Warning that is present in an external api call (Value:
+ *        "EXTERNAL_API_WARNING")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_FieldValueOverriden
+ *        Warning that value of a field has been overridden. Deprecated unused
+ *        field. (Value: "FIELD_VALUE_OVERRIDEN")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_InjectedKernelsDeprecated
+ *        The operation involved use of an injected kernel, which is deprecated.
+ *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        When deploying a deployment with a exceedingly large number of
+ *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_MissingTypeDependency
+ *        A resource depends on a missing type (Value:
+ *        "MISSING_TYPE_DEPENDENCY")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_NextHopAddressNotAssigned
+ *        The route's nextHopIp address is not assigned to an instance on the
+ *        network. (Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_NextHopCannotIpForward
+ *        The route's next hop instance cannot ip forward. (Value:
+ *        "NEXT_HOP_CANNOT_IP_FORWARD")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_NextHopInstanceHasNoIpv6Interface
+ *        The route's nextHopInstance URL refers to an instance that does not
+ *        have an ipv6 interface on the same network as the route. (Value:
+ *        "NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_NextHopInstanceNotFound
+ *        The route's nextHopInstance URL refers to an instance that does not
+ *        exist. (Value: "NEXT_HOP_INSTANCE_NOT_FOUND")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        The route's nextHopInstance URL refers to an instance that is not on
+ *        the same network as the route. (Value:
+ *        "NEXT_HOP_INSTANCE_NOT_ON_NETWORK")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_NextHopNotRunning
+ *        The route's next hop instance does not have a status of RUNNING.
+ *        (Value: "NEXT_HOP_NOT_RUNNING")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_NoResultsOnPage
+ *        No results are present on a particular list page. (Value:
+ *        "NO_RESULTS_ON_PAGE")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_NotCriticalError
+ *        Error which is not critical. We decided to continue the process
+ *        despite the mentioned error. (Value: "NOT_CRITICAL_ERROR")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_PartialSuccess
+ *        Success is reported, but some results may be missing due to errors
+ *        (Value: "PARTIAL_SUCCESS")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_RequiredTosAgreement
+ *        The user attempted to use a resource that requires a TOS they have not
+ *        accepted. (Value: "REQUIRED_TOS_AGREEMENT")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Warning that a resource is in use. (Value:
+ *        "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_ResourceNotDeleted
+ *        One or more of the resources set to auto-delete could not be deleted
+ *        because they were in use. (Value: "RESOURCE_NOT_DELETED")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_SchemaValidationIgnored
+ *        When a resource schema validation is ignored. (Value:
+ *        "SCHEMA_VALIDATION_IGNORED")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_SingleInstancePropertyTemplate
+ *        Instance template used in instance group manager is valid as such, but
+ *        its application does not make a lot of sense, because it allows only
+ *        single instance in instance group. (Value:
+ *        "SINGLE_INSTANCE_PROPERTY_TEMPLATE")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_UndeclaredProperties
+ *        When undeclared properties in the schema are present (Value:
+ *        "UNDECLARED_PROPERTIES")
+ *    @arg @c kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_Unreachable A
+ *        given scope cannot be reached. (Value: "UNREACHABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_SslPoliciesAggregatedList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_SslPoliciesAggregatedList_Warning_Data_Item
+ */
+@interface GTLRCompute_SslPoliciesAggregatedList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -74563,6 +75488,156 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_SslPoliciesListAvailableFeaturesResponse : GTLRObject
 
 @property(nonatomic, strong, nullable) NSArray<NSString *> *features;
+
+@end
+
+
+/**
+ *  GTLRCompute_SslPoliciesScopedList
+ */
+@interface GTLRCompute_SslPoliciesScopedList : GTLRObject
+
+/** A list of SslPolicies contained in this scope. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_SslPolicy *> *sslPolicies;
+
+/**
+ *  Informational warning which replaces the list of SSL policies when the list
+ *  is empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_SslPoliciesScopedList_Warning *warning;
+
+@end
+
+
+/**
+ *  Informational warning which replaces the list of SSL policies when the list
+ *  is empty.
+ */
+@interface GTLRCompute_SslPoliciesScopedList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_CleanupFailed
+ *        Warning about failed cleanup of transient changes made by a failed
+ *        operation. (Value: "CLEANUP_FAILED")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_DeprecatedResourceUsed
+ *        A link to a deprecated resource was created. (Value:
+ *        "DEPRECATED_RESOURCE_USED")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_DeprecatedTypeUsed
+ *        When deploying and at least one of the resources has a type marked as
+ *        deprecated (Value: "DEPRECATED_TYPE_USED")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_DiskSizeLargerThanImageSize
+ *        The user created a boot disk that is larger than image size. (Value:
+ *        "DISK_SIZE_LARGER_THAN_IMAGE_SIZE")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_ExperimentalTypeUsed
+ *        When deploying and at least one of the resources has a type marked as
+ *        experimental (Value: "EXPERIMENTAL_TYPE_USED")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_ExternalApiWarning
+ *        Warning that is present in an external api call (Value:
+ *        "EXTERNAL_API_WARNING")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_FieldValueOverriden
+ *        Warning that value of a field has been overridden. Deprecated unused
+ *        field. (Value: "FIELD_VALUE_OVERRIDEN")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_InjectedKernelsDeprecated
+ *        The operation involved use of an injected kernel, which is deprecated.
+ *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_LargeDeploymentWarning
+ *        When deploying a deployment with a exceedingly large number of
+ *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_MissingTypeDependency
+ *        A resource depends on a missing type (Value:
+ *        "MISSING_TYPE_DEPENDENCY")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_NextHopAddressNotAssigned
+ *        The route's nextHopIp address is not assigned to an instance on the
+ *        network. (Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_NextHopCannotIpForward
+ *        The route's next hop instance cannot ip forward. (Value:
+ *        "NEXT_HOP_CANNOT_IP_FORWARD")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_NextHopInstanceHasNoIpv6Interface
+ *        The route's nextHopInstance URL refers to an instance that does not
+ *        have an ipv6 interface on the same network as the route. (Value:
+ *        "NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_NextHopInstanceNotFound
+ *        The route's nextHopInstance URL refers to an instance that does not
+ *        exist. (Value: "NEXT_HOP_INSTANCE_NOT_FOUND")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        The route's nextHopInstance URL refers to an instance that is not on
+ *        the same network as the route. (Value:
+ *        "NEXT_HOP_INSTANCE_NOT_ON_NETWORK")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_NextHopNotRunning
+ *        The route's next hop instance does not have a status of RUNNING.
+ *        (Value: "NEXT_HOP_NOT_RUNNING")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_NoResultsOnPage No
+ *        results are present on a particular list page. (Value:
+ *        "NO_RESULTS_ON_PAGE")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_NotCriticalError
+ *        Error which is not critical. We decided to continue the process
+ *        despite the mentioned error. (Value: "NOT_CRITICAL_ERROR")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_PartialSuccess
+ *        Success is reported, but some results may be missing due to errors
+ *        (Value: "PARTIAL_SUCCESS")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_RequiredTosAgreement
+ *        The user attempted to use a resource that requires a TOS they have not
+ *        accepted. (Value: "REQUIRED_TOS_AGREEMENT")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Warning that a resource is in use. (Value:
+ *        "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_ResourceNotDeleted
+ *        One or more of the resources set to auto-delete could not be deleted
+ *        because they were in use. (Value: "RESOURCE_NOT_DELETED")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_SchemaValidationIgnored
+ *        When a resource schema validation is ignored. (Value:
+ *        "SCHEMA_VALIDATION_IGNORED")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_SingleInstancePropertyTemplate
+ *        Instance template used in instance group manager is valid as such, but
+ *        its application does not make a lot of sense, because it allows only
+ *        single instance in instance group. (Value:
+ *        "SINGLE_INSTANCE_PROPERTY_TEMPLATE")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_UndeclaredProperties
+ *        When undeclared properties in the schema are present (Value:
+ *        "UNDECLARED_PROPERTIES")
+ *    @arg @c kGTLRCompute_SslPoliciesScopedList_Warning_Code_Unreachable A
+ *        given scope cannot be reached. (Value: "UNREACHABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_SslPoliciesScopedList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_SslPoliciesScopedList_Warning_Data_Item
+ */
+@interface GTLRCompute_SslPoliciesScopedList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -79104,6 +80179,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *proxyHeader;
 
+/**
+ *  [Output Only] URL of the region where the regional TCP proxy resides. This
+ *  field is not applicable to global TCP proxy.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
@@ -79905,40 +80986,49 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_TCPHealthCheck : GTLRObject
 
 /**
- *  The TCP port number for the health check request. The default value is 80.
- *  Valid values are 1 through 65535.
+ *  The TCP port number to which the health check prober sends packets. The
+ *  default value is 80. Valid values are 1 through 65535.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
 
-/**
- *  Port name as defined in InstanceGroup#NamedPort#name. If both port and
- *  port_name are defined, port takes precedence.
- */
+/** Not supported. */
 @property(nonatomic, copy, nullable) NSString *portName;
 
 /**
- *  Specifies how port is selected for health checking, can be one of following
- *  values: USE_FIXED_PORT: The port number in port is used for health checking.
- *  USE_NAMED_PORT: The portName is used for health checking. USE_SERVING_PORT:
- *  For NetworkEndpointGroup, the port specified for each network endpoint is
- *  used for health checking. For other backends, the port or named port
- *  specified in the Backend Service is used for health checking. If not
- *  specified, TCP health check follows behavior specified in port and portName
- *  fields.
+ *  Specifies how a port is selected for health checking. Can be one of the
+ *  following values: USE_FIXED_PORT: Specifies a port number explicitly using
+ *  the port field in the health check. Supported by backend services for
+ *  pass-through load balancers and backend services for proxy load balancers.
+ *  Not supported by target pools. The health check supports all backends
+ *  supported by the backend service provided the backend can be health checked.
+ *  For example, GCE_VM_IP network endpoint groups, GCE_VM_IP_PORT network
+ *  endpoint groups, and instance group backends. USE_NAMED_PORT: Not supported.
+ *  USE_SERVING_PORT: Provides an indirect method of specifying the health check
+ *  port by referring to the backend service. Only supported by backend services
+ *  for proxy load balancers. Not supported by target pools. Not supported by
+ *  backend services for pass-through load balancers. Supports all backends that
+ *  can be health checked; for example, GCE_VM_IP_PORT network endpoint groups
+ *  and instance group backends. For GCE_VM_IP_PORT network endpoint group
+ *  backends, the health check uses the port number specified for each endpoint
+ *  in the network endpoint group. For instance group backends, the health check
+ *  uses the port number determined by looking up the backend service's named
+ *  port in the instance group's list of named ports.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_TCPHealthCheck_PortSpecification_UseFixedPort The
- *        port number in port is used for health checking. (Value:
+ *        port number in the health check's port is used for health checking.
+ *        Applies to network endpoint group and instance group backends. (Value:
  *        "USE_FIXED_PORT")
- *    @arg @c kGTLRCompute_TCPHealthCheck_PortSpecification_UseNamedPort The
- *        portName is used for health checking. (Value: "USE_NAMED_PORT")
+ *    @arg @c kGTLRCompute_TCPHealthCheck_PortSpecification_UseNamedPort Not
+ *        supported. (Value: "USE_NAMED_PORT")
  *    @arg @c kGTLRCompute_TCPHealthCheck_PortSpecification_UseServingPort For
- *        NetworkEndpointGroup, the port specified for each network endpoint is
- *        used for health checking. For other backends, the port or named port
- *        specified in the Backend Service is used for health checking. (Value:
- *        "USE_SERVING_PORT")
+ *        network endpoint group backends, the health check uses the port number
+ *        specified on each endpoint in the network endpoint group. For instance
+ *        group backends, the health check uses the port number specified for
+ *        the backend service's named port defined in the instance group's named
+ *        ports. (Value: "USE_SERVING_PORT")
  */
 @property(nonatomic, copy, nullable) NSString *portSpecification;
 
@@ -79953,17 +81043,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *proxyHeader;
 
 /**
- *  The application data to send once the TCP connection has been established
- *  (default value is empty). If both request and response are empty, the
- *  connection establishment alone will indicate health. The request data can
- *  only be ASCII.
+ *  Instructs the health check prober to send this exact ASCII string, up to
+ *  1024 bytes in length, after establishing the TCP connection.
  */
 @property(nonatomic, copy, nullable) NSString *request;
 
 /**
- *  The bytes to match against the beginning of the response data. If left empty
- *  (the default value), any response will indicate health. The response data
- *  can only be ASCII.
+ *  Creates a content-based TCP health check. In addition to establishing a TCP
+ *  connection, you can configure the health check to pass only when the backend
+ *  sends this exact response ASCII string, up to 1024 bytes in length. For
+ *  details, see:
+ *  https://cloud.google.com/load-balancing/docs/health-check-concepts#criteria-protocol-ssl-tcp
  */
 @property(nonatomic, copy, nullable) NSString *response;
 
@@ -82286,9 +83376,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  URL of the VLAN attachment (interconnectAttachment) resource for this VPN
  *  gateway interface. When the value of this field is present, the VPN gateway
- *  is used for IPsec-encrypted Cloud Interconnect; all egress or ingress
- *  traffic for this VPN gateway interface goes through the specified VLAN
- *  attachment resource. Not currently available publicly.
+ *  is used for HA VPN over Cloud Interconnect; all egress or ingress traffic
+ *  for this VPN gateway interface goes through the specified VLAN attachment
+ *  resource.
  */
 @property(nonatomic, copy, nullable) NSString *interconnectAttachment;
 
@@ -82298,10 +83388,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  regional internal IP address. The two IP addresses for a VPN gateway must be
  *  all regional external or regional internal IP addresses. There cannot be a
  *  mix of regional external IP addresses and regional internal IP addresses.
- *  For IPsec-encrypted Cloud Interconnect, the IP addresses for both interfaces
+ *  For HA VPN over Cloud Interconnect, the IP addresses for both interfaces
  *  could either be regional internal IP addresses or regional external IP
- *  addresses. For regular (non IPsec-encrypted Cloud Interconnect) HA VPN
- *  tunnels, the IP address must be a regional external IP address.
+ *  addresses. For regular (non HA VPN over Cloud Interconnect) HA VPN tunnels,
+ *  the IP address must be a regional external IP address.
  */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 

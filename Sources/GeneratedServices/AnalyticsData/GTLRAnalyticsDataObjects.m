@@ -718,7 +718,8 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 @implementation GTLRAnalyticsData_PropertyQuota
 @dynamic concurrentRequests, potentiallyThresholdedRequestsPerHour,
-         serverErrorsPerProjectPerHour, tokensPerDay, tokensPerHour;
+         serverErrorsPerProjectPerHour, tokensPerDay, tokensPerHour,
+         tokensPerProjectPerHour;
 @end
 
 

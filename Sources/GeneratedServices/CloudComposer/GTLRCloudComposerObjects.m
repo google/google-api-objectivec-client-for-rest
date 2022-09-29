@@ -274,6 +274,15 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudComposer_LoadSnapshotResponse
+//
+
+@implementation GTLRCloudComposer_LoadSnapshotResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudComposer_MaintenanceWindow
 //
 
@@ -389,6 +398,16 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
          enablePrivateEnvironment, enablePrivatelyUsedPublicIps,
          privateClusterConfig, webServerIpv4CidrBlock,
          webServerIpv4ReservedRange;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_SaveSnapshotResponse
+//
+
+@implementation GTLRCloudComposer_SaveSnapshotResponse
+@dynamic snapshotPath;
 @end
 
 

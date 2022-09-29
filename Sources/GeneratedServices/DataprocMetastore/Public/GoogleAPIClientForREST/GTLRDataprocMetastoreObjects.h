@@ -100,6 +100,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType
 // GTLRDataprocMetastore_BackendMetastore.metastoreType
 
 /**
+ *  The backend metastore is BigQuery.
+ *
+ *  Value: "BIGQUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_Bigquery;
+/**
  *  The backend metastore is Dataproc Metastore.
  *
  *  Value: "DATAPROC_METASTORE"
@@ -742,6 +748,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  *  The type of the backend metastore.
  *
  *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_BackendMetastore_MetastoreType_Bigquery The
+ *        backend metastore is BigQuery. (Value: "BIGQUERY")
  *    @arg @c kGTLRDataprocMetastore_BackendMetastore_MetastoreType_DataprocMetastore
  *        The backend metastore is Dataproc Metastore. (Value:
  *        "DATAPROC_METASTORE")
@@ -836,11 +844,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  *  members can have the following values: allUsers: A special identifier that
  *  represents anyone who is on the internet; with or without a Google account.
  *  allAuthenticatedUsers: A special identifier that represents anyone who is
- *  authenticated with a Google account or a service account. user:{emailid}: An
- *  email address that represents a specific Google account. For example,
- *  alice\@example.com . serviceAccount:{emailid}: An email address that
- *  represents a Google service account. For example,
- *  my-other-app\@appspot.gserviceaccount.com.
+ *  authenticated with a Google account or a service account. Does not include
+ *  identities that come from external identity providers (IdPs) through
+ *  identity federation. user:{emailid}: An email address that represents a
+ *  specific Google account. For example, alice\@example.com .
+ *  serviceAccount:{emailid}: An email address that represents a Google service
+ *  account. For example, my-other-app\@appspot.gserviceaccount.com.
  *  serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]: An
  *  identifier for a Kubernetes service account
  *  (https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
@@ -2200,8 +2209,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 @property(nonatomic, strong, nullable) GTLRDataprocMetastore_MetadataManagementActivity *metadataManagementActivity;
 
 /**
- *  Immutable. The relative resource name of the metastore service, of the
- *  form:projects/{project_number}/locations/{location_id}/services/{service_id}.
+ *  Immutable. The relative resource name of the metastore service, in the
+ *  following
+ *  format:projects/{project_number}/locations/{location_id}/services/{service_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

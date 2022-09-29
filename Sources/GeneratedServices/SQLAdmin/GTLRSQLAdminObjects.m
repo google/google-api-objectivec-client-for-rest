@@ -61,6 +61,7 @@ NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8026 = @"MYS
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8027 = @"MYSQL_8_0_27";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8028 = @"MYSQL_8_0_28";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8029 = @"MYSQL_8_0_29";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8030 = @"MYSQL_8_0_30";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres12 = @"POSTGRES_12";
@@ -94,6 +95,7 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8026 = @"MY
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8027 = @"MYSQL_8_0_27";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8028 = @"MYSQL_8_0_28";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8029 = @"MYSQL_8_0_29";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8030 = @"MYSQL_8_0_30";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres12 = @"POSTGRES_12";
@@ -150,6 +152,7 @@ NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8026        = @"MYSQL_8_0_26"
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8027        = @"MYSQL_8_0_27";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8028        = @"MYSQL_8_0_28";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8029        = @"MYSQL_8_0_29";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8030        = @"MYSQL_8_0_30";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres10       = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres11       = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres12       = @"POSTGRES_12";
@@ -418,7 +421,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 @implementation GTLRSQLAdmin_BackupRun
 @dynamic backupKind, descriptionProperty, diskEncryptionConfiguration,
          diskEncryptionStatus, endTime, enqueuedTime, error, identifier,
-         instance, kind, location, selfLink, startTime, status, type,
+         instance, kind, location, selfLink, startTime, status, timeZone, type,
          windowStartTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -485,8 +488,15 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_CloneContext
-@dynamic allocatedIpRange, binLogCoordinates, destinationInstanceName, kind,
-         pitrTimestampMs, pointInTime;
+@dynamic allocatedIpRange, binLogCoordinates, databaseNames,
+         destinationInstanceName, kind, pitrTimestampMs, pointInTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"databaseNames" : [NSString class]
+  };
+  return map;
+}
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -1391,7 +1401,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
          denyMaintenancePeriods, insightsConfig, ipConfiguration, kind,
          locationPreference, maintenanceWindow, passwordValidationPolicy,
          pricingPlan, replicationType, settingsVersion, sqlServerAuditConfig,
-         storageAutoResize, storageAutoResizeLimit, tier, userLabels;
+         storageAutoResize, storageAutoResizeLimit, tier, timeZone, userLabels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

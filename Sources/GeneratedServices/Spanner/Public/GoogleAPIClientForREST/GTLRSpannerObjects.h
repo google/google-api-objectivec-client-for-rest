@@ -42,6 +42,8 @@
 @class GTLRSpanner_Instance;
 @class GTLRSpanner_Instance_Labels;
 @class GTLRSpanner_InstanceConfig;
+@class GTLRSpanner_InstanceConfig_Labels;
+@class GTLRSpanner_InstanceOperationProgress;
 @class GTLRSpanner_KeyRange;
 @class GTLRSpanner_KeyRangeInfo;
 @class GTLRSpanner_KeyRangeInfos;
@@ -459,6 +461,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Instance_State_Ready;
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Instance_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSpanner_InstanceConfig.configType
+
+/**
+ *  Google managed configuration.
+ *
+ *  Value: "GOOGLE_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_ConfigType_GoogleManaged;
+/**
+ *  Unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_ConfigType_TypeUnspecified;
+/**
+ *  User managed configuration.
+ *
+ *  Value: "USER_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_ConfigType_UserManaged;
+
+// ----------------------------------------------------------------------------
 // GTLRSpanner_InstanceConfig.freeInstanceAvailability
 
 /**
@@ -494,6 +518,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvail
  *  Value: "UNSUPPORTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_FreeInstanceAvailability_Unsupported;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_InstanceConfig.state
+
+/**
+ *  The instance config is still being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_State_Creating;
+/**
+ *  The instance config is fully created and ready to be used to create
+ *  instances.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_State_Ready;
+/**
+ *  Not specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_InstanceConfig_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_Metric.aggregation
@@ -543,6 +590,31 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_PlanNode_Kind_Relational;
  *  Value: "SCALAR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_PlanNode_Kind_Scalar;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_ReadWrite.readLockMode
+
+/**
+ *  Optimistic lock mode. Locks for reads within the transaction are not
+ *  acquired on read. Instead the locks are acquired on a commit to validate
+ *  that read/queried data has not changed since the transaction started.
+ *
+ *  Value: "OPTIMISTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReadWrite_ReadLockMode_Optimistic;
+/**
+ *  Pessimistic lock mode. Read locks are acquired immediately on read.
+ *
+ *  Value: "PESSIMISTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReadWrite_ReadLockMode_Pessimistic;
+/**
+ *  Default value. If the value is not specified, the pessimistic read lock is
+ *  used.
+ *
+ *  Value: "READ_LOCK_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReadWrite_ReadLockMode_ReadLockModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_ReplicaInfo.type
@@ -763,6 +835,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 // GTLRSpanner_Type.typeAnnotation
 
 /**
+ *  PostgreSQL compatible JSONB type. This annotation needs to be applied to
+ *  Type instances having JSON type code to specify that values of this type
+ *  should be treated as PostgreSQL JSONB values. Currently this annotation is
+ *  always needed for JSON when a client interacts with PostgreSQL-enabled
+ *  Spanner databases.
+ *
+ *  Value: "PG_JSONB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_TypeAnnotation_PgJsonb;
+/**
  *  PostgreSQL compatible NUMERIC type. This annotation needs to be applied to
  *  Type instances having NUMERIC type code to specify that values of this type
  *  should be treated as PostgreSQL NUMERIC values. Currently this annotation is
@@ -834,7 +916,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  */
 @property(nonatomic, copy, nullable) NSString *databaseDialect;
 
-/** Output only. The encryption information for the backup. */
+/** Output only. Output only. The encryption information for the backup. . */
 @property(nonatomic, strong, nullable) GTLRSpanner_EncryptionInfo *encryptionInfo;
 
 /**
@@ -1015,11 +1097,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
- *  anyone who is authenticated with a Google account or a service account. *
- *  `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
- *  An email address that represents a Google service account. For example,
- *  `my-other-app\@appspot.gserviceaccount.com`. *
+ *  anyone who is authenticated with a Google account or a service account. Does
+ *  not include identities that come from external identity providers (IdPs)
+ *  through identity federation. * `user:{emailid}`: An email address that
+ *  represents a specific Google account. For example, `alice\@example.com` . *
+ *  `serviceAccount:{emailid}`: An email address that represents a Google
+ *  service account. For example, `my-other-app\@appspot.gserviceaccount.com`. *
  *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
  *  identifier for a [Kubernetes service
  *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
@@ -1410,6 +1493,55 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
+ *  Metadata type for the operation returned by CreateInstanceConfig.
+ */
+@interface GTLRSpanner_CreateInstanceConfigMetadata : GTLRObject
+
+/** The time at which this operation was cancelled. */
+@property(nonatomic, strong, nullable) GTLRDateTime *cancelTime;
+
+/** The target instance config end state. */
+@property(nonatomic, strong, nullable) GTLRSpanner_InstanceConfig *instanceConfig;
+
+/** The progress of the CreateInstanceConfig operation. */
+@property(nonatomic, strong, nullable) GTLRSpanner_InstanceOperationProgress *progress;
+
+@end
+
+
+/**
+ *  The request for CreateInstanceConfigRequest.
+ */
+@interface GTLRSpanner_CreateInstanceConfigRequest : GTLRObject
+
+/**
+ *  Required. The InstanceConfig proto of the configuration to create.
+ *  instance_config.name must be `/instanceConfigs/`.
+ *  instance_config.base_config must be a Google managed configuration name,
+ *  e.g. /instanceConfigs/us-east1, /instanceConfigs/nam3.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_InstanceConfig *instanceConfig;
+
+/**
+ *  Required. The ID of the instance config to create. Valid identifiers are of
+ *  the form `custom-[-a-z0-9]*[a-z0-9]` and must be between 2 and 64 characters
+ *  in length. The `custom-` prefix is required to avoid name conflicts with
+ *  Google managed configurations.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceConfigId;
+
+/**
+ *  An option to validate, but not actually execute, a request, and provide the
+ *  same response.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
  *  Metadata type for the operation returned by CreateInstance.
  */
 @interface GTLRSpanner_CreateInstanceMetadata : GTLRObject
@@ -1576,8 +1708,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  Required. The name of the database role. Values are of the form
- *  `projects//instances//databases//databaseRoles/ `, where `` is as specified
- *  in the `CREATE ROLE` DDL statement.
+ *  `projects//instances//databases//databaseRoles/` where `` is as specified in
+ *  the `CREATE ROLE` DDL statement.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2317,8 +2449,43 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  */
 @interface GTLRSpanner_InstanceConfig : GTLRObject
 
+/**
+ *  Base configuration name, e.g. projects//instanceConfigs/nam3, based on which
+ *  this configuration is created. Only set for user managed configurations.
+ *  `base_config` must refer to a configuration of type GOOGLE_MANAGED in the
+ *  same project as this configuration.
+ */
+@property(nonatomic, copy, nullable) NSString *baseConfig;
+
+/**
+ *  Output only. Whether this instance config is a Google or User Managed
+ *  Configuration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_InstanceConfig_ConfigType_GoogleManaged Google
+ *        managed configuration. (Value: "GOOGLE_MANAGED")
+ *    @arg @c kGTLRSpanner_InstanceConfig_ConfigType_TypeUnspecified
+ *        Unspecified. (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_InstanceConfig_ConfigType_UserManaged User managed
+ *        configuration. (Value: "USER_MANAGED")
+ */
+@property(nonatomic, copy, nullable) NSString *configType;
+
 /** The name of this instance configuration as it appears in UIs. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  etag is used for optimistic concurrency control as a way to help prevent
+ *  simultaneous updates of a instance config from overwriting each other. It is
+ *  strongly suggested that systems make use of the etag in the
+ *  read-modify-write cycle to perform instance config updates in order to avoid
+ *  race conditions: An etag is returned in the response which contains instance
+ *  configs, and systems are expected to put that etag in the request to update
+ *  instance config to ensure that their change will be applied to the same
+ *  version of the instance config. If no etag is provided in the call to update
+ *  instance config, then the existing instance config is overwritten blindly.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Output only. Describes whether free instances are available to be created in
@@ -2344,6 +2511,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, copy, nullable) NSString *freeInstanceAvailability;
 
 /**
+ *  Cloud Labels are a flexible and lightweight mechanism for organizing cloud
+ *  resources into groups that reflect a customer's organizational needs and
+ *  deployment strategies. Cloud Labels can be used to filter collections of
+ *  resources. They can be used to control how resource metrics are aggregated.
+ *  And they can be used as arguments to policy management rules (e.g. route,
+ *  firewall, load balancing, etc.). * Label keys must be between 1 and 63
+ *  characters long and must conform to the following regular expression:
+ *  `a-z{0,62}`. * Label values must be between 0 and 63 characters long and
+ *  must conform to the regular expression `[a-z0-9_-]{0,63}`. * No more than 64
+ *  labels can be associated with a given resource. See https://goo.gl/xmQnxf
+ *  for more information on and examples of labels. If you plan to use labels in
+ *  your own code, please note that additional characters may be allowed in the
+ *  future. Therefore, you are advised to use an internal label representation,
+ *  such as JSON, which doesn't rely upon specific characters being disallowed.
+ *  For example, representing labels as the string: name + "_" + value would
+ *  prove problematic if we were to allow "_" in a future release.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_InstanceConfig_Labels *labels;
+
+/**
  *  Allowed values of the "default_leader" schema option for databases in
  *  instances that use this instance configuration.
  */
@@ -2356,10 +2543,90 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. The available optional replicas to choose from for user managed
+ *  configurations. Populated for Google managed configurations.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_ReplicaInfo *> *optionalReplicas;
+
+/**
+ *  Output only. If true, the instance config is being created or updated. If
+ *  false, there are no ongoing operations for the instance config.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
  *  The geographic placement of nodes in this instance configuration and their
  *  replication properties.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_ReplicaInfo *> *replicas;
+
+/**
+ *  Output only. The current instance config state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_InstanceConfig_State_Creating The instance config is
+ *        still being created. (Value: "CREATING")
+ *    @arg @c kGTLRSpanner_InstanceConfig_State_Ready The instance config is
+ *        fully created and ready to be used to create instances. (Value:
+ *        "READY")
+ *    @arg @c kGTLRSpanner_InstanceConfig_State_StateUnspecified Not specified.
+ *        (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Cloud Labels are a flexible and lightweight mechanism for organizing cloud
+ *  resources into groups that reflect a customer's organizational needs and
+ *  deployment strategies. Cloud Labels can be used to filter collections of
+ *  resources. They can be used to control how resource metrics are aggregated.
+ *  And they can be used as arguments to policy management rules (e.g. route,
+ *  firewall, load balancing, etc.). * Label keys must be between 1 and 63
+ *  characters long and must conform to the following regular expression:
+ *  `a-z{0,62}`. * Label values must be between 0 and 63 characters long and
+ *  must conform to the regular expression `[a-z0-9_-]{0,63}`. * No more than 64
+ *  labels can be associated with a given resource. See https://goo.gl/xmQnxf
+ *  for more information on and examples of labels. If you plan to use labels in
+ *  your own code, please note that additional characters may be allowed in the
+ *  future. Therefore, you are advised to use an internal label representation,
+ *  such as JSON, which doesn't rely upon specific characters being disallowed.
+ *  For example, representing labels as the string: name + "_" + value would
+ *  prove problematic if we were to allow "_" in a future release.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRSpanner_InstanceConfig_Labels : GTLRObject
+@end
+
+
+/**
+ *  Encapsulates progress related information for a Cloud Spanner long running
+ *  instance operations.
+ */
+@interface GTLRSpanner_InstanceOperationProgress : GTLRObject
+
+/**
+ *  If set, the time at which this operation failed or was completed
+ *  successfully.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Percent completion of the operation. Values are between 0 and 100 inclusive.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *progressPercent;
+
+/** Time the request was received. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 
@@ -2688,6 +2955,36 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  more of the matching databases.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response for ListInstanceConfigOperations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "operations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRSpanner_ListInstanceConfigOperationsResponse : GTLRCollectionObject
+
+/**
+ *  `next_page_token` can be sent in a subsequent ListInstanceConfigOperations
+ *  call to fetch more of the matching metadata.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of matching instance config long-running operations. Each
+ *  operation's name will be prefixed by the instance config's name. The
+ *  operation's metadata field type `metadata.type_url` describes the type of
+ *  the metadata.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_Operation *> *operations;
 
 @end
 
@@ -3885,6 +4182,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  transaction type has no options.
  */
 @interface GTLRSpanner_ReadWrite : GTLRObject
+
+/**
+ *  Read lock mode for the transaction.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_ReadWrite_ReadLockMode_Optimistic Optimistic lock
+ *        mode. Locks for reads within the transaction are not acquired on read.
+ *        Instead the locks are acquired on a commit to validate that
+ *        read/queried data has not changed since the transaction started.
+ *        (Value: "OPTIMISTIC")
+ *    @arg @c kGTLRSpanner_ReadWrite_ReadLockMode_Pessimistic Pessimistic lock
+ *        mode. Read locks are acquired immediately on read. (Value:
+ *        "PESSIMISTIC")
+ *    @arg @c kGTLRSpanner_ReadWrite_ReadLockMode_ReadLockModeUnspecified
+ *        Default value. If the value is not specified, the pessimistic read
+ *        lock is used. (Value: "READ_LOCK_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *readLockMode;
+
 @end
 
 
@@ -4172,6 +4488,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  information about the new transaction is yielded here.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_Transaction *transaction;
+
+/**
+ *  A SQL query can be parameterized. In PLAN mode, these parameters can be
+ *  undeclared. This indicates the field names and types for those undeclared
+ *  parameters in the SQL query. For example, a SQL query like `"SELECT * FROM
+ *  Users where UserId = \@userId and UserName = \@userName "` could return a
+ *  `undeclared_parameters` value like: "fields": [ { "name": "UserId", "type":
+ *  { "code": "INT64" } }, { "name": "UserName", "type": { "code": "STRING" } },
+ *  ]
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_StructType *undeclaredParameters;
 
 @end
 
@@ -4928,6 +5255,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  clients can ignore it on the read path.
  *
  *  Likely values:
+ *    @arg @c kGTLRSpanner_Type_TypeAnnotation_PgJsonb PostgreSQL compatible
+ *        JSONB type. This annotation needs to be applied to Type instances
+ *        having JSON type code to specify that values of this type should be
+ *        treated as PostgreSQL JSONB values. Currently this annotation is
+ *        always needed for JSON when a client interacts with PostgreSQL-enabled
+ *        Spanner databases. (Value: "PG_JSONB")
  *    @arg @c kGTLRSpanner_Type_TypeAnnotation_PgNumeric PostgreSQL compatible
  *        NUMERIC type. This annotation needs to be applied to Type instances
  *        having NUMERIC type code to specify that values of this type should be
@@ -5017,6 +5350,56 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /** Required. DDL statements to be applied to the database. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *statements;
+
+@end
+
+
+/**
+ *  Metadata type for the operation returned by UpdateInstanceConfig.
+ */
+@interface GTLRSpanner_UpdateInstanceConfigMetadata : GTLRObject
+
+/** The time at which this operation was cancelled. */
+@property(nonatomic, strong, nullable) GTLRDateTime *cancelTime;
+
+/** The desired instance config after updating. */
+@property(nonatomic, strong, nullable) GTLRSpanner_InstanceConfig *instanceConfig;
+
+/** The progress of the UpdateInstanceConfig operation. */
+@property(nonatomic, strong, nullable) GTLRSpanner_InstanceOperationProgress *progress;
+
+@end
+
+
+/**
+ *  The request for UpdateInstanceConfigRequest.
+ */
+@interface GTLRSpanner_UpdateInstanceConfigRequest : GTLRObject
+
+/**
+ *  Required. The user instance config to update, which must always include the
+ *  instance config name. Otherwise, only fields mentioned in update_mask need
+ *  be included. To prevent conflicts of concurrent updates, etag can be used.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_InstanceConfig *instanceConfig;
+
+/**
+ *  Required. A mask specifying which fields in InstanceConfig should be
+ *  updated. The field mask must always be specified; this prevents any future
+ *  fields in InstanceConfig from being erased accidentally by clients that do
+ *  not know about them. Only display_name and labels can be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  An option to validate, but not actually execute, a request, and provide the
+ *  same response.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
 
 @end
 

@@ -597,6 +597,29 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_ListReplicationCyclesResponse
+//
+
+@implementation GTLRVMMigrationService_ListReplicationCyclesResponse
+@dynamic nextPageToken, replicationCycles, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"replicationCycles" : [GTLRVMMigrationService_ReplicationCycle class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"replicationCycles";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_ListSourcesResponse
 //
 
