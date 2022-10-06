@@ -68,7 +68,7 @@ jobs:
             DESTINATION="platform=tvOS Simulator,name=Apple TV,OS=latest"
             ;;
           watchos)
-            DESTINATION="platform=WatchOS Simulator,name=Apple Watch Series 7 - 45mm,OS=latest"
+            DESTINATION="platform=WatchOS Simulator,name=Apple Watch Series 7 (45mm),OS=latest"
             ;;
         esac
 
