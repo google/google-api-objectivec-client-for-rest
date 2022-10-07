@@ -12,10 +12,10 @@ Pod::Spec.new do |s|
       framework for accessing JSON REST APIs.  This is the recommended library
       for accessing JSON-based Google APIs for iOS, OS X, and tvOS applications.
 
-      This version can be used with iOS ≥ 9.0, OS X ≥ 10.9, tvOS ≥ 10.0, watchOS ≥ 6.0.
+      This version can be used with iOS ≥ 10.0, OS X ≥ 10.12, tvOS ≥ 10.0, watchOS ≥ 6.0.
                    DESC
 
-  ios_deployment_target = '9.0'
+  ios_deployment_target = '10.0'
   osx_deployment_target = '10.12'
   tvos_deployment_target = '10.0'
   watchos_deployment_target = '6.0'
