@@ -111,6 +111,12 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunA
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_Superseded = @"SUPERSEDED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_Terminated = @"TERMINATED";
 
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource.resourceValue
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource_ResourceValue_ResourceValueHigh = @"RESOURCE_VALUE_HIGH";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource_ResourceValue_ResourceValueLow = @"RESOURCE_VALUE_LOW";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource_ResourceValue_ResourceValueMedium = @"RESOURCE_VALUE_MEDIUM";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource_ResourceValue_ResourceValueUnspecified = @"RESOURCE_VALUE_UNSPECIFIED";
+
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding.severity
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_Severity_Critical = @"CRITICAL";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_Severity_High = @"HIGH";
@@ -298,7 +304,7 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 @implementation GTLRSecurityCommandCenter_Access
 @dynamic callerIp, callerIpGeo, methodName, principalEmail, principalSubject,
          serviceAccountDelegationInfo, serviceAccountKeyName, serviceName,
-         userAgentFamily, username;
+         userAgentFamily, userName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -361,6 +367,16 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_AssociatedFinding
+//
+
+@implementation GTLRSecurityCommandCenter_AssociatedFinding
+@dynamic canonicalFindingName, findingCategory;
 @end
 
 
@@ -561,6 +577,16 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 
 @implementation GTLRSecurityCommandCenter_Detection
 @dynamic binary, percentPagesMatched;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_Edge
+//
+
+@implementation GTLRSecurityCommandCenter_Edge
+@dynamic destination, source;
 @end
 
 
@@ -818,6 +844,15 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource
+@dynamic displayName, methods, name, resource, resourceType, resourceValue;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"methods" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -827,6 +862,16 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposurePath
+@dynamic edges, exposedResource, name, pathNodes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"edges" : [GTLRSecurityCommandCenter_Edge class],
+    @"pathNodes" : [GTLRSecurityCommandCenter_PathNode class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1482,6 +1527,24 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 
 @implementation GTLRSecurityCommandCenter_OrganizationSettings
 @dynamic assetDiscoveryConfig, enableAssetDiscovery, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_PathNode
+//
+
+@implementation GTLRSecurityCommandCenter_PathNode
+@dynamic associatedFindings, displayName, resource, resourceType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"associatedFindings" : [GTLRSecurityCommandCenter_AssociatedFinding class]
+  };
+  return map;
+}
+
 @end
 
 

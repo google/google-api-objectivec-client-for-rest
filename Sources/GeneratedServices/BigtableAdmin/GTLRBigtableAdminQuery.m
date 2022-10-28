@@ -218,6 +218,33 @@ NSString * const kGTLRBigtableAdminViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @end
 
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsCopy
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_CopyBackupRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/backups:copy";
+  GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsCopy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Operation class];
+  query.loggingName = @"bigtableadmin.projects.instances.clusters.backups.copy";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsCreate
 
 @dynamic backupId, parent;

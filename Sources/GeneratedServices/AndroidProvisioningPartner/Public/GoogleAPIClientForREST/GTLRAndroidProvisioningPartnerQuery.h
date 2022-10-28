@@ -680,7 +680,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates reseller metadata associated with the device.
+ *  Updates reseller metadata associated with the device. Android devices only.
  *
  *  Method: androiddeviceprovisioning.partners.devices.metadata
  */
@@ -697,7 +697,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAndroidProvisioningPartner_DeviceMetadata.
  *
- *  Updates reseller metadata associated with the device.
+ *  Updates reseller metadata associated with the device. Android devices only.
  *
  *  @param object The @c
  *    GTLRAndroidProvisioningPartner_UpdateDeviceMetadataRequest to include in
@@ -774,7 +774,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the reseller metadata attached to a batch of devices. This method
  *  updates devices asynchronously and returns an `Operation` that can be used
  *  to track progress. Read [Long‑running batch
- *  operations](/zero-touch/guides/how-it-works#operations).
+ *  operations](/zero-touch/guides/how-it-works#operations). Android Devices
+ *  only.
  *
  *  Method: androiddeviceprovisioning.partners.devices.updateMetadataAsync
  */
@@ -789,7 +790,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the reseller metadata attached to a batch of devices. This method
  *  updates devices asynchronously and returns an `Operation` that can be used
  *  to track progress. Read [Long‑running batch
- *  operations](/zero-touch/guides/how-it-works#operations).
+ *  operations](/zero-touch/guides/how-it-works#operations). Android Devices
+ *  only.
  *
  *  @param object The @c
  *    GTLRAndroidProvisioningPartner_UpdateDeviceMetadataInBatchRequest to

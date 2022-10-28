@@ -27,6 +27,7 @@
 @class GTLRCloudComposer_IPAllocationPolicy;
 @class GTLRCloudComposer_MaintenanceWindow;
 @class GTLRCloudComposer_MasterAuthorizedNetworksConfig;
+@class GTLRCloudComposer_NetworkingConfig;
 @class GTLRCloudComposer_NodeConfig;
 @class GTLRCloudComposer_Operation;
 @class GTLRCloudComposer_Operation_Metadata;
@@ -146,6 +147,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_EnvironmentConfig_Environm
  *  Value: "ENVIRONMENT_SIZE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudComposer_NetworkingConfig.connectionType
+
+/**
+ *  No specific connection type was requested, so the environment uses the
+ *  default value corresponding to the rest of its configuration.
+ *
+ *  Value: "CONNECTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_NetworkingConfig_ConnectionType_ConnectionTypeUnspecified;
+/**
+ *  Requests the use of Private Service Connect for connecting the Customer and
+ *  Tenant projects.
+ *
+ *  Value: "PRIVATE_SERVICE_CONNECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_NetworkingConfig_ConnectionType_PrivateServiceConnect;
+/**
+ *  Requests the use of VPC peerings for connecting the Customer and Tenant
+ *  projects.
+ *
+ *  Value: "VPC_PEERING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_NetworkingConfig_ConnectionType_VpcPeering;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudComposer_OperationMetadata.operationType
@@ -845,6 +871,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 
 
 /**
+ *  Configuration options for networking connections in the Composer 2
+ *  environment.
+ */
+@interface GTLRCloudComposer_NetworkingConfig : GTLRObject
+
+/**
+ *  Optional. Indicates the user requested specifc connection type between
+ *  Tenant and Customer projects. You cannot set networking connection type in
+ *  public IP environment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudComposer_NetworkingConfig_ConnectionType_ConnectionTypeUnspecified
+ *        No specific connection type was requested, so the environment uses the
+ *        default value corresponding to the rest of its configuration. (Value:
+ *        "CONNECTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudComposer_NetworkingConfig_ConnectionType_PrivateServiceConnect
+ *        Requests the use of Private Service Connect for connecting the
+ *        Customer and Tenant projects. (Value: "PRIVATE_SERVICE_CONNECT")
+ *    @arg @c kGTLRCloudComposer_NetworkingConfig_ConnectionType_VpcPeering
+ *        Requests the use of VPC peerings for connecting the Customer and
+ *        Tenant projects. (Value: "VPC_PEERING")
+ */
+@property(nonatomic, copy, nullable) NSString *connectionType;
+
+@end
+
+
+/**
  *  The configuration information for the Kubernetes Engine nodes running the
  *  Apache Airflow software.
  */
@@ -1197,6 +1251,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enablePrivatelyUsedPublicIps;
+
+/**
+ *  Optional. Configuration for the network connections configuration in the
+ *  environment.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_NetworkingConfig *networkingConfig;
 
 /**
  *  Optional. Configuration for the private GKE cluster for a Private IP Cloud

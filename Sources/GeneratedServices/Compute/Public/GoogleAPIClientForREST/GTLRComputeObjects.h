@@ -493,6 +493,8 @@
 @class GTLRCompute_PublicDelegatedPrefixList_Warning_Data_Item;
 @class GTLRCompute_PublicDelegatedPrefixPublicDelegatedSubPrefix;
 @class GTLRCompute_Quota;
+@class GTLRCompute_QuotaExceededInfo;
+@class GTLRCompute_QuotaExceededInfo_Dimensions;
 @class GTLRCompute_Reference;
 @class GTLRCompute_Region;
 @class GTLRCompute_RegionAutoscalerList_Warning;
@@ -9820,6 +9822,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_U
  *  Value: "UNREACHABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_InstanceGroupManager.listManagedInstancesResults
+
+/**
+ *  (Default) Pagination is disabled for the group's listManagedInstances API
+ *  method. maxResults and pageToken query parameters are ignored and all
+ *  instances are returned in a single response.
+ *
+ *  Value: "PAGELESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManager_ListManagedInstancesResults_Pageless;
+/**
+ *  Pagination is enabled for the group's listManagedInstances API method.
+ *  maxResults and pageToken query parameters are respected.
+ *
+ *  Value: "PAGINATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManager_ListManagedInstancesResults_Paginated;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceGroupManagerAggregatedList_Warning.code
@@ -20672,6 +20693,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_SslCertificates;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_StaticAddresses;
 /** Value: "STATIC_BYOIP_ADDRESSES" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_StaticByoipAddresses;
+/** Value: "STATIC_EXTERNAL_IPV6_ADDRESS_RANGES" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_StaticExternalIpv6AddressRanges;
 /** Value: "SUBNETWORKS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_Subnetworks;
 /** Value: "T2A_CPUS" */
@@ -25205,8 +25228,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptio
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_HttpCookie;
 /** Value: "HTTP_HEADER" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_HttpHeader;
+/** Value: "HTTP_PATH" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_HttpPath;
 /** Value: "IP" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_Ip;
+/** Value: "REGION_CODE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_RegionCode;
+/** Value: "SNI" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_Sni;
 /** Value: "XFF_IP" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_XffIp;
 
@@ -38110,11 +38139,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Settings controlling the eviction of unhealthy hosts from the load balancing
  *  pool for the backend service. If not set, this feature is considered
  *  disabled. This field is applicable to either: - A regional backend service
- *  with the service_protocol set to HTTP, HTTPS, or HTTP2, and
+ *  with the service_protocol set to HTTP, HTTPS, HTTP2, or GRPC, and
  *  load_balancing_scheme set to INTERNAL_MANAGED. - A global backend service
- *  with the load_balancing_scheme set to INTERNAL_SELF_MANAGED. Not supported
- *  when the backend service is referenced by a URL map that is bound to target
- *  gRPC proxy that has validateForProxyless field set to true.
+ *  with the load_balancing_scheme set to INTERNAL_SELF_MANAGED.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_OutlierDetection *outlierDetection;
 
@@ -40770,7 +40797,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Specifies a regular expression that matches allowed origins. For more
  *  information about the regular expression syntax, see Syntax. An origin is
  *  allowed if it matches either an item in allowOrigins or an item in
- *  allowOriginRegexes.
+ *  allowOriginRegexes. Regular expressions can only be used when the
+ *  loadBalancingScheme is set to INTERNAL_SELF_MANAGED.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowOriginRegexes;
 
@@ -47047,7 +47075,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  headerMatch with headerName set to PORT and a regular expression that
  *  satisfies the RFC2616 Host header's port specifier. Only one of exactMatch,
  *  prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be
- *  set. regexMatch only applies to load balancers that have loadBalancingScheme
+ *  set. Regular expressions can only be used when the loadBalancingScheme is
  *  set to INTERNAL_SELF_MANAGED.
  */
 @property(nonatomic, copy, nullable) NSString *regexMatch;
@@ -47491,7 +47519,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  The queryParameterMatch matches if the value of the parameter matches the
  *  regular expression specified by regexMatch. For more information about
  *  regular expression syntax, see Syntax. Only one of presentMatch, exactMatch,
- *  or regexMatch must be set. regexMatch only applies when the
+ *  or regexMatch must be set. Regular expressions can only be used when the
  *  loadBalancingScheme is set to INTERNAL_SELF_MANAGED.
  */
 @property(nonatomic, copy, nullable) NSString *regexMatch;
@@ -47872,8 +47900,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  the regular expression specified in regexMatch after removing any query
  *  parameters and anchor supplied with the original URL. For more information
  *  about regular expression syntax, see Syntax. Only one of prefixMatch,
- *  fullPathMatch or regexMatch must be specified. regexMatch only applies to
- *  load balancers that have loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+ *  fullPathMatch or regexMatch must be specified. Regular expressions can only
+ *  be used when the loadBalancingScheme is set to INTERNAL_SELF_MANAGED.
  */
 @property(nonatomic, copy, nullable) NSString *regexMatch;
 
@@ -49902,6 +49930,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  compute#instanceGroupManager for managed instance groups.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Pagination behavior of the listManagedInstances API method for this managed
+ *  instance group.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InstanceGroupManager_ListManagedInstancesResults_Pageless
+ *        (Default) Pagination is disabled for the group's listManagedInstances
+ *        API method. maxResults and pageToken query parameters are ignored and
+ *        all instances are returned in a single response. (Value: "PAGELESS")
+ *    @arg @c kGTLRCompute_InstanceGroupManager_ListManagedInstancesResults_Paginated
+ *        Pagination is enabled for the group's listManagedInstances API method.
+ *        maxResults and pageToken query parameters are respected. (Value:
+ *        "PAGINATED")
+ */
+@property(nonatomic, copy, nullable) NSString *listManagedInstancesResults;
 
 /**
  *  The name of the managed instance group. The name must be 1-63 characters
@@ -57012,6 +57056,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) GTLRCompute_ErrorInfo *errorInfo;
 @property(nonatomic, strong, nullable) GTLRCompute_Help *help;
 @property(nonatomic, strong, nullable) GTLRCompute_LocalizedMessage *localizedMessage;
+@property(nonatomic, strong, nullable) GTLRCompute_QuotaExceededInfo *quotaInfo;
 
 @end
 
@@ -62383,6 +62428,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) GTLRCompute_ErrorInfo *errorInfo;
 @property(nonatomic, strong, nullable) GTLRCompute_Help *help;
 @property(nonatomic, strong, nullable) GTLRCompute_LocalizedMessage *localizedMessage;
+@property(nonatomic, strong, nullable) GTLRCompute_QuotaExceededInfo *quotaInfo;
 
 @end
 
@@ -62920,7 +62966,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  Number of errors before a host is ejected from the connection pool. When the
  *  backend host is accessed over HTTP, a 5xx return code qualifies as an error.
- *  Defaults to 5.
+ *  Defaults to 5. Not supported when the backend service is referenced by a URL
+ *  map that is bound to target gRPC proxy that has validateForProxyless field
+ *  set to true.
  *
  *  Uses NSNumber of intValue.
  */
@@ -62929,7 +62977,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  The number of consecutive gateway failures (502, 503, 504 status or
  *  connection errors that are mapped to one of those status codes) before a
- *  consecutive gateway failure ejection occurs. Defaults to 3.
+ *  consecutive gateway failure ejection occurs. Defaults to 3. Not supported
+ *  when the backend service is referenced by a URL map that is bound to target
+ *  gRPC proxy that has validateForProxyless field set to true.
  *
  *  Uses NSNumber of intValue.
  */
@@ -62938,7 +62988,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  The percentage chance that a host will be actually ejected when an outlier
  *  status is detected through consecutive 5xx. This setting can be used to
- *  disable ejection or to ramp it up slowly. Defaults to 0.
+ *  disable ejection or to ramp it up slowly. Defaults to 0. Not supported when
+ *  the backend service is referenced by a URL map that is bound to target gRPC
+ *  proxy that has validateForProxyless field set to true.
  *
  *  Uses NSNumber of intValue.
  */
@@ -62947,7 +62999,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  The percentage chance that a host will be actually ejected when an outlier
  *  status is detected through consecutive gateway failures. This setting can be
- *  used to disable ejection or to ramp it up slowly. Defaults to 100.
+ *  used to disable ejection or to ramp it up slowly. Defaults to 100. Not
+ *  supported when the backend service is referenced by a URL map that is bound
+ *  to target gRPC proxy that has validateForProxyless field set to true.
  *
  *  Uses NSNumber of intValue.
  */
@@ -65649,6 +65703,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_Quota_Metric_StaticAddresses Value "STATIC_ADDRESSES"
  *    @arg @c kGTLRCompute_Quota_Metric_StaticByoipAddresses Value
  *        "STATIC_BYOIP_ADDRESSES"
+ *    @arg @c kGTLRCompute_Quota_Metric_StaticExternalIpv6AddressRanges Value
+ *        "STATIC_EXTERNAL_IPV6_ADDRESS_RANGES"
  *    @arg @c kGTLRCompute_Quota_Metric_Subnetworks Value "SUBNETWORKS"
  *    @arg @c kGTLRCompute_Quota_Metric_T2aCpus Value "T2A_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_T2dCpus Value "T2D_CPUS"
@@ -65685,6 +65741,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, strong, nullable) NSNumber *usage;
 
+@end
+
+
+/**
+ *  Additional details for quota exceeded error for resource quota.
+ */
+@interface GTLRCompute_QuotaExceededInfo : GTLRObject
+
+/** The map holding related quota dimensions. */
+@property(nonatomic, strong, nullable) GTLRCompute_QuotaExceededInfo_Dimensions *dimensions;
+
+/**
+ *  Current effective quota limit. The limit's unit depends on the quota type or
+ *  metric.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *limit;
+
+/** The name of the quota limit. */
+@property(nonatomic, copy, nullable) NSString *limitName;
+
+/** The Compute Engine quota metric name. */
+@property(nonatomic, copy, nullable) NSString *metricName;
+
+@end
+
+
+/**
+ *  The map holding related quota dimensions.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_QuotaExceededInfo_Dimensions : GTLRObject
 @end
 
 
@@ -72085,9 +72178,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  A list of rules that belong to this policy. There must always be a default
- *  rule (rule with priority 2147483647 and match "*"). If no rules are provided
- *  when creating a security policy, a default rule with action "allow" will be
- *  added.
+ *  rule which is a rule with priority 2147483647 and match all condition (for
+ *  the match condition this means match "*" for srcIpRanges and for the
+ *  networkMatch condition every field must be either match "*" or not set). If
+ *  no rules are provided when creating a security policy, a default rule with
+ *  action "allow" will be added.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_SecurityPolicyRule *> *rules;
 
@@ -72629,7 +72724,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  address of the request i.e. key type IP. - HTTP_COOKIE: The value of the
  *  HTTP cookie whose name is configured under "enforce_on_key_name". The key
  *  value is truncated to the first 128 bytes of the cookie value. If no such
- *  cookie is present in the request, the key type defaults to ALL.
+ *  cookie is present in the request, the key type defaults to ALL. - HTTP_PATH:
+ *  The URL path of the HTTP request. The key value is truncated to the first
+ *  128 bytes. - SNI: Server name indication in the TLS session of the HTTPS
+ *  request. The key value is truncated to the first 128 bytes. The key type
+ *  defaults to ALL on a HTTP session. - REGION_CODE: The country/region from
+ *  which the request originates.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_All
@@ -72638,8 +72738,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "HTTP_COOKIE"
  *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_HttpHeader
  *        Value "HTTP_HEADER"
+ *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_HttpPath
+ *        Value "HTTP_PATH"
  *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_Ip
  *        Value "IP"
+ *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_RegionCode
+ *        Value "REGION_CODE"
+ *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_Sni
+ *        Value "SNI"
  *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_XffIp
  *        Value "XFF_IP"
  */
@@ -82697,7 +82803,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The stack type for this VPN gateway to identify the IP protocols that are
- *  enabled. If not specified, IPV4_ONLY will be used.
+ *  enabled. Possible values are: IPV4_ONLY, IPV4_IPV6. If not specified,
+ *  IPV4_ONLY will be used.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_VpnGateway_StackType_Ipv4Ipv6 Enable VPN gateway with
@@ -83468,7 +83575,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The interface ID of the external VPN gateway to which this VPN tunnel is
- *  connected. Provided by the client when the VPN tunnel is created.
+ *  connected. Provided by the client when the VPN tunnel is created. Possible
+ *  values are: `0`, `1`, `2`, `3`. The number of IDs in use depends on the
+ *  external VPN gateway redundancy type.
  *
  *  Uses NSNumber of intValue.
  */
@@ -83585,7 +83694,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The interface ID of the VPN gateway with which this VPN tunnel is
- *  associated.
+ *  associated. Possible values are: `0`, `1`.
  *
  *  Uses NSNumber of intValue.
  */

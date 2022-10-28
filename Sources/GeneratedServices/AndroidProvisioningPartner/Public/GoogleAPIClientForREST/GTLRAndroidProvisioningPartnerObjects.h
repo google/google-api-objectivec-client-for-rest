@@ -24,6 +24,7 @@
 @class GTLRAndroidProvisioningPartner_DeviceMetadata_Entries;
 @class GTLRAndroidProvisioningPartner_DeviceReference;
 @class GTLRAndroidProvisioningPartner_Dpc;
+@class GTLRAndroidProvisioningPartner_GoogleWorkspaceAccount;
 @class GTLRAndroidProvisioningPartner_Operation_Metadata;
 @class GTLRAndroidProvisioningPartner_Operation_Response;
 @class GTLRAndroidProvisioningPartner_OperationPerDevice;
@@ -136,6 +137,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_S
 FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeZeroTouch;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidProvisioningPartner_DeviceIdentifier.deviceType
+
+/**
+ *  Android device
+ *
+ *  Value: "DEVICE_TYPE_ANDROID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DeviceIdentifier_DeviceType_DeviceTypeAndroid;
+/**
+ *  Chrome OS device
+ *
+ *  Value: "DEVICE_TYPE_CHROME_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DeviceIdentifier_DeviceType_DeviceTypeChromeOs;
+/**
+ *  Device type is not specified.
+ *
+ *  Value: "DEVICE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DeviceIdentifier_DeviceType_DeviceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata.processingStatus
 
 /**
@@ -246,6 +269,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStat
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusInvalidSectionType;
 /**
+ *  Invalid pre-provisioning token.
+ *
+ *  Value: "SINGLE_DEVICE_STATUS_INVALID_TOKEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusInvalidToken;
+/**
  *  Other error. We know/expect this error, but there's no defined error code
  *  for the error.
  *
@@ -258,6 +287,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStat
  *  Value: "SINGLE_DEVICE_STATUS_PERMISSION_DENIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusPermissionDenied;
+/**
+ *  Revoked pre-provisioning token.
+ *
+ *  Value: "SINGLE_DEVICE_STATUS_REVOKED_TOKEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusRevokedToken;
 /**
  *  This section is claimed by another company.
  *
@@ -311,7 +346,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 @interface GTLRAndroidProvisioningPartner_ClaimDeviceRequest : GTLRObject
 
 /**
- *  Required. The ID of the customer for whom the device is being claimed.
+ *  The ID of the customer for whom the device is being claimed.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -322,6 +357,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 
 /** Optional. The metadata to attach to the device. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceMetadata *deviceMetadata;
+
+/** The Google Workspace customer ID. */
+@property(nonatomic, copy, nullable) NSString *googleWorkspaceCustomerId;
+
+/** Optional. Must and can only be set for Chrome OS devices. */
+@property(nonatomic, copy, nullable) NSString *preProvisioningToken;
 
 /**
  *  Required. The section type of the device's provisioning record.
@@ -397,6 +438,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  *  company's employees in the zero-touch enrollment portal.
  */
 @property(nonatomic, copy, nullable) NSString *companyName;
+
+/**
+ *  Output only. The Google Workspace account associated with this customer.
+ *  Only used for customer Companies.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_GoogleWorkspaceAccount *googleWorkspaceAccount;
 
 /**
  *  Input only. The preferred locale of the customer represented as a BCP47
@@ -690,7 +737,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 
 
 /**
- *  An Android device registered for zero-touch enrollment.
+ *  An Android or Chrome OS device registered for zero-touch enrollment.
  */
 @interface GTLRAndroidProvisioningPartner_Device : GTLRObject
 
@@ -755,8 +802,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  */
 @property(nonatomic, copy, nullable) NSString *additionalService;
 
+/** The ID of the Google Workspace account that owns the Chrome OS device. */
+@property(nonatomic, copy, nullable) NSString *googleWorkspaceCustomerId;
+
 /**
- *  The ID of the Customer that purchased the device.
+ *  The ID of the Customer that purchased the Android device.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -804,13 +854,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  */
 @interface GTLRAndroidProvisioningPartner_DeviceIdentifier : GTLRObject
 
+/**
+ *  An identifier provided by OEMs, carried through the production and sales
+ *  process. Only applicable to Chrome OS devices.
+ */
+@property(nonatomic, copy, nullable) NSString *chromeOsAttestedDeviceId;
+
+/**
+ *  The type of the device
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidProvisioningPartner_DeviceIdentifier_DeviceType_DeviceTypeAndroid
+ *        Android device (Value: "DEVICE_TYPE_ANDROID")
+ *    @arg @c kGTLRAndroidProvisioningPartner_DeviceIdentifier_DeviceType_DeviceTypeChromeOs
+ *        Chrome OS device (Value: "DEVICE_TYPE_CHROME_OS")
+ *    @arg @c kGTLRAndroidProvisioningPartner_DeviceIdentifier_DeviceType_DeviceTypeUnspecified
+ *        Device type is not specified. (Value: "DEVICE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *deviceType;
+
 /** The device’s IMEI number. Validated on input. */
 @property(nonatomic, copy, nullable) NSString *imei;
 
 /**
  *  The device manufacturer’s name. Matches the device's built-in value returned
- *  from `android.os.Build.MANUFACTURER`. Allowed values are listed in
- *  [manufacturers](/zero-touch/resources/manufacturer-names#manufacturers-names).
+ *  from `android.os.Build.MANUFACTURER`. Allowed values are listed in [Android
+ *  manufacturers](/zero-touch/resources/manufacturer-names#manufacturers-names).
  */
 @property(nonatomic, copy, nullable) NSString *manufacturer;
 
@@ -818,9 +887,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 @property(nonatomic, copy, nullable) NSString *meid;
 
 /**
- *  The device model's name. Matches the device's built-in value returned from
- *  `android.os.Build.MODEL`. Allowed values are listed in
- *  [models](/zero-touch/resources/manufacturer-names#model-names).
+ *  The device model's name. Allowed values are listed in [Android
+ *  models](/zero-touch/resources/manufacturer-names#model-names) and [Chrome OS
+ *  models](https://support.google.com/chrome/a/answer/10130175?hl=en#identify_compatible).
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
@@ -917,8 +986,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 
 /**
  *  The processing progress of the operation. Measured as a number from 0 to
- *  100. A value of 10O doesnt always mean the operation completed—check for the
- *  inclusion of a `done` field.
+ *  100. A value of 10O doesn't always mean the operation completed—check for
+ *  the inclusion of a `done` field.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1057,11 +1126,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 @interface GTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest : GTLRObject
 
 /**
- *  Required. The list of customer IDs to search for.
+ *  The list of customer IDs to search for.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *customerId;
+
+/** The list of IDs of Google Workspace accounts to search for. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *googleWorkspaceCustomerId;
 
 /**
  *  Required. The maximum number of devices to show in a page of results. Must
@@ -1120,6 +1192,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  A Google Workspace customer.
+ */
+@interface GTLRAndroidProvisioningPartner_GoogleWorkspaceAccount : GTLRObject
+
+/** Required. The customer ID. */
+@property(nonatomic, copy, nullable) NSString *customerId;
+
+/**
+ *  Output only. The pre-provisioning tokens previously used to claim devices.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *preProvisioningTokens;
 
 @end
 
@@ -1329,7 +1417,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 @interface GTLRAndroidProvisioningPartner_PartnerClaim : GTLRObject
 
 /**
- *  Required. The ID of the customer for whom the device is being claimed.
+ *  The ID of the customer for whom the device is being claimed.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1340,6 +1428,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 
 /** Required. The metadata to attach to the device at claim. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceMetadata *deviceMetadata;
+
+/** The Google Workspace customer ID. */
+@property(nonatomic, copy, nullable) NSString *googleWorkspaceCustomerId;
+
+/** Optional. Must and can only be set for Chrome OS devices. */
+@property(nonatomic, copy, nullable) NSString *preProvisioningToken;
 
 /**
  *  Required. The section type of the device's provisioning record.
@@ -1405,7 +1499,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 @interface GTLRAndroidProvisioningPartner_PerDeviceStatusInBatch : GTLRObject
 
 /**
- *  If processing succeeds, the device ID of the device.
+ *  If processing succeeds, the device ID of the Android device.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1427,11 +1521,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  *    @arg @c kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusInvalidSectionType
  *        Invalid section type. (Value:
  *        "SINGLE_DEVICE_STATUS_INVALID_SECTION_TYPE")
+ *    @arg @c kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusInvalidToken
+ *        Invalid pre-provisioning token. (Value:
+ *        "SINGLE_DEVICE_STATUS_INVALID_TOKEN")
  *    @arg @c kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusOtherError
  *        Other error. We know/expect this error, but there's no defined error
  *        code for the error. (Value: "SINGLE_DEVICE_STATUS_OTHER_ERROR")
  *    @arg @c kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusPermissionDenied
  *        Permission denied. (Value: "SINGLE_DEVICE_STATUS_PERMISSION_DENIED")
+ *    @arg @c kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusRevokedToken
+ *        Revoked pre-provisioning token. (Value:
+ *        "SINGLE_DEVICE_STATUS_REVOKED_TOKEN")
  *    @arg @c kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusSectionNotYours
  *        This section is claimed by another company. (Value:
  *        "SINGLE_DEVICE_STATUS_SECTION_NOT_YOURS")

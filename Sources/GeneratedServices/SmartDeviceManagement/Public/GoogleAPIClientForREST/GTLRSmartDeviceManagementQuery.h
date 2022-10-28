@@ -41,7 +41,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
- *    @c kGTLRAuthScopeSmartDeviceManagementSdmThermostatService
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesDevicesExecuteCommand : GTLRSmartDeviceManagementQuery
 
@@ -76,7 +75,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
- *    @c kGTLRAuthScopeSmartDeviceManagementSdmThermostatService
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesDevicesGet : GTLRSmartDeviceManagementQuery
 
@@ -106,7 +104,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
- *    @c kGTLRAuthScopeSmartDeviceManagementSdmThermostatService
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesDevicesList : GTLRSmartDeviceManagementQuery
 
@@ -154,7 +151,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
- *    @c kGTLRAuthScopeSmartDeviceManagementSdmThermostatService
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesStructuresGet : GTLRSmartDeviceManagementQuery
 
@@ -185,7 +181,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
- *    @c kGTLRAuthScopeSmartDeviceManagementSdmThermostatService
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesStructuresList : GTLRSmartDeviceManagementQuery
 
@@ -230,7 +225,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
- *    @c kGTLRAuthScopeSmartDeviceManagementSdmThermostatService
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesStructuresRoomsGet : GTLRSmartDeviceManagementQuery
 
@@ -261,7 +255,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
- *    @c kGTLRAuthScopeSmartDeviceManagementSdmThermostatService
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesStructuresRoomsList : GTLRSmartDeviceManagementQuery
 

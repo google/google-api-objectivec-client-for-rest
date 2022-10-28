@@ -17484,6 +17484,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
 
 
 /**
+ *  Request message for LineItemService.DuplicateLineItem.
+ */
+@interface GTLRDisplayVideo_DuplicateLineItemRequest : GTLRObject
+
+/**
+ *  The display name of the resulting line item. Must be UTF-8 encoded with a
+ *  maximum size of 240 bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *targetDisplayName;
+
+@end
+
+
+/**
+ *  Response message for LineItemService.DuplicateLineItem.
+ */
+@interface GTLRDisplayVideo_DuplicateLineItemResponse : GTLRObject
+
+/**
+ *  The ID of the successfully created line item.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *duplicateLineItemId;
+
+@end
+
+
+/**
  *  Request message for
  *  FirstAndThirdPartyAudienceService.EditCustomerMatchMembers.
  */

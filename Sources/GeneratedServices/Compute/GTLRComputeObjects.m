@@ -1671,6 +1671,10 @@ NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_SingleInstancePrope
 NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_Unreachable = @"UNREACHABLE";
 
+// GTLRCompute_InstanceGroupManager.listManagedInstancesResults
+NSString * const kGTLRCompute_InstanceGroupManager_ListManagedInstancesResults_Pageless = @"PAGELESS";
+NSString * const kGTLRCompute_InstanceGroupManager_ListManagedInstancesResults_Paginated = @"PAGINATED";
+
 // GTLRCompute_InstanceGroupManagerAggregatedList_Warning.code
 NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
 NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
@@ -3655,6 +3659,7 @@ NSString * const kGTLRCompute_Quota_Metric_SsdTotalGb          = @"SSD_TOTAL_GB"
 NSString * const kGTLRCompute_Quota_Metric_SslCertificates     = @"SSL_CERTIFICATES";
 NSString * const kGTLRCompute_Quota_Metric_StaticAddresses     = @"STATIC_ADDRESSES";
 NSString * const kGTLRCompute_Quota_Metric_StaticByoipAddresses = @"STATIC_BYOIP_ADDRESSES";
+NSString * const kGTLRCompute_Quota_Metric_StaticExternalIpv6AddressRanges = @"STATIC_EXTERNAL_IPV6_ADDRESS_RANGES";
 NSString * const kGTLRCompute_Quota_Metric_Subnetworks         = @"SUBNETWORKS";
 NSString * const kGTLRCompute_Quota_Metric_T2aCpus             = @"T2A_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_T2dCpus             = @"T2D_CPUS";
@@ -4517,7 +4522,10 @@ NSString * const kGTLRCompute_SecurityPolicyRuleMatcher_VersionedExpr_SrcIpsV1 =
 NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_All = @"ALL";
 NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_HttpCookie = @"HTTP_COOKIE";
 NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_HttpHeader = @"HTTP_HEADER";
+NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_HttpPath = @"HTTP_PATH";
 NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_Ip = @"IP";
+NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_RegionCode = @"REGION_CODE";
+NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_Sni = @"SNI";
 NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_XffIp = @"XFF_IP";
 
 // GTLRCompute_SecurityPolicyRuleRedirectOptions.type
@@ -10544,9 +10552,10 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_InstanceGroupManager
 @dynamic autoHealingPolicies, baseInstanceName, creationTimestamp,
          currentActions, descriptionProperty, distributionPolicy, fingerprint,
-         identifier, instanceGroup, instanceTemplate, kind, name, namedPorts,
-         region, selfLink, statefulPolicy, status, targetPools, targetSize,
-         updatePolicy, versions, zoneProperty;
+         identifier, instanceGroup, instanceTemplate, kind,
+         listManagedInstancesResults, name, namedPorts, region, selfLink,
+         statefulPolicy, status, targetPools, targetSize, updatePolicy,
+         versions, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -12914,7 +12923,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_ManagedInstanceLastAttempt_Errors_Errors_Item_ErrorDetails_Item
-@dynamic errorInfo, help, localizedMessage;
+@dynamic errorInfo, help, localizedMessage, quotaInfo;
 @end
 
 
@@ -14602,7 +14611,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_Operation_Error_Errors_Item_ErrorDetails_Item
-@dynamic errorInfo, help, localizedMessage;
+@dynamic errorInfo, help, localizedMessage, quotaInfo;
 @end
 
 
@@ -15586,6 +15595,30 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_Quota
 @dynamic limit, metric, owner, usage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_QuotaExceededInfo
+//
+
+@implementation GTLRCompute_QuotaExceededInfo
+@dynamic dimensions, limit, limitName, metricName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_QuotaExceededInfo_Dimensions
+//
+
+@implementation GTLRCompute_QuotaExceededInfo_Dimensions
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

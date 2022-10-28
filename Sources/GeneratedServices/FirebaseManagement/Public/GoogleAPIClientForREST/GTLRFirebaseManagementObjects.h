@@ -1287,6 +1287,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
+ *  Determines whether to _immediately_ delete the App. If set to true, the App
+ *  is immediately deleted from the Project and cannot be restored to the
+ *  Project. If not set, defaults to false, which means that the App may be
+ *  restored to the Project within 30 days using UndeleteAndroidApp.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *immediate;
+
+/**
  *  If set to true, the request is only validated. The App will _not_ be
  *  removed.
  *
@@ -1317,6 +1327,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
+ *  Determines whether to _immediately_ delete the App. If set to true, the App
+ *  is immediately deleted from the Project and cannot be restored to the
+ *  Project. If not set, defaults to false, which means that the App may be
+ *  restored to the Project within 30 days using UndeleteIosApp
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *immediate;
+
+/**
  *  If set to true, the request is only validated. The App will _not_ be
  *  removed.
  *
@@ -1345,6 +1365,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_WebApp_State_StateUns
  *  has an up-to-date value before proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Determines whether to _immediately_ delete the App. If set to true, the App
+ *  is immediately deleted from the Project and cannot be restored to the
+ *  Project. If not set, defaults to false, which means that the App may be
+ *  restored to the Project within 30 days using UndeleteWebApp
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *immediate;
 
 /**
  *  If set to true, the request is only validated. The App will _not_ be

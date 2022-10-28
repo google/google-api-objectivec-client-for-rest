@@ -2881,6 +2881,186 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a SearchAds360Link.
+ *
+ *  Method: analyticsadmin.properties.searchAds360Links.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksCreate : GTLRGoogleAnalyticsAdminQuery
+
+/** Required. Example format: properties/1234 */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link.
+ *
+ *  Creates a SearchAds360Link.
+ *
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link to
+ *    include in the query.
+ *  @param parent Required. Example format: properties/1234
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksCreate
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a SearchAds360Link on a property.
+ *
+ *  Method: analyticsadmin.properties.searchAds360Links.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksDelete : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The name of the SearchAds360Link to delete. Example format:
+ *  properties/1234/SearchAds360Links/5678
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
+ *
+ *  Deletes a SearchAds360Link on a property.
+ *
+ *  @param name Required. The name of the SearchAds360Link to delete. Example
+ *    format: properties/1234/SearchAds360Links/5678
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Look up a single SearchAds360Link
+ *
+ *  Method: analyticsadmin.properties.searchAds360Links.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksGet : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The name of the SearchAds360Link to get. Example format:
+ *  properties/1234/SearchAds360Link/5678
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link.
+ *
+ *  Look up a single SearchAds360Link
+ *
+ *  @param name Required. The name of the SearchAds360Link to get. Example
+ *    format: properties/1234/SearchAds360Link/5678
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all SearchAds360Links on a property.
+ *
+ *  Method: analyticsadmin.properties.searchAds360Links.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksList : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  The maximum number of resources to return. If unspecified, at most 50
+ *  resources will be returned. The maximum value is 200 (higher values will be
+ *  coerced to the maximum).
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListSearchAds360Links` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListSearchAds360Links` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Example format: properties/1234 */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaListSearchAds360LinksResponse.
+ *
+ *  Lists all SearchAds360Links on a property.
+ *
+ *  @param parent Required. Example format: properties/1234
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a SearchAds360Link on a property.
+ *
+ *  Method: analyticsadmin.properties.searchAds360Links.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksPatch : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Output only. The resource name for this SearchAds360Link resource. Format:
+ *  properties/{propertyId}/searchAds360Links/{linkId} Note: linkId is not the
+ *  Search Ads 360 advertiser ID
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to be updated. Omitted fields will not be
+ *  updated. To replace the entire entity, use one path with the string "*" to
+ *  match all fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link.
+ *
+ *  Updates a SearchAds360Link on a property.
+ *
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link to
+ *    include in the query.
+ *  @param name Output only. The resource name for this SearchAds360Link
+ *    resource. Format: properties/{propertyId}/searchAds360Links/{linkId} Note:
+ *    linkId is not the Search Ads 360 advertiser ID
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesSearchAds360LinksPatch
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Updates attribution settings on a property.
  *
  *  Method: analyticsadmin.properties.updateAttributionSettings

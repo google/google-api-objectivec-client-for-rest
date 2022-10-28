@@ -855,3 +855,114 @@
 }
 
 @end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_VolumeSnapshot *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/snapshots";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBareMetalSolution_VolumeSnapshot class];
+  query.loggingName = @"baremetalsolution.projects.locations.volumes.snapshots.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Empty class];
+  query.loggingName = @"baremetalsolution.projects.locations.volumes.snapshots.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_VolumeSnapshot class];
+  query.loggingName = @"baremetalsolution.projects.locations.volumes.snapshots.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/snapshots";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBareMetalSolution_ListVolumeSnapshotsResponse class];
+  query.loggingName = @"baremetalsolution.projects.locations.volumes.snapshots.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsRestoreVolumeSnapshot
+
+@dynamic volumeSnapshot;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_RestoreVolumeSnapshotRequest *)object
+                 volumeSnapshot:(NSString *)volumeSnapshot {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"volumeSnapshot" ];
+  NSString *pathURITemplate = @"v2/{+volumeSnapshot}:restoreVolumeSnapshot";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsRestoreVolumeSnapshot *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.volumeSnapshot = volumeSnapshot;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Operation class];
+  query.loggingName = @"baremetalsolution.projects.locations.volumes.snapshots.restoreVolumeSnapshot";
+  return query;
+}
+
+@end

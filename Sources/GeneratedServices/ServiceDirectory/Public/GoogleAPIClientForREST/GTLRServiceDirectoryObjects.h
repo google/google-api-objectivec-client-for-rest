@@ -161,6 +161,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
 
+/**
+ *  Output only. The globally unique identifier of the endpoint in the UUID4
+ *  format.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
 @end
 
 
@@ -460,6 +466,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Output only. The globally unique identifier of the namespace in the UUID4
+ *  format.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
 @end
 
 
@@ -653,6 +665,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  /locations/ * /namespaces/ * /services/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The globally unique identifier of the service in the UUID4
+ *  format.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
 
 @end
 

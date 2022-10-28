@@ -4,7 +4,9 @@
 // API:
 //   Google Play Android Developer API (androidpublisher/v3)
 // Description:
-//   Lets Android application developers access their Google Play accounts.
+//   Lets Android application developers access their Google Play accounts. At a
+//   high level, the expected workflow is to "insert" an Edit, make changes as
+//   necessary, and then "commit" it.
 // Documentation:
 //   https://developers.google.com/android-publisher
 
@@ -403,6 +405,58 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_Tim
  *  Value: "TIME_EXTENSION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_RegionalTaxRateInfo.streamingTaxType
+
+/**
+ *  US-specific telecommunications tax tier for multi channel audio streaming
+ *  like radio.
+ *
+ *  Value: "STREAMING_TAX_TYPE_TELCO_AUDIO_MULTI_CHANNEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_StreamingTaxType_StreamingTaxTypeTelcoAudioMultiChannel;
+/**
+ *  US-specific telecommunications tax tier for audio streaming, rental /
+ *  subscription.
+ *
+ *  Value: "STREAMING_TAX_TYPE_TELCO_AUDIO_RENTAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_StreamingTaxType_StreamingTaxTypeTelcoAudioRental;
+/**
+ *  US-specific telecommunications tax tier for audio streaming, sale /
+ *  permanent download.
+ *
+ *  Value: "STREAMING_TAX_TYPE_TELCO_AUDIO_SALES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_StreamingTaxType_StreamingTaxTypeTelcoAudioSales;
+/**
+ *  US-specific telecommunications tax tier for video streaming of multi-channel
+ *  programming.
+ *
+ *  Value: "STREAMING_TAX_TYPE_TELCO_VIDEO_MULTI_CHANNEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_StreamingTaxType_StreamingTaxTypeTelcoVideoMultiChannel;
+/**
+ *  US-specific telecommunications tax tier for video streaming, on demand,
+ *  rentals / subscriptions / pay-per-view.
+ *
+ *  Value: "STREAMING_TAX_TYPE_TELCO_VIDEO_RENTAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_StreamingTaxType_StreamingTaxTypeTelcoVideoRental;
+/**
+ *  US-specific telecommunications tax tier for video streaming of pre-recorded
+ *  content like movies, tv shows.
+ *
+ *  Value: "STREAMING_TAX_TYPE_TELCO_VIDEO_SALES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_StreamingTaxType_StreamingTaxTypeTelcoVideoSales;
+/**
+ *  No telecommunications tax collected.
+ *
+ *  Value: "STREAMING_TAX_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_StreamingTaxType_StreamingTaxTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_RegionalTaxRateInfo.taxTier
@@ -2859,6 +2913,41 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *eligibleForStreamingServiceTaxRate;
+
+/**
+ *  To collect communications or amusement taxes in the United States, choose
+ *  the appropriate tax category. By default Google will determine the collected
+ *  rate based on the buyer ZIP code. [Learn
+ *  more](https://support.google.com/googleplay/android-developer/answer/10463498#streaming_tax).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxRateInfo_StreamingTaxType_StreamingTaxTypeTelcoAudioMultiChannel
+ *        US-specific telecommunications tax tier for multi channel audio
+ *        streaming like radio. (Value:
+ *        "STREAMING_TAX_TYPE_TELCO_AUDIO_MULTI_CHANNEL")
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxRateInfo_StreamingTaxType_StreamingTaxTypeTelcoAudioRental
+ *        US-specific telecommunications tax tier for audio streaming, rental /
+ *        subscription. (Value: "STREAMING_TAX_TYPE_TELCO_AUDIO_RENTAL")
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxRateInfo_StreamingTaxType_StreamingTaxTypeTelcoAudioSales
+ *        US-specific telecommunications tax tier for audio streaming, sale /
+ *        permanent download. (Value: "STREAMING_TAX_TYPE_TELCO_AUDIO_SALES")
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxRateInfo_StreamingTaxType_StreamingTaxTypeTelcoVideoMultiChannel
+ *        US-specific telecommunications tax tier for video streaming of
+ *        multi-channel programming. (Value:
+ *        "STREAMING_TAX_TYPE_TELCO_VIDEO_MULTI_CHANNEL")
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxRateInfo_StreamingTaxType_StreamingTaxTypeTelcoVideoRental
+ *        US-specific telecommunications tax tier for video streaming, on
+ *        demand, rentals / subscriptions / pay-per-view. (Value:
+ *        "STREAMING_TAX_TYPE_TELCO_VIDEO_RENTAL")
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxRateInfo_StreamingTaxType_StreamingTaxTypeTelcoVideoSales
+ *        US-specific telecommunications tax tier for video streaming of
+ *        pre-recorded content like movies, tv shows. (Value:
+ *        "STREAMING_TAX_TYPE_TELCO_VIDEO_SALES")
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxRateInfo_StreamingTaxType_StreamingTaxTypeUnspecified
+ *        No telecommunications tax collected. (Value:
+ *        "STREAMING_TAX_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *streamingTaxType;
 
 /**
  *  Tax tier to specify reduced tax rate. Developers who sell digital news,

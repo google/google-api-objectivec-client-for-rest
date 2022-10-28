@@ -637,6 +637,37 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Runs an aggregation query.
+ *
+ *  Method: datastore.projects.runAggregationQuery
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatastore
+ *    @c kGTLRAuthScopeDatastoreCloudPlatform
+ */
+@interface GTLRDatastoreQuery_ProjectsRunAggregationQuery : GTLRDatastoreQuery
+
+/** Required. The ID of the project against which to make the request. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRDatastore_RunAggregationQueryResponse.
+ *
+ *  Runs an aggregation query.
+ *
+ *  @param object The @c GTLRDatastore_RunAggregationQueryRequest to include in
+ *    the query.
+ *  @param projectId Required. The ID of the project against which to make the
+ *    request.
+ *
+ *  @return GTLRDatastoreQuery_ProjectsRunAggregationQuery
+ */
++ (instancetype)queryWithObject:(GTLRDatastore_RunAggregationQueryRequest *)object
+                      projectId:(NSString *)projectId;
+
+@end
+
+/**
  *  Queries for entities.
  *
  *  Method: datastore.projects.runQuery

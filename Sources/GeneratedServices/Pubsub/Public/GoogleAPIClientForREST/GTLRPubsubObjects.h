@@ -927,9 +927,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 /**
  *  Received Pub/Sub messages. The list will be empty if there are no more
- *  messages available in the backlog. For JSON, the response can be entirely
- *  empty. The Pub/Sub system may return fewer than the `maxMessages` requested
- *  even if there are more messages available in the backlog.
+ *  messages available in the backlog, or if no messages could be returned
+ *  before the request timeout. For JSON, the response can be entirely empty.
+ *  The Pub/Sub system may return fewer than the `maxMessages` requested even if
+ *  there are more messages available in the backlog.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPubsub_ReceivedMessage *> *receivedMessages;
 

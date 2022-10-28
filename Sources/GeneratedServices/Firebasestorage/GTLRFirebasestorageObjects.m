@@ -57,7 +57,7 @@ NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMig
 //
 
 @implementation GTLRFirebasestorage_Bucket
-@dynamic location, name, reconciling;
+@dynamic name;
 @end
 
 

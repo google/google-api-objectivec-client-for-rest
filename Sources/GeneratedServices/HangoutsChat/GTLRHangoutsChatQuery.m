@@ -11,6 +11,18 @@
 
 #import <GoogleAPIClientForREST/GTLRHangoutsChatQuery.h>
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// messageReplyOption
+NSString * const kGTLRHangoutsChatMessageReplyOptionMessageReplyOptionUnspecified = @"MESSAGE_REPLY_OPTION_UNSPECIFIED";
+NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageFallbackToNewThread = @"REPLY_MESSAGE_FALLBACK_TO_NEW_THREAD";
+NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY_MESSAGE_OR_FAIL";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRHangoutsChatQuery
 
 @dynamic fields;
@@ -19,7 +31,7 @@
 
 @implementation GTLRHangoutsChatQuery_DmsConversationsMessages
 
-@dynamic parent, requestId, threadKey;
+@dynamic messageId, messageReplyOption, parent, requestId, threadKey;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {
@@ -46,7 +58,7 @@
 
 @implementation GTLRHangoutsChatQuery_DmsMessages
 
-@dynamic parent, requestId, threadKey;
+@dynamic messageId, messageReplyOption, parent, requestId, threadKey;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {
@@ -73,7 +85,7 @@
 
 @implementation GTLRHangoutsChatQuery_DmsWebhooks
 
-@dynamic parent, requestId, threadKey;
+@dynamic messageId, messageReplyOption, parent, requestId, threadKey;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {
@@ -127,7 +139,7 @@
 
 @implementation GTLRHangoutsChatQuery_RoomsConversationsMessages
 
-@dynamic parent, requestId, threadKey;
+@dynamic messageId, messageReplyOption, parent, requestId, threadKey;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {
@@ -154,7 +166,7 @@
 
 @implementation GTLRHangoutsChatQuery_RoomsMessages
 
-@dynamic parent, requestId, threadKey;
+@dynamic messageId, messageReplyOption, parent, requestId, threadKey;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {
@@ -181,7 +193,7 @@
 
 @implementation GTLRHangoutsChatQuery_RoomsWebhooks
 
-@dynamic parent, requestId, threadKey;
+@dynamic messageId, messageReplyOption, parent, requestId, threadKey;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {
@@ -301,7 +313,7 @@
 
 @implementation GTLRHangoutsChatQuery_SpacesMessagesCreate
 
-@dynamic parent, requestId, threadKey;
+@dynamic messageId, messageReplyOption, parent, requestId, threadKey;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {
@@ -366,7 +378,7 @@
 
 @implementation GTLRHangoutsChatQuery_SpacesMessagesUpdate
 
-@dynamic name, updateMask;
+@dynamic allowMissing, name, updateMask;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                            name:(NSString *)name {
@@ -393,7 +405,7 @@
 
 @implementation GTLRHangoutsChatQuery_SpacesWebhooks
 
-@dynamic parent, requestId, threadKey;
+@dynamic messageId, messageReplyOption, parent, requestId, threadKey;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {

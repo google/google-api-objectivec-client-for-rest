@@ -547,6 +547,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRTranslate_TextGlossaryConfig *glossaryConfig;
 
 /**
+ *  Optional. is_translate_native_pdf_only field for external customers. If
+ *  true, the page limit of online native pdf translation is 300 and only native
+ *  pdf pages will be translated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isTranslateNativePdfOnly;
+
+/**
  *  Optional. The labels with user-defined metadata for the request. Label keys
  *  and values can be no longer than 63 characters (Unicode codepoints), can
  *  only contain lowercase letters, numeric characters, underscores and dashes.

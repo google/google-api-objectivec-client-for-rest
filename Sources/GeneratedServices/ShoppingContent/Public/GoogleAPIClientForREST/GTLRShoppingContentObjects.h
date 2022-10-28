@@ -107,6 +107,7 @@
 @class GTLRShoppingContent_MerchantOrderReturn;
 @class GTLRShoppingContent_MerchantOrderReturnItem;
 @class GTLRShoppingContent_MerchantRejectionReason;
+@class GTLRShoppingContent_MethodQuota;
 @class GTLRShoppingContent_Metrics;
 @class GTLRShoppingContent_MinimumOrderValueTable;
 @class GTLRShoppingContent_MinimumOrderValueTableStoreCodeSetWithMov;
@@ -5564,6 +5565,33 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
+ *  Response message for the ListMethodQuotas method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "methodQuotas" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRShoppingContent_ListMethodQuotasResponse : GTLRCollectionObject
+
+/**
+ *  The current quota usage and limits per each method.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_MethodQuota *> *methodQuotas;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for the `ListRegions` method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -5981,6 +6009,36 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /** Code of the rejection reason. */
 @property(nonatomic, copy, nullable) NSString *reasonCode;
+
+@end
+
+
+/**
+ *  The quota information per method in the Content API.
+ */
+@interface GTLRShoppingContent_MethodQuota : GTLRObject
+
+/**
+ *  The method name, for example “products.list”. Method name does not contain
+ *  version because quota can be shared between different API versions of the
+ *  same method.
+ */
+@property(nonatomic, copy, nullable) NSString *method;
+
+/**
+ *  The current quota limit, for example the maximum number of calls for the
+ *  method.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *quotaLimit;
+
+/**
+ *  The current quota usage, for example the number of calls for the method.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *quotaUsage;
 
 @end
 
@@ -10974,7 +11032,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Product fields. Values are only set for fields requested explicitly in the
- *  request's search query.
+ *  request's search query. Available only to selected merchants. Submit the
+ *  [interest form](https://forms.gle/7Uy8htzAN8oNokz9A) to request access.
  */
 @interface GTLRShoppingContent_ProductView : GTLRObject
 
@@ -11781,8 +11840,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Product fields requested by the merchant in the query. Field values are only
- *  set if the merchant queries `ProductView`. `product_view` field is available
- *  only to allowlisted users who can query the `ProductView` table.
+ *  set if the merchant queries `ProductView`. Available only to selected
+ *  merchants. Submit the [interest form](https://forms.gle/7Uy8htzAN8oNokz9A)
+ *  to request access.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_ProductView *productView;
 

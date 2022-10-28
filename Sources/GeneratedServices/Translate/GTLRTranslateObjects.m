@@ -242,7 +242,8 @@
 
 @implementation GTLRTranslate_DocumentRequest
 @dynamic customizedAttribution, documentInputConfig, documentOutputConfig,
-         glossaryConfig, labels, model, sourceLanguageCode, targetLanguageCode;
+         glossaryConfig, isTranslateNativePdfOnly, labels, model,
+         sourceLanguageCode, targetLanguageCode;
 @end
 
 

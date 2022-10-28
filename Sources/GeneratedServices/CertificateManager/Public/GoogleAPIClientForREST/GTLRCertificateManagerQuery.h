@@ -32,6 +32,159 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new CertificateIssuanceConfig in a given project and location.
+ *
+ *  Method: certificatemanager.projects.locations.certificateIssuanceConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateManagerCloudPlatform
+ */
+@interface GTLRCertificateManagerQuery_ProjectsLocationsCertificateIssuanceConfigsCreate : GTLRCertificateManagerQuery
+
+/** Required. A user-provided name of the certificate config. */
+@property(nonatomic, copy, nullable) NSString *certificateIssuanceConfigId;
+
+/**
+ *  Required. The parent resource of the certificate issuance config. Must be in
+ *  the format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCertificateManager_Operation.
+ *
+ *  Creates a new CertificateIssuanceConfig in a given project and location.
+ *
+ *  @param object The @c GTLRCertificateManager_CertificateIssuanceConfig to
+ *    include in the query.
+ *  @param parent Required. The parent resource of the certificate issuance
+ *    config. Must be in the format `projects/ * /locations/ *`.
+ *
+ *  @return GTLRCertificateManagerQuery_ProjectsLocationsCertificateIssuanceConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCertificateManager_CertificateIssuanceConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single CertificateIssuanceConfig.
+ *
+ *  Method: certificatemanager.projects.locations.certificateIssuanceConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateManagerCloudPlatform
+ */
+@interface GTLRCertificateManagerQuery_ProjectsLocationsCertificateIssuanceConfigsDelete : GTLRCertificateManagerQuery
+
+/**
+ *  Required. A name of the certificate issuance config to delete. Must be in
+ *  the format `projects/ * /locations/ * /certificateIssuanceConfigs/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCertificateManager_Operation.
+ *
+ *  Deletes a single CertificateIssuanceConfig.
+ *
+ *  @param name Required. A name of the certificate issuance config to delete.
+ *    Must be in the format `projects/ * /locations/ *
+ *    /certificateIssuanceConfigs/ *`.
+ *
+ *  @return GTLRCertificateManagerQuery_ProjectsLocationsCertificateIssuanceConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single CertificateIssuanceConfig.
+ *
+ *  Method: certificatemanager.projects.locations.certificateIssuanceConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateManagerCloudPlatform
+ */
+@interface GTLRCertificateManagerQuery_ProjectsLocationsCertificateIssuanceConfigsGet : GTLRCertificateManagerQuery
+
+/**
+ *  Required. A name of the certificate issuance config to describe. Must be in
+ *  the format `projects/ * /locations/ * /certificateIssuanceConfigs/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCertificateManager_CertificateIssuanceConfig.
+ *
+ *  Gets details of a single CertificateIssuanceConfig.
+ *
+ *  @param name Required. A name of the certificate issuance config to describe.
+ *    Must be in the format `projects/ * /locations/ *
+ *    /certificateIssuanceConfigs/ *`.
+ *
+ *  @return GTLRCertificateManagerQuery_ProjectsLocationsCertificateIssuanceConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists CertificateIssuanceConfigs in a given project and location.
+ *
+ *  Method: certificatemanager.projects.locations.certificateIssuanceConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateManagerCloudPlatform
+ */
+@interface GTLRCertificateManagerQuery_ProjectsLocationsCertificateIssuanceConfigsList : GTLRCertificateManagerQuery
+
+/** Filter expression to restrict the Certificates Configs returned. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  A list of Certificate Config field names used to specify the order of the
+ *  returned results. The default sorting order is ascending. To specify
+ *  descending order for a field, add a suffix " desc".
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Maximum number of certificate configs to return per call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListCertificateIssuanceConfigsResponse`.
+ *  Indicates that this is a continuation of a prior
+ *  `ListCertificateIssuanceConfigs` call, and that the system should return the
+ *  next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the certificate should be
+ *  listed, specified in the format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCertificateManager_ListCertificateIssuanceConfigsResponse.
+ *
+ *  Lists CertificateIssuanceConfigs in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the certificate
+ *    should be listed, specified in the format `projects/ * /locations/ *`.
+ *
+ *  @return GTLRCertificateManagerQuery_ProjectsLocationsCertificateIssuanceConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a new CertificateMapEntry in a given project and location.
  *
  *  Method: certificatemanager.projects.locations.certificateMaps.certificateMapEntries.create

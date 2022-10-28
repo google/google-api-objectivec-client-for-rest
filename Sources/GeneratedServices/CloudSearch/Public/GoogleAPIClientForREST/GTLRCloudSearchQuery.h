@@ -1397,6 +1397,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Only applies to
+ *  [`settings.datasources.patch`](https://developers.google.com/cloud-search/docs/reference/rest/v1/settings.datasources/patch).
+ *  Update mask to control which fields to update. Example field paths: `name`,
+ *  `displayName`. * If `update_mask` is non-empty, then only the fields
+ *  specified in the `update_mask` are updated. * If you specify a field in the
+ *  `update_mask`, but don't specify its value in the source, that field is
+ *  cleared. * If the `update_mask` is not present or empty or has the value
+ *  `*`, then all fields are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
  *  Fetches a @c GTLRCloudSearch_Operation.
  *
  *  Updates a datasource. **Note:** This API requires an admin account to
@@ -1647,6 +1661,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Only applies to
+ *  [`settings.searchapplications.patch`](https://developers.google.com/cloud-search/docs/reference/rest/v1/settings.searchapplications/patch).
+ *  Update mask to control which fields to update. Example field paths:
+ *  `search_application.name`, `search_application.displayName`. * If
+ *  `update_mask` is non-empty, then only the fields specified in the
+ *  `update_mask` are updated. * If you specify a field in the `update_mask`,
+ *  but don't specify its value in the `search_application`, then that field is
+ *  cleared. * If the `update_mask` is not present or empty or has the value
+ *  `*`, then all fields are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
  *  Fetches a @c GTLRCloudSearch_Operation.
  *
  *  Updates a search application. **Note:** This API requires an admin account
@@ -1719,6 +1748,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  searchapplications/{application_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Only applies to
+ *  [`settings.searchapplications.patch`](https://developers.google.com/cloud-search/docs/reference/rest/v1/settings.searchapplications/patch).
+ *  Update mask to control which fields to update. Example field paths:
+ *  `search_application.name`, `search_application.displayName`. * If
+ *  `update_mask` is non-empty, then only the fields specified in the
+ *  `update_mask` are updated. * If you specify a field in the `update_mask`,
+ *  but don't specify its value in the `search_application`, then that field is
+ *  cleared. * If the `update_mask` is not present or empty or has the value
+ *  `*`, then all fields are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
  *  Fetches a @c GTLRCloudSearch_Operation.

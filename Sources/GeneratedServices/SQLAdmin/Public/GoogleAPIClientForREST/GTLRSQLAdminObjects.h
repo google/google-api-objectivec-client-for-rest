@@ -33,6 +33,7 @@
 @class GTLRSQLAdmin_DiskEncryptionConfiguration;
 @class GTLRSQLAdmin_DiskEncryptionStatus;
 @class GTLRSQLAdmin_ExportContext;
+@class GTLRSQLAdmin_ExportContext_BakExportOptions;
 @class GTLRSQLAdmin_ExportContext_CsvExportOptions;
 @class GTLRSQLAdmin_ExportContext_SqlExportOptions;
 @class GTLRSQLAdmin_ExportContext_SqlExportOptions_MysqlExportOptions;
@@ -2864,6 +2865,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @interface GTLRSQLAdmin_ExportContext : GTLRObject
 
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_ExportContext_BakExportOptions *bakExportOptions;
+
 /**
  *  Options for exporting data as CSV. `MySQL` and `PostgreSQL` instances only.
  */
@@ -2916,6 +2919,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  is `SQL` and the filename ends with .gz, the contents are compressed.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  GTLRSQLAdmin_ExportContext_BakExportOptions
+ */
+@interface GTLRSQLAdmin_ExportContext_BakExportOptions : GTLRObject
+
+/**
+ *  stripeCount
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stripeCount;
+
+/**
+ *  striped
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *striped;
 
 @end
 
@@ -3224,6 +3249,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_ImportContext_BakImportOptions_EncryptionOptions *encryptionOptions;
 
+/**
+ *  striped
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *striped;
+
 @end
 
 
@@ -3519,6 +3551,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  example: `157.197.200.0/24`).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_AclEntry *> *authorizedNetworks;
+
+/**
+ *  Controls connectivity to private IP instances from Google services, such as
+ *  BigQuery.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enablePrivatePathForGoogleCloudServices;
 
 /**
  *  Whether the instance is assigned a public IP address or not.

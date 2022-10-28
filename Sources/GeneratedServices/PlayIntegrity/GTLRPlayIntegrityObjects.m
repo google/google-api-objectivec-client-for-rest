@@ -27,22 +27,6 @@ NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unevaluat
 NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unknown = @"UNKNOWN";
 NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unlicensed = @"UNLICENSED";
 
-// GTLRPlayIntegrity_AccountRiskVerdict.risk
-NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_Risk_Higher = @"HIGHER";
-NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_Risk_Lower = @"LOWER";
-NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_Risk_Lowest = @"LOWEST";
-NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_Risk_RiskUnspecified = @"RISK_UNSPECIFIED";
-NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_Risk_Unevaluated = @"UNEVALUATED";
-NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_Risk_Unknown = @"UNKNOWN";
-
-// GTLRPlayIntegrity_AccountRiskVerdict.riskLevel
-NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelLowestRisk = @"RISK_LEVEL_LOWEST_RISK";
-NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelLowRisk = @"RISK_LEVEL_LOW_RISK";
-NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelRisk = @"RISK_LEVEL_RISK";
-NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelUnevaluated = @"RISK_LEVEL_UNEVALUATED";
-NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelUnknown = @"RISK_LEVEL_UNKNOWN";
-NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelUnspecified = @"RISK_LEVEL_UNSPECIFIED";
-
 // GTLRPlayIntegrity_AppIntegrity.appRecognitionVerdict
 NSString * const kGTLRPlayIntegrity_AppIntegrity_AppRecognitionVerdict_PlayRecognized = @"PLAY_RECOGNIZED";
 NSString * const kGTLRPlayIntegrity_AppIntegrity_AppRecognitionVerdict_Unevaluated = @"UNEVALUATED";
@@ -72,17 +56,7 @@ NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_Unk
 //
 
 @implementation GTLRPlayIntegrity_AccountDetails
-@dynamic accountActivity, accountRiskVerdict, appLicensingVerdict;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPlayIntegrity_AccountRiskVerdict
-//
-
-@implementation GTLRPlayIntegrity_AccountRiskVerdict
-@dynamic risk, riskLevel;
+@dynamic accountActivity, appLicensingVerdict;
 @end
 
 

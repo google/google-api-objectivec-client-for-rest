@@ -738,8 +738,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_ExportContext
-@dynamic csvExportOptions, databases, fileType, kind, offload, sqlExportOptions,
-         uri;
+@dynamic bakExportOptions, csvExportOptions, databases, fileType, kind, offload,
+         sqlExportOptions, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -754,6 +754,16 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_ExportContext_BakExportOptions
+//
+
+@implementation GTLRSQLAdmin_ExportContext_BakExportOptions
+@dynamic stripeCount, striped;
 @end
 
 
@@ -917,7 +927,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_ImportContext_BakImportOptions
-@dynamic encryptionOptions;
+@dynamic encryptionOptions, striped;
 @end
 
 
@@ -1106,7 +1116,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_IpConfiguration
-@dynamic allocatedIpRange, authorizedNetworks, ipv4Enabled, privateNetwork,
+@dynamic allocatedIpRange, authorizedNetworks,
+         enablePrivatePathForGoogleCloudServices, ipv4Enabled, privateNetwork,
          requireSsl;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

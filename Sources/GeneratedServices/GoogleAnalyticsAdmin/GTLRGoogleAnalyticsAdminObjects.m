@@ -155,6 +155,11 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataStream_Type_DataStreamType
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataStream_Type_IosAppDataStream = @"IOS_APP_DATA_STREAM";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataStream_Type_WebDataStream = @"WEB_DATA_STREAM";
 
+// GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterStringFilter.matchType
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterStringFilter_MatchType_Contains = @"CONTAINS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterStringFilter_MatchType_Exact = @"EXACT";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterStringFilter_MatchType_MatchTypeUnspecified = @"MATCH_TYPE_UNSPECIFIED";
+
 // GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings.consent
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_Consent_GoogleSignalsConsentConsented = @"GOOGLE_SIGNALS_CONSENT_CONSENTED";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_Consent_GoogleSignalsConsentNotConsented = @"GOOGLE_SIGNALS_CONSENT_NOT_CONSENTED";
@@ -235,6 +240,7 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_Account = @"ACCOUNT";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_AttributionSettings = @"ATTRIBUTION_SETTINGS";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ChangeHistoryResourceTypeUnspecified = @"CHANGE_HISTORY_RESOURCE_TYPE_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ChannelGrouping = @"CHANNEL_GROUPING";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ConversionEvent = @"CONVERSION_EVENT";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_CustomDimension = @"CUSTOM_DIMENSION";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_CustomMetric = @"CUSTOM_METRIC";
@@ -242,6 +248,7 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_DataStream = @"DATA_STREAM";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_DisplayVideo360AdvertiserLink = @"DISPLAY_VIDEO_360_ADVERTISER_LINK";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_DisplayVideo360AdvertiserLinkProposal = @"DISPLAY_VIDEO_360_ADVERTISER_LINK_PROPOSAL";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ExpandedDataSet = @"EXPANDED_DATA_SET";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_FirebaseLink = @"FIREBASE_LINK";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_GoogleAdsLink = @"GOOGLE_ADS_LINK";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_GoogleSignalsSettings = @"GOOGLE_SIGNALS_SETTINGS";
@@ -964,8 +971,8 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 @dynamic account, attributionSettings, conversionEvent, customDimension,
          customMetric, dataRetentionSettings, dataStream,
          displayVideo360AdvertiserLink, displayVideo360AdvertiserLinkProposal,
-         firebaseLink, googleAdsLink, googleSignalsSettings,
-         measurementProtocolSecret, property;
+         expandedDataSet, firebaseLink, googleAdsLink, googleSignalsSettings,
+         measurementProtocolSecret, property, searchAds360Link;
 @end
 
 
@@ -1145,6 +1152,97 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 @dynamic adsPersonalizationEnabled, advertiserDisplayName, advertiserId,
          campaignDataSharingEnabled, costDataSharingEnabled,
          linkProposalStatusDetails, name, validationEmail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSet
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSet
+@dynamic dataCollectionStartTime, descriptionProperty,
+         dimensionFilterExpression, dimensionNames, displayName, metricNames,
+         name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensionNames" : [NSString class],
+    @"metricNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilter
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilter
+@dynamic fieldName, inListFilter, stringFilter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterExpression
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterExpression
+@dynamic andGroup, filter, notExpression;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterExpressionList
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterExpressionList
+@dynamic filterExpressions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"filterExpressions" : [GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterExpression class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterInListFilter
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterInListFilter
+@dynamic caseSensitive, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterStringFilter
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterStringFilter
+@dynamic caseSensitive, matchType, value;
 @end
 
 
@@ -1487,6 +1585,28 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGoogleAnalyticsAdmin_V1alphaListSearchAds360LinksResponse
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaListSearchAds360LinksResponse
+@dynamic nextPageToken, searchAds360Links;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"searchAds360Links" : [GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"searchAds360Links";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGoogleAnalyticsAdmin_V1alphaListUserLinksResponse
 //
 
@@ -1608,6 +1728,18 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link
+@dynamic adsPersonalizationEnabled, advertiserDisplayName, advertiserId,
+         campaignDataSharingEnabled, costDataSharingEnabled, name,
+         siteStatsSharingEnabled;
 @end
 
 

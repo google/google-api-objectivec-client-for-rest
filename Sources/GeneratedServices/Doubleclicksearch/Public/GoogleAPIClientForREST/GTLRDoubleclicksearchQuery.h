@@ -62,6 +62,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Numeric ID of the criterion. */
 @property(nonatomic, assign) long long criterionId;
 
+/** Customer ID of a client account in the new Search Ads 360 experience. */
+@property(nonatomic, copy, nullable) NSString *customerId;
+
 /**
  *  Last date (inclusive) on which to retrieve conversions. Format is yyyymmdd.
  *
@@ -115,6 +118,90 @@ NS_ASSUME_NONNULL_BEGIN
                          rowCount:(NSInteger)rowCount
                         startDate:(NSInteger)startDate
                          startRow:(NSUInteger)startRow;
+
+@end
+
+/**
+ *  Retrieves a list of conversions from a DoubleClick Search engine account.
+ *
+ *  Method: doubleclicksearch.conversion.GetCustomerId
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDoubleclicksearch
+ */
+@interface GTLRDoubleclicksearchQuery_ConversionGetCustomerId : GTLRDoubleclicksearchQuery
+
+/** Numeric ID of the ad group. */
+@property(nonatomic, assign) long long adGroupId;
+
+/** Numeric ID of the ad. */
+@property(nonatomic, assign) long long adId;
+
+/** Numeric ID of the advertiser. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** Numeric ID of the agency. */
+@property(nonatomic, assign) long long agencyId;
+
+/** Numeric ID of the campaign. */
+@property(nonatomic, assign) long long campaignId;
+
+/** Numeric ID of the criterion. */
+@property(nonatomic, assign) long long criterionId;
+
+/** Customer ID of a client account in the new Search Ads 360 experience. */
+@property(nonatomic, copy, nullable) NSString *customerId;
+
+/**
+ *  Last date (inclusive) on which to retrieve conversions. Format is yyyymmdd.
+ *
+ *  @note The documented range is 20091101..99991231.
+ */
+@property(nonatomic, assign) NSInteger endDate;
+
+/** Numeric ID of the engine account. */
+@property(nonatomic, assign) long long engineAccountId;
+
+/**
+ *  The number of conversions to return per call.
+ *
+ *  @note The documented range is 1..1000.
+ */
+@property(nonatomic, assign) NSInteger rowCount;
+
+/**
+ *  First date (inclusive) on which to retrieve conversions. Format is yyyymmdd.
+ *
+ *  @note The documented range is 20091101..99991231.
+ */
+@property(nonatomic, assign) NSInteger startDate;
+
+/** The 0-based starting index for retrieving conversions results. */
+@property(nonatomic, assign) NSUInteger startRow;
+
+/**
+ *  Fetches a @c GTLRDoubleclicksearch_ConversionList.
+ *
+ *  Retrieves a list of conversions from a DoubleClick Search engine account.
+ *
+ *  @param customerId Customer ID of a client account in the new Search Ads 360
+ *    experience.
+ *  @param endDate Last date (inclusive) on which to retrieve conversions.
+ *    Format is yyyymmdd. (Range 20091101..99991231)
+ *  @param rowCount The number of conversions to return per call. (Range
+ *    1..1000)
+ *  @param startDate First date (inclusive) on which to retrieve conversions.
+ *    Format is yyyymmdd. (Range 20091101..99991231)
+ *  @param startRow The 0-based starting index for retrieving conversions
+ *    results.
+ *
+ *  @return GTLRDoubleclicksearchQuery_ConversionGetCustomerId
+ */
++ (instancetype)queryWithCustomerId:(NSString *)customerId
+                            endDate:(NSInteger)endDate
+                           rowCount:(NSInteger)rowCount
+                          startDate:(NSInteger)startDate
+                           startRow:(NSUInteger)startRow;
 
 @end
 

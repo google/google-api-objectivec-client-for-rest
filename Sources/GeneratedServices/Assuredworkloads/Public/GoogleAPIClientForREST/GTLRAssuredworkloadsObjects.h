@@ -4,7 +4,7 @@
 // API:
 //   Assured Workloads API (assuredworkloads/v1)
 // Documentation:
-//   https://cloud.google.com
+//   https://cloud.google.com/learnmoreurl
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -19,6 +19,7 @@
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediationInstructionsGcloud;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Labels;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadComplianceStatus;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadKMSSettings;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings;
@@ -43,11 +44,18 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata.complianceRegime
 
 /**
- *  Assured Workloads for Partners;
+ *  Assured Workloads for Partners
  *
  *  Value: "ASSURED_WORKLOADS_FOR_PARTNERS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AssuredWorkloadsForPartners;
+/**
+ *  Assured Workloads for Australia Regions and Support controls Available for
+ *  public preview consumption. Don't create production workloads.
+ *
+ *  Value: "AU_REGIONS_AND_US_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AuRegionsAndUsSupport;
 /**
  *  Assured Workloads For Canada Regions and Support controls
  *
@@ -209,11 +217,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload.complianceRegime
 
 /**
- *  Assured Workloads for Partners;
+ *  Assured Workloads for Partners
  *
  *  Value: "ASSURED_WORKLOADS_FOR_PARTNERS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AssuredWorkloadsForPartners;
+/**
+ *  Assured Workloads for Australia Regions and Support controls Available for
+ *  public preview consumption. Don't create production workloads.
+ *
+ *  Value: "AU_REGIONS_AND_US_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AuRegionsAndUsSupport;
 /**
  *  Assured Workloads For Canada Regions and Support controls
  *
@@ -307,13 +322,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload.partner
 
 /**
- *  S3NS regime
+ *  S3NS regime/controls.
  *
  *  Value: "LOCAL_CONTROLS_BY_S3NS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_LocalControlsByS3ns;
 /**
- *  Unknown compliance regime.
+ *  Unknown partner regime/controls.
  *
  *  Value: "PARTNER_UNSPECIFIED"
  */
@@ -463,7 +478,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @property(nonatomic, copy, nullable) NSString *comment;
 
 /**
- *  Optional. Name of the OrgPolicy which was modified with non-compliant change
+ *  Optional. This field is deprecated and will be removed in future version of
+ *  the API. Name of the OrgPolicy which was modified with non-compliant change
  *  and resulted in this violation. Format:
  *  projects/{project_number}/policies/{constraint_name}
  *  folders/{folder_id}/policies/{constraint_name}
@@ -492,8 +508,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *
  *  Likely values:
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AssuredWorkloadsForPartners
- *        Assured Workloads for Partners; (Value:
+ *        Assured Workloads for Partners (Value:
  *        "ASSURED_WORKLOADS_FOR_PARTNERS")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AuRegionsAndUsSupport
+ *        Assured Workloads for Australia Regions and Support controls Available
+ *        for public preview consumption. Don't create production workloads.
+ *        (Value: "AU_REGIONS_AND_US_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CaRegionsAndSupport
  *        Assured Workloads For Canada Regions and Support controls (Value:
  *        "CA_REGIONS_AND_SUPPORT")
@@ -659,6 +679,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Output only. Immutable. Audit Log link to find business justification
+ *  provided for violation exception. Format:
+ *  https://console.cloud.google.com/logs/query;query={logName}{protoPayload.resourceName}{protoPayload.methodName}{timeRange}{organization}
+ */
+@property(nonatomic, copy, nullable) NSString *exceptionAuditLogLink;
+
+/**
  *  Output only. Immutable. Name of the Violation. Format:
  *  organizations/{organization}/locations/{location}/workloads/{workload_id}/violations/{violations_id}
  */
@@ -800,7 +827,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 
 /**
- *  An Workload object for managing highly regulated workloads of cloud
+ *  A Workload object for managing highly regulated workloads of cloud
  *  customers.
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload : GTLRObject
@@ -820,8 +847,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *
  *  Likely values:
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AssuredWorkloadsForPartners
- *        Assured Workloads for Partners; (Value:
+ *        Assured Workloads for Partners (Value:
  *        "ASSURED_WORKLOADS_FOR_PARTNERS")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AuRegionsAndUsSupport
+ *        Assured Workloads for Australia Regions and Support controls Available
+ *        for public preview consumption. Don't create production workloads.
+ *        (Value: "AU_REGIONS_AND_US_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CaRegionsAndSupport
  *        Assured Workloads For Canada Regions and Support controls (Value:
  *        "CA_REGIONS_AND_SUPPORT")
@@ -851,6 +882,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        "US_REGIONAL_ACCESS")
  */
 @property(nonatomic, copy, nullable) NSString *complianceRegime;
+
+/** Output only. Count of active Violations in the Workload. */
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadComplianceStatus *complianceStatus;
 
 /**
  *  Output only. Urls for services which are compliant for this Assured
@@ -923,9 +957,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *
  *  Likely values:
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_LocalControlsByS3ns
- *        S3NS regime (Value: "LOCAL_CONTROLS_BY_S3NS")
+ *        S3NS regime/controls. (Value: "LOCAL_CONTROLS_BY_S3NS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_PartnerUnspecified
- *        Unknown compliance regime. (Value: "PARTNER_UNSPECIFIED")
+ *        Unknown partner regime/controls. (Value: "PARTNER_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *partner;
 
@@ -974,7 +1008,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 
 /**
- *  Settings specific to the Key Management Service.
+ *  Represents the Compliance Status of this workload
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadComplianceStatus : GTLRObject
+
+/**
+ *  Count of active Violations which are acknowledged in the Workload.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *acknowledgedViolationCount;
+
+/**
+ *  Count of active Violations which haven't been acknowledged.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *activeViolationCount;
+
+@end
+
+
+/**
+ *  Settings specific to the Key Management Service. This message is deprecated.
+ *  In order to create a Keyring, callers should specify,
+ *  ENCRYPTION_KEYS_PROJECT or KEYRING in ResourceSettings.resource_type field.
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadKMSSettings : GTLRObject
 
@@ -1052,7 +1110,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 /**
  *  Indicates the type of resource. This field should be specified to correspond
- *  the id to the right project type (CONSUMER_PROJECT or
+ *  the id to the right resource type (CONSUMER_FOLDER or
  *  ENCRYPTION_KEYS_PROJECT)
  *
  *  Likely values:

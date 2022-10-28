@@ -227,11 +227,13 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 //
 
 @implementation GTLRCloudBuild_Artifacts
-@dynamic images, objects;
+@dynamic images, mavenArtifacts, objects, pythonPackages;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"images" : [NSString class]
+    @"images" : [NSString class],
+    @"mavenArtifacts" : [GTLRCloudBuild_MavenArtifact class],
+    @"pythonPackages" : [GTLRCloudBuild_PythonPackage class]
   };
   return map;
 }
@@ -1162,6 +1164,16 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_MavenArtifact
+//
+
+@implementation GTLRCloudBuild_MavenArtifact
+@dynamic artifactId, groupId, path, repository, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_NetworkConfig
 //
 
@@ -1370,6 +1382,24 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_PythonPackage
+//
+
+@implementation GTLRCloudBuild_PythonPackage
+@dynamic paths, repository;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"paths" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_ReceiveTriggerWebhookResponse
 //
 
@@ -1429,13 +1459,15 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 @implementation GTLRCloudBuild_Results
 @dynamic artifactManifest, artifactTiming, buildStepImages, buildStepOutputs,
-         images, numArtifacts;
+         images, mavenArtifacts, numArtifacts, pythonPackages;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"buildStepImages" : [NSString class],
     @"buildStepOutputs" : [NSString class],
-    @"images" : [GTLRCloudBuild_BuiltImage class]
+    @"images" : [GTLRCloudBuild_BuiltImage class],
+    @"mavenArtifacts" : [GTLRCloudBuild_UploadedMavenArtifact class],
+    @"pythonPackages" : [GTLRCloudBuild_UploadedPythonPackage class]
   };
   return map;
 }
@@ -1708,6 +1740,26 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 @implementation GTLRCloudBuild_UpdateWorkerPoolOperationMetadata
 @dynamic completeTime, createTime, workerPool;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_UploadedMavenArtifact
+//
+
+@implementation GTLRCloudBuild_UploadedMavenArtifact
+@dynamic fileHashes, pushTiming, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_UploadedPythonPackage
+//
+
+@implementation GTLRCloudBuild_UploadedPythonPackage
+@dynamic fileHashes, pushTiming, uri;
 @end
 
 

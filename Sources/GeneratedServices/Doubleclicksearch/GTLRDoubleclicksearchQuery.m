@@ -20,7 +20,7 @@
 @implementation GTLRDoubleclicksearchQuery_ConversionGet
 
 @dynamic adGroupId, adId, advertiserId, agencyId, campaignId, criterionId,
-         endDate, engineAccountId, rowCount, startDate, startRow;
+         customerId, endDate, engineAccountId, rowCount, startDate, startRow;
 
 + (instancetype)queryWithAgencyId:(long long)agencyId
                      advertiserId:(long long)advertiserId
@@ -46,6 +46,34 @@
   query.startRow = startRow;
   query.expectedObjectClass = [GTLRDoubleclicksearch_ConversionList class];
   query.loggingName = @"doubleclicksearch.conversion.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDoubleclicksearchQuery_ConversionGetCustomerId
+
+@dynamic adGroupId, adId, advertiserId, agencyId, campaignId, criterionId,
+         customerId, endDate, engineAccountId, rowCount, startDate, startRow;
+
++ (instancetype)queryWithCustomerId:(NSString *)customerId
+                            endDate:(NSInteger)endDate
+                           rowCount:(NSInteger)rowCount
+                          startDate:(NSInteger)startDate
+                           startRow:(NSUInteger)startRow {
+  NSArray *pathParams = @[ @"customerId" ];
+  NSString *pathURITemplate = @"doubleclicksearch/v2/customer/{customerId}/conversion";
+  GTLRDoubleclicksearchQuery_ConversionGetCustomerId *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customerId = customerId;
+  query.endDate = endDate;
+  query.rowCount = rowCount;
+  query.startDate = startDate;
+  query.startRow = startRow;
+  query.expectedObjectClass = [GTLRDoubleclicksearch_ConversionList class];
+  query.loggingName = @"doubleclicksearch.conversion.GetCustomerId";
   return query;
 }
 

@@ -201,7 +201,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @end
 
 /**
- *  Deletes a device. This operation wipes the device.
+ *  Deletes a device. This operation wipes the device. Deleted devices do not
+ *  show up in enterprises.devices.list calls and a 404 is returned from
+ *  enterprises.devices.get.
  *
  *  Method: androidmanagement.enterprises.devices.delete
  *
@@ -241,7 +243,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 /**
  *  Fetches a @c GTLRAndroidManagement_Empty.
  *
- *  Deletes a device. This operation wipes the device.
+ *  Deletes a device. This operation wipes the device. Deleted devices do not
+ *  show up in enterprises.devices.list calls and a 404 is returned from
+ *  enterprises.devices.get.
  *
  *  @param name The name of the device in the form
  *    enterprises/{enterpriseId}/devices/{deviceId}.
@@ -253,7 +257,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @end
 
 /**
- *  Gets a device.
+ *  Gets a device. Deleted devices will respond with a 404 error.
  *
  *  Method: androidmanagement.enterprises.devices.get
  *
@@ -271,7 +275,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 /**
  *  Fetches a @c GTLRAndroidManagement_Device.
  *
- *  Gets a device.
+ *  Gets a device. Deleted devices will respond with a 404 error.
  *
  *  @param name The name of the device in the form
  *    enterprises/{enterpriseId}/devices/{deviceId}.
@@ -319,7 +323,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @end
 
 /**
- *  Lists devices for a given enterprise.
+ *  Lists devices for a given enterprise. Deleted devices are not returned in
+ *  the response.
  *
  *  Method: androidmanagement.enterprises.devices.list
  *
@@ -343,7 +348,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 /**
  *  Fetches a @c GTLRAndroidManagement_ListDevicesResponse.
  *
- *  Lists devices for a given enterprise.
+ *  Lists devices for a given enterprise. Deleted devices are not returned in
+ *  the response.
  *
  *  @param parent The name of the enterprise in the form
  *    enterprises/{enterpriseId}.

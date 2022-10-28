@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud TPU API (tpu/v1)
+//   Cloud TPU API (tpu/v2)
 // Description:
 //   TPU API provides customers with access to Google TPU technology.
 // Documentation:
@@ -15,20 +15,30 @@
 #endif
 
 @class GTLRTPU_AcceleratorType;
+@class GTLRTPU_AccessConfig;
+@class GTLRTPU_AttachedDisk;
+@class GTLRTPU_GuestAttributes;
+@class GTLRTPU_GuestAttributesEntry;
+@class GTLRTPU_GuestAttributesValue;
 @class GTLRTPU_Location;
 @class GTLRTPU_Location_Labels;
 @class GTLRTPU_Location_Metadata;
+@class GTLRTPU_NetworkConfig;
 @class GTLRTPU_NetworkEndpoint;
 @class GTLRTPU_Node;
 @class GTLRTPU_Node_Labels;
+@class GTLRTPU_Node_Metadata;
 @class GTLRTPU_Operation;
 @class GTLRTPU_Operation_Metadata;
 @class GTLRTPU_Operation_Response;
+@class GTLRTPU_RuntimeVersion;
 @class GTLRTPU_SchedulingConfig;
+@class GTLRTPU_ServiceAccount;
+@class GTLRTPU_ServiceIdentity;
+@class GTLRTPU_ShieldedInstanceConfig;
 @class GTLRTPU_Status;
 @class GTLRTPU_Status_Details_Item;
 @class GTLRTPU_Symptom;
-@class GTLRTPU_TensorFlowVersion;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -39,6 +49,30 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRTPU_AttachedDisk.mode
+
+/**
+ *  The disk mode is not known/set.
+ *
+ *  Value: "DISK_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_AttachedDisk_Mode_DiskModeUnspecified;
+/**
+ *  Attaches the disk in read-only mode. Multiple TPU nodes can attach a disk in
+ *  read-only mode at a time.
+ *
+ *  Value: "READ_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_AttachedDisk_Mode_ReadOnly;
+/**
+ *  Attaches the disk in read-write mode. Only one TPU node can attach a disk in
+ *  read-write mode at a time.
+ *
+ *  Value: "READ_WRITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_AttachedDisk_Mode_ReadWrite;
 
 // ----------------------------------------------------------------------------
 // GTLRTPU_Node.apiVersion
@@ -62,6 +96,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_ApiVersion_V1;
  */
 FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_ApiVersion_V1Alpha1;
 /**
+ *  TPU API V2 version.
+ *
+ *  Value: "V2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_ApiVersion_V2;
+/**
  *  TPU API V2Alpha1 version.
  *
  *  Value: "V2_ALPHA1"
@@ -71,12 +111,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_ApiVersion_V2Alpha1;
 // ----------------------------------------------------------------------------
 // GTLRTPU_Node.health
 
-/**
- *  The resource is unhealthy.
- *
- *  Value: "DEPRECATED_UNHEALTHY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_Health_DeprecatedUnhealthy;
 /**
  *  Health status is unknown: not initialized or failed to retrieve.
  *
@@ -267,12 +301,156 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 
 
 /**
+ *  An access config attached to the TPU worker.
+ */
+@interface GTLRTPU_AccessConfig : GTLRObject
+
+/** Output only. An external IP address associated with the TPU worker. */
+@property(nonatomic, copy, nullable) NSString *externalIp;
+
+@end
+
+
+/**
+ *  A node-attached disk resource. Next ID: 8;
+ */
+@interface GTLRTPU_AttachedDisk : GTLRObject
+
+/**
+ *  The mode in which to attach this disk. If not specified, the default is
+ *  READ_WRITE mode. Only applicable to data_disks.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTPU_AttachedDisk_Mode_DiskModeUnspecified The disk mode is
+ *        not known/set. (Value: "DISK_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRTPU_AttachedDisk_Mode_ReadOnly Attaches the disk in read-only
+ *        mode. Multiple TPU nodes can attach a disk in read-only mode at a
+ *        time. (Value: "READ_ONLY")
+ *    @arg @c kGTLRTPU_AttachedDisk_Mode_ReadWrite Attaches the disk in
+ *        read-write mode. Only one TPU node can attach a disk in read-write
+ *        mode at a time. (Value: "READ_WRITE")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/**
+ *  Specifies the full path to an existing disk. For example:
+ *  "projects/my-project/zones/us-central1-c/disks/my-disk".
+ */
+@property(nonatomic, copy, nullable) NSString *sourceDisk;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRTPU_Empty : GTLRObject
+@end
+
+
+/**
+ *  Request for GenerateServiceIdentity.
+ */
+@interface GTLRTPU_GenerateServiceIdentityRequest : GTLRObject
+@end
+
+
+/**
+ *  Response for GenerateServiceIdentity.
+ */
+@interface GTLRTPU_GenerateServiceIdentityResponse : GTLRObject
+
+/** ServiceIdentity that was created or retrieved. */
+@property(nonatomic, strong, nullable) GTLRTPU_ServiceIdentity *identity;
+
+@end
+
+
+/**
+ *  Request for GetGuestAttributes.
+ */
+@interface GTLRTPU_GetGuestAttributesRequest : GTLRObject
+
+/** The guest attributes path to be queried. */
+@property(nonatomic, copy, nullable) NSString *queryPath;
+
+/**
+ *  The 0-based worker ID. If it is empty, all workers' GuestAttributes will be
+ *  returned.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *workerIds;
+
+@end
+
+
+/**
+ *  Response for GetGuestAttributes.
+ */
+@interface GTLRTPU_GetGuestAttributesResponse : GTLRObject
+
+/** The guest attributes for the TPU workers. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTPU_GuestAttributes *> *guestAttributes;
+
+@end
+
+
+/**
+ *  A guest attributes.
+ */
+@interface GTLRTPU_GuestAttributes : GTLRObject
+
+/**
+ *  The path to be queried. This can be the default namespace ('/') or a nested
+ *  namespace ('/\\/') or a specified key ('/\\/\\')
+ */
+@property(nonatomic, copy, nullable) NSString *queryPath;
+
+/** The value of the requested queried path. */
+@property(nonatomic, strong, nullable) GTLRTPU_GuestAttributesValue *queryValue;
+
+@end
+
+
+/**
+ *  A guest attributes namespace/key/value entry.
+ */
+@interface GTLRTPU_GuestAttributesEntry : GTLRObject
+
+/** Key for the guest attribute entry. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  Namespace for the guest attribute entry.
+ *
+ *  Remapped to 'namespaceProperty' to avoid language reserved word 'namespace'.
+ */
+@property(nonatomic, copy, nullable) NSString *namespaceProperty;
+
+/** Value for the guest attribute entry. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Array of guest attribute namespace/key/value tuples.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRTPU_GuestAttributesValue : GTLRCollectionObject
+
+/**
+ *  The list of guest attributes entries.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTPU_GuestAttributesEntry *> *items;
+
 @end
 
 
@@ -379,14 +557,14 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 
 
 /**
- *  Response for ListTensorFlowVersions.
+ *  Response for ListRuntimeVersions.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "tensorflowVersions" property. If returned as the result of a
- *        query, it should support automatic pagination (when @c
- *        shouldFetchNextPages is enabled).
+ *        its "runtimeVersions" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
  */
-@interface GTLRTPU_ListTensorFlowVersionsResponse : GTLRCollectionObject
+@interface GTLRTPU_ListRuntimeVersionsResponse : GTLRCollectionObject
 
 /** The next page token or empty if none. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -397,7 +575,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRTPU_TensorFlowVersion *> *tensorflowVersions;
+@property(nonatomic, strong, nullable) NSArray<GTLRTPU_RuntimeVersion *> *runtimeVersions;
 
 /** Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
@@ -467,11 +645,52 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 
 
 /**
+ *  Network related configurations.
+ */
+@interface GTLRTPU_NetworkConfig : GTLRObject
+
+/**
+ *  Allows the TPU node to send and receive packets with non-matching
+ *  destination or source IPs. This is required if you plan to use the TPU
+ *  workers to forward routes.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canIpForward;
+
+/**
+ *  Indicates that external IP addresses would be associated with the TPU
+ *  workers. If set to false, the specified subnetwork or network should have
+ *  Private Google Access enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableExternalIps;
+
+/**
+ *  The name of the network for the TPU node. It must be a preexisting Google
+ *  Compute Engine network. If none is provided, "default" will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  The name of the subnetwork for the TPU node. It must be a preexisting Google
+ *  Compute Engine subnetwork. If none is provided, "default" will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *subnetwork;
+
+@end
+
+
+/**
  *  A network endpoint over which a TPU worker can be reached.
  */
 @interface GTLRTPU_NetworkEndpoint : GTLRObject
 
-/** The IP address of this network endpoint. */
+/** The access config for the TPU worker. */
+@property(nonatomic, strong, nullable) GTLRTPU_AccessConfig *accessConfig;
+
+/** The internal IP address of this network endpoint. */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
 /**
@@ -501,6 +720,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  *    @arg @c kGTLRTPU_Node_ApiVersion_V1 TPU API V1 version. (Value: "V1")
  *    @arg @c kGTLRTPU_Node_ApiVersion_V1Alpha1 TPU API V1Alpha1 version.
  *        (Value: "V1_ALPHA1")
+ *    @arg @c kGTLRTPU_Node_ApiVersion_V2 TPU API V2 version. (Value: "V2")
  *    @arg @c kGTLRTPU_Node_ApiVersion_V2Alpha1 TPU API V2Alpha1 version.
  *        (Value: "V2_ALPHA1")
  */
@@ -520,6 +740,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 /** Output only. The time when the node was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** The additional data disks for the Node. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTPU_AttachedDisk *> *dataDisks;
+
 /**
  *  The user-supplied description of the TPU. Maximum of 512 characters.
  *
@@ -531,8 +754,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  *  The health status of the TPU node.
  *
  *  Likely values:
- *    @arg @c kGTLRTPU_Node_Health_DeprecatedUnhealthy The resource is
- *        unhealthy. (Value: "DEPRECATED_UNHEALTHY")
  *    @arg @c kGTLRTPU_Node_Health_HealthUnspecified Health status is unknown:
  *        not initialized or failed to retrieve. (Value: "HEALTH_UNSPECIFIED")
  *    @arg @c kGTLRTPU_Node_Health_Healthy The resource is healthy. (Value:
@@ -554,47 +775,50 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 @property(nonatomic, copy, nullable) NSString *healthDescription;
 
 /**
- *  Output only. DEPRECATED! Use network_endpoints instead. The network address
- *  for the TPU Node as visible to Compute Engine instances.
+ *  Output only. The unique identifier for the TPU Node.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, copy, nullable) NSString *ipAddress;
+@property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /** Resource labels to represent user-provided metadata. */
 @property(nonatomic, strong, nullable) GTLRTPU_Node_Labels *labels;
 
-/** Output only. Immutable. The name of the TPU */
+/**
+ *  Custom metadata to apply to the TPU Node. Can set startup-script and
+ *  shutdown-script
+ */
+@property(nonatomic, strong, nullable) GTLRTPU_Node_Metadata *metadata;
+
+/** Output only. Immutable. The name of the TPU. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  The name of a network they wish to peer the TPU node to. It must be a
- *  preexisting Compute Engine network inside of the project on which this API
- *  has been activated. If none is provided, "default" will be used.
- */
-@property(nonatomic, copy, nullable) NSString *network;
+/** Network configurations for the TPU node. */
+@property(nonatomic, strong, nullable) GTLRTPU_NetworkConfig *networkConfig;
 
 /**
  *  Output only. The network endpoints where TPU workers can be accessed and
- *  sent work. It is recommended that Tensorflow clients of the node reach out
- *  to the 0th entry in this map first.
+ *  sent work. It is recommended that runtime clients of the node reach out to
+ *  the 0th entry in this map first.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTPU_NetworkEndpoint *> *networkEndpoints;
 
-/**
- *  Output only. DEPRECATED! Use network_endpoints instead. The network port for
- *  the TPU Node as visible to Compute Engine instances.
- */
-@property(nonatomic, copy, nullable) NSString *port;
+/** Required. The runtime version running in the Node. */
+@property(nonatomic, copy, nullable) NSString *runtimeVersion;
 
 /** The scheduling options for this node. */
 @property(nonatomic, strong, nullable) GTLRTPU_SchedulingConfig *schedulingConfig;
 
 /**
- *  Output only. The service account used to run the tensor flow services within
- *  the node. To share resources, including Google Cloud Storage data, with the
- *  Tensorflow job running in the Node, this account must have permissions to
- *  that data.
+ *  The Google Cloud Platform Service Account to be used by the TPU node VMs. If
+ *  None is specified, the default compute service account will be used.
  */
-@property(nonatomic, copy, nullable) NSString *serviceAccount;
+@property(nonatomic, strong, nullable) GTLRTPU_ServiceAccount *serviceAccount;
+
+/** Shielded Instance options. */
+@property(nonatomic, strong, nullable) GTLRTPU_ShieldedInstanceConfig *shieldedInstanceConfig;
 
 /**
  *  Output only. The current state for the TPU Node.
@@ -638,19 +862,11 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 /** Output only. The Symptoms that have occurred to the TPU Node. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTPU_Symptom *> *symptoms;
 
-/** Required. The version of Tensorflow running in the Node. */
-@property(nonatomic, copy, nullable) NSString *tensorflowVersion;
-
 /**
- *  Whether the VPC peering for the node is set up through Service Networking
- *  API. The VPC Peering should be set up before provisioning the node. If this
- *  field is set, cidr_block field should not be specified. If the network, that
- *  you want to peer the TPU Node to, is Shared VPC networks, the node must be
- *  created with this this field enabled.
- *
- *  Uses NSNumber of boolValue.
+ *  Tags to apply to the TPU Node. Tags are used to identify valid sources or
+ *  targets for network firewalls.
  */
-@property(nonatomic, strong, nullable) NSNumber *useServiceNetworking;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
 @end
 
@@ -664,6 +880,19 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  *        fetch them all at once.
  */
 @interface GTLRTPU_Node_Labels : GTLRObject
+@end
+
+
+/**
+ *  Custom metadata to apply to the TPU Node. Can set startup-script and
+ *  shutdown-script
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRTPU_Node_Metadata : GTLRObject
 @end
 
 
@@ -784,12 +1013,15 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 
 
 /**
- *  Request for ReimageNode.
+ *  A runtime version that a Node can be configured with.
  */
-@interface GTLRTPU_ReimageNodeRequest : GTLRObject
+@interface GTLRTPU_RuntimeVersion : GTLRObject
 
-/** The version for reimage to create. */
-@property(nonatomic, copy, nullable) NSString *tensorflowVersion;
+/** The resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The runtime version. */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -812,6 +1044,52 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *reserved;
+
+@end
+
+
+/**
+ *  A service account.
+ */
+@interface GTLRTPU_ServiceAccount : GTLRObject
+
+/**
+ *  Email address of the service account. If empty, default Compute service
+ *  account will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/**
+ *  The list of scopes to be made available for this service account. If empty,
+ *  access to all Cloud APIs will be allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *scope;
+
+@end
+
+
+/**
+ *  The per-product per-project service identity for Cloud TPU service.
+ */
+@interface GTLRTPU_ServiceIdentity : GTLRObject
+
+/** The email address of the service identity. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+@end
+
+
+/**
+ *  A set of Shielded Instance options.
+ */
+@interface GTLRTPU_ShieldedInstanceConfig : GTLRObject
+
+/**
+ *  Defines whether the instance has Secure Boot enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableSecureBoot;
 
 @end
 
@@ -910,20 +1188,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 
 /** A string used to uniquely distinguish a worker within a TPU node. */
 @property(nonatomic, copy, nullable) NSString *workerId;
-
-@end
-
-
-/**
- *  A tensorflow version that a Node can be configured with.
- */
-@interface GTLRTPU_TensorFlowVersion : GTLRObject
-
-/** The resource name. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** the tensorflow version. */
-@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 

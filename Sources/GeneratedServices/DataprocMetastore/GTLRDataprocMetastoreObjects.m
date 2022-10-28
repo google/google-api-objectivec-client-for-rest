@@ -131,6 +131,11 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_Developer = @"DEVELOPER";
 NSString * const kGTLRDataprocMetastore_Service_Tier_Enterprise = @"ENTERPRISE";
 NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UNSPECIFIED";
 
+// GTLRDataprocMetastore_TelemetryConfig.logFormat
+NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_Json = @"JSON";
+NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_Legacy = @"LEGACY";
+NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspecified = @"LOG_FORMAT_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRDataprocMetastore_AuditConfig
@@ -853,8 +858,8 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 @dynamic artifactGcsUri, createTime, databaseType, encryptionConfig,
          endpointUri, hiveMetastoreConfig, labels, maintenanceWindow,
          metadataIntegration, metadataManagementActivity, name, network,
-         networkConfig, port, releaseChannel, state, stateMessage, tier, uid,
-         updateTime;
+         networkConfig, port, releaseChannel, state, stateMessage,
+         telemetryConfig, tier, uid, updateTime;
 @end
 
 
@@ -911,6 +916,16 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_TelemetryConfig
+//
+
+@implementation GTLRDataprocMetastore_TelemetryConfig
+@dynamic logFormat;
 @end
 
 

@@ -6842,7 +6842,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accountTypesWithManagementDisabled;
 
 /**
- *  Whether camera is disabled.
+ *  If true, the camera is disabled on the personal profile.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -6883,7 +6883,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, copy, nullable) NSString *personalPlayStoreMode;
 
 /**
- *  Whether screen capture is disabled.
+ *  If true, screen capture is disabled for all users.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7682,7 +7682,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @interface GTLRAndroidManagement_PolicyEnforcementRule : GTLRObject
 
 /**
- *  An action to block access to apps and data on a fully managed device or in a
+ *  An action to block access to apps and data on a company owned device or in a
  *  work profile. This action also triggers a user-facing notification with
  *  information (where possible) on how to correct the compliance issue. Note:
  *  wipeAction must also be specified.
@@ -7696,7 +7696,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, copy, nullable) NSString *settingName;
 
 /**
- *  An action to reset a fully managed device or delete a work profile. Note:
+ *  An action to reset a company owned device or delete a work profile. Note:
  *  blockAction must also be specified.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_WipeAction *wipeAction;
@@ -8727,7 +8727,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
- *  An action to reset a fully managed device or delete a work profile. Note:
+ *  An action to reset a company owned device or delete a work profile. Note:
  *  blockAction must also be specified.
  */
 @interface GTLRAndroidManagement_WipeAction : GTLRObject

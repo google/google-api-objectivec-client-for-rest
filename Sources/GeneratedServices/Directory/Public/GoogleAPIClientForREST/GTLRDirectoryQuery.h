@@ -504,7 +504,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 
 /**
  *  Return devices from all child orgunits, as well as the specified org unit.
- *  If this is set to true 'orgUnitPath' must be provided.
+ *  If this is set to true, 'orgUnitPath' must be provided.
  */
 @property(nonatomic, assign) BOOL includeChildOrgunits;
 

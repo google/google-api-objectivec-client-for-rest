@@ -5240,7 +5240,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 
 /**
  *  Inserts a promotion for your Merchant Center account. If the promotion
- *  already exists, then it updates the promotion instead.
+ *  already exists, then it updates the promotion instead. To [end or delete]
+ *  (https://developers.google.com/shopping-content/guides/promotions#end_a_promotion)
+ *  a promotion update the time period of the promotion to a time that has
+ *  already passed.
  *
  *  Method: content.promotions.create
  *
@@ -5256,7 +5259,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Fetches a @c GTLRShoppingContent_Promotion.
  *
  *  Inserts a promotion for your Merchant Center account. If the promotion
- *  already exists, then it updates the promotion instead.
+ *  already exists, then it updates the promotion instead. To [end or delete]
+ *  (https://developers.google.com/shopping-content/guides/promotions#end_a_promotion)
+ *  a promotion update the time period of the promotion to a time that has
+ *  already passed.
  *
  *  @param object The @c GTLRShoppingContent_Promotion to include in the query.
  *  @param merchantId Required. The ID of the account that contains the
@@ -5360,6 +5366,54 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  */
 + (instancetype)queryWithObject:(GTLRShoppingContent_PubsubNotificationSettings *)object
                      merchantId:(unsigned long long)merchantId;
+
+@end
+
+/**
+ *  Lists the quota limit and quota usage per method for your Merchant Center
+ *  account.
+ *
+ *  Method: content.quotas.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_QuotasList : GTLRShoppingContentQuery
+
+/**
+ *  Required. The ID of the account that has quota. This account must be an
+ *  admin.
+ */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  The maximum number of quotas to return in the response, used for paging.
+ *  Defaults to 500; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Token (if provided) to retrieve the subsequent page. All other parameters
+ *  must match the original call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ListMethodQuotasResponse.
+ *
+ *  Lists the quota limit and quota usage per method for your Merchant Center
+ *  account.
+ *
+ *  @param merchantId Required. The ID of the account that has quota. This
+ *    account must be an admin.
+ *
+ *  @return GTLRShoppingContentQuery_QuotasList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId;
 
 @end
 

@@ -280,8 +280,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Project_State_State
 /**
  *  Purpose for Compute Engine firewalls. A corresponding purpose_data should be
  *  set for the network the tag is intended for. The key should be 'network' and
- *  the value should be in the format of the network url id string:
- *  https://compute.googleapis.com/v1/projects/{project_number}/global/networks/{network_id}
+ *  the value should be in either of these two formats:
+ *  -https://www.googleapis.com/compute/{compute_version}/projects/{project_id}/global/networks/{network_id}
+ *  -{project_id}/{network_name} Examples:
+ *  -https://www.googleapis.com/compute/staging_v1/projects/fail-closed-load-testing/global/networks/6992953698831725600
+ *  -fail-closed-load-testing/load-testing-network
  *
  *  Value: "GCE_FIREWALL"
  */
@@ -1757,8 +1760,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
 
 /**
  *  A TagBinding represents a connection between a TagValue and a cloud resource
- *  (currently project, folder, or organization). Once a TagBinding is created,
- *  the TagValue is applied to all the descendants of the cloud resource.
+ *  Once a TagBinding is created, the TagValue is applied to all the descendants
+ *  of the Google Cloud resource.
  */
 @interface GTLRCloudResourceManager_TagBinding : GTLRObject
 
@@ -1874,9 +1877,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  *    @arg @c kGTLRCloudResourceManager_TagKey_Purpose_GceFirewall Purpose for
  *        Compute Engine firewalls. A corresponding purpose_data should be set
  *        for the network the tag is intended for. The key should be 'network'
- *        and the value should be in the format of the network url id string:
- *        https://compute.googleapis.com/v1/projects/{project_number}/global/networks/{network_id}
- *        (Value: "GCE_FIREWALL")
+ *        and the value should be in either of these two formats:
+ *        -https://www.googleapis.com/compute/{compute_version}/projects/{project_id}/global/networks/{network_id}
+ *        -{project_id}/{network_name} Examples:
+ *        -https://www.googleapis.com/compute/staging_v1/projects/fail-closed-load-testing/global/networks/6992953698831725600
+ *        -fail-closed-load-testing/load-testing-network (Value: "GCE_FIREWALL")
  *    @arg @c kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified
  *        Unspecified purpose. (Value: "PURPOSE_UNSPECIFIED")
  */

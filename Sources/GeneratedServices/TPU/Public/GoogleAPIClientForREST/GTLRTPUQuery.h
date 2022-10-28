@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud TPU API (tpu/v1)
+//   Cloud TPU API (tpu/v2)
 // Description:
 //   TPU API provides customers with access to Google TPU technology.
 // Documentation:
@@ -100,6 +100,35 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Generates the Cloud TPU service identity for the project.
+ *
+ *  Method: tpu.projects.locations.generateServiceIdentity
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTPUCloudPlatform
+ */
+@interface GTLRTPUQuery_ProjectsLocationsGenerateServiceIdentity : GTLRTPUQuery
+
+/** Required. The parent resource name. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTPU_GenerateServiceIdentityResponse.
+ *
+ *  Generates the Cloud TPU service identity for the project.
+ *
+ *  @param object The @c GTLRTPU_GenerateServiceIdentityRequest to include in
+ *    the query.
+ *  @param parent Required. The parent resource name.
+ *
+ *  @return GTLRTPUQuery_ProjectsLocationsGenerateServiceIdentity
+ */
++ (instancetype)queryWithObject:(GTLRTPU_GenerateServiceIdentityRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -262,6 +291,35 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Retrieves the guest attributes for the node.
+ *
+ *  Method: tpu.projects.locations.nodes.getGuestAttributes
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTPUCloudPlatform
+ */
+@interface GTLRTPUQuery_ProjectsLocationsNodesGetGuestAttributes : GTLRTPUQuery
+
+/** Required. The resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRTPU_GetGuestAttributesResponse.
+ *
+ *  Retrieves the guest attributes for the node.
+ *
+ *  @param object The @c GTLRTPU_GetGuestAttributesRequest to include in the
+ *    query.
+ *  @param name Required. The resource name.
+ *
+ *  @return GTLRTPUQuery_ProjectsLocationsNodesGetGuestAttributes
+ */
++ (instancetype)queryWithObject:(GTLRTPU_GetGuestAttributesRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Lists nodes.
  *
  *  Method: tpu.projects.locations.nodes.list
@@ -300,29 +358,37 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Reimages a node's OS.
+ *  Updates the configurations of a node.
  *
- *  Method: tpu.projects.locations.nodes.reimage
+ *  Method: tpu.projects.locations.nodes.patch
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTPUCloudPlatform
  */
-@interface GTLRTPUQuery_ProjectsLocationsNodesReimage : GTLRTPUQuery
+@interface GTLRTPUQuery_ProjectsLocationsNodesPatch : GTLRTPUQuery
 
-/** The resource name. */
+/** Output only. Immutable. The name of the TPU. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Mask of fields from Node to update. Supported fields:
+ *  [description, tags, labels, metadata, network_config.enable_external_ips].
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
  *  Fetches a @c GTLRTPU_Operation.
  *
- *  Reimages a node's OS.
+ *  Updates the configurations of a node.
  *
- *  @param object The @c GTLRTPU_ReimageNodeRequest to include in the query.
- *  @param name The resource name.
+ *  @param object The @c GTLRTPU_Node to include in the query.
+ *  @param name Output only. Immutable. The name of the TPU.
  *
- *  @return GTLRTPUQuery_ProjectsLocationsNodesReimage
+ *  @return GTLRTPUQuery_ProjectsLocationsNodesPatch
  */
-+ (instancetype)queryWithObject:(GTLRTPU_ReimageNodeRequest *)object
++ (instancetype)queryWithObject:(GTLRTPU_Node *)object
                            name:(NSString *)name;
 
 @end
@@ -356,7 +422,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Stops a node, this operation is only available with single TPU nodes.
+ *  Stops a node. This operation is only available with single TPU nodes.
  *
  *  Method: tpu.projects.locations.nodes.stop
  *
@@ -371,7 +437,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRTPU_Operation.
  *
- *  Stops a node, this operation is only available with single TPU nodes.
+ *  Stops a node. This operation is only available with single TPU nodes.
  *
  *  @param object The @c GTLRTPU_StopNodeRequest to include in the query.
  *  @param name The resource name.
@@ -543,40 +609,40 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets TensorFlow Version.
+ *  Gets a runtime version.
  *
- *  Method: tpu.projects.locations.tensorflowVersions.get
+ *  Method: tpu.projects.locations.runtimeVersions.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTPUCloudPlatform
  */
-@interface GTLRTPUQuery_ProjectsLocationsTensorflowVersionsGet : GTLRTPUQuery
+@interface GTLRTPUQuery_ProjectsLocationsRuntimeVersionsGet : GTLRTPUQuery
 
 /** Required. The resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRTPU_TensorFlowVersion.
+ *  Fetches a @c GTLRTPU_RuntimeVersion.
  *
- *  Gets TensorFlow Version.
+ *  Gets a runtime version.
  *
  *  @param name Required. The resource name.
  *
- *  @return GTLRTPUQuery_ProjectsLocationsTensorflowVersionsGet
+ *  @return GTLRTPUQuery_ProjectsLocationsRuntimeVersionsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
 @end
 
 /**
- *  List TensorFlow versions supported by this API.
+ *  Lists runtime versions supported by this API.
  *
- *  Method: tpu.projects.locations.tensorflowVersions.list
+ *  Method: tpu.projects.locations.runtimeVersions.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTPUCloudPlatform
  */
-@interface GTLRTPUQuery_ProjectsLocationsTensorflowVersionsList : GTLRTPUQuery
+@interface GTLRTPUQuery_ProjectsLocationsRuntimeVersionsList : GTLRTPUQuery
 
 /** List filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -596,13 +662,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRTPU_ListTensorFlowVersionsResponse.
+ *  Fetches a @c GTLRTPU_ListRuntimeVersionsResponse.
  *
- *  List TensorFlow versions supported by this API.
+ *  Lists runtime versions supported by this API.
  *
  *  @param parent Required. The parent resource name.
  *
- *  @return GTLRTPUQuery_ProjectsLocationsTensorflowVersionsList
+ *  @return GTLRTPUQuery_ProjectsLocationsRuntimeVersionsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

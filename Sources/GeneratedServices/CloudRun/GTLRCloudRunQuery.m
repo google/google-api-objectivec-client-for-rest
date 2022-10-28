@@ -48,7 +48,7 @@
 
 @implementation GTLRCloudRunQuery_ProjectsLocationsJobsDelete
 
-@dynamic ETag, force, name, validateOnly;
+@dynamic ETag, name, validateOnly;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"ETag" : @"etag" };

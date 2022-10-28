@@ -24,6 +24,37 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// messageReplyOption
+
+/**
+ *  Default. Starts a thread.
+ *
+ *  Value: "MESSAGE_REPLY_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionMessageReplyOptionUnspecified;
+/**
+ *  Creates the message as a reply to the thread specified by thread ID or
+ *  thread_key. If it fails, the message starts a new thread instead.
+ *
+ *  Value: "REPLY_MESSAGE_FALLBACK_TO_NEW_THREAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageFallbackToNewThread;
+/**
+ *  Creates the message as a reply to the thread specified by thread ID or
+ *  thread_key. If it fails, a NOT_FOUND error is returned instead.
+ *
+ *  Value: "REPLY_MESSAGE_OR_FAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Hangouts Chat query classes.
  */
@@ -43,8 +74,35 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRHangoutsChatQuery_DmsConversationsMessages : GTLRHangoutsChatQuery
 
 /**
- *  Required. Space resource name, in the form "spaces/ *". Example:
- *  spaces/AAAAAAAAAAA
+ *  Optional. A custom name for a Chat message assigned at creation. Must start
+ *  with `client-` and contain only lowercase letters, numbers, and hyphens up
+ *  to 63 characters in length. Specify this field to get, update, or delete the
+ *  message with the specified value. For example usage, see [Name a created
+ *  message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
+ */
+@property(nonatomic, copy, nullable) NSString *messageId;
+
+/**
+ *  Optional. Specifies whether a message starts a thread or replies to one.
+ *  Only supported in named spaces.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChatMessageReplyOptionMessageReplyOptionUnspecified
+ *        Default. Starts a thread. (Value: "MESSAGE_REPLY_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageFallbackToNewThread
+ *        Creates the message as a reply to the thread specified by thread ID or
+ *        thread_key. If it fails, the message starts a new thread instead.
+ *        (Value: "REPLY_MESSAGE_FALLBACK_TO_NEW_THREAD")
+ *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail Creates the
+ *        message as a reply to the thread specified by thread ID or thread_key.
+ *        If it fails, a NOT_FOUND error is returned instead. (Value:
+ *        "REPLY_MESSAGE_OR_FAIL")
+ */
+@property(nonatomic, copy, nullable) NSString *messageReplyOption;
+
+/**
+ *  Required. The resource name of the space in which to create a message.
+ *  Format: spaces/{space}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -56,11 +114,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. Opaque thread identifier. To start or add to a thread, create a
- *  message and specify a `threadKey` instead of thread.name. (Setting
- *  thread.name has no effect.) The first message with a given `threadKey`
- *  starts a new thread. Subsequent messages with the same `threadKey` post into
- *  the same thread.
+ *  Optional. Deprecated: Use thread.thread_key instead. Opaque thread
+ *  identifier. To start or add to a thread, create a message and specify a
+ *  `threadKey` or the thread.name. For example usage, see [Start or reply to a
+ *  message
+ *  thread](/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -71,8 +129,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  response.
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
- *  @param parent Required. Space resource name, in the form "spaces/ *".
- *    Example: spaces/AAAAAAAAAAA
+ *  @param parent Required. The resource name of the space in which to create a
+ *    message. Format: spaces/{space}
  *
  *  @return GTLRHangoutsChatQuery_DmsConversationsMessages
  */
@@ -90,8 +148,35 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRHangoutsChatQuery_DmsMessages : GTLRHangoutsChatQuery
 
 /**
- *  Required. Space resource name, in the form "spaces/ *". Example:
- *  spaces/AAAAAAAAAAA
+ *  Optional. A custom name for a Chat message assigned at creation. Must start
+ *  with `client-` and contain only lowercase letters, numbers, and hyphens up
+ *  to 63 characters in length. Specify this field to get, update, or delete the
+ *  message with the specified value. For example usage, see [Name a created
+ *  message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
+ */
+@property(nonatomic, copy, nullable) NSString *messageId;
+
+/**
+ *  Optional. Specifies whether a message starts a thread or replies to one.
+ *  Only supported in named spaces.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChatMessageReplyOptionMessageReplyOptionUnspecified
+ *        Default. Starts a thread. (Value: "MESSAGE_REPLY_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageFallbackToNewThread
+ *        Creates the message as a reply to the thread specified by thread ID or
+ *        thread_key. If it fails, the message starts a new thread instead.
+ *        (Value: "REPLY_MESSAGE_FALLBACK_TO_NEW_THREAD")
+ *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail Creates the
+ *        message as a reply to the thread specified by thread ID or thread_key.
+ *        If it fails, a NOT_FOUND error is returned instead. (Value:
+ *        "REPLY_MESSAGE_OR_FAIL")
+ */
+@property(nonatomic, copy, nullable) NSString *messageReplyOption;
+
+/**
+ *  Required. The resource name of the space in which to create a message.
+ *  Format: spaces/{space}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -103,11 +188,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. Opaque thread identifier. To start or add to a thread, create a
- *  message and specify a `threadKey` instead of thread.name. (Setting
- *  thread.name has no effect.) The first message with a given `threadKey`
- *  starts a new thread. Subsequent messages with the same `threadKey` post into
- *  the same thread.
+ *  Optional. Deprecated: Use thread.thread_key instead. Opaque thread
+ *  identifier. To start or add to a thread, create a message and specify a
+ *  `threadKey` or the thread.name. For example usage, see [Start or reply to a
+ *  message
+ *  thread](/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -118,8 +203,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  response.
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
- *  @param parent Required. Space resource name, in the form "spaces/ *".
- *    Example: spaces/AAAAAAAAAAA
+ *  @param parent Required. The resource name of the space in which to create a
+ *    message. Format: spaces/{space}
  *
  *  @return GTLRHangoutsChatQuery_DmsMessages
  */
@@ -137,8 +222,35 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRHangoutsChatQuery_DmsWebhooks : GTLRHangoutsChatQuery
 
 /**
- *  Required. Space resource name, in the form "spaces/ *". Example:
- *  spaces/AAAAAAAAAAA
+ *  Optional. A custom name for a Chat message assigned at creation. Must start
+ *  with `client-` and contain only lowercase letters, numbers, and hyphens up
+ *  to 63 characters in length. Specify this field to get, update, or delete the
+ *  message with the specified value. For example usage, see [Name a created
+ *  message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
+ */
+@property(nonatomic, copy, nullable) NSString *messageId;
+
+/**
+ *  Optional. Specifies whether a message starts a thread or replies to one.
+ *  Only supported in named spaces.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChatMessageReplyOptionMessageReplyOptionUnspecified
+ *        Default. Starts a thread. (Value: "MESSAGE_REPLY_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageFallbackToNewThread
+ *        Creates the message as a reply to the thread specified by thread ID or
+ *        thread_key. If it fails, the message starts a new thread instead.
+ *        (Value: "REPLY_MESSAGE_FALLBACK_TO_NEW_THREAD")
+ *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail Creates the
+ *        message as a reply to the thread specified by thread ID or thread_key.
+ *        If it fails, a NOT_FOUND error is returned instead. (Value:
+ *        "REPLY_MESSAGE_OR_FAIL")
+ */
+@property(nonatomic, copy, nullable) NSString *messageReplyOption;
+
+/**
+ *  Required. The resource name of the space in which to create a message.
+ *  Format: spaces/{space}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -150,11 +262,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. Opaque thread identifier. To start or add to a thread, create a
- *  message and specify a `threadKey` instead of thread.name. (Setting
- *  thread.name has no effect.) The first message with a given `threadKey`
- *  starts a new thread. Subsequent messages with the same `threadKey` post into
- *  the same thread.
+ *  Optional. Deprecated: Use thread.thread_key instead. Opaque thread
+ *  identifier. To start or add to a thread, create a message and specify a
+ *  `threadKey` or the thread.name. For example usage, see [Start or reply to a
+ *  message
+ *  thread](/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -165,8 +277,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  response.
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
- *  @param parent Required. Space resource name, in the form "spaces/ *".
- *    Example: spaces/AAAAAAAAAAA
+ *  @param parent Required. The resource name of the space in which to create a
+ *    message. Format: spaces/{space}
  *
  *  @return GTLRHangoutsChatQuery_DmsWebhooks
  */
@@ -225,8 +337,35 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRHangoutsChatQuery_RoomsConversationsMessages : GTLRHangoutsChatQuery
 
 /**
- *  Required. Space resource name, in the form "spaces/ *". Example:
- *  spaces/AAAAAAAAAAA
+ *  Optional. A custom name for a Chat message assigned at creation. Must start
+ *  with `client-` and contain only lowercase letters, numbers, and hyphens up
+ *  to 63 characters in length. Specify this field to get, update, or delete the
+ *  message with the specified value. For example usage, see [Name a created
+ *  message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
+ */
+@property(nonatomic, copy, nullable) NSString *messageId;
+
+/**
+ *  Optional. Specifies whether a message starts a thread or replies to one.
+ *  Only supported in named spaces.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChatMessageReplyOptionMessageReplyOptionUnspecified
+ *        Default. Starts a thread. (Value: "MESSAGE_REPLY_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageFallbackToNewThread
+ *        Creates the message as a reply to the thread specified by thread ID or
+ *        thread_key. If it fails, the message starts a new thread instead.
+ *        (Value: "REPLY_MESSAGE_FALLBACK_TO_NEW_THREAD")
+ *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail Creates the
+ *        message as a reply to the thread specified by thread ID or thread_key.
+ *        If it fails, a NOT_FOUND error is returned instead. (Value:
+ *        "REPLY_MESSAGE_OR_FAIL")
+ */
+@property(nonatomic, copy, nullable) NSString *messageReplyOption;
+
+/**
+ *  Required. The resource name of the space in which to create a message.
+ *  Format: spaces/{space}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -238,11 +377,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. Opaque thread identifier. To start or add to a thread, create a
- *  message and specify a `threadKey` instead of thread.name. (Setting
- *  thread.name has no effect.) The first message with a given `threadKey`
- *  starts a new thread. Subsequent messages with the same `threadKey` post into
- *  the same thread.
+ *  Optional. Deprecated: Use thread.thread_key instead. Opaque thread
+ *  identifier. To start or add to a thread, create a message and specify a
+ *  `threadKey` or the thread.name. For example usage, see [Start or reply to a
+ *  message
+ *  thread](/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -253,8 +392,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  response.
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
- *  @param parent Required. Space resource name, in the form "spaces/ *".
- *    Example: spaces/AAAAAAAAAAA
+ *  @param parent Required. The resource name of the space in which to create a
+ *    message. Format: spaces/{space}
  *
  *  @return GTLRHangoutsChatQuery_RoomsConversationsMessages
  */
@@ -272,8 +411,35 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRHangoutsChatQuery_RoomsMessages : GTLRHangoutsChatQuery
 
 /**
- *  Required. Space resource name, in the form "spaces/ *". Example:
- *  spaces/AAAAAAAAAAA
+ *  Optional. A custom name for a Chat message assigned at creation. Must start
+ *  with `client-` and contain only lowercase letters, numbers, and hyphens up
+ *  to 63 characters in length. Specify this field to get, update, or delete the
+ *  message with the specified value. For example usage, see [Name a created
+ *  message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
+ */
+@property(nonatomic, copy, nullable) NSString *messageId;
+
+/**
+ *  Optional. Specifies whether a message starts a thread or replies to one.
+ *  Only supported in named spaces.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChatMessageReplyOptionMessageReplyOptionUnspecified
+ *        Default. Starts a thread. (Value: "MESSAGE_REPLY_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageFallbackToNewThread
+ *        Creates the message as a reply to the thread specified by thread ID or
+ *        thread_key. If it fails, the message starts a new thread instead.
+ *        (Value: "REPLY_MESSAGE_FALLBACK_TO_NEW_THREAD")
+ *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail Creates the
+ *        message as a reply to the thread specified by thread ID or thread_key.
+ *        If it fails, a NOT_FOUND error is returned instead. (Value:
+ *        "REPLY_MESSAGE_OR_FAIL")
+ */
+@property(nonatomic, copy, nullable) NSString *messageReplyOption;
+
+/**
+ *  Required. The resource name of the space in which to create a message.
+ *  Format: spaces/{space}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -285,11 +451,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. Opaque thread identifier. To start or add to a thread, create a
- *  message and specify a `threadKey` instead of thread.name. (Setting
- *  thread.name has no effect.) The first message with a given `threadKey`
- *  starts a new thread. Subsequent messages with the same `threadKey` post into
- *  the same thread.
+ *  Optional. Deprecated: Use thread.thread_key instead. Opaque thread
+ *  identifier. To start or add to a thread, create a message and specify a
+ *  `threadKey` or the thread.name. For example usage, see [Start or reply to a
+ *  message
+ *  thread](/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -300,8 +466,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  response.
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
- *  @param parent Required. Space resource name, in the form "spaces/ *".
- *    Example: spaces/AAAAAAAAAAA
+ *  @param parent Required. The resource name of the space in which to create a
+ *    message. Format: spaces/{space}
  *
  *  @return GTLRHangoutsChatQuery_RoomsMessages
  */
@@ -319,8 +485,35 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRHangoutsChatQuery_RoomsWebhooks : GTLRHangoutsChatQuery
 
 /**
- *  Required. Space resource name, in the form "spaces/ *". Example:
- *  spaces/AAAAAAAAAAA
+ *  Optional. A custom name for a Chat message assigned at creation. Must start
+ *  with `client-` and contain only lowercase letters, numbers, and hyphens up
+ *  to 63 characters in length. Specify this field to get, update, or delete the
+ *  message with the specified value. For example usage, see [Name a created
+ *  message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
+ */
+@property(nonatomic, copy, nullable) NSString *messageId;
+
+/**
+ *  Optional. Specifies whether a message starts a thread or replies to one.
+ *  Only supported in named spaces.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChatMessageReplyOptionMessageReplyOptionUnspecified
+ *        Default. Starts a thread. (Value: "MESSAGE_REPLY_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageFallbackToNewThread
+ *        Creates the message as a reply to the thread specified by thread ID or
+ *        thread_key. If it fails, the message starts a new thread instead.
+ *        (Value: "REPLY_MESSAGE_FALLBACK_TO_NEW_THREAD")
+ *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail Creates the
+ *        message as a reply to the thread specified by thread ID or thread_key.
+ *        If it fails, a NOT_FOUND error is returned instead. (Value:
+ *        "REPLY_MESSAGE_OR_FAIL")
+ */
+@property(nonatomic, copy, nullable) NSString *messageReplyOption;
+
+/**
+ *  Required. The resource name of the space in which to create a message.
+ *  Format: spaces/{space}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -332,11 +525,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. Opaque thread identifier. To start or add to a thread, create a
- *  message and specify a `threadKey` instead of thread.name. (Setting
- *  thread.name has no effect.) The first message with a given `threadKey`
- *  starts a new thread. Subsequent messages with the same `threadKey` post into
- *  the same thread.
+ *  Optional. Deprecated: Use thread.thread_key instead. Opaque thread
+ *  identifier. To start or add to a thread, create a message and specify a
+ *  `threadKey` or the thread.name. For example usage, see [Start or reply to a
+ *  message
+ *  thread](/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -347,8 +540,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  response.
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
- *  @param parent Required. Space resource name, in the form "spaces/ *".
- *    Example: spaces/AAAAAAAAAAA
+ *  @param parent Required. The resource name of the space in which to create a
+ *    message. Format: spaces/{space}
  *
  *  @return GTLRHangoutsChatQuery_RoomsWebhooks
  */
@@ -395,14 +588,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRHangoutsChatQuery_SpacesList : GTLRHangoutsChatQuery
 
 /**
- *  Optional. Requested page size. The value is capped at 1000. Server may
- *  return fewer results than requested. If unspecified, server will default to
- *  100.
+ *  Optional. The maximum number of spaces to return. The service may return
+ *  fewer than this value. If unspecified, at most 100 spaces are returned. The
+ *  maximum value is 1000; values above 1000 are coerced to 1000. Negative
+ *  values return an INVALID_ARGUMENT error.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. A token identifying a page of results the server should return.
+ *  Optional. A page token, received from a previous list spaces call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -427,6 +623,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  Method: chat.spaces.members.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatMemberships
  */
 @interface GTLRHangoutsChatQuery_SpacesMembersGet : GTLRHangoutsChatQuery
 
@@ -452,20 +651,30 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists human memberships in a space. Requires [service account
+ *  Lists human memberships in a space for joined members. Requires [service
+ *  account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  Method: chat.spaces.members.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatMemberships
  */
 @interface GTLRHangoutsChatQuery_SpacesMembersList : GTLRHangoutsChatQuery
 
 /**
- *  Requested page size. The value is capped at 1000. Server may return fewer
- *  results than requested. If unspecified, server will default to 100.
+ *  The maximum number of memberships to return. The service may return fewer
+ *  than this value. If unspecified, at most 100 memberships are returned. The
+ *  maximum value is 1000; values above 1000 are coerced to 1000. Negative
+ *  values return an INVALID_ARGUMENT error.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** A token identifying a page of results the server should return. */
+/**
+ *  A page token, received from a previous list memberships call. Provide this
+ *  to retrieve the subsequent page. When paginating, all other parameters
+ *  provided must match the call that provided the page token.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -477,7 +686,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRHangoutsChat_ListMembershipsResponse.
  *
- *  Lists human memberships in a space. Requires [service account
+ *  Lists human memberships in a space for joined members. Requires [service
+ *  account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  @param parent Required. The resource name of the space for which to fetch a
@@ -525,16 +735,54 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a message. Requires [service account
+ *  Creates a message. For example usage, see [Create a
+ *  message](https://developers.google.com/chat/api/guides/crudl/messages#create_a_message).
+ *  Requires
+ *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
+ *  supports [service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
+ *  Supports [user
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users) as
+ *  part of the [Google Workspace Developer Preview
+ *  Program](https://developers.google.com/workspace/preview), which grants
+ *  early access to certain features. [User
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users)
+ *  requires the `chat.messages` or `chat.messages.create` authorization scope.
  *
  *  Method: chat.spaces.messages.create
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesCreate : GTLRHangoutsChatQuery
 
 /**
- *  Required. Space resource name, in the form "spaces/ *". Example:
- *  spaces/AAAAAAAAAAA
+ *  Optional. A custom name for a Chat message assigned at creation. Must start
+ *  with `client-` and contain only lowercase letters, numbers, and hyphens up
+ *  to 63 characters in length. Specify this field to get, update, or delete the
+ *  message with the specified value. For example usage, see [Name a created
+ *  message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
+ */
+@property(nonatomic, copy, nullable) NSString *messageId;
+
+/**
+ *  Optional. Specifies whether a message starts a thread or replies to one.
+ *  Only supported in named spaces.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChatMessageReplyOptionMessageReplyOptionUnspecified
+ *        Default. Starts a thread. (Value: "MESSAGE_REPLY_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageFallbackToNewThread
+ *        Creates the message as a reply to the thread specified by thread ID or
+ *        thread_key. If it fails, the message starts a new thread instead.
+ *        (Value: "REPLY_MESSAGE_FALLBACK_TO_NEW_THREAD")
+ *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail Creates the
+ *        message as a reply to the thread specified by thread ID or thread_key.
+ *        If it fails, a NOT_FOUND error is returned instead. (Value:
+ *        "REPLY_MESSAGE_OR_FAIL")
+ */
+@property(nonatomic, copy, nullable) NSString *messageReplyOption;
+
+/**
+ *  Required. The resource name of the space in which to create a message.
+ *  Format: spaces/{space}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -546,23 +794,34 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. Opaque thread identifier. To start or add to a thread, create a
- *  message and specify a `threadKey` instead of thread.name. (Setting
- *  thread.name has no effect.) The first message with a given `threadKey`
- *  starts a new thread. Subsequent messages with the same `threadKey` post into
- *  the same thread.
+ *  Optional. Deprecated: Use thread.thread_key instead. Opaque thread
+ *  identifier. To start or add to a thread, create a message and specify a
+ *  `threadKey` or the thread.name. For example usage, see [Start or reply to a
+ *  message
+ *  thread](/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
 /**
  *  Fetches a @c GTLRHangoutsChat_Message.
  *
- *  Creates a message. Requires [service account
+ *  Creates a message. For example usage, see [Create a
+ *  message](https://developers.google.com/chat/api/guides/crudl/messages#create_a_message).
+ *  Requires
+ *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
+ *  supports [service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
+ *  Supports [user
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users) as
+ *  part of the [Google Workspace Developer Preview
+ *  Program](https://developers.google.com/workspace/preview), which grants
+ *  early access to certain features. [User
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users)
+ *  requires the `chat.messages` or `chat.messages.create` authorization scope.
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
- *  @param parent Required. Space resource name, in the form "spaces/ *".
- *    Example: spaces/AAAAAAAAAAA
+ *  @param parent Required. The resource name of the space in which to create a
+ *    message. Format: spaces/{space}
  *
  *  @return GTLRHangoutsChatQuery_SpacesMessagesCreate
  */
@@ -572,8 +831,19 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a message. Requires [service account
+ *  Deletes a message. For example usage, see [Delete a
+ *  message](https://developers.google.com/chat/api/guides/crudl/messages#delete_a_message).
+ *  Requires
+ *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
+ *  supports [service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
+ *  Supports [user
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users) as
+ *  part of the [Google Workspace Developer Preview
+ *  Program](https://developers.google.com/workspace/preview), which grants
+ *  early access to certain features. [User
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users)
+ *  requires the `chat.messages` authorization scope.
  *
  *  Method: chat.spaces.messages.delete
  */
@@ -588,8 +858,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRHangoutsChat_Empty.
  *
- *  Deletes a message. Requires [service account
+ *  Deletes a message. For example usage, see [Delete a
+ *  message](https://developers.google.com/chat/api/guides/crudl/messages#delete_a_message).
+ *  Requires
+ *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
+ *  supports [service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
+ *  Supports [user
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users) as
+ *  part of the [Google Workspace Developer Preview
+ *  Program](https://developers.google.com/workspace/preview), which grants
+ *  early access to certain features. [User
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users)
+ *  requires the `chat.messages` authorization scope.
  *
  *  @param name Required. Resource name of the message to be deleted, in the
  *    form "spaces/ * /messages/ *" Example:
@@ -602,29 +883,61 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns a message. Requires [service account
+ *  Returns a message. For example usage, see [Read a
+ *  message](https://developers.google.com/chat/api/guides/crudl/messages#read_a_message).
+ *  Requires
+ *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
+ *  supports [Service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
+ *  Supports [user
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users) as
+ *  part of the [Google Workspace Developer Preview
+ *  Program](https://developers.google.com/workspace/preview), which grants
+ *  early access to certain features. [User
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users)
+ *  requires the `chat.messages` or `chat.messages.readonly` authorization
+ *  scope. Note: Might return a message from a blocked member or space.
  *
  *  Method: chat.spaces.messages.get
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesGet : GTLRHangoutsChatQuery
 
 /**
- *  Required. Resource name of the message to be retrieved, in the form "spaces/
- *  * /messages/ *". Example:
- *  spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB
+ *  Required. Resource name of the message to retrieve. Format:
+ *  spaces/{space}/messages/{message} If the message begins with `client-`, then
+ *  it has a custom name assigned by a Chat app that created it with the Chat
+ *  REST API. That Chat app (but not others) can pass the custom name to get,
+ *  update, or delete the message. To learn more, see [create and name a
+ *  message]
+ *  (https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRHangoutsChat_Message.
  *
- *  Returns a message. Requires [service account
+ *  Returns a message. For example usage, see [Read a
+ *  message](https://developers.google.com/chat/api/guides/crudl/messages#read_a_message).
+ *  Requires
+ *  [authentication](https://developers.google.com/chat/api/guides/auth). Fully
+ *  supports [Service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
+ *  Supports [user
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users) as
+ *  part of the [Google Workspace Developer Preview
+ *  Program](https://developers.google.com/workspace/preview), which grants
+ *  early access to certain features. [User
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users)
+ *  requires the `chat.messages` or `chat.messages.readonly` authorization
+ *  scope. Note: Might return a message from a blocked member or space.
  *
- *  @param name Required. Resource name of the message to be retrieved, in the
- *    form "spaces/ * /messages/ *". Example:
- *    spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB
+ *  @param name Required. Resource name of the message to retrieve. Format:
+ *    spaces/{space}/messages/{message} If the message begins with `client-`,
+ *    then it has a custom name assigned by a Chat app that created it with the
+ *    Chat REST API. That Chat app (but not others) can pass the custom name to
+ *    get, update, or delete the message. To learn more, see [create and name a
+ *    message]
+ *    (https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
  *
  *  @return GTLRHangoutsChatQuery_SpacesMessagesGet
  */
@@ -633,12 +946,22 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a message. Requires [service account
+ *  Updates a message. For example usage, see [Update a
+ *  message](https://developers.google.com/chat/api/guides/crudl/messages#update_a_message).
+ *  Requires [service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  Method: chat.spaces.messages.update
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesUpdate : GTLRHangoutsChatQuery
+
+/**
+ *  Optional. If `true` and the message is not found, a new message is created
+ *  and `updateMask` is ignored. The specified message ID must be
+ *  [client-assigned](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message)
+ *  or the request fails.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
 
 /**
  *  Resource name in the form `spaces/ * /messages/ *`. Example:
@@ -658,7 +981,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRHangoutsChat_Message.
  *
- *  Updates a message. Requires [service account
+ *  Updates a message. For example usage, see [Update a
+ *  message](https://developers.google.com/chat/api/guides/crudl/messages#update_a_message).
+ *  Requires [service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
@@ -681,8 +1006,35 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRHangoutsChatQuery_SpacesWebhooks : GTLRHangoutsChatQuery
 
 /**
- *  Required. Space resource name, in the form "spaces/ *". Example:
- *  spaces/AAAAAAAAAAA
+ *  Optional. A custom name for a Chat message assigned at creation. Must start
+ *  with `client-` and contain only lowercase letters, numbers, and hyphens up
+ *  to 63 characters in length. Specify this field to get, update, or delete the
+ *  message with the specified value. For example usage, see [Name a created
+ *  message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
+ */
+@property(nonatomic, copy, nullable) NSString *messageId;
+
+/**
+ *  Optional. Specifies whether a message starts a thread or replies to one.
+ *  Only supported in named spaces.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChatMessageReplyOptionMessageReplyOptionUnspecified
+ *        Default. Starts a thread. (Value: "MESSAGE_REPLY_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageFallbackToNewThread
+ *        Creates the message as a reply to the thread specified by thread ID or
+ *        thread_key. If it fails, the message starts a new thread instead.
+ *        (Value: "REPLY_MESSAGE_FALLBACK_TO_NEW_THREAD")
+ *    @arg @c kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail Creates the
+ *        message as a reply to the thread specified by thread ID or thread_key.
+ *        If it fails, a NOT_FOUND error is returned instead. (Value:
+ *        "REPLY_MESSAGE_OR_FAIL")
+ */
+@property(nonatomic, copy, nullable) NSString *messageReplyOption;
+
+/**
+ *  Required. The resource name of the space in which to create a message.
+ *  Format: spaces/{space}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -694,11 +1046,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. Opaque thread identifier. To start or add to a thread, create a
- *  message and specify a `threadKey` instead of thread.name. (Setting
- *  thread.name has no effect.) The first message with a given `threadKey`
- *  starts a new thread. Subsequent messages with the same `threadKey` post into
- *  the same thread.
+ *  Optional. Deprecated: Use thread.thread_key instead. Opaque thread
+ *  identifier. To start or add to a thread, create a message and specify a
+ *  `threadKey` or the thread.name. For example usage, see [Start or reply to a
+ *  message
+ *  thread](/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -709,8 +1061,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  response.
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
- *  @param parent Required. Space resource name, in the form "spaces/ *".
- *    Example: spaces/AAAAAAAAAAA
+ *  @param parent Required. The resource name of the space in which to create a
+ *    message. Format: spaces/{space}
  *
  *  @return GTLRHangoutsChatQuery_SpacesWebhooks
  */

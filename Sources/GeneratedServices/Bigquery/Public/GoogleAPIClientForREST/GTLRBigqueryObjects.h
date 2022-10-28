@@ -3049,6 +3049,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
+ *  [Optional] Storage billing model to be used for all tables in the dataset.
+ *  Can be set to PHYSICAL. Default is LOGICAL.
+ */
+@property(nonatomic, copy, nullable) NSString *storageBillingModel;
+
+/**
  *  [Optional]The tags associated with this dataset. Tag keys are globally
  *  unique.
  */
@@ -3937,6 +3943,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxBadRecords;
+
+/**
+ *  [Optional] Metadata Cache Mode for the table. Set this to enable caching of
+ *  metadata from external data source.
+ */
+@property(nonatomic, copy, nullable) NSString *metadataCacheMode;
+
+/**
+ *  ObjectMetadata is used to create Object Tables. Object Tables contain a
+ *  listing of objects (with their metadata) found at the source_uris. If
+ *  ObjectMetadata is set, source_format should be omitted. Currently SIMPLE is
+ *  the only supported Object Metadata type.
+ */
+@property(nonatomic, copy, nullable) NSString *objectMetadata;
 
 /** Additional properties to set if sourceFormat is set to Parquet. */
 @property(nonatomic, strong, nullable) GTLRBigquery_ParquetOptions *parquetOptions;
@@ -5768,6 +5788,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalSlotMs;
+
+/**
+ *  [Output-only] Total bytes transferred for cross-cloud queries such as Cross
+ *  Cloud Transfer and CREATE TABLE AS SELECT (CTAS).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *transferredBytes;
 
 /**
  *  Standard SQL only: list of undeclared query parameters detected during a dry
@@ -9447,12 +9475,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  */
 @property(nonatomic, strong, nullable) NSNumber *trainingStartTime;
 
-/** The model id in Vertex AI Model Registry for this training run */
+/**
+ *  The model id in the [Vertex AI Model
+ *  Registry](https://cloud.google.com/vertex-ai/docs/model-registry/introduction)
+ *  for this training run.
+ */
 @property(nonatomic, copy, nullable) NSString *vertexAiModelId;
 
 /**
- *  Output only. The model version in Vertex AI Model Registry for this training
- *  run
+ *  Output only. The model version in the [Vertex AI Model
+ *  Registry](https://cloud.google.com/vertex-ai/docs/model-registry/introduction)
+ *  for this training run.
  */
 @property(nonatomic, copy, nullable) NSString *vertexAiModelVersion;
 

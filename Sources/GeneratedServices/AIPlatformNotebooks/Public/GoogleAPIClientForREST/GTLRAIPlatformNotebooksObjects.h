@@ -19,6 +19,7 @@
 @class GTLRAIPlatformNotebooks_BootImage;
 @class GTLRAIPlatformNotebooks_ContainerImage;
 @class GTLRAIPlatformNotebooks_DataprocParameters;
+@class GTLRAIPlatformNotebooks_DiagnosticConfig;
 @class GTLRAIPlatformNotebooks_Disk;
 @class GTLRAIPlatformNotebooks_EncryptionConfig;
 @class GTLRAIPlatformNotebooks_Environment;
@@ -739,8 +740,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorCo
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaA100;
 /**
- *  b/241005111 K80 deprecation in Google Managed Notebooks Accelerator type is
- *  Nvidia Tesla K80.
+ *  Accelerator type is Nvidia Tesla K80.
  *
  *  Value: "NVIDIA_TESLA_K80"
  */
@@ -1333,6 +1333,77 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  `projects/{PROJECT_ID}/regions/{REGION}/clusters/{CLUSTER_NAME}`
  */
 @property(nonatomic, copy, nullable) NSString *cluster;
+
+@end
+
+
+/**
+ *  Request for creating a notebook instance diagnostic file.
+ */
+@interface GTLRAIPlatformNotebooks_DiagnoseInstanceRequest : GTLRObject
+
+/** Required. Defines flags that are used to run the diagnostic tool */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_DiagnosticConfig *diagnosticConfig;
+
+@end
+
+
+/**
+ *  Request for creating a notebook instance diagnostic file.
+ */
+@interface GTLRAIPlatformNotebooks_DiagnoseRuntimeRequest : GTLRObject
+
+/** Required. Defines flags that are used to run the diagnostic tool */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_DiagnosticConfig *diagnosticConfig;
+
+@end
+
+
+/**
+ *  Defines flags that are used to run the diagnostic tool
+ */
+@interface GTLRAIPlatformNotebooks_DiagnosticConfig : GTLRObject
+
+/**
+ *  Optional. Enables flag to copy all `/home/jupyter` folder contents
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *copyHomeFilesFlagEnabled NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  Required. User Cloud Storage bucket location (REQUIRED) ## Must be formatted
+ *  with path prefix (gs://$GCS_BUCKET) Permissions: User Managed Notebooks: -
+ *  storage.buckets.writer: Must be given to the project's service account
+ *  attached to VM. Google Managed Notebooks: - storage.buckets.writer: Must be
+ *  given to the project's service account or ## user credentials attached to VM
+ *  depending on authentication mode. Cloud Storage bucket Log file will be
+ *  written to gs://$GCS_BUCKET/$RELATIVE_PATH/$VM_DATE_$TIME.tar.gz
+ */
+@property(nonatomic, copy, nullable) NSString *gcsBucket;
+
+/**
+ *  Optional. Enables flag to capture packets from the instance for 30 seconds
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *packetCaptureFlagEnabled;
+
+/**
+ *  Optional. Defines the relative storage path in the Cloud Storage bucket
+ *  where the diagnostic logs will be written: Default path will be the root
+ *  directory of the Cloud Storage bucket (gs://$GCS_BUCKET/$DATE_$TIME.tar.gz)
+ *  Example of full path where Log file will be written:
+ *  gs://$GCS_BUCKET/$RELATIVE_PATH/
+ */
+@property(nonatomic, copy, nullable) NSString *relativePath;
+
+/**
+ *  Optional. Enables flag to repair service for instance
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *repairFlagEnabled;
 
 @end
 
@@ -3201,8 +3272,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaA100
  *        Accelerator type is Nvidia Tesla A100. (Value: "NVIDIA_TESLA_A100")
  *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaK80
- *        b/241005111 K80 deprecation in Google Managed Notebooks Accelerator
- *        type is Nvidia Tesla K80. (Value: "NVIDIA_TESLA_K80")
+ *        Accelerator type is Nvidia Tesla K80. (Value: "NVIDIA_TESLA_K80")
  *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaP100
  *        Accelerator type is Nvidia Tesla P100. (Value: "NVIDIA_TESLA_P100")
  *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaP100Vws
@@ -4032,6 +4102,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *        Upgrade type is not specified. (Value: "UPGRADE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Request for upgrading a Managed Notebook Runtime to the latest version.
+ *  option (google.api.message_visibility).restriction =
+ *  "TRUSTED_TESTER,SPECIAL_TESTER";
+ */
+@interface GTLRAIPlatformNotebooks_UpgradeRuntimeRequest : GTLRObject
+
+/** Idempotent request UUID. */
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 @end
 

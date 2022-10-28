@@ -1773,13 +1773,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRSQLAdminQuery_UsersGet : GTLRSQLAdminQuery
 
+/** Host of a user of the instance. */
+@property(nonatomic, copy, nullable) NSString *host;
+
 /** Database instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
-/**
- *  User of the instance. If the database user has a host, this is specified as
- *  {username}\@{host} else as {username}.
- */
+/** User of the instance. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Project ID of the project that contains the instance. */
@@ -1792,8 +1792,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID of the project that contains the instance.
  *  @param instance Database instance ID. This does not include the project ID.
- *  @param name User of the instance. If the database user has a host, this is
- *    specified as {username}\@{host} else as {username}.
+ *  @param name User of the instance.
  *
  *  @return GTLRSQLAdminQuery_UsersGet
  */

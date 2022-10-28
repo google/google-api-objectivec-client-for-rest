@@ -1714,6 +1714,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *collectionIds;
 
 /**
+ *  An empty list represents all namespaces. This is the preferred usage for
+ *  databases that don't use namespaces. An empty string element represents the
+ *  default namespace. This should be used if the database has data in
+ *  non-default namespaces, but doesn't want to include them. Each namespace in
+ *  this list must be unique.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *namespaceIds;
+
+/**
  *  The output URI. Currently only supports Google Cloud Storage URIs of the
  *  form: `gs://BUCKET_NAME[/NAMESPACE_PATH]`, where `BUCKET_NAME` is the name
  *  of the Google Cloud Storage bucket and `NAMESPACE_PATH` is an optional
@@ -1930,6 +1939,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  google.firestore.admin.v1.ExportDocumentsResponse.output_uri_prefix.
  */
 @property(nonatomic, copy, nullable) NSString *inputUriPrefix;
+
+/**
+ *  An empty list represents all namespaces. This is the preferred usage for
+ *  databases that don't use namespaces. An empty string element represents the
+ *  default namespace. This should be used if the database has data in
+ *  non-default namespaces, but doesn't want to include them. Each namespace in
+ *  this list must be unique.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *namespaceIds;
 
 @end
 

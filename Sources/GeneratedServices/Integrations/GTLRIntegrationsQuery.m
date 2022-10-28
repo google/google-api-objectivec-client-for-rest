@@ -4,7 +4,7 @@
 // API:
 //   Application Integration API (integrations/v1alpha)
 // Documentation:
-//   http://www.google.com
+//   https://cloud.google.com/application-integration
 
 #import <GoogleAPIClientForREST/GTLRIntegrationsQuery.h>
 
@@ -378,9 +378,8 @@ NSString * const kGTLRIntegrationsProductUnspecifiedProduct = @"UNSPECIFIED_PROD
          filterParamsParameterKey, filterParamsParameterPairKey,
          filterParamsParameterPairValue, filterParamsParameterType,
          filterParamsParameterValue, filterParamsStartTime,
-         filterParamsTaskStatuses, filterParamsTriggerId,
-         filterParamsWorkflowName, orderBy, pageSize, pageToken, parent,
-         readMask, refreshAcl, truncateParams;
+         filterParamsTaskStatuses, filterParamsWorkflowName, orderBy, pageSize,
+         pageToken, parent, readMask, refreshAcl, truncateParams;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -395,7 +394,6 @@ NSString * const kGTLRIntegrationsProductUnspecifiedProduct = @"UNSPECIFIED_PROD
     @"filterParamsParameterValue" : @"filterParams.parameterValue",
     @"filterParamsStartTime" : @"filterParams.startTime",
     @"filterParamsTaskStatuses" : @"filterParams.taskStatuses",
-    @"filterParamsTriggerId" : @"filterParams.triggerId",
     @"filterParamsWorkflowName" : @"filterParams.workflowName"
   };
   return map;
@@ -1119,9 +1117,8 @@ NSString * const kGTLRIntegrationsProductUnspecifiedProduct = @"UNSPECIFIED_PROD
          filterParamsParameterKey, filterParamsParameterPairKey,
          filterParamsParameterPairValue, filterParamsParameterType,
          filterParamsParameterValue, filterParamsStartTime,
-         filterParamsTaskStatuses, filterParamsTriggerId,
-         filterParamsWorkflowName, orderBy, pageSize, pageToken, parent,
-         readMask, refreshAcl, truncateParams;
+         filterParamsTaskStatuses, filterParamsWorkflowName, orderBy, pageSize,
+         pageToken, parent, readMask, refreshAcl, truncateParams;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1136,7 +1133,6 @@ NSString * const kGTLRIntegrationsProductUnspecifiedProduct = @"UNSPECIFIED_PROD
     @"filterParamsParameterValue" : @"filterParams.parameterValue",
     @"filterParamsStartTime" : @"filterParams.startTime",
     @"filterParamsTaskStatuses" : @"filterParams.taskStatuses",
-    @"filterParamsTriggerId" : @"filterParams.triggerId",
     @"filterParamsWorkflowName" : @"filterParams.workflowName"
   };
   return map;

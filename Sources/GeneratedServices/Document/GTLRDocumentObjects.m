@@ -1247,7 +1247,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageTable
-@dynamic bodyRows, detectedLanguages, headerRows, layout;
+@dynamic bodyRows, detectedLanguages, headerRows, layout, provenance;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1941,7 +1941,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageTable
-@dynamic bodyRows, detectedLanguages, headerRows, layout;
+@dynamic bodyRows, detectedLanguages, headerRows, layout, provenance;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2896,7 +2896,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTable
-@dynamic bodyRows, detectedLanguages, headerRows, layout;
+@dynamic bodyRows, detectedLanguages, headerRows, layout, provenance;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

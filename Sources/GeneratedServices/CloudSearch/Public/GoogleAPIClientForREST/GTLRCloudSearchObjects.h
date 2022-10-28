@@ -22,6 +22,7 @@
 @class GTLRCloudSearch_AclFixStatus;
 @class GTLRCloudSearch_AclInfo;
 @class GTLRCloudSearch_ActionParameter;
+@class GTLRCloudSearch_AddonComposeUiActionMarkup;
 @class GTLRCloudSearch_AffectedMembership;
 @class GTLRCloudSearch_AllAuthenticatedUsersProto;
 @class GTLRCloudSearch_Annotation;
@@ -123,6 +124,14 @@
 @class GTLRCloudSearch_AppsDynamiteV1ApiCompatV1ActionConfirm;
 @class GTLRCloudSearch_AppsDynamiteV1ApiCompatV1Attachment;
 @class GTLRCloudSearch_AppsDynamiteV1ApiCompatV1Field;
+@class GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupAddAttachmentsActionMarkup;
+@class GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupAddAttachmentsActionMarkupAddonAttachment;
+@class GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkup;
+@class GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup;
+@class GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError;
+@class GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupParameter;
+@class GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupEditAttendeesActionMarkup;
+@class GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupEditConferenceDataActionMarkup;
 @class GTLRCloudSearch_Attachment;
 @class GTLRCloudSearch_AuditLoggingSettings;
 @class GTLRCloudSearch_AuthorizedItemId;
@@ -139,6 +148,7 @@
 @class GTLRCloudSearch_BroadcastSessionInfo;
 @class GTLRCloudSearch_BroadcastStats;
 @class GTLRCloudSearch_Button;
+@class GTLRCloudSearch_CalendarClientActionMarkup;
 @class GTLRCloudSearch_CallInfo;
 @class GTLRCloudSearch_CallSettings;
 @class GTLRCloudSearch_CapTokenHolderProto;
@@ -146,6 +156,7 @@
 @class GTLRCloudSearch_CardAction;
 @class GTLRCloudSearch_CardCapabilityMetadata;
 @class GTLRCloudSearch_CardHeader;
+@class GTLRCloudSearch_ChatClientActionMarkup;
 @class GTLRCloudSearch_ChatConfig;
 @class GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadata;
 @class GTLRCloudSearch_ChatConserverDynamitePlaceholderMetadataAttachmentMetadata;
@@ -180,6 +191,7 @@
 @class GTLRCloudSearch_CustomerSearchApplicationStats;
 @class GTLRCloudSearch_CustomerSessionStats;
 @class GTLRCloudSearch_CustomerUserStats;
+@class GTLRCloudSearch_CustomFunctionReturnValueMarkup;
 @class GTLRCloudSearch_DataLossPreventionMetadata;
 @class GTLRCloudSearch_DataSource;
 @class GTLRCloudSearch_DataSourceIndexStats;
@@ -201,12 +213,14 @@
 @class GTLRCloudSearch_DoubleOperatorOptions;
 @class GTLRCloudSearch_DoublePropertyOptions;
 @class GTLRCloudSearch_DoubleValues;
+@class GTLRCloudSearch_DriveClientActionMarkup;
 @class GTLRCloudSearch_DriveFollowUpRestrict;
 @class GTLRCloudSearch_DriveLocationRestrict;
 @class GTLRCloudSearch_DriveMetadata;
 @class GTLRCloudSearch_DriveMimeTypeRestrict;
 @class GTLRCloudSearch_DriveTimeSpanRestrict;
 @class GTLRCloudSearch_EditMetadata;
+@class GTLRCloudSearch_EditorClientActionMarkup;
 @class GTLRCloudSearch_EmailAddress;
 @class GTLRCloudSearch_EmailOwnerProto;
 @class GTLRCloudSearch_EmbedClientItem;
@@ -233,6 +247,7 @@
 @class GTLRCloudSearch_GaiaUserProto;
 @class GTLRCloudSearch_GatewayAccess;
 @class GTLRCloudSearch_GatewaySipAccess;
+@class GTLRCloudSearch_GmailClientActionMarkup;
 @class GTLRCloudSearch_GoogleChatConfig;
 @class GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkup;
 @class GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCard;
@@ -262,6 +277,7 @@
 @class GTLRCloudSearch_HangoutEvent;
 @class GTLRCloudSearch_HangoutVideoEventMetadata;
 @class GTLRCloudSearch_HashtagData;
+@class GTLRCloudSearch_HostAppActionMarkup;
 @class GTLRCloudSearch_HostProto;
 @class GTLRCloudSearch_HtmlOperatorOptions;
 @class GTLRCloudSearch_HtmlPropertyOptions;
@@ -275,6 +291,7 @@
 @class GTLRCloudSearch_ImageKeyValue;
 @class GTLRCloudSearch_IncomingWebhookChangedMetadata;
 @class GTLRCloudSearch_IndexItemOptions;
+@class GTLRCloudSearch_InsertContent;
 @class GTLRCloudSearch_IntegerOperatorOptions;
 @class GTLRCloudSearch_IntegerPropertyOptions;
 @class GTLRCloudSearch_IntegerValues;
@@ -322,6 +339,7 @@
 @class GTLRCloudSearch_ObjectPropertyOptions;
 @class GTLRCloudSearch_ObjectValues;
 @class GTLRCloudSearch_OnClick;
+@class GTLRCloudSearch_OpenCreatedDraftActionMarkup;
 @class GTLRCloudSearch_OpenLink;
 @class GTLRCloudSearch_Operation;
 @class GTLRCloudSearch_Operation_Metadata;
@@ -359,11 +377,14 @@
 @class GTLRCloudSearch_RbacSubjectProto;
 @class GTLRCloudSearch_ReactionInfo;
 @class GTLRCloudSearch_ReadReceiptsSettingsUpdatedMetadata;
+@class GTLRCloudSearch_Recipient;
 @class GTLRCloudSearch_RecordingEvent;
 @class GTLRCloudSearch_RecordingInfo;
 @class GTLRCloudSearch_RecordingSessionInfo;
 @class GTLRCloudSearch_RenameEvent;
 @class GTLRCloudSearch_RepositoryError;
+@class GTLRCloudSearch_RequestFileScope;
+@class GTLRCloudSearch_RequestFileScopeForActiveDocument;
 @class GTLRCloudSearch_RequestOptions;
 @class GTLRCloudSearch_RequiredMessageFeaturesMetadata;
 @class GTLRCloudSearch_ResourceRoleProto;
@@ -395,6 +416,7 @@
 @class GTLRCloudSearch_SessionStateInfo;
 @class GTLRCloudSearch_Settings;
 @class GTLRCloudSearch_ShareScope;
+@class GTLRCloudSearch_SheetsClientActionMarkup;
 @class GTLRCloudSearch_SigningKeyPossessorProto;
 @class GTLRCloudSearch_SimpleSecretHolderProto;
 @class GTLRCloudSearch_SimpleSecretLabelProto;
@@ -421,6 +443,7 @@
 @class GTLRCloudSearch_SuggestResult;
 @class GTLRCloudSearch_SupportUrls;
 @class GTLRCloudSearch_SwitchWidget;
+@class GTLRCloudSearch_TaskActionMarkup;
 @class GTLRCloudSearch_TextButton;
 @class GTLRCloudSearch_TextField;
 @class GTLRCloudSearch_TextKeyValue;
@@ -440,6 +463,12 @@
 @class GTLRCloudSearch_TypeInfo;
 @class GTLRCloudSearch_UniversalPhoneAccess;
 @class GTLRCloudSearch_UnmappedIdentity;
+@class GTLRCloudSearch_UpdateBccRecipients;
+@class GTLRCloudSearch_UpdateBody;
+@class GTLRCloudSearch_UpdateCcRecipients;
+@class GTLRCloudSearch_UpdateDraftActionMarkup;
+@class GTLRCloudSearch_UpdateSubject;
+@class GTLRCloudSearch_UpdateToRecipients;
 @class GTLRCloudSearch_UploadItemRef;
 @class GTLRCloudSearch_UploadMetadata;
 @class GTLRCloudSearch_UrlMetadata;
@@ -542,6 +571,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AclInfo_Scope_PublicWithLink
  *  Value: "TEAM_DRIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AclInfo_Scope_TeamDrive;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_AddonComposeUiActionMarkup.type
+
+/**
+ *  Dismisses the add-on compose UI.
+ *
+ *  Value: "DISMISS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AddonComposeUiActionMarkup_Type_Dismiss;
+/**
+ *  Default. When unspecified, no action is taken.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AddonComposeUiActionMarkup_Type_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_AffectedMembership.priorMembershipRole
@@ -2106,6 +2151,108 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedWidget_Hor
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsDynamiteSharedWidget_HorizontalAlignment_Start;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup.features
+
+/**
+ *  Applies to `PHONE` entry point. A call to a toll number is charged to the
+ *  calling party. A number can't be toll and toll-free at the same time.
+ *
+ *  Value: "TOLL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup_Features_Toll;
+/**
+ *  Applies to `PHONE` entry point. For the calling party, a call to a toll-free
+ *  number is free of charge. A number can't be toll and toll-free at the same
+ *  time.
+ *
+ *  Value: "TOLL_FREE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup_Features_TollFree;
+/**
+ *  Unknown feature.
+ *
+ *  Value: "UNKNOWN_FEATURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup_Features_UnknownFeature;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup.type
+
+/**
+ *  Used to provide a link to further conference joining information.
+ *
+ *  Value: "MORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup_Type_More;
+/**
+ *  A phone conference.
+ *
+ *  Value: "PHONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup_Type_Phone;
+/**
+ *  A conference using [Session Initiation
+ *  Protocol](https://en.wikipedia.org/wiki/Session_Initiation_Protocol)
+ *
+ *  Value: "SIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup_Type_Sip;
+/**
+ *  Unknown conference type.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup_Type_Unknown;
+/**
+ *  A video conference.
+ *
+ *  Value: "VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup_Type_Video;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError.type
+
+/**
+ *  An authentication error.
+ *
+ *  Value: "AUTHENTICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError_Type_Authentication;
+/**
+ *  The user isn't allowed to use the selected conference solution (but might be
+ *  allowed to use other solutions offered by the add-on).
+ *
+ *  Value: "CONFERENCE_SOLUTION_FORBIDDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError_Type_ConferenceSolutionForbidden;
+/**
+ *  A permanent error.
+ *
+ *  Value: "PERMANENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError_Type_Permanent;
+/**
+ *  The user isn't allowed to perform some action in the third-party
+ *  conferencing system.
+ *
+ *  Value: "PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError_Type_PermissionDenied;
+/**
+ *  A temporary error.
+ *
+ *  Value: "TEMPORARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError_Type_Temporary;
+/**
+ *  Unknown error.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError_Type_Unknown;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudSearch_BorderStyle.type
 
 /**
@@ -2199,6 +2346,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_BotResponse_RequiredAction_U
 // GTLRCloudSearch_BotResponse.responseType
 
 /**
+ *  A suggestion to promote an app.
+ *
+ *  Value: "APP_SUGGESTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_BotResponse_ResponseType_AppSuggestion;
+/**
  *  Bot fails to respond because it is disabled by domain admin
  *
  *  Value: "DISABLED_BY_ADMIN"
@@ -2254,6 +2407,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_BroadcastAccess_AccessPolicy
  *  Value: "PUBLIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_BroadcastAccess_AccessPolicy_Public;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_CallSettings.accessType
+
+/**
+ *  Anyone with meeting join information (url, phone access...) can join, no
+ *  knocking required. (Subject to organization policies)
+ *
+ *  Value: "ACCESS_TYPE_OPEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CallSettings_AccessType_AccessTypeOpen;
+/**
+ *  Only participants invited by a host can automatically join, everyone else
+ *  must knock and be admitted. (Subject to organization policies) Participants
+ *  cannot dial out from the meeting. And only hosts can accept knocks.
+ *
+ *  Value: "ACCESS_TYPE_RESTRICTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CallSettings_AccessType_AccessTypeRestricted;
+/**
+ *  Members of the Host's organization, invited external users, and dial-in
+ *  users can join without knocking, everyone else must knock. (Subject to
+ *  organization policies)
+ *
+ *  Value: "ACCESS_TYPE_TRUSTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CallSettings_AccessType_AccessTypeTrusted;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "ACCESS_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CallSettings_AccessType_AccessTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_Card.displayStyle
@@ -4537,6 +4723,56 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_IndexItemRequest_Mode_Synchr
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_IndexItemRequest_Mode_Unspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudSearch_InsertContent.contentType
+
+/**
+ *  Specifies that the content is in HTML and is immutable (cannot be edited).
+ *
+ *  Value: "IMMUTABLE_HTML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_InsertContent_ContentType_ImmutableHtml;
+/**
+ *  Specifies that the content is in HTML and is mutable (can be edited).
+ *
+ *  Value: "MUTABLE_HTML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_InsertContent_ContentType_MutableHtml;
+/**
+ *  Specifies that the content is in plain text.
+ *
+ *  Value: "TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_InsertContent_ContentType_Text;
+/**
+ *  Default value when nothing is set for ContentType.
+ *
+ *  Value: "UNSPECIFIED_CONTENT_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_InsertContent_ContentType_UnspecifiedContentType;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_InsertContent.mimeType
+
+/**
+ *  Specifies that the inserted content is in HTML.
+ *
+ *  Value: "HTML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_InsertContent_MimeType_Html;
+/**
+ *  Specifies that the inserted content is in plain text.
+ *
+ *  Value: "PLAIN_TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_InsertContent_MimeType_PlainText;
+/**
+ *  Default value when nothing is set for EmailMimeType.
+ *
+ *  Value: "UNSPECIFIED_EMAIL_MIME_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_InsertContent_MimeType_UnspecifiedEmailMimeType;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudSearch_IntegerPropertyOptions.orderedRanking
 
 /**
@@ -4936,6 +5172,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_MeetingSpace_AcceptedNumberC
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_MeetingSpace_AcceptedNumberClass_NumberClassUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudSearch_MembershipChangedMetadata.initiatorType
+
+/** Value: "INITIATOR_TYPE_ADMIN" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_MembershipChangedMetadata_InitiatorType_InitiatorTypeAdmin;
+/** Value: "INITIATOR_TYPE_END_USER" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_MembershipChangedMetadata_InitiatorType_InitiatorTypeEndUser;
+/** Value: "INITIATOR_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_MembershipChangedMetadata_InitiatorType_InitiatorTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudSearch_MembershipChangedMetadata.type
 
 /**
@@ -5323,7 +5569,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Message_MessageState_Public;
 
 /**
  *  State to indicate that this message is quoted by another message (excluding
- *  soft-deleted message and purged ones).
+ *  purged message).
  *
  *  Value: "QUOTED_BY_STATE_HAS_BEEN_QUOTED"
  */
@@ -6288,6 +6534,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SessionStateInfo_SessionStop
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SessionStateInfo_SessionStopReason_UserAction;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudSearch_Settings.accessType
+
+/**
+ *  Anyone with meeting join information (url, phone access...) can join, no
+ *  knocking required. (Subject to organization policies)
+ *
+ *  Value: "ACCESS_TYPE_OPEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Settings_AccessType_AccessTypeOpen;
+/**
+ *  Only participants invited by a host can automatically join, everyone else
+ *  must knock and be admitted. (Subject to organization policies) Participants
+ *  cannot dial out from the meeting. And only hosts can accept knocks.
+ *
+ *  Value: "ACCESS_TYPE_RESTRICTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Settings_AccessType_AccessTypeRestricted;
+/**
+ *  Members of the Host's organization, invited external users, and dial-in
+ *  users can join without knocking, everyone else must knock. (Subject to
+ *  organization policies)
+ *
+ *  Value: "ACCESS_TYPE_TRUSTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Settings_AccessType_AccessTypeTrusted;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "ACCESS_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Settings_AccessType_AccessTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudSearch_ShareScope.scope
 
 /** Value: "DASHER_DOMAIN" */
@@ -6658,6 +6937,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyMappingsFound;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudSearch_UpdateBody.type
+
+/**
+ *  Indicates this action is to perform an in-place insertion. By default the
+ *  content is inserted at the current cursor position, if there is selected
+ *  content, it replaces the selected content.
+ *
+ *  Value: "IN_PLACE_INSERT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UpdateBody_Type_InPlaceInsert;
+/**
+ *  Indicates this action is to perform insert at the end of the message body.
+ *
+ *  Value: "INSERT_AT_END"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UpdateBody_Type_InsertAtEnd;
+/**
+ *  Indicates this action is to perform insert at the start of the message body.
+ *
+ *  Value: "INSERT_AT_START"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UpdateBody_Type_InsertAtStart;
+/**
+ *  Indicates this action is to replace the message body.
+ *
+ *  Value: "REPLACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UpdateBody_Type_Replace;
+/**
+ *  Default value when nothing is set for Type.
+ *
+ *  Value: "UNSPECIFIED_ACTION_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UpdateBody_Type_UnspecifiedActionType;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudSearch_UploadMetadata.clonedDriveAction
 
 /**
@@ -6713,6 +7028,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UploadMetadata_VirusScanResu
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UploadMetadata_VirusScanResult_PolicyViolation;
 /** Value: "UNKNOWN_VIRUS_SCAN_RESULT" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UploadMetadata_VirusScanResult_UnknownVirusScanResult;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSearch_UrlMetadata.linkType
+
+/**
+ *  Set by the server, when it detects a URL in the message text
+ *
+ *  Value: "AUTO_DETECTED_PLAIN_TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UrlMetadata_LinkType_AutoDetectedPlainText;
+/**
+ *  Set by the server, when it detects a URL in markdown-syntax in the message
+ *  text
+ *
+ *  Value: "MARKDOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UrlMetadata_LinkType_Markdown;
+/**
+ *  Set by the server when a URL annotation received from client has 0 length
+ *  and 0 start index
+ *
+ *  Value: "NO_ASSOCIATED_TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UrlMetadata_LinkType_NoAssociatedText;
+/**
+ *  Set by the client, when the user adds a link via the rich-text editing (RTE)
+ *  toolbar
+ *
+ *  Value: "RICH_TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UrlMetadata_LinkType_RichText;
+/** Value: "UNDEFINED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UrlMetadata_LinkType_Undefined;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_UrlMetadata.urlSource
@@ -7087,6 +7435,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 @property(nonatomic, copy, nullable) NSString *key;
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_AddonComposeUiActionMarkup
+ */
+@interface GTLRCloudSearch_AddonComposeUiActionMarkup : GTLRObject
+
+/**
+ *  type
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AddonComposeUiActionMarkup_Type_Dismiss Dismisses
+ *        the add-on compose UI. (Value: "DISMISS")
+ *    @arg @c kGTLRCloudSearch_AddonComposeUiActionMarkup_Type_Unspecified
+ *        Default. When unspecified, no action is taken. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -9396,6 +9763,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, strong, nullable) GTLRCloudSearch_AppsDynamiteSharedAction *action;
 
 /**
+ *  Triggers host app action on click directly without invoking form actions.
+ *  This is currently not available to end-users and is used internal only.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_HostAppActionMarkup *hostAppAction;
+
+/**
  *  An add-on triggers this action when the action needs to open a link. This
  *  differs from the open_link above in that this needs to talk to server to get
  *  the link. Thus some preparation work is required for web client to do before
@@ -10371,6 +10744,215 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupAddAttachmentsActionMarkup
+ */
+@interface GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupAddAttachmentsActionMarkup : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupAddAttachmentsActionMarkupAddonAttachment *> *addonAttachments;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupAddAttachmentsActionMarkupAddonAttachment
+ */
+@interface GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupAddAttachmentsActionMarkupAddonAttachment : GTLRObject
+
+/** Link to the resource's icon. */
+@property(nonatomic, copy, nullable) NSString *iconUrl;
+
+/** MIME type of the content in resource_url. */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+@property(nonatomic, copy, nullable) NSString *resourceUrl;
+
+/** Title of the attachment. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Markup that defines conference data associated to a Google Calendar event.
+ */
+@interface GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkup : GTLRObject
+
+/**
+ *  Unique identifier for this conference data. Maximum 512 characters long.
+ */
+@property(nonatomic, copy, nullable) NSString *conferenceId;
+
+/**
+ *  An identifier of the conferencing solution. Must match a value from the
+ *  deployment's `calendar.conferenceSolution.id` field.
+ */
+@property(nonatomic, copy, nullable) NSString *conferenceSolutionId;
+
+/** Entry points to the conference. Maximum 300 entry points are allowed. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup *> *entryPoints;
+
+/** If set, it means an error occurred during conference creation. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError *error;
+
+/**
+ *  Additional notes (such as instructions from the administrator, legal
+ *  notices) to display to the user. Can contain HTML. Max length 2048
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *note;
+
+/** Additional add-on parameters. Maximum 300 parameters are allowed. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupParameter *> *parameters;
+
+@end
+
+
+/**
+ *  A way to join the conference.
+ */
+@interface GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup : GTLRObject
+
+/**
+ *  An access code for accessing the conference. Maximum 128 characters long.
+ */
+@property(nonatomic, copy, nullable) NSString *accessCode;
+
+/**
+ *  Features of the entry point, such as being toll or toll-free. One entry
+ *  point can have multiple features.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *features;
+
+/**
+ *  The label of the entry point to display to the user. Maximum 512 characters
+ *  long.
+ */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/**
+ *  A meeting code for accessing the conference. Maximum 128 characters long.
+ */
+@property(nonatomic, copy, nullable) NSString *meetingCode;
+
+/** A passcode for accessing the conference. Maximum 128 characters long. */
+@property(nonatomic, copy, nullable) NSString *passcode;
+
+/** A password for accessing the conference. Maximum 128 characters long. */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/** A PIN for accessing the conference. Maximum 128 characters long. */
+@property(nonatomic, copy, nullable) NSString *pin;
+
+/**
+ *  The CLDR/ISO 3166 region code for the country associated with this entry
+ *  point. Applicable only to `Type.PHONE`.
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+/**
+ *  The type of the entry point. Required.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup_Type_More
+ *        Used to provide a link to further conference joining information.
+ *        (Value: "MORE")
+ *    @arg @c kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup_Type_Phone
+ *        A phone conference. (Value: "PHONE")
+ *    @arg @c kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup_Type_Sip
+ *        A conference using [Session Initiation
+ *        Protocol](https://en.wikipedia.org/wiki/Session_Initiation_Protocol)
+ *        (Value: "SIP")
+ *    @arg @c kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup_Type_Unknown
+ *        Unknown conference type. (Value: "UNKNOWN")
+ *    @arg @c kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupEntryPointMarkup_Type_Video
+ *        A video conference. (Value: "VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  A URI for joining the conference. Supports tel: and http(s): and should be
+ *  at most 1300 characters long. Required.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Represents an error that occurred during conference creation.
+ */
+@interface GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError : GTLRObject
+
+/**
+ *  If the error type is `AUTHENTICATION`, the add-on can provide a URL allowing
+ *  users to log in. Maximum 1300 characters long.
+ */
+@property(nonatomic, copy, nullable) NSString *authenticationUrl;
+
+/**
+ *  The type of error. Required.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError_Type_Authentication
+ *        An authentication error. (Value: "AUTHENTICATION")
+ *    @arg @c kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError_Type_ConferenceSolutionForbidden
+ *        The user isn't allowed to use the selected conference solution (but
+ *        might be allowed to use other solutions offered by the add-on).
+ *        (Value: "CONFERENCE_SOLUTION_FORBIDDEN")
+ *    @arg @c kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError_Type_Permanent
+ *        A permanent error. (Value: "PERMANENT")
+ *    @arg @c kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError_Type_PermissionDenied
+ *        The user isn't allowed to perform some action in the third-party
+ *        conferencing system. (Value: "PERMISSION_DENIED")
+ *    @arg @c kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError_Type_Temporary
+ *        A temporary error. (Value: "TEMPORARY")
+ *    @arg @c kGTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupError_Type_Unknown
+ *        Unknown error. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Solution-specific parameters that are persisted with the event data and, if
+ *  an update or delete is needed, are passed to the add-on. For example:
+ *  `[{key: 'sessionKey', value: '123'}, {key: 'meetingId', value: '456'}]`
+ */
+@interface GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkupParameter : GTLRObject
+
+/** The key of the parameter. Maximum 50 characters long. Required. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** The value of the parameter. Maximum 1024 characters long. Required. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupEditAttendeesActionMarkup
+ */
+@interface GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupEditAttendeesActionMarkup : GTLRObject
+
+/** A list of attendees to add to the Google Calendar event. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *addAttendeeEmails;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupEditConferenceDataActionMarkup
+ */
+@interface GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupEditConferenceDataActionMarkup : GTLRObject
+
+/** The conference data to add to the Google Calendar event. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupConferenceDataMarkup *conferenceData;
+
+@end
+
+
+/**
  *  Attachments that follow the message text.
  */
 @interface GTLRCloudSearch_Attachment : GTLRObject
@@ -10736,6 +11318,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  responseType
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudSearch_BotResponse_ResponseType_AppSuggestion A
+ *        suggestion to promote an app. (Value: "APP_SUGGESTION")
  *    @arg @c kGTLRCloudSearch_BotResponse_ResponseType_DisabledByAdmin Bot
  *        fails to respond because it is disabled by domain admin (Value:
  *        "DISABLED_BY_ADMIN")
@@ -10833,6 +11417,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 @property(nonatomic, strong, nullable) GTLRCloudSearch_ImageButton *imageButton;
 @property(nonatomic, strong, nullable) GTLRCloudSearch_TextButton *textButton;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_CalendarClientActionMarkup
+ */
+@interface GTLRCloudSearch_CalendarClientActionMarkup : GTLRObject
+
+/** An action that adds attachments to the Google Calendar event. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupAddAttachmentsActionMarkup *addAttachmentsActionMarkup;
+
+/** An action that adds attendees to the Google Calendar event. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupEditAttendeesActionMarkup *editAttendeesActionMarkup;
+
+/** An action that adds conference data to the Google Calendar event. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AppsExtensionsMarkupCalendarClientActionMarkupEditConferenceDataActionMarkup *editConferenceDataActionMarkup;
 
 @end
 
@@ -11002,6 +11603,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, strong, nullable) NSNumber *accessLock;
 
 /**
+ *  The current access type of the conference.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_CallSettings_AccessType_AccessTypeOpen Anyone
+ *        with meeting join information (url, phone access...) can join, no
+ *        knocking required. (Subject to organization policies) (Value:
+ *        "ACCESS_TYPE_OPEN")
+ *    @arg @c kGTLRCloudSearch_CallSettings_AccessType_AccessTypeRestricted Only
+ *        participants invited by a host can automatically join, everyone else
+ *        must knock and be admitted. (Subject to organization policies)
+ *        Participants cannot dial out from the meeting. And only hosts can
+ *        accept knocks. (Value: "ACCESS_TYPE_RESTRICTED")
+ *    @arg @c kGTLRCloudSearch_CallSettings_AccessType_AccessTypeTrusted Members
+ *        of the Host's organization, invited external users, and dial-in users
+ *        can join without knocking, everyone else must knock. (Subject to
+ *        organization policies) (Value: "ACCESS_TYPE_TRUSTED")
+ *    @arg @c kGTLRCloudSearch_CallSettings_AccessType_AccessTypeUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "ACCESS_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *accessType;
+
+/**
+ *  Whether users can join this conference before a host (Host or Cohost).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowJoiningBeforeHost;
+
+/**
  *  Indicates whether the attendance report is currently enabled or disabled.
  *
  *  Uses NSNumber of boolValue.
@@ -11030,7 +11661,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, strong, nullable) NSNumber *cseEnabled;
 
 /**
- *  Indicates whether the current call is moderated.
+ *  Indicates whether moderation is currently on or off.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -11042,15 +11673,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *presentLock;
-
-/**
- *  Indicates whether project Dino is currently on or off. WARNING: This is
- *  currently an experimental field. It should not be used without getting an
- *  explicit review and approval from the Meet team.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *projectDinoEnabled;
 
 /**
  *  Indicates whether the reactions lock is currently on or off.
@@ -11195,6 +11817,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
+@end
+
+
+/**
+ *  Actions handled by Chat Clients.
+ */
+@interface GTLRCloudSearch_ChatClientActionMarkup : GTLRObject
 @end
 
 
@@ -12001,6 +12630,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  The result of a user running a custom function.
+ */
+@interface GTLRCloudSearch_CustomFunctionReturnValueMarkup : GTLRObject
+
+/** The error message to show to the user if something went wrong. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/**
+ *  The value that resulted from running the custom function.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id value;
+
+@end
+
+
+/**
  *  Annotation metadata for Data Loss Prevention that pertains to DLP violation
  *  on message send or edit events. It is used for client -> BE communication
  *  and other downstream process in BE (e.g. storage and audit logging), and it
@@ -12638,6 +13285,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  GTLRCloudSearch_DriveClientActionMarkup
+ */
+@interface GTLRCloudSearch_DriveClientActionMarkup : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_RequestFileScope *requestFileScope;
+
+@end
+
+
+/**
  *  Drive follow-up search restricts (e.g. "followup:suggestions").
  */
 @interface GTLRCloudSearch_DriveFollowUpRestrict : GTLRObject
@@ -13047,6 +13704,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  A message edit in Dynamite inserts a Babel-only item containing this field.
  */
 @interface GTLRCloudSearch_EditMetadata : GTLRObject
+@end
+
+
+/**
+ *  GTLRCloudSearch_EditorClientActionMarkup
+ */
+@interface GTLRCloudSearch_EditorClientActionMarkup : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_RequestFileScopeForActiveDocument *requestFileScopeForActiveDocument;
+
 @end
 
 
@@ -13907,6 +14574,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  GTLRCloudSearch_GmailClientActionMarkup
+ */
+@interface GTLRCloudSearch_GmailClientActionMarkup : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_AddonComposeUiActionMarkup *addonComposeUiActionMarkup;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_OpenCreatedDraftActionMarkup *openCreatedDraftActionMarkup;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_TaskActionMarkup *taskAction;
+@property(nonatomic, strong, nullable) GTLRCloudSearch_UpdateDraftActionMarkup *updateDraftActionMarkup;
+
+@end
+
+
+/**
  *  Configuration of the Google Chat in Meet.
  */
 @interface GTLRCloudSearch_GoogleChatConfig : GTLRObject
@@ -13951,7 +14631,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 /**
  *  A card action is the action associated with the card. For an invoice card, a
  *  typical action would be: delete invoice, email invoice or open the invoice
- *  in browser.
+ *  in browser. Not supported by Google Chat apps.
  */
 @interface GTLRCloudSearch_GoogleChatV1ContextualAddOnMarkupCardCardAction : GTLRObject
 
@@ -14806,6 +15486,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  Actions handled by individual host apps.
+ */
+@interface GTLRCloudSearch_HostAppActionMarkup : GTLRObject
+
+/** Actions handled by Calendar. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_CalendarClientActionMarkup *calendarAction;
+
+/** Actions handled by Chat. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_ChatClientActionMarkup *chatAction;
+
+/** Actions handled by Drive. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_DriveClientActionMarkup *driveAction;
+
+/** Actions handled by Docs, Sheets, or Slides. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_EditorClientActionMarkup *editorAction;
+
+/** Actions handled by Gmail. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_GmailClientActionMarkup *gmailAction;
+
+/** Actions handled by Sheets. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_SheetsClientActionMarkup *sheetsAction;
+
+@end
+
+
+/**
  *  Represents a single host. Optionally, the MDB owner of the host can be
  *  specified.
  */
@@ -15317,6 +16023,49 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  Request message for `InitializeCustomer` method.
  */
 @interface GTLRCloudSearch_InitializeCustomerRequest : GTLRObject
+@end
+
+
+/**
+ *  GTLRCloudSearch_InsertContent
+ */
+@interface GTLRCloudSearch_InsertContent : GTLRObject
+
+/** The content to be inserted. */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/**
+ *  The type of inserted content.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_InsertContent_ContentType_ImmutableHtml Specifies
+ *        that the content is in HTML and is immutable (cannot be edited).
+ *        (Value: "IMMUTABLE_HTML")
+ *    @arg @c kGTLRCloudSearch_InsertContent_ContentType_MutableHtml Specifies
+ *        that the content is in HTML and is mutable (can be edited). (Value:
+ *        "MUTABLE_HTML")
+ *    @arg @c kGTLRCloudSearch_InsertContent_ContentType_Text Specifies that the
+ *        content is in plain text. (Value: "TEXT")
+ *    @arg @c kGTLRCloudSearch_InsertContent_ContentType_UnspecifiedContentType
+ *        Default value when nothing is set for ContentType. (Value:
+ *        "UNSPECIFIED_CONTENT_TYPE")
+ */
+@property(nonatomic, copy, nullable) NSString *contentType;
+
+/**
+ *  mimeType
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_InsertContent_MimeType_Html Specifies that the
+ *        inserted content is in HTML. (Value: "HTML")
+ *    @arg @c kGTLRCloudSearch_InsertContent_MimeType_PlainText Specifies that
+ *        the inserted content is in plain text. (Value: "PLAIN_TEXT")
+ *    @arg @c kGTLRCloudSearch_InsertContent_MimeType_UnspecifiedEmailMimeType
+ *        Default value when nothing is set for EmailMimeType. (Value:
+ *        "UNSPECIFIED_EMAIL_MIME_TYPE")
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
 @end
 
 
@@ -16536,7 +17285,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
- *  Annotation metadata to display system messages for membership changes.
+ *  Annotation metadata to display system messages for membership changes. Next
+ *  Tag: 8
  */
 @interface GTLRCloudSearch_MembershipChangedMetadata : GTLRObject
 
@@ -16555,6 +17305,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  Otherwise, only the id will be filled in.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_User *initiatorProfile;
+
+/**
+ *  The type of the user who initiated this membership change.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_MembershipChangedMetadata_InitiatorType_InitiatorTypeAdmin
+ *        Value "INITIATOR_TYPE_ADMIN"
+ *    @arg @c kGTLRCloudSearch_MembershipChangedMetadata_InitiatorType_InitiatorTypeEndUser
+ *        Value "INITIATOR_TYPE_END_USER"
+ *    @arg @c kGTLRCloudSearch_MembershipChangedMetadata_InitiatorType_InitiatorTypeUnspecified
+ *        Value "INITIATOR_TYPE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *initiatorType;
 
 /**
  *  type
@@ -17044,8 +17807,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_Message_QuotedByState_QuotedByStateHasBeenQuoted
  *        State to indicate that this message is quoted by another message
- *        (excluding soft-deleted message and purged ones). (Value:
- *        "QUOTED_BY_STATE_HAS_BEEN_QUOTED")
+ *        (excluding purged message). (Value: "QUOTED_BY_STATE_HAS_BEEN_QUOTED")
  *    @arg @c kGTLRCloudSearch_Message_QuotedByState_QuotedByStateHasNotBeenQuoted
  *        State to indicate that this message are not quoted by another message.
  *        (Value: "QUOTED_BY_STATE_HAS_NOT_BEEN_QUOTED")
@@ -17442,6 +18204,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  before the open link action response comes back.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_FormAction *openLinkAction;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_OpenCreatedDraftActionMarkup
+ */
+@interface GTLRCloudSearch_OpenCreatedDraftActionMarkup : GTLRObject
+
+/** The ID of the newly created draft in the form "r123". */
+@property(nonatomic, copy, nullable) NSString *draftId;
+
+/** The server storage ID in hex format, for example,"15e9fa622ce1029d". */
+@property(nonatomic, copy, nullable) NSString *draftStorageId;
+
+/**
+ *  The ID of the thread containing the newly created draft, for example,
+ *  "15e9fa622ce1029d".
+ */
+@property(nonatomic, copy, nullable) NSString *draftThreadId;
+
+/**
+ *  The server permanent ID for the draft's thread. This field isn't set
+ *  anywhere, and it's ignored when processing OpenCreatedDraftActionMarkup.
+ *  Supply and use draftThreadStorageId instead.
+ */
+@property(nonatomic, copy, nullable) NSString *draftThreadServerPermId;
 
 @end
 
@@ -18776,11 +19565,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, copy, nullable) NSString *botAttachmentState;
 
 /**
+ *  Output only. Time when the quoted message was posted in microseconds.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createTimeMicros;
+
+/**
  *  Output only. ID of the User who posted the quoted message. This includes
  *  information to identify if the quoted message was posted by an App on behalf
  *  of a user.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_UserId *creatorId;
+
+/**
+ *  Output only. Time when the quoted message was last edited by a user at the
+ *  time when quoting action happens. Time is in microseconds.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastEditTimeMicros;
 
 /**
  *  The `last_update_time` of the original message when the client initiated the
@@ -18826,7 +19630,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 /** Output only. Snapshot of the text body of the quoted message. */
 @property(nonatomic, copy, nullable) NSString *textBody;
 
-/** Output only. Upload metadata of the quoted message. NEXT TAG: 11 */
+/**
+ *  Output only. ID of the User who last updated (created/edited/deleted) the
+ *  quoted message at the time when quoting action happens. This includes
+ *  information to identify if the quoted message was posted by an App on behalf
+ *  of a user.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_UserId *updaterId;
+
+/** Output only. Upload metadata of the quoted message. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_UploadMetadata *> *uploadMetadata;
 
 @end
@@ -18890,6 +19702,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *readReceiptsEnabled;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_Recipient
+ */
+@interface GTLRCloudSearch_Recipient : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *email;
 
 @end
 
@@ -19103,6 +19925,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  GTLRCloudSearch_RequestFileScope
+ */
+@interface GTLRCloudSearch_RequestFileScope : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_RequestFileScopeForActiveDocument
+ */
+@interface GTLRCloudSearch_RequestFileScopeForActiveDocument : GTLRObject
+@end
+
+
+/**
  *  Shared request options for all RPC methods.
  */
 @interface GTLRCloudSearch_RequestOptions : GTLRObject
@@ -19192,13 +20031,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  Debugging information about the response.
  */
 @interface GTLRCloudSearch_ResponseDebugInfo : GTLRObject
-
-/**
- *  Experiments enabled in QAPI.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *enabledExperiments;
 
 /** General debug info formatted for display. */
 @property(nonatomic, copy, nullable) NSString *formattedDebugInfo;
@@ -19387,6 +20219,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_RosterId *identifier;
+
+/**
+ *  Whether caller has visibility into members of the roster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isMembershipVisibleToCaller;
 
 /**
  *  membershipCount
@@ -20175,19 +21014,47 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
- *  Settings of a meeting space that can be viewed and edited by users with
- *  permissions. These settings are always populated for output.
+ *  Settings of a meeting space that can be edited by users with corresponding
+ *  manage privilege. These settings are always populated in responses.
  */
 @interface GTLRCloudSearch_Settings : GTLRObject
 
 /**
- *  The access lock of the meeting space that lets owner control who can join
- *  the meeting. True if the access lock feature is enabled for the meeting
- *  space.
+ *  The access lock of the meeting space that lets hosts control who can join
+ *  the meeting.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *accessLock;
+
+/**
+ *  The access type of the meeting space.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_Settings_AccessType_AccessTypeOpen Anyone with
+ *        meeting join information (url, phone access...) can join, no knocking
+ *        required. (Subject to organization policies) (Value:
+ *        "ACCESS_TYPE_OPEN")
+ *    @arg @c kGTLRCloudSearch_Settings_AccessType_AccessTypeRestricted Only
+ *        participants invited by a host can automatically join, everyone else
+ *        must knock and be admitted. (Subject to organization policies)
+ *        Participants cannot dial out from the meeting. And only hosts can
+ *        accept knocks. (Value: "ACCESS_TYPE_RESTRICTED")
+ *    @arg @c kGTLRCloudSearch_Settings_AccessType_AccessTypeTrusted Members of
+ *        the Host's organization, invited external users, and dial-in users can
+ *        join without knocking, everyone else must knock. (Subject to
+ *        organization policies) (Value: "ACCESS_TYPE_TRUSTED")
+ *    @arg @c kGTLRCloudSearch_Settings_AccessType_AccessTypeUnspecified Default
+ *        value. This value is unused. (Value: "ACCESS_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *accessType;
+
+/**
+ *  Whether users can join before host in the conferences of this meeting space.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowJoiningBeforeHost;
 
 /**
  *  Whether attendance report is enabled for the meeting space.
@@ -20198,8 +21065,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 /**
  *  The chat lock of the meeting space that lets owner control whether the
- *  participants can send chat messages. True if the chat lock feature is
- *  enabled for the meeting space.
+ *  participants can send chat messages.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -20235,8 +21101,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 /**
  *  The present lock of the meeting space that lets owner control whether the
- *  participants can present their screen. True if the present lock feature is
- *  enabled for the meeting space.
+ *  participants can present their screen.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -20244,8 +21109,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 /**
  *  The reactions lock of the meeting space that lets owner control whether the
- *  participants can send reactions. True if the reactions lock feature is
- *  enabled for the meeting space.
+ *  participants can send reactions.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -20281,6 +21145,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *    @arg @c kGTLRCloudSearch_ShareScope_Scope_Unknown Value "UNKNOWN"
  */
 @property(nonatomic, copy, nullable) NSString *scope;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_SheetsClientActionMarkup
+ */
+@interface GTLRCloudSearch_SheetsClientActionMarkup : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCloudSearch_CustomFunctionReturnValueMarkup *customFunctionReturnValueMarkup;
 
 @end
 
@@ -21110,6 +21984,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  GTLRCloudSearch_TaskActionMarkup
+ */
+@interface GTLRCloudSearch_TaskActionMarkup : GTLRObject
+
+/**
+ *  reloadTasks
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reloadTasks;
+
+@end
+
+
+/**
  *  GTLRCloudSearch_TextButton
  */
 @interface GTLRCloudSearch_TextButton : GTLRObject
@@ -21559,6 +22448,62 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 
 
 /**
+ *  GTLRCloudSearch_UpdateBccRecipients
+ */
+@interface GTLRCloudSearch_UpdateBccRecipients : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_Recipient *> *bccRecipients;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_UpdateBody
+ */
+@interface GTLRCloudSearch_UpdateBody : GTLRObject
+
+/**
+ *  A repeated field that contains a series of content to insert into the draft
+ *  that the user is currently editing. The content can contain HTML content or
+ *  plain text content.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_InsertContent *> *insertContents;
+
+/**
+ *  type
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_UpdateBody_Type_InPlaceInsert Indicates this
+ *        action is to perform an in-place insertion. By default the content is
+ *        inserted at the current cursor position, if there is selected content,
+ *        it replaces the selected content. (Value: "IN_PLACE_INSERT")
+ *    @arg @c kGTLRCloudSearch_UpdateBody_Type_InsertAtEnd Indicates this action
+ *        is to perform insert at the end of the message body. (Value:
+ *        "INSERT_AT_END")
+ *    @arg @c kGTLRCloudSearch_UpdateBody_Type_InsertAtStart Indicates this
+ *        action is to perform insert at the start of the message body. (Value:
+ *        "INSERT_AT_START")
+ *    @arg @c kGTLRCloudSearch_UpdateBody_Type_Replace Indicates this action is
+ *        to replace the message body. (Value: "REPLACE")
+ *    @arg @c kGTLRCloudSearch_UpdateBody_Type_UnspecifiedActionType Default
+ *        value when nothing is set for Type. (Value: "UNSPECIFIED_ACTION_TYPE")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_UpdateCcRecipients
+ */
+@interface GTLRCloudSearch_UpdateCcRecipients : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_Recipient *> *ccRecipients;
+
+@end
+
+
+/**
  *  GTLRCloudSearch_UpdateDataSourceRequest
  */
 @interface GTLRCloudSearch_UpdateDataSourceRequest : GTLRObject
@@ -21567,6 +22512,58 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, strong, nullable) GTLRCloudSearch_DebugOptions *debugOptions;
 
 @property(nonatomic, strong, nullable) GTLRCloudSearch_DataSource *source;
+
+/**
+ *  Only applies to
+ *  [`settings.datasources.patch`](https://developers.google.com/cloud-search/docs/reference/rest/v1/settings.datasources/patch).
+ *  Update mask to control which fields to update. Example field paths: `name`,
+ *  `displayName`. * If `update_mask` is non-empty, then only the fields
+ *  specified in the `update_mask` are updated. * If you specify a field in the
+ *  `update_mask`, but don't specify its value in the source, that field is
+ *  cleared. * If the `update_mask` is not present or empty or has the value
+ *  `*`, then all fields are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_UpdateDraftActionMarkup
+ */
+@interface GTLRCloudSearch_UpdateDraftActionMarkup : GTLRObject
+
+/**
+ *  If set, replaces the existing Bcc recipients of the draft the user is
+ *  currently editing.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_UpdateBccRecipients *updateBccRecipients;
+
+/**
+ *  A field that contains a series of update actions to perform on the draft
+ *  body that the user is currently editing.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_UpdateBody *updateBody;
+
+/**
+ *  If set, replaces the existing Cc recipients of the draft the user is
+ *  currently editing.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_UpdateCcRecipients *updateCcRecipients;
+
+/**
+ *  If set, replaces the existing subject of the draft the user is currently
+ *  editing.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_UpdateSubject *updateSubject;
+
+/**
+ *  If set, replaces the existing To recipients of the draft the user is
+ *  currently editing.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_UpdateToRecipients *updateToRecipients;
 
 @end
 
@@ -21589,6 +22586,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_UpdateSubject
+ */
+@interface GTLRCloudSearch_UpdateSubject : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *subject;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_UpdateToRecipients
+ */
+@interface GTLRCloudSearch_UpdateToRecipients : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_Recipient *> *toRecipients;
 
 @end
 
@@ -21767,6 +22784,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, strong, nullable) NSNumber *intImageWidth;
 
 /**
+ *  NEXT TAG : 18
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_UrlMetadata_LinkType_AutoDetectedPlainText Set by
+ *        the server, when it detects a URL in the message text (Value:
+ *        "AUTO_DETECTED_PLAIN_TEXT")
+ *    @arg @c kGTLRCloudSearch_UrlMetadata_LinkType_Markdown Set by the server,
+ *        when it detects a URL in markdown-syntax in the message text (Value:
+ *        "MARKDOWN")
+ *    @arg @c kGTLRCloudSearch_UrlMetadata_LinkType_NoAssociatedText Set by the
+ *        server when a URL annotation received from client has 0 length and 0
+ *        start index (Value: "NO_ASSOCIATED_TEXT")
+ *    @arg @c kGTLRCloudSearch_UrlMetadata_LinkType_RichText Set by the client,
+ *        when the user adds a link via the rich-text editing (RTE) toolbar
+ *        (Value: "RICH_TEXT")
+ *    @arg @c kGTLRCloudSearch_UrlMetadata_LinkType_Undefined Value "UNDEFINED"
+ */
+@property(nonatomic, copy, nullable) NSString *linkType;
+
+/**
  *  Mime type of the content (Currently mapped from Page Render Service
  *  ItemType) Note that this is not necessarily the mime type of the http
  *  resource. For example a text/html from youtube or vimeo may actually be
@@ -21796,7 +22833,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
 @property(nonatomic, strong, nullable) GTLRCloudSearch_SafeUrlProto *url;
 
 /**
- *  NEXT TAG : 17
+ *  urlSource
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_UrlMetadata_UrlSource_ServerSuppliedPolicyViolation
@@ -22001,8 +23038,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  field will be populated if we can extract such information from the Drive
  *  Notification email. This should only be used to fetch user avatars when
  *  updater_to_show_email is not populated. This field is not set for non-Drive
- *  Notification items. This is not the actual sender of the email, as the
- *  sender is always comments-noreply\@docs.google.com.
+ *  Notification items.
  */
 @property(nonatomic, copy, nullable) NSString *driveNotificationAvatarUrl;
 
@@ -22058,10 +23094,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_WidgetMarkup_HorizontalAlign
  *  The display name of the updater for clients to show used for Gmail items.
  *  For non-Drive Notification items, this field will always be populated. If
  *  the display name cannot be found for the user, the fallback string will be
- *  the email address. For Drive Notification items, this is the email of the
+ *  the email address. For Drive Notification items, this is the name of the
  *  user who triggered the Drive notification email. This field will be
  *  populated if we can extract such information from the Drive Notification
- *  email. This is not the actual sender of the email, as the sender is always
+ *  email. If the name cannot be extracted, then the email will be the fallback
+ *  string, which is used as the display name text in the UI when needed. This
+ *  is not the actual sender of the email, as the sender is always
  *  comments-noreply\@docs.google.com.
  */
 @property(nonatomic, copy, nullable) NSString *updaterToShowName;

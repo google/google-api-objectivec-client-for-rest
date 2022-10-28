@@ -22,7 +22,7 @@
 
 @dynamic customer;
 
-+ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyV1BatchDeleteGroupPoliciesRequest *)object
++ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyVersionsV1BatchDeleteGroupPoliciesRequest *)object
                        customer:(NSString *)customer {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -49,7 +49,7 @@
 
 @dynamic customer;
 
-+ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyV1BatchModifyGroupPoliciesRequest *)object
++ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyVersionsV1BatchModifyGroupPoliciesRequest *)object
                        customer:(NSString *)customer {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -76,7 +76,7 @@
 
 @dynamic customer;
 
-+ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyV1ListGroupPriorityOrderingRequest *)object
++ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyVersionsV1ListGroupPriorityOrderingRequest *)object
                        customer:(NSString *)customer {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -92,7 +92,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.customer = customer;
-  query.expectedObjectClass = [GTLRChromePolicy_GoogleChromePolicyV1ListGroupPriorityOrderingResponse class];
+  query.expectedObjectClass = [GTLRChromePolicy_GoogleChromePolicyVersionsV1ListGroupPriorityOrderingResponse class];
   query.loggingName = @"chromepolicy.customers.policies.groups.listGroupPriorityOrdering";
   return query;
 }
@@ -103,7 +103,7 @@
 
 @dynamic customer;
 
-+ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyV1UpdateGroupPriorityOrderingRequest *)object
++ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyVersionsV1UpdateGroupPriorityOrderingRequest *)object
                        customer:(NSString *)customer {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -126,11 +126,119 @@
 
 @end
 
+@implementation GTLRChromePolicyQuery_CustomersPoliciesNetworksDefineCertificate
+
+@dynamic customer;
+
++ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyVersionsV1DefineCertificateRequest *)object
+                       customer:(NSString *)customer {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/policies/networks:defineCertificate";
+  GTLRChromePolicyQuery_CustomersPoliciesNetworksDefineCertificate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromePolicy_GoogleChromePolicyVersionsV1DefineCertificateResponse class];
+  query.loggingName = @"chromepolicy.customers.policies.networks.defineCertificate";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromePolicyQuery_CustomersPoliciesNetworksDefineNetwork
+
+@dynamic customer;
+
++ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyVersionsV1DefineNetworkRequest *)object
+                       customer:(NSString *)customer {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/policies/networks:defineNetwork";
+  GTLRChromePolicyQuery_CustomersPoliciesNetworksDefineNetwork *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromePolicy_GoogleChromePolicyVersionsV1DefineNetworkResponse class];
+  query.loggingName = @"chromepolicy.customers.policies.networks.defineNetwork";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromePolicyQuery_CustomersPoliciesNetworksRemoveCertificate
+
+@dynamic customer;
+
++ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyVersionsV1RemoveCertificateRequest *)object
+                       customer:(NSString *)customer {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/policies/networks:removeCertificate";
+  GTLRChromePolicyQuery_CustomersPoliciesNetworksRemoveCertificate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromePolicy_GoogleChromePolicyVersionsV1RemoveCertificateResponse class];
+  query.loggingName = @"chromepolicy.customers.policies.networks.removeCertificate";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromePolicyQuery_CustomersPoliciesNetworksRemoveNetwork
+
+@dynamic customer;
+
++ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyVersionsV1RemoveNetworkRequest *)object
+                       customer:(NSString *)customer {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/policies/networks:removeNetwork";
+  GTLRChromePolicyQuery_CustomersPoliciesNetworksRemoveNetwork *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromePolicy_GoogleChromePolicyVersionsV1RemoveNetworkResponse class];
+  query.loggingName = @"chromepolicy.customers.policies.networks.removeNetwork";
+  return query;
+}
+
+@end
+
 @implementation GTLRChromePolicyQuery_CustomersPoliciesOrgunitsBatchInherit
 
 @dynamic customer;
 
-+ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyV1BatchInheritOrgUnitPoliciesRequest *)object
++ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyVersionsV1BatchInheritOrgUnitPoliciesRequest *)object
                        customer:(NSString *)customer {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -157,7 +265,7 @@
 
 @dynamic customer;
 
-+ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyV1BatchModifyOrgUnitPoliciesRequest *)object
++ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyVersionsV1BatchModifyOrgUnitPoliciesRequest *)object
                        customer:(NSString *)customer {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -184,7 +292,7 @@
 
 @dynamic customer;
 
-+ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyV1ResolveRequest *)object
++ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyVersionsV1ResolveRequest *)object
                        customer:(NSString *)customer {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -200,7 +308,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.customer = customer;
-  query.expectedObjectClass = [GTLRChromePolicy_GoogleChromePolicyV1ResolveResponse class];
+  query.expectedObjectClass = [GTLRChromePolicy_GoogleChromePolicyVersionsV1ResolveResponse class];
   query.loggingName = @"chromepolicy.customers.policies.resolve";
   return query;
 }
@@ -219,7 +327,7 @@
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRChromePolicy_GoogleChromePolicyV1PolicySchema class];
+  query.expectedObjectClass = [GTLRChromePolicy_GoogleChromePolicyVersionsV1PolicySchema class];
   query.loggingName = @"chromepolicy.customers.policySchemas.get";
   return query;
 }
@@ -238,7 +346,7 @@
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRChromePolicy_GoogleChromePolicyV1ListPolicySchemasResponse class];
+  query.expectedObjectClass = [GTLRChromePolicy_GoogleChromePolicyVersionsV1ListPolicySchemasResponse class];
   query.loggingName = @"chromepolicy.customers.policySchemas.list";
   return query;
 }

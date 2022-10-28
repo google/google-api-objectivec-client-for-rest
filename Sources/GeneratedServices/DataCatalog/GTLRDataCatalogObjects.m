@@ -29,14 +29,6 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnec
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec_Type_Mysql = @"MYSQL";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec_Type_Postgres = @"POSTGRES";
 
-// GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec.type
-NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Dimension = @"DIMENSION";
-NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_DimensionGroup = @"DIMENSION_GROUP";
-NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Filter = @"FILTER";
-NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_LookerColumnTypeUnspecified = @"LOOKER_COLUMN_TYPE_UNSPECIFIED";
-NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Measure = @"MEASURE";
-NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Paremeter = @"PAREMETER";
-
 // GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec.type
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec_Type_External = @"EXTERNAL";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec_Type_Native = @"NATIVE";
@@ -251,7 +243,7 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema
-@dynamic column, descriptionProperty, lookerColumnSpec, mode, subcolumns, type;
+@dynamic column, descriptionProperty, mode, subcolumns, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -264,16 +256,6 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec
-//
-
-@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec
-@dynamic type;
 @end
 
 
@@ -1208,7 +1190,7 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal
-@dynamic favoriteCount, updateTime, usageWithinTimeRange;
+@dynamic updateTime, usageWithinTimeRange;
 @end
 
 

@@ -1800,7 +1800,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  de-identification fails for some DICOM instances. The output DICOM store
  *  will not contain these failed resources. Failed resource totals are tracked
  *  in Operation.metadata. Error details are also logged to Cloud Logging (see
- *  [Viewing error logs in Cloud Logging](/healthcare/docs/how-tos/logging)).
+ *  [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.deidentify
  *
@@ -1825,7 +1826,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  de-identification fails for some DICOM instances. The output DICOM store
  *  will not contain these failed resources. Failed resource totals are tracked
  *  in Operation.metadata. Error details are also logged to Cloud Logging (see
- *  [Viewing error logs in Cloud Logging](/healthcare/docs/how-tos/logging)).
+ *  [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
  *
  *  @param object The @c GTLRCloudHealthcare_DeidentifyDicomStoreRequest to
  *    include in the query.
@@ -3533,7 +3535,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  mapped to a valid API method on a FHIR store, a generic GCP error might be
  *  returned instead. For samples that show how to call `create`, see [Creating
  *  a FHIR
- *  resource](/healthcare/docs/how-tos/fhir-resources#creating_a_fhir_resource).
+ *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#creating_a_fhir_resource).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.create
  *
@@ -3572,7 +3574,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  mapped to a valid API method on a FHIR store, a generic GCP error might be
  *  returned instead. For samples that show how to call `create`, see [Creating
  *  a FHIR
- *  resource](/healthcare/docs/how-tos/fhir-resources#creating_a_fhir_resource).
+ *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#creating_a_fhir_resource).
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
  *  @param parent The name of the FHIR store this resource belongs to.
@@ -3601,7 +3603,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  will be moved to a history repository that can still be retrieved through
  *  vread and related methods, unless they are removed by the purge method. For
  *  samples that show how to call `delete`, see [Deleting a FHIR
- *  resource](/healthcare/docs/how-tos/fhir-resources#deleting_a_fhir_resource).
+ *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#deleting_a_fhir_resource).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.delete
  *
@@ -3625,7 +3627,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  will be moved to a history repository that can still be retrieved through
  *  vread and related methods, unless they are removed by the purge method. For
  *  samples that show how to call `delete`, see [Deleting a FHIR
- *  resource](/healthcare/docs/how-tos/fhir-resources#deleting_a_fhir_resource).
+ *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#deleting_a_fhir_resource).
  *
  *  @param name The name of the resource to delete.
  *
@@ -3670,7 +3672,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  more information, see [Viewing Cloud Audit
  *  logs](https://cloud.google.com/healthcare-api/docs/how-tos/audit-logging).
  *  For samples that show how to call `executeBundle`, see [Managing FHIR
- *  resources using FHIR bundles](/healthcare/docs/how-tos/fhir-bundles).
+ *  resources using FHIR
+ *  bundles](https://cloud.google.com/healthcare/docs/how-tos/fhir-bundles).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.executeBundle
  *
@@ -3719,7 +3722,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  more information, see [Viewing Cloud Audit
  *  logs](https://cloud.google.com/healthcare-api/docs/how-tos/audit-logging).
  *  For samples that show how to call `executeBundle`, see [Managing FHIR
- *  resources using FHIR bundles](/healthcare/docs/how-tos/fhir-bundles).
+ *  resources using FHIR
+ *  bundles](https://cloud.google.com/healthcare/docs/how-tos/fhir-bundles).
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
  *  @param parent Name of the FHIR store in which this bundle will be executed.
@@ -3745,7 +3749,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  the error. If the request cannot be mapped to a valid API method on a FHIR
  *  store, a generic GCP error might be returned instead. For samples that show
  *  how to call `history`, see [Listing FHIR resource
- *  versions](/healthcare/docs/how-tos/fhir-resources#listing_fhir_resource_versions).
+ *  versions](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#listing_fhir_resource_versions).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.history
  *
@@ -3807,7 +3811,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  the error. If the request cannot be mapped to a valid API method on a FHIR
  *  store, a generic GCP error might be returned instead. For samples that show
  *  how to call `history`, see [Listing FHIR resource
- *  versions](/healthcare/docs/how-tos/fhir-resources#listing_fhir_resource_versions).
+ *  versions](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#listing_fhir_resource_versions).
  *
  *  @param name The name of the resource to retrieve.
  *
@@ -3832,7 +3836,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  describing the reason for the error. If the request cannot be mapped to a
  *  valid API method on a FHIR store, a generic GCP error might be returned
  *  instead. For samples that show how to call `patch`, see [Patching a FHIR
- *  resource](/healthcare/docs/how-tos/fhir-resources#patching_a_fhir_resource).
+ *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#patching_a_fhir_resource).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.patch
  *
@@ -3861,7 +3865,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  describing the reason for the error. If the request cannot be mapped to a
  *  valid API method on a FHIR store, a generic GCP error might be returned
  *  instead. For samples that show how to call `patch`, see [Patching a FHIR
- *  resource](/healthcare/docs/how-tos/fhir-resources#patching_a_fhir_resource).
+ *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#patching_a_fhir_resource).
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
  *  @param name The name of the resource to update.
@@ -3895,7 +3899,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  details the eligible resource types and referencing search parameters. For
  *  samples that show how to call `Patient-everything`, see [Getting all patient
  *  compartment
- *  resources](/healthcare/docs/how-tos/fhir-resources#getting_all_patient_compartment_resources).
+ *  resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#getting_all_patient_compartment_resources).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.Patient-everything
  *
@@ -3974,7 +3978,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  details the eligible resource types and referencing search parameters. For
  *  samples that show how to call `Patient-everything`, see [Getting all patient
  *  compartment
- *  resources](/healthcare/docs/how-tos/fhir-resources#getting_all_patient_compartment_resources).
+ *  resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#getting_all_patient_compartment_resources).
  *
  *  @param name Name of the `Patient` resource for which the information is
  *    required.
@@ -4002,7 +4006,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  the reason for the error. If the request cannot be mapped to a valid API
  *  method on a FHIR store, a generic GCP error might be returned instead. For
  *  samples that show how to call `read`, see [Getting a FHIR
- *  resource](/healthcare/docs/how-tos/fhir-resources#getting_a_fhir_resource).
+ *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#getting_a_fhir_resource).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.read
  *
@@ -4033,7 +4037,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  the reason for the error. If the request cannot be mapped to a valid API
  *  method on a FHIR store, a generic GCP error might be returned instead. For
  *  samples that show how to call `read`, see [Getting a FHIR
- *  resource](/healthcare/docs/how-tos/fhir-resources#getting_a_fhir_resource).
+ *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#getting_a_fhir_resource).
  *
  *  @param name The name of the resource to retrieve.
  *
@@ -4049,7 +4053,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  delete the current version and then call this method. This is not a FHIR
  *  standard operation. For samples that show how to call `Resource-purge`, see
  *  [Deleting historical versions of a FHIR
- *  resource](/healthcare/docs/how-tos/fhir-resources#deleting_historical_versions_of_a_fhir_resource).
+ *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#deleting_historical_versions_of_a_fhir_resource).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.Resource-purge
  *
@@ -4069,7 +4073,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  delete the current version and then call this method. This is not a FHIR
  *  standard operation. For samples that show how to call `Resource-purge`, see
  *  [Deleting historical versions of a FHIR
- *  resource](/healthcare/docs/how-tos/fhir-resources#deleting_historical_versions_of_a_fhir_resource).
+ *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#deleting_historical_versions_of_a_fhir_resource).
  *
  *  @param name The name of the resource to purge.
  *
@@ -4214,8 +4218,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  be a slight delay between the time a resource is created or changes and when
  *  the change is reflected in search results. For samples and detailed
  *  information, see [Searching for FHIR
- *  resources](/healthcare/docs/how-tos/fhir-search) and [Advanced FHIR search
- *  features](/healthcare/docs/how-tos/fhir-advanced-search).
+ *  resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-search) and
+ *  [Advanced FHIR search
+ *  features](https://cloud.google.com/healthcare/docs/how-tos/fhir-advanced-search).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.search
  *
@@ -4276,8 +4281,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  be a slight delay between the time a resource is created or changes and when
  *  the change is reflected in search results. For samples and detailed
  *  information, see [Searching for FHIR
- *  resources](/healthcare/docs/how-tos/fhir-search) and [Advanced FHIR search
- *  features](/healthcare/docs/how-tos/fhir-advanced-search).
+ *  resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-search) and
+ *  [Advanced FHIR search
+ *  features](https://cloud.google.com/healthcare/docs/how-tos/fhir-advanced-search).
  *
  *  @param object The @c GTLRCloudHealthcare_SearchResourcesRequest to include
  *    in the query.
@@ -4337,8 +4343,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  be a slight delay between the time a resource is created or changes and when
  *  the change is reflected in search results. For samples and detailed
  *  information, see [Searching for FHIR
- *  resources](/healthcare/docs/how-tos/fhir-search) and [Advanced FHIR search
- *  features](/healthcare/docs/how-tos/fhir-advanced-search).
+ *  resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-search) and
+ *  [Advanced FHIR search
+ *  features](https://cloud.google.com/healthcare/docs/how-tos/fhir-advanced-search).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.search-type
  *
@@ -4408,8 +4415,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  be a slight delay between the time a resource is created or changes and when
  *  the change is reflected in search results. For samples and detailed
  *  information, see [Searching for FHIR
- *  resources](/healthcare/docs/how-tos/fhir-search) and [Advanced FHIR search
- *  features](/healthcare/docs/how-tos/fhir-advanced-search).
+ *  resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-search) and
+ *  [Advanced FHIR search
+ *  features](https://cloud.google.com/healthcare/docs/how-tos/fhir-advanced-search).
  *
  *  @param object The @c GTLRCloudHealthcare_SearchResourcesRequest to include
  *    in the query.
@@ -4450,7 +4458,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  error. If the request cannot be mapped to a valid API method on a FHIR
  *  store, a generic GCP error might be returned instead. For samples that show
  *  how to call `update`, see [Updating a FHIR
- *  resource](/healthcare/docs/how-tos/fhir-resources#updating_a_fhir_resource).
+ *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#updating_a_fhir_resource).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.update
  *
@@ -4486,7 +4494,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  error. If the request cannot be mapped to a valid API method on a FHIR
  *  store, a generic GCP error might be returned instead. For samples that show
  *  how to call `update`, see [Updating a FHIR
- *  resource](/healthcare/docs/how-tos/fhir-resources#updating_a_fhir_resource).
+ *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#updating_a_fhir_resource).
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
  *  @param name The name of the resource to update.
@@ -4510,7 +4518,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  request cannot be mapped to a valid API method on a FHIR store, a generic
  *  GCP error might be returned instead. For samples that show how to call
  *  `vread`, see [Retrieving a FHIR resource
- *  version](/healthcare/docs/how-tos/fhir-resources#retrieving_a_fhir_resource_version).
+ *  version](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#retrieving_a_fhir_resource_version).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.vread
  *
@@ -4536,7 +4544,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  request cannot be mapped to a valid API method on a FHIR store, a generic
  *  GCP error might be returned instead. For samples that show how to call
  *  `vread`, see [Retrieving a FHIR resource
- *  version](/healthcare/docs/how-tos/fhir-resources#retrieving_a_fhir_resource_version).
+ *  version](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#retrieving_a_fhir_resource_version).
  *
  *  @param name The name of the resource version to retrieve.
  *

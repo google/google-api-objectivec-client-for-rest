@@ -4,7 +4,7 @@
 // API:
 //   Assured Workloads API (assuredworkloads/v1)
 // Documentation:
-//   https://cloud.google.com
+//   https://cloud.google.com/learnmoreurl
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -210,8 +210,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsGet : GTLRAssuredworkloadsQuery
 
 /**
- *  Required. The resource name of the Workload to fetch. This is the
- *  workloads's relative path in the API, formatted as
+ *  Required. The resource name of the Workload to fetch. This is the workload's
+ *  relative path in the API, formatted as
  *  "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}".
  *  For example,
  *  "organizations/123/locations/us-east1/workloads/assured-workload-1".
@@ -224,7 +224,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets Assured Workload associated with a CRM Node
  *
  *  @param name Required. The resource name of the Workload to fetch. This is
- *    the workloads's relative path in the API, formatted as
+ *    the workload's relative path in the API, formatted as
  *    "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}".
  *    For example,
  *    "organizations/123/locations/us-east1/workloads/assured-workload-1".

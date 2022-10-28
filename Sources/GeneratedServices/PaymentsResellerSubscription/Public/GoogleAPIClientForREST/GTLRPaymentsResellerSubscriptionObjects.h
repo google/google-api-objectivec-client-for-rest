@@ -200,6 +200,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_State_StateInGracePeriod;
 /**
+ *  The subscription is suspended.
+ *
+ *  Value: "STATE_SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_State_StateSuspended;
+/**
  *  The state is unspecified.
  *
  *  Value: "STATE_UNSPECIFIED"
@@ -402,9 +408,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest : GTLRObject
 
 /**
- *  Optional. If true, the subscription will be cancelled immediately.
- *  Otherwise, the subscription will be cancelled at renewal_time, and therefore
- *  no prorated refund will be issued for the rest of the cycle.
+ *  Optional. If true, Google will cancel the subscription immediately, and
+ *  issue a prorated refund for the remainder of the billing cycle. Otherwise,
+ *  Google defers the cancelation at renewal_time, and therefore, will not issue
+ *  a refund.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -857,6 +864,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  */
 @property(nonatomic, strong, nullable) NSNumber *recurrenceCount;
 
+/**
+ *  Output only. 2-letter ISO region code where the product is available in. Ex.
+ *  "US".
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
 @end
 
 
@@ -1011,6 +1024,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_State_StateInGracePeriod
  *        The subscription has not been extended by the partner after the end of
  *        current cycle. (Value: "STATE_IN_GRACE_PERIOD")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_State_StateSuspended
+ *        The subscription is suspended. (Value: "STATE_SUSPENDED")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_State_StateUnspecified
  *        The state is unspecified. (Value: "STATE_UNSPECIFIED")
  */

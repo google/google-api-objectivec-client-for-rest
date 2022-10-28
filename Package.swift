@@ -386,6 +386,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_ContainerAnalysis"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_Contentwarehouse",
+            targets: ["GoogleAPIClientForREST_Contentwarehouse"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_CustomSearchAPI",
             targets: ["GoogleAPIClientForREST_CustomSearchAPI"]
         ),
@@ -1580,6 +1584,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_ContainerAnalysis",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/ContainerAnalysis",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_Contentwarehouse",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/Contentwarehouse",
             publicHeadersPath: "Public"
         ),
         .target(

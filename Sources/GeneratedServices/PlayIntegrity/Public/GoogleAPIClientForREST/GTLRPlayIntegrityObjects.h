@@ -16,7 +16,6 @@
 
 @class GTLRPlayIntegrity_AccountActivity;
 @class GTLRPlayIntegrity_AccountDetails;
-@class GTLRPlayIntegrity_AccountRiskVerdict;
 @class GTLRPlayIntegrity_AppIntegrity;
 @class GTLRPlayIntegrity_DeviceIntegrity;
 @class GTLRPlayIntegrity_RequestDetails;
@@ -108,96 +107,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensin
  *  Value: "UNLICENSED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unlicensed;
-
-// ----------------------------------------------------------------------------
-// GTLRPlayIntegrity_AccountRiskVerdict.risk
-
-/**
- *  Play thinks that at least one of the user accounts on the device has some
- *  unusual store engagement behavior that could be risky.
- *
- *  Value: "HIGHER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_Risk_Higher;
-/**
- *  Play thinks the user could be genuine, since there is some store engagement.
- *  However, some signals to support the trust level are missing.
- *
- *  Value: "LOWER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_Risk_Lower;
-/**
- *  Play thinks the user is more likely to be genuine due to harder to replicate
- *  store engagement signals.
- *
- *  Value: "LOWEST"
- */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_Risk_Lowest;
-/**
- *  Risk has not been set.
- *
- *  Value: "RISK_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_Risk_RiskUnspecified;
-/**
- *  The account risk is not evaluated, because the device is not trusted or the
- *  user does not have a Play app license.
- *
- *  Value: "UNEVALUATED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_Risk_Unevaluated;
-/**
- *  Play does not have sufficient information to assess the risk. The account
- *  may be new, or it may lack activity on the Play Store.
- *
- *  Value: "UNKNOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_Risk_Unknown;
-
-// ----------------------------------------------------------------------------
-// GTLRPlayIntegrity_AccountRiskVerdict.riskLevel
-
-/**
- *  Play thinks the user is more likely to be genuine due to harder to replicate
- *  store engagement signals.
- *
- *  Value: "RISK_LEVEL_LOWEST_RISK"
- */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelLowestRisk;
-/**
- *  Play thinks the user could be genuine, since there is some store engagement.
- *  However, some signals to support the trust level are missing.
- *
- *  Value: "RISK_LEVEL_LOW_RISK"
- */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelLowRisk;
-/**
- *  Play thinks that at least one of the user accounts on the device has some
- *  unusual store engagement behavior that could be risky.
- *
- *  Value: "RISK_LEVEL_RISK"
- */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelRisk;
-/**
- *  The account risk is not evaluated, because the device is not trusted or the
- *  user does not have a Play app license.
- *
- *  Value: "RISK_LEVEL_UNEVALUATED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelUnevaluated;
-/**
- *  Play does not have sufficient information to assess the risk. The account
- *  may be new, or it may lack activity on the Play Store.
- *
- *  Value: "RISK_LEVEL_UNKNOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelUnknown;
-/**
- *  Risk level has not been set.
- *
- *  Value: "RISK_LEVEL_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRPlayIntegrity_AppIntegrity.appRecognitionVerdict
@@ -315,12 +224,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceReco
 @property(nonatomic, strong, nullable) GTLRPlayIntegrity_AccountActivity *accountActivity;
 
 /**
- *  Details about the account risk for the user in the scope. This feature is
- *  available only to selected developers.
- */
-@property(nonatomic, strong, nullable) GTLRPlayIntegrity_AccountRiskVerdict *accountRiskVerdict;
-
-/**
  *  Required. Details about the licensing status of the user for the app in the
  *  scope.
  *
@@ -340,68 +243,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceReco
  *        (Value: "UNLICENSED")
  */
 @property(nonatomic, copy, nullable) NSString *appLicensingVerdict;
-
-@end
-
-
-/**
- *  Contains information about account risk that indicates if the current user
- *  session seems low risk, unknown, or risky before you allow important actions
- *  to proceed.
- */
-@interface GTLRPlayIntegrity_AccountRiskVerdict : GTLRObject
-
-/**
- *  Required. Indicates the account risk level of the current user session.
- *
- *  Likely values:
- *    @arg @c kGTLRPlayIntegrity_AccountRiskVerdict_Risk_Higher Play thinks that
- *        at least one of the user accounts on the device has some unusual store
- *        engagement behavior that could be risky. (Value: "HIGHER")
- *    @arg @c kGTLRPlayIntegrity_AccountRiskVerdict_Risk_Lower Play thinks the
- *        user could be genuine, since there is some store engagement. However,
- *        some signals to support the trust level are missing. (Value: "LOWER")
- *    @arg @c kGTLRPlayIntegrity_AccountRiskVerdict_Risk_Lowest Play thinks the
- *        user is more likely to be genuine due to harder to replicate store
- *        engagement signals. (Value: "LOWEST")
- *    @arg @c kGTLRPlayIntegrity_AccountRiskVerdict_Risk_RiskUnspecified Risk
- *        has not been set. (Value: "RISK_UNSPECIFIED")
- *    @arg @c kGTLRPlayIntegrity_AccountRiskVerdict_Risk_Unevaluated The account
- *        risk is not evaluated, because the device is not trusted or the user
- *        does not have a Play app license. (Value: "UNEVALUATED")
- *    @arg @c kGTLRPlayIntegrity_AccountRiskVerdict_Risk_Unknown Play does not
- *        have sufficient information to assess the risk. The account may be
- *        new, or it may lack activity on the Play Store. (Value: "UNKNOWN")
- */
-@property(nonatomic, copy, nullable) NSString *risk;
-
-/**
- *  Required. Indicates the account risk level of the current user session.
- *
- *  Likely values:
- *    @arg @c kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelLowestRisk
- *        Play thinks the user is more likely to be genuine due to harder to
- *        replicate store engagement signals. (Value: "RISK_LEVEL_LOWEST_RISK")
- *    @arg @c kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelLowRisk
- *        Play thinks the user could be genuine, since there is some store
- *        engagement. However, some signals to support the trust level are
- *        missing. (Value: "RISK_LEVEL_LOW_RISK")
- *    @arg @c kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelRisk Play
- *        thinks that at least one of the user accounts on the device has some
- *        unusual store engagement behavior that could be risky. (Value:
- *        "RISK_LEVEL_RISK")
- *    @arg @c kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelUnevaluated
- *        The account risk is not evaluated, because the device is not trusted
- *        or the user does not have a Play app license. (Value:
- *        "RISK_LEVEL_UNEVALUATED")
- *    @arg @c kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelUnknown
- *        Play does not have sufficient information to assess the risk. The
- *        account may be new, or it may lack activity on the Play Store. (Value:
- *        "RISK_LEVEL_UNKNOWN")
- *    @arg @c kGTLRPlayIntegrity_AccountRiskVerdict_RiskLevel_RiskLevelUnspecified
- *        Risk level has not been set. (Value: "RISK_LEVEL_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *riskLevel;
 
 @end
 

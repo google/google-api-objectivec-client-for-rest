@@ -4,7 +4,7 @@
 // API:
 //   Application Integration API (integrations/v1alpha)
 // Documentation:
-//   http://www.google.com
+//   https://cloud.google.com/application-integration
 
 #import <GoogleAPIClientForREST/GTLRIntegrationsObjects.h>
 
@@ -741,6 +741,7 @@ NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTriggerCon
 NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTriggerConfig_TriggerType_Api = @"API";
 NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTriggerConfig_TriggerType_CloudPubsub = @"CLOUD_PUBSUB";
 NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTriggerConfig_TriggerType_CloudPubsubExternal = @"CLOUD_PUBSUB_EXTERNAL";
+NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTriggerConfig_TriggerType_CloudScheduler = @"CLOUD_SCHEDULER";
 NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTriggerConfig_TriggerType_Cron = @"CRON";
 NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTriggerConfig_TriggerType_DatalayerDataChange = @"DATALAYER_DATA_CHANGE";
 NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTriggerConfig_TriggerType_Goops = @"GOOPS";
@@ -1098,6 +1099,7 @@ NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaTriggerConfig_N
 // GTLRIntegrations_GoogleCloudIntegrationsV1alphaTriggerConfig.triggerType
 NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaTriggerConfig_TriggerType_Api = @"API";
 NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaTriggerConfig_TriggerType_CloudPubsubExternal = @"CLOUD_PUBSUB_EXTERNAL";
+NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaTriggerConfig_TriggerType_CloudScheduler = @"CLOUD_SCHEDULER";
 NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaTriggerConfig_TriggerType_Cron = @"CRON";
 NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaTriggerConfig_TriggerType_SfdcCdcChannel = @"SFDC_CDC_CHANNEL";
 NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaTriggerConfig_TriggerType_SfdcChannel = @"SFDC_CHANNEL";
@@ -1377,6 +1379,16 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 
 @implementation GTLRIntegrations_EnterpriseCrmEventbusProtoBuganizerNotification
 @dynamic assigneeEmailAddress, componentId, templateId, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIntegrations_EnterpriseCrmEventbusProtoCloudSchedulerConfig
+//
+
+@implementation GTLRIntegrations_EnterpriseCrmEventbusProtoCloudSchedulerConfig
+@dynamic cronTab, errorMessage, location, serviceAccountEmail;
 @end
 
 
@@ -2849,8 +2861,8 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 //
 
 @implementation GTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTriggerConfig
-@dynamic alertConfig, descriptionProperty, enabledClients, label,
-         nextTasksExecutionPolicy, pauseWorkflowExecutions, position,
+@dynamic alertConfig, cloudSchedulerConfig, descriptionProperty, enabledClients,
+         label, nextTasksExecutionPolicy, pauseWorkflowExecutions, position,
          properties, startTasks, triggerCriteria, triggerId, triggerNumber,
          triggerType;
 
@@ -3013,7 +3025,7 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 //
 
 @implementation GTLRIntegrations_GoogleCloudConnectorsV1AuthConfigSshPublicKey
-@dynamic certType, password, sshClientCert, sshClientCertPass, username;
+@dynamic certType, sshClientCert, sshClientCertPass, username;
 @end
 
 
@@ -3303,6 +3315,16 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 
 @implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaClientCertificate
 @dynamic encryptedPrivateKey, passphrase, sslCertificate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIntegrations_GoogleCloudIntegrationsV1alphaCloudSchedulerConfig
+//
+
+@implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaCloudSchedulerConfig
+@dynamic cronTab, errorMessage, location, serviceAccountEmail;
 @end
 
 
@@ -4670,8 +4692,9 @@ NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEventbusV3PostToQueueWi
 //
 
 @implementation GTLRIntegrations_GoogleCloudIntegrationsV1alphaTriggerConfig
-@dynamic alertConfig, descriptionProperty, label, nextTasksExecutionPolicy,
-         properties, startTasks, triggerId, triggerNumber, triggerType;
+@dynamic alertConfig, cloudSchedulerConfig, descriptionProperty, label,
+         nextTasksExecutionPolicy, properties, startTasks, triggerId,
+         triggerNumber, triggerType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

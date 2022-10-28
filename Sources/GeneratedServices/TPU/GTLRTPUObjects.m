@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud TPU API (tpu/v1)
+//   Cloud TPU API (tpu/v2)
 // Description:
 //   TPU API provides customers with access to Google TPU technology.
 // Documentation:
@@ -13,14 +13,19 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRTPU_AttachedDisk.mode
+NSString * const kGTLRTPU_AttachedDisk_Mode_DiskModeUnspecified = @"DISK_MODE_UNSPECIFIED";
+NSString * const kGTLRTPU_AttachedDisk_Mode_ReadOnly           = @"READ_ONLY";
+NSString * const kGTLRTPU_AttachedDisk_Mode_ReadWrite          = @"READ_WRITE";
+
 // GTLRTPU_Node.apiVersion
 NSString * const kGTLRTPU_Node_ApiVersion_ApiVersionUnspecified = @"API_VERSION_UNSPECIFIED";
 NSString * const kGTLRTPU_Node_ApiVersion_V1                   = @"V1";
 NSString * const kGTLRTPU_Node_ApiVersion_V1Alpha1             = @"V1_ALPHA1";
+NSString * const kGTLRTPU_Node_ApiVersion_V2                   = @"V2";
 NSString * const kGTLRTPU_Node_ApiVersion_V2Alpha1             = @"V2_ALPHA1";
 
 // GTLRTPU_Node.health
-NSString * const kGTLRTPU_Node_Health_DeprecatedUnhealthy  = @"DEPRECATED_UNHEALTHY";
 NSString * const kGTLRTPU_Node_Health_HealthUnspecified    = @"HEALTH_UNSPECIFIED";
 NSString * const kGTLRTPU_Node_Health_Healthy              = @"HEALTHY";
 NSString * const kGTLRTPU_Node_Health_Timeout              = @"TIMEOUT";
@@ -65,10 +70,128 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTPU_AccessConfig
+//
+
+@implementation GTLRTPU_AccessConfig
+@dynamic externalIp;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_AttachedDisk
+//
+
+@implementation GTLRTPU_AttachedDisk
+@dynamic mode, sourceDisk;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTPU_Empty
 //
 
 @implementation GTLRTPU_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_GenerateServiceIdentityRequest
+//
+
+@implementation GTLRTPU_GenerateServiceIdentityRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_GenerateServiceIdentityResponse
+//
+
+@implementation GTLRTPU_GenerateServiceIdentityResponse
+@dynamic identity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_GetGuestAttributesRequest
+//
+
+@implementation GTLRTPU_GetGuestAttributesRequest
+@dynamic queryPath, workerIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"workerIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_GetGuestAttributesResponse
+//
+
+@implementation GTLRTPU_GetGuestAttributesResponse
+@dynamic guestAttributes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"guestAttributes" : [GTLRTPU_GuestAttributes class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_GuestAttributes
+//
+
+@implementation GTLRTPU_GuestAttributes
+@dynamic queryPath, queryValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_GuestAttributesEntry
+//
+
+@implementation GTLRTPU_GuestAttributesEntry
+@dynamic key, namespaceProperty, value;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"namespaceProperty" : @"namespace" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_GuestAttributesValue
+//
+
+@implementation GTLRTPU_GuestAttributesValue
+@dynamic items;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRTPU_GuestAttributesEntry class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -164,22 +287,22 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTPU_ListTensorFlowVersionsResponse
+//   GTLRTPU_ListRuntimeVersionsResponse
 //
 
-@implementation GTLRTPU_ListTensorFlowVersionsResponse
-@dynamic nextPageToken, tensorflowVersions, unreachable;
+@implementation GTLRTPU_ListRuntimeVersionsResponse
+@dynamic nextPageToken, runtimeVersions, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"tensorflowVersions" : [GTLRTPU_TensorFlowVersion class],
+    @"runtimeVersions" : [GTLRTPU_RuntimeVersion class],
     @"unreachable" : [NSString class]
   };
   return map;
 }
 
 + (NSString *)collectionItemsKey {
-  return @"tensorflowVersions";
+  return @"runtimeVersions";
 }
 
 @end
@@ -225,11 +348,21 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTPU_NetworkConfig
+//
+
+@implementation GTLRTPU_NetworkConfig
+@dynamic canIpForward, enableExternalIps, network, subnetwork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTPU_NetworkEndpoint
 //
 
 @implementation GTLRTPU_NetworkEndpoint
-@dynamic ipAddress, port;
+@dynamic accessConfig, ipAddress, port;
 @end
 
 
@@ -239,20 +372,26 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 //
 
 @implementation GTLRTPU_Node
-@dynamic acceleratorType, apiVersion, cidrBlock, createTime,
-         descriptionProperty, health, healthDescription, ipAddress, labels,
-         name, network, networkEndpoints, port, schedulingConfig,
-         serviceAccount, state, symptoms, tensorflowVersion,
-         useServiceNetworking;
+@dynamic acceleratorType, apiVersion, cidrBlock, createTime, dataDisks,
+         descriptionProperty, health, healthDescription, identifier, labels,
+         metadata, name, networkConfig, networkEndpoints, runtimeVersion,
+         schedulingConfig, serviceAccount, shieldedInstanceConfig, state,
+         symptoms, tags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
 }
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"dataDisks" : [GTLRTPU_AttachedDisk class],
     @"networkEndpoints" : [GTLRTPU_NetworkEndpoint class],
-    @"symptoms" : [GTLRTPU_Symptom class]
+    @"symptoms" : [GTLRTPU_Symptom class],
+    @"tags" : [NSString class]
   };
   return map;
 }
@@ -266,6 +405,20 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 //
 
 @implementation GTLRTPU_Node_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_Node_Metadata
+//
+
+@implementation GTLRTPU_Node_Metadata
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -325,11 +478,11 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTPU_ReimageNodeRequest
+//   GTLRTPU_RuntimeVersion
 //
 
-@implementation GTLRTPU_ReimageNodeRequest
-@dynamic tensorflowVersion;
+@implementation GTLRTPU_RuntimeVersion
+@dynamic name, version;
 @end
 
 
@@ -340,6 +493,44 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 
 @implementation GTLRTPU_SchedulingConfig
 @dynamic preemptible, reserved;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_ServiceAccount
+//
+
+@implementation GTLRTPU_ServiceAccount
+@dynamic email, scope;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"scope" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_ServiceIdentity
+//
+
+@implementation GTLRTPU_ServiceIdentity
+@dynamic email;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_ShieldedInstanceConfig
+//
+
+@implementation GTLRTPU_ShieldedInstanceConfig
+@dynamic enableSecureBoot;
 @end
 
 
@@ -400,14 +591,4 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 
 @implementation GTLRTPU_Symptom
 @dynamic createTime, details, symptomType, workerId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRTPU_TensorFlowVersion
-//
-
-@implementation GTLRTPU_TensorFlowVersion
-@dynamic name, version;
 @end

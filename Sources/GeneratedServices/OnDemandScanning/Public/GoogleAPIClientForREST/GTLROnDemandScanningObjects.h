@@ -2195,15 +2195,12 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 @property(nonatomic, copy, nullable) NSString *hashDigest;
 
 /**
- *  The OS affected by a vulnerability This field is deprecated and the
- *  information is in cpe_uri
+ *  The OS affected by a vulnerability Used to generate the cpe_uri for OS
+ *  packages
  */
 @property(nonatomic, copy, nullable) NSString *os;
 
-/**
- *  The version of the OS This field is deprecated and the information is in
- *  cpe_uri
- */
+/** The version of the OS Used to generate the cpe_uri for OS packages */
 @property(nonatomic, copy, nullable) NSString *osVersion;
 
 /** The package being analysed for vulnerabilities */

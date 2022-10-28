@@ -29,17 +29,17 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRVerifiedaccess_VerifyChallengeResponseResult.keyTrustLevel
 
 /**
+ *  Chrome Browser with the key stored in the device hardware.
+ *
+ *  Value: "CHROME_BROWSER_HW_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeBrowserHwKey;
+/**
  *  Chrome Browser with the key stored at OS level.
  *
  *  Value: "CHROME_BROWSER_OS_KEY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeBrowserOsKey;
-/**
- *  Chrome Browser with the key stored in TPM.
- *
- *  Value: "CHROME_BROWSER_TPM_KEY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeBrowserTpmKey;
 /**
  *  ChromeOS device in developer mode.
  *
@@ -60,7 +60,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseRe
 FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_KeyTrustLevelUnspecified;
 
 /**
- *  Result message for VerifiedAccess.CreateChallenge.
+ *  Result message for VerifiedAccess.GenerateChallenge.
  */
 @interface GTLRVerifiedaccess_Challenge : GTLRObject
 
@@ -126,6 +126,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseRe
 @interface GTLRVerifiedaccess_VerifyChallengeResponseResult : GTLRObject
 
 /**
+ *  Unique customer id that this device belongs to, as defined by the Google
+ *  Admin SDK at
+ *  https://developers.google.com/admin-sdk/directory/v1/guides/manage-customers
+ */
+@property(nonatomic, copy, nullable) NSString *customerId;
+
+/**
  *  Device permanent id is returned in this field (for the machine response
  *  only).
  */
@@ -138,12 +145,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseRe
  *  Device attested key trust level.
  *
  *  Likely values:
+ *    @arg @c kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeBrowserHwKey
+ *        Chrome Browser with the key stored in the device hardware. (Value:
+ *        "CHROME_BROWSER_HW_KEY")
  *    @arg @c kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeBrowserOsKey
  *        Chrome Browser with the key stored at OS level. (Value:
  *        "CHROME_BROWSER_OS_KEY")
- *    @arg @c kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeBrowserTpmKey
- *        Chrome Browser with the key stored in TPM. (Value:
- *        "CHROME_BROWSER_TPM_KEY")
  *    @arg @c kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeOsDeveloperMode
  *        ChromeOS device in developer mode. (Value: "CHROME_OS_DEVELOPER_MODE")
  *    @arg @c kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeOsVerifiedMode
@@ -160,6 +167,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseRe
  *  for both user and machine responses)
  */
 @property(nonatomic, copy, nullable) NSString *signedPublicKeyAndChallenge;
+
+/**
+ *  Virtual device id of the device. The definition of virtual device id is
+ *  platform-specific.
+ */
+@property(nonatomic, copy, nullable) NSString *virtualDeviceId;
 
 @end
 

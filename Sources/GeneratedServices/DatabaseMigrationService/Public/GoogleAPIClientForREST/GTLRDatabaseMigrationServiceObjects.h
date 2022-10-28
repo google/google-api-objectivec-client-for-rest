@@ -1045,7 +1045,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_CloudSqlSettings_UserLabels *userLabels;
 
 /**
- *  The Google Cloud Platform zone where your Cloud SQL datdabse instance is
+ *  The Google Cloud Platform zone where your Cloud SQL database instance is
  *  located.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.

@@ -2392,6 +2392,28 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_ListMethodQuotasResponse
+//
+
+@implementation GTLRShoppingContent_ListMethodQuotasResponse
+@dynamic methodQuotas, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"methodQuotas" : [GTLRShoppingContent_MethodQuota class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"methodQuotas";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_ListRegionsResponse
 //
 
@@ -2671,6 +2693,16 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_MethodQuota
+//
+
+@implementation GTLRShoppingContent_MethodQuota
+@dynamic method, quotaLimit, quotaUsage;
 @end
 
 

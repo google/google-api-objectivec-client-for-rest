@@ -703,7 +703,7 @@ NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound = @"TO
 
 @implementation GTLRCloudSearchQuery_SettingsDatasourcesPatch
 
-@dynamic debugOptionsEnableDebugging, name;
+@dynamic debugOptionsEnableDebugging, name, updateMask;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"debugOptionsEnableDebugging" : @"debugOptions.enableDebugging" };
@@ -865,7 +865,7 @@ NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound = @"TO
 
 @implementation GTLRCloudSearchQuery_SettingsSearchapplicationsPatch
 
-@dynamic name;
+@dynamic name, updateMask;
 
 + (instancetype)queryWithObject:(GTLRCloudSearch_SearchApplication *)object
                            name:(NSString *)name {
@@ -919,7 +919,7 @@ NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound = @"TO
 
 @implementation GTLRCloudSearchQuery_SettingsSearchapplicationsUpdate
 
-@dynamic name;
+@dynamic name, updateMask;
 
 + (instancetype)queryWithObject:(GTLRCloudSearch_SearchApplication *)object
                            name:(NSString *)name {

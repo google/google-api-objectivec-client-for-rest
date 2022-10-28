@@ -423,7 +423,8 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfigViewInventoryViewUnspecified;
 
 /**
  *  Required. The parent resource name in the form:
- *  projects/{project}/locations/{location}
+ *  projects/{project}/locations/{location}. Note: Specify the zone of your VMs
+ *  as the location.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -439,7 +440,8 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfigViewInventoryViewUnspecified;
  *  @param object The @c GTLROSConfig_OSPolicyAssignment to include in the
  *    query.
  *  @param parent Required. The parent resource name in the form:
- *    projects/{project}/locations/{location}
+ *    projects/{project}/locations/{location}. Note: Specify the zone of your
+ *    VMs as the location.
  *
  *  @return GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsCreate
  */

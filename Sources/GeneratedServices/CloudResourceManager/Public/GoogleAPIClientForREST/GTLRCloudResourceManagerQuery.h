@@ -35,8 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Return a list of effective tags for the given cloud resource, as specified
- *  in `parent`.
+ *  Return a list of effective tags for the given Google Cloud resource, as
+ *  specified in `parent`.
  *
  *  Method: cloudresourcemanager.effectiveTags.list
  *
@@ -69,8 +69,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudResourceManager_ListEffectiveTagsResponse.
  *
- *  Return a list of effective tags for the given cloud resource, as specified
- *  in `parent`.
+ *  Return a list of effective tags for the given Google Cloud resource, as
+ *  specified in `parent`.
  *
  *  @return GTLRCloudResourceManagerQuery_EffectiveTagsList
  *
@@ -1598,8 +1598,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a TagBinding between a TagValue and a cloud resource (currently
- *  project, folder, or organization).
+ *  Creates a TagBinding between a TagValue and a Google Cloud resource.
  *
  *  Method: cloudresourcemanager.tagBindings.create
  *
@@ -1617,8 +1616,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudResourceManager_Operation.
  *
- *  Creates a TagBinding between a TagValue and a cloud resource (currently
- *  project, folder, or organization).
+ *  Creates a TagBinding between a TagValue and a Google Cloud resource.
  *
  *  @param object The @c GTLRCloudResourceManager_TagBinding to include in the
  *    query.
@@ -1662,7 +1660,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists the TagBindings for the given cloud resource, as specified with
+ *  Lists the TagBindings for the given Google Cloud resource, as specified with
  *  `parent`. NOTE: The `parent` field is expected to be a full resource name:
  *  https://cloud.google.com/apis/design/resource_names#full_resource_name
  *
@@ -1697,7 +1695,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudResourceManager_ListTagBindingsResponse.
  *
- *  Lists the TagBindings for the given cloud resource, as specified with
+ *  Lists the TagBindings for the given Google Cloud resource, as specified with
  *  `parent`. NOTE: The `parent` field is expected to be a full resource name:
  *  https://cloud.google.com/apis/design/resource_names#full_resource_name
  *

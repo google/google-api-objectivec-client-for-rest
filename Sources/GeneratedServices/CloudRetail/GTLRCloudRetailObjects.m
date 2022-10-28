@@ -86,6 +86,11 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_DynamicFac
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_DynamicFacetableOption_DynamicFacetableEnabled = @"DYNAMIC_FACETABLE_ENABLED";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_DynamicFacetableOption_DynamicFacetableOptionUnspecified = @"DYNAMIC_FACETABLE_OPTION_UNSPECIFIED";
 
+// GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute.exactSearchableOption
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_ExactSearchableOption_ExactSearchableDisabled = @"EXACT_SEARCHABLE_DISABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_ExactSearchableOption_ExactSearchableEnabled = @"EXACT_SEARCHABLE_ENABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_ExactSearchableOption_ExactSearchableOptionUnspecified = @"EXACT_SEARCHABLE_OPTION_UNSPECIFIED";
+
 // GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute.indexableOption
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_IndexableOption_IndexableDisabled = @"INDEXABLE_DISABLED";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_IndexableOption_IndexableEnabled = @"INDEXABLE_ENABLED";
@@ -496,6 +501,16 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaGcsOutputResult
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaGcsOutputResult
+@dynamic outputUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2alphaImportCompletionDataResponse
 //
 
@@ -660,11 +675,12 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2alphaOutputResult
-@dynamic bigqueryResult;
+@dynamic bigqueryResult, gcsResult;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"bigqueryResult" : [GTLRCloudRetail_GoogleCloudRetailV2alphaBigQueryOutputResult class]
+    @"bigqueryResult" : [GTLRCloudRetail_GoogleCloudRetailV2alphaBigQueryOutputResult class],
+    @"gcsResult" : [GTLRCloudRetail_GoogleCloudRetailV2alphaGcsOutputResult class]
   };
   return map;
 }
@@ -988,6 +1004,16 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2betaGcsOutputResult
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2betaGcsOutputResult
+@dynamic outputUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2betaImportCompletionDataResponse
 //
 
@@ -1105,11 +1131,12 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2betaOutputResult
-@dynamic bigqueryResult;
+@dynamic bigqueryResult, gcsResult;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"bigqueryResult" : [GTLRCloudRetail_GoogleCloudRetailV2betaBigQueryOutputResult class]
+    @"bigqueryResult" : [GTLRCloudRetail_GoogleCloudRetailV2betaBigQueryOutputResult class],
+    @"gcsResult" : [GTLRCloudRetail_GoogleCloudRetailV2betaGcsOutputResult class]
   };
   return map;
 }
@@ -1265,8 +1292,8 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute
-@dynamic dynamicFacetableOption, indexableOption, inUse, key, searchableOption,
-         type;
+@dynamic dynamicFacetableOption, exactSearchableOption, indexableOption, inUse,
+         key, searchableOption, type;
 @end
 
 

@@ -1246,7 +1246,7 @@
 
 @implementation GTLRSQLAdminQuery_UsersGet
 
-@dynamic instance, name, project;
+@dynamic host, instance, name, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance

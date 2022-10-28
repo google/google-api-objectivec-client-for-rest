@@ -23,7 +23,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scopes
+// Authorization scope
 
 /**
  *  Authorization scope: See and/or control the devices that you selected
@@ -31,12 +31,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value "https://www.googleapis.com/auth/sdm.service"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSmartDeviceManagementSdmService;
-/**
- *  Authorization scope: See and control the Nest thermostats that you select
- *
- *  Value "https://www.googleapis.com/auth/sdm.thermostat.service"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSmartDeviceManagementSdmThermostatService;
 
 // ----------------------------------------------------------------------------
 //   GTLRSmartDeviceManagementService

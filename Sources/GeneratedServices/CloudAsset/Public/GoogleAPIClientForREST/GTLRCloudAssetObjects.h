@@ -4366,11 +4366,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, strong, nullable) NSArray<NSString *> *folders;
 
 /**
- *  This field only presents for the purpose of backward-compatibility. Please
- *  use `kms_keys` field to retrieve KMS key information. This field will only
- *  be populated for the resource types included in this list for backward
- *  compatible purpose. To search against the `kms_key`: * Use a field query.
- *  Example: `kmsKey:key` * Use a free text query. Example: `key`
+ *  The Cloud KMS
+ *  [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys)
+ *  name or
+ *  [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
+ *  name. This field only presents for the purpose of backward compatibility.
+ *  Please use the `kms_keys` field to retrieve KMS key information. This field
+ *  is available only when the resource's Protobuf contains it and will only be
+ *  populated for [these resource
+ *  types](https://cloud.google.com/asset-inventory/docs/legacy-field-names#resource_types_with_the_to_be_deprecated_kmskey_field)
+ *  for backward compatible purposes. To search against the `kms_key`: * Use a
+ *  field query. Example: `kmsKey:key` * Use a free text query. Example: `key`
  */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
 

@@ -15,8 +15,8 @@
 // Constants
 
 // GTLRVerifiedaccess_VerifyChallengeResponseResult.keyTrustLevel
+NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeBrowserHwKey = @"CHROME_BROWSER_HW_KEY";
 NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeBrowserOsKey = @"CHROME_BROWSER_OS_KEY";
-NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeBrowserTpmKey = @"CHROME_BROWSER_TPM_KEY";
 NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeOsDeveloperMode = @"CHROME_OS_DEVELOPER_MODE";
 NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeOsVerifiedMode = @"CHROME_OS_VERIFIED_MODE";
 NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_KeyTrustLevelUnspecified = @"KEY_TRUST_LEVEL_UNSPECIFIED";
@@ -56,6 +56,6 @@ NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel
 //
 
 @implementation GTLRVerifiedaccess_VerifyChallengeResponseResult
-@dynamic devicePermanentId, deviceSignal, keyTrustLevel,
-         signedPublicKeyAndChallenge;
+@dynamic customerId, devicePermanentId, deviceSignal, keyTrustLevel,
+         signedPublicKeyAndChallenge, virtualDeviceId;
 @end

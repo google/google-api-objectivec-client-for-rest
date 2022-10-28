@@ -1111,14 +1111,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 @interface GTLRAdMob_AdUnit : GTLRObject
 
 /**
- *  AdFormat of the ad unit. Possible values are as follows: "BANNER" - Banner
- *  ad format. "BANNER_INTERSTITIAL" - Legacy format that can be used as either
- *  banner or interstitial. This format can no longer be created but can be
- *  targeted by mediation groups. "INTERSTITIAL" - A full screen ad. Supported
- *  ad types are "RICH_MEDIA" and "VIDEO". "NATIVE" - Native ad format.
- *  "REWARDED" - An ad that, once viewed, gets a callback verifying the view so
- *  that a reward can be given to the user. Supported ad types are "RICH_MEDIA"
- *  (interactive) and video where video can not be excluded.
+ *  AdFormat of the ad unit. Possible values are as follows: "APP_OPEN" - App
+ *  Open ad format. "BANNER" - Banner ad format. "BANNER_INTERSTITIAL" - Legacy
+ *  format that can be used as either banner or interstitial. This format can no
+ *  longer be created but can be targeted by mediation groups. "INTERSTITIAL" -
+ *  A full screen ad. Supported ad types are "RICH_MEDIA" and "VIDEO". "NATIVE"
+ *  - Native ad format. "REWARDED" - An ad that, once viewed, gets a callback
+ *  verifying the view so that a reward can be given to the user. Supported ad
+ *  types are "RICH_MEDIA" (interactive) and video where video can not be
+ *  excluded. "REWARDED_INTERSTITIAL" - Rewarded Interstitial ad format. Only
+ *  supports video ad type. See https://support.google.com/admob/answer/9884467.
  */
 @property(nonatomic, copy, nullable) NSString *adFormat;
 
@@ -1299,7 +1301,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 
 
 /**
- *  Request to generate an AdMob Mediation report.
+ *  Request to generate an AdMob mediation report.
  */
 @interface GTLRAdMob_GenerateMediationReportRequest : GTLRObject
 
@@ -1310,7 +1312,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 
 
 /**
- *  The streaming response for the AdMob Mediation report where the first
+ *  The streaming response for the AdMob mediation report where the first
  *  response contains the report header, then a stream of row responses, and
  *  finally a footer as the last response message. For example: [{ "header": {
  *  "date_range": { "start_date": {"year": 2018, "month": 9, "day": 1},

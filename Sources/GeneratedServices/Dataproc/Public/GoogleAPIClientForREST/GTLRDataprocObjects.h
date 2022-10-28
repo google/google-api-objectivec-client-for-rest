@@ -470,15 +470,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibil
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_PreemptibilityUnspecified;
 /**
- *  Instances are preemptible.This option is allowed only for secondary worker
+ *  Instances are preemptible
+ *  (https://cloud.google.com/compute/docs/instances/preemptible).This option is
+ *  allowed only for secondary worker
+ *  (https://cloud.google.com/dataproc/docs/concepts/compute/secondary-vms)
  *  groups.
  *
  *  Value: "PREEMPTIBLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_Preemptible;
 /**
- *  Instances are Spot VMsThis option is allowed only for secondary worker
- *  groups. See Spot VMs (https://cloud.google.com/compute/docs/instances/spot).
+ *  Instances are Spot VMs
+ *  (https://cloud.google.com/compute/docs/instances/spot).This option is
+ *  allowed only for secondary worker
+ *  (https://cloud.google.com/dataproc/docs/concepts/compute/secondary-vms)
+ *  groups. Spot VMs are the latest version of preemptible VMs
+ *  (https://cloud.google.com/compute/docs/instances/preemptible), and provide
+ *  additional features.
  *
  *  Value: "SPOT"
  */
@@ -2467,19 +2475,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *minCpuPlatform;
 
 /**
- *  Optional. Whether the nodes are created as preemptible VM instances
- *  (https://cloud.google.com/compute/docs/instances/preemptible). Preemptible
- *  nodes cannot be used in a node pool with the CONTROLLER role or in the
- *  DEFAULT node pool if the CONTROLLER role is not assigned (the DEFAULT node
- *  pool will assume the CONTROLLER role).
+ *  Optional. Whether the nodes are created as legacy preemptible VM instances
+ *  (https://cloud.google.com/compute/docs/instances/preemptible). Also see Spot
+ *  VMs, preemptible VM instances without a maximum lifetime. Legacy and Spot
+ *  preemptible nodes cannot be used in a node pool with the CONTROLLER role or
+ *  in the DEFAULT node pool if the CONTROLLER role is not assigned (the DEFAULT
+ *  node pool will assume the CONTROLLER role).
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *preemptible;
 
 /**
- *  Optional. Spot flag for enabling Spot VM, which is a rebrand of the existing
- *  preemptible flag.
+ *  Optional. Whether the nodes are created as Spot VM instances
+ *  (https://cloud.google.com/compute/docs/instances/spot). Spot VMs are the
+ *  latest update to legacy preemptible VMs. Spot VMs do not have a maximum
+ *  lifetime. Legacy and Spot preemptible nodes cannot be used in a node pool
+ *  with the CONTROLLER role or in the DEFAULT node pool if the CONTROLLER role
+ *  is not assigned (the DEFAULT node pool will assume the CONTROLLER role).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2931,12 +2944,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        Preemptibility is unspecified, the system will choose the appropriate
  *        setting for each instance group. (Value: "PREEMPTIBILITY_UNSPECIFIED")
  *    @arg @c kGTLRDataproc_InstanceGroupConfig_Preemptibility_Preemptible
- *        Instances are preemptible.This option is allowed only for secondary
- *        worker groups. (Value: "PREEMPTIBLE")
+ *        Instances are preemptible
+ *        (https://cloud.google.com/compute/docs/instances/preemptible).This
+ *        option is allowed only for secondary worker
+ *        (https://cloud.google.com/dataproc/docs/concepts/compute/secondary-vms)
+ *        groups. (Value: "PREEMPTIBLE")
  *    @arg @c kGTLRDataproc_InstanceGroupConfig_Preemptibility_Spot Instances
- *        are Spot VMsThis option is allowed only for secondary worker groups.
- *        See Spot VMs (https://cloud.google.com/compute/docs/instances/spot).
- *        (Value: "SPOT")
+ *        are Spot VMs
+ *        (https://cloud.google.com/compute/docs/instances/spot).This option is
+ *        allowed only for secondary worker
+ *        (https://cloud.google.com/dataproc/docs/concepts/compute/secondary-vms)
+ *        groups. Spot VMs are the latest version of preemptible VMs
+ *        (https://cloud.google.com/compute/docs/instances/preemptible), and
+ *        provide additional features. (Value: "SPOT")
  */
 @property(nonatomic, copy, nullable) NSString *preemptibility;
 

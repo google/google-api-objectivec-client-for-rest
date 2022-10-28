@@ -340,6 +340,117 @@
 
 @end
 
+@implementation GTLRSecurityCommandCenterQuery_FoldersNotificationConfigsCreate
+
+@dynamic configId, parent;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_NotificationConfig *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/notificationConfigs";
+  GTLRSecurityCommandCenterQuery_FoldersNotificationConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_NotificationConfig class];
+  query.loggingName = @"securitycenter.folders.notificationConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_FoldersNotificationConfigsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_FoldersNotificationConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_Empty class];
+  query.loggingName = @"securitycenter.folders.notificationConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_FoldersNotificationConfigsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_FoldersNotificationConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_NotificationConfig class];
+  query.loggingName = @"securitycenter.folders.notificationConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_FoldersNotificationConfigsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/notificationConfigs";
+  GTLRSecurityCommandCenterQuery_FoldersNotificationConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListNotificationConfigsResponse class];
+  query.loggingName = @"securitycenter.folders.notificationConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_FoldersNotificationConfigsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_NotificationConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_FoldersNotificationConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_NotificationConfig class];
+  query.loggingName = @"securitycenter.folders.notificationConfigs.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsExternalSystemsPatch
 
 @dynamic name, updateMask;
@@ -1824,6 +1935,117 @@
   query.name = name;
   query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig class];
   query.loggingName = @"securitycenter.projects.muteConfigs.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsNotificationConfigsCreate
+
+@dynamic configId, parent;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_NotificationConfig *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/notificationConfigs";
+  GTLRSecurityCommandCenterQuery_ProjectsNotificationConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_NotificationConfig class];
+  query.loggingName = @"securitycenter.projects.notificationConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsNotificationConfigsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_ProjectsNotificationConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_Empty class];
+  query.loggingName = @"securitycenter.projects.notificationConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsNotificationConfigsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_ProjectsNotificationConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_NotificationConfig class];
+  query.loggingName = @"securitycenter.projects.notificationConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsNotificationConfigsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/notificationConfigs";
+  GTLRSecurityCommandCenterQuery_ProjectsNotificationConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListNotificationConfigsResponse class];
+  query.loggingName = @"securitycenter.projects.notificationConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsNotificationConfigsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_NotificationConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_ProjectsNotificationConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_NotificationConfig class];
+  query.loggingName = @"securitycenter.projects.notificationConfigs.patch";
   return query;
 }
 

@@ -560,6 +560,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_
  */
 FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedXcTestZip;
 /**
+ *  The matrix expanded to contain too many executions.
+ *
+ *  Value: "MATRIX_TOO_LARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MatrixTooLarge;
+/**
  *  The application doesn't register the game loop URL scheme.
  *
  *  Value: "MISSING_URL_SCHEME"
@@ -2542,6 +2548,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *        The zipped XCTest was malformed. The zip did not contain a single
  *        .xctestrun file and the contents of the DerivedData/Build/Products
  *        directory. (Value: "MALFORMED_XC_TEST_ZIP")
+ *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_MatrixTooLarge The
+ *        matrix expanded to contain too many executions. (Value:
+ *        "MATRIX_TOO_LARGE")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_MissingUrlScheme The
  *        application doesn't register the game loop URL scheme. (Value:
  *        "MISSING_URL_SCHEME")

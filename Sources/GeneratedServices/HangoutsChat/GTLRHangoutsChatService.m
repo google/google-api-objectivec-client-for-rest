@@ -11,6 +11,15 @@
 
 #import <GoogleAPIClientForREST/GTLRHangoutsChat.h>
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+NSString * const kGTLRAuthScopeHangoutsChatMemberships = @"https://www.googleapis.com/auth/chat.memberships";
+
+// ----------------------------------------------------------------------------
+//   GTLRHangoutsChatService
+//
+
 @implementation GTLRHangoutsChatService
 
 - (instancetype)init {

@@ -2811,8 +2811,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 
 /**
- *  Custom view of service telemetry. Currently a place-holder pending final
- *  design.
+ *  Use a custom service to designate a service that you want to monitor when
+ *  none of the other service types (like App Engine, Cloud Run, or a GKE type)
+ *  matches your intended service.
  */
 @interface GTLRMonitoring_Custom : GTLRObject
 @end

@@ -491,7 +491,7 @@ NSString * const kGTLRFirebaseManagement_WebApp_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRFirebaseManagement_RemoveAndroidAppRequest
-@dynamic allowMissing, ETag, validateOnly;
+@dynamic allowMissing, ETag, immediate, validateOnly;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -506,7 +506,7 @@ NSString * const kGTLRFirebaseManagement_WebApp_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRFirebaseManagement_RemoveIosAppRequest
-@dynamic allowMissing, ETag, validateOnly;
+@dynamic allowMissing, ETag, immediate, validateOnly;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -521,7 +521,7 @@ NSString * const kGTLRFirebaseManagement_WebApp_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRFirebaseManagement_RemoveWebAppRequest
-@dynamic allowMissing, ETag, validateOnly;
+@dynamic allowMissing, ETag, immediate, validateOnly;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

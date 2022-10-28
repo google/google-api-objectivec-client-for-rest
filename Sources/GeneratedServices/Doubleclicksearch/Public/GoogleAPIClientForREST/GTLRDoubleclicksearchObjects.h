@@ -62,6 +62,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *availabilityTimestamp;
 
+/** Customer ID of a client account in the new Search Ads 360 experience. */
+@property(nonatomic, copy, nullable) NSString *customerId;
+
 /**
  *  The numeric segmentation identifier (for example, DoubleClick Search
  *  Floodlight activity ID).
@@ -186,6 +189,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  report.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDoubleclicksearch_CustomDimension *> *customDimension;
+
+/** Customer ID of a client account in the new Search Ads 360 experience. */
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Custom metrics for the conversion. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDoubleclicksearch_CustomMetric *> *customMetric;

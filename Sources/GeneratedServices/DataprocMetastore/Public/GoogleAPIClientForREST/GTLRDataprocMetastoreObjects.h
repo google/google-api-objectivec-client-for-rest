@@ -57,6 +57,7 @@
 @class GTLRDataprocMetastore_Service_Labels;
 @class GTLRDataprocMetastore_Status;
 @class GTLRDataprocMetastore_Status_Details_Item;
+@class GTLRDataprocMetastore_TelemetryConfig;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -628,6 +629,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_Enterpris
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_TelemetryConfig.logFormat
+
+/**
+ *  Logging output uses the jsonPayload format.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_Json;
+/**
+ *  Logging output uses the legacy textPayload format.
+ *
+ *  Value: "LEGACY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_Legacy;
+/**
+ *  The LOG_FORMAT is not set.
+ *
+ *  Value: "LOG_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspecified;
+
 /**
  *  Specifies the audit configuration for a service. The configuration
  *  determines which permission types are logged, and what identities, if any,
@@ -896,11 +919,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 @property(nonatomic, copy, nullable) NSString *endpointUri;
 
 /**
- *  The subnetwork of the customer project from which an IP address is reserved
- *  and used as the Dataproc Metastore service's endpoint. It is accessible to
- *  hosts in the subnet and to all hosts in a subnet in the same region and same
- *  network. There must be at least one IP address available in the subnet's
- *  primary range. The subnet is specified in the following
+ *  Immutable. The subnetwork of the customer project from which an IP address
+ *  is reserved and used as the Dataproc Metastore service's endpoint. It is
+ *  accessible to hosts in the subnet and to all hosts in a subnet in the same
+ *  region and same network. There must be at least one IP address available in
+ *  the subnet's primary range. The subnet is specified in the following
  *  form:`projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}
  */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
@@ -2223,8 +2246,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  Immutable. The configuration specifying the network settings for the
- *  Dataproc Metastore service.
+ *  The configuration specifying the network settings for the Dataproc Metastore
+ *  service.
  */
 @property(nonatomic, strong, nullable) GTLRDataprocMetastore_NetworkConfig *networkConfig;
 
@@ -2286,6 +2309,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  *  service, if available.
  */
 @property(nonatomic, copy, nullable) NSString *stateMessage;
+
+/**
+ *  The configuration specifying telemetry settings for the Dataproc Metastore
+ *  service. If unspecified defaults to JSON.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_TelemetryConfig *telemetryConfig;
 
 /**
  *  The tier of the service.
@@ -2392,6 +2421,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDataprocMetastore_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Telemetry Configuration for the Dataproc Metastore service.
+ */
+@interface GTLRDataprocMetastore_TelemetryConfig : GTLRObject
+
+/**
+ *  logFormat
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_TelemetryConfig_LogFormat_Json Logging
+ *        output uses the jsonPayload format. (Value: "JSON")
+ *    @arg @c kGTLRDataprocMetastore_TelemetryConfig_LogFormat_Legacy Logging
+ *        output uses the legacy textPayload format. (Value: "LEGACY")
+ *    @arg @c kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspecified
+ *        The LOG_FORMAT is not set. (Value: "LOG_FORMAT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *logFormat;
+
 @end
 
 

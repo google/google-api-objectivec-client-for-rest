@@ -244,6 +244,12 @@ NSString * const kGTLRHangoutsChat_SlashCommandMetadata_Type_Add = @"ADD";
 NSString * const kGTLRHangoutsChat_SlashCommandMetadata_Type_Invoke = @"INVOKE";
 NSString * const kGTLRHangoutsChat_SlashCommandMetadata_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRHangoutsChat_Space.spaceThreadingState
+NSString * const kGTLRHangoutsChat_Space_SpaceThreadingState_GroupedMessages = @"GROUPED_MESSAGES";
+NSString * const kGTLRHangoutsChat_Space_SpaceThreadingState_SpaceThreadingStateUnspecified = @"SPACE_THREADING_STATE_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_Space_SpaceThreadingState_ThreadedMessages = @"THREADED_MESSAGES";
+NSString * const kGTLRHangoutsChat_Space_SpaceThreadingState_UnthreadedMessages = @"UNTHREADED_MESSAGES";
+
 // GTLRHangoutsChat_Space.type
 NSString * const kGTLRHangoutsChat_Space_Type_Dm              = @"DM";
 NSString * const kGTLRHangoutsChat_Space_Type_Room            = @"ROOM";
@@ -1003,8 +1009,9 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 @implementation GTLRHangoutsChat_Message
 @dynamic actionResponse, annotations, argumentText, attachment, cards, cardsV2,
-         createTime, fallbackText, lastUpdateTime, matchedUrl, name, sender,
-         slashCommand, space, text, thread;
+         clientAssignedMessageId, createTime, fallbackText, lastUpdateTime,
+         matchedUrl, name, sender, slashCommand, space, text, thread,
+         threadReply;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1083,7 +1090,8 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_Space
-@dynamic displayName, name, singleUserBotDm, spaceDetails, threaded, type;
+@dynamic displayName, name, singleUserBotDm, spaceDetails, spaceThreadingState,
+         threaded, type;
 @end
 
 
@@ -1178,7 +1186,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_Thread
-@dynamic name;
+@dynamic name, threadKey;
 @end
 
 

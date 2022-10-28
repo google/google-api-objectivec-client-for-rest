@@ -2505,7 +2505,8 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
  *  OS policy is used to define the desired state configuration for a Compute
  *  Engine VM instance through a set of configuration resources that provide
  *  capabilities such as installing or removing software packages, or executing
- *  a script. For more information, see [OS policy and OS policy
+ *  a script. For more information about the OS policy resource definitions and
+ *  examples, see [OS policy and OS policy
  *  assignment](https://cloud.google.com/compute/docs/os-configuration-management/working-with-os-policies).
  */
 @interface GTLROSConfig_OSPolicyAssignment : GTLRObject

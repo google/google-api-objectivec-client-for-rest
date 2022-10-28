@@ -208,19 +208,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageCon
  */
 @interface GTLRFirebasestorage_Bucket : GTLRObject
 
-/** Output only. Location of the storage bucket. */
-@property(nonatomic, copy, nullable) NSString *location;
-
 /** Resource name of the bucket. */
 @property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Output only. Represents whether a bucket is being moved to a new location,
- *  in which case reconciling is set to true.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *reconciling;
 
 @end
 

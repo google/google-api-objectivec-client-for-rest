@@ -4,7 +4,7 @@
 // API:
 //   Assured Workloads API (assuredworkloads/v1)
 // Documentation:
-//   https://cloud.google.com
+//   https://cloud.google.com/learnmoreurl
 
 #import <GoogleAPIClientForREST/GTLRAssuredworkloadsObjects.h>
 
@@ -13,6 +13,7 @@
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata.complianceRegime
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AssuredWorkloadsForPartners = @"ASSURED_WORKLOADS_FOR_PARTNERS";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AuRegionsAndUsSupport = @"AU_REGIONS_AND_US_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CaRegionsAndSupport = @"CA_REGIONS_AND_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Cjis = @"CJIS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_ComplianceRegimeUnspecified = @"COMPLIANCE_REGIME_UNSPECIFIED";
@@ -45,6 +46,7 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRem
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload.complianceRegime
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AssuredWorkloadsForPartners = @"ASSURED_WORKLOADS_FOR_PARTNERS";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AuRegionsAndUsSupport = @"AU_REGIONS_AND_US_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CaRegionsAndSupport = @"CA_REGIONS_AND_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Cjis = @"CJIS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_ComplianceRegimeUnspecified = @"COMPLIANCE_REGIME_UNSPECIFIED";
@@ -191,8 +193,9 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation
 @dynamic acknowledged, acknowledgementTime, auditLogLink, beginTime, category,
-         descriptionProperty, name, nonCompliantOrgPolicy, orgPolicyConstraint,
-         remediation, resolveTime, state, updateTime;
+         descriptionProperty, exceptionAuditLogLink, name,
+         nonCompliantOrgPolicy, orgPolicyConstraint, remediation, resolveTime,
+         state, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -275,10 +278,10 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
 //
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload
-@dynamic billingAccount, complianceRegime, compliantButDisallowedServices,
-         createTime, displayName, enableSovereignControls, ETag,
-         kajEnrollmentState, kmsSettings, labels, name, partner,
-         provisionedResourcesParent, resources, resourceSettings,
+@dynamic billingAccount, complianceRegime, complianceStatus,
+         compliantButDisallowedServices, createTime, displayName,
+         enableSovereignControls, ETag, kajEnrollmentState, kmsSettings, labels,
+         name, partner, provisionedResourcesParent, resources, resourceSettings,
          saaEnrollmentResponse;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -308,6 +311,16 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadComplianceStatus
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadComplianceStatus
+@dynamic acknowledgedViolationCount, activeViolationCount;
 @end
 
 
