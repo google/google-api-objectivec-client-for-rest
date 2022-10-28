@@ -4,7 +4,9 @@
 // API:
 //   Google Play Android Developer API (androidpublisher/v3)
 // Description:
-//   Lets Android application developers access their Google Play accounts.
+//   Lets Android application developers access their Google Play accounts. At a
+//   high level, the expected workflow is to "insert" an Edit, make changes as
+//   necessary, and then "commit" it.
 // Documentation:
 //   https://developers.google.com/android-publisher
 
@@ -74,6 +76,15 @@ NSString * const kGTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_Ee
 NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionActive = @"TIME_EXTENSION_ACTIVE";
 NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionInactive = @"TIME_EXTENSION_INACTIVE";
 NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionUnspecified = @"TIME_EXTENSION_UNSPECIFIED";
+
+// GTLRAndroidPublisher_RegionalTaxRateInfo.streamingTaxType
+NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_StreamingTaxType_StreamingTaxTypeTelcoAudioMultiChannel = @"STREAMING_TAX_TYPE_TELCO_AUDIO_MULTI_CHANNEL";
+NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_StreamingTaxType_StreamingTaxTypeTelcoAudioRental = @"STREAMING_TAX_TYPE_TELCO_AUDIO_RENTAL";
+NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_StreamingTaxType_StreamingTaxTypeTelcoAudioSales = @"STREAMING_TAX_TYPE_TELCO_AUDIO_SALES";
+NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_StreamingTaxType_StreamingTaxTypeTelcoVideoMultiChannel = @"STREAMING_TAX_TYPE_TELCO_VIDEO_MULTI_CHANNEL";
+NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_StreamingTaxType_StreamingTaxTypeTelcoVideoRental = @"STREAMING_TAX_TYPE_TELCO_VIDEO_RENTAL";
+NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_StreamingTaxType_StreamingTaxTypeTelcoVideoSales = @"STREAMING_TAX_TYPE_TELCO_VIDEO_SALES";
+NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_StreamingTaxType_StreamingTaxTypeUnspecified = @"STREAMING_TAX_TYPE_UNSPECIFIED";
 
 // GTLRAndroidPublisher_RegionalTaxRateInfo.taxTier
 NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierBooks1 = @"TAX_TIER_BOOKS_1";
@@ -1336,7 +1347,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_RegionalTaxRateInfo
-@dynamic eligibleForStreamingServiceTaxRate, taxTier;
+@dynamic eligibleForStreamingServiceTaxRate, streamingTaxType, taxTier;
 @end
 
 

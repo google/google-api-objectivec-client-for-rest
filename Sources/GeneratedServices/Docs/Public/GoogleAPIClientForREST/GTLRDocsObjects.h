@@ -895,8 +895,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_BreakLeft;
 /**
- *  Breaks text such that there is no text on the left or right of the
- *  positioned object.
+ *  Breaks text such that there's no text on the left or right of the positioned
+ *  object.
  *
  *  Value: "BREAK_LEFT_RIGHT"
  */
@@ -1083,7 +1083,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TableCellStyle_ContentAlignment_Top
 // GTLRDocs_TableColumnProperties.widthType
 
 /**
- *  The column width is evenly distributed among the other evenly distrubted
+ *  The column width is evenly distributed among the other evenly distributed
  *  columns. The width of the column is automatically determined and will have
  *  an equal portion of the width remaining for the table after accounting for
  *  all columns with specified widths.
@@ -1161,7 +1161,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Subscript;
 FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 /**
- *  A ParagraphElement representing a spot in the text that is dynamically
+ *  A ParagraphElement representing a spot in the text that's dynamically
  *  replaced with content that can change over time, like a page number.
  */
 @interface GTLRDocs_AutoText : GTLRObject
@@ -1174,7 +1174,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  The suggested insertion IDs. An AutoText may have multiple insertion IDs if
- *  it is a nested suggested change. If empty, then this is not a suggested
+ *  it's a nested suggested change. If empty, then this is not a suggested
  *  insertion.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suggestedInsertionIds;
@@ -1281,7 +1281,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  The document body. The body typically contains the full document contents
- *  except for headers, footers and footnotes.
+ *  except for headers, footers, and footnotes.
  */
 @interface GTLRDocs_Body : GTLRObject
 
@@ -1308,7 +1308,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  */
 @property(nonatomic, strong, nullable) NSNumber *nestingLevel;
 
-/** The paragraph specific text style applied to this bullet. */
+/** The paragraph-specific text style applied to this bullet. */
 @property(nonatomic, strong, nullable) GTLRDocs_TextStyle *textStyle;
 
 @end
@@ -1316,7 +1316,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  A mask that indicates which of the fields on the base Bullet have been
- *  changed in this suggestion. For any field set to true, there is a new
+ *  changed in this suggestion. For any field set to true, there's a new
  *  suggested value.
  */
 @interface GTLRDocs_BulletSuggestionState : GTLRObject
@@ -1369,7 +1369,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  The suggested insertion IDs. A ColumnBreak may have multiple insertion IDs
- *  if it is a nested suggested change. If empty, then this is not a suggested
+ *  if it's a nested suggested change. If empty, then this is not a suggested
  *  insertion.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suggestedInsertionIds;
@@ -1383,7 +1383,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 /**
  *  The text style of this ColumnBreak. Similar to text content, like text runs
  *  and footnote references, the text style of a column break can affect content
- *  layout as well as the styling of text inserted adjacent to it.
+ *  layout as well as the styling of text inserted next to it.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_TextStyle *textStyle;
 
@@ -1641,8 +1641,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  The crop properties of an image. The crop rectangle is represented using
- *  fractional offsets from the original content's four edges. - If the offset
- *  is in the interval (0, 1), the corresponding edge of crop rectangle is
+ *  fractional offsets from the original content's 4 edges. - If the offset is
+ *  in the interval (0, 1), the corresponding edge of crop rectangle is
  *  positioned inside of the image's original bounding rectangle. - If the
  *  offset is negative or greater than 1, the corresponding edge of crop
  *  rectangle is positioned outside of the image's original bounding rectangle.
@@ -1699,7 +1699,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  A mask that indicates which of the fields on the base CropProperties have
- *  been changed in this suggestion. For any field set to true, there is a new
+ *  been changed in this suggestion. For any field set to true, there's a new
  *  suggested value.
  */
 @interface GTLRDocs_CropPropertiesSuggestionState : GTLRObject
@@ -2124,13 +2124,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 @property(nonatomic, strong, nullable) GTLRDocs_Background *background;
 
 /**
- *  The ID of the default footer. If not set, there is no default footer. This
+ *  The ID of the default footer. If not set, there's no default footer. This
  *  property is read-only.
  */
 @property(nonatomic, copy, nullable) NSString *defaultFooterId;
 
 /**
- *  The ID of the default header. If not set, there is no default header. This
+ *  The ID of the default header. If not set, there's no default header. This
  *  property is read-only.
  */
 @property(nonatomic, copy, nullable) NSString *defaultHeaderId;
@@ -2138,16 +2138,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 /**
  *  The ID of the footer used only for even pages. The value of
  *  use_even_page_header_footer determines whether to use the default_footer_id
- *  or this value for the footer on even pages. If not set, there is no even
- *  page footer. This property is read-only.
+ *  or this value for the footer on even pages. If not set, there's no even page
+ *  footer. This property is read-only.
  */
 @property(nonatomic, copy, nullable) NSString *evenPageFooterId;
 
 /**
  *  The ID of the header used only for even pages. The value of
  *  use_even_page_header_footer determines whether to use the default_header_id
- *  or this value for the header on even pages. If not set, there is no even
- *  page header. This property is read-only.
+ *  or this value for the header on even pages. If not set, there's no even page
+ *  header. This property is read-only.
  */
 @property(nonatomic, copy, nullable) NSString *evenPageHeaderId;
 
@@ -2155,8 +2155,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  The ID of the footer used only for the first page. If not set then a unique
  *  footer for the first page does not exist. The value of
  *  use_first_page_header_footer determines whether to use the default_footer_id
- *  or this value for the footer on the first page. If not set, there is no
- *  first page footer. This property is read-only.
+ *  or this value for the footer on the first page. If not set, there's no first
+ *  page footer. This property is read-only.
  */
 @property(nonatomic, copy, nullable) NSString *firstPageFooterId;
 
@@ -2164,8 +2164,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  The ID of the header used only for the first page. If not set then a unique
  *  header for the first page does not exist. The value of
  *  use_first_page_header_footer determines whether to use the default_header_id
- *  or this value for the header on the first page. If not set, there is no
- *  first page header. This property is read-only.
+ *  or this value for the header on the first page. If not set, there's no first
+ *  page header. This property is read-only.
  */
 @property(nonatomic, copy, nullable) NSString *firstPageHeaderId;
 
@@ -2248,7 +2248,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  A mask that indicates which of the fields on the base DocumentStyle have
- *  been changed in this suggestion. For any field set to true, there is a new
+ *  been changed in this suggestion. For any field set to true, there's a new
  *  suggested value.
  */
 @interface GTLRDocs_DocumentStyleSuggestionState : GTLRObject
@@ -2382,7 +2382,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 
 /**
- *  The properties of an embedded drawing.
+ *  The properties of an embedded drawing and used to differentiate the object
+ *  type. An embedded drawing is one that's created and edited within a
+ *  document. Note that extensive details are not supported.
  */
 @interface GTLRDocs_EmbeddedDrawingProperties : GTLRObject
 @end
@@ -2391,7 +2393,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 /**
  *  A mask that indicates which of the fields on the base
  *  EmbeddedDrawingProperties have been changed in this suggestion. For any
- *  field set to true, there is a new suggested value.
+ *  field set to true, there's a new suggested value.
  */
 @interface GTLRDocs_EmbeddedDrawingPropertiesSuggestionState : GTLRObject
 @end
@@ -2421,8 +2423,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  A reference to the external linked source content. For example, it contains
- *  a reference to the source Sheets chart when the embedded object is a linked
- *  chart. If unset, then the embedded object is not linked.
+ *  a reference to the source Google Sheets chart when the embedded object is a
+ *  linked chart. If unset, then the embedded object is not linked.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_LinkedContentReference *linkedContentReference;
 
@@ -2499,7 +2501,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  A mask that indicates which of the fields on the base EmbeddedObjectBorder
- *  have been changed in this suggestion. For any field set to true, there is a
+ *  have been changed in this suggestion. For any field set to true, there's a
  *  new suggested value.
  */
 @interface GTLRDocs_EmbeddedObjectBorderSuggestionState : GTLRObject
@@ -2537,7 +2539,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  A mask that indicates which of the fields on the base EmbeddedObject have
- *  been changed in this suggestion. For any field set to true, there is a new
+ *  been changed in this suggestion. For any field set to true, there's a new
  *  suggested value.
  */
 @interface GTLRDocs_EmbeddedObjectSuggestionState : GTLRObject
@@ -2644,8 +2646,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suggestedDeletionIds;
 
 /**
- *  The suggested insertion IDs. A Equation may have multiple insertion IDs if
- *  it is a nested suggested change. If empty, then this is not a suggested
+ *  The suggested insertion IDs. An Equation may have multiple insertion IDs if
+ *  it's a nested suggested change. If empty, then this is not a suggested
  *  insertion.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suggestedInsertionIds;
@@ -2710,7 +2712,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  The suggested insertion IDs. A FootnoteReference may have multiple insertion
- *  IDs if it is a nested suggested change. If empty, then this is not a
+ *  IDs if it's a nested suggested change. If empty, then this is not a
  *  suggested insertion.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suggestedInsertionIds;
@@ -2784,7 +2786,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 /**
  *  The text style of this HorizontalRule. Similar to text content, like text
  *  runs and footnote references, the text style of a horizontal rule can affect
- *  content layout as well as the styling of text inserted adjacent to it.
+ *  content layout as well as the styling of text inserted next to it.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_TextStyle *textStyle;
 
@@ -2851,7 +2853,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  The transparency effect of the image. The value should be in the interval
- *  [0.0, 1.0], where 0 means no effect and 1 means completely transparent.
+ *  [0.0, 1.0], where 0 means no effect and 1 means transparent.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -2862,7 +2864,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  A mask that indicates which of the fields on the base ImageProperties have
- *  been changed in this suggestion. For any field set to true, there is a new
+ *  been changed in this suggestion. For any field set to true, there's a new
  *  suggested value.
  */
 @interface GTLRDocs_ImagePropertiesSuggestionState : GTLRObject
@@ -2983,7 +2985,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  The suggested insertion IDs. An InlineObjectElement may have multiple
- *  insertion IDs if it is a nested suggested change. If empty, then this is not
+ *  insertion IDs if it's a nested suggested change. If empty, then this is not
  *  a suggested insertion.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suggestedInsertionIds;
@@ -2998,7 +3000,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  The text style of this InlineObjectElement. Similar to text content, like
  *  text runs and footnote references, the text style of an inline object
  *  element can affect content layout as well as the styling of text inserted
- *  adjacent to it.
+ *  next to it.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_TextStyle *textStyle;
 
@@ -3031,7 +3033,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  A mask that indicates which of the fields on the base InlineObjectProperties
- *  have been changed in this suggestion. For any field set to true, there is a
+ *  have been changed in this suggestion. For any field set to true, there's a
  *  new suggested value.
  */
 @interface GTLRDocs_InlineObjectPropertiesSuggestionState : GTLRObject
@@ -3332,7 +3334,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  A mask that indicates which of the fields on the base LinkedContentReference
- *  have been changed in this suggestion. For any field set to true, there is a
+ *  have been changed in this suggestion. For any field set to true, there's a
  *  new suggested value.
  */
 @interface GTLRDocs_LinkedContentReferenceSuggestionState : GTLRObject
@@ -3348,7 +3350,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  A List represents the list attributes for a group of paragraphs that all
- *  belong to the same list. A paragraph that is part of a list has a reference
+ *  belong to the same list. A paragraph that's part of a list has a reference
  *  to the list's ID in its bullet.
  */
 @interface GTLRDocs_List : GTLRObject
@@ -3387,14 +3389,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 
 /**
- *  The properties of a list which describe the look and feel of bullets
+ *  The properties of a list that describe the look and feel of bullets
  *  belonging to paragraphs associated with a list.
  */
 @interface GTLRDocs_ListProperties : GTLRObject
 
 /**
  *  Describes the properties of the bullets at the associated level. A list has
- *  at most nine levels of nesting with nesting level 0 corresponding to the
+ *  at most 9 levels of nesting with nesting level 0 corresponding to the
  *  top-most level and nesting level 8 corresponding to the most nested level.
  *  The nesting levels are returned in ascending order with the least nested
  *  returned first.
@@ -3406,7 +3408,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  A mask that indicates which of the fields on the base ListProperties have
- *  been changed in this suggestion. For any field set to true, there is a new
+ *  been changed in this suggestion. For any field set to true, there's a new
  *  suggested value.
  */
 @interface GTLRDocs_ListPropertiesSuggestionState : GTLRObject
@@ -3466,12 +3468,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 /**
  *  A collection of Ranges with the same named range ID. Named ranges allow
  *  developers to associate parts of a document with an arbitrary user-defined
- *  label so their contents can be programmatically read or edited at a later
- *  time. A document can contain multiple named ranges with the same name, but
- *  every named range has a unique ID. A named range is created with a single
- *  Range, and content inserted inside a named range generally expands that
- *  range. However, certain document changes can cause the range to be split
- *  into multiple ranges. Named ranges are not private. All applications and
+ *  label so their contents can be programmatically read or edited later. A
+ *  document can contain multiple named ranges with the same name, but every
+ *  named range has a unique ID. A named range is created with a single Range,
+ *  and content inserted inside a named range generally expands that range.
+ *  However, certain document changes can cause the range to be split into
+ *  multiple ranges. Named ranges are not private. All applications and
  *  collaborators that have access to the document can see its named ranges.
  */
 @interface GTLRDocs_NamedRange : GTLRObject
@@ -3552,7 +3554,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 @interface GTLRDocs_NamedStyles : GTLRObject
 
 /**
- *  The named styles. There is an entry for each of the possible named style
+ *  The named styles. There's an entry for each of the possible named style
  *  types.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocs_NamedStyle *> *styles;
@@ -3568,7 +3570,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 /**
  *  A mask that indicates which of the fields on the corresponding NamedStyle in
  *  styles have been changed in this suggestion. The order of these named style
- *  suggestion states match the order of the corresponding named style within
+ *  suggestion states matches the order of the corresponding named style within
  *  the named styles suggestion.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocs_NamedStyleSuggestionState *> *stylesSuggestionStates;
@@ -3654,7 +3656,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  The format string used by bullets at this level of nesting. The glyph format
- *  contains one or more placeholders, and these placeholder are replaced with
+ *  contains one or more placeholders, and these placeholders are replaced with
  *  the appropriate values depending on the glyph_type or glyph_symbol. The
  *  placeholders follow the pattern `%[nesting_level]`. Furthermore,
  *  placeholders can have prefixes and suffixes. Thus, the glyph format follows
@@ -3730,9 +3732,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  The number of the first list item at this nesting level. A value of 0 is
- *  treated as a value of 1 for lettered lists and roman numeraled lists, i.e.
- *  for values of both 0 and 1, lettered and roman numeraled lists will begin at
- *  `a` and `i` respectively. This value is ignored for nesting levels with
+ *  treated as a value of 1 for lettered lists and Roman numeral lists. For
+ *  values of both 0 and 1, lettered and Roman numeral lists will begin at `a`
+ *  and `i` respectively. This value is ignored for nesting levels with
  *  unordered glyphs.
  *
  *  Uses NSNumber of intValue.
@@ -3747,7 +3749,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  A mask that indicates which of the fields on the base NestingLevel have been
- *  changed in this suggestion. For any field set to true, there is a new
+ *  changed in this suggestion. For any field set to true, there's a new
  *  suggested value.
  */
 @interface GTLRDocs_NestingLevelSuggestionState : GTLRObject
@@ -3849,7 +3851,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  The suggested insertion IDs. A PageBreak may have multiple insertion IDs if
- *  it is a nested suggested change. If empty, then this is not a suggested
+ *  it's a nested suggested change. If empty, then this is not a suggested
  *  insertion.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suggestedInsertionIds;
@@ -3862,7 +3864,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 /**
  *  The text style of this PageBreak. Similar to text content, like text runs
  *  and footnote references, the text style of a page break can affect content
- *  layout as well as the styling of text inserted adjacent to it.
+ *  layout as well as the styling of text inserted next to it.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_TextStyle *textStyle;
 
@@ -3883,7 +3885,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  A StructuralElement representing a paragraph. A paragraph is a range of
- *  content that is terminated with a newline character.
+ *  content that's terminated with a newline character.
  */
 @interface GTLRDocs_Paragraph : GTLRObject
 
@@ -3893,7 +3895,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  */
 @property(nonatomic, strong, nullable) GTLRDocs_Bullet *bullet;
 
-/** The content of the paragraph broken down into its component parts. */
+/** The content of the paragraph, broken down into its component parts. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocs_ParagraphElement *> *elements;
 
 /** The style of this paragraph. */
@@ -3912,7 +3914,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 @property(nonatomic, strong, nullable) GTLRDocs_Paragraph_SuggestedParagraphStyleChanges *suggestedParagraphStyleChanges;
 
 /**
- *  The IDs of the positioned objects that are suggested to be attached to this
+ *  The IDs of the positioned objects suggested to be attached to this
  *  paragraph, keyed by suggestion ID.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_Paragraph_SuggestedPositionedObjectIds *suggestedPositionedObjectIds;
@@ -3946,7 +3948,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 
 /**
- *  The IDs of the positioned objects that are suggested to be attached to this
+ *  The IDs of the positioned objects suggested to be attached to this
  *  paragraph, keyed by suggestion ID.
  *
  *  @note This class is documented as having more properties of
@@ -4030,7 +4032,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  A paragraph element that links to a Google resource (such as a file in
- *  Drive, a Youtube video, a Calendar event, etc.)
+ *  Google Drive, a YouTube video, or a Calendar event.)
  */
 @property(nonatomic, strong, nullable) GTLRDocs_RichLink *richLink;
 
@@ -4055,7 +4057,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  The ParagraphStyle on a named style inherits from the normal text named
  *  style. * The ParagraphStyle of the normal text named style inherits from the
  *  default paragraph style in the Docs editor. * The ParagraphStyle on a
- *  Paragraph element that is contained in a table may inherit its paragraph
+ *  Paragraph element that's contained in a table may inherit its paragraph
  *  style from the table style. If the paragraph style does not inherit from a
  *  parent, unsetting fields will revert the style to a value matching the
  *  defaults in the Docs editor.
@@ -4094,9 +4096,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  The border between this paragraph and the next and previous paragraphs. If
  *  unset, the value is inherited from the parent. The between border is
  *  rendered when the adjacent paragraph has the same border and indent
- *  properties. Paragraph borders cannot be partially updated. When making
- *  changes to a paragraph border the new border must be specified in its
- *  entirety.
+ *  properties. Paragraph borders cannot be partially updated. When changing a
+ *  paragraph border, the new border must be specified in its entirety.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_ParagraphBorder *borderBetween;
 
@@ -4104,23 +4105,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  The border at the bottom of this paragraph. If unset, the value is inherited
  *  from the parent. The bottom border is rendered when the paragraph below has
  *  different border and indent properties. Paragraph borders cannot be
- *  partially updated. When making changes to a paragraph border the new border
- *  must be specified in its entirety.
+ *  partially updated. When changing a paragraph border, the new border must be
+ *  specified in its entirety.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_ParagraphBorder *borderBottom;
 
 /**
  *  The border to the left of this paragraph. If unset, the value is inherited
- *  from the parent. Paragraph borders cannot be partially updated. When making
- *  changes to a paragraph border the new border must be specified in its
+ *  from the parent. Paragraph borders cannot be partially updated. When
+ *  changing a paragraph border, the new border must be specified in its
  *  entirety.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_ParagraphBorder *borderLeft;
 
 /**
  *  The border to the right of this paragraph. If unset, the value is inherited
- *  from the parent. Paragraph borders cannot be partially updated. When making
- *  changes to a paragraph border the new border must be specified in its
+ *  from the parent. Paragraph borders cannot be partially updated. When
+ *  changing a paragraph border, the new border must be specified in its
  *  entirety.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_ParagraphBorder *borderRight;
@@ -4129,8 +4130,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  The border at the top of this paragraph. If unset, the value is inherited
  *  from the parent. The top border is rendered when the paragraph above has
  *  different border and indent properties. Paragraph borders cannot be
- *  partially updated. When making changes to a paragraph border the new border
- *  must be specified in its entirety.
+ *  partially updated. When changing a paragraph border, the new border must be
+ *  specified in its entirety.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_ParagraphBorder *borderTop;
 
@@ -4234,7 +4235,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  Whether the current paragraph should always start at the beginning of a
  *  page. If unset, the value is inherited from the parent. Attempting to update
  *  page_break_before for paragraphs in unsupported regions, including Table,
- *  Header, Footer and Footnote, can result in an invalid document state which
+ *  Header, Footer and Footnote, can result in an invalid document state that
  *  returns a 400 bad request error.
  *
  *  Uses NSNumber of boolValue.
@@ -4284,7 +4285,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  A mask that indicates which of the fields on the base ParagraphStyle have
- *  been changed in this suggestion. For any field set to true, there is a new
+ *  been changed in this suggestion. For any field set to true, there's a new
  *  suggested value.
  */
 @interface GTLRDocs_ParagraphStyleSuggestionState : GTLRObject
@@ -4454,14 +4455,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  IDs for suggestions that remove this person link from the document. A Person
- *  might have multiple deletion IDs if, for example, multiple users suggest to
- *  delete it. If empty, then this person link isn't suggested for deletion.
+ *  might have multiple deletion IDs if, for example, multiple users suggest
+ *  deleting it. If empty, then this person link isn't suggested for deletion.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suggestedDeletionIds;
 
 /**
  *  IDs for suggestions that insert this person link into the document. A Person
- *  might have multiple insertion IDs if it is a nested suggested change (a
+ *  might have multiple insertion IDs if it's a nested suggested change (a
  *  suggestion within a suggestion made by a different user, for example). If
  *  empty, then this person link isn't a suggested insertion.
  */
@@ -4502,7 +4503,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 @property(nonatomic, copy, nullable) NSString *email;
 
 /**
- *  Output only. The name of the person if it is displayed in the link text
+ *  Output only. The name of the person if it's displayed in the link text
  *  instead of the person's email address.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4529,7 +4530,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 
 /**
- *  An object that is tethered to a Paragraph and positioned relative to the
+ *  An object that's tethered to a Paragraph and positioned relative to the
  *  beginning of the paragraph. A PositionedObject contains an EmbeddedObject
  *  such as an image.
  */
@@ -4578,7 +4579,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  The positioning of a PositionedObject. The positioned object is positioned
- *  relative to the beginning of the Paragraph it is tethered to.
+ *  relative to the beginning of the Paragraph it's tethered to.
  */
 @interface GTLRDocs_PositionedObjectPositioning : GTLRObject
 
@@ -4592,7 +4593,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *        such that the positioned object is on the left and text is on the
  *        right. (Value: "BREAK_LEFT")
  *    @arg @c kGTLRDocs_PositionedObjectPositioning_Layout_BreakLeftRight Breaks
- *        text such that there is no text on the left or right of the positioned
+ *        text such that there's no text on the left or right of the positioned
  *        object. (Value: "BREAK_LEFT_RIGHT")
  *    @arg @c kGTLRDocs_PositionedObjectPositioning_Layout_BreakRight Breaks
  *        text such that the positioned object is on the right and text is on
@@ -4609,7 +4610,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  The offset of the left edge of the positioned object relative to the
- *  beginning of the Paragraph it is tethered to. The exact positioning of the
+ *  beginning of the Paragraph it's tethered to. The exact positioning of the
  *  object can depend on other content in the document and the document's
  *  styling.
  */
@@ -4617,7 +4618,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  The offset of the top edge of the positioned object relative to the
- *  beginning of the Paragraph it is tethered to. The exact positioning of the
+ *  beginning of the Paragraph it's tethered to. The exact positioning of the
  *  object can depend on other content in the document and the document's
  *  styling.
  */
@@ -4629,7 +4630,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 /**
  *  A mask that indicates which of the fields on the base
  *  PositionedObjectPositioning have been changed in this suggestion. For any
- *  field set to true, there is a new suggested value.
+ *  field set to true, there's a new suggested value.
  */
 @interface GTLRDocs_PositionedObjectPositioningSuggestionState : GTLRObject
 
@@ -4677,7 +4678,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 /**
  *  A mask that indicates which of the fields on the base
  *  PositionedObjectProperties have been changed in this suggestion. For any
- *  field set to true, there is a new suggested value.
+ *  field set to true, there's a new suggested value.
  */
 @interface GTLRDocs_PositionedObjectPropertiesSuggestionState : GTLRObject
 
@@ -4711,8 +4712,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 @property(nonatomic, strong, nullable) NSNumber *endIndex;
 
 /**
- *  The ID of the header, footer or footnote that this range is contained in. An
- *  empty segment ID signifies the document's body.
+ *  The ID of the header, footer, or footnote that this range is contained in.
+ *  An empty segment ID signifies the document's body.
  */
 @property(nonatomic, copy, nullable) NSString *segmentId;
 
@@ -4995,8 +4996,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 
 /**
- *  A link to a Google resource (e.g., a file in Drive, a YouTube video, a
- *  Calendar event, etc.).
+ *  A link to a Google resource (such as a file in Drive, a YouTube video, or a
+ *  Calendar event).
  */
 @interface GTLRDocs_RichLink : GTLRObject
 
@@ -5010,14 +5011,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  IDs for suggestions that remove this link from the document. A RichLink
- *  might have multiple deletion IDs if, for example, multiple users suggest to
- *  delete it. If empty, then this person link isn't suggested for deletion.
+ *  might have multiple deletion IDs if, for example, multiple users suggest
+ *  deleting it. If empty, then this person link isn't suggested for deletion.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suggestedDeletionIds;
 
 /**
  *  IDs for suggestions that insert this link into the document. A RichLink
- *  might have multiple insertion IDs if it is a nested suggested change (a
+ *  might have multiple insertion IDs if it's a nested suggested change (a
  *  suggestion within a suggestion made by a different user, for example). If
  *  empty, then this person link isn't a suggested insertion.
  */
@@ -5054,7 +5055,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 /**
  *  Output only. The [MIME
  *  type](https://developers.google.com/drive/api/v3/mime-types) of the
- *  RichLink, if there is one (i.e., when it is a file in Drive).
+ *  RichLink, if there's one (for example, when it's a file in Drive).
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
@@ -5073,9 +5074,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  A StructuralElement representing a section break. A section is a range of
- *  content which has the same SectionStyle. A section break represents the
- *  start of a new section, and the section style applies to the section after
- *  the section break. The document body always begins with a section break.
+ *  content that has the same SectionStyle. A section break represents the start
+ *  of a new section, and the section style applies to the section after the
+ *  section break. The document body always begins with a section break.
  */
 @interface GTLRDocs_SectionBreak : GTLRObject
 
@@ -5090,7 +5091,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  The suggested insertion IDs. A SectionBreak may have multiple insertion IDs
- *  if it is a nested suggested change. If empty, then this is not a suggested
+ *  if it's a nested suggested change. If empty, then this is not a suggested
  *  insertion.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suggestedInsertionIds;
@@ -5120,14 +5121,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 /**
  *  The section's columns properties. If empty, the section contains one column
  *  with the default properties in the Docs editor. A section can be updated to
- *  have no more than three columns. When updating this property, setting a
- *  concrete value is required. Unsetting this property will result in a 400 bad
- *  request error.
+ *  have no more than 3 columns. When updating this property, setting a concrete
+ *  value is required. Unsetting this property will result in a 400 bad request
+ *  error.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocs_SectionColumnProperties *> *columnProperties;
 
 /**
- *  The style of column separators. This style can be set even when there is one
+ *  The style of column separators. This style can be set even when there's one
  *  column in the section. When updating this property, setting a concrete value
  *  is required. Unsetting this property results in a 400 bad request error.
  *
@@ -5179,7 +5180,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  The ID of the footer used only for even pages. If the value of
  *  DocumentStyle's use_even_page_header_footer is true, this value is used for
  *  the footers on even pages in the section. If it is false, the footers on
- *  even pages uses the default_footer_id. If unset, the value inherits from the
+ *  even pages use the default_footer_id. If unset, the value inherits from the
  *  previous SectionBreak's SectionStyle. If the value is unset in the first
  *  SectionBreak, it inherits from DocumentStyle's even_page_footer_id. This
  *  property is read-only.
@@ -5190,7 +5191,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  The ID of the header used only for even pages. If the value of
  *  DocumentStyle's use_even_page_header_footer is true, this value is used for
  *  the headers on even pages in the section. If it is false, the headers on
- *  even pages uses the default_header_id. If unset, the value inherits from the
+ *  even pages use the default_header_id. If unset, the value inherits from the
  *  previous SectionBreak's SectionStyle. If the value is unset in the first
  *  SectionBreak, it inherits from DocumentStyle's even_page_header_id. This
  *  property is read-only.
@@ -5200,7 +5201,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 /**
  *  The ID of the footer used only for the first page of the section. If
  *  use_first_page_header_footer is true, this value is used for the footer on
- *  the first page of the section. If it is false, the footer on the first page
+ *  the first page of the section. If it's false, the footer on the first page
  *  of the section uses the default_footer_id. If unset, the value inherits from
  *  the previous SectionBreak's SectionStyle. If the value is unset in the first
  *  SectionBreak, it inherits from DocumentStyle's first_page_footer_id. This
@@ -5211,7 +5212,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 /**
  *  The ID of the header used only for the first page of the section. If
  *  use_first_page_header_footer is true, this value is used for the header on
- *  the first page of the section. If it is false, the header on the first page
+ *  the first page of the section. If it's false, the header on the first page
  *  of the section uses the default_header_id. If unset, the value inherits from
  *  the previous SectionBreak's SectionStyle. If the value is unset in the first
  *  SectionBreak, it inherits from DocumentStyle's first_page_header_id. This
@@ -5220,54 +5221,60 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 @property(nonatomic, copy, nullable) NSString *firstPageHeaderId;
 
 /**
- *  The bottom page margin of the section. If unset, uses margin_bottom from
- *  DocumentStyle. When updating this property, setting a concrete value is
- *  required. Unsetting this property results in a 400 bad request error.
+ *  The bottom page margin of the section. If unset, the value defaults to
+ *  margin_bottom from DocumentStyle. When updating this property, setting a
+ *  concrete value is required. Unsetting this property results in a 400 bad
+ *  request error.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_Dimension *marginBottom;
 
 /**
- *  The footer margin of the section. If unset, uses margin_footer from
- *  DocumentStyle. If updated, use_custom_header_footer_margins is set to true
- *  on DocumentStyle. The value of use_custom_header_footer_margins on
- *  DocumentStyle indicates if a footer margin is being respected for this
- *  section When updating this property, setting a concrete value is required.
- *  Unsetting this property results in a 400 bad request error.
+ *  The footer margin of the section. If unset, the value defaults to
+ *  margin_footer from DocumentStyle. If updated,
+ *  use_custom_header_footer_margins is set to true on DocumentStyle. The value
+ *  of use_custom_header_footer_margins on DocumentStyle indicates if a footer
+ *  margin is being respected for this section When updating this property,
+ *  setting a concrete value is required. Unsetting this property results in a
+ *  400 bad request error.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_Dimension *marginFooter;
 
 /**
- *  The header margin of the section. If unset, uses margin_header from
- *  DocumentStyle. If updated, use_custom_header_footer_margins is set to true
- *  on DocumentStyle. The value of use_custom_header_footer_margins on
- *  DocumentStyle indicates if a header margin is being respected for this
- *  section. When updating this property, setting a concrete value is required.
- *  Unsetting this property results in a 400 bad request error.
+ *  The header margin of the section. If unset, the value defaults to
+ *  margin_header from DocumentStyle. If updated,
+ *  use_custom_header_footer_margins is set to true on DocumentStyle. The value
+ *  of use_custom_header_footer_margins on DocumentStyle indicates if a header
+ *  margin is being respected for this section. When updating this property,
+ *  setting a concrete value is required. Unsetting this property results in a
+ *  400 bad request error.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_Dimension *marginHeader;
 
 /**
- *  The left page margin of the section. If unset, uses margin_left from
- *  DocumentStyle. Updating left margin causes columns in this section to
- *  resize. Since the margin affects column width, it is applied before column
- *  properties. When updating this property, setting a concrete value is
- *  required. Unsetting this property results in a 400 bad request error.
+ *  The left page margin of the section. If unset, the value defaults to
+ *  margin_left from DocumentStyle. Updating the left margin causes columns in
+ *  this section to resize. Since the margin affects column width, it's applied
+ *  before column properties. When updating this property, setting a concrete
+ *  value is required. Unsetting this property results in a 400 bad request
+ *  error.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_Dimension *marginLeft;
 
 /**
- *  The right page margin of the section. If unset, uses margin_right from
- *  DocumentStyle. Updating right margin causes columns in this section to
- *  resize. Since the margin affects column width, it is applied before column
- *  properties. When updating this property, setting a concrete value is
- *  required. Unsetting this property results in a 400 bad request error.
+ *  The right page margin of the section. If unset, the value defaults to
+ *  margin_right from DocumentStyle. Updating the right margin causes columns in
+ *  this section to resize. Since the margin affects column width, it's applied
+ *  before column properties. When updating this property, setting a concrete
+ *  value is required. Unsetting this property results in a 400 bad request
+ *  error.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_Dimension *marginRight;
 
 /**
- *  The top page margin of the section. If unset, uses margin_top from
- *  DocumentStyle. When updating this property, setting a concrete value is
- *  required. Unsetting this property results in a 400 bad request error.
+ *  The top page margin of the section. If unset, the value defaults to
+ *  margin_top from DocumentStyle. When updating this property, setting a
+ *  concrete value is required. Unsetting this property results in a 400 bad
+ *  request error.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_Dimension *marginTop;
 
@@ -5324,7 +5331,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  A mask that indicates which of the fields on the base Shading have been
- *  changed in this suggested change. For any field set to true, there is a new
+ *  changed in this suggested change. For any field set to true, there's a new
  *  suggested value.
  */
 @interface GTLRDocs_ShadingSuggestionState : GTLRObject
@@ -5345,7 +5352,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 @interface GTLRDocs_SheetsChartReference : GTLRObject
 
 /**
- *  The ID of the specific chart in the Google Sheets spreadsheet that is
+ *  The ID of the specific chart in the Google Sheets spreadsheet that's
  *  embedded.
  *
  *  Uses NSNumber of intValue.
@@ -5360,7 +5367,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  A mask that indicates which of the fields on the base SheetsChartReference
- *  have been changed in this suggestion. For any field set to true, there is a
+ *  have been changed in this suggestion. For any field set to true, there's a
  *  new suggested value.
  */
 @interface GTLRDocs_SheetsChartReferenceSuggestionState : GTLRObject
@@ -5693,7 +5700,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 @interface GTLRDocs_Table : GTLRObject
 
 /**
- *  Number of columns in the table. It is possible for a table to be
+ *  Number of columns in the table. It's possible for a table to be
  *  non-rectangular, so some rows may have a different number of cells.
  *
  *  Uses NSNumber of intValue.
@@ -5714,9 +5721,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suggestedDeletionIds;
 
 /**
- *  The suggested insertion IDs. A Table may have multiple insertion IDs if it
- *  is a nested suggested change. If empty, then this is not a suggested
- *  insertion.
+ *  The suggested insertion IDs. A Table may have multiple insertion IDs if it's
+ *  a nested suggested change. If empty, then this is not a suggested insertion.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suggestedInsertionIds;
 
@@ -5759,7 +5765,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  The suggested insertion IDs. A TableCell may have multiple insertion IDs if
- *  it is a nested suggested change. If empty, then this is not a suggested
+ *  it's a nested suggested change. If empty, then this is not a suggested
  *  insertion.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suggestedInsertionIds;
@@ -5920,7 +5926,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  A mask that indicates which of the fields on the base TableCellStyle have
- *  been changed in this suggestion. For any field set to true, there is a new
+ *  been changed in this suggestion. For any field set to true, there's a new
  *  suggested value.
  */
 @interface GTLRDocs_TableCellStyleSuggestionState : GTLRObject
@@ -6027,7 +6033,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *
  *  Likely values:
  *    @arg @c kGTLRDocs_TableColumnProperties_WidthType_EvenlyDistributed The
- *        column width is evenly distributed among the other evenly distrubted
+ *        column width is evenly distributed among the other evenly distributed
  *        columns. The width of the column is automatically determined and will
  *        have an equal portion of the width remaining for the table after
  *        accounting for all columns with specified widths. (Value:
@@ -6125,7 +6131,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  The suggested insertion IDs. A TableRow may have multiple insertion IDs if
- *  it is a nested suggested change. If empty, then this is not a suggested
+ *  it's a nested suggested change. If empty, then this is not a suggested
  *  insertion.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suggestedInsertionIds;
@@ -6134,7 +6140,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 @property(nonatomic, strong, nullable) GTLRDocs_TableRow_SuggestedTableRowStyleChanges *suggestedTableRowStyleChanges;
 
 /**
- *  The contents and style of each cell in this row. It is possible for a table
+ *  The contents and style of each cell in this row. It's possible for a table
  *  to be non-rectangular, so some rows may have a different number of cells
  *  than other rows in the same table.
  */
@@ -6189,7 +6195,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  A mask that indicates which of the fields on the base TableRowStyle have
- *  been changed in this suggestion. For any field set to true, there is a new
+ *  been changed in this suggestion. For any field set to true, there's a new
  *  suggested value.
  */
 @interface GTLRDocs_TableRowStyleSuggestionState : GTLRObject
@@ -6265,8 +6271,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suggestedDeletionIds;
 
 /**
- *  The suggested insertion IDs. A TextRun may have multiple insertion IDs if it
- *  is a nested suggested change. If empty, then this is not a suggested
+ *  The suggested insertion IDs. A TextRun may have multiple insertion IDs if
+ *  it's a nested suggested change. If empty, then this is not a suggested
  *  insertion.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suggestedInsertionIds;
@@ -6299,7 +6305,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  Paragraph inherits from the paragraph's corresponding named style type. *
  *  The TextStyle on a named style inherits from the normal text named style. *
  *  The TextStyle of the normal text named style inherits from the default text
- *  style in the Docs editor. * The TextStyle on a Paragraph element that is
+ *  style in the Docs editor. * The TextStyle on a Paragraph element that's
  *  contained in a table may inherit its text style from the table style. If the
  *  text style does not inherit from a parent, unsetting fields will revert the
  *  style to a value matching the defaults in the Docs editor.
@@ -6315,8 +6321,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 /**
  *  The text's vertical offset from its normal position. Text with `SUPERSCRIPT`
  *  or `SUBSCRIPT` baseline offsets is automatically rendered in a smaller font
- *  size, computed based on the `font_size` field. The `font_size` itself is not
- *  affected by changes in this field.
+ *  size, computed based on the `font_size` field. Changes in this field don't
+ *  affect the `font_size`.
  *
  *  Likely values:
  *    @arg @c kGTLRDocs_TextStyle_BaselineOffset_BaselineOffsetUnspecified The
@@ -6355,7 +6361,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 @property(nonatomic, strong, nullable) NSNumber *italic;
 
 /**
- *  The hyperlink destination of the text. If unset, there is no link. Links are
+ *  The hyperlink destination of the text. If unset, there's no link. Links are
  *  not inherited from parent text. Changing the link in an update request
  *  causes some other changes to the text style of the range: * When setting a
  *  link, the text foreground color will be updated to the default link color
@@ -6410,7 +6416,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /**
  *  A mask that indicates which of the fields on the base TextStyle have been
- *  changed in this suggestion. For any field set to true, there is a new
+ *  changed in this suggestion. For any field set to true, there's a new
  *  suggested value.
  */
 @interface GTLRDocs_TextStyleSuggestionState : GTLRObject
@@ -6760,14 +6766,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 @property(nonatomic, copy, nullable) NSString *fontFamily;
 
 /**
- *  The weight of the font. This field can have any value that is a multiple of
+ *  The weight of the font. This field can have any value that's a multiple of
  *  `100` between `100` and `900`, inclusive. This range corresponds to the
  *  numerical values described in the CSS 2.1 Specification, [section
  *  15.6](https://www.w3.org/TR/CSS21/fonts.html#font-boldness), with
  *  non-numerical values disallowed. The default value is `400` ("normal"). The
- *  font weight makes up just one component of the rendered font weight. The
- *  rendered weight is determined by a combination of the `weight` and the text
- *  style's resolved `bold` value, after accounting for inheritance: * If the
+ *  font weight makes up just one component of the rendered font weight. A
+ *  combination of the `weight` and the text style's resolved `bold` value
+ *  determine the rendered weight, after accounting for inheritance: * If the
  *  text is bold and the weight is less than `400`, the rendered weight is 400.
  *  * If the text is bold and the weight is greater than or equal to `400` but
  *  is less than `700`, the rendered weight is `700`. * If the weight is greater

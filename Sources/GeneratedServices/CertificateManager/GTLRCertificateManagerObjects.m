@@ -27,6 +27,11 @@ NSString * const kGTLRCertificateManager_AuthorizationAttemptInfo_State_StateUns
 NSString * const kGTLRCertificateManager_Certificate_Scope_Default = @"DEFAULT";
 NSString * const kGTLRCertificateManager_Certificate_Scope_EdgeCache = @"EDGE_CACHE";
 
+// GTLRCertificateManager_CertificateIssuanceConfig.keyAlgorithm
+NSString * const kGTLRCertificateManager_CertificateIssuanceConfig_KeyAlgorithm_EcdsaP256 = @"ECDSA_P256";
+NSString * const kGTLRCertificateManager_CertificateIssuanceConfig_KeyAlgorithm_KeyAlgorithmUnspecified = @"KEY_ALGORITHM_UNSPECIFIED";
+NSString * const kGTLRCertificateManager_CertificateIssuanceConfig_KeyAlgorithm_Rsa2048 = @"RSA_2048";
+
 // GTLRCertificateManager_CertificateMapEntry.matcher
 NSString * const kGTLRCertificateManager_CertificateMapEntry_Matcher_MatcherUnspecified = @"MATCHER_UNSPECIFIED";
 NSString * const kGTLRCertificateManager_CertificateMapEntry_Matcher_Primary = @"PRIMARY";
@@ -95,6 +100,57 @@ NSString * const kGTLRCertificateManager_ProvisioningIssue_Reason_ReasonUnspecif
 //
 
 @implementation GTLRCertificateManager_Certificate_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateManager_CertificateAuthorityConfig
+//
+
+@implementation GTLRCertificateManager_CertificateAuthorityConfig
+@dynamic certificateAuthorityServiceConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateManager_CertificateAuthorityServiceConfig
+//
+
+@implementation GTLRCertificateManager_CertificateAuthorityServiceConfig
+@dynamic caPool;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateManager_CertificateIssuanceConfig
+//
+
+@implementation GTLRCertificateManager_CertificateIssuanceConfig
+@dynamic certificateAuthorityConfig, createTime, descriptionProperty,
+         keyAlgorithm, labels, lifetime, name, rotationWindowPercentage,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateManager_CertificateIssuanceConfig_Labels
+//
+
+@implementation GTLRCertificateManager_CertificateIssuanceConfig_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -256,6 +312,29 @@ NSString * const kGTLRCertificateManager_ProvisioningIssue_Reason_ReasonUnspecif
     @"ports" : [NSNumber class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateManager_ListCertificateIssuanceConfigsResponse
+//
+
+@implementation GTLRCertificateManager_ListCertificateIssuanceConfigsResponse
+@dynamic certificateIssuanceConfigs, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"certificateIssuanceConfigs" : [GTLRCertificateManager_CertificateIssuanceConfig class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"certificateIssuanceConfigs";
 }
 
 @end
@@ -441,7 +520,7 @@ NSString * const kGTLRCertificateManager_ProvisioningIssue_Reason_ReasonUnspecif
 //
 
 @implementation GTLRCertificateManager_ManagedCertificate
-@dynamic authorizationAttemptInfo, dnsAuthorizations, domains,
+@dynamic authorizationAttemptInfo, dnsAuthorizations, domains, issuanceConfig,
          provisioningIssue, state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

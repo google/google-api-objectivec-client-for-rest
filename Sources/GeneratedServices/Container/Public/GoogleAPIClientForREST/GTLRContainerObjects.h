@@ -36,6 +36,7 @@
 @class GTLRContainer_ConfidentialNodes;
 @class GTLRContainer_ConfigConnectorConfig;
 @class GTLRContainer_ConsumptionMeteringConfig;
+@class GTLRContainer_CostManagementConfig;
 @class GTLRContainer_DailyMaintenanceWindow;
 @class GTLRContainer_DatabaseEncryption;
 @class GTLRContainer_DefaultSnatStatus;
@@ -45,6 +46,7 @@
 @class GTLRContainer_GcePersistentDiskCsiDriverConfig;
 @class GTLRContainer_GcfsConfig;
 @class GTLRContainer_GcpFilestoreCsiDriverConfig;
+@class GTLRContainer_GkeBackupAgentConfig;
 @class GTLRContainer_GPUSharingConfig;
 @class GTLRContainer_HorizontalPodAutoscaling;
 @class GTLRContainer_HttpCacheControlResponseHeader;
@@ -463,6 +465,50 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_GPUSharingConfig_GpuSharingStr
  *  Value: "TIME_SHARING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_GPUSharingConfig_GpuSharingStrategy_TimeSharing;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_IPAllocationPolicy.ipv6AccessType
+
+/**
+ *  Access type external (all v6 addresses are external IPs)
+ *
+ *  Value: "EXTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_IPAllocationPolicy_Ipv6AccessType_External;
+/**
+ *  Access type internal (all v6 addresses are internal IPs)
+ *
+ *  Value: "INTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_IPAllocationPolicy_Ipv6AccessType_Internal;
+/**
+ *  Default value, will be defaulted as type external.
+ *
+ *  Value: "IPV6_ACCESS_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_IPAllocationPolicy_Ipv6AccessType_Ipv6AccessTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_IPAllocationPolicy.stackType
+
+/**
+ *  Cluster is IPV4 only
+ *
+ *  Value: "IPV4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_IPAllocationPolicy_StackType_Ipv4;
+/**
+ *  Cluster can use both IPv4 and IPv6
+ *
+ *  Value: "IPV4_IPV6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_IPAllocationPolicy_StackType_Ipv4Ipv6;
+/**
+ *  Default value, will be defaulted as IPV4 only
+ *
+ *  Value: "STACK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_IPAllocationPolicy_StackType_StackTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_LoggingComponentConfig.enableComponents
@@ -1164,7 +1210,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_CanonicalCode_
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_CanonicalCode_NotFound;
 /**
- *  Not an error; returned on success HTTP Mapping: 200 OK
+ *  Not an error; returned on success. HTTP Mapping: 200 OK
  *
  *  Value: "OK"
  */
@@ -1475,6 +1521,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Configuration for the GCP Filestore CSI driver. */
 @property(nonatomic, strong, nullable) GTLRContainer_GcpFilestoreCsiDriverConfig *gcpFilestoreCsiDriverConfig;
+
+/** Configuration for the Backup for GKE agent addon. */
+@property(nonatomic, strong, nullable) GTLRContainer_GkeBackupAgentConfig *gkeBackupAgentConfig;
 
 /**
  *  Configuration for the horizontal pod autoscaling feature, which increases or
@@ -1897,6 +1946,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Confidential VM once enabled.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_ConfidentialNodes *confidentialNodes;
+
+/** Configuration for the fine-grained cost management feature. */
+@property(nonatomic, strong, nullable) GTLRContainer_CostManagementConfig *costManagementConfig;
 
 /**
  *  [Output only] The time the cluster was created, in
@@ -2337,6 +2389,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Cluster-level autoscaling configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_ClusterAutoscaling *desiredClusterAutoscaling;
 
+/** The desired configuration for the fine-grained cost management feature. */
+@property(nonatomic, strong, nullable) GTLRContainer_CostManagementConfig *desiredCostManagementConfig;
+
 /** Configuration of etcd encryption. */
 @property(nonatomic, strong, nullable) GTLRContainer_DatabaseEncryption *desiredDatabaseEncryption;
 
@@ -2610,6 +2665,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /**
  *  Whether to enable consumption metering for this cluster. If enabled, a
  *  second BigQuery table will be created to hold resource consumption records.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  Configuration for fine-grained cost management feature.
+ */
+@interface GTLRContainer_CostManagementConfig : GTLRObject
+
+/**
+ *  Whether the feature is enabled or not.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2939,6 +3009,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  Configuration for the Backup for GKE Agent.
+ */
+@interface GTLRContainer_GkeBackupAgentConfig : GTLRObject
+
+/**
+ *  Whether the Backup for GKE agent is enabled for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
  *  GPUSharingConfig represents the GPU sharing configuration for Hardware
  *  Accelerators.
  */
@@ -3106,6 +3191,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) NSNumber *createSubnetwork;
 
+/**
+ *  The ipv6 access type (internal or external) when create_subnetwork is true
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_IPAllocationPolicy_Ipv6AccessType_External Access
+ *        type external (all v6 addresses are external IPs) (Value: "EXTERNAL")
+ *    @arg @c kGTLRContainer_IPAllocationPolicy_Ipv6AccessType_Internal Access
+ *        type internal (all v6 addresses are internal IPs) (Value: "INTERNAL")
+ *    @arg @c kGTLRContainer_IPAllocationPolicy_Ipv6AccessType_Ipv6AccessTypeUnspecified
+ *        Default value, will be defaulted as type external. (Value:
+ *        "IPV6_ACCESS_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *ipv6AccessType;
+
 /** This field is deprecated, use node_ipv4_cidr_block. */
 @property(nonatomic, copy, nullable) NSString *nodeIpv4Cidr;
 
@@ -3143,6 +3242,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  false.
  */
 @property(nonatomic, copy, nullable) NSString *servicesSecondaryRangeName;
+
+/**
+ *  The IP stack type of the cluster
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_IPAllocationPolicy_StackType_Ipv4 Cluster is IPV4
+ *        only (Value: "IPV4")
+ *    @arg @c kGTLRContainer_IPAllocationPolicy_StackType_Ipv4Ipv6 Cluster can
+ *        use both IPv4 and IPv6 (Value: "IPV4_IPV6")
+ *    @arg @c kGTLRContainer_IPAllocationPolicy_StackType_StackTypeUnspecified
+ *        Default value, will be defaulted as IPV4 only (Value:
+ *        "STACK_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *stackType;
 
 /**
  *  A custom subnetwork name to be used if `create_subnetwork` is true. If this
@@ -5973,7 +6086,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        `PERMISSION_DENIED` must be used. HTTP Mapping: 404 Not Found (Value:
  *        "NOT_FOUND")
  *    @arg @c kGTLRContainer_StatusCondition_CanonicalCode_Ok Not an error;
- *        returned on success HTTP Mapping: 200 OK (Value: "OK")
+ *        returned on success. HTTP Mapping: 200 OK (Value: "OK")
  *    @arg @c kGTLRContainer_StatusCondition_CanonicalCode_OutOfRange The
  *        operation was attempted past the valid range. E.g., seeking or reading
  *        past end-of-file. Unlike `INVALID_ARGUMENT`, this error indicates a

@@ -26,6 +26,21 @@ NSString * const kGTLRNetworkconnectivity_Hub_State_Deleting   = @"DELETING";
 NSString * const kGTLRNetworkconnectivity_Hub_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRNetworkconnectivity_Hub_State_Updating   = @"UPDATING";
 
+// GTLRNetworkconnectivity_InternalRange.overlaps
+NSString * const kGTLRNetworkconnectivity_InternalRange_Overlaps_OverlapRouteRange = @"OVERLAP_ROUTE_RANGE";
+NSString * const kGTLRNetworkconnectivity_InternalRange_Overlaps_OverlapUnspecified = @"OVERLAP_UNSPECIFIED";
+
+// GTLRNetworkconnectivity_InternalRange.peering
+NSString * const kGTLRNetworkconnectivity_InternalRange_Peering_ForPeer = @"FOR_PEER";
+NSString * const kGTLRNetworkconnectivity_InternalRange_Peering_ForSelf = @"FOR_SELF";
+NSString * const kGTLRNetworkconnectivity_InternalRange_Peering_NotShared = @"NOT_SHARED";
+NSString * const kGTLRNetworkconnectivity_InternalRange_Peering_PeeringUnspecified = @"PEERING_UNSPECIFIED";
+
+// GTLRNetworkconnectivity_InternalRange.usage
+NSString * const kGTLRNetworkconnectivity_InternalRange_Usage_ExternalToVpc = @"EXTERNAL_TO_VPC";
+NSString * const kGTLRNetworkconnectivity_InternalRange_Usage_ForVpc = @"FOR_VPC";
+NSString * const kGTLRNetworkconnectivity_InternalRange_Usage_UsageUnspecified = @"USAGE_UNSPECIFIED";
+
 // GTLRNetworkconnectivity_LocationMetadata.locationFeatures
 NSString * const kGTLRNetworkconnectivity_LocationMetadata_LocationFeatures_LocationFeatureUnspecified = @"LOCATION_FEATURE_UNSPECIFIED";
 NSString * const kGTLRNetworkconnectivity_LocationMetadata_LocationFeatures_SiteToCloudSpokes = @"SITE_TO_CLOUD_SPOKES";
@@ -256,11 +271,51 @@ NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkconnectivity_InternalRange
+//
+
+@implementation GTLRNetworkconnectivity_InternalRange
+@dynamic createTime, descriptionProperty, ipCidrRange, labels, name, network,
+         overlaps, peering, prefixLength, targetCidrRange, updateTime, usage,
+         users;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"overlaps" : [NSString class],
+    @"targetCidrRange" : [NSString class],
+    @"users" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_InternalRange_Labels
+//
+
+@implementation GTLRNetworkconnectivity_InternalRange_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkconnectivity_LinkedInterconnectAttachments
 //
 
 @implementation GTLRNetworkconnectivity_LinkedInterconnectAttachments
-@dynamic siteToSiteDataTransfer, uris;
+@dynamic siteToSiteDataTransfer, uris, vpcNetwork;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -278,7 +333,7 @@ NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating = @"UPDATING";
 //
 
 @implementation GTLRNetworkconnectivity_LinkedRouterApplianceInstances
-@dynamic instances, siteToSiteDataTransfer;
+@dynamic instances, siteToSiteDataTransfer, vpcNetwork;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -296,7 +351,7 @@ NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating = @"UPDATING";
 //
 
 @implementation GTLRNetworkconnectivity_LinkedVpnTunnels
-@dynamic siteToSiteDataTransfer, uris;
+@dynamic siteToSiteDataTransfer, uris, vpcNetwork;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -326,6 +381,29 @@ NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating = @"UPDATING";
 
 + (NSString *)collectionItemsKey {
   return @"hubs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_ListInternalRangesResponse
+//
+
+@implementation GTLRNetworkconnectivity_ListInternalRangesResponse
+@dynamic internalRanges, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"internalRanges" : [GTLRNetworkconnectivity_InternalRange class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"internalRanges";
 }
 
 @end

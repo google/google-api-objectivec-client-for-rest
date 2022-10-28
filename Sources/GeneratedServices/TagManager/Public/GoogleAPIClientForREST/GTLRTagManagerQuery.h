@@ -28,6 +28,24 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// settingSource
+
+/**
+ *  Keep the current container config setting after combine
+ *
+ *  Value: "current"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerSettingSourceCurrent;
+/**
+ *  Use config setting from the other tag after combine
+ *
+ *  Value: "other"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerSettingSourceOther;
+/** Value: "settingSourceUnspecified" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerSettingSourceSettingSourceUnspecified;
+
+// ----------------------------------------------------------------------------
 // type
 
 /** Value: "advertiserId" */
@@ -288,6 +306,59 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @end
 
 /**
+ *  Combines Containers.
+ *
+ *  Method: tagmanager.accounts.containers.combine
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersCombine : GTLRTagManagerQuery
+
+/**
+ *  Must be set to true to allow features.user_permissions to change from false
+ *  to true. If this operation causes an update but this bit is false, the
+ *  operation will fail.
+ */
+@property(nonatomic, assign) BOOL allowUserPermissionFeatureUpdate;
+
+/** ID of container that will be merged into the current container. */
+@property(nonatomic, copy, nullable) NSString *containerId;
+
+/**
+ *  GTM Container's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Specify the source of config setting after combine
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTagManagerSettingSourceSettingSourceUnspecified Value
+ *        "settingSourceUnspecified"
+ *    @arg @c kGTLRTagManagerSettingSourceCurrent Keep the current container
+ *        config setting after combine (Value: "current")
+ *    @arg @c kGTLRTagManagerSettingSourceOther Use config setting from the
+ *        other tag after combine (Value: "other")
+ */
+@property(nonatomic, copy, nullable) NSString *settingSource;
+
+/**
+ *  Fetches a @c GTLRTagManager_Container.
+ *
+ *  Combines Containers.
+ *
+ *  @param path GTM Container's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersCombine
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
  *  Creates a Container.
  *
  *  Method: tagmanager.accounts.containers.create
@@ -344,6 +415,110 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  @return GTLRTagManagerQuery_AccountsContainersDelete
  */
 + (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Gets a Destination.
+ *
+ *  Method: tagmanager.accounts.containers.destinations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersDestinationsGet : GTLRTagManagerQuery
+
+/**
+ *  Google Tag Destination's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/destinations/{destination_link_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_Destination.
+ *
+ *  Gets a Destination.
+ *
+ *  @param path Google Tag Destination's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/destinations/{destination_link_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersDestinationsGet
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Adds a Destination to this Container and removes it from the Container to
+ *  which it is currently linked.
+ *
+ *  Method: tagmanager.accounts.containers.destinations.link
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersDestinationsLink : GTLRTagManagerQuery
+
+/**
+ *  Must be set to true to allow features.user_permissions to change from false
+ *  to true. If this operation causes an update but this bit is false, the
+ *  operation will fail.
+ */
+@property(nonatomic, assign) BOOL allowUserPermissionFeatureUpdate;
+
+/** Destination ID to be linked to the current container. */
+@property(nonatomic, copy, nullable) NSString *destinationId;
+
+/**
+ *  GTM parent Container's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_Destination.
+ *
+ *  Adds a Destination to this Container and removes it from the Container to
+ *  which it is currently linked.
+ *
+ *  @param parent GTM parent Container's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersDestinationsLink
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists all Destinations linked to a GTM Container.
+ *
+ *  Method: tagmanager.accounts.containers.destinations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersDestinationsList : GTLRTagManagerQuery
+
+/**
+ *  GTM parent Container's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_ListDestinationsResponse.
+ *
+ *  Lists all Destinations linked to a GTM Container.
+ *
+ *  @param parent GTM parent Container's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersDestinationsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -612,6 +787,121 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Looks up a Container by destination ID.
+ *
+ *  Method: tagmanager.accounts.containers.lookup
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersLookup : GTLRTagManagerQuery
+
+/**
+ *  Destination ID linked to a GTM Container, e.g. AW-123456789. Example:
+ *  accounts/containers:lookup?destination_id={destination_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationId;
+
+/**
+ *  Fetches a @c GTLRTagManager_Container.
+ *
+ *  Looks up a Container by destination ID.
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersLookup
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Move Tag ID out of a Container.
+ *
+ *  Method: tagmanager.accounts.containers.move_tag_id
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersMoveTagId : GTLRTagManagerQuery
+
+/**
+ *  Must be set to true to allow features.user_permissions to change from false
+ *  to true. If this operation causes an update but this bit is false, the
+ *  operation will fail.
+ */
+@property(nonatomic, assign) BOOL allowUserPermissionFeatureUpdate;
+
+/** Whether or not to copy tag settings from this tag to the new tag. */
+@property(nonatomic, assign) BOOL copySettings;
+
+/**
+ *  Must be set to true to accept all terms of service agreements copied from
+ *  the current tag to the newly created tag. If this bit is false, the
+ *  operation will fail.
+ */
+@property(nonatomic, assign) BOOL copyTermsOfService;
+
+/** Whether or not to copy users from this tag to the new tag. */
+@property(nonatomic, assign) BOOL copyUsers;
+
+/**
+ *  GTM Container's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/** Tag ID to be removed from the current Container. */
+@property(nonatomic, copy, nullable) NSString *tagId;
+
+/** The name for the newly created tag. */
+@property(nonatomic, copy, nullable) NSString *tagName;
+
+/**
+ *  Fetches a @c GTLRTagManager_Container.
+ *
+ *  Move Tag ID out of a Container.
+ *
+ *  @param path GTM Container's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersMoveTagId
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Gets the tagging snippet for a Container.
+ *
+ *  Method: tagmanager.accounts.containers.snippet
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersSnippet : GTLRTagManagerQuery
+
+/**
+ *  Container snippet's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}:snippet
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_GetContainerSnippetResponse.
+ *
+ *  Gets the tagging snippet for a Container.
+ *
+ *  @param path Container snippet's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}:snippet
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersSnippet
+ */
++ (instancetype)queryWithPath:(NSString *)path;
 
 @end
 
@@ -2224,6 +2514,176 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @end
 
 /**
+ *  Creates a Google tag config.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.gtag_config.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesGtagConfigCreate : GTLRTagManagerQuery
+
+/**
+ *  Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_GtagConfig.
+ *
+ *  Creates a Google tag config.
+ *
+ *  @param object The @c GTLRTagManager_GtagConfig to include in the query.
+ *  @param parent Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesGtagConfigCreate
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_GtagConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Google tag config.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.gtag_config.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesGtagConfigDelete : GTLRTagManagerQuery
+
+/**
+ *  Google tag config's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/gtag_config/{gtag_config_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a Google tag config.
+ *
+ *  @param path Google tag config's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/gtag_config/{gtag_config_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesGtagConfigDelete
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Gets a Google tag config.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.gtag_config.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesGtagConfigGet : GTLRTagManagerQuery
+
+/**
+ *  Google tag config's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/gtag_config/{gtag_config_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_GtagConfig.
+ *
+ *  Gets a Google tag config.
+ *
+ *  @param path Google tag config's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/gtag_config/{gtag_config_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesGtagConfigGet
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Lists all Google tag configs in a Container.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.gtag_config.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesGtagConfigList : GTLRTagManagerQuery
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_ListGtagConfigResponse.
+ *
+ *  Lists all Google tag configs in a Container.
+ *
+ *  @param parent Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesGtagConfigList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a Google tag config.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.gtag_config.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesGtagConfigUpdate : GTLRTagManagerQuery
+
+/**
+ *  When provided, this fingerprint must match the fingerprint of the config in
+ *  storage.
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  Google tag config's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/gtag_config/{gtag_config_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_GtagConfig.
+ *
+ *  Updates a Google tag config.
+ *
+ *  @param object The @c GTLRTagManager_GtagConfig to include in the query.
+ *  @param path Google tag config's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/gtag_config/{gtag_config_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesGtagConfigUpdate
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_GtagConfig *)object
+                           path:(NSString *)path;
+
+@end
+
+/**
  *  Lists all Workspaces that belong to a GTM Container.
  *
  *  Method: tagmanager.accounts.containers.workspaces.list
@@ -3473,6 +3933,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsList : GTLRTagManagerQuery
+
+/** Also retrieve accounts associated with Google Tag when true. */
+@property(nonatomic, assign) BOOL includeGoogleTags;
 
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;

@@ -482,7 +482,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 @property(nonatomic, strong, nullable) NSNumber *immutable;
 
 /**
- *  For integer and double values specifies maxminum allowed value.
+ *  For integer and double values specifies maximum allowed value.
  *
  *  Uses NSNumber of doubleValue.
  */

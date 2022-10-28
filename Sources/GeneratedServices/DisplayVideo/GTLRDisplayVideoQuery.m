@@ -924,6 +924,68 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability = @"TARG
 
 @end
 
+@implementation GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsCreate
+
+@dynamic advertiserId, insertionOrderId, targetingType;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_AssignedTargetingOption *)object
+                   advertiserId:(long long)advertiserId
+               insertionOrderId:(long long)insertionOrderId
+                  targetingType:(NSString *)targetingType {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"advertiserId", @"insertionOrderId", @"targetingType"
+  ];
+  NSString *pathURITemplate = @"v2/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}/targetingTypes/{+targetingType}/assignedTargetingOptions";
+  GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.advertiserId = advertiserId;
+  query.insertionOrderId = insertionOrderId;
+  query.targetingType = targetingType;
+  query.expectedObjectClass = [GTLRDisplayVideo_AssignedTargetingOption class];
+  query.loggingName = @"displayvideo.advertisers.insertionOrders.targetingTypes.assignedTargetingOptions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsDelete
+
+@dynamic advertiserId, assignedTargetingOptionId, insertionOrderId,
+         targetingType;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                     insertionOrderId:(long long)insertionOrderId
+                        targetingType:(NSString *)targetingType
+            assignedTargetingOptionId:(NSString *)assignedTargetingOptionId {
+  NSArray *pathParams = @[
+    @"advertiserId", @"assignedTargetingOptionId", @"insertionOrderId",
+    @"targetingType"
+  ];
+  NSString *pathURITemplate = @"v2/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}";
+  GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.insertionOrderId = insertionOrderId;
+  query.targetingType = targetingType;
+  query.assignedTargetingOptionId = assignedTargetingOptionId;
+  query.expectedObjectClass = [GTLRDisplayVideo_Empty class];
+  query.loggingName = @"displayvideo.advertisers.insertionOrders.targetingTypes.assignedTargetingOptions.delete";
+  return query;
+}
+
+@end
+
 @implementation GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsGet
 
 @dynamic advertiserId, assignedTargetingOptionId, insertionOrderId,
@@ -1142,6 +1204,37 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability = @"TARG
   query.lineItemId = lineItemId;
   query.expectedObjectClass = [GTLRDisplayVideo_Empty class];
   query.loggingName = @"displayvideo.advertisers.lineItems.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersLineItemsDuplicate
+
+@dynamic advertiserId, lineItemId;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_DuplicateLineItemRequest *)object
+                   advertiserId:(long long)advertiserId
+                     lineItemId:(long long)lineItemId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"advertiserId", @"lineItemId"
+  ];
+  NSString *pathURITemplate = @"v2/advertisers/{+advertiserId}/lineItems/{+lineItemId}:duplicate";
+  GTLRDisplayVideoQuery_AdvertisersLineItemsDuplicate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.advertiserId = advertiserId;
+  query.lineItemId = lineItemId;
+  query.expectedObjectClass = [GTLRDisplayVideo_DuplicateLineItemResponse class];
+  query.loggingName = @"displayvideo.advertisers.lineItems.duplicate";
   return query;
 }
 

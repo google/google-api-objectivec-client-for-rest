@@ -249,7 +249,7 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 //
 
 @implementation GTLRTagManager_Account
-@dynamic accountId, fingerprint, name, path, shareData, tagManagerUrl;
+@dynamic accountId, features, fingerprint, name, path, shareData, tagManagerUrl;
 @end
 
 
@@ -260,6 +260,16 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 
 @implementation GTLRTagManager_AccountAccess
 @dynamic permission;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_AccountFeatures
+//
+
+@implementation GTLRTagManager_AccountFeatures
+@dynamic supportMultipleContainers, supportUserPermissions;
 @end
 
 
@@ -316,12 +326,13 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 //
 
 @implementation GTLRTagManager_Container
-@dynamic accountId, containerId, domainName, fingerprint, name, notes, path,
-         publicId, tagManagerUrl, usageContext;
+@dynamic accountId, containerId, domainName, features, fingerprint, name, notes,
+         path, publicId, tagIds, tagManagerUrl, usageContext;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"domainName" : [NSString class],
+    @"tagIds" : [NSString class],
     @"usageContext" : [NSString class]
   };
   return map;
@@ -342,14 +353,27 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTagManager_ContainerFeatures
+//
+
+@implementation GTLRTagManager_ContainerFeatures
+@dynamic supportBuiltInVariables, supportClients, supportEnvironments,
+         supportFolders, supportGtagConfigs, supportTags, supportTemplates,
+         supportTriggers, supportUserPermissions, supportVariables,
+         supportVersions, supportWorkspaces, supportZones;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTagManager_ContainerVersion
 //
 
 @implementation GTLRTagManager_ContainerVersion
 @dynamic accountId, builtInVariable, client, container, containerId,
          containerVersionId, customTemplate, deleted, descriptionProperty,
-         fingerprint, folder, name, path, tag, tagManagerUrl, trigger, variable,
-         zoneProperty;
+         fingerprint, folder, gtagConfig, name, path, tag, tagManagerUrl,
+         trigger, variable, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -365,6 +389,7 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
     @"client" : [GTLRTagManager_Client class],
     @"customTemplate" : [GTLRTagManager_CustomTemplate class],
     @"folder" : [GTLRTagManager_Folder class],
+    @"gtagConfig" : [GTLRTagManager_GtagConfig class],
     @"tag" : [GTLRTagManager_Tag class],
     @"trigger" : [GTLRTagManager_Trigger class],
     @"variable" : [GTLRTagManager_Variable class],
@@ -383,8 +408,8 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 
 @implementation GTLRTagManager_ContainerVersionHeader
 @dynamic accountId, containerId, containerVersionId, deleted, name, numClients,
-         numCustomTemplates, numMacros, numRules, numTags, numTriggers,
-         numVariables, numZones, path;
+         numCustomTemplates, numGtagConfigs, numMacros, numRules, numTags,
+         numTriggers, numVariables, numZones, path;
 @end
 
 
@@ -434,6 +459,17 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 @implementation GTLRTagManager_CustomTemplate
 @dynamic accountId, containerId, fingerprint, galleryReference, name, path,
          tagManagerUrl, templateData, templateId, workspaceId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_Destination
+//
+
+@implementation GTLRTagManager_Destination
+@dynamic accountId, containerId, destinationId, destinationLinkId, fingerprint,
+         name, path, tagManagerUrl;
 @end
 
 
@@ -507,6 +543,16 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTagManager_GetContainerSnippetResponse
+//
+
+@implementation GTLRTagManager_GetContainerSnippetResponse
+@dynamic snippet;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTagManager_GetWorkspaceStatusResponse
 //
 
@@ -517,6 +563,25 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
   NSDictionary<NSString *, Class> *map = @{
     @"mergeConflict" : [GTLRTagManager_MergeConflict class],
     @"workspaceChange" : [GTLRTagManager_Entity class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_GtagConfig
+//
+
+@implementation GTLRTagManager_GtagConfig
+@dynamic accountId, containerId, fingerprint, gtagConfigId, parameter, path,
+         tagManagerUrl, type, workspaceId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"parameter" : [GTLRTagManager_Parameter class]
   };
   return map;
 }
@@ -614,6 +679,28 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTagManager_ListDestinationsResponse
+//
+
+@implementation GTLRTagManager_ListDestinationsResponse
+@dynamic destination, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"destination" : [GTLRTagManager_Destination class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"destination";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTagManager_ListEnabledBuiltInVariablesResponse
 //
 
@@ -673,6 +760,28 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 
 + (NSString *)collectionItemsKey {
   return @"folder";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_ListGtagConfigResponse
+//
+
+@implementation GTLRTagManager_ListGtagConfigResponse
+@dynamic gtagConfig, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"gtagConfig" : [GTLRTagManager_GtagConfig class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"gtagConfig";
 }
 
 @end

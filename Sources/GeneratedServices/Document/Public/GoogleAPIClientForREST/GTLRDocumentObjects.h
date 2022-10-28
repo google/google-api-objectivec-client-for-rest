@@ -3332,6 +3332,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** Layout for Table. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageLayout *layout;
 
+/** The history of this table. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance *provenance;
+
 @end
 
 
@@ -4742,6 +4745,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** Layout for Table. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageLayout *layout;
 
+/** The history of this table. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance *provenance;
+
 @end
 
 
@@ -6070,7 +6076,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentOutputConfigGcsOutputConfig : GTLRObject
 
 /**
- *  Specifies which fields to include in the output documents.
+ *  Specifies which fields to include in the output documents. Only supports top
+ *  level document and pages field so it must be in the form of
+ *  `{document_field_name}` or `pages.{page_field_name}`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -6585,6 +6593,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /** Layout for Table. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout *layout;
+
+/** The history of this table. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance;
 
 @end
 
@@ -7686,7 +7697,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @interface GTLRDocument_GoogleCloudDocumentaiV1ProcessRequest : GTLRObject
 
 /**
- *  Specifies which fields to include in ProcessResponse's document.
+ *  Specifies which fields to include in ProcessResponse's document. Only
+ *  supports top level document and pages field so it must be in the form of
+ *  `{document_field_name}` or `pages.{page_field_name}`.
  *
  *  String format is a comma-separated list of fields.
  */

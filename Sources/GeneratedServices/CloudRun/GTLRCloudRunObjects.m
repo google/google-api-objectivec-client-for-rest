@@ -367,21 +367,11 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_GoogleCloudRunV2GRPCAction
-//
-
-@implementation GTLRCloudRun_GoogleCloudRunV2GRPCAction
-@dynamic port, service;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudRun_GoogleCloudRunV2HTTPGetAction
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2HTTPGetAction
-@dynamic host, httpHeaders, path, scheme;
+@dynamic httpHeaders, path;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -577,7 +567,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2Probe
-@dynamic failureThreshold, grpc, httpGet, initialDelaySeconds, periodSeconds,
+@dynamic failureThreshold, httpGet, initialDelaySeconds, periodSeconds,
          tcpSocket, timeoutSeconds;
 @end
 
@@ -919,7 +909,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2TCPSocketAction
-@dynamic host, port;
+@dynamic port;
 @end
 
 

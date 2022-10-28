@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud TPU API (tpu/v1)
+//   Cloud TPU API (tpu/v2)
 // Description:
 //   TPU API provides customers with access to Google TPU technology.
 // Documentation:
@@ -22,7 +22,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
+  NSString *pathURITemplate = @"v2/{+name}";
   GTLRTPUQuery_ProjectsLocationsAcceleratorTypesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -41,7 +41,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/acceleratorTypes";
+  NSString *pathURITemplate = @"v2/{+parent}/acceleratorTypes";
   GTLRTPUQuery_ProjectsLocationsAcceleratorTypesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -54,13 +54,40 @@
 
 @end
 
+@implementation GTLRTPUQuery_ProjectsLocationsGenerateServiceIdentity
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRTPU_GenerateServiceIdentityRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}:generateServiceIdentity";
+  GTLRTPUQuery_ProjectsLocationsGenerateServiceIdentity *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTPU_GenerateServiceIdentityResponse class];
+  query.loggingName = @"tpu.projects.locations.generateServiceIdentity";
+  return query;
+}
+
+@end
+
 @implementation GTLRTPUQuery_ProjectsLocationsGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
+  NSString *pathURITemplate = @"v2/{+name}";
   GTLRTPUQuery_ProjectsLocationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -79,7 +106,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}/locations";
+  NSString *pathURITemplate = @"v2/{+name}/locations";
   GTLRTPUQuery_ProjectsLocationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -105,7 +132,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/nodes";
+  NSString *pathURITemplate = @"v2/{+parent}/nodes";
   GTLRTPUQuery_ProjectsLocationsNodesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -125,7 +152,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
+  NSString *pathURITemplate = @"v2/{+name}";
   GTLRTPUQuery_ProjectsLocationsNodesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -144,7 +171,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
+  NSString *pathURITemplate = @"v2/{+name}";
   GTLRTPUQuery_ProjectsLocationsNodesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -157,13 +184,40 @@
 
 @end
 
+@implementation GTLRTPUQuery_ProjectsLocationsNodesGetGuestAttributes
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRTPU_GetGuestAttributesRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:getGuestAttributes";
+  GTLRTPUQuery_ProjectsLocationsNodesGetGuestAttributes *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRTPU_GetGuestAttributesResponse class];
+  query.loggingName = @"tpu.projects.locations.nodes.getGuestAttributes";
+  return query;
+}
+
+@end
+
 @implementation GTLRTPUQuery_ProjectsLocationsNodesList
 
 @dynamic pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/nodes";
+  NSString *pathURITemplate = @"v2/{+parent}/nodes";
   GTLRTPUQuery_ProjectsLocationsNodesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -176,11 +230,11 @@
 
 @end
 
-@implementation GTLRTPUQuery_ProjectsLocationsNodesReimage
+@implementation GTLRTPUQuery_ProjectsLocationsNodesPatch
 
-@dynamic name;
+@dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRTPU_ReimageNodeRequest *)object
++ (instancetype)queryWithObject:(GTLRTPU_Node *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -189,15 +243,15 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:reimage";
-  GTLRTPUQuery_ProjectsLocationsNodesReimage *query =
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRTPUQuery_ProjectsLocationsNodesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
+                               HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
   query.expectedObjectClass = [GTLRTPU_Operation class];
-  query.loggingName = @"tpu.projects.locations.nodes.reimage";
+  query.loggingName = @"tpu.projects.locations.nodes.patch";
   return query;
 }
 
@@ -216,7 +270,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:start";
+  NSString *pathURITemplate = @"v2/{+name}:start";
   GTLRTPUQuery_ProjectsLocationsNodesStart *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -243,7 +297,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:stop";
+  NSString *pathURITemplate = @"v2/{+name}:stop";
   GTLRTPUQuery_ProjectsLocationsNodesStop *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -263,7 +317,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  NSString *pathURITemplate = @"v2/{+name}:cancel";
   GTLRTPUQuery_ProjectsLocationsOperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -282,7 +336,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
+  NSString *pathURITemplate = @"v2/{+name}";
   GTLRTPUQuery_ProjectsLocationsOperationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -301,7 +355,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
+  NSString *pathURITemplate = @"v2/{+name}";
   GTLRTPUQuery_ProjectsLocationsOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -320,7 +374,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}/operations";
+  NSString *pathURITemplate = @"v2/{+name}/operations";
   GTLRTPUQuery_ProjectsLocationsOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -333,39 +387,39 @@
 
 @end
 
-@implementation GTLRTPUQuery_ProjectsLocationsTensorflowVersionsGet
+@implementation GTLRTPUQuery_ProjectsLocationsRuntimeVersionsGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRTPUQuery_ProjectsLocationsTensorflowVersionsGet *query =
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRTPUQuery_ProjectsLocationsRuntimeVersionsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRTPU_TensorFlowVersion class];
-  query.loggingName = @"tpu.projects.locations.tensorflowVersions.get";
+  query.expectedObjectClass = [GTLRTPU_RuntimeVersion class];
+  query.loggingName = @"tpu.projects.locations.runtimeVersions.get";
   return query;
 }
 
 @end
 
-@implementation GTLRTPUQuery_ProjectsLocationsTensorflowVersionsList
+@implementation GTLRTPUQuery_ProjectsLocationsRuntimeVersionsList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/tensorflowVersions";
-  GTLRTPUQuery_ProjectsLocationsTensorflowVersionsList *query =
+  NSString *pathURITemplate = @"v2/{+parent}/runtimeVersions";
+  GTLRTPUQuery_ProjectsLocationsRuntimeVersionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRTPU_ListTensorFlowVersionsResponse class];
-  query.loggingName = @"tpu.projects.locations.tensorflowVersions.list";
+  query.expectedObjectClass = [GTLRTPU_ListRuntimeVersionsResponse class];
+  query.loggingName = @"tpu.projects.locations.runtimeVersions.list";
   return query;
 }
 

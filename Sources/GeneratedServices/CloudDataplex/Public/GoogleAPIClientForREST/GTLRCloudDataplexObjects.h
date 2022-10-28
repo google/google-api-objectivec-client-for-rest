@@ -38,6 +38,9 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Content_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ContentNotebook;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ContentSqlScript;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult_DimensionPassed;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEventActionDetails;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEventConfigDetails;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEventConfigDetails_Parameters;
@@ -357,6 +360,106 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Conte
  *  Value: "SPARK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ContentSqlScript_Engine_Spark;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent.scope
+
+/**
+ *  Data scan runs on all of the data.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Scope_Full;
+/**
+ *  Data scan runs on incremental data.
+ *
+ *  Value: "INCREMENTAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Scope_Incremental;
+/**
+ *  An unspecified scope type.
+ *
+ *  Value: "SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Scope_ScopeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent.state
+
+/**
+ *  Data scan was cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Cancelled;
+/**
+ *  Data scan was unsuccessful.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Failed;
+/**
+ *  Data scan started.
+ *
+ *  Value: "STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Started;
+/**
+ *  Unspecified job state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_StateUnspecified;
+/**
+ *  Data scan successfully completed.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent.trigger
+
+/**
+ *  Data scan triggers on demand.
+ *
+ *  Value: "ON_DEMAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_OnDemand;
+/**
+ *  Data scan triggers as per schedule.
+ *
+ *  Value: "SCHEDULE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_Schedule;
+/**
+ *  An unspecified trigger type.
+ *
+ *  Value: "TRIGGER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_TriggerUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent.type
+
+/**
+ *  Data scan for data profile.
+ *
+ *  Value: "DATA_PROFILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Type_DataProfile;
+/**
+ *  Data scan for data quality.
+ *
+ *  Value: "DATA_QUALITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Type_DataQuality;
+/**
+ *  An unspecified data scan type.
+ *
+ *  Value: "SCAN_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Type_ScanTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEvent.type
@@ -2084,6 +2187,153 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
+ *  These messages contain information about the execution of a datascan. The
+ *  monitored resource is 'DataScan'
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent : GTLRObject
+
+/** Data profile result for data profile type data scan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileResult *dataProfile;
+
+/** Data quality result for data quality type data scan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult *dataQuality;
+
+/** The data source of the data scan */
+@property(nonatomic, copy, nullable) NSString *dataSource;
+
+/** The time when the data scan job finished. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The identifier of the specific data scan job this log entry is for. */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+/** The message describing the data scan job event. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  The scope of the data scan (e.g. full, incremental).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Scope_Full
+ *        Data scan runs on all of the data. (Value: "FULL")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Scope_Incremental
+ *        Data scan runs on incremental data. (Value: "INCREMENTAL")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Scope_ScopeUnspecified
+ *        An unspecified scope type. (Value: "SCOPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/** A version identifier of the spec which was used to execute this job. */
+@property(nonatomic, copy, nullable) NSString *specVersion;
+
+/** The time when the data scan job started to run. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  The status of the data scan job.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Cancelled
+ *        Data scan was cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Failed
+ *        Data scan was unsuccessful. (Value: "FAILED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Started
+ *        Data scan started. (Value: "STARTED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_StateUnspecified
+ *        Unspecified job state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Succeeded
+ *        Data scan successfully completed. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  The trigger type of the data scan job.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_OnDemand
+ *        Data scan triggers on demand. (Value: "ON_DEMAND")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_Schedule
+ *        Data scan triggers as per schedule. (Value: "SCHEDULE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_TriggerUnspecified
+ *        An unspecified trigger type. (Value: "TRIGGER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *trigger;
+
+/**
+ *  The type of the data scan.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Type_DataProfile
+ *        Data scan for data profile. (Value: "DATA_PROFILE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Type_DataQuality
+ *        Data scan for data quality. (Value: "DATA_QUALITY")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Type_ScanTypeUnspecified
+ *        An unspecified data scan type. (Value: "SCAN_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Data profile result for data scan job.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileResult : GTLRObject
+
+/**
+ *  The count of rows processed in the data scan job.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowCount;
+
+@end
+
+
+/**
+ *  Data quality result for data scan job.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult : GTLRObject
+
+/**
+ *  The result of each dimension for data quality result. The key of the map is
+ *  the name of the dimension. The value is the bool value depicting whether the
+ *  dimension result was pass or not.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult_DimensionPassed *dimensionPassed;
+
+/**
+ *  Whether the data quality result was pass or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *passed;
+
+/**
+ *  The count of rows processed in the data scan job.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowCount;
+
+@end
+
+
+/**
+ *  The result of each dimension for data quality result. The key of the map is
+ *  the name of the dimension. The value is the bool value depicting whether the
+ *  dimension result was pass or not.
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of boolValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult_DimensionPassed : GTLRObject
+@end
+
+
+/**
  *  The payload associated with Discovery data processing.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEvent : GTLRObject
@@ -3549,6 +3799,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @property(nonatomic, strong, nullable) NSNumber *eventSucceeded;
 
+/**
+ *  If the session is associated with an environment with fast startup enabled,
+ *  and was created before being assigned to a user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fastStartupEnabled;
+
 /** The log message. */
 @property(nonatomic, copy, nullable) NSString *message;
 
@@ -3586,13 +3844,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  email address of the user.
  */
 @property(nonatomic, copy, nullable) NSString *userId;
-
-/**
- *  If the session is a warm pooled session.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *warmPoolEnabled;
 
 @end
 
@@ -4043,14 +4294,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1TaskNotebookTaskConfig : GTLRObject
 
 /**
- *  Optional. GCS URIs of archives to be extracted into the working directory of
- *  each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and .zip.
+ *  Optional. Cloud Storage URIs of archives to be extracted into the working
+ *  directory of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz,
+ *  and .zip.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *archiveUris;
 
 /**
- *  Optional. GCS URIs of files to be placed in the working directory of each
- *  executor.
+ *  Optional. Cloud Storage URIs of files to be placed in the working directory
+ *  of each executor.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fileUris;
 
@@ -4058,9 +4310,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1TaskInfrastructureSpec *infrastructureSpec;
 
 /**
- *  Required. Path to input notebook. This can be the GCS URI of the notebook
- *  file or the path to a Notebook Content. The execution args are accessible as
- *  environment variables (TASK_key=value).
+ *  Required. Path to input notebook. This can be the Cloud Storage URI of the
+ *  notebook file or the path to a Notebook Content. The execution args are
+ *  accessible as environment variables (TASK_key=value).
  */
 @property(nonatomic, copy, nullable) NSString *notebook;
 

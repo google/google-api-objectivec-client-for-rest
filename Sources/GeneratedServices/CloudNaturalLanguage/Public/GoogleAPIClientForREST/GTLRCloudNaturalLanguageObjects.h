@@ -1985,7 +1985,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_V2Model_ContentCate
 
 
 /**
- *  ################################################################ #
  *  Represents the input to API methods.
  */
 @interface GTLRCloudNaturalLanguage_Document : GTLRObject

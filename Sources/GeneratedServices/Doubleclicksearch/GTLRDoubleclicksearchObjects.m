@@ -17,8 +17,8 @@
 //
 
 @implementation GTLRDoubleclicksearch_Availability
-@dynamic advertiserId, agencyId, availabilityTimestamp, segmentationId,
-         segmentationName, segmentationType;
+@dynamic advertiserId, agencyId, availabilityTimestamp, customerId,
+         segmentationId, segmentationName, segmentationType;
 @end
 
 
@@ -31,7 +31,7 @@
 @dynamic adGroupId, adId, advertiserId, agencyId, attributionModel, campaignId,
          channel, clickId, conversionId, conversionModifiedTimestamp,
          conversionTimestamp, countMillis, criterionId, currencyCode,
-         customDimension, customMetric, deviceType, dsConversionId,
+         customDimension, customerId, customMetric, deviceType, dsConversionId,
          engineAccountId, floodlightOrderId, inventoryAccountId, productCountry,
          productGroupId, productId, productLanguage, quantityMillis,
          revenueMicros, segmentationId, segmentationName, segmentationType,

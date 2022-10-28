@@ -67,6 +67,28 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ContentNotebook_KernelT
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ContentSqlScript_Engine_QueryEngineUnspecified = @"QUERY_ENGINE_UNSPECIFIED";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ContentSqlScript_Engine_Spark = @"SPARK";
 
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent.scope
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Scope_Full = @"FULL";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Scope_Incremental = @"INCREMENTAL";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Scope_ScopeUnspecified = @"SCOPE_UNSPECIFIED";
+
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent.state
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Failed = @"FAILED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Started = @"STARTED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Succeeded = @"SUCCEEDED";
+
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent.trigger
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_OnDemand = @"ON_DEMAND";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_Schedule = @"SCHEDULE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_TriggerUnspecified = @"TRIGGER_UNSPECIFIED";
+
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent.type
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Type_DataProfile = @"DATA_PROFILE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Type_DataQuality = @"DATA_QUALITY";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Type_ScanTypeUnspecified = @"SCAN_TYPE_UNSPECIFIED";
+
 // GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEvent.type
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEvent_Type_Config = @"CONFIG";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEvent_Type_EntityCreated = @"ENTITY_CREATED";
@@ -580,6 +602,51 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1ContentSqlScript
 @dynamic engine;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent
+@dynamic dataProfile, dataQuality, dataSource, endTime, jobId, message, scope,
+         specVersion, startTime, state, trigger, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileResult
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileResult
+@dynamic rowCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult
+@dynamic dimensionPassed, passed, rowCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult_DimensionPassed
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityResult_DimensionPassed
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
+}
+
 @end
 
 
@@ -1229,8 +1296,8 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1SessionEvent
-@dynamic eventSucceeded, message, query, sessionId, type, unassignedDuration,
-         userId, warmPoolEnabled;
+@dynamic eventSucceeded, fastStartupEnabled, message, query, sessionId, type,
+         unassignedDuration, userId;
 @end
 
 

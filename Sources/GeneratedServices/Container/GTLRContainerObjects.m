@@ -83,6 +83,16 @@ NSString * const kGTLRContainer_Filter_EventType_UpgradeEvent  = @"UPGRADE_EVENT
 NSString * const kGTLRContainer_GPUSharingConfig_GpuSharingStrategy_GpuSharingStrategyUnspecified = @"GPU_SHARING_STRATEGY_UNSPECIFIED";
 NSString * const kGTLRContainer_GPUSharingConfig_GpuSharingStrategy_TimeSharing = @"TIME_SHARING";
 
+// GTLRContainer_IPAllocationPolicy.ipv6AccessType
+NSString * const kGTLRContainer_IPAllocationPolicy_Ipv6AccessType_External = @"EXTERNAL";
+NSString * const kGTLRContainer_IPAllocationPolicy_Ipv6AccessType_Internal = @"INTERNAL";
+NSString * const kGTLRContainer_IPAllocationPolicy_Ipv6AccessType_Ipv6AccessTypeUnspecified = @"IPV6_ACCESS_TYPE_UNSPECIFIED";
+
+// GTLRContainer_IPAllocationPolicy.stackType
+NSString * const kGTLRContainer_IPAllocationPolicy_StackType_Ipv4 = @"IPV4";
+NSString * const kGTLRContainer_IPAllocationPolicy_StackType_Ipv4Ipv6 = @"IPV4_IPV6";
+NSString * const kGTLRContainer_IPAllocationPolicy_StackType_StackTypeUnspecified = @"STACK_TYPE_UNSPECIFIED";
+
 // GTLRContainer_LoggingComponentConfig.enableComponents
 NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_ComponentUnspecified = @"COMPONENT_UNSPECIFIED";
 NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_SystemComponents = @"SYSTEM_COMPONENTS";
@@ -278,8 +288,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 @implementation GTLRContainer_AddonsConfig
 @dynamic cloudRunConfig, configConnectorConfig, dnsCacheConfig,
          gcePersistentDiskCsiDriverConfig, gcpFilestoreCsiDriverConfig,
-         horizontalPodAutoscaling, httpLoadBalancing, kubernetesDashboard,
-         networkPolicyConfig;
+         gkeBackupAgentConfig, horizontalPodAutoscaling, httpLoadBalancing,
+         kubernetesDashboard, networkPolicyConfig;
 @end
 
 
@@ -451,20 +461,20 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 @implementation GTLRContainer_Cluster
 @dynamic addonsConfig, authenticatorGroupsConfig, autopilot, autoscaling,
          binaryAuthorization, clusterIpv4Cidr, conditions, confidentialNodes,
-         createTime, currentMasterVersion, currentNodeCount, currentNodeVersion,
-         databaseEncryption, defaultMaxPodsConstraint, descriptionProperty,
-         enableKubernetesAlpha, enableTpu, endpoint, expireTime, identifier,
-         identityServiceConfig, initialClusterVersion, initialNodeCount,
-         instanceGroupUrls, ipAllocationPolicy, labelFingerprint, legacyAbac,
-         location, locations, loggingConfig, loggingService, maintenancePolicy,
-         masterAuth, masterAuthorizedNetworksConfig, meshCertificates,
-         monitoringConfig, monitoringService, name, network, networkConfig,
-         networkPolicy, nodeConfig, nodeIpv4CidrSize, nodePoolAutoConfig,
-         nodePoolDefaults, nodePools, notificationConfig, privateClusterConfig,
-         releaseChannel, resourceLabels, resourceUsageExportConfig, selfLink,
-         servicesIpv4Cidr, shieldedNodes, status, statusMessage, subnetwork,
-         tpuIpv4CidrBlock, verticalPodAutoscaling, workloadIdentityConfig,
-         zoneProperty;
+         costManagementConfig, createTime, currentMasterVersion,
+         currentNodeCount, currentNodeVersion, databaseEncryption,
+         defaultMaxPodsConstraint, descriptionProperty, enableKubernetesAlpha,
+         enableTpu, endpoint, expireTime, identifier, identityServiceConfig,
+         initialClusterVersion, initialNodeCount, instanceGroupUrls,
+         ipAllocationPolicy, labelFingerprint, legacyAbac, location, locations,
+         loggingConfig, loggingService, maintenancePolicy, masterAuth,
+         masterAuthorizedNetworksConfig, meshCertificates, monitoringConfig,
+         monitoringService, name, network, networkConfig, networkPolicy,
+         nodeConfig, nodeIpv4CidrSize, nodePoolAutoConfig, nodePoolDefaults,
+         nodePools, notificationConfig, privateClusterConfig, releaseChannel,
+         resourceLabels, resourceUsageExportConfig, selfLink, servicesIpv4Cidr,
+         shieldedNodes, status, statusMessage, subnetwork, tpuIpv4CidrBlock,
+         verticalPodAutoscaling, workloadIdentityConfig, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -530,9 +540,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 @implementation GTLRContainer_ClusterUpdate
 @dynamic desiredAddonsConfig, desiredAuthenticatorGroupsConfig,
          desiredBinaryAuthorization, desiredClusterAutoscaling,
-         desiredDatabaseEncryption, desiredDatapathProvider,
-         desiredDefaultSnatStatus, desiredDnsConfig, desiredGcfsConfig,
-         desiredIdentityServiceConfig, desiredImageType,
+         desiredCostManagementConfig, desiredDatabaseEncryption,
+         desiredDatapathProvider, desiredDefaultSnatStatus, desiredDnsConfig,
+         desiredGcfsConfig, desiredIdentityServiceConfig, desiredImageType,
          desiredIntraNodeVisibilityConfig, desiredL4ilbSubsettingConfig,
          desiredLocations, desiredLoggingConfig, desiredLoggingService,
          desiredMasterAuthorizedNetworksConfig, desiredMasterVersion,
@@ -606,6 +616,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_ConsumptionMeteringConfig
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_CostManagementConfig
+//
+
+@implementation GTLRContainer_CostManagementConfig
 @dynamic enabled;
 @end
 
@@ -803,6 +823,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_GkeBackupAgentConfig
+//
+
+@implementation GTLRContainer_GkeBackupAgentConfig
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_GPUSharingConfig
 //
 
@@ -878,9 +908,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_IPAllocationPolicy
 @dynamic clusterIpv4Cidr, clusterIpv4CidrBlock, clusterSecondaryRangeName,
-         createSubnetwork, nodeIpv4Cidr, nodeIpv4CidrBlock, servicesIpv4Cidr,
-         servicesIpv4CidrBlock, servicesSecondaryRangeName, subnetworkName,
-         tpuIpv4CidrBlock, useIpAliases, useRoutes;
+         createSubnetwork, ipv6AccessType, nodeIpv4Cidr, nodeIpv4CidrBlock,
+         servicesIpv4Cidr, servicesIpv4CidrBlock, servicesSecondaryRangeName,
+         stackType, subnetworkName, tpuIpv4CidrBlock, useIpAliases, useRoutes;
 @end
 
 

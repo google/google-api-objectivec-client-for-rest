@@ -4,7 +4,7 @@
 // API:
 //   Application Integration API (integrations/v1alpha)
 // Documentation:
-//   http://www.google.com
+//   https://cloud.google.com/application-integration
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -791,9 +791,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 
 /** List of possible task statuses. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *filterParamsTaskStatuses;
-
-/** Trigger id. */
-@property(nonatomic, copy, nullable) NSString *filterParamsTriggerId;
 
 /** Workflow name. */
 @property(nonatomic, copy, nullable) NSString *filterParamsWorkflowName;
@@ -2145,9 +2142,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 
 /** List of possible task statuses. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *filterParamsTaskStatuses;
-
-/** Trigger id. */
-@property(nonatomic, copy, nullable) NSString *filterParamsTriggerId;
 
 /** Workflow name. */
 @property(nonatomic, copy, nullable) NSString *filterParamsWorkflowName;

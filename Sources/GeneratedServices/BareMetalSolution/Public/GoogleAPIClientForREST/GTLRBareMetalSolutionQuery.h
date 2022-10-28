@@ -1284,6 +1284,169 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  Takes a snapshot of a boot volume. Returns INVALID_ARGUMENT if called for a
+ *  non-boot volume.
+ *
+ *  Method: baremetalsolution.projects.locations.volumes.snapshots.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsCreate : GTLRBareMetalSolutionQuery
+
+/** Required. The volume to snapshot. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_VolumeSnapshot.
+ *
+ *  Takes a snapshot of a boot volume. Returns INVALID_ARGUMENT if called for a
+ *  non-boot volume.
+ *
+ *  @param object The @c GTLRBareMetalSolution_VolumeSnapshot to include in the
+ *    query.
+ *  @param parent Required. The volume to snapshot.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsCreate
+ */
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_VolumeSnapshot *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a volume snapshot. Returns INVALID_ARGUMENT if called for a non-boot
+ *  volume.
+ *
+ *  Method: baremetalsolution.projects.locations.volumes.snapshots.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsDelete : GTLRBareMetalSolutionQuery
+
+/** Required. The name of the snapshot to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_Empty.
+ *
+ *  Deletes a volume snapshot. Returns INVALID_ARGUMENT if called for a non-boot
+ *  volume.
+ *
+ *  @param name Required. The name of the snapshot to delete.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the specified snapshot resource. Returns INVALID_ARGUMENT if called
+ *  for a non-boot volume.
+ *
+ *  Method: baremetalsolution.projects.locations.volumes.snapshots.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsGet : GTLRBareMetalSolutionQuery
+
+/** Required. The name of the snapshot. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_VolumeSnapshot.
+ *
+ *  Returns the specified snapshot resource. Returns INVALID_ARGUMENT if called
+ *  for a non-boot volume.
+ *
+ *  @param name Required. The name of the snapshot.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves the list of snapshots for the specified volume. Returns a response
+ *  with an empty list of snapshots if called for a non-boot volume.
+ *
+ *  Method: baremetalsolution.projects.locations.volumes.snapshots.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsList : GTLRBareMetalSolutionQuery
+
+/**
+ *  Requested page size. The server might return fewer items than requested. If
+ *  unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A token identifying a page of results from the server. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent value for ListVolumesRequest. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_ListVolumeSnapshotsResponse.
+ *
+ *  Retrieves the list of snapshots for the specified volume. Returns a response
+ *  with an empty list of snapshots if called for a non-boot volume.
+ *
+ *  @param parent Required. Parent value for ListVolumesRequest.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Uses the specified snapshot to restore its parent volume. Returns
+ *  INVALID_ARGUMENT if called for a non-boot volume.
+ *
+ *  Method: baremetalsolution.projects.locations.volumes.snapshots.restoreVolumeSnapshot
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBareMetalSolutionCloudPlatform
+ */
+@interface GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsRestoreVolumeSnapshot : GTLRBareMetalSolutionQuery
+
+/**
+ *  Required. Name of the snapshot which will be used to restore its parent
+ *  volume.
+ */
+@property(nonatomic, copy, nullable) NSString *volumeSnapshot;
+
+/**
+ *  Fetches a @c GTLRBareMetalSolution_Operation.
+ *
+ *  Uses the specified snapshot to restore its parent volume. Returns
+ *  INVALID_ARGUMENT if called for a non-boot volume.
+ *
+ *  @param object The @c GTLRBareMetalSolution_RestoreVolumeSnapshotRequest to
+ *    include in the query.
+ *  @param volumeSnapshot Required. Name of the snapshot which will be used to
+ *    restore its parent volume.
+ *
+ *  @return GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsRestoreVolumeSnapshot
+ */
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_RestoreVolumeSnapshotRequest *)object
+                 volumeSnapshot:(NSString *)volumeSnapshot;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

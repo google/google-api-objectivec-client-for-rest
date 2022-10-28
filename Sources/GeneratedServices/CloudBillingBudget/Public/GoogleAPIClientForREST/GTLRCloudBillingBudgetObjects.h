@@ -298,8 +298,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *  Optional. A set of projects of the form `projects/{project}`, specifying
  *  that usage from only this set of projects should be included in the budget.
  *  If omitted, the report includes all usage for the billing account,
- *  regardless of which project the usage occurred on. Only zero or one project
- *  can be specified currently.
+ *  regardless of which project the usage occurred on.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *projects;
 

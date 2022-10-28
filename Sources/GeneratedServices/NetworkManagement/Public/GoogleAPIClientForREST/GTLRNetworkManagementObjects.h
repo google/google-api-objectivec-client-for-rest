@@ -822,9 +822,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_Pe
 /**
  *  Policy based route.
  *
- *  Value: "POLICY_BASED_ROUTE"
+ *  Value: "POLICY_BASED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_PolicyBasedRoute;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_PolicyBased;
 /**
  *  Unspecified type. Default value.
  *
@@ -2538,8 +2538,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        route received from peering network. (Value: "PEERING_STATIC")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteType_PeeringSubnet A subnet
  *        route received from peering network. (Value: "PEERING_SUBNET")
- *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteType_PolicyBasedRoute Policy
- *        based route. (Value: "POLICY_BASED_ROUTE")
+ *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteType_PolicyBased Policy
+ *        based route. (Value: "POLICY_BASED")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteType_RouteTypeUnspecified
  *        Unspecified type. Default value. (Value: "ROUTE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteType_Static Static route

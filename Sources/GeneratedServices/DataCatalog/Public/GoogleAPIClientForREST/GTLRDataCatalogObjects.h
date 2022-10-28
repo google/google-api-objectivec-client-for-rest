@@ -25,7 +25,6 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1BusinessContext;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1Contacts;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1ContactsPerson;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1CrossRegionalSource;
@@ -154,46 +153,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Clou
  *  Value: "POSTGRES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec_Type_Postgres;
-
-// ----------------------------------------------------------------------------
-// GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec.type
-
-/**
- *  Dimension.
- *
- *  Value: "DIMENSION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Dimension;
-/**
- *  Dimension group - parent for Dimension.
- *
- *  Value: "DIMENSION_GROUP"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_DimensionGroup;
-/**
- *  Filter.
- *
- *  Value: "FILTER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Filter;
-/**
- *  Unspecified.
- *
- *  Value: "LOOKER_COLUMN_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_LookerColumnTypeUnspecified;
-/**
- *  Measure.
- *
- *  Value: "MEASURE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Measure;
-/**
- *  Parameter.
- *
- *  Value: "PAREMETER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Paremeter;
 
 // ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec.type
@@ -903,9 +862,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Looker specific column info of this column. */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec *lookerColumnSpec;
-
 /**
  *  Optional. A column's mode indicates whether values in this column are
  *  required, nullable, or repeated. Only `NULLABLE`, `REQUIRED`, and `REPEATED`
@@ -921,33 +877,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 /**
  *  Required. Type of the column. Must be a UTF-8 string with the maximum size
  *  of 128 bytes.
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  Column info specific to Looker System.
- */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec : GTLRObject
-
-/**
- *  Looker specific column type of this column.
- *
- *  Likely values:
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Dimension
- *        Dimension. (Value: "DIMENSION")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_DimensionGroup
- *        Dimension group - parent for Dimension. (Value: "DIMENSION_GROUP")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Filter
- *        Filter. (Value: "FILTER")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_LookerColumnTypeUnspecified
- *        Unspecified. (Value: "LOOKER_COLUMN_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Measure
- *        Measure. (Value: "MEASURE")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpec_Type_Paremeter
- *        Parameter. (Value: "PAREMETER")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2784,13 +2713,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  performed again on the next day.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal : GTLRObject
-
-/**
- *  Favorite count in the source system.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *favoriteCount;
 
 /** The end timestamp of the duration of usage statistics. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;

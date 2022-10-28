@@ -15,6 +15,10 @@
 @class GTLRCertificateManager_AuthorizationAttemptInfo;
 @class GTLRCertificateManager_Certificate;
 @class GTLRCertificateManager_Certificate_Labels;
+@class GTLRCertificateManager_CertificateAuthorityConfig;
+@class GTLRCertificateManager_CertificateAuthorityServiceConfig;
+@class GTLRCertificateManager_CertificateIssuanceConfig;
+@class GTLRCertificateManager_CertificateIssuanceConfig_Labels;
 @class GTLRCertificateManager_CertificateMap;
 @class GTLRCertificateManager_CertificateMap_Labels;
 @class GTLRCertificateManager_CertificateMapEntry;
@@ -117,6 +121,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Certificate_Scope_Def
  *  Value: "EDGE_CACHE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Certificate_Scope_EdgeCache;
+
+// ----------------------------------------------------------------------------
+// GTLRCertificateManager_CertificateIssuanceConfig.keyAlgorithm
+
+/**
+ *  Specifies ECDSA with curve P256.
+ *
+ *  Value: "ECDSA_P256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_CertificateIssuanceConfig_KeyAlgorithm_EcdsaP256;
+/**
+ *  Unspecified key algorithm.
+ *
+ *  Value: "KEY_ALGORITHM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_CertificateIssuanceConfig_KeyAlgorithm_KeyAlgorithmUnspecified;
+/**
+ *  Specifies RSA with a 2048-bit modulus.
+ *
+ *  Value: "RSA_2048"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_CertificateIssuanceConfig_KeyAlgorithm_Rsa2048;
 
 // ----------------------------------------------------------------------------
 // GTLRCertificateManager_CertificateMapEntry.matcher
@@ -341,6 +367,107 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  *        fetch them all at once.
  */
 @interface GTLRCertificateManager_Certificate_Labels : GTLRObject
+@end
+
+
+/**
+ *  The CA that issues the workload certificate. It includes CA address, type,
+ *  authentication to CA service, etc.
+ */
+@interface GTLRCertificateManager_CertificateAuthorityConfig : GTLRObject
+
+/** Defines a CertificateAuthorityServiceConfig. */
+@property(nonatomic, strong, nullable) GTLRCertificateManager_CertificateAuthorityServiceConfig *certificateAuthorityServiceConfig;
+
+@end
+
+
+/**
+ *  Contains information required to contact CA service.
+ */
+@interface GTLRCertificateManager_CertificateAuthorityServiceConfig : GTLRObject
+
+/**
+ *  Required. A CA pool resource used to issue a certificate. The CA pool string
+ *  has a relative resource path following the form
+ *  "projects/{project}/locations/{location}/caPools/{ca_pool}".
+ */
+@property(nonatomic, copy, nullable) NSString *caPool;
+
+@end
+
+
+/**
+ *  CertificateIssuanceConfig specifies how to issue and manage a certificate.
+ */
+@interface GTLRCertificateManager_CertificateIssuanceConfig : GTLRObject
+
+/**
+ *  Required. The CA that issues the workload certificate. It includes the CA
+ *  address, type, authentication to CA service, etc.
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateManager_CertificateAuthorityConfig *certificateAuthorityConfig;
+
+/** Output only. The creation timestamp of a CertificateIssuanceConfig. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  One or more paragraphs of text description of a CertificateIssuanceConfig.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. The key algorithm to use when generating the private key.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCertificateManager_CertificateIssuanceConfig_KeyAlgorithm_EcdsaP256
+ *        Specifies ECDSA with curve P256. (Value: "ECDSA_P256")
+ *    @arg @c kGTLRCertificateManager_CertificateIssuanceConfig_KeyAlgorithm_KeyAlgorithmUnspecified
+ *        Unspecified key algorithm. (Value: "KEY_ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRCertificateManager_CertificateIssuanceConfig_KeyAlgorithm_Rsa2048
+ *        Specifies RSA with a 2048-bit modulus. (Value: "RSA_2048")
+ */
+@property(nonatomic, copy, nullable) NSString *keyAlgorithm;
+
+/** Set of labels associated with a CertificateIssuanceConfig. */
+@property(nonatomic, strong, nullable) GTLRCertificateManager_CertificateIssuanceConfig_Labels *labels;
+
+/** Required. Workload certificate lifetime requested. */
+@property(nonatomic, strong, nullable) GTLRDuration *lifetime;
+
+/**
+ *  A user-defined name of the certificate issuance config.
+ *  CertificateIssuanceConfig names must be unique globally and match pattern
+ *  `projects/ * /locations/ * /certificateIssuanceConfigs/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Specifies the percentage of elapsed time of the certificate
+ *  lifetime to wait before renewing the certificate. Must be a number between
+ *  1-99, inclusive.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rotationWindowPercentage;
+
+/** Output only. The last update timestamp of a CertificateIssuanceConfig. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Set of labels associated with a CertificateIssuanceConfig.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCertificateManager_CertificateIssuanceConfig_Labels : GTLRObject
 @end
 
 
@@ -613,6 +740,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 
 
 /**
+ *  Response for the `ListCertificateIssuanceConfigs` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "certificateIssuanceConfigs" property. If returned as the result
+ *        of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRCertificateManager_ListCertificateIssuanceConfigsResponse : GTLRCollectionObject
+
+/**
+ *  A list of certificate configs for the parent resource.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCertificateManager_CertificateIssuanceConfig *> *certificateIssuanceConfigs;
+
+/**
+ *  If there might be more results than those appearing in this response, then
+ *  `next_page_token` is included. To get the next set of results, call this
+ *  method again using the value of `next_page_token` as `page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  Response for the `ListCertificateMapEntries` method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -870,6 +1028,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  *  resolution.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *domains;
+
+/**
+ *  Immutable. The resource name for a CertificateIssuanceConfig used to
+ *  configure private PKI certificates in the format `projects/ * /locations/ *
+ *  /certificateIssuanceConfigs/ *`. If this field is not set, the certificates
+ *  will instead be publicly signed as documented at
+ *  https://cloud.google.com/load-balancing/docs/ssl-certificates/google-managed-certs#caa.
+ */
+@property(nonatomic, copy, nullable) NSString *issuanceConfig;
 
 /**
  *  Output only. Information about issues with provisioning a Managed

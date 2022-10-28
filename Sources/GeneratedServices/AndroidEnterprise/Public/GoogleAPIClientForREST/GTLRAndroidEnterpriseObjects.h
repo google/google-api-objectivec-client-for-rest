@@ -2391,7 +2391,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 @interface GTLRAndroidEnterprise_Policy : GTLRObject
 
 /**
- *  Deprecated. Use autoUpdateMode instead. When autoUpdateMode is set to
+ *  Recommended alternative: autoUpdateMode which is set per app, provides
+ *  greater flexibility around update frequency. When autoUpdateMode is set to
  *  AUTO_UPDATE_POSTPONED or AUTO_UPDATE_HIGH_PRIORITY, this field has no
  *  effect. "choiceToTheUser" allows the device's user to configure the app
  *  update policy. "always" enables auto updates. "never" disables auto updates.

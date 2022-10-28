@@ -26,6 +26,7 @@
 @class GTLRCloudRetail_GoogleCloudRetailLoggingSourceLocation;
 @class GTLRCloudRetail_GoogleCloudRetailV2alphaBigQueryOutputResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2alphaExportErrorsConfig;
+@class GTLRCloudRetail_GoogleCloudRetailV2alphaGcsOutputResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2alphaImportErrorsConfig;
 @class GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfig;
 @class GTLRCloudRetail_GoogleCloudRetailV2alphaModelPageOptimizationConfigCandidate;
@@ -38,6 +39,7 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2Audience;
 @class GTLRCloudRetail_GoogleCloudRetailV2betaBigQueryOutputResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2betaExportErrorsConfig;
+@class GTLRCloudRetail_GoogleCloudRetailV2betaGcsOutputResult;
 @class GTLRCloudRetail_GoogleCloudRetailV2betaImportErrorsConfig;
 @class GTLRCloudRetail_GoogleCloudRetailV2betaModelServingConfigList;
 @class GTLRCloudRetail_GoogleCloudRetailV2betaOutputResult;
@@ -501,11 +503,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAt
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_DynamicFacetableOption_DynamicFacetableEnabled;
 /**
- *  Value used when unset. Defaults to DYNAMIC_FACETABLE_ENABLED.
+ *  Value used when unset.
  *
  *  Value: "DYNAMIC_FACETABLE_OPTION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_DynamicFacetableOption_DynamicFacetableOptionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute.exactSearchableOption
+
+/**
+ *  Exact searchable option disabled for an attribute.
+ *
+ *  Value: "EXACT_SEARCHABLE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_ExactSearchableOption_ExactSearchableDisabled;
+/**
+ *  Exact searchable option enabled for an attribute.
+ *
+ *  Value: "EXACT_SEARCHABLE_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_ExactSearchableOption_ExactSearchableEnabled;
+/**
+ *  Value used when unset. Defaults to EXACT_SEARCHABLE_DISABLED.
+ *
+ *  Value: "EXACT_SEARCHABLE_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_ExactSearchableOption_ExactSearchableOptionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute.indexableOption
@@ -523,7 +547,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAt
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_IndexableOption_IndexableEnabled;
 /**
- *  Value used when unset. Defaults to INDEXABLE_ENABLED.
+ *  Value used when unset.
  *
  *  Value: "INDEXABLE_OPTION_UNSPECIFIED"
  */
@@ -545,7 +569,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAt
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_SearchableOption_SearchableEnabled;
 /**
- *  Value used when unset. Defaults to SEARCHABLE_DISABLED.
+ *  Value used when unset.
  *
  *  Value: "SEARCHABLE_OPTION_UNSPECIFIED"
  */
@@ -1068,9 +1092,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 
 
 /**
- *  The error payload that is populated on LRO import APIs. Including:
- *  "google.cloud.retail.v2.ProductService.ImportProducts"
- *  "google.cloud.retail.v2.EventService.ImportUserEvents"
+ *  The error payload that is populated on LRO import APIs, including
+ *  "google.cloud.retail.v2.ProductService.ImportProducts" and
+ *  "google.cloud.retail.v2.EventService.ImportUserEvents".
  */
 @interface GTLRCloudRetail_GoogleCloudRetailLoggingImportErrorContext : GTLRObject
 
@@ -1417,6 +1441,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 
 /** Output result indicating where the data were exported to. */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2alphaOutputResult *outputResult;
+
+@end
+
+
+/**
+ *  A Gcs output result.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2alphaGcsOutputResult : GTLRObject
+
+/** The uri of Gcs output */
+@property(nonatomic, copy, nullable) NSString *outputUri;
 
 @end
 
@@ -1867,12 +1902,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 
 
 /**
- *  Output result.
+ *  Output result that stores the information about where the exported data is
+ *  stored.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2alphaOutputResult : GTLRObject
 
-/** Export result in BigQuery. */
+/** The BigQuery location where the result is stored. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2alphaBigQueryOutputResult *> *bigqueryResult;
+
+/** The Google Cloud Storage location where the result is stored. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2alphaGcsOutputResult *> *gcsResult;
 
 @end
 
@@ -2330,6 +2369,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 
 
 /**
+ *  A Gcs output result.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2betaGcsOutputResult : GTLRObject
+
+/** The uri of Gcs output */
+@property(nonatomic, copy, nullable) NSString *outputUri;
+
+@end
+
+
+/**
  *  Response of the ImportCompletionDataRequest. If the long running operation
  *  is done, this message is returned by the
  *  google.longrunning.Operations.response field if the operation is successful.
@@ -2635,12 +2685,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 
 
 /**
- *  Output result.
+ *  Output result that stores the information about where the exported data is
+ *  stored.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2betaOutputResult : GTLRObject
 
-/** Export result in BigQuery. */
+/** The BigQuery location where the result is stored. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2betaBigQueryOutputResult *> *bigqueryResult;
+
+/** The Google Cloud Storage location where the result is stored. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2betaGcsOutputResult *> *gcsResult;
 
 @end
 
@@ -2878,7 +2932,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *  If DYNAMIC_FACETABLE_ENABLED, attribute values are available for dynamic
  *  facet. Could only be DYNAMIC_FACETABLE_DISABLED if
  *  CatalogAttribute.indexable_option is INDEXABLE_DISABLED. Otherwise, an
- *  INVALID_ARGUMENT error is returned.
+ *  INVALID_ARGUMENT error is returned. Must be specified, otherwise throws
+ *  INVALID_FORMAT error.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_DynamicFacetableOption_DynamicFacetableDisabled
@@ -2888,16 +2943,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *        Dynamic facetable option enabled for an attribute. (Value:
  *        "DYNAMIC_FACETABLE_ENABLED")
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_DynamicFacetableOption_DynamicFacetableOptionUnspecified
- *        Value used when unset. Defaults to DYNAMIC_FACETABLE_ENABLED. (Value:
- *        "DYNAMIC_FACETABLE_OPTION_UNSPECIFIED")
+ *        Value used when unset. (Value: "DYNAMIC_FACETABLE_OPTION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *dynamicFacetableOption;
+
+/**
+ *  If EXACT_SEARCHABLE_ENABLED, attribute values will be exact searchable. This
+ *  property only applies to textual custom attributes and requires indexable
+ *  set to enabled to enable exact-searchable.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_ExactSearchableOption_ExactSearchableDisabled
+ *        Exact searchable option disabled for an attribute. (Value:
+ *        "EXACT_SEARCHABLE_DISABLED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_ExactSearchableOption_ExactSearchableEnabled
+ *        Exact searchable option enabled for an attribute. (Value:
+ *        "EXACT_SEARCHABLE_ENABLED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_ExactSearchableOption_ExactSearchableOptionUnspecified
+ *        Value used when unset. Defaults to EXACT_SEARCHABLE_DISABLED. (Value:
+ *        "EXACT_SEARCHABLE_OPTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *exactSearchableOption;
 
 /**
  *  When AttributesConfig.attribute_config_level is
  *  CATALOG_LEVEL_ATTRIBUTE_CONFIG, if INDEXABLE_ENABLED attribute values are
  *  indexed so that it can be filtered, faceted, or boosted in
- *  SearchService.Search.
+ *  SearchService.Search. Must be specified, otherwise throws INVALID_FORMAT
+ *  error.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_IndexableOption_IndexableDisabled
@@ -2907,8 +2980,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *        Indexable option enabled for an attribute. (Value:
  *        "INDEXABLE_ENABLED")
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_IndexableOption_IndexableOptionUnspecified
- *        Value used when unset. Defaults to INDEXABLE_ENABLED. (Value:
- *        "INDEXABLE_OPTION_UNSPECIFIED")
+ *        Value used when unset. (Value: "INDEXABLE_OPTION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *indexableOption;
 
@@ -2945,7 +3017,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *  searchable by text queries in SearchService.Search. If SEARCHABLE_ENABLED
  *  but attribute type is numerical, attribute values will not be searchable by
  *  text queries in SearchService.Search, as there are no text values associated
- *  to numerical attributes.
+ *  to numerical attributes. Must be specified, otherwise throws INVALID_FORMAT
+ *  error.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_SearchableOption_SearchableDisabled
@@ -2955,8 +3028,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *        Searchable option enabled for an attribute. (Value:
  *        "SEARCHABLE_ENABLED")
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute_SearchableOption_SearchableOptionUnspecified
- *        Value used when unset. Defaults to SEARCHABLE_DISABLED. (Value:
- *        "SEARCHABLE_OPTION_UNSPECIFIED")
+ *        Value used when unset. (Value: "SEARCHABLE_OPTION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *searchableOption;
 
@@ -3984,7 +4056,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *  be returned in the `results.metadata` field in the prediction response. *
  *  `returnScore`: Boolean. If set to true, the prediction 'score' corresponding
  *  to each returned product will be set in the `results.metadata` field in the
- *  prediction response. The given 'score' indicates the probability of an
+ *  prediction response. The given 'score' indicates the probability of a
  *  product being clicked/purchased given the user's context and history. *
  *  `strictFiltering`: Boolean. True by default. If set to false, the service
  *  will return generic (unfiltered) popular products instead of empty if your
@@ -4056,7 +4128,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
  *  be returned in the `results.metadata` field in the prediction response. *
  *  `returnScore`: Boolean. If set to true, the prediction 'score' corresponding
  *  to each returned product will be set in the `results.metadata` field in the
- *  prediction response. The given 'score' indicates the probability of an
+ *  prediction response. The given 'score' indicates the probability of a
  *  product being clicked/purchased given the user's context and history. *
  *  `strictFiltering`: Boolean. True by default. If set to false, the service
  *  will return generic (unfiltered) popular products instead of empty if your
@@ -5739,7 +5811,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingCo
 
 /**
  *  Maximum of facet values that should be returned for this facet. If
- *  unspecified, defaults to 20. The maximum allowed value is 300. Values above
+ *  unspecified, defaults to 50. The maximum allowed value is 300. Values above
  *  300 will be coerced to 300. If this field is negative, an INVALID_ARGUMENT
  *  is returned.
  *

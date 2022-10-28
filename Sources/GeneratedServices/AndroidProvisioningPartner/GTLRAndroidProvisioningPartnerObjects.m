@@ -34,6 +34,11 @@ NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_Section
 NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeUnspecified = @"SECTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeZeroTouch = @"SECTION_TYPE_ZERO_TOUCH";
 
+// GTLRAndroidProvisioningPartner_DeviceIdentifier.deviceType
+NSString * const kGTLRAndroidProvisioningPartner_DeviceIdentifier_DeviceType_DeviceTypeAndroid = @"DEVICE_TYPE_ANDROID";
+NSString * const kGTLRAndroidProvisioningPartner_DeviceIdentifier_DeviceType_DeviceTypeChromeOs = @"DEVICE_TYPE_CHROME_OS";
+NSString * const kGTLRAndroidProvisioningPartner_DeviceIdentifier_DeviceType_DeviceTypeUnspecified = @"DEVICE_TYPE_UNSPECIFIED";
+
 // GTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata.processingStatus
 NSString * const kGTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata_ProcessingStatus_BatchProcessInProgress = @"BATCH_PROCESS_IN_PROGRESS";
 NSString * const kGTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata_ProcessingStatus_BatchProcessPending = @"BATCH_PROCESS_PENDING";
@@ -58,8 +63,10 @@ NSString * const kGTLRAndroidProvisioningPartner_PartnerUnclaim_SectionType_Sect
 // GTLRAndroidProvisioningPartner_PerDeviceStatusInBatch.status
 NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusInvalidDeviceIdentifier = @"SINGLE_DEVICE_STATUS_INVALID_DEVICE_IDENTIFIER";
 NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusInvalidSectionType = @"SINGLE_DEVICE_STATUS_INVALID_SECTION_TYPE";
+NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusInvalidToken = @"SINGLE_DEVICE_STATUS_INVALID_TOKEN";
 NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusOtherError = @"SINGLE_DEVICE_STATUS_OTHER_ERROR";
 NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusPermissionDenied = @"SINGLE_DEVICE_STATUS_PERMISSION_DENIED";
+NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusRevokedToken = @"SINGLE_DEVICE_STATUS_REVOKED_TOKEN";
 NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusSectionNotYours = @"SINGLE_DEVICE_STATUS_SECTION_NOT_YOURS";
 NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusSuccess = @"SINGLE_DEVICE_STATUS_SUCCESS";
 NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusUnknownError = @"SINGLE_DEVICE_STATUS_UNKNOWN_ERROR";
@@ -76,7 +83,8 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 //
 
 @implementation GTLRAndroidProvisioningPartner_ClaimDeviceRequest
-@dynamic customerId, deviceIdentifier, deviceMetadata, sectionType;
+@dynamic customerId, deviceIdentifier, deviceMetadata,
+         googleWorkspaceCustomerId, preProvisioningToken, sectionType;
 @end
 
 
@@ -114,8 +122,8 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 //
 
 @implementation GTLRAndroidProvisioningPartner_Company
-@dynamic adminEmails, companyId, companyName, languageCode, name, ownerEmails,
-         skipWelcomeEmail, termsStatus;
+@dynamic adminEmails, companyId, companyName, googleWorkspaceAccount,
+         languageCode, name, ownerEmails, skipWelcomeEmail, termsStatus;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -285,8 +293,8 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 //
 
 @implementation GTLRAndroidProvisioningPartner_DeviceClaim
-@dynamic additionalService, ownerCompanyId, resellerId, sectionType,
-         vacationModeExpireTime, vacationModeStartTime;
+@dynamic additionalService, googleWorkspaceCustomerId, ownerCompanyId,
+         resellerId, sectionType, vacationModeExpireTime, vacationModeStartTime;
 @end
 
 
@@ -296,7 +304,8 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 //
 
 @implementation GTLRAndroidProvisioningPartner_DeviceIdentifier
-@dynamic imei, manufacturer, meid, model, serialNumber;
+@dynamic chromeOsAttestedDeviceId, deviceType, imei, manufacturer, meid, model,
+         serialNumber;
 @end
 
 
@@ -419,11 +428,12 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 //
 
 @implementation GTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest
-@dynamic customerId, limit, pageToken, sectionType;
+@dynamic customerId, googleWorkspaceCustomerId, limit, pageToken, sectionType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"customerId" : [NSNumber class]
+    @"customerId" : [NSNumber class],
+    @"googleWorkspaceCustomerId" : [NSString class]
   };
   return map;
 }
@@ -448,6 +458,24 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 
 + (NSString *)collectionItemsKey {
   return @"devices";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidProvisioningPartner_GoogleWorkspaceAccount
+//
+
+@implementation GTLRAndroidProvisioningPartner_GoogleWorkspaceAccount
+@dynamic customerId, preProvisioningTokens;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"preProvisioningTokens" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -573,7 +601,8 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 //
 
 @implementation GTLRAndroidProvisioningPartner_PartnerClaim
-@dynamic customerId, deviceIdentifier, deviceMetadata, sectionType;
+@dynamic customerId, deviceIdentifier, deviceMetadata,
+         googleWorkspaceCustomerId, preProvisioningToken, sectionType;
 @end
 
 

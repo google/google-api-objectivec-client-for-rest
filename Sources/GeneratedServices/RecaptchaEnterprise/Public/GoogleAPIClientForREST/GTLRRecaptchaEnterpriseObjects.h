@@ -1008,8 +1008,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /**
  *  Action-based metrics. The map key is the action name which specified by the
- *  site owners at time of the "execute" client-side call. Populated only for
- *  SCORE keys.
+ *  site owners at time of the "execute" client-side call.
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ScoreMetrics_ActionMetrics *actionMetrics;
 
@@ -1021,8 +1020,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /**
  *  Action-based metrics. The map key is the action name which specified by the
- *  site owners at time of the "execute" client-side call. Populated only for
- *  SCORE keys.
+ *  site owners at time of the "execute" client-side call.
  *
  *  @note This class is documented as having more properties of
  *        GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ScoreDistribution.

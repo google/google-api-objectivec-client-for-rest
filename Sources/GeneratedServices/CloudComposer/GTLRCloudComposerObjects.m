@@ -32,6 +32,11 @@ NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_Environmen
 NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeSmall = @"ENVIRONMENT_SIZE_SMALL";
 NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeUnspecified = @"ENVIRONMENT_SIZE_UNSPECIFIED";
 
+// GTLRCloudComposer_NetworkingConfig.connectionType
+NSString * const kGTLRCloudComposer_NetworkingConfig_ConnectionType_ConnectionTypeUnspecified = @"CONNECTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudComposer_NetworkingConfig_ConnectionType_PrivateServiceConnect = @"PRIVATE_SERVICE_CONNECT";
+NSString * const kGTLRCloudComposer_NetworkingConfig_ConnectionType_VpcPeering = @"VPC_PEERING";
+
 // GTLRCloudComposer_OperationMetadata.operationType
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Check = @"CHECK";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Create = @"CREATE";
@@ -311,6 +316,16 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudComposer_NetworkingConfig
+//
+
+@implementation GTLRCloudComposer_NetworkingConfig
+@dynamic connectionType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudComposer_NodeConfig
 //
 
@@ -396,7 +411,7 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 @dynamic cloudComposerConnectionSubnetwork, cloudComposerNetworkIpv4CidrBlock,
          cloudComposerNetworkIpv4ReservedRange, cloudSqlIpv4CidrBlock,
          enablePrivateEnvironment, enablePrivatelyUsedPublicIps,
-         privateClusterConfig, webServerIpv4CidrBlock,
+         networkingConfig, privateClusterConfig, webServerIpv4CidrBlock,
          webServerIpv4ReservedRange;
 @end
 

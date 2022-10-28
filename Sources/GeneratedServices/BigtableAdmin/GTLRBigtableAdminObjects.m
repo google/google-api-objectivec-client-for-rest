@@ -160,8 +160,8 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_Backup
-@dynamic encryptionInfo, endTime, expireTime, name, sizeBytes, sourceTable,
-         startTime, state;
+@dynamic encryptionInfo, endTime, expireTime, name, sizeBytes, sourceBackup,
+         sourceTable, startTime, state;
 @end
 
 
@@ -171,7 +171,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_BackupInfo
-@dynamic backup, endTime, sourceTable, startTime;
+@dynamic backup, endTime, sourceBackup, sourceTable, startTime;
 @end
 
 
@@ -269,6 +269,26 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 @implementation GTLRBigtableAdmin_ColumnFamily
 @dynamic gcRule;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_CopyBackupMetadata
+//
+
+@implementation GTLRBigtableAdmin_CopyBackupMetadata
+@dynamic name, progress, sourceBackupInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_CopyBackupRequest
+//
+
+@implementation GTLRBigtableAdmin_CopyBackupRequest
+@dynamic backupId, expireTime, sourceBackup;
 @end
 
 

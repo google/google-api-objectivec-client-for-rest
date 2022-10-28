@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The location and project in which this Job should be created.
- *  Format: projects/{projectnumber}/locations/{location}
+ *  Format: projects/{project}/locations/{location}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -72,7 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudRun_GoogleCloudRunV2Job to include in the
  *    query.
  *  @param parent Required. The location and project in which this Job should be
- *    created. Format: projects/{projectnumber}/locations/{location}
+ *    created. Format: projects/{project}/locations/{location}
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsJobsCreate
  */
@@ -98,16 +98,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  If set to true, the Job and its Executions will be deleted no matter whether
- *  any Executions are still running or not. If set to false or unset, the Job
- *  and its Executions can only be deleted if there are no running Executions.
- *  Any running Execution will fail the deletion.
- */
-@property(nonatomic, assign) BOOL force;
-
-/**
  *  Required. The full name of the Job. Format:
- *  projects/{projectnumber}/locations/{location}/jobs/{job}
+ *  projects/{project}/locations/{location}/jobs/{job}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -123,7 +115,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a Job.
  *
  *  @param name Required. The full name of the Job. Format:
- *    projects/{projectnumber}/locations/{location}/jobs/{job}
+ *    projects/{project}/locations/{location}/jobs/{job}
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsJobsDelete
  */
@@ -347,7 +339,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full name of the Job. Format:
- *  projects/{projectnumber}/locations/{location}/jobs/{job}
+ *  projects/{project}/locations/{location}/jobs/{job}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -357,7 +349,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets information about a Job.
  *
  *  @param name Required. The full name of the Job. Format:
- *    projects/{projectnumber}/locations/{location}/jobs/{job}
+ *    projects/{project}/locations/{location}/jobs/{job}
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsJobsGet
  */
@@ -435,7 +427,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The location and project to list resources on. Format:
- *  projects/{projectnumber}/locations/{location}
+ *  projects/{project}/locations/{location}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -450,7 +442,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  List Jobs.
  *
  *  @param parent Required. The location and project to list resources on.
- *    Format: projects/{projectnumber}/locations/{location}
+ *    Format: projects/{project}/locations/{location}
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsJobsList
  *
@@ -520,7 +512,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full name of the Job. Format:
- *  projects/{projectnumber}/locations/{location}/jobs/{job}
+ *  projects/{project}/locations/{location}/jobs/{job}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -532,7 +524,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudRun_GoogleCloudRunV2RunJobRequest to include
  *    in the query.
  *  @param name Required. The full name of the Job. Format:
- *    projects/{projectnumber}/locations/{location}/jobs/{job}
+ *    projects/{project}/locations/{location}/jobs/{job}
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsJobsRun
  */
@@ -758,15 +750,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The location and project in which this service should be created.
- *  Format: projects/{projectnumber}/locations/{location} Only lowercase,
- *  digits, and hyphens; must begin with letter, and may not end with hyphen;
- *  must contain fewer than 50 characters.
+ *  Format: projects/{project}/locations/{location} Only lowercase characters,
+ *  digits, and hyphens.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Required. The unique identifier for the Service. The name of the service
- *  becomes {parent}/services/{service_id}.
+ *  Required. The unique identifier for the Service. It must begin with letter,
+ *  and may not end with hyphen; must contain fewer than 50 characters. The name
+ *  of the service becomes {parent}/services/{service_id}.
  */
 @property(nonatomic, copy, nullable) NSString *serviceId;
 
@@ -784,9 +776,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudRun_GoogleCloudRunV2Service to include in the
  *    query.
  *  @param parent Required. The location and project in which this service
- *    should be created. Format: projects/{projectnumber}/locations/{location}
- *    Only lowercase, digits, and hyphens; must begin with letter, and may not
- *    end with hyphen; must contain fewer than 50 characters.
+ *    should be created. Format: projects/{project}/locations/{location} Only
+ *    lowercase characters, digits, and hyphens.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsServicesCreate
  */
@@ -814,7 +805,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full name of the Service. Format:
- *  projects/{projectnumber}/locations/{location}/services/{service}
+ *  projects/{project}/locations/{location}/services/{service}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -831,7 +822,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  will delete all revisions.
  *
  *  @param name Required. The full name of the Service. Format:
- *    projects/{projectnumber}/locations/{location}/services/{service}
+ *    projects/{project}/locations/{location}/services/{service}
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsServicesDelete
  */
@@ -851,7 +842,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full name of the Service. Format:
- *  projects/{projectnumber}/locations/{location}/services/{service}
+ *  projects/{project}/locations/{location}/services/{service}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -861,7 +852,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets information about a Service.
  *
  *  @param name Required. The full name of the Service. Format:
- *    projects/{projectnumber}/locations/{location}/services/{service}
+ *    projects/{project}/locations/{location}/services/{service}
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsServicesGet
  */
@@ -940,7 +931,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The location and project to list resources on. Location must be a
  *  valid GCP region, and may not be the "-" wildcard. Format:
- *  projects/{projectnumber}/locations/{location}
+ *  projects/{project}/locations/{location}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -956,7 +947,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent Required. The location and project to list resources on.
  *    Location must be a valid GCP region, and may not be the "-" wildcard.
- *    Format: projects/{projectnumber}/locations/{location}
+ *    Format: projects/{project}/locations/{location}
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsServicesList
  *

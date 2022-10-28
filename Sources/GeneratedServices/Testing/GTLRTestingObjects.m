@@ -98,6 +98,7 @@ NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedAppBundle
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedIpa = @"MALFORMED_IPA";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedTestApk = @"MALFORMED_TEST_APK";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedXcTestZip = @"MALFORMED_XC_TEST_ZIP";
+NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MatrixTooLarge = @"MATRIX_TOO_LARGE";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MissingUrlScheme = @"MISSING_URL_SCHEME";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoCodeApk = @"NO_CODE_APK";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoInstrumentation = @"NO_INSTRUMENTATION";

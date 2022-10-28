@@ -20,6 +20,7 @@
 @class GTLRSecurityCommandCenter_Asset;
 @class GTLRSecurityCommandCenter_Asset_ResourceProperties;
 @class GTLRSecurityCommandCenter_AssetDiscoveryConfig;
+@class GTLRSecurityCommandCenter_AssociatedFinding;
 @class GTLRSecurityCommandCenter_AuditConfig;
 @class GTLRSecurityCommandCenter_AuditLogConfig;
 @class GTLRSecurityCommandCenter_Binding;
@@ -32,6 +33,7 @@
 @class GTLRSecurityCommandCenter_Cvssv3;
 @class GTLRSecurityCommandCenter_Database;
 @class GTLRSecurityCommandCenter_Detection;
+@class GTLRSecurityCommandCenter_Edge;
 @class GTLRSecurityCommandCenter_EnvironmentVariable;
 @class GTLRSecurityCommandCenter_ExfilResource;
 @class GTLRSecurityCommandCenter_Exfiltration;
@@ -46,6 +48,7 @@
 @class GTLRSecurityCommandCenter_GetPolicyOptions;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Binding;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExternalSystem;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding;
@@ -72,6 +75,7 @@
 @class GTLRSecurityCommandCenter_Operation;
 @class GTLRSecurityCommandCenter_Operation_Metadata;
 @class GTLRSecurityCommandCenter_Operation_Response;
+@class GTLRSecurityCommandCenter_PathNode;
 @class GTLRSecurityCommandCenter_Pod;
 @class GTLRSecurityCommandCenter_Policy;
 @class GTLRSecurityCommandCenter_Process;
@@ -611,6 +615,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "TERMINATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_Terminated;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource.resourceValue
+
+/**
+ *  This is a high value resource.
+ *
+ *  Value: "RESOURCE_VALUE_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource_ResourceValue_ResourceValueHigh;
+/**
+ *  This is a low value resource.
+ *
+ *  Value: "RESOURCE_VALUE_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource_ResourceValue_ResourceValueLow;
+/**
+ *  This is a medium value resource.
+ *
+ *  Value: "RESOURCE_VALUE_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource_ResourceValue_ResourceValueMedium;
+/**
+ *  The resource value isn't specified.
+ *
+ *  Value: "RESOURCE_VALUE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource_ResourceValue_ResourceValueUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding.severity
@@ -1636,7 +1668,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *  this may be some type of application login user name, depending on the type
  *  of finding.
  */
-@property(nonatomic, copy, nullable) NSString *username;
+@property(nonatomic, copy, nullable) NSString *userName;
 
 @end
 
@@ -1780,6 +1812,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 
 /** The project ids to use for filtering asset discovery. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *projectIds;
+
+@end
+
+
+/**
+ *  A finding that is associated with this node in the exposure path.
+ */
+@interface GTLRSecurityCommandCenter_AssociatedFinding : GTLRObject
+
+/**
+ *  Canonical name of the associated findings. Example:
+ *  organizations/123/sources/456/findings/789
+ */
+@property(nonatomic, copy, nullable) NSString *canonicalFindingName;
+
+/** The additional taxonomy group within findings from a given source. */
+@property(nonatomic, copy, nullable) NSString *findingCategory;
 
 @end
 
@@ -2324,6 +2373,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *percentPagesMatched;
+
+@end
+
+
+/**
+ *  Represents a connection between a source node and a destination node in this
+ *  exposure path.
+ */
+@interface GTLRSecurityCommandCenter_Edge : GTLRObject
+
+/** This is the resource name of the destination node. */
+@property(nonatomic, copy, nullable) NSString *destination;
+
+/** This is the resource name of the source node. */
+@property(nonatomic, copy, nullable) NSString *source;
 
 @end
 
@@ -3037,6 +3101,47 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *  A resource that is exposed as a result of a finding.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource : GTLRObject
+
+/** Human readable name of the resource that is exposed. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** The ways in which this resource is exposed. Examples: Read, Write */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *methods;
+
+/**
+ *  Exposed Resource Name e.g.:
+ *  `organizations/123/attackExposureResults/456/exposedResources/789`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The name of the resource that is exposed. See:
+ *  https://cloud.google.com/apis/design/resource_names#full_resource_name
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The resource type of the exposed resource. See:
+ *  https://cloud.google.com/asset-inventory/docs/supported-asset-types
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/**
+ *  How valuable this resource is.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource_ResourceValue_ResourceValueHigh
+ *        This is a high value resource. (Value: "RESOURCE_VALUE_HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource_ResourceValue_ResourceValueLow
+ *        This is a low value resource. (Value: "RESOURCE_VALUE_LOW")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource_ResourceValue_ResourceValueMedium
+ *        This is a medium value resource. (Value: "RESOURCE_VALUE_MEDIUM")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource_ResourceValue_ResourceValueUnspecified
+ *        The resource value isn't specified. (Value:
+ *        "RESOURCE_VALUE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *resourceValue;
+
 @end
 
 
@@ -3044,6 +3149,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *  A path that an attacker could take to reach an exposed resource.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposurePath : GTLRObject
+
+/** A list of the edges between nodes in this exposure path. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Edge *> *edges;
+
+/** The leaf node of this exposure path. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExposedResource *exposedResource;
+
+/**
+ *  Exposure Path Name e.g.:
+ *  `organizations/123/attackExposureResults/456/exposurePaths/789`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** A list of nodes that exist in this exposure path. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_PathNode *> *pathNodes;
+
 @end
 
 
@@ -4525,6 +4646,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *  Example: "organizations/{organization_id}/organizationSettings".
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Represents one point that an attacker passes through in this exposure path.
+ */
+@interface GTLRSecurityCommandCenter_PathNode : GTLRObject
+
+/** The findings associated with this node in the exposure path. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_AssociatedFinding *> *associatedFindings;
+
+/** Human readable name of this resource. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The name of the resource at this point in the exposure path. The format of
+ *  the name is:
+ *  https://cloud.google.com/apis/design/resource_names#full_resource_name
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The resource type of this resource. See:
+ *  https://cloud.google.com/asset-inventory/docs/supported-asset-types
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
 
 @end
 

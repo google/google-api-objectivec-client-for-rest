@@ -44,7 +44,7 @@
 //
 
 @implementation GTLRServiceDirectory_Endpoint
-@dynamic address, annotations, name, network, port;
+@dynamic address, annotations, name, network, port, uid;
 @end
 
 
@@ -229,7 +229,7 @@
 //
 
 @implementation GTLRServiceDirectory_Namespace
-@dynamic labels, name;
+@dynamic labels, name, uid;
 @end
 
 
@@ -295,7 +295,7 @@
 //
 
 @implementation GTLRServiceDirectory_Service
-@dynamic annotations, endpoints, name;
+@dynamic annotations, endpoints, name, uid;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

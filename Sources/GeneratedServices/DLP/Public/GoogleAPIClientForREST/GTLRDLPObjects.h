@@ -2031,8 +2031,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Deidentify *deidentify;
 
 /**
- *  Enable email notification for project owners and editors on job's
- *  completion/failure.
+ *  Sends an email when the job completes. The email goes to IAM project owners
+ *  and technical [Essential
+ *  Contacts](https://cloud.google.com/resource-manager/docs/managing-notification-contacts).
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2JobNotificationEmails *jobNotificationEmails;
 
@@ -2837,7 +2838,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Container structure for the content to inspect.
+ *  GTLRDLP_GooglePrivacyDlpV2ContentItem
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ContentItem : GTLRObject
 
@@ -4732,7 +4733,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  CustomInfoType, or one of the names listed at
  *  https://cloud.google.com/dlp/docs/infotypes-reference when specifying a
  *  built-in type. When sending Cloud DLP results to Data Catalog, infoType
- *  names should conform to the pattern `[A-Za-z0-9$-_]{1,64}`.
+ *  names should conform to the pattern `[A-Za-z0-9$_-]{1,64}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4918,6 +4919,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Internal name of the infoType. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** The default sensitivity of the infoType. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2SensitivityScore *sensitivityScore;
+
 /** Which parts of the API supports this InfoType. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedBy;
 
@@ -4973,6 +4977,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  The infoType details for this column.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2InfoTypeSummary : GTLRObject
+
+/**
+ *  Not populated for predicted infotypes.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *estimatedPrevalence;
 
 /** The infoType. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infoType;

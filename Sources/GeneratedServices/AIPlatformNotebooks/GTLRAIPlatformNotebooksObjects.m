@@ -292,6 +292,37 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_DiagnoseInstanceRequest
+//
+
+@implementation GTLRAIPlatformNotebooks_DiagnoseInstanceRequest
+@dynamic diagnosticConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_DiagnoseRuntimeRequest
+//
+
+@implementation GTLRAIPlatformNotebooks_DiagnoseRuntimeRequest
+@dynamic diagnosticConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_DiagnosticConfig
+//
+
+@implementation GTLRAIPlatformNotebooks_DiagnosticConfig
+@dynamic copyHomeFilesFlagEnabled, gcsBucket, packetCaptureFlagEnabled,
+         relativePath, repairFlagEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_Disk
 //
 
@@ -1392,6 +1423,16 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 
 @implementation GTLRAIPlatformNotebooks_UpgradeInstanceRequest
 @dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_UpgradeRuntimeRequest
+//
+
+@implementation GTLRAIPlatformNotebooks_UpgradeRuntimeRequest
+@dynamic requestId;
 @end
 
 

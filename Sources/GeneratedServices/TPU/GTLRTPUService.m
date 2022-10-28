@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud TPU API (tpu/v1)
+//   Cloud TPU API (tpu/v2)
 // Description:
 //   TPU API provides customers with access to Google TPU technology.
 // Documentation:

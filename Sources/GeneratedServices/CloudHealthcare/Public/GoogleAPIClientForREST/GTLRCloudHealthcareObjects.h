@@ -679,7 +679,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 /**
  *  Analytics V2, similar to schema defined by the FHIR community, with added
  *  support for extensions with one or more occurrences and contained resources
- *  in stringified JSON.
+ *  in stringified JSON. Analytics V2 uses more space in the destination table
+ *  than Analytics V1.
  *
  *  Value: "ANALYTICS_V2"
  */
@@ -4455,7 +4456,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *    @arg @c kGTLRCloudHealthcare_SchemaConfig_SchemaType_AnalyticsV2 Analytics
  *        V2, similar to schema defined by the FHIR community, with added
  *        support for extensions with one or more occurrences and contained
- *        resources in stringified JSON. (Value: "ANALYTICS_V2")
+ *        resources in stringified JSON. Analytics V2 uses more space in the
+ *        destination table than Analytics V1. (Value: "ANALYTICS_V2")
  *    @arg @c kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecified
  *        No schema type specified. This type is unsupported. (Value:
  *        "SCHEMA_TYPE_UNSPECIFIED")

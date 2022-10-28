@@ -14,6 +14,90 @@
 
 @end
 
+@implementation GTLRCertificateManagerQuery_ProjectsLocationsCertificateIssuanceConfigsCreate
+
+@dynamic certificateIssuanceConfigId, parent;
+
++ (instancetype)queryWithObject:(GTLRCertificateManager_CertificateIssuanceConfig *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/certificateIssuanceConfigs";
+  GTLRCertificateManagerQuery_ProjectsLocationsCertificateIssuanceConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCertificateManager_Operation class];
+  query.loggingName = @"certificatemanager.projects.locations.certificateIssuanceConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateManagerQuery_ProjectsLocationsCertificateIssuanceConfigsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCertificateManagerQuery_ProjectsLocationsCertificateIssuanceConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCertificateManager_Operation class];
+  query.loggingName = @"certificatemanager.projects.locations.certificateIssuanceConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateManagerQuery_ProjectsLocationsCertificateIssuanceConfigsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCertificateManagerQuery_ProjectsLocationsCertificateIssuanceConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCertificateManager_CertificateIssuanceConfig class];
+  query.loggingName = @"certificatemanager.projects.locations.certificateIssuanceConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateManagerQuery_ProjectsLocationsCertificateIssuanceConfigsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/certificateIssuanceConfigs";
+  GTLRCertificateManagerQuery_ProjectsLocationsCertificateIssuanceConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCertificateManager_ListCertificateIssuanceConfigsResponse class];
+  query.loggingName = @"certificatemanager.projects.locations.certificateIssuanceConfigs.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRCertificateManagerQuery_ProjectsLocationsCertificateMapsCertificateMapEntriesCreate
 
 @dynamic certificateMapEntryId, parent;

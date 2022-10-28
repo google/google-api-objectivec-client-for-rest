@@ -4,7 +4,7 @@
 // API:
 //   Application Integration API (integrations/v1alpha)
 // Documentation:
-//   http://www.google.com
+//   https://cloud.google.com/application-integration
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -30,6 +30,7 @@
 @class GTLRIntegrations_EnterpriseCrmEventbusProtoBooleanFunction;
 @class GTLRIntegrations_EnterpriseCrmEventbusProtoBooleanParameterArray;
 @class GTLRIntegrations_EnterpriseCrmEventbusProtoBuganizerNotification;
+@class GTLRIntegrations_EnterpriseCrmEventbusProtoCloudSchedulerConfig;
 @class GTLRIntegrations_EnterpriseCrmEventbusProtoCombinedCondition;
 @class GTLRIntegrations_EnterpriseCrmEventbusProtoCondition;
 @class GTLRIntegrations_EnterpriseCrmEventbusProtoConditionResult;
@@ -158,6 +159,7 @@
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaBooleanParameterArray;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaCertificate;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaClientCertificate;
+@class GTLRIntegrations_GoogleCloudIntegrationsV1alphaCloudSchedulerConfig;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaCredential;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaDoubleParameterArray;
 @class GTLRIntegrations_GoogleCloudIntegrationsV1alphaEventParameter;
@@ -2408,6 +2410,8 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEvent
 FOUNDATION_EXTERN NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTriggerConfig_TriggerType_CloudPubsub;
 /** Value: "CLOUD_PUBSUB_EXTERNAL" */
 FOUNDATION_EXTERN NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTriggerConfig_TriggerType_CloudPubsubExternal;
+/** Value: "CLOUD_SCHEDULER" */
+FOUNDATION_EXTERN NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTriggerConfig_TriggerType_CloudScheduler;
 /** Value: "CRON" */
 FOUNDATION_EXTERN NSString * const kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTriggerConfig_TriggerType_Cron;
 /** Value: "DATALAYER_DATA_CHANGE" */
@@ -4095,6 +4099,12 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1al
  */
 FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaTriggerConfig_TriggerType_CloudPubsubExternal;
 /**
+ *  Trigger by Cloud Scheduler job.
+ *
+ *  Value: "CLOUD_SCHEDULER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleCloudIntegrationsV1alphaTriggerConfig_TriggerType_CloudScheduler;
+/**
  *  Trigger by scheduled time.
  *
  *  Value: "CRON"
@@ -4771,6 +4781,34 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 /** Title of the issue to be created. Required. */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Cloud Scheduler Trigger configuration
+ */
+@interface GTLRIntegrations_EnterpriseCrmEventbusProtoCloudSchedulerConfig : GTLRObject
+
+/** Required. The cron tab of cloud scheduler trigger. */
+@property(nonatomic, copy, nullable) NSString *cronTab;
+
+/**
+ *  Optional. When the job was deleted from Pantheon UI, error_message will be
+ *  populated when Get/List integrations
+ */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/**
+ *  Required. The location where associated cloud scheduler job will be created
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Required. Service account used by Cloud Scheduler to trigger the integration
+ *  at scheduled time
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
 
 @end
 
@@ -8762,7 +8800,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 
 /**
- *  Configuration detail of a trigger. Next available id: 16
+ *  Configuration detail of a trigger. Next available id: 17
  */
 @interface GTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTriggerConfig : GTLRObject
 
@@ -8773,6 +8811,8 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
  *  alert threshold configured per [client + trigger + workflow] when published.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRIntegrations_EnterpriseCrmEventbusProtoWorkflowAlertConfig *> *alertConfig;
+
+@property(nonatomic, strong, nullable) GTLRIntegrations_EnterpriseCrmEventbusProtoCloudSchedulerConfig *cloudSchedulerConfig;
 
 /**
  *  User-provided description intended to give more business context about the
@@ -8868,6 +8908,8 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
  *        Value "CLOUD_PUBSUB"
  *    @arg @c kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTriggerConfig_TriggerType_CloudPubsubExternal
  *        Value "CLOUD_PUBSUB_EXTERNAL"
+ *    @arg @c kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTriggerConfig_TriggerType_CloudScheduler
+ *        Value "CLOUD_SCHEDULER"
  *    @arg @c kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTriggerConfig_TriggerType_Cron
  *        Value "CRON"
  *    @arg @c kGTLRIntegrations_EnterpriseCrmFrontendsEventbusProtoTriggerConfig_TriggerType_DatalayerDataChange
@@ -9303,12 +9345,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
 
 /** Format of SSH Client cert. */
 @property(nonatomic, copy, nullable) NSString *certType;
-
-/**
- *  This is an optional field used in case client has enabled multi-factor
- *  authentication
- */
-@property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudConnectorsV1Secret *password;
 
 /** SSH Client Cert. It should contain both public and private key. */
 @property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudConnectorsV1Secret *sshClientCert;
@@ -10002,6 +10038,34 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
  *  wQW6M0H7Zt8claGRla4fKkg= -----END CERTIFICATE-----
  */
 @property(nonatomic, copy, nullable) NSString *sslCertificate;
+
+@end
+
+
+/**
+ *  Cloud Scheduler Trigger configuration
+ */
+@interface GTLRIntegrations_GoogleCloudIntegrationsV1alphaCloudSchedulerConfig : GTLRObject
+
+/** Required. The cron tab of cloud scheduler trigger. */
+@property(nonatomic, copy, nullable) NSString *cronTab;
+
+/**
+ *  Optional. When the job was deleted from Pantheon UI, error_message will be
+ *  populated when Get/List integrations
+ */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/**
+ *  Required. The location where associated cloud scheduler job will be created
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Required. Service account used by Cloud Scheduler to trigger the integration
+ *  at scheduled time
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
 
 @end
 
@@ -12798,6 +12862,9 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationAlertConfig *> *alertConfig;
 
+/** Optional. Cloud Scheduler Trigger related metadata */
+@property(nonatomic, strong, nullable) GTLRIntegrations_GoogleCloudIntegrationsV1alphaCloudSchedulerConfig *cloudSchedulerConfig;
+
 /**
  *  Optional. User-provided description intended to give additional business
  *  context about the task.
@@ -12857,6 +12924,8 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrations_GoogleInternalCloudCrmEvent
  *        Trigger by API call. (Value: "API")
  *    @arg @c kGTLRIntegrations_GoogleCloudIntegrationsV1alphaTriggerConfig_TriggerType_CloudPubsubExternal
  *        Trigger by Pub/Sub external. (Value: "CLOUD_PUBSUB_EXTERNAL")
+ *    @arg @c kGTLRIntegrations_GoogleCloudIntegrationsV1alphaTriggerConfig_TriggerType_CloudScheduler
+ *        Trigger by Cloud Scheduler job. (Value: "CLOUD_SCHEDULER")
  *    @arg @c kGTLRIntegrations_GoogleCloudIntegrationsV1alphaTriggerConfig_TriggerType_Cron
  *        Trigger by scheduled time. (Value: "CRON")
  *    @arg @c kGTLRIntegrations_GoogleCloudIntegrationsV1alphaTriggerConfig_TriggerType_SfdcCdcChannel

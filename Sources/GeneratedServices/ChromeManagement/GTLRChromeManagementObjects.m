@@ -27,6 +27,13 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusRepo
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryReplaceNow = @"BATTERY_REPLACE_NOW";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryReplaceSoon = @"BATTERY_REPLACE_SOON";
 
+// GTLRChromeManagement_GoogleChromeManagementV1BootPerformanceReport.shutdownReason
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BootPerformanceReport_ShutdownReason_LowBattery = @"LOW_BATTERY";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BootPerformanceReport_ShutdownReason_Other = @"OTHER";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BootPerformanceReport_ShutdownReason_ShutdownReasonUnspecified = @"SHUTDOWN_REASON_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BootPerformanceReport_ShutdownReason_SystemUpdate = @"SYSTEM_UPDATE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BootPerformanceReport_ShutdownReason_UserRequest = @"USER_REQUEST";
+
 // GTLRChromeManagement_GoogleChromeManagementV1BrowserVersion.channel
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_Beta = @"BETA";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_Canary = @"CANARY";
@@ -237,6 +244,17 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1BootPerformanceReport
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1BootPerformanceReport
+@dynamic bootUpDuration, bootUpTime, reportTime, shutdownDuration,
+         shutdownReason, shutdownTime;
 @end
 
 
@@ -767,18 +785,19 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryp
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryDevice
-@dynamic audioStatusReport, batteryInfo, batteryStatusReport, cpuInfo,
-         cpuStatusReport, customer, deviceId, graphicsInfo,
-         graphicsStatusReport, memoryInfo, memoryStatusReport, name,
-         networkDiagnosticsReport, networkInfo, networkStatusReport, orgUnitId,
-         osUpdateStatus, serialNumber, storageInfo, storageStatusReport,
-         thunderboltInfo;
+@dynamic audioStatusReport, batteryInfo, batteryStatusReport,
+         bootPerformanceReport, cpuInfo, cpuStatusReport, customer, deviceId,
+         graphicsInfo, graphicsStatusReport, memoryInfo, memoryStatusReport,
+         name, networkDiagnosticsReport, networkInfo, networkStatusReport,
+         orgUnitId, osUpdateStatus, serialNumber, storageInfo,
+         storageStatusReport, thunderboltInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"audioStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1AudioStatusReport class],
     @"batteryInfo" : [GTLRChromeManagement_GoogleChromeManagementV1BatteryInfo class],
     @"batteryStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport class],
+    @"bootPerformanceReport" : [GTLRChromeManagement_GoogleChromeManagementV1BootPerformanceReport class],
     @"cpuInfo" : [GTLRChromeManagement_GoogleChromeManagementV1CpuInfo class],
     @"cpuStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1CpuStatusReport class],
     @"graphicsStatusReport" : [GTLRChromeManagement_GoogleChromeManagementV1GraphicsStatusReport class],

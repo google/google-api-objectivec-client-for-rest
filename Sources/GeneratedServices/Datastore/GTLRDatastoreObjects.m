@@ -14,6 +14,13 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDatastore_AggregationResultBatch.moreResults
+NSString * const kGTLRDatastore_AggregationResultBatch_MoreResults_MoreResultsAfterCursor = @"MORE_RESULTS_AFTER_CURSOR";
+NSString * const kGTLRDatastore_AggregationResultBatch_MoreResults_MoreResultsAfterLimit = @"MORE_RESULTS_AFTER_LIMIT";
+NSString * const kGTLRDatastore_AggregationResultBatch_MoreResults_MoreResultsTypeUnspecified = @"MORE_RESULTS_TYPE_UNSPECIFIED";
+NSString * const kGTLRDatastore_AggregationResultBatch_MoreResults_NoMoreResults = @"NO_MORE_RESULTS";
+NSString * const kGTLRDatastore_AggregationResultBatch_MoreResults_NotFinished = @"NOT_FINISHED";
+
 // GTLRDatastore_CommitRequest.mode
 NSString * const kGTLRDatastore_CommitRequest_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
 NSString * const kGTLRDatastore_CommitRequest_Mode_NonTransactional = @"NON_TRANSACTIONAL";
@@ -156,6 +163,76 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastore_Aggregation
+//
+
+@implementation GTLRDatastore_Aggregation
+@dynamic alias, count;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastore_AggregationQuery
+//
+
+@implementation GTLRDatastore_AggregationQuery
+@dynamic aggregations, nestedQuery;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aggregations" : [GTLRDatastore_Aggregation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastore_AggregationResult
+//
+
+@implementation GTLRDatastore_AggregationResult
+@dynamic aggregateProperties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastore_AggregationResult_AggregateProperties
+//
+
+@implementation GTLRDatastore_AggregationResult_AggregateProperties
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDatastore_Value class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastore_AggregationResultBatch
+//
+
+@implementation GTLRDatastore_AggregationResultBatch
+@dynamic aggregationResults, moreResults, readTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aggregationResults" : [GTLRDatastore_AggregationResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastore_AllocateIdsRequest
 //
 
@@ -279,6 +356,16 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastore_Count
+//
+
+@implementation GTLRDatastore_Count
+@dynamic upTo;
 @end
 
 
@@ -1053,6 +1140,26 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_RollbackResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastore_RunAggregationQueryRequest
+//
+
+@implementation GTLRDatastore_RunAggregationQueryRequest
+@dynamic aggregationQuery, databaseId, gqlQuery, partitionId, readOptions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastore_RunAggregationQueryResponse
+//
+
+@implementation GTLRDatastore_RunAggregationQueryResponse
+@dynamic batch, query;
 @end
 
 

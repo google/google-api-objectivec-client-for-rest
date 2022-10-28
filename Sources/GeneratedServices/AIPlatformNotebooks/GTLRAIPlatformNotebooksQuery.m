@@ -263,6 +263,33 @@ NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspecified = @"UPGRADE_
 
 @end
 
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesDiagnose
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_DiagnoseInstanceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:diagnose";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesDiagnose *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_Operation class];
+  query.loggingName = @"notebooks.projects.locations.instances.diagnose";
+  return query;
+}
+
+@end
+
 @implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGet
 
 @dynamic name;
@@ -943,6 +970,33 @@ NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspecified = @"UPGRADE_
 
 @end
 
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesDiagnose
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_DiagnoseRuntimeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:diagnose";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesDiagnose *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_Operation class];
+  query.loggingName = @"notebooks.projects.locations.runtimes.diagnose";
+  return query;
+}
+
+@end
+
 @implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesGet
 
 @dynamic name;
@@ -1242,6 +1296,33 @@ NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspecified = @"UPGRADE_
   query.resource = resource;
   query.expectedObjectClass = [GTLRAIPlatformNotebooks_TestIamPermissionsResponse class];
   query.loggingName = @"notebooks.projects.locations.runtimes.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesUpgrade
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_UpgradeRuntimeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:upgrade";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesUpgrade *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_Operation class];
+  query.loggingName = @"notebooks.projects.locations.runtimes.upgrade";
   return query;
 }
 

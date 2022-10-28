@@ -22,6 +22,7 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1BatteryInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1BatterySampleReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1BootPerformanceReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1BrowserVersion;
 @class GTLRChromeManagement_GoogleChromeManagementV1ChromeAppInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1ChromeAppPermission;
@@ -122,6 +123,40 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "BATTERY_REPLACE_SOON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryReplaceSoon;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1BootPerformanceReport.shutdownReason
+
+/**
+ *  Shutdown due to low battery.
+ *
+ *  Value: "LOW_BATTERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BootPerformanceReport_ShutdownReason_LowBattery;
+/**
+ *  Shutdown due to other reasons.
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BootPerformanceReport_ShutdownReason_Other;
+/**
+ *  Shutdown reason is not specified.
+ *
+ *  Value: "SHUTDOWN_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BootPerformanceReport_ShutdownReason_ShutdownReasonUnspecified;
+/**
+ *  System update initiated.
+ *
+ *  Value: "SYSTEM_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BootPerformanceReport_ShutdownReason_SystemUpdate;
+/**
+ *  User initiated.
+ *
+ *  Value: "USER_REQUEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BootPerformanceReport_ShutdownReason_UserRequest;
 
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1BrowserVersion.channel
@@ -1045,6 +1080,54 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** Output only. Battery serial number. */
 @property(nonatomic, copy, nullable) NSString *serialNumber;
+
+@end
+
+
+/**
+ *  Boot performance report of a device. * This field is telemetry information
+ *  and this will change over time as the device is utilized. * Data for this
+ *  field is controlled via policy:
+ *  [ReportDeviceBootMode](https://chromeenterprise.google/policies/#ReportDeviceBootMode)
+ *  * Data Collection Frequency: On every boot up event * Default Data Reporting
+ *  Frequency: 3 hours - Policy Controlled: Yes * Cache: If the device is
+ *  offline, the collected data is stored locally, and will be reported when the
+ *  device is next online: Yes * Reported for affiliated users only: N/A
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1BootPerformanceReport : GTLRObject
+
+/** Total time to boot up. */
+@property(nonatomic, strong, nullable) GTLRDuration *bootUpDuration;
+
+/** The timestamp when power came on. */
+@property(nonatomic, strong, nullable) GTLRDateTime *bootUpTime;
+
+/** Timestamp when the report was collected. */
+@property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
+
+/** Total time since shutdown start to power off. */
+@property(nonatomic, strong, nullable) GTLRDuration *shutdownDuration;
+
+/**
+ *  The shutdown reason.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BootPerformanceReport_ShutdownReason_LowBattery
+ *        Shutdown due to low battery. (Value: "LOW_BATTERY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BootPerformanceReport_ShutdownReason_Other
+ *        Shutdown due to other reasons. (Value: "OTHER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BootPerformanceReport_ShutdownReason_ShutdownReasonUnspecified
+ *        Shutdown reason is not specified. (Value:
+ *        "SHUTDOWN_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BootPerformanceReport_ShutdownReason_SystemUpdate
+ *        System update initiated. (Value: "SYSTEM_UPDATE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BootPerformanceReport_ShutdownReason_UserRequest
+ *        User initiated. (Value: "USER_REQUEST")
+ */
+@property(nonatomic, copy, nullable) NSString *shutdownReason;
+
+/** The timestamp when shutdown. */
+@property(nonatomic, strong, nullable) GTLRDateTime *shutdownTime;
 
 @end
 
@@ -2494,6 +2577,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** Output only. Battery reports collected periodically. */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport *> *batteryStatusReport;
+
+/** Output only. Boot performance reports of the device. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1BootPerformanceReport *> *bootPerformanceReport;
 
 /** Output only. Information regarding CPU specs for the device. */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1CpuInfo *> *cpuInfo;

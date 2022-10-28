@@ -25,6 +25,8 @@
 @class GTLRNetworkconnectivity_GoogleRpcStatus_Details_Item;
 @class GTLRNetworkconnectivity_Hub;
 @class GTLRNetworkconnectivity_Hub_Labels;
+@class GTLRNetworkconnectivity_InternalRange;
+@class GTLRNetworkconnectivity_InternalRange_Labels;
 @class GTLRNetworkconnectivity_LinkedInterconnectAttachments;
 @class GTLRNetworkconnectivity_LinkedRouterApplianceInstances;
 @class GTLRNetworkconnectivity_LinkedVpnTunnels;
@@ -108,6 +110,92 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_State_StateUnspe
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_InternalRange.overlaps
+
+/**
+ *  Allow creation of static routes more specific that the current
+ *  InternalRange.
+ *
+ *  Value: "OVERLAP_ROUTE_RANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_Overlaps_OverlapRouteRange;
+/**
+ *  No overlap overrides.
+ *
+ *  Value: "OVERLAP_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_Overlaps_OverlapUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_InternalRange.peering
+
+/**
+ *  This behavior can be set when the Internal Range is being reserved for usage
+ *  by the peers. This means that no resource within the VPC in which it is
+ *  being created can use this to associate with a GCP resource, but one of the
+ *  peer’s can. This represents "donating" a range for peers to use.
+ *
+ *  Value: "FOR_PEER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_Peering_ForPeer;
+/**
+ *  This is the default behavior and represents the case that this InternalRange
+ *  is intended to be used in the VPC on which it is created and is accessible
+ *  from it’s peers. This implies that peers or peer-of-peer’s cannot use this
+ *  range.
+ *
+ *  Value: "FOR_SELF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_Peering_ForSelf;
+/**
+ *  This behavior can be set when the Internal Range is being reserved for usage
+ *  by the VPC on which it is created but not shared with the peers. In a sense
+ *  it is local to the VPC. This can be used to create Internal Ranges for
+ *  various purposes like HTTP_INTERNAL_LOAD_BALANCER or for interconnect routes
+ *  that are not shared with peers. This also implies that peer’s cannot use
+ *  this range in a way that is visible to this VPC, but can re-use this range
+ *  as long as it is NOT_SHARED from the peer VPC too.
+ *
+ *  Value: "NOT_SHARED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_Peering_NotShared;
+/**
+ *  If Peering is left unspecified in CreateInternalRange or
+ *  UpdateInternalRange, it will be defaulted to FOR_SELF.
+ *
+ *  Value: "PEERING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_Peering_PeeringUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_InternalRange.usage
+
+/**
+ *  Ranges created with EXTERNAL_TO_VPC cannot be associated with GCP resources
+ *  and are meant to block out address ranges for various use cases, like for
+ *  example, usage on-prem, with dynamic route announcements via interconnect.
+ *
+ *  Value: "EXTERNAL_TO_VPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_Usage_ExternalToVpc;
+/**
+ *  A GCP resource can use the reserved CIDR block by associating it with the
+ *  Internal Range resource if usage is set to FOR_VPC.
+ *
+ *  Value: "FOR_VPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_Usage_ForVpc;
+/**
+ *  Unspecified usage is allowed in calls which identify the resource by other
+ *  fields and do not need Usage set to complete. These are i.e.:
+ *  GetInternalRange and DeleteInternalRange. Usage needs to be specified
+ *  explicitly in CreateInternalRange or UpdateInternalRange calls.
+ *
+ *  Value: "USAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_Usage_UsageUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_LocationMetadata.locationFeatures
@@ -593,6 +681,151 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
 
 
 /**
+ *  The InternalRange resource for IPAM operations within a VPC network. Used to
+ *  represent a private address range along with behavioral characterstics of
+ *  that range (it's usage and peering behavior). Networking resources can link
+ *  to this range if they are created as belonging to it. Next id: 14
+ */
+@interface GTLRNetworkconnectivity_InternalRange : GTLRObject
+
+/** Time when the InternalRange was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  A description of this resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** IP range that this InternalRange defines. */
+@property(nonatomic, copy, nullable) NSString *ipCidrRange;
+
+/** User-defined labels. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_InternalRange_Labels *labels;
+
+/**
+ *  Immutable. The name of a InternalRange. Format:
+ *  projects/{project}/locations/{location}/internalRanges/{internal_range} See:
+ *  https://google.aip.dev/122#fields-representing-resource-names
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The URL or resource ID of the network in which to reserve the Internal
+ *  Range. The network cannot be deleted if there are any reserved Internal
+ *  Ranges referring to it. Legacy network is not supported. This can only be
+ *  specified for a global internal address. Example: - URL:
+ *  /compute/v1/projects/{project}/global/networks/{resourceId} - ID: network123
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Optional. Types of resources that are allowed to overlap with the current
+ *  InternalRange.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *overlaps;
+
+/**
+ *  The type of peering set for this InternalRange.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_InternalRange_Peering_ForPeer This
+ *        behavior can be set when the Internal Range is being reserved for
+ *        usage by the peers. This means that no resource within the VPC in
+ *        which it is being created can use this to associate with a GCP
+ *        resource, but one of the peer’s can. This represents "donating" a
+ *        range for peers to use. (Value: "FOR_PEER")
+ *    @arg @c kGTLRNetworkconnectivity_InternalRange_Peering_ForSelf This is the
+ *        default behavior and represents the case that this InternalRange is
+ *        intended to be used in the VPC on which it is created and is
+ *        accessible from it’s peers. This implies that peers or peer-of-peer’s
+ *        cannot use this range. (Value: "FOR_SELF")
+ *    @arg @c kGTLRNetworkconnectivity_InternalRange_Peering_NotShared This
+ *        behavior can be set when the Internal Range is being reserved for
+ *        usage by the VPC on which it is created but not shared with the peers.
+ *        In a sense it is local to the VPC. This can be used to create Internal
+ *        Ranges for various purposes like HTTP_INTERNAL_LOAD_BALANCER or for
+ *        interconnect routes that are not shared with peers. This also implies
+ *        that peer’s cannot use this range in a way that is visible to this
+ *        VPC, but can re-use this range as long as it is NOT_SHARED from the
+ *        peer VPC too. (Value: "NOT_SHARED")
+ *    @arg @c kGTLRNetworkconnectivity_InternalRange_Peering_PeeringUnspecified
+ *        If Peering is left unspecified in CreateInternalRange or
+ *        UpdateInternalRange, it will be defaulted to FOR_SELF. (Value:
+ *        "PEERING_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *peering;
+
+/**
+ *  An alternate to ip_cidr_range. Can be set when trying to create a
+ *  reservation that automatically finds a free range of the given size. If both
+ *  ip_cidr_range and prefix_length are set, it's an error if the range sizes
+ *  don't match. Can also be used during updates to change the range size.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *prefixLength;
+
+/**
+ *  Optional. Can be set to narrow down or pick a different address space while
+ *  searching for a free range. If not set, defaults to the "10.0.0.0/8" address
+ *  space. This can be used to search in other rfc-1918 address spaces like
+ *  "172.16.0.0/12" and "192.168.0.0/16" or non-rfc-1918 address spaces used in
+ *  the VPC.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *targetCidrRange;
+
+/** Time when the InternalRange was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  The type of usage set for this InternalRange.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_InternalRange_Usage_ExternalToVpc Ranges
+ *        created with EXTERNAL_TO_VPC cannot be associated with GCP resources
+ *        and are meant to block out address ranges for various use cases, like
+ *        for example, usage on-prem, with dynamic route announcements via
+ *        interconnect. (Value: "EXTERNAL_TO_VPC")
+ *    @arg @c kGTLRNetworkconnectivity_InternalRange_Usage_ForVpc A GCP resource
+ *        can use the reserved CIDR block by associating it with the Internal
+ *        Range resource if usage is set to FOR_VPC. (Value: "FOR_VPC")
+ *    @arg @c kGTLRNetworkconnectivity_InternalRange_Usage_UsageUnspecified
+ *        Unspecified usage is allowed in calls which identify the resource by
+ *        other fields and do not need Usage set to complete. These are i.e.:
+ *        GetInternalRange and DeleteInternalRange. Usage needs to be specified
+ *        explicitly in CreateInternalRange or UpdateInternalRange calls.
+ *        (Value: "USAGE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *usage;
+
+/**
+ *  Output only. The list of resources that refer to this internal range.
+ *  Resources that use the InternalRange for their range allocation are referred
+ *  to as users of the range. Other resources mark themselves as users while
+ *  doing so by creating a reference to this InternalRange. Having a user, based
+ *  on this reference, prevents deletion of the InternalRange referred to. Can
+ *  be empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *users;
+
+@end
+
+
+/**
+ *  User-defined labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkconnectivity_InternalRange_Labels : GTLRObject
+@end
+
+
+/**
  *  A collection of VLAN attachment resources. These resources should be
  *  redundant attachments that all advertise the same prefixes to Google Cloud.
  *  Alternatively, in active/passive configurations, all attachments should be
@@ -611,6 +844,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
 
 /** The URIs of linked interconnect attachment resources */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *uris;
+
+/** Output only. The VPC network where these VLAN attachments are located. */
+@property(nonatomic, copy, nullable) NSString *vpcNetwork;
 
 @end
 
@@ -635,6 +871,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
  */
 @property(nonatomic, strong, nullable) NSNumber *siteToSiteDataTransfer;
 
+/**
+ *  Output only. The VPC network where these router appliance instances are
+ *  located.
+ */
+@property(nonatomic, copy, nullable) NSString *vpcNetwork;
+
 @end
 
 
@@ -658,6 +900,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
 /** The URIs of linked VPN tunnel resources. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *uris;
 
+/** Output only. The VPC network where these VPN tunnels are located. */
+@property(nonatomic, copy, nullable) NSString *vpcNetwork;
+
 @end
 
 
@@ -678,6 +923,36 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_Updating
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_Hub *> *hubs;
+
+/**
+ *  The next pagination token in the List response. It should be used as
+ *  page_token for the following request. An empty value means no more result.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response for InternalRange.ListInternalRanges
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "internalRanges" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRNetworkconnectivity_ListInternalRangesResponse : GTLRCollectionObject
+
+/**
+ *  InternalRanges to be returned.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_InternalRange *> *internalRanges;
 
 /**
  *  The next pagination token in the List response. It should be used as

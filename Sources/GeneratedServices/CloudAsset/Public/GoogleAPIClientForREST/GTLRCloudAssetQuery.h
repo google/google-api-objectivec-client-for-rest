@@ -1342,10 +1342,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  name to indicate descending order. Redundant space characters are ignored.
  *  Example: "location DESC, name". Only singular primitive fields in the
  *  response are sortable: * name * assetType * project * displayName *
- *  description * location * kmsKey * createTime * updateTime * state *
+ *  description * location * createTime * updateTime * state *
  *  parentFullResourceName * parentAssetType All the other fields such as
- *  repeated fields (e.g., `networkTags`), map fields (e.g., `labels`) and
- *  struct fields (e.g., `additionalAttributes`) are not supported.
+ *  repeated fields (e.g., `networkTags`, `kmsKeys`), map fields (e.g.,
+ *  `labels`) and struct fields (e.g., `additionalAttributes`) are not
+ *  supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -1381,6 +1382,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  resources that have a label "env" and its value is "prod". * `labels.env:*`
  *  to find Cloud resources that have a label "env". * `kmsKey:key` to find
  *  Cloud resources encrypted with a customer-managed encryption key whose name
+ *  contains "key" as a word. This field is deprecated. Please use the `kmsKeys`
+ *  field to retrieve KMS key information. * `kmsKeys:key` to find Cloud
+ *  resources encrypted with customer-managed encryption keys whose name
  *  contains the word "key". * `relationships:instance-group-1` to find Cloud
  *  resources that have relationships with "instance-group-1" in the related
  *  resource name. * `relationships:INSTANCE_TO_INSTANCEGROUP` to find compute
@@ -1413,11 +1417,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  The read_mask paths must be valid field paths listed but not limited to
  *  (both snake_case and camelCase are supported): * name * assetType * project
  *  * displayName * description * location * tagKeys * tagValues * tagValueIds *
- *  labels * networkTags * kmsKey * createTime * updateTime * state *
- *  additionalAttributes * versionedResources If read_mask is not specified, all
- *  fields except versionedResources will be returned. If only '*' is specified,
- *  all fields including versionedResources will be returned. Any invalid field
- *  path will trigger INVALID_ARGUMENT error.
+ *  labels * networkTags * kmsKey (This field is deprecated. Please use the
+ *  `kmsKeys` field to retrieve KMS key information.) * kmsKeys * createTime *
+ *  updateTime * state * additionalAttributes * versionedResources If read_mask
+ *  is not specified, all fields except versionedResources will be returned. If
+ *  only '*' is specified, all fields including versionedResources will be
+ *  returned. Any invalid field path will trigger INVALID_ARGUMENT error.
  *
  *  String format is a comma-separated list of fields.
  */

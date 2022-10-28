@@ -146,12 +146,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRegistry_Instance_State_Updating;
 
 /**
  *  The recommended deployment of the API. Format:
- *  `apis/{api}/deployments/{deployment}`
+ *  `projects/{project}/locations/{location}/apis/{api}/deployments/{deployment}`
  */
 @property(nonatomic, copy, nullable) NSString *recommendedDeployment;
 
 /**
- *  The recommended version of the API. Format: `apis/{api}/versions/{version}`
+ *  The recommended version of the API. Format:
+ *  `projects/{project}/locations/{location}/apis/{api}/versions/{version}`
  */
 @property(nonatomic, copy, nullable) NSString *recommendedVersion;
 

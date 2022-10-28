@@ -4,7 +4,7 @@
 // API:
 //   Assured Workloads API (assuredworkloads/v1)
 // Documentation:
-//   https://cloud.google.com
+//   https://cloud.google.com/learnmoreurl
 
 #import <GoogleAPIClientForREST/GTLRAssuredworkloads.h>
 

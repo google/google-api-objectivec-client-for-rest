@@ -820,7 +820,8 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
          defaultEncryptionConfiguration, defaultPartitionExpirationMs,
          defaultTableExpirationMs, descriptionProperty, ETag, friendlyName,
          identifier, isCaseInsensitive, kind, labels, lastModifiedTime,
-         location, maxTimeTravelHours, satisfiesPzs, selfLink, tags;
+         location, maxTimeTravelHours, satisfiesPzs, selfLink,
+         storageBillingModel, tags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1185,8 +1186,8 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 @dynamic autodetect, avroOptions, bigtableOptions, compression, connectionId,
          csvOptions, decimalTargetTypes, googleSheetsOptions,
          hivePartitioningOptions, ignoreUnknownValues, maxBadRecords,
-         parquetOptions, referenceFileSchemaUri, schema, sourceFormat,
-         sourceUris;
+         metadataCacheMode, objectMetadata, parquetOptions,
+         referenceFileSchemaUri, schema, sourceFormat, sourceUris;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1717,7 +1718,7 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
          reservationUsage, schema, searchStatistics, sparkStatistics,
          statementType, timeline, totalBytesBilled, totalBytesProcessed,
          totalBytesProcessedAccuracy, totalPartitionsProcessed, totalSlotMs,
-         undeclaredQueryParameters;
+         transferredBytes, undeclaredQueryParameters;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -1053,7 +1053,7 @@
 
 @implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsUserEventsCollect
 
-@dynamic ets, parent, uri, userEvent;
+@dynamic ets, parent, prebuiltRule, rawJson, uri, userEvent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

@@ -4,7 +4,7 @@
 // API:
 //   Application Integration API (integrations/v1alpha)
 // Documentation:
-//   http://www.google.com
+//   https://cloud.google.com/application-integration
 
 #import "GTLRIntegrationsObjects.h"
 #import "GTLRIntegrationsQuery.h"

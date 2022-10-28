@@ -17,18 +17,22 @@
 
 @class GTLRTagManager_Account;
 @class GTLRTagManager_AccountAccess;
+@class GTLRTagManager_AccountFeatures;
 @class GTLRTagManager_BuiltInVariable;
 @class GTLRTagManager_Client;
 @class GTLRTagManager_Condition;
 @class GTLRTagManager_Container;
 @class GTLRTagManager_ContainerAccess;
+@class GTLRTagManager_ContainerFeatures;
 @class GTLRTagManager_ContainerVersion;
 @class GTLRTagManager_ContainerVersionHeader;
 @class GTLRTagManager_CustomTemplate;
+@class GTLRTagManager_Destination;
 @class GTLRTagManager_Entity;
 @class GTLRTagManager_Environment;
 @class GTLRTagManager_Folder;
 @class GTLRTagManager_GalleryReference;
+@class GTLRTagManager_GtagConfig;
 @class GTLRTagManager_MergeConflict;
 @class GTLRTagManager_Parameter;
 @class GTLRTagManager_SetupTag;
@@ -613,6 +617,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 /** The Account ID uniquely identifies the GTM Account. */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
+/** Read-only Account feature set */
+@property(nonatomic, strong, nullable) GTLRTagManager_AccountFeatures *features;
+
 /**
  *  The fingerprint of the GTM Account as computed at storage time. This value
  *  is recomputed whenever the account is modified.
@@ -664,6 +671,28 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *    @arg @c kGTLRTagManager_AccountAccess_Permission_User Value "user"
  */
 @property(nonatomic, copy, nullable) NSString *permission;
+
+@end
+
+
+/**
+ *  GTLRTagManager_AccountFeatures
+ */
+@interface GTLRTagManager_AccountFeatures : GTLRObject
+
+/**
+ *  Whether this Account supports multiple Containers.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportMultipleContainers;
+
+/**
+ *  Whether this Account supports user permissions managed by GTM.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportUserPermissions;
 
 @end
 
@@ -1042,6 +1071,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *domainName;
 
+/** Read-only Container feature set. */
+@property(nonatomic, strong, nullable) GTLRTagManager_ContainerFeatures *features;
+
 /**
  *  The fingerprint of the GTM Container as computed at storage time. This value
  *  is recomputed whenever the account is modified.
@@ -1065,6 +1097,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /** Container Public ID. */
 @property(nonatomic, copy, nullable) NSString *publicId;
+
+/** All Tag IDs that refer to this Container. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tagIds;
 
 /** Auto generated link to the tag manager UI */
 @property(nonatomic, copy, nullable) NSString *tagManagerUrl;
@@ -1106,6 +1141,105 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *    @arg @c kGTLRTagManager_ContainerAccess_Permission_Read Value "read"
  */
 @property(nonatomic, copy, nullable) NSString *permission;
+
+@end
+
+
+/**
+ *  GTLRTagManager_ContainerFeatures
+ */
+@interface GTLRTagManager_ContainerFeatures : GTLRObject
+
+/**
+ *  Whether this Container supports built-in variables
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportBuiltInVariables;
+
+/**
+ *  Whether this Container supports clients.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportClients;
+
+/**
+ *  Whether this Container supports environments.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportEnvironments;
+
+/**
+ *  Whether this Container supports folders.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportFolders;
+
+/**
+ *  Whether this Container supports Google tag config.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportGtagConfigs;
+
+/**
+ *  Whether this Container supports tags.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportTags;
+
+/**
+ *  Whether this Container supports templates.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportTemplates;
+
+/**
+ *  Whether this Container supports triggers.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportTriggers;
+
+/**
+ *  Whether this Container supports user permissions managed by GTM.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportUserPermissions;
+
+/**
+ *  Whether this Container supports variables.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportVariables;
+
+/**
+ *  Whether this Container supports Container versions.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportVersions;
+
+/**
+ *  Whether this Container supports workspaces.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportWorkspaces;
+
+/**
+ *  Whether this Container supports zones.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportZones;
 
 @end
 
@@ -1161,6 +1295,11 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /** The folders in the container that this version was taken from. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Folder *> *folder;
+
+/**
+ *  The Google tag configs in the container that this version was taken from.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_GtagConfig *> *gtagConfig;
 
 /**
  *  Container version display name. \@mutable
@@ -1222,6 +1361,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /** Number of custom templates in the container version. */
 @property(nonatomic, copy, nullable) NSString *numCustomTemplates;
+
+/** Number of Google tag configs in the container version. */
+@property(nonatomic, copy, nullable) NSString *numGtagConfigs;
 
 /** Number of macros in the container version. */
 @property(nonatomic, copy, nullable) NSString *numMacros;
@@ -1340,6 +1482,41 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /** GTM Workspace ID. */
 @property(nonatomic, copy, nullable) NSString *workspaceId;
+
+@end
+
+
+/**
+ *  Represents a Google Tag Destination.
+ */
+@interface GTLRTagManager_Destination : GTLRObject
+
+/** GTM Account ID. */
+@property(nonatomic, copy, nullable) NSString *accountId;
+
+/** GTM Container ID. */
+@property(nonatomic, copy, nullable) NSString *containerId;
+
+/** Destination ID. */
+@property(nonatomic, copy, nullable) NSString *destinationId;
+
+/** The Destination link ID uniquely identifies the Destination. */
+@property(nonatomic, copy, nullable) NSString *destinationLinkId;
+
+/**
+ *  The fingerprint of the Google Tag Destination as computed at storage time.
+ *  This value is recomputed whenever the destination is modified.
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/** Destination display name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Destination's API relative path. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/** Auto generated link to the tag manager UI. */
+@property(nonatomic, copy, nullable) NSString *tagManagerUrl;
 
 @end
 
@@ -1577,6 +1754,17 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 
 /**
+ *  GTLRTagManager_GetContainerSnippetResponse
+ */
+@interface GTLRTagManager_GetContainerSnippetResponse : GTLRObject
+
+/** Tagging snippet for a Container. */
+@property(nonatomic, copy, nullable) NSString *snippet;
+
+@end
+
+
+/**
  *  The changes that have occurred in the workspace since the base container
  *  version.
  */
@@ -1587,6 +1775,56 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /** Entities that have been changed in the workspace. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Entity *> *workspaceChange;
+
+@end
+
+
+/**
+ *  Represents a Google tag configuration.
+ */
+@interface GTLRTagManager_GtagConfig : GTLRObject
+
+/** Google tag account ID. */
+@property(nonatomic, copy, nullable) NSString *accountId;
+
+/** Google tag container ID. */
+@property(nonatomic, copy, nullable) NSString *containerId;
+
+/**
+ *  The fingerprint of the Google tag config as computed at storage time. This
+ *  value is recomputed whenever the config is modified.
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/** The ID uniquely identifies the Google tag config. */
+@property(nonatomic, copy, nullable) NSString *gtagConfigId;
+
+/**
+ *  The Google tag config's parameters. \@mutable
+ *  tagmanager.accounts.containers.workspaces.gtag_config.create \@mutable
+ *  tagmanager.accounts.containers.workspaces.gtag_config.update
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Parameter *> *parameter;
+
+/** Google tag config's API relative path. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/** Auto generated link to the tag manager UI */
+@property(nonatomic, copy, nullable) NSString *tagManagerUrl;
+
+/**
+ *  Google tag config type. \@required
+ *  tagmanager.accounts.containers.workspaces.gtag_config.create \@required
+ *  tagmanager.accounts.containers.workspaces.gtag_config.update \@mutable
+ *  tagmanager.accounts.containers.workspaces.gtag_config.create \@mutable
+ *  tagmanager.accounts.containers.workspaces.gtag_config.update
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Google tag workspace ID. Only used by GTM containers. Set to 0 otherwise.
+ */
+@property(nonatomic, copy, nullable) NSString *workspaceId;
 
 @end
 
@@ -1688,6 +1926,30 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 
 /**
+ *  GTLRTagManager_ListDestinationsResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "destination" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRTagManager_ListDestinationsResponse : GTLRCollectionObject
+
+/**
+ *  All Destinations linked to a GTM Container.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Destination *> *destination;
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  A list of enabled built-in variables.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1752,6 +2014,30 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Folder *> *folder;
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  GTLRTagManager_ListGtagConfigResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "gtagConfig" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRTagManager_ListGtagConfigResponse : GTLRCollectionObject
+
+/**
+ *  All Google tag configs in a Container.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_GtagConfig *> *gtagConfig;
 
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;

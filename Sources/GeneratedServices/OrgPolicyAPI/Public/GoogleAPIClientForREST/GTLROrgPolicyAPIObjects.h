@@ -92,7 +92,7 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
  */
 FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_Create;
 /**
- *  Constraint applied when deleting the resource.
+ *  Constraint applied when deleting the resource. Not supported yet.
  *
  *  Value: "DELETE"
  */
@@ -252,18 +252,23 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 /**
  *  Org policy condition/expression. For example:
  *  `resource.instanceName.matches("[production|test]_.*_(\\d)+")'` or,
- *  `resource.management.auto_upgrade == true`
+ *  `resource.management.auto_upgrade == true` The max length of the condition
+ *  is 1000 characters.
  */
 @property(nonatomic, copy, nullable) NSString *condition;
 
 /**
- *  Detailed information about this custom policy constraint.
+ *  Detailed information about this custom policy constraint. The max length of
+ *  the description is 2000 characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** One line display name for the UI. */
+/**
+ *  One line display name for the UI. The max length of the display_name is 200
+ *  characters.
+ */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /** All the operations being applied for this constraint. */
@@ -274,6 +279,8 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
  *  Format of the name should be *
  *  `organizations/{organization_id}/customConstraints/{custom_constraint_id}`
  *  Example : "organizations/123/customConstraints/custom.createOnlyE2TypeVms"
+ *  The max length is 70 characters and the min length is 1. Note that the
+ *  prefix "organizations/{organization_id}/customConstraints/" is not counted.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

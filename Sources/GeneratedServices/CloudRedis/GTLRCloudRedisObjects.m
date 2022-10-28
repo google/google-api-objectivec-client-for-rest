@@ -65,6 +65,11 @@ NSString * const kGTLRCloudRedis_PersistenceConfig_RdbSnapshotPeriod_SnapshotPer
 NSString * const kGTLRCloudRedis_PersistenceConfig_RdbSnapshotPeriod_TwelveHours = @"TWELVE_HOURS";
 NSString * const kGTLRCloudRedis_PersistenceConfig_RdbSnapshotPeriod_TwentyFourHours = @"TWENTY_FOUR_HOURS";
 
+// GTLRCloudRedis_ReconciliationOperationMetadata.exclusiveAction
+NSString * const kGTLRCloudRedis_ReconciliationOperationMetadata_ExclusiveAction_Delete = @"DELETE";
+NSString * const kGTLRCloudRedis_ReconciliationOperationMetadata_ExclusiveAction_Retry = @"RETRY";
+NSString * const kGTLRCloudRedis_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction = @"UNKNOWN_REPAIR_ACTION";
+
 // GTLRCloudRedis_RescheduleMaintenanceRequest.rescheduleType
 NSString * const kGTLRCloudRedis_RescheduleMaintenanceRequest_RescheduleType_Immediate = @"IMMEDIATE";
 NSString * const kGTLRCloudRedis_RescheduleMaintenanceRequest_RescheduleType_NextAvailableWindow = @"NEXT_AVAILABLE_WINDOW";
@@ -471,6 +476,16 @@ NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday = @"WEDNE
 @implementation GTLRCloudRedis_PersistenceConfig
 @dynamic persistenceMode, rdbNextSnapshotTime, rdbSnapshotPeriod,
          rdbSnapshotStartTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_ReconciliationOperationMetadata
+//
+
+@implementation GTLRCloudRedis_ReconciliationOperationMetadata
+@dynamic deleteResource, exclusiveAction;
 @end
 
 

@@ -665,8 +665,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *  [AdSense for Platforms](https://developers.google.com/adsense/platforms/)
  *  product. Note that ad units can only be created for ad clients with an "AFC"
  *  product code. For more info see the [AdClient
- *  resource](https://developers.google.com/adsense/management/reference/rest/v2/accounts.adclients).
- *  For now, this method can only be used to create `DISPLAY` ad units. See:
+ *  resource](/adsense/management/reference/rest/v2/accounts.adclients). For
+ *  now, this method can only be used to create `DISPLAY` ad units. See:
  *  https://support.google.com/adsense/answer/9183566
  *
  *  Method: adsense.accounts.adclients.adunits.create
@@ -689,8 +689,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *  [AdSense for Platforms](https://developers.google.com/adsense/platforms/)
  *  product. Note that ad units can only be created for ad clients with an "AFC"
  *  product code. For more info see the [AdClient
- *  resource](https://developers.google.com/adsense/management/reference/rest/v2/accounts.adclients).
- *  For now, this method can only be used to create `DISPLAY` ad units. See:
+ *  resource](/adsense/management/reference/rest/v2/accounts.adclients). For
+ *  now, this method can only be used to create `DISPLAY` ad units. See:
  *  https://support.google.com/adsense/answer/9183566
  *
  *  @param object The @c GTLRAdsense_AdUnit to include in the query.
@@ -1780,7 +1780,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  */
 @property(nonatomic, assign) NSInteger endDateYear;
 
-/** Filters to be run on the report. */
+/**
+ *  A list of [filters](/adsense/management/reporting/filtering) to apply to the
+ *  report. All provided filters must match in order for the data to be included
+ *  in the report.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *filters;
 
 /**
@@ -2167,7 +2171,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  */
 @property(nonatomic, assign) NSInteger endDateYear;
 
-/** Filters to be run on the report. */
+/**
+ *  A list of [filters](/adsense/management/reporting/filtering) to apply to the
+ *  report. All provided filters must match in order for the data to be included
+ *  in the report.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *filters;
 
 /**

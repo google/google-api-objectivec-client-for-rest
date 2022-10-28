@@ -710,17 +710,6 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBeyondCorp_GoogleCloudBeyondcorpApplicationsV1alphaApplicationOperationMetadata
-//
-
-@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpApplicationsV1alphaApplicationOperationMetadata
-@dynamic createTime, endTime, requestedCancellation, statusMessage, target,
-         verb;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBeyondCorp_GoogleCloudBeyondcorpClientconnectorservicesV1alphaClientConnectorServiceOperationMetadata
 //
 

@@ -1049,6 +1049,38 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_SlashCommandMetadata_Type_I
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_SlashCommandMetadata_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRHangoutsChat_Space.spaceThreadingState
+
+/**
+ *  Named spaces where the conversation is organized by topic. Topics and their
+ *  replies are grouped together.
+ *
+ *  Value: "GROUPED_MESSAGES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_SpaceThreadingState_GroupedMessages;
+/**
+ *  Reserved.
+ *
+ *  Value: "SPACE_THREADING_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_SpaceThreadingState_SpaceThreadingStateUnspecified;
+/**
+ *  Named spaces that support message threads. When users respond to a message,
+ *  they can reply in-thread, which keeps their response in the context of the
+ *  original message.
+ *
+ *  Value: "THREADED_MESSAGES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_SpaceThreadingState_ThreadedMessages;
+/**
+ *  Direct messages (DMs) between two people and group conversations between 3
+ *  or more people.
+ *
+ *  Value: "UNTHREADED_MESSAGES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_SpaceThreadingState_UnthreadedMessages;
+
+// ----------------------------------------------------------------------------
 // GTLRHangoutsChat_Space.type
 
 /**
@@ -1450,7 +1482,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  A card action is the action associated with the card. For an invoice card, a
  *  typical action would be: delete invoice, email invoice or open the invoice
- *  in browser.
+ *  in browser. Not supported by Google Chat apps.
  */
 @interface GTLRHangoutsChat_CardAction : GTLRObject
 
@@ -2128,37 +2160,43 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  A card is a UI element that can contain UI widgets such as text and images.
- *  For more information, see Cards . For example, the following JSON creates a
- *  card that has a header with the name, position, icons, and link for a
- *  contact, followed by a section with contact information like email and phone
- *  number. ``` { "header": { "title": "Sasha", "subtitle": "Software Engineer",
- *  "imageStyle": "ImageStyle.AVATAR", "imageUrl":
- *  "https://example.com/sasha.png", "imageAltText": "Avatar for Sasha" },
- *  "sections" : [ { "header": "Contact Info", "widgets": [ { "decorated_text":
- *  { "icon": { "knownIcon": "EMAIL" }, "content": "sasha\@example.com" } }, {
- *  "decoratedText": { "icon": { "knownIcon": "PERSON" }, "content": "Online" }
- *  }, { "decoratedText": { "icon": { "knownIcon": "PHONE" }, "content": "+1
- *  (555) 555-1234" } }, { "buttons": [ { "textButton": { "text": "Share", },
- *  "onClick": { "openLink": { "url": "https://example.com/share" } } }, {
- *  "textButton": { "text": "Edit", }, "onClick": { "action": { "function":
- *  "goToView", "parameters": [ { "key": "viewType", "value": "EDIT" } ],
- *  "loadIndicator": "LoadIndicator.SPINNER" } } } ] } ], "collapsible": true,
- *  "uncollapsibleWidgetsCount": 3 } ], "cardActions": [ { "actionLabel": "Send
- *  Feedback", "onClick": { "openLink": { "url": "https://example.com/feedback"
- *  } } } ], "name": "contact-card-K3wB6arF2H9L" } ```
+ *  Cards support a defined layout, interactive UI elements like buttons, and
+ *  rich media like images. Use cards to present detailed information, gather
+ *  information from users, and guide users to take a next step. In Google Chat,
+ *  cards appear in several places: - As stand-alone messages. - Accompanying a
+ *  text message, just beneath the text message. - As a
+ *  [dialog](https://developers.google.com/chat/how-tos/dialogs). The following
+ *  example JSON creates a "contact card" that features: - A header with the
+ *  contact's name, job title, avatar picture. - A section with the contact
+ *  information, including formatted text. - Buttons that users can click to
+ *  share the contact or see more or less info. ![Example contact
+ *  card](/chat/images/card_api_reference.png) ``` { "cardsV2": [ { "cardId":
+ *  "unique-card-id", "card": { "header": { "title": "Sasha", "subtitle":
+ *  "Software Engineer", "imageUrl":
+ *  "https://developers.google.com/chat/images/quickstart-app-avatar.png",
+ *  "imageType": "CIRCLE", "imageAltText": "Avatar for Sasha", }, "sections": [
+ *  { "header": "Contact Info", "collapsible": true,
+ *  "uncollapsibleWidgetsCount": 1, "widgets": [ { "decoratedText": {
+ *  "startIcon": { "knownIcon": "EMAIL", }, "text": "sasha\@example.com", } }, {
+ *  "decoratedText": { "startIcon": { "knownIcon": "PERSON", }, "text":
+ *  "Online", }, }, { "decoratedText": { "startIcon": { "knownIcon": "PHONE", },
+ *  "text": "+1 (555) 555-1234", } }, { "buttonList": { "buttons": [ { "text":
+ *  "Share", "onClick": { "openLink": { "url": "https://example.com/share", } }
+ *  }, { "text": "Edit", "onClick": { "action": { "function": "goToView",
+ *  "parameters": [ { "key": "viewType", "value": "EDIT", } ], } } }, ], } }, ],
+ *  }, ], }, } ], } ```
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1Card : GTLRObject
 
 /**
  *  The card's actions. Actions are added to the card's generated toolbar menu.
- *  For example, the following JSON constructs a card action menu with Settings
- *  and Send Feedback options: ``` "card_actions": [ { "actionLabel":
- *  "Settings", "onClick": { "action": { "functionName": "goToView",
- *  "parameters": [ { "key": "viewType", "value": "SETTING" } ],
- *  "loadIndicator": "LoadIndicator.SPINNER" } } }, { "actionLabel": "Send
- *  Feedback", "onClick": { "openLink": { "url": "https://example.com/feedback"
- *  } } } ] ```
+ *  Not supported by Google Chat apps. For example, the following JSON
+ *  constructs a card action menu with Settings and Send Feedback options: ```
+ *  "card_actions": [ { "actionLabel": "Settings", "onClick": { "action": {
+ *  "functionName": "goToView", "parameters": [ { "key": "viewType", "value":
+ *  "SETTING" } ], "loadIndicator": "LoadIndicator.SPINNER" } } }, {
+ *  "actionLabel": "Send Feedback", "onClick": { "openLink": { "url":
+ *  "https://example.com/feedback" } } } ] ```
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1CardAction *> *cardActions;
 
@@ -2204,7 +2242,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  A card action is the action associated with the card. For example, an
  *  invoice card might include actions such as delete invoice, email invoice, or
- *  open the invoice in a browser.
+ *  open the invoice in a browser. Not supported by Google Chat apps.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1CardAction : GTLRObject
 
@@ -3208,8 +3246,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Membership *> *memberships;
 
 /**
- *  Continuation token to retrieve the next page of results. It will be empty
- *  for the last page of results.
+ *  A token that can be sent as `pageToken` to retrieve the next page of
+ *  results. If empty, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -3227,9 +3265,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_ListSpacesResponse : GTLRCollectionObject
 
 /**
- *  Continuation token to retrieve the next page of results. It will be empty
- *  for the last page of results. Tokens expire in an hour. An error is thrown
- *  if an expired token is passed.
+ *  A token that can be sent as `pageToken` to retrieve the next page of
+ *  results. If empty, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -3356,9 +3393,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Attachment *> *attachment;
 
 /**
- *  Rich, formatted and interactive cards that can be used to display UI
- *  elements such as: formatted texts, buttons, clickable images. Cards are
- *  normally displayed below the plain-text body of the message.
+ *  Deprecated: Use `cards_v2` instead. Rich, formatted and interactive cards
+ *  that can be used to display UI elements such as: formatted texts, buttons,
+ *  clickable images. Cards are normally displayed below the plain-text body of
+ *  the message.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Card *> *cards;
 
@@ -3370,9 +3408,18 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  as [dialogs](https://developers.google.com/chat/how-tos/dialogs). The
  *  `cardId` is a unique identifier among cards in the same message and for
  *  identifying user input values. Currently supported widgets include: -
- *  `TextParagraph` - `DecoratedText` - `Image` - `ButtonList`
+ *  `TextParagraph` - `DecoratedText` - `Image` - `ButtonList` - `Divider`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_CardWithId *> *cardsV2;
+
+/**
+ *  A custom name for a Chat message assigned at creation. Must start with
+ *  `client-` and contain only lowercase letters, numbers, and hyphens up to 63
+ *  characters in length. Specify this field to get, update, or delete the
+ *  message with the specified value. For example usage, see [Name a created
+ *  message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message).
+ */
+@property(nonatomic, copy, nullable) NSString *clientAssignedMessageId;
 
 /**
  *  Output only. The time at which the message was created in Google Chat
@@ -3411,7 +3458,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /** Output only. Slash command information, if applicable. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_SlashCommand *slashCommand;
 
-/** The space the message belongs to. */
+/**
+ *  The space the message belongs to. When accessed with [user
+ *  authentication](https://developers.google.com/chat/api/guides/auth/users),
+ *  only the name of the Space is populated.
+ */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Space *space;
 
 /**
@@ -3420,8 +3471,22 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, copy, nullable) NSString *text;
 
-/** The thread the message belongs to. */
+/**
+ *  The thread the message belongs to. For example usage, see [Start or reply to
+ *  a message
+ *  thread](/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
+ */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Thread *thread;
+
+/**
+ *  Output only. When `true`, the message is a response in a reply thread. When
+ *  `false`, the message is visible in the space's top-level conversation as
+ *  either the first message of a thread or a message with no threaded replies.
+ *  If the space doesn't support reply in threads, this field is always `false`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *threadReply;
 
 @end
 
@@ -3551,7 +3616,27 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_SpaceDetails *spaceDetails;
 
 /**
- *  Output only. Whether messages are threaded in this space.
+ *  Output only. The threading state in the Chat space.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_Space_SpaceThreadingState_GroupedMessages Named
+ *        spaces where the conversation is organized by topic. Topics and their
+ *        replies are grouped together. (Value: "GROUPED_MESSAGES")
+ *    @arg @c kGTLRHangoutsChat_Space_SpaceThreadingState_SpaceThreadingStateUnspecified
+ *        Reserved. (Value: "SPACE_THREADING_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChat_Space_SpaceThreadingState_ThreadedMessages Named
+ *        spaces that support message threads. When users respond to a message,
+ *        they can reply in-thread, which keeps their response in the context of
+ *        the original message. (Value: "THREADED_MESSAGES")
+ *    @arg @c kGTLRHangoutsChat_Space_SpaceThreadingState_UnthreadedMessages
+ *        Direct messages (DMs) between two people and group conversations
+ *        between 3 or more people. (Value: "UNTHREADED_MESSAGES")
+ */
+@property(nonatomic, copy, nullable) NSString *spaceThreadingState;
+
+/**
+ *  Output only. Deprecated: Use `spaceThreadingState` instead. Whether messages
+ *  are threaded in this space.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3681,11 +3766,17 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @interface GTLRHangoutsChat_Thread : GTLRObject
 
-/**
- *  Resource name, in the form "spaces/ * /threads/ *". Example:
- *  spaces/AAAAAAAAAAA/threads/TTTTTTTTTTT
- */
+/** Resource name of the thread. Example: spaces/{space}/threads/{thread} */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Opaque thread identifier. To start or add to a thread, create a
+ *  message and specify a `threadKey` or the thread.name. For example usage, see
+ *  [Start or reply to a message
+ *  thread](/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread).
+ *  For other requests, this is an output only field.
+ */
+@property(nonatomic, copy, nullable) NSString *threadKey;
 
 @end
 
@@ -3757,11 +3848,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) NSNumber *isAnonymous;
 
 /**
- *  Resource name for a Google Chat user. Represents a
- *  [person](https://developers.google.com/people/api/rest/v1/people#Person) in
- *  the People API or a
- *  [user](https://developers.google.com/admin-sdk/directory/reference/rest/v1/users)
- *  in the Admin SDK Directory API. Formatted as: `users/{user}`
+ *  Resource name for a Google Chat user. For human users, represents a person
+ *  in the People API or a user in the Admin SDK Directory API. Format:
+ *  `users/{user}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

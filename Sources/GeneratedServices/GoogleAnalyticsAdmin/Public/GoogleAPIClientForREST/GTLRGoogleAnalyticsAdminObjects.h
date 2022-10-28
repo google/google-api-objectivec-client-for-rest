@@ -66,6 +66,12 @@
 @class GTLRGoogleAnalyticsAdmin_V1alphaDeleteUserLinkRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink;
 @class GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal;
+@class GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSet;
+@class GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilter;
+@class GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterExpression;
+@class GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterExpressionList;
+@class GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterInListFilter;
+@class GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterStringFilter;
 @class GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink;
 @class GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink;
 @class GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings;
@@ -74,6 +80,7 @@
 @class GTLRGoogleAnalyticsAdmin_V1alphaNumericValue;
 @class GTLRGoogleAnalyticsAdmin_V1alphaProperty;
 @class GTLRGoogleAnalyticsAdmin_V1alphaPropertySummary;
+@class GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link;
 @class GTLRGoogleAnalyticsAdmin_V1alphaUpdateUserLinkRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaUserLink;
 
@@ -798,6 +805,28 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataStream_T
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataStream_Type_WebDataStream;
 
 // ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterStringFilter.matchType
+
+/**
+ *  Contains the string value.
+ *
+ *  Value: "CONTAINS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterStringFilter_MatchType_Contains;
+/**
+ *  Exact match of the string value.
+ *
+ *  Value: "EXACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterStringFilter_MatchType_Exact;
+/**
+ *  Unspecified
+ *
+ *  Value: "MATCH_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterStringFilter_MatchType_MatchTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings.consent
 
 /**
@@ -1213,6 +1242,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ChangeHistoryResourceTypeUnspecified;
 /**
+ *  ChannelGrouping resource
+ *
+ *  Value: "CHANNEL_GROUPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ChannelGrouping;
+/**
  *  ConversionEvent resource
  *
  *  Value: "CONVERSION_EVENT"
@@ -1254,6 +1289,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  *  Value: "DISPLAY_VIDEO_360_ADVERTISER_LINK_PROPOSAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_DisplayVideo360AdvertiserLinkProposal;
+/**
+ *  ExpandedDataSet resource
+ *
+ *  Value: "EXPANDED_DATA_SET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ExpandedDataSet;
 /**
  *  FirebaseLink resource
  *
@@ -2706,6 +2747,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  */
 @property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal *displayVideo360AdvertiserLinkProposal;
 
+/** A snapshot of an ExpandedDataSet resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSet *expandedDataSet;
+
 /** A snapshot of a FirebaseLink resource in change history. */
 @property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink *firebaseLink;
 
@@ -2720,6 +2764,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 /** A snapshot of a Property resource in change history. */
 @property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaProperty *property;
+
+/** A snapshot of a SearchAds360Link resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link *searchAds360Link;
 
 @end
 
@@ -3357,6 +3404,172 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 
 /**
+ *  A resource message representing a GA4 ExpandedDataSet.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSet : GTLRObject
+
+/**
+ *  Output only. Time when expanded data set began (or will begin) collecing
+ *  data.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *dataCollectionStartTime;
+
+/**
+ *  Optional. The description of the ExpandedDataSet. Max 50 chars.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Immutable. A logical expression of ExpandedDataSet filters applied to
+ *  dimension included in the ExpandedDataSet. This filter is used to reduce the
+ *  number of rows and thus the change of encountering `other row`.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterExpression *dimensionFilterExpression;
+
+/**
+ *  Immutable. The list of dimensions included in the ExpandedDataSet. See the
+ *  [API
+ *  Dimensions](https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema#dimensions)
+ *  for the list of dimension names.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dimensionNames;
+
+/** Required. The display name of the ExpandedDataSet. Max 200 chars. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Immutable. The list of metrics included in the ExpandedDataSet. See the [API
+ *  Metrics](https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema#metrics)
+ *  for the list of dimension names.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *metricNames;
+
+/**
+ *  Output only. The resource name for this ExpandedDataSet resource. Format:
+ *  properties/{property_id}/expandedDataSets/{expanded_data_set}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  A specific filter for a single dimension
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilter : GTLRObject
+
+/** Required. The dimension name to filter. */
+@property(nonatomic, copy, nullable) NSString *fieldName;
+
+/**
+ *  A filter for a string dimension that matches a particular list of options.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterInListFilter *inListFilter;
+
+/** A filter for a string-type dimension that matches a particular pattern. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterStringFilter *stringFilter;
+
+@end
+
+
+/**
+ *  A logical expression of EnhancedDataSet dimension filters.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterExpression : GTLRObject
+
+/**
+ *  A list of expressions to be AND’ed together. It must contain a
+ *  ExpandedDataSetFilterExpression with either not_expression or
+ *  dimension_filter. This must be set for the top level
+ *  ExpandedDataSetFilterExpression.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterExpressionList *andGroup;
+
+/**
+ *  A filter on a single dimension. This cannot be set on the top level
+ *  ExpandedDataSetFilterExpression.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilter *filter;
+
+/**
+ *  A filter expression to be NOT'ed (i.e., inverted, complemented). It must
+ *  include a dimension_filter. This cannot be set on the top level
+ *  ExpandedDataSetFilterExpression.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterExpression *notExpression;
+
+@end
+
+
+/**
+ *  A list of ExpandedDataSet filter expressions.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterExpressionList : GTLRObject
+
+/** A list of ExpandedDataSet filter expressions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterExpression *> *filterExpressions;
+
+@end
+
+
+/**
+ *  A filter for a string dimension that matches a particular list of options.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterInListFilter : GTLRObject
+
+/**
+ *  Optional. If true, the match is case-sensitive. If false, the match is
+ *  case-insensitive. Must be true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *caseSensitive;
+
+/**
+ *  Required. The list of possible string values to match against. Must be
+ *  non-empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  A filter for a string-type dimension that matches a particular pattern.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterStringFilter : GTLRObject
+
+/**
+ *  Optional. If true, the match is case-sensitive. If false, the match is
+ *  case-insensitive. Must be true when match_type is EXACT. Must be false when
+ *  match_type is CONTAINS.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *caseSensitive;
+
+/**
+ *  Required. The match type for the string filter.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterStringFilter_MatchType_Contains
+ *        Contains the string value. (Value: "CONTAINS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterStringFilter_MatchType_Exact
+ *        Exact match of the string value. (Value: "EXACT")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaExpandedDataSetFilterStringFilter_MatchType_MatchTypeUnspecified
+ *        Unspecified (Value: "MATCH_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *matchType;
+
+/** Required. The string value to be matched against. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  A link between a GA4 property and a Firebase project.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink : GTLRObject
@@ -3911,6 +4124,33 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 
 /**
+ *  Response message for ListSearchAds360Links RPC.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "searchAds360Links" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaListSearchAds360LinksResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of SearchAds360Links.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link *> *searchAds360Links;
+
+@end
+
+
+/**
  *  Response message for ListUserLinks RPC.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4347,6 +4587,70 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 /** Rows of dimension value combinations and metric values in the report. */
 @property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaAccessRow *> *rows;
+
+@end
+
+
+/**
+ *  A link between a GA4 property and a Search Ads 360 entity.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaSearchAds360Link : GTLRObject
+
+/**
+ *  Enables personalized advertising features with this integration. If this
+ *  field is not set on create, it will be defaulted to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adsPersonalizationEnabled;
+
+/**
+ *  Output only. The display name of the Search Ads 360 Advertiser. Allows users
+ *  to easily identify the linked resource.
+ */
+@property(nonatomic, copy, nullable) NSString *advertiserDisplayName;
+
+/**
+ *  Immutable. This field represents the Advertiser ID of the Search Ads 360
+ *  Advertiser. that has been linked.
+ */
+@property(nonatomic, copy, nullable) NSString *advertiserId;
+
+/**
+ *  Immutable. Enables the import of campaign data from Search Ads 360 into the
+ *  GA4 property. After link creation, this can only be updated from the Search
+ *  Ads 360 product. If this field is not set on create, it will be defaulted to
+ *  true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *campaignDataSharingEnabled;
+
+/**
+ *  Immutable. Enables the import of cost data from Search Ads 360 to the GA4
+ *  property. This can only be enabled if campaign_data_sharing_enabled is
+ *  enabled. After link creation, this can only be updated from the Search Ads
+ *  360 product. If this field is not set on create, it will be defaulted to
+ *  true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *costDataSharingEnabled;
+
+/**
+ *  Output only. The resource name for this SearchAds360Link resource. Format:
+ *  properties/{propertyId}/searchAds360Links/{linkId} Note: linkId is not the
+ *  Search Ads 360 advertiser ID
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Enables export of site stats with this integration. If this field is not set
+ *  on create, it will be defaulted to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *siteStatsSharingEnabled;
 
 @end
 

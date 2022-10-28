@@ -746,7 +746,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 
 /**
  *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
+ *  resource does not exist, this returns an empty set of permissions, not a
  *  `NOT_FOUND` error. Note: This operation is designed to be used for building
  *  permission-aware UIs and command-line tools, not for authorization checking.
  *  This operation may "fail open" without warning.
@@ -772,7 +772,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Fetches a @c GTLRDns_GoogleIamV1TestIamPermissionsResponse.
  *
  *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
+ *  resource does not exist, this returns an empty set of permissions, not a
  *  `NOT_FOUND` error. Note: This operation is designed to be used for building
  *  permission-aware UIs and command-line tools, not for authorization checking.
  *  This operation may "fail open" without warning.
@@ -1583,7 +1583,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /** Identifies the project addressed by this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
-/** User assigned name of the Respones Policy addressed by this request. */
+/** User assigned name of the response policy addressed by this request. */
 @property(nonatomic, copy, nullable) NSString *responsePolicy;
 
 /**
@@ -1593,7 +1593,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param object The @c GTLRDns_ResponsePolicy to include in the query.
  *  @param project Identifies the project addressed by this request.
- *  @param responsePolicy User assigned name of the Respones Policy addressed by
+ *  @param responsePolicy User assigned name of the response policy addressed by
  *    this request.
  *
  *  @return GTLRDnsQuery_ResponsePoliciesPatch

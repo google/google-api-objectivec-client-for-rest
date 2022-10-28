@@ -299,6 +299,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_PersistenceConfig_RdbSnapshot
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_PersistenceConfig_RdbSnapshotPeriod_TwentyFourHours;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRedis_ReconciliationOperationMetadata.exclusiveAction
+
+/**
+ *  The resource has to be deleted. When using this bit, the CLH should fail the
+ *  operation. DEPRECATED. Instead use DELETE_RESOURCE OperationSignal in
+ *  SideChannel. For more information - go/ccfe-delete-on-upsert,
+ *  go/ccfe-reconciliation-protocol-ug#apply_delete
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ReconciliationOperationMetadata_ExclusiveAction_Delete;
+/**
+ *  This resource could not be repaired but the repair should be tried again at
+ *  a later time. This can happen if there is a dependency that needs to be
+ *  resolved first- e.g. if a parent resource must be repaired before a child
+ *  resource.
+ *
+ *  Value: "RETRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ReconciliationOperationMetadata_ExclusiveAction_Retry;
+/**
+ *  Unknown repair action.
+ *
+ *  Value: "UNKNOWN_REPAIR_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRedis_RescheduleMaintenanceRequest.rescheduleType
 
 /**
@@ -1269,6 +1297,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
  *  will be used.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *rdbSnapshotStartTime;
+
+@end
+
+
+/**
+ *  Operation metadata returned by the CLH during resource state reconciliation.
+ */
+@interface GTLRCloudRedis_ReconciliationOperationMetadata : GTLRObject
+
+/**
+ *  DEPRECATED. Use exclusive_action instead.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deleteResource;
+
+/**
+ *  Excluisive action returned by the CLH.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_ReconciliationOperationMetadata_ExclusiveAction_Delete
+ *        The resource has to be deleted. When using this bit, the CLH should
+ *        fail the operation. DEPRECATED. Instead use DELETE_RESOURCE
+ *        OperationSignal in SideChannel. For more information -
+ *        go/ccfe-delete-on-upsert,
+ *        go/ccfe-reconciliation-protocol-ug#apply_delete (Value: "DELETE")
+ *    @arg @c kGTLRCloudRedis_ReconciliationOperationMetadata_ExclusiveAction_Retry
+ *        This resource could not be repaired but the repair should be tried
+ *        again at a later time. This can happen if there is a dependency that
+ *        needs to be resolved first- e.g. if a parent resource must be repaired
+ *        before a child resource. (Value: "RETRY")
+ *    @arg @c kGTLRCloudRedis_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction
+ *        Unknown repair action. (Value: "UNKNOWN_REPAIR_ACTION")
+ */
+@property(nonatomic, copy, nullable) NSString *exclusiveAction;
 
 @end
 

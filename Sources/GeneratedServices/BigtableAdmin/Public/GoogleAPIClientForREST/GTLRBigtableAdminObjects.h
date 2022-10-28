@@ -591,6 +591,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, strong, nullable) NSNumber *sizeBytes;
 
 /**
+ *  Output only. Name of the backup from which this backup was copied. If a
+ *  backup is not created by copying a backup, this field will be empty. Values
+ *  are of the form: projects//instances//backups/.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceBackup;
+
+/**
  *  Required. Immutable. Name of the table from which this backup was created.
  *  This needs to be in the same instance as the backup. Values are of the form
  *  `projects/{project}/instances/{instance}/tables/{source_table}`.
@@ -634,6 +641,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  will be no newer than this timestamp.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. Name of the backup from which this backup was copied. If a
+ *  backup is not created by copying a backup, this field will be empty. Values
+ *  are of the form: projects//instances//backups/.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceBackup;
 
 /** Output only. Name of the table the backup was created from. */
 @property(nonatomic, copy, nullable) NSString *sourceTable;
@@ -902,6 +916,62 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  matches the active GC expression for its family.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_GcRule *gcRule;
+
+@end
+
+
+/**
+ *  Metadata type for the google.longrunning.Operation returned by CopyBackup.
+ */
+@interface GTLRBigtableAdmin_CopyBackupMetadata : GTLRObject
+
+/**
+ *  The name of the backup being created through the copy operation. Values are
+ *  of the form `projects//instances//clusters//backups/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The progress of the CopyBackup operation. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_OperationProgress *progress;
+
+/** Information about the source backup that is being copied from. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_BackupInfo *sourceBackupInfo;
+
+@end
+
+
+/**
+ *  The request for CopyBackup.
+ */
+@interface GTLRBigtableAdmin_CopyBackupRequest : GTLRObject
+
+/**
+ *  Required. The id of the new backup. The `backup_id` along with `parent` are
+ *  combined as {parent}/backups/{backup_id} to create the full backup name, of
+ *  the form:
+ *  `projects/{project}/instances/{instance}/clusters/{cluster}/backups/{backup_id}`.
+ *  This string must be between 1 and 50 characters in length and match the
+ *  regex _a-zA-Z0-9*.
+ */
+@property(nonatomic, copy, nullable) NSString *backupId;
+
+/**
+ *  Required. Required. The expiration time of the copied backup with
+ *  microsecond granularity that must be at least 6 hours and at most 30 days
+ *  from the time the request is received. Once the `expire_time` has passed,
+ *  Cloud Bigtable will delete the backup and free the resources used by the
+ *  backup.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Required. The source backup to be copied from. The source backup needs to be
+ *  in READY state for it to be copied. Copying a copied backup is not allowed.
+ *  Once CopyBackup is in progress, the source backup cannot be deleted or
+ *  cleaned up on expiration until CopyBackup is finished. Values are of the
+ *  form: `projects//instances//clusters//backups/`.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceBackup;
 
 @end
 

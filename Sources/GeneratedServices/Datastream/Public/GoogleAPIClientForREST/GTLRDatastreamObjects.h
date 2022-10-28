@@ -1583,7 +1583,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @property(nonatomic, strong, nullable) NSNumber *maxConcurrentCdcTasks;
 
-/** Stream large object values. */
+/**
+ *  Stream large object values. NOTE: This feature is currently experimental.
+ */
 @property(nonatomic, strong, nullable) GTLRDatastream_StreamLargeObjects *streamLargeObjects;
 
 @end
@@ -1746,8 +1748,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @property(nonatomic, copy, nullable) NSString *publication;
 
 /**
- *  Required. The name of the logical replication slot that's configured with
- *  the pgoutput plugin.
+ *  Required. Immutable. The name of the logical replication slot that's
+ *  configured with the pgoutput plugin.
  */
 @property(nonatomic, copy, nullable) NSString *replicationSlot;
 

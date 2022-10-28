@@ -454,7 +454,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_OsUpdateStatus_State_UpdateStateDownloadInProgress;
 /**
- *  The device is ready to install the update, but it just needs to reboot.
+ *  The device is ready to install the update, but must reboot.
  *
  *  Value: "updateStateNeedReboot"
  */
@@ -1245,7 +1245,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
  */
 @interface GTLRDirectory_ChromeOsDevice : GTLRObject
 
-/** List of active time ranges (Read-only). */
+/** A list of active time ranges (Read-only). */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_ActiveTimeRanges_Item *> *activeTimeRanges;
 
 /**
@@ -1290,7 +1290,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 /** Reports of CPU utilization and temperature (Read-only) */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item *> *cpuStatusReports;
 
-/** List of device files to download (Read-only) */
+/** A list of device files to download (Read-only) */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_DeviceFiles_Item *> *deviceFiles;
 
 /** The unique ID of the Chrome device. */
@@ -1420,11 +1420,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 /** The Chrome device's platform version. */
 @property(nonatomic, copy, nullable) NSString *platformVersion;
 
-/** List of recent device users, in descending order, by last login time. */
+/** A list of recent device users, in descending order, by last login time. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_RecentUsers_Item *> *recentUsers;
 
 /**
- *  List of screenshot files to download. Type is always "SCREENSHOT_FILE".
+ *  A list of screenshot files to download. Type is always "SCREENSHOT_FILE".
  *  (Read-only)
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_ScreenshotFiles_Item *> *screenshotFiles;
@@ -1517,7 +1517,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
  */
 @interface GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item : GTLRObject
 
-/** List of CPU temperature samples. */
+/** A list of CPU temperature samples. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item_CpuTemperatureInfo_Item *> *cpuTemperatureInfo;
 
 /**
@@ -1579,7 +1579,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 
 
 /**
- *  List of recent device users, in descending order, by last login time.
+ *  A list of recent device users, in descending order, by last login time.
  */
 @interface GTLRDirectory_ChromeOsDevice_RecentUsers_Item : GTLRObject
 
@@ -1755,7 +1755,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 
 
 /**
- *  The data regarding an action to update the status of a Chrome OS device.
+ *  Data about an update to the status of a Chrome OS device.
  */
 @interface GTLRDirectory_ChromeOsDeviceAction : GTLRObject
 
@@ -1783,7 +1783,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 @interface GTLRDirectory_ChromeOsDevices : GTLRCollectionObject
 
 /**
- *  List of Chrome OS Device objects.
+ *  A list of Chrome OS Device objects.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -2182,7 +2182,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
  */
 @interface GTLRDirectory_DomainAliases : GTLRObject
 
-/** List of domain alias objects. */
+/** A list of domain alias objects. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_DomainAlias *> *domainAliases;
 
 /** ETag of the resource. */
@@ -2207,7 +2207,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
  */
 @property(nonatomic, strong, nullable) NSNumber *creationTime;
 
-/** List of domain alias objects. (Read-only) */
+/** A list of domain alias objects. (Read-only) */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_DomainAlias *> *domainAliases;
 
 /** The domain name of the customer. */
@@ -2241,7 +2241,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
  */
 @interface GTLRDirectory_Domains2 : GTLRObject
 
-/** List of domain objects. */
+/** A list of domain objects. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_Domains *> *domains;
 
 /** ETag of the resource. */
@@ -2478,7 +2478,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 @property(nonatomic, strong, nullable) NSNumber *adminCreated;
 
 /**
- *  Read-only. A list of a group's alias email addresses. To add, update, or
+ *  Read-only. The list of a group's alias email addresses. To add, update, or
  *  remove a group's aliases, use the `groups.aliases` methods. If edited in a
  *  group's POST or PUT request, the edit is ignored.
  */
@@ -2533,11 +2533,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Read-only. A list of the group's non-editable alias email addresses that are
- *  outside of the account's primary domain or subdomains. These are functioning
- *  email addresses used by the group. This is a read-only property returned in
- *  the API's response for a group. If edited in a group's POST or PUT request,
- *  the edit is ignored.
+ *  Read-only. The list of the group's non-editable alias email addresses that
+ *  are outside of the account's primary domain or subdomains. These are
+ *  functioning email addresses used by the group. This is a read-only property
+ *  returned in the API's response for a group. If edited in a group's POST or
+ *  PUT request, the edit is ignored.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *nonEditableAliases;
 
@@ -2588,7 +2588,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  List of group objects.
+ *  A list of group objects.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -2762,7 +2762,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  List of member objects.
+ *  A list of member objects.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -2852,8 +2852,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 @property(nonatomic, copy, nullable) NSString *devicePasswordStatus;
 
 /**
- *  List of owner's email addresses. If your application needs the current list
- *  of user emails, use the
+ *  The list of the owner's email addresses. If your application needs the
+ *  current list of user emails, use the
  *  [get](/admin-sdk/directory/v1/reference/mobiledevices/get.html) method. For
  *  additional information, see the [retrieve a
  *  user](/admin-sdk/directory/v1/guides/manage-users#get_user) method.
@@ -2923,8 +2923,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 @property(nonatomic, copy, nullable) NSString *model;
 
 /**
- *  List of the owner's user names. If your application needs the current list
- *  of device owner names, use the
+ *  The list of the owner's user names. If your application needs the current
+ *  list of device owner names, use the
  *  [get](/admin-sdk/directory/v1/reference/mobiledevices/get.html) method. For
  *  more information about retrieving mobile device user information, see the
  *  [Developer's Guide](/admin-sdk/directory/v1/guides/manage-users#get_user).
@@ -2943,7 +2943,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
  */
 @property(nonatomic, copy, nullable) NSString *os;
 
-/** List of accounts added on device (Read-only) */
+/** The list of accounts added on device (Read-only) */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *otherAccountsInfo;
 
 /** DMAgentPermission (Read-only) */
@@ -3061,7 +3061,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  List of Mobile Device objects.
+ *  A list of Mobile Device objects.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -3167,7 +3167,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** List of organizational unit objects. */
+/** A list of organizational unit objects. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_OrgUnit *> *organizationUnits;
 
 @end
@@ -3189,8 +3189,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
  *        The pending update is being downloaded. (Value:
  *        "updateStateDownloadInProgress")
  *    @arg @c kGTLRDirectory_OsUpdateStatus_State_UpdateStateNeedReboot The
- *        device is ready to install the update, but it just needs to reboot.
- *        (Value: "updateStateNeedReboot")
+ *        device is ready to install the update, but must reboot. (Value:
+ *        "updateStateNeedReboot")
  *    @arg @c kGTLRDirectory_OsUpdateStatus_State_UpdateStateNotStarted There is
  *        an update pending but it hasn't started. (Value:
  *        "updateStateNotStarted")
@@ -3849,7 +3849,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 /** Kind of resource this is. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** List of UserSchema objects. */
+/** A list of UserSchema objects. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_Schema *> *schemas;
 
 @end
@@ -3935,8 +3935,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 @interface GTLRDirectory_User : GTLRObject
 
 /**
- *  A list of the user's addresses. The maximum allowed data size for this field
- *  is 10Kb.
+ *  The list of the user's addresses. The maximum allowed data size for this
+ *  field is 10Kb.
  *
  *  Can be any valid JSON type.
  */
@@ -3950,7 +3950,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
  */
 @property(nonatomic, strong, nullable) NSNumber *agreedToTerms;
 
-/** Output only. A list of the user's alias email addresses. */
+/** Output only. The list of the user's alias email addresses. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
 
 /**
@@ -3992,8 +3992,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 @property(nonatomic, strong, nullable) GTLRDateTime *deletionTime;
 
 /**
- *  A list of the user's email addresses. The maximum allowed data size for this
- *  field is 10Kb.
+ *  The list of the user's email addresses. The maximum allowed data size for
+ *  this field is 10Kb.
  *
  *  Can be any valid JSON type.
  */
@@ -4003,8 +4003,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  A list of external IDs for the user, such as an employee or network ID. The
- *  maximum allowed data size for this field is 2Kb.
+ *  The list of external IDs for the user, such as an employee or network ID.
+ *  The maximum allowed data size for this field is 2Kb.
  *
  *  Can be any valid JSON type.
  */
@@ -4037,9 +4037,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  The user's Instant Messenger (IM) accounts. A user account can have multiple
- *  ims properties. But, only one of these ims properties can be the primary IM
- *  contact. The maximum allowed data size for this field is 2Kb.
+ *  The list of the user's Instant Messenger (IM) accounts. A user account can
+ *  have multiple ims properties. But, only one of these ims properties can be
+ *  the primary IM contact. The maximum allowed data size for this field is 2Kb.
  *
  *  Can be any valid JSON type.
  */
@@ -4112,7 +4112,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 @property(nonatomic, strong, nullable) NSNumber *isMailboxSetup;
 
 /**
- *  The user's keywords. The maximum allowed data size for this field is 1Kb.
+ *  The list of the user's keywords. The maximum allowed data size for this
+ *  field is 1Kb.
  *
  *  Can be any valid JSON type.
  */
@@ -4154,8 +4155,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 @property(nonatomic, strong, nullable) GTLRDirectory_UserName *name;
 
 /**
- *  Output only. List of the user's non-editable alias email addresses. These
- *  are typically outside the account's primary domain or sub-domain.
+ *  Output only. The list of the user's non-editable alias email addresses.
+ *  These are typically outside the account's primary domain or sub-domain.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *nonEditableAliases;
 
@@ -4167,7 +4168,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 @property(nonatomic, strong, nullable) id notes;
 
 /**
- *  A list of organizations the user belongs to. The maximum allowed data size
+ *  The list of organizations the user belongs to. The maximum allowed data size
  *  for this field is 10Kb.
  *
  *  Can be any valid JSON type.
@@ -4185,7 +4186,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 @property(nonatomic, copy, nullable) NSString *password;
 
 /**
- *  A list of the user's phone numbers. The maximum allowed data size for this
+ *  The list of the user's phone numbers. The maximum allowed data size for this
  *  field is 1Kb.
  *
  *  Can be any valid JSON type.
@@ -4193,7 +4194,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 @property(nonatomic, strong, nullable) id phones;
 
 /**
- *  A list of [POSIX](https://www.opengroup.org/austin/papers/posix_faq.html)
+ *  The list of [POSIX](https://www.opengroup.org/austin/papers/posix_faq.html)
  *  account information for the user.
  *
  *  Can be any valid JSON type.
@@ -4217,8 +4218,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 @property(nonatomic, copy, nullable) NSString *recoveryPhone;
 
 /**
- *  A list of the user's relationships to other users. The maximum allowed data
- *  size for this field is 2Kb.
+ *  The list of the user's relationships to other users. The maximum allowed
+ *  data size for this field is 2Kb.
  *
  *  Can be any valid JSON type.
  */
@@ -4879,7 +4880,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 @property(nonatomic, copy, nullable) NSString *triggerEvent;
 
 /**
- *  List of user objects.
+ *  A list of user objects.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -4977,7 +4978,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_PrintServerFailureInfo_ErrorCo
 
 
 /**
- *  JSON response template for List verification codes operation in Directory
+ *  JSON response template for list verification codes operation in Directory
  *  API.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over

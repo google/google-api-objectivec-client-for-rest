@@ -19,6 +19,11 @@ NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_DataRead = @"DATA_RE
 NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRCloudFunctions_BuildConfig.dockerRegistry
+NSString * const kGTLRCloudFunctions_BuildConfig_DockerRegistry_ArtifactRegistry = @"ARTIFACT_REGISTRY";
+NSString * const kGTLRCloudFunctions_BuildConfig_DockerRegistry_ContainerRegistry = @"CONTAINER_REGISTRY";
+NSString * const kGTLRCloudFunctions_BuildConfig_DockerRegistry_DockerRegistryUnspecified = @"DOCKER_REGISTRY_UNSPECIFIED";
+
 // GTLRCloudFunctions_EventTrigger.retryPolicy
 NSString * const kGTLRCloudFunctions_EventTrigger_RetryPolicy_RetryPolicyDoNotRetry = @"RETRY_POLICY_DO_NOT_RETRY";
 NSString * const kGTLRCloudFunctions_EventTrigger_RetryPolicy_RetryPolicyRetry = @"RETRY_POLICY_RETRY";
@@ -126,6 +131,11 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_IngressSettings_AllowInternal
 NSString * const kGTLRCloudFunctions_ServiceConfig_IngressSettings_AllowInternalOnly = @"ALLOW_INTERNAL_ONLY";
 NSString * const kGTLRCloudFunctions_ServiceConfig_IngressSettings_IngressSettingsUnspecified = @"INGRESS_SETTINGS_UNSPECIFIED";
 
+// GTLRCloudFunctions_ServiceConfig.securityLevel
+NSString * const kGTLRCloudFunctions_ServiceConfig_SecurityLevel_SecureAlways = @"SECURE_ALWAYS";
+NSString * const kGTLRCloudFunctions_ServiceConfig_SecurityLevel_SecureOptional = @"SECURE_OPTIONAL";
+NSString * const kGTLRCloudFunctions_ServiceConfig_SecurityLevel_SecurityLevelUnspecified = @"SECURITY_LEVEL_UNSPECIFIED";
+
 // GTLRCloudFunctions_ServiceConfig.vpcConnectorEgressSettings
 NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_AllTraffic = @"ALL_TRAFFIC";
 NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_PrivateRangesOnly = @"PRIVATE_RANGES_ONLY";
@@ -191,8 +201,8 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 //
 
 @implementation GTLRCloudFunctions_BuildConfig
-@dynamic build, dockerRepository, entryPoint, environmentVariables, runtime,
-         source, sourceProvenance, workerPool;
+@dynamic build, buildpackStack, dockerRegistry, dockerRepository, entryPoint,
+         environmentVariables, runtime, source, sourceProvenance, workerPool;
 @end
 
 
@@ -800,7 +810,7 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 @implementation GTLRCloudFunctions_ServiceConfig
 @dynamic allTrafficOnLatestRevision, availableMemory, environmentVariables,
          ingressSettings, maxInstanceCount, minInstanceCount, revision,
-         secretEnvironmentVariables, secretVolumes, service,
+         secretEnvironmentVariables, secretVolumes, securityLevel, service,
          serviceAccountEmail, timeoutSeconds, uri, vpcConnector,
          vpcConnectorEgressSettings;
 

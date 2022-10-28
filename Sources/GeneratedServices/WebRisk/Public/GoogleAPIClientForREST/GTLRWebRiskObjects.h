@@ -77,7 +77,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchHashes
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchHashesResponseThreatHash_ThreatTypes_SocialEngineering;
 /**
- *  Extended Coverage Social Engineering list targeting any platform.
+ *  A list of extended coverage social engineering URIs targeting any platform.
  *
  *  Value: "SOCIAL_ENGINEERING_EXTENDED_COVERAGE"
  */
@@ -111,7 +111,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchUrisRe
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchUrisResponseThreatUri_ThreatTypes_SocialEngineering;
 /**
- *  Extended Coverage Social Engineering list targeting any platform.
+ *  A list of extended coverage social engineering URIs targeting any platform.
  *
  *  Value: "SOCIAL_ENGINEERING_EXTENDED_COVERAGE"
  */
@@ -145,7 +145,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_T
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_SocialEngineering;
 /**
- *  Extended Coverage Social Engineering list targeting any platform.
+ *  A list of extended coverage social engineering URIs targeting any platform.
  *
  *  Value: "SOCIAL_ENGINEERING_EXTENDED_COVERAGE"
  */
@@ -424,7 +424,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMet
  */
 @interface GTLRWebRisk_GoogleCloudWebriskV1SearchUrisResponse : GTLRObject
 
-/** The threat list matches. This may be empty if the URI is on no list. */
+/** The threat list matches. This might be empty if the URI is on no list. */
 @property(nonatomic, strong, nullable) GTLRWebRisk_GoogleCloudWebriskV1SearchUrisResponseThreatUri *threat;
 
 @end
@@ -454,7 +454,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMet
 
 /**
  *  ThreatTypes found to be associated with the submitted URI after reviewing
- *  it. This may be empty if the URI was not added to any list.
+ *  it. This might be empty if the URI was not added to any list.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *threatTypes;
 
@@ -601,12 +601,10 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMet
 /** The error result of the operation in case of failure or cancellation. */
 @property(nonatomic, strong, nullable) GTLRWebRisk_GoogleRpcStatus *error;
 
-/** This field will contain a `SubmitUriMetadata` object. */
+/** Contains a `SubmitUriMetadata` object. */
 @property(nonatomic, strong, nullable) GTLRWebRisk_GoogleLongrunningOperation_Metadata *metadata;
 
-/**
- *  This will match the pattern `/v1/{project-name}/operations/{operation-id}`.
- */
+/** Matches the `/v1/{project-name}/operations/{operation-id}` pattern. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -624,7 +622,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMet
 
 
 /**
- *  This field will contain a `SubmitUriMetadata` object.
+ *  Contains a `SubmitUriMetadata` object.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to

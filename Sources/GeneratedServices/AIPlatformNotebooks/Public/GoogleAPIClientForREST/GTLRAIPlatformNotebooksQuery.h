@@ -442,6 +442,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspec
 @end
 
 /**
+ *  Creates a Diagnostic File and runs Diagnostic Tool given an Instance.
+ *
+ *  Method: notebooks.projects.locations.instances.diagnose
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesDiagnose : GTLRAIPlatformNotebooksQuery
+
+/**
+ *  Required. Format:
+ *  `projects/{project_id}/locations/{location}/instances/{instance_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Operation.
+ *
+ *  Creates a Diagnostic File and runs Diagnostic Tool given an Instance.
+ *
+ *  @param object The @c GTLRAIPlatformNotebooks_DiagnoseInstanceRequest to
+ *    include in the query.
+ *  @param name Required. Format:
+ *    `projects/{project_id}/locations/{location}/instances/{instance_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesDiagnose
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_DiagnoseInstanceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets details of a single Instance.
  *
  *  Method: notebooks.projects.locations.instances.get
@@ -1476,6 +1509,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspec
 @end
 
 /**
+ *  Creates a Diagnostic File and runs Diagnostic Tool given a Runtime.
+ *
+ *  Method: notebooks.projects.locations.runtimes.diagnose
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesDiagnose : GTLRAIPlatformNotebooksQuery
+
+/**
+ *  Required. Format:
+ *  `projects/{project_id}/locations/{location}/runtimes/{runtimes_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Operation.
+ *
+ *  Creates a Diagnostic File and runs Diagnostic Tool given a Runtime.
+ *
+ *  @param object The @c GTLRAIPlatformNotebooks_DiagnoseRuntimeRequest to
+ *    include in the query.
+ *  @param name Required. Format:
+ *    `projects/{project_id}/locations/{location}/runtimes/{runtimes_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesDiagnose
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_DiagnoseRuntimeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets details of a single Runtime. The location must be a regional endpoint
  *  rather than zonal.
  *
@@ -1942,6 +2008,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspec
  */
 + (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Upgrades a Managed Notebook Runtime to the latest version.
+ *
+ *  Method: notebooks.projects.locations.runtimes.upgrade
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesUpgrade : GTLRAIPlatformNotebooksQuery
+
+/**
+ *  Required. Format:
+ *  `projects/{project_id}/locations/{location}/runtimes/{runtime_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Operation.
+ *
+ *  Upgrades a Managed Notebook Runtime to the latest version.
+ *
+ *  @param object The @c GTLRAIPlatformNotebooks_UpgradeRuntimeRequest to
+ *    include in the query.
+ *  @param name Required. Format:
+ *    `projects/{project_id}/locations/{location}/runtimes/{runtime_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesUpgrade
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_UpgradeRuntimeRequest *)object
+                           name:(NSString *)name;
 
 @end
 

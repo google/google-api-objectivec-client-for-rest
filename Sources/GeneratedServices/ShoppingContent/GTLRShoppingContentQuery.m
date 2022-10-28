@@ -3299,6 +3299,25 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
 
 @end
 
+@implementation GTLRShoppingContentQuery_QuotasList
+
+@dynamic merchantId, pageSize, pageToken;
+
++ (instancetype)queryWithMerchantId:(long long)merchantId {
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/quotas";
+  GTLRShoppingContentQuery_QuotasList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_ListMethodQuotasResponse class];
+  query.loggingName = @"content.quotas.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_RegionalinventoryCustombatch
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_RegionalinventoryCustomBatchRequest *)object {

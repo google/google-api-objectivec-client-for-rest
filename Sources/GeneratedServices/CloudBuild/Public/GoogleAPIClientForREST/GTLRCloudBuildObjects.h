@@ -54,6 +54,7 @@
 @class GTLRCloudBuild_HTTPDelivery;
 @class GTLRCloudBuild_InlineSecret;
 @class GTLRCloudBuild_InlineSecret_EnvMap;
+@class GTLRCloudBuild_MavenArtifact;
 @class GTLRCloudBuild_NetworkConfig;
 @class GTLRCloudBuild_Notification;
 @class GTLRCloudBuild_Notification_StructDelivery;
@@ -68,6 +69,7 @@
 @class GTLRCloudBuild_PubsubConfig;
 @class GTLRCloudBuild_PullRequestFilter;
 @class GTLRCloudBuild_PushFilter;
+@class GTLRCloudBuild_PythonPackage;
 @class GTLRCloudBuild_RepoSource;
 @class GTLRCloudBuild_RepoSource_Substitutions;
 @class GTLRCloudBuild_Results;
@@ -86,6 +88,8 @@
 @class GTLRCloudBuild_StorageSource;
 @class GTLRCloudBuild_StorageSourceManifest;
 @class GTLRCloudBuild_TimeSpan;
+@class GTLRCloudBuild_UploadedMavenArtifact;
+@class GTLRCloudBuild_UploadedPythonPackage;
 @class GTLRCloudBuild_Volume;
 @class GTLRCloudBuild_Warning;
 @class GTLRCloudBuild_WebhookConfig;
@@ -922,6 +926,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *images;
 
 /**
+ *  A list of Maven artifacts to be uploaded to Artifact Registry upon
+ *  successful completion of all build steps. Artifacts in the workspace
+ *  matching specified paths globs will be uploaded to the specified Artifact
+ *  Registry repository using the builder service account's credentials. If any
+ *  artifacts fail to be pushed, the build is marked FAILURE.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_MavenArtifact *> *mavenArtifacts;
+
+/**
  *  A list of objects to be uploaded to Cloud Storage upon successful completion
  *  of all build steps. Files in the workspace matching specified paths globs
  *  will be uploaded to the specified Cloud Storage location using the builder
@@ -930,6 +943,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  fail to be pushed, the build is marked FAILURE.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_ArtifactObjects *objects;
+
+/**
+ *  A list of Python packages to be uploaded to Artifact Registry upon
+ *  successful completion of all build steps. The build service account
+ *  credentials will be used to perform the upload. If any objects fail to be
+ *  pushed, the build is marked FAILURE.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_PythonPackage *> *pythonPackages;
 
 @end
 
@@ -1400,9 +1421,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 /**
  *  Output only. Stores timing information for phases of the build. Valid keys
  *  are: * BUILD: time to execute all build steps. * PUSH: time to push all
- *  specified images. * FETCHSOURCE: time to fetch source. * SETUPBUILD: time to
- *  set up build. If the build does not specify source or images, these keys
- *  will not be included.
+ *  artifacts including docker images and non docker artifacts. * FETCHSOURCE:
+ *  time to fetch source. * SETUPBUILD: time to set up build. If the build does
+ *  not specify source or images, these keys will not be included.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Build_Timing *timing;
 
@@ -1430,9 +1451,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 /**
  *  Output only. Stores timing information for phases of the build. Valid keys
  *  are: * BUILD: time to execute all build steps. * PUSH: time to push all
- *  specified images. * FETCHSOURCE: time to fetch source. * SETUPBUILD: time to
- *  set up build. If the build does not specify source or images, these keys
- *  will not be included.
+ *  artifacts including docker images and non docker artifacts. * FETCHSOURCE:
+ *  time to fetch source. * SETUPBUILD: time to set up build. If the build does
+ *  not specify source or images, these keys will not be included.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCloudBuild_TimeSpan. Use @c -additionalJSONKeys and @c
@@ -3117,6 +3138,47 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 
 
 /**
+ *  A Maven artifact to upload to Artifact Registry upon successful completion
+ *  of all build steps.
+ */
+@interface GTLRCloudBuild_MavenArtifact : GTLRObject
+
+/**
+ *  Maven `artifactId` value used when uploading the artifact to Artifact
+ *  Registry.
+ */
+@property(nonatomic, copy, nullable) NSString *artifactId;
+
+/**
+ *  Maven `groupId` value used when uploading the artifact to Artifact Registry.
+ */
+@property(nonatomic, copy, nullable) NSString *groupId;
+
+/**
+ *  Path to an artifact in the build's workspace to be uploaded to Artifact
+ *  Registry. This can be either an absolute path, e.g.
+ *  /workspace/my-app/target/my-app-1.0.SNAPSHOT.jar or a relative path from
+ *  /workspace, e.g. my-app/target/my-app-1.0.SNAPSHOT.jar.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Artifact Registry repository, in the form
+ *  "https://$REGION-maven.pkg.dev/$PROJECT/$REPOSITORY" Artifact in the
+ *  workspace specified by path will be uploaded to Artifact Registry with this
+ *  location as a prefix.
+ */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+/**
+ *  Maven `version` value used when uploading the artifact to Artifact Registry.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
  *  Defines the network configuration for the pool.
  */
 @interface GTLRCloudBuild_NetworkConfig : GTLRObject
@@ -3572,6 +3634,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 
 
 /**
+ *  Python package to upload to Artifact Registry upon successful completion of
+ *  all build steps. A package can encapsulate multiple objects to be uploaded
+ *  to a single repository.
+ */
+@interface GTLRCloudBuild_PythonPackage : GTLRObject
+
+/**
+ *  Path globs used to match files in the build's workspace. For Python/ Twine,
+ *  this is usually `dist/ *`, and sometimes additionally an `.asc` file.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
+
+/**
+ *  Artifact Registry repository, in the form
+ *  "https://$REGION-python.pkg.dev/$PROJECT/$REPOSITORY" Files in the workspace
+ *  matching any path pattern will be uploaded to Artifact Registry with this
+ *  location as a prefix.
+ */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+@end
+
+
+/**
  *  ReceiveTriggerWebhookResponse [Experimental] is the response object for the
  *  ReceiveTriggerWebhook method.
  */
@@ -3676,11 +3762,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 @interface GTLRCloudBuild_Results : GTLRObject
 
 /**
- *  Path to the artifact manifest. Only populated when artifacts are uploaded.
+ *  Path to the artifact manifest for non-container artifacts uploaded to Cloud
+ *  Storage. Only populated when artifacts are uploaded to Cloud Storage.
  */
 @property(nonatomic, copy, nullable) NSString *artifactManifest;
 
-/** Time to push all non-container artifacts. */
+/** Time to push all non-container artifacts to Cloud Storage. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_TimeSpan *artifactTiming;
 
 /**
@@ -3704,12 +3791,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 /** Container images that were built as a part of the build. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_BuiltImage *> *images;
 
+/** Maven artifacts uploaded to Artifact Registry at the end of the build. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_UploadedMavenArtifact *> *mavenArtifacts;
+
 /**
- *  Number of artifacts uploaded. Only populated when artifacts are uploaded.
+ *  Number of non-container artifacts uploaded to Cloud Storage. Only populated
+ *  when artifacts are uploaded to Cloud Storage.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numArtifacts;
+
+/** Python artifacts uploaded to Artifact Registry at the end of the build. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_UploadedPythonPackage *> *pythonPackages;
 
 @end
 
@@ -4211,6 +4305,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  `projects/{project}/locations/{location}/workerPools/{worker_pool}`.
  */
 @property(nonatomic, copy, nullable) NSString *workerPool;
+
+@end
+
+
+/**
+ *  A Maven artifact uploaded using the MavenArtifact directive.
+ */
+@interface GTLRCloudBuild_UploadedMavenArtifact : GTLRObject
+
+/** Hash types and values of the Maven Artifact. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_FileHashes *fileHashes;
+
+/**
+ *  Output only. Stores timing information for pushing the specified artifact.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_TimeSpan *pushTiming;
+
+/** URI of the uploaded artifact. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Artifact uploaded using the PythonPackage directive.
+ */
+@interface GTLRCloudBuild_UploadedPythonPackage : GTLRObject
+
+/** Hash types and values of the Python Artifact. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_FileHashes *fileHashes;
+
+/**
+ *  Output only. Stores timing information for pushing the specified artifact.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_TimeSpan *pushTiming;
+
+/** URI of the uploaded artifact. */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 

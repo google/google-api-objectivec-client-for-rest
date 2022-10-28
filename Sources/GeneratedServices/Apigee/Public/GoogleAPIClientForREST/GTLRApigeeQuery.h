@@ -3767,9 +3767,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @interface GTLRApigeeQuery_OrganizationsEndpointAttachmentsCreate : GTLRApigeeQuery
 
 /**
- *  ID to use for the endpoint attachment. The ID can contain lowercase letters
- *  and numbers, must start with a letter, and must be 1-20 characters in
- *  length.
+ *  ID to use for the endpoint attachment. ID must start with a lowercase letter
+ *  followed by up to 31 lowercase letters, numbers, or hyphens, and cannot end
+ *  with a hyphen. The minimum length is 2.
  */
 @property(nonatomic, copy, nullable) NSString *endpointAttachmentId;
 

@@ -22,6 +22,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+/**
+ *  Authorization scope: View, add, and remove members from conversations in
+ *  Google Chat
+ *
+ *  Value "https://www.googleapis.com/auth/chat.memberships"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMemberships;
+
+// ----------------------------------------------------------------------------
+//   GTLRHangoutsChatService
+//
+
 /**
  *  Service for executing Google Chat API queries.
  *

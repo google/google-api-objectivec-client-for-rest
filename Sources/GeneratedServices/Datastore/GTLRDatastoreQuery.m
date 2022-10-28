@@ -401,6 +401,33 @@
 
 @end
 
+@implementation GTLRDatastoreQuery_ProjectsRunAggregationQuery
+
+@dynamic projectId;
+
++ (instancetype)queryWithObject:(GTLRDatastore_RunAggregationQueryRequest *)object
+                      projectId:(NSString *)projectId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"projectId" ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}:runAggregationQuery";
+  GTLRDatastoreQuery_ProjectsRunAggregationQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.expectedObjectClass = [GTLRDatastore_RunAggregationQueryResponse class];
+  query.loggingName = @"datastore.projects.runAggregationQuery";
+  return query;
+}
+
+@end
+
 @implementation GTLRDatastoreQuery_ProjectsRunQuery
 
 @dynamic projectId;

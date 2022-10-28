@@ -841,11 +841,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *dataset;
 
 /**
- *  The device type context for completion suggestions. It is useful to apply
- *  different suggestions on different device types, e.g. `DESKTOP`, `MOBILE`.
- *  If it is empty, the suggestions are across all device types. Supported
- *  formats: * `UNKNOWN_DEVICE_TYPE` * `DESKTOP` * `MOBILE` * A customized
- *  string starts with `OTHER_`, e.g. `OTHER_IPHONE`.
+ *  The device type context for completion suggestions. We recommend that you
+ *  leave this field empty. It can apply different suggestions on different
+ *  device types, e.g. `DESKTOP`, `MOBILE`. If it is empty, the suggestions are
+ *  across all device types. Supported formats: * `UNKNOWN_DEVICE_TYPE` *
+ *  `DESKTOP` * `MOBILE` * A customized string starts with `OTHER_`, e.g.
+ *  `OTHER_IPHONE`.
  */
 @property(nonatomic, copy, nullable) NSString *deviceType;
 
@@ -2091,6 +2092,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/1234/locations/global/catalogs/default_catalog`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  The prebuilt rule name that can convert a specific type of raw_json. For
+ *  example: "default_schema/v1.0"
+ */
+@property(nonatomic, copy, nullable) NSString *prebuiltRule;
+
+/**
+ *  An arbitrary serialized JSON string that contains necessary information that
+ *  can comprise a user event. When this field is specified, the user_event
+ *  field will be ignored. Note: line-delimited JSON is not supported, a single
+ *  JSON only.
+ */
+@property(nonatomic, copy, nullable) NSString *rawJson;
 
 /**
  *  The URL including cgi-parameters but excluding the hash fragment with a

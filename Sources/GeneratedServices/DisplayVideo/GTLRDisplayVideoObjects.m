@@ -3677,6 +3677,26 @@ NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_ContentCategory_Yo
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDisplayVideo_DuplicateLineItemRequest
+//
+
+@implementation GTLRDisplayVideo_DuplicateLineItemRequest
+@dynamic targetDisplayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_DuplicateLineItemResponse
+//
+
+@implementation GTLRDisplayVideo_DuplicateLineItemResponse
+@dynamic duplicateLineItemId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDisplayVideo_EditCustomerMatchMembersRequest
 //
 

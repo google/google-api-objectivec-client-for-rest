@@ -93,6 +93,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_Da
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudFunctions_BuildConfig.dockerRegistry
+
+/**
+ *  Docker images will be stored in regional Artifact Registry repositories. By
+ *  default, GCF will create and use repositories named `gcf-artifacts` in every
+ *  region in which a function is deployed. But the repository to use can also
+ *  be specified by the user using the `docker_repository` field.
+ *
+ *  Value: "ARTIFACT_REGISTRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_BuildConfig_DockerRegistry_ArtifactRegistry;
+/**
+ *  Docker images will be stored in multi-regional Container Registry
+ *  repositories named `gcf`.
+ *
+ *  Value: "CONTAINER_REGISTRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_BuildConfig_DockerRegistry_ContainerRegistry;
+/**
+ *  Unspecified.
+ *
+ *  Value: "DOCKER_REGISTRY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_BuildConfig_DockerRegistry_DockerRegistryUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudFunctions_EventTrigger.retryPolicy
 
 /**
@@ -609,6 +635,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_IngressSett
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_IngressSettings_IngressSettingsUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudFunctions_ServiceConfig.securityLevel
+
+/**
+ *  Requests for a URL that match this handler that do not use HTTPS are
+ *  automatically redirected to the HTTPS URL with the same path. Query
+ *  parameters are reserved for the redirect.
+ *
+ *  Value: "SECURE_ALWAYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_SecurityLevel_SecureAlways;
+/**
+ *  Both HTTP and HTTPS requests with URLs that match the handler succeed
+ *  without redirects. The application can examine the request to determine
+ *  which protocol was used and respond accordingly.
+ *
+ *  Value: "SECURE_OPTIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_SecurityLevel_SecureOptional;
+/**
+ *  Unspecified.
+ *
+ *  Value: "SECURITY_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_SecurityLevel_SecurityLevelUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudFunctions_ServiceConfig.vpcConnectorEgressSettings
 
 /**
@@ -772,9 +824,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
  */
 @property(nonatomic, copy, nullable) NSString *build;
 
+/** Specifies one of the Google provided buildpack stacks. */
+@property(nonatomic, copy, nullable) NSString *buildpackStack;
+
 /**
- *  Optional. User managed repository created in Artifact Registry optionally
- *  with a customer managed encryption key. This is the repository to which the
+ *  Optional. Docker Registry to use for this deployment. This configuration is
+ *  only applicable to 1st Gen functions, 2nd Gen functions can only use
+ *  Artifact Registry. If `docker_repository` field is specified, this field
+ *  will be automatically set as `ARTIFACT_REGISTRY`. If unspecified, it
+ *  currently defaults to `CONTAINER_REGISTRY`. This field may be overridden by
+ *  the backend for eligible deployments.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFunctions_BuildConfig_DockerRegistry_ArtifactRegistry
+ *        Docker images will be stored in regional Artifact Registry
+ *        repositories. By default, GCF will create and use repositories named
+ *        `gcf-artifacts` in every region in which a function is deployed. But
+ *        the repository to use can also be specified by the user using the
+ *        `docker_repository` field. (Value: "ARTIFACT_REGISTRY")
+ *    @arg @c kGTLRCloudFunctions_BuildConfig_DockerRegistry_ContainerRegistry
+ *        Docker images will be stored in multi-regional Container Registry
+ *        repositories named `gcf`. (Value: "CONTAINER_REGISTRY")
+ *    @arg @c kGTLRCloudFunctions_BuildConfig_DockerRegistry_DockerRegistryUnspecified
+ *        Unspecified. (Value: "DOCKER_REGISTRY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *dockerRegistry;
+
+/**
+ *  User managed repository created in Artifact Registry optionally with a
+ *  customer managed encryption key. This is the repository to which the
  *  function docker image will be pushed after it is built by Cloud Build. If
  *  unspecified, GCF will create and use a repository named 'gcf-artifacts' for
  *  every deployed region. It must match the pattern
@@ -2215,6 +2293,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 
 /** Secret volumes configuration. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_SecretVolume *> *secretVolumes;
+
+/**
+ *  Optional. Security level configure whether the function only accepts https.
+ *  This configuration is only applicable to 1st Gen functions with Http
+ *  trigger. By default https is optional for 1st Gen functions; 2nd Gen
+ *  functions are https ONLY.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFunctions_ServiceConfig_SecurityLevel_SecureAlways
+ *        Requests for a URL that match this handler that do not use HTTPS are
+ *        automatically redirected to the HTTPS URL with the same path. Query
+ *        parameters are reserved for the redirect. (Value: "SECURE_ALWAYS")
+ *    @arg @c kGTLRCloudFunctions_ServiceConfig_SecurityLevel_SecureOptional
+ *        Both HTTP and HTTPS requests with URLs that match the handler succeed
+ *        without redirects. The application can examine the request to
+ *        determine which protocol was used and respond accordingly. (Value:
+ *        "SECURE_OPTIONAL")
+ *    @arg @c kGTLRCloudFunctions_ServiceConfig_SecurityLevel_SecurityLevelUnspecified
+ *        Unspecified. (Value: "SECURITY_LEVEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *securityLevel;
 
 /**
  *  Output only. Name of the service associated with a Function. The format of

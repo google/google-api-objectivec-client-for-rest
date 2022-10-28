@@ -493,6 +493,47 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
+ *  Copy a Cloud Bigtable backup to a new backup in the destination cluster
+ *  located in the destination instance and project.
+ *
+ *  Method: bigtableadmin.projects.instances.clusters.backups.copy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsCopy : GTLRBigtableAdminQuery
+
+/**
+ *  Required. The name of the destination cluster that will contain the backup
+ *  copy. The cluster must already exists. Values are of the form:
+ *  `projects/{project}/instances/{instance}/clusters/{cluster}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Operation.
+ *
+ *  Copy a Cloud Bigtable backup to a new backup in the destination cluster
+ *  located in the destination instance and project.
+ *
+ *  @param object The @c GTLRBigtableAdmin_CopyBackupRequest to include in the
+ *    query.
+ *  @param parent Required. The name of the destination cluster that will
+ *    contain the backup copy. The cluster must already exists. Values are of
+ *    the form: `projects/{project}/instances/{instance}/clusters/{cluster}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsCopy
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_CopyBackupRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Starts creating a new Cloud Bigtable Backup. The returned backup
  *  long-running operation can be used to track creation of the backup. The
  *  metadata field type is CreateBackupMetadata. The response field type is

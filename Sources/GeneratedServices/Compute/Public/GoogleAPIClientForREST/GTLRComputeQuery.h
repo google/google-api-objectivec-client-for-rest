@@ -28672,7 +28672,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Patches the specified policy with the data included in the request.
+ *  Patches the specified policy with the data included in the request. To clear
+ *  fields in the rule, leave the fields empty and specify them in the
+ *  updateMask. This cannot be used to be update the rules in the policy. Please
+ *  use the per rule methods like addRule, patchRule, and removeRule instead.
  *
  *  Method: compute.regionSecurityPolicies.patch
  *
@@ -28707,7 +28710,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Patches the specified policy with the data included in the request.
+ *  Patches the specified policy with the data included in the request. To clear
+ *  fields in the rule, leave the fields empty and specify them in the
+ *  updateMask. This cannot be used to be update the rules in the policy. Please
+ *  use the per rule methods like addRule, patchRule, and removeRule instead.
  *
  *  @param object The @c GTLRCompute_SecurityPolicy to include in the query.
  *  @param project Project ID for this request.
@@ -33400,9 +33406,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Patches the specified policy with the data included in the request. This
- *  cannot be used to be update the rules in the policy. Please use the per rule
- *  methods like addRule, patchRule, and removeRule instead.
+ *  Patches the specified policy with the data included in the request. To clear
+ *  fields in the rule, leave the fields empty and specify them in the
+ *  updateMask. This cannot be used to be update the rules in the policy. Please
+ *  use the per rule methods like addRule, patchRule, and removeRule instead.
  *
  *  Method: compute.securityPolicies.patch
  *
@@ -33434,9 +33441,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Patches the specified policy with the data included in the request. This
- *  cannot be used to be update the rules in the policy. Please use the per rule
- *  methods like addRule, patchRule, and removeRule instead.
+ *  Patches the specified policy with the data included in the request. To clear
+ *  fields in the rule, leave the fields empty and specify them in the
+ *  updateMask. This cannot be used to be update the rules in the policy. Please
+ *  use the per rule methods like addRule, patchRule, and removeRule instead.
  *
  *  @param object The @c GTLRCompute_SecurityPolicy to include in the query.
  *  @param project Project ID for this request.

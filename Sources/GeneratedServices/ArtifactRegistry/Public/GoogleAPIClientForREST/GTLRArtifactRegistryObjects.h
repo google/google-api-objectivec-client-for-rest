@@ -1446,6 +1446,13 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. If set, the repository satisfies physical zone separation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Output only. The size, in bytes, of all artifact storage in this repository.
  *  Repositories that are generally available or in public preview use this to
  *  calculate storage costs.
@@ -1718,7 +1725,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 /**
  *  Output only. Repository-specific Metadata stored against this version. The
  *  fields returned are defined by the underlying repository-specific resource.
- *  Currently, the only resource in use is DockerImage
+ *  Currently, the resources could be: DockerImage MavenArtifact
  */
 @property(nonatomic, strong, nullable) GTLRArtifactRegistry_Version_Metadata *metadata;
 
@@ -1744,7 +1751,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 /**
  *  Output only. Repository-specific Metadata stored against this version. The
  *  fields returned are defined by the underlying repository-specific resource.
- *  Currently, the only resource in use is DockerImage
+ *  Currently, the resources could be: DockerImage MavenArtifact
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
