@@ -296,6 +296,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/CloudAsset/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/CloudAsset/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'CloudBatch' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/CloudBatch/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/CloudBatch/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'Cloudbilling' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Cloudbilling/**/*.{h,m}'
@@ -1220,6 +1225,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Translate/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Translate/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'TravelImpactModel' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/TravelImpactModel/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/TravelImpactModel/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'Vault' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

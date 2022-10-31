@@ -47,7 +47,6 @@
 @class GTLRDataproc_Expr;
 @class GTLRDataproc_GceClusterConfig;
 @class GTLRDataproc_GceClusterConfig_Metadata;
-@class GTLRDataproc_GceNodePoolOperationMetadata_Labels;
 @class GTLRDataproc_GetPolicyOptions;
 @class GTLRDataproc_GkeClusterConfig;
 @class GTLRDataproc_GkeNodeConfig;
@@ -89,6 +88,7 @@
 @class GTLRDataproc_MetricConfig;
 @class GTLRDataproc_NamespacedGkeDeploymentTarget;
 @class GTLRDataproc_NodeGroupAffinity;
+@class GTLRDataproc_NodeGroupOperationMetadata_Labels;
 @class GTLRDataproc_NodeInitializationAction;
 @class GTLRDataproc_NodePool;
 @class GTLRDataproc_Operation;
@@ -138,6 +138,7 @@
 @class GTLRDataproc_TemplateParameter;
 @class GTLRDataproc_TrinoJob;
 @class GTLRDataproc_TrinoJob_Properties;
+@class GTLRDataproc_UsageMetrics;
 @class GTLRDataproc_ValueValidation;
 @class GTLRDataproc_VirtualClusterConfig;
 @class GTLRDataproc_WorkflowGraph;
@@ -378,40 +379,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6Goo
  *  Value: "PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRDataproc_GceNodePoolOperationMetadata.operationType
-
-/**
- *  Create Compute Engine node pool operation type.
- *
- *  Value: "CREATE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_Create;
-/**
- *  Delete Compute Engine node pool operation type.
- *
- *  Value: "DELETE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_Delete;
-/**
- *  Compute Engine node pool operation type is unknown.
- *
- *  Value: "GCE_NODE_POOL_OPERATION_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_GceNodePoolOperationTypeUnspecified;
-/**
- *  Resize Compute Engine node pool operation type.
- *
- *  Value: "RESIZE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_Resize;
-/**
- *  Update Compute Engine node pool operation type.
- *
- *  Value: "UPDATE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_Update;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_GkeNodePoolTarget.roles
@@ -697,6 +664,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_SparkHistor
  *  Value: "YARN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_Yarn;
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_NodeGroupOperationMetadata.operationType
+
+/**
+ *  Create node group operation type.
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Create;
+/**
+ *  Delete node group operation type.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Delete;
+/**
+ *  Node group operation type is unknown.
+ *
+ *  Value: "NODE_GROUP_OPERATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_NodeGroupOperationTypeUnspecified;
+/**
+ *  Resize node group operation type.
+ *
+ *  Value: "RESIZE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Resize;
+/**
+ *  Update node group operation type.
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Update;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_NodePool.repairAction
@@ -2296,72 +2297,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  Metadata describing the Compute Engine node pool operation.
- */
-@interface GTLRDataproc_GceNodePoolOperationMetadata : GTLRObject
-
-/**
- *  Output only. Cluster UUID associated with the Compute Engine node pool
- *  operation.
- */
-@property(nonatomic, copy, nullable) NSString *clusterUuid;
-
-/**
- *  Output only. Short description of operation.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/** Output only. Compute Engine node pool ID for the operation. */
-@property(nonatomic, copy, nullable) NSString *gceNodePoolId;
-
-/** Output only. Labels associated with the operation */
-@property(nonatomic, strong, nullable) GTLRDataproc_GceNodePoolOperationMetadata_Labels *labels;
-
-/**
- *  The operation type.
- *
- *  Likely values:
- *    @arg @c kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_Create
- *        Create Compute Engine node pool operation type. (Value: "CREATE")
- *    @arg @c kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_Delete
- *        Delete Compute Engine node pool operation type. (Value: "DELETE")
- *    @arg @c kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_GceNodePoolOperationTypeUnspecified
- *        Compute Engine node pool operation type is unknown. (Value:
- *        "GCE_NODE_POOL_OPERATION_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_Resize
- *        Resize Compute Engine node pool operation type. (Value: "RESIZE")
- *    @arg @c kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_Update
- *        Update Compute Engine node pool operation type. (Value: "UPDATE")
- */
-@property(nonatomic, copy, nullable) NSString *operationType;
-
-/** Output only. Current operation status. */
-@property(nonatomic, strong, nullable) GTLRDataproc_ClusterOperationStatus *status;
-
-/** Output only. The previous operation status. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_ClusterOperationStatus *> *statusHistory;
-
-/** Output only. Errors encountered during operation execution. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *warnings;
-
-@end
-
-
-/**
- *  Output only. Labels associated with the operation
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRDataproc_GceNodePoolOperationMetadata_Labels : GTLRObject
-@end
-
-
-/**
  *  Request message for GetIamPolicy method.
  */
 @interface GTLRDataproc_GetIamPolicyRequest : GTLRObject
@@ -3931,6 +3866,69 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  Metadata describing the node group operation.
+ */
+@interface GTLRDataproc_NodeGroupOperationMetadata : GTLRObject
+
+/** Output only. Cluster UUID associated with the node group operation. */
+@property(nonatomic, copy, nullable) NSString *clusterUuid;
+
+/**
+ *  Output only. Short description of operation.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. Labels associated with the operation. */
+@property(nonatomic, strong, nullable) GTLRDataproc_NodeGroupOperationMetadata_Labels *labels;
+
+/** Output only. Node group ID for the operation. */
+@property(nonatomic, copy, nullable) NSString *nodeGroupId;
+
+/**
+ *  The operation type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Create
+ *        Create node group operation type. (Value: "CREATE")
+ *    @arg @c kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Delete
+ *        Delete node group operation type. (Value: "DELETE")
+ *    @arg @c kGTLRDataproc_NodeGroupOperationMetadata_OperationType_NodeGroupOperationTypeUnspecified
+ *        Node group operation type is unknown. (Value:
+ *        "NODE_GROUP_OPERATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Resize
+ *        Resize node group operation type. (Value: "RESIZE")
+ *    @arg @c kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Update
+ *        Update node group operation type. (Value: "UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *operationType;
+
+/** Output only. Current operation status. */
+@property(nonatomic, strong, nullable) GTLRDataproc_ClusterOperationStatus *status;
+
+/** Output only. The previous operation status. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_ClusterOperationStatus *> *statusHistory;
+
+/** Output only. Errors encountered during operation execution. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *warnings;
+
+@end
+
+
+/**
+ *  Output only. Labels associated with the operation.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_NodeGroupOperationMetadata_Labels : GTLRObject
+@end
+
+
+/**
  *  Specifies an executable to run on a fully configured node and a timeout
  *  period for executable completion.
  */
@@ -4671,6 +4669,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Runtime information about workload execution.
  */
 @interface GTLRDataproc_RuntimeInfo : GTLRObject
+
+/**
+ *  Output only. Approximate workload resource usage calculated after workload
+ *  finishes.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_UsageMetrics *approximateUsage;
 
 /** Output only. A URI pointing to the location of the diagnostics tarball. */
 @property(nonatomic, copy, nullable) NSString *diagnosticOutputUri;
@@ -5558,6 +5562,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        fetch them all at once.
  */
 @interface GTLRDataproc_TrinoJob_Properties : GTLRObject
+@end
+
+
+/**
+ *  Usage metrics represent total resources consumed by a workload.
+ */
+@interface GTLRDataproc_UsageMetrics : GTLRObject
+
+/**
+ *  Optional. DCU usage in milliDCU*seconds.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *milliDcuSeconds;
+
+/**
+ *  Optional. Shuffle storage usage in GB*Seconds
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shuffleStorageGbSeconds;
+
 @end
 
 

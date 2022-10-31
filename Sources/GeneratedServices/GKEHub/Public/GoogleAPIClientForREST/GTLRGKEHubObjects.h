@@ -55,8 +55,14 @@
 @class GTLRGKEHub_Feature_Labels;
 @class GTLRGKEHub_Feature_MembershipSpecs;
 @class GTLRGKEHub_Feature_MembershipStates;
+@class GTLRGKEHub_Feature_ScopeSpecs;
+@class GTLRGKEHub_Feature_ScopeStates;
 @class GTLRGKEHub_FeatureResourceState;
 @class GTLRGKEHub_FeatureState;
+@class GTLRGKEHub_FleetObservabilityFeatureSpec;
+@class GTLRGKEHub_FleetObservabilityFeatureState;
+@class GTLRGKEHub_FleetObservabilityMembershipSpec;
+@class GTLRGKEHub_FleetObservabilityMembershipState;
 @class GTLRGKEHub_GkeCluster;
 @class GTLRGKEHub_GoogleRpcStatus;
 @class GTLRGKEHub_GoogleRpcStatus_Details_Item;
@@ -88,6 +94,8 @@
 @class GTLRGKEHub_Policy;
 @class GTLRGKEHub_ResourceManifest;
 @class GTLRGKEHub_ResourceOptions;
+@class GTLRGKEHub_ScopeFeatureSpec;
+@class GTLRGKEHub_ScopeFeatureState;
 @class GTLRGKEHub_ServiceMeshControlPlaneManagement;
 @class GTLRGKEHub_ServiceMeshDataPlaneManagement;
 @class GTLRGKEHub_ServiceMeshMembershipSpec;
@@ -1315,6 +1323,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 /** Appdevexperience specific spec. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_AppDevExperienceFeatureSpec *appdevexperience;
 
+/** FleetObservability feature spec. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_FleetObservabilityFeatureSpec *fleetobservability;
+
 /** Multicluster Ingress-specific spec. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_MultiClusterIngressFeatureSpec *multiclusteringress;
 
@@ -1328,6 +1339,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /** Appdevexperience specific state. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_AppDevExperienceFeatureState *appdevexperience;
+
+/** FleetObservability feature state. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_FleetObservabilityFeatureState *fleetobservability;
 
 /** Output only. The "running state" of the Feature in this Hub. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_FeatureState *state;
@@ -2256,6 +2270,30 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 @property(nonatomic, strong, nullable) GTLRGKEHub_FeatureResourceState *resourceState;
 
 /**
+ *  Optional. Scope-specific configuration for this Feature. If this Feature
+ *  does not support any per-Scope configuration, this field may be unused. The
+ *  keys indicate which Scope the configuration is for, in the form:
+ *  `projects/{p}/locations/global/scopes/{s}` Where {p} is the project, {s} is
+ *  a valid Scope in this project. {p} WILL match the Feature's project. {p}
+ *  will always be returned as the project number, but the project ID is also
+ *  accepted during input. If the same Scope is specified in the map twice
+ *  (using the project ID form, and the project number form), exactly ONE of the
+ *  entries will be saved, with no guarantees as to which. For this reason, it
+ *  is recommended the same format be used for all entries when mutating a
+ *  Feature.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_Feature_ScopeSpecs *scopeSpecs;
+
+/**
+ *  Output only. Scope-specific Feature status. If this Feature does report any
+ *  per-Scope status, this field may be unused. The keys indicate which Scope
+ *  the state is for, in the form: `projects/{p}/locations/global/scopes/{s}`
+ *  Where {p} is the project, {s} is a valid Scope in this project. {p} WILL
+ *  match the Feature's project.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_Feature_ScopeStates *scopeStates;
+
+/**
  *  Optional. Hub-wide Feature configuration. If this Feature does not support
  *  any Hub-wide configuration, this field may be unused.
  */
@@ -2318,6 +2356,44 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRGKEHub_Feature_MembershipStates : GTLRObject
+@end
+
+
+/**
+ *  Optional. Scope-specific configuration for this Feature. If this Feature
+ *  does not support any per-Scope configuration, this field may be unused. The
+ *  keys indicate which Scope the configuration is for, in the form:
+ *  `projects/{p}/locations/global/scopes/{s}` Where {p} is the project, {s} is
+ *  a valid Scope in this project. {p} WILL match the Feature's project. {p}
+ *  will always be returned as the project number, but the project ID is also
+ *  accepted during input. If the same Scope is specified in the map twice
+ *  (using the project ID form, and the project number form), exactly ONE of the
+ *  entries will be saved, with no guarantees as to which. For this reason, it
+ *  is recommended the same format be used for all entries when mutating a
+ *  Feature.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRGKEHub_ScopeFeatureSpec. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRGKEHub_Feature_ScopeSpecs : GTLRObject
+@end
+
+
+/**
+ *  Output only. Scope-specific Feature status. If this Feature does report any
+ *  per-Scope status, this field may be unused. The keys indicate which Scope
+ *  the state is for, in the form: `projects/{p}/locations/global/scopes/{s}`
+ *  Where {p} is the project, {s} is a valid Scope in this project. {p} WILL
+ *  match the Feature's project.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRGKEHub_ScopeFeatureState. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRGKEHub_Feature_ScopeStates : GTLRObject
 @end
 
 
@@ -2394,6 +2470,38 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  **Fleet Observability**: The Hub-wide input for the FleetObservability
+ *  feature.
+ */
+@interface GTLRGKEHub_FleetObservabilityFeatureSpec : GTLRObject
+@end
+
+
+/**
+ *  **FleetObservability**: An empty state left as an example Hub-wide Feature
+ *  state.
+ */
+@interface GTLRGKEHub_FleetObservabilityFeatureState : GTLRObject
+@end
+
+
+/**
+ *  **FleetObservability**: The membership-specific input for FleetObservability
+ *  feature.
+ */
+@interface GTLRGKEHub_FleetObservabilityMembershipSpec : GTLRObject
+@end
+
+
+/**
+ *  **FleetObservability**: An empty state left as an example
+ *  membership-specific Feature state.
+ */
+@interface GTLRGKEHub_FleetObservabilityMembershipState : GTLRObject
 @end
 
 
@@ -3073,6 +3181,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 /** Config Management-specific spec. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementMembershipSpec *configmanagement;
 
+/** Fleet observability membership spec */
+@property(nonatomic, strong, nullable) GTLRGKEHub_FleetObservabilityMembershipSpec *fleetobservability;
+
 /** Identity Service-specific spec. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_IdentityServiceMembershipSpec *identityservice;
 
@@ -3096,6 +3207,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 
 /** Config Management-specific state. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementMembershipState *configmanagement;
+
+/** Fleet observability membership state. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_FleetObservabilityMembershipState *fleetobservability;
 
 /** Identity Service-specific state. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_IdentityServiceMembershipState *identityservice;
@@ -3496,6 +3610,24 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *v1beta1Crd;
+
+@end
+
+
+/**
+ *  ScopeFeatureSpec contains feature specs for a fleet scope.
+ */
+@interface GTLRGKEHub_ScopeFeatureSpec : GTLRObject
+@end
+
+
+/**
+ *  ScopeFeatureState contains Scope-wide Feature status information.
+ */
+@interface GTLRGKEHub_ScopeFeatureState : GTLRObject
+
+/** Output only. The "running state" of the Feature in this Scope. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_FeatureState *state;
 
 @end
 

@@ -2916,8 +2916,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 /**
  *  To collect communications or amusement taxes in the United States, choose
- *  the appropriate tax category. By default Google will determine the collected
- *  rate based on the buyer ZIP code. [Learn
+ *  the appropriate tax category. [Learn
  *  more](https://support.google.com/googleplay/android-developer/answer/10463498#streaming_tax).
  *
  *  Likely values:

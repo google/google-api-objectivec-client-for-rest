@@ -77,6 +77,16 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpeech_AdaptationInfo
+//
+
+@implementation GTLRSpeech_AdaptationInfo
+@dynamic adaptationTimeout, timeoutMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpeech_ClassItem
 //
 
@@ -242,7 +252,8 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 //
 
 @implementation GTLRSpeech_LongRunningRecognizeResponse
-@dynamic outputConfig, outputError, requestId, results, totalBilledTime;
+@dynamic outputConfig, outputError, requestId, results, speechAdaptationInfo,
+         totalBilledTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -418,7 +429,7 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 //
 
 @implementation GTLRSpeech_RecognizeResponse
-@dynamic requestId, results, totalBilledTime;
+@dynamic requestId, results, speechAdaptationInfo, totalBilledTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

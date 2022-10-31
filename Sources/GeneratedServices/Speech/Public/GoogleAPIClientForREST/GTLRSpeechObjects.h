@@ -15,6 +15,7 @@
 #endif
 
 @class GTLRSpeech_Adaptation;
+@class GTLRSpeech_AdaptationInfo;
 @class GTLRSpeech_ClassItem;
 @class GTLRSpeech_Context;
 @class GTLRSpeech_CustomClass;
@@ -308,6 +309,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 
 
 /**
+ *  Information on speech adaptation use in results
+ */
+@interface GTLRSpeech_AdaptationInfo : GTLRObject
+
+/**
+ *  Whether there was a timeout when applying speech adaptation. If true,
+ *  adaptation had no effect in the response transcript.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adaptationTimeout;
+
+/**
+ *  If set, returns a message specifying which part of the speech adaptation
+ *  request timed out.
+ */
+@property(nonatomic, copy, nullable) NSString *timeoutMessage;
+
+@end
+
+
+/**
  *  An item of the class.
  */
 @interface GTLRSpeech_ClassItem : GTLRObject
@@ -593,6 +616,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_RecognitionResult *> *results;
 
+/** Provides information on speech adaptation behavior in response */
+@property(nonatomic, strong, nullable) GTLRSpeech_AdaptationInfo *speechAdaptationInfo;
+
 /** When available, billed audio seconds for the corresponding request. */
 @property(nonatomic, strong, nullable) GTLRDuration *totalBilledTime;
 
@@ -853,12 +879,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 
 /**
  *  The number of channels in the input audio data. ONLY set this for
- *  MULTI-CHANNEL recognition. Valid values for LINEAR16 and FLAC are `1`-`8`.
- *  Valid values for OGG_OPUS are '1'-'254'. Valid value for MULAW, AMR, AMR_WB
- *  and SPEEX_WITH_HEADER_BYTE is only `1`. If `0` or omitted, defaults to one
- *  channel (mono). Note: We only recognize the first channel by default. To
- *  perform independent recognition on each channel set
- *  `enable_separate_recognition_per_channel` to 'true'.
+ *  MULTI-CHANNEL recognition. Valid values for LINEAR16, OGG_OPUS and FLAC are
+ *  `1`-`8`. Valid value for MULAW, AMR, AMR_WB and SPEEX_WITH_HEADER_BYTE is
+ *  only `1`. If `0` or omitted, defaults to one channel (mono). Note: We only
+ *  recognize the first channel by default. To perform independent recognition
+ *  on each channel set `enable_separate_recognition_per_channel` to 'true'.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1278,6 +1303,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *  portions of audio.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_RecognitionResult *> *results;
+
+/** Provides information on adaptation behavior in response */
+@property(nonatomic, strong, nullable) GTLRSpeech_AdaptationInfo *speechAdaptationInfo;
 
 /** When available, billed audio seconds for the corresponding request. */
 @property(nonatomic, strong, nullable) GTLRDuration *totalBilledTime;

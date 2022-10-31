@@ -46,8 +46,10 @@ NSString * const kGTLRCloudFilestore_Instance_State_Error      = @"ERROR";
 NSString * const kGTLRCloudFilestore_Instance_State_Ready      = @"READY";
 NSString * const kGTLRCloudFilestore_Instance_State_Repairing  = @"REPAIRING";
 NSString * const kGTLRCloudFilestore_Instance_State_Restoring  = @"RESTORING";
+NSString * const kGTLRCloudFilestore_Instance_State_Resuming   = @"RESUMING";
 NSString * const kGTLRCloudFilestore_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudFilestore_Instance_State_Suspended  = @"SUSPENDED";
+NSString * const kGTLRCloudFilestore_Instance_State_Suspending = @"SUSPENDING";
 
 // GTLRCloudFilestore_Instance.suspensionReasons
 NSString * const kGTLRCloudFilestore_Instance_SuspensionReasons_KmsKeyIssue = @"KMS_KEY_ISSUE";
