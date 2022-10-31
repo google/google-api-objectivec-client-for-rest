@@ -38,7 +38,7 @@ jobs:
       matrix:
         CONFIGURATION: ["debug", "release"]
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Build ServiceGenerator
       run:  |
         set -eu
@@ -55,7 +55,7 @@ jobs:
       matrix:
         CONFIGURATION: ["Debug", "Release"]
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Build ServiceGenerator
       run:  |
         set -eu
