@@ -32,7 +32,7 @@ jobs:
         PLATFORM: ["ios", "macos", "tvos"]
         CONFIGURATION: ["Debug", "Release"]
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     # Manually expanding out static frameworks to avoid making to many jobs.
     - name: Pod lib lint
       run:  |
@@ -54,7 +54,7 @@ jobs:
         PLATFORM: ["ios", "macos", "tvos"]
         CONFIGURATION: ["Debug", "Release"]
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Pod lib lint - Use Static Frameworks
       run:  |
         pod lib lint --verbose --use-static-frameworks \
