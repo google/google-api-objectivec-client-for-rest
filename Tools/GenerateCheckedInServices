@@ -63,7 +63,12 @@ SERVICE_GENERATOR_COMMAND+=(
   # changes. admin:reports_v1 is currently the preferred one in discovery.
   'https://admin.googleapis.com/$discovery/rest?version=datatransfer_v1'
   'https://admin.googleapis.com/$discovery/rest?version=directory_v1'
-  
+
+  # Cloud has a service named "Batch", which means GTLRBatchQuery would be the
+  # base of the Query classes and thus conflict with the batching support, so
+  # override the name to avoid the issues.
+  --formattedName batch=CloudBatch
+
   # Not sure why this is in discovery, turn it off.
   --skip prod_tt_sasportal
 

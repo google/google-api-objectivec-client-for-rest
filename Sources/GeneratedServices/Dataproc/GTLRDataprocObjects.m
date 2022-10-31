@@ -56,13 +56,6 @@ NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_InheritF
 NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_Outbound = @"OUTBOUND";
 NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessUnspecified = @"PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED";
 
-// GTLRDataproc_GceNodePoolOperationMetadata.operationType
-NSString * const kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_Create = @"CREATE";
-NSString * const kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_Delete = @"DELETE";
-NSString * const kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_GceNodePoolOperationTypeUnspecified = @"GCE_NODE_POOL_OPERATION_TYPE_UNSPECIFIED";
-NSString * const kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_Resize = @"RESIZE";
-NSString * const kGTLRDataproc_GceNodePoolOperationMetadata_OperationType_Update = @"UPDATE";
-
 // GTLRDataproc_GkeNodePoolTarget.roles
 NSString * const kGTLRDataproc_GkeNodePoolTarget_Roles_Controller = @"CONTROLLER";
 NSString * const kGTLRDataproc_GkeNodePoolTarget_Roles_Default = @"DEFAULT";
@@ -113,6 +106,13 @@ NSString * const kGTLRDataproc_Metric_MetricSource_MonitoringAgentDefaults = @"M
 NSString * const kGTLRDataproc_Metric_MetricSource_Spark       = @"SPARK";
 NSString * const kGTLRDataproc_Metric_MetricSource_SparkHistoryServer = @"SPARK_HISTORY_SERVER";
 NSString * const kGTLRDataproc_Metric_MetricSource_Yarn        = @"YARN";
+
+// GTLRDataproc_NodeGroupOperationMetadata.operationType
+NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Create = @"CREATE";
+NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Delete = @"DELETE";
+NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_NodeGroupOperationTypeUnspecified = @"NODE_GROUP_OPERATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Resize = @"RESIZE";
+NSString * const kGTLRDataproc_NodeGroupOperationMetadata_OperationType_Update = @"UPDATE";
 
 // GTLRDataproc_NodePool.repairAction
 NSString * const kGTLRDataproc_NodePool_RepairAction_Delete    = @"DELETE";
@@ -703,44 +703,6 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_GceClusterConfig_Metadata
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataproc_GceNodePoolOperationMetadata
-//
-
-@implementation GTLRDataproc_GceNodePoolOperationMetadata
-@dynamic clusterUuid, descriptionProperty, gceNodePoolId, labels, operationType,
-         status, statusHistory, warnings;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"statusHistory" : [GTLRDataproc_ClusterOperationStatus class],
-    @"warnings" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataproc_GceNodePoolOperationMetadata_Labels
-//
-
-@implementation GTLRDataproc_GceNodePoolOperationMetadata_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -1475,6 +1437,44 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_NodeGroupOperationMetadata
+//
+
+@implementation GTLRDataproc_NodeGroupOperationMetadata
+@dynamic clusterUuid, descriptionProperty, labels, nodeGroupId, operationType,
+         status, statusHistory, warnings;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"statusHistory" : [GTLRDataproc_ClusterOperationStatus class],
+    @"warnings" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_NodeGroupOperationMetadata_Labels
+//
+
+@implementation GTLRDataproc_NodeGroupOperationMetadata_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_NodeInitializationAction
 //
 
@@ -1862,7 +1862,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_RuntimeInfo
-@dynamic diagnosticOutputUri, endpoints, outputUri;
+@dynamic approximateUsage, diagnosticOutputUri, endpoints, outputUri;
 @end
 
 
@@ -2350,6 +2350,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_UsageMetrics
+//
+
+@implementation GTLRDataproc_UsageMetrics
+@dynamic milliDcuSeconds, shuffleStorageGbSeconds;
 @end
 
 

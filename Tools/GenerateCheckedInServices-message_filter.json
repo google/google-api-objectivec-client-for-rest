@@ -13,6 +13,7 @@
     "Unexpected JSON key under resources.accounts.resources.apps.methods.list: streamingType",
     "Unexpected JSON key under resources.accounts.resources.mediationReport.methods.generate: streamingType",
     "Unexpected JSON key under resources.accounts.resources.networkReport.methods.generate: streamingType",
+    "With name override: CloudBatch",
   ],
   "WARNING": [
     "Method 'artifactregistry.projects.locations.repositories.aptArtifacts.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",

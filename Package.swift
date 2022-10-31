@@ -214,6 +214,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_CloudAsset"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_CloudBatch",
+            targets: ["GoogleAPIClientForREST_CloudBatch"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Cloudbilling",
             targets: ["GoogleAPIClientForREST_Cloudbilling"]
         ),
@@ -954,6 +958,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Translate"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_TravelImpactModel",
+            targets: ["GoogleAPIClientForREST_TravelImpactModel"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Vault",
             targets: ["GoogleAPIClientForREST_Vault"]
         ),
@@ -1326,6 +1334,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_CloudAsset",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/CloudAsset",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_CloudBatch",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/CloudBatch",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -2436,6 +2450,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Translate",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Translate",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_TravelImpactModel",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/TravelImpactModel",
             publicHeadersPath: "Public"
         ),
         .target(

@@ -243,6 +243,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Repairing;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Restoring;
 /**
+ *  The instance is in the process of becoming active.
+ *
+ *  Value: "RESUMING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Resuming;
+/**
  *  State not set.
  *
  *  Value: "STATE_UNSPECIFIED"
@@ -255,6 +261,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_StateUnspe
  *  Value: "SUSPENDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Suspended;
+/**
+ *  The instance is in the process of becoming suspended.
+ *
+ *  Value: "SUSPENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Suspending;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFilestore_Instance.suspensionReasons
@@ -1368,11 +1380,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *    @arg @c kGTLRCloudFilestore_Instance_State_Restoring The instance is
  *        restoring a backup to an existing file share and may be unusable
  *        during this time. (Value: "RESTORING")
+ *    @arg @c kGTLRCloudFilestore_Instance_State_Resuming The instance is in the
+ *        process of becoming active. (Value: "RESUMING")
  *    @arg @c kGTLRCloudFilestore_Instance_State_StateUnspecified State not set.
  *        (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRCloudFilestore_Instance_State_Suspended The instance is
  *        suspended. You can get further details from the `suspension_reasons`
  *        field of the `Instance` resource. (Value: "SUSPENDED")
+ *    @arg @c kGTLRCloudFilestore_Instance_State_Suspending The instance is in
+ *        the process of becoming suspended. (Value: "SUSPENDING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 

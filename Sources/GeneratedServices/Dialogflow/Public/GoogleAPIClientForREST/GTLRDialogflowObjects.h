@@ -9879,11 +9879,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /**
  *  Retains data in interaction logging for the specified number of days. This
  *  does not apply to Cloud logging, which is owned by the user - not
- *  Dialogflow. User must set a value lower than Dialogflow's default 365d TTL.
- *  Setting a value higher than that has no effect. A missing value or setting
- *  to 0 also means we use Dialogflow's default TTL. Note: Interaction logging
- *  is a limited access feature. Talk to your Google representative to check
- *  availability for you.
+ *  Dialogflow. User must set a value lower than Dialogflow's default 365d TTL
+ *  (time to live). Setting a value higher than that has no effect. A missing
+ *  value or setting to 0 also means we use Dialogflow's default TTL.
  *
  *  Uses NSNumber of intValue.
  */
@@ -9923,7 +9921,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSNumber *enableAudioRedaction;
 
 /**
- *  Cloud Storage bucket to export audio record to. Settings this field would
+ *  Cloud Storage bucket to export audio record to. Setting this field would
  *  grant the Storage Object Creator role to the Dialogflow Service Agent. API
  *  caller that tries to modify this field should have the permission of
  *  storage.buckets.setIamPolicy.

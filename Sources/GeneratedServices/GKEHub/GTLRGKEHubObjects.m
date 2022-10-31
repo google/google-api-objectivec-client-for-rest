@@ -361,7 +361,7 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_CommonFeatureSpec
-@dynamic appdevexperience, multiclusteringress;
+@dynamic appdevexperience, fleetobservability, multiclusteringress;
 @end
 
 
@@ -371,7 +371,7 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_CommonFeatureState
-@dynamic appdevexperience, state;
+@dynamic appdevexperience, fleetobservability, state;
 @end
 
 
@@ -710,7 +710,7 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 @implementation GTLRGKEHub_Feature
 @dynamic createTime, deleteTime, labels, membershipSpecs, membershipStates,
-         name, resourceState, spec, state, updateTime;
+         name, resourceState, scopeSpecs, scopeStates, spec, state, updateTime;
 @end
 
 
@@ -758,6 +758,34 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEHub_Feature_ScopeSpecs
+//
+
+@implementation GTLRGKEHub_Feature_ScopeSpecs
+
++ (Class)classForAdditionalProperties {
+  return [GTLRGKEHub_ScopeFeatureSpec class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_Feature_ScopeStates
+//
+
+@implementation GTLRGKEHub_Feature_ScopeStates
+
++ (Class)classForAdditionalProperties {
+  return [GTLRGKEHub_ScopeFeatureState class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEHub_FeatureResourceState
 //
 
@@ -778,6 +806,42 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_FleetObservabilityFeatureSpec
+//
+
+@implementation GTLRGKEHub_FleetObservabilityFeatureSpec
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_FleetObservabilityFeatureState
+//
+
+@implementation GTLRGKEHub_FleetObservabilityFeatureState
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_FleetObservabilityMembershipSpec
+//
+
+@implementation GTLRGKEHub_FleetObservabilityMembershipSpec
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_FleetObservabilityMembershipState
+//
+
+@implementation GTLRGKEHub_FleetObservabilityMembershipState
 @end
 
 
@@ -1123,7 +1187,7 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_MembershipFeatureSpec
-@dynamic anthosvm, configmanagement, identityservice, mesh;
+@dynamic anthosvm, configmanagement, fleetobservability, identityservice, mesh;
 @end
 
 
@@ -1133,8 +1197,8 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_MembershipFeatureState
-@dynamic anthosvm, appdevexperience, configmanagement, identityservice,
-         servicemesh, state;
+@dynamic anthosvm, appdevexperience, configmanagement, fleetobservability,
+         identityservice, servicemesh, state;
 @end
 
 
@@ -1285,6 +1349,25 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 
 @implementation GTLRGKEHub_ResourceOptions
 @dynamic connectVersion, k8sVersion, v1beta1Crd;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ScopeFeatureSpec
+//
+
+@implementation GTLRGKEHub_ScopeFeatureSpec
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ScopeFeatureState
+//
+
+@implementation GTLRGKEHub_ScopeFeatureState
+@dynamic state;
 @end
 
 
