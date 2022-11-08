@@ -117,7 +117,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AuditLogConfig_LogType_LogTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypePubsubNotificationFailure;
 /**
- *  Release render status changed notification.
+ *  Deprecated: This field is never used. Use release_render log type instead.
  *
  *  Value: "TYPE_RENDER_STATUES_CHANGE"
  */
@@ -271,7 +271,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRun_State_Succeeded;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypePubsubNotificationFailure;
 /**
- *  Release render status changed notification.
+ *  Deprecated: This field is never used. Use release_render log type instead.
  *
  *  Value: "TYPE_RENDER_STATUES_CHANGE"
  */
@@ -361,7 +361,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Release_RenderState_Succeede
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypePubsubNotificationFailure;
 /**
- *  Release render status changed notification.
+ *  Deprecated: This field is never used. Use release_render log type instead.
  *
  *  Value: "TYPE_RENDER_STATUES_CHANGE"
  */
@@ -518,7 +518,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_State_Succeeded;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypePubsubNotificationFailure;
 /**
- *  Release render status changed notification.
+ *  Deprecated: This field is never used. Use release_render log type instead.
  *
  *  Value: "TYPE_RENDER_STATUES_CHANGE"
  */
@@ -540,7 +540,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Typ
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypePubsubNotificationFailure;
 /**
- *  Release render status changed notification.
+ *  Deprecated: This field is never used. Use release_render log type instead.
  *
  *  Value: "TYPE_RENDER_STATUES_CHANGE"
  */
@@ -1092,8 +1092,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *        A Pub/Sub notification failed to be sent. (Value:
  *        "TYPE_PUBSUB_NOTIFICATION_FAILURE")
  *    @arg @c kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeRenderStatuesChange
- *        Release render status changed notification. (Value:
- *        "TYPE_RENDER_STATUES_CHANGE")
+ *        Deprecated: This field is never used. Use release_render log type
+ *        instead. (Value: "TYPE_RENDER_STATUES_CHANGE")
  *    @arg @c kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeUnspecified
  *        Type is unspecified. (Value: "TYPE_UNSPECIFIED")
  */
@@ -1461,8 +1461,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *        A Pub/Sub notification failed to be sent. (Value:
  *        "TYPE_PUBSUB_NOTIFICATION_FAILURE")
  *    @arg @c kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeRenderStatuesChange
- *        Release render status changed notification. (Value:
- *        "TYPE_RENDER_STATUES_CHANGE")
+ *        Deprecated: This field is never used. Use release_render log type
+ *        instead. (Value: "TYPE_RENDER_STATUES_CHANGE")
  *    @arg @c kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeUnspecified Type
  *        is unspecified. (Value: "TYPE_UNSPECIFIED")
  */
@@ -2260,8 +2260,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *        A Pub/Sub notification failed to be sent. (Value:
  *        "TYPE_PUBSUB_NOTIFICATION_FAILURE")
  *    @arg @c kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeRenderStatuesChange
- *        Release render status changed notification. (Value:
- *        "TYPE_RENDER_STATUES_CHANGE")
+ *        Deprecated: This field is never used. Use release_render log type
+ *        instead. (Value: "TYPE_RENDER_STATUES_CHANGE")
  *    @arg @c kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeUnspecified
  *        Type is unspecified. (Value: "TYPE_UNSPECIFIED")
  */
@@ -2537,8 +2537,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *        A Pub/Sub notification failed to be sent. (Value:
  *        "TYPE_PUBSUB_NOTIFICATION_FAILURE")
  *    @arg @c kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeRenderStatuesChange
- *        Release render status changed notification. (Value:
- *        "TYPE_RENDER_STATUES_CHANGE")
+ *        Deprecated: This field is never used. Use release_render log type
+ *        instead. (Value: "TYPE_RENDER_STATUES_CHANGE")
  *    @arg @c kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeUnspecified
  *        Type is unspecified. (Value: "TYPE_UNSPECIFIED")
  */
@@ -2866,8 +2866,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *        A Pub/Sub notification failed to be sent. (Value:
  *        "TYPE_PUBSUB_NOTIFICATION_FAILURE")
  *    @arg @c kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeRenderStatuesChange
- *        Release render status changed notification. (Value:
- *        "TYPE_RENDER_STATUES_CHANGE")
+ *        Deprecated: This field is never used. Use release_render log type
+ *        instead. (Value: "TYPE_RENDER_STATUES_CHANGE")
  *    @arg @c kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeUnspecified Type
  *        is unspecified. (Value: "TYPE_UNSPECIFIED")
  */

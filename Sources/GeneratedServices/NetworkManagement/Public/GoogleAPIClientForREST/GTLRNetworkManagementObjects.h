@@ -80,6 +80,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_CauseU
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_DestinationEndpointNotFound;
 /**
+ *  Aborted because the connection between the control plane and the node of the
+ *  source cluster is initiated by the node and managed by the Konnectivity
+ *  proxy.
+ *
+ *  Value: "GKE_KONNECTIVITY_PROXY_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_GkeKonnectivityProxyUnsupported;
+/**
  *  Aborted due to internal server error.
  *
  *  Value: "INTERNAL_ERROR"
@@ -102,6 +110,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_Invali
  *  Value: "MISMATCHED_DESTINATION_NETWORK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_MismatchedDestinationNetwork;
+/**
+ *  Aborted because the source and destination resources have no common IP
+ *  version.
+ *
+ *  Value: "MISMATCHED_IP_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_MismatchedIpVersion;
 /**
  *  Aborted because the source network does not match the source endpoint.
  *
@@ -240,21 +255,21 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Ins
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Internet;
 /**
- *  Target is all Google APIs using [Private Service
+ *  Target is all Google APIs that use [Private Service
  *  Connect](https://cloud.google.com/vpc/docs/configure-private-service-connect-apis).
  *
  *  Value: "PSC_GOOGLE_API"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PscGoogleApi;
 /**
- *  Target is a published service using [Private Service
+ *  Target is a published service that uses [Private Service
  *  Connect](https://cloud.google.com/vpc/docs/configure-private-service-connect-services).
  *
  *  Value: "PSC_PUBLISHED_SERVICE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_PscPublishedService;
 /**
- *  Target is VPC-SC using [Private Service
+ *  Target is a VPC-SC that uses [Private Service
  *  Connect](https://cloud.google.com/vpc/docs/configure-private-service-connect-apis).
  *
  *  Value: "PSC_VPC_SC"
@@ -290,6 +305,27 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudFu
  *  Value: "CLOUD_SQL_INSTANCE_NO_IP_ADDRESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNoIpAddress;
+/**
+ *  Packet was dropped because there is no route from a Cloud SQL instance to a
+ *  destination network.
+ *
+ *  Value: "CLOUD_SQL_INSTANCE_NO_ROUTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNoRoute;
+/**
+ *  Packet sent from a Cloud SQL instance to an external IP address is not
+ *  allowed. The Cloud SQL instance is not configured to send packets to
+ *  external IP addresses.
+ *
+ *  Value: "CLOUD_SQL_INSTANCE_NOT_CONFIGURED_FOR_EXTERNAL_TRAFFIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNotConfiguredForExternalTraffic;
+/**
+ *  Packet sent from or to a Cloud SQL instance that is not in running state.
+ *
+ *  Value: "CLOUD_SQL_INSTANCE_NOT_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNotRunning;
 /**
  *  Access to the Cloud SQL instance endpoint is not authorized. See
  *  [Authorizing with authorized
@@ -346,6 +382,33 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_Forward
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_ForwardingRuleNoInstances;
 /**
+ *  Packet could be dropped because it was sent from a different region to a
+ *  regional forwarding without global access.
+ *
+ *  Value: "FORWARDING_RULE_REGION_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_ForwardingRuleRegionMismatch;
+/**
+ *  Packet sent from or to a GKE cluster that is not in running state.
+ *
+ *  Value: "GKE_CLUSTER_NOT_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeClusterNotRunning;
+/**
+ *  Packet was dropped because there is no route from a GKE cluster control
+ *  plane to a destination network.
+ *
+ *  Value: "GKE_CONTROL_PLANE_NO_ROUTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeControlPlaneNoRoute;
+/**
+ *  Packet was dropped because a GKE cluster private endpoint is unreachable
+ *  from a region different from the cluster's region.
+ *
+ *  Value: "GKE_CONTROL_PLANE_REGION_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeControlPlaneRegionMismatch;
+/**
  *  Access to Google Kubernetes Engine cluster master's endpoint is not
  *  authorized. See [Access to the cluster
  *  endpoints](https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters#access_to_the_cluster_endpoints)
@@ -396,11 +459,25 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_Private
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateTrafficToInternet;
 /**
- *  Privte Service Connect (PSC) connection is not in accepted state.
+ *  The Private Service Connect endpoint is in a project that is not approved to
+ *  connect to the service.
  *
  *  Value: "PSC_CONNECTION_NOT_ACCEPTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscConnectionNotAccepted;
+/**
+ *  Packet sent from a Cloud SQL instance with only a public IP address to a
+ *  private IP address.
+ *
+ *  Value: "PUBLIC_CLOUD_SQL_INSTANCE_TO_PRIVATE_DESTINATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PublicCloudSqlInstanceToPrivateDestination;
+/**
+ *  Packet sent from a public GKE cluster control plane to a private IP address.
+ *
+ *  Value: "PUBLIC_GKE_CONTROL_PLANE_TO_PRIVATE_DESTINATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PublicGkeControlPlaneToPrivateDestination;
 /**
  *  Dropped due to invalid route. Route's next hop is a blackhole.
  *
@@ -528,6 +605,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallR
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_ForwardInfo.target
 
+/**
+ *  Forwarded to a VPC network in another project.
+ *
+ *  Value: "ANOTHER_PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_AnotherProject;
 /**
  *  Forwarded to a Cloud SQL instance.
  *
@@ -1052,6 +1135,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_DestinationEndpointNotFound
  *        Aborted because the destination endpoint could not be found. (Value:
  *        "DESTINATION_ENDPOINT_NOT_FOUND")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_GkeKonnectivityProxyUnsupported
+ *        Aborted because the connection between the control plane and the node
+ *        of the source cluster is initiated by the node and managed by the
+ *        Konnectivity proxy. (Value: "GKE_KONNECTIVITY_PROXY_UNSUPPORTED")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_InternalError Aborted due
  *        to internal server error. (Value: "INTERNAL_ERROR")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_InvalidArgument Aborted
@@ -1064,6 +1151,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_MismatchedDestinationNetwork
  *        Aborted because the destination network does not match the destination
  *        endpoint. (Value: "MISMATCHED_DESTINATION_NETWORK")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_MismatchedIpVersion Aborted
+ *        because the source and destination resources have no common IP
+ *        version. (Value: "MISMATCHED_IP_VERSION")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_MismatchedSourceNetwork
  *        Aborted because the source network does not match the source endpoint.
  *        (Value: "MISMATCHED_SOURCE_NETWORK")
@@ -1433,15 +1523,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_Internet Target is the
  *        internet. (Value: "INTERNET")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_PscGoogleApi Target is
- *        all Google APIs using [Private Service
+ *        all Google APIs that use [Private Service
  *        Connect](https://cloud.google.com/vpc/docs/configure-private-service-connect-apis).
  *        (Value: "PSC_GOOGLE_API")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_PscPublishedService
- *        Target is a published service using [Private Service
+ *        Target is a published service that uses [Private Service
  *        Connect](https://cloud.google.com/vpc/docs/configure-private-service-connect-services).
  *        (Value: "PSC_PUBLISHED_SERVICE")
- *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_PscVpcSc Target is
- *        VPC-SC using [Private Service
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_PscVpcSc Target is a
+ *        VPC-SC that uses [Private Service
  *        Connect](https://cloud.google.com/vpc/docs/configure-private-service-connect-apis).
  *        (Value: "PSC_VPC_SC")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_TargetUnspecified Target
@@ -1470,6 +1560,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Packet was dropped because the Cloud SQL instance has neither a
  *        private nor a public IP address. (Value:
  *        "CLOUD_SQL_INSTANCE_NO_IP_ADDRESS")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNoRoute
+ *        Packet was dropped because there is no route from a Cloud SQL instance
+ *        to a destination network. (Value: "CLOUD_SQL_INSTANCE_NO_ROUTE")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNotConfiguredForExternalTraffic
+ *        Packet sent from a Cloud SQL instance to an external IP address is not
+ *        allowed. The Cloud SQL instance is not configured to send packets to
+ *        external IP addresses. (Value:
+ *        "CLOUD_SQL_INSTANCE_NOT_CONFIGURED_FOR_EXTERNAL_TRAFFIC")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNotRunning
+ *        Packet sent from or to a Cloud SQL instance that is not in running
+ *        state. (Value: "CLOUD_SQL_INSTANCE_NOT_RUNNING")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceUnauthorizedAccess
  *        Access to the Cloud SQL instance endpoint is not authorized. See
  *        [Authorizing with authorized
@@ -1500,6 +1601,21 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_ForwardingRuleNoInstances
  *        Forwarding rule does not have backends configured. (Value:
  *        "FORWARDING_RULE_NO_INSTANCES")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_ForwardingRuleRegionMismatch
+ *        Packet could be dropped because it was sent from a different region to
+ *        a regional forwarding without global access. (Value:
+ *        "FORWARDING_RULE_REGION_MISMATCH")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_GkeClusterNotRunning Packet
+ *        sent from or to a GKE cluster that is not in running state. (Value:
+ *        "GKE_CLUSTER_NOT_RUNNING")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_GkeControlPlaneNoRoute
+ *        Packet was dropped because there is no route from a GKE cluster
+ *        control plane to a destination network. (Value:
+ *        "GKE_CONTROL_PLANE_NO_ROUTE")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_GkeControlPlaneRegionMismatch
+ *        Packet was dropped because a GKE cluster private endpoint is
+ *        unreachable from a region different from the cluster's region. (Value:
+ *        "GKE_CONTROL_PLANE_REGION_MISMATCH")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_GkeMasterUnauthorizedAccess
  *        Access to Google Kubernetes Engine cluster master's endpoint is not
  *        authorized. See [Access to the cluster
@@ -1525,9 +1641,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PrivateTrafficToInternet
  *        Packet with internal destination address sent to the internet gateway.
  *        (Value: "PRIVATE_TRAFFIC_TO_INTERNET")
- *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PscConnectionNotAccepted
- *        Privte Service Connect (PSC) connection is not in accepted state.
- *        (Value: "PSC_CONNECTION_NOT_ACCEPTED")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PscConnectionNotAccepted The
+ *        Private Service Connect endpoint is in a project that is not approved
+ *        to connect to the service. (Value: "PSC_CONNECTION_NOT_ACCEPTED")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PublicCloudSqlInstanceToPrivateDestination
+ *        Packet sent from a Cloud SQL instance with only a public IP address to
+ *        a private IP address. (Value:
+ *        "PUBLIC_CLOUD_SQL_INSTANCE_TO_PRIVATE_DESTINATION")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PublicGkeControlPlaneToPrivateDestination
+ *        Packet sent from a public GKE cluster control plane to a private IP
+ *        address. (Value: "PUBLIC_GKE_CONTROL_PLANE_TO_PRIVATE_DESTINATION")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RouteBlackhole Dropped due
  *        to invalid route. Route's next hop is a blackhole. (Value:
  *        "ROUTE_BLACKHOLE")
@@ -1833,6 +1956,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  Target type where this packet is forwarded to.
  *
  *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_ForwardInfo_Target_AnotherProject Forwarded
+ *        to a VPC network in another project. (Value: "ANOTHER_PROJECT")
  *    @arg @c kGTLRNetworkManagement_ForwardInfo_Target_CloudSqlInstance
  *        Forwarded to a Cloud SQL instance. (Value: "CLOUD_SQL_INSTANCE")
  *    @arg @c kGTLRNetworkManagement_ForwardInfo_Target_GkeMaster Forwarded to a

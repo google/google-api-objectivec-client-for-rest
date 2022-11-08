@@ -79,6 +79,12 @@ NSString * const kGTLRContainer_Filter_EventType_SecurityBulletinEvent = @"SECUR
 NSString * const kGTLRContainer_Filter_EventType_UpgradeAvailableEvent = @"UPGRADE_AVAILABLE_EVENT";
 NSString * const kGTLRContainer_Filter_EventType_UpgradeEvent  = @"UPGRADE_EVENT";
 
+// GTLRContainer_GatewayAPIConfig.channel
+NSString * const kGTLRContainer_GatewayAPIConfig_Channel_ChannelDisabled = @"CHANNEL_DISABLED";
+NSString * const kGTLRContainer_GatewayAPIConfig_Channel_ChannelExperimental = @"CHANNEL_EXPERIMENTAL";
+NSString * const kGTLRContainer_GatewayAPIConfig_Channel_ChannelStandard = @"CHANNEL_STANDARD";
+NSString * const kGTLRContainer_GatewayAPIConfig_Channel_ChannelUnspecified = @"CHANNEL_UNSPECIFIED";
+
 // GTLRContainer_GPUSharingConfig.gpuSharingStrategy
 NSString * const kGTLRContainer_GPUSharingConfig_GpuSharingStrategy_GpuSharingStrategyUnspecified = @"GPU_SHARING_STRATEGY_UNSPECIFIED";
 NSString * const kGTLRContainer_GPUSharingConfig_GpuSharingStrategy_TimeSharing = @"TIME_SHARING";
@@ -93,8 +99,16 @@ NSString * const kGTLRContainer_IPAllocationPolicy_StackType_Ipv4 = @"IPV4";
 NSString * const kGTLRContainer_IPAllocationPolicy_StackType_Ipv4Ipv6 = @"IPV4_IPV6";
 NSString * const kGTLRContainer_IPAllocationPolicy_StackType_StackTypeUnspecified = @"STACK_TYPE_UNSPECIFIED";
 
+// GTLRContainer_LinuxNodeConfig.cgroupMode
+NSString * const kGTLRContainer_LinuxNodeConfig_CgroupMode_CgroupModeUnspecified = @"CGROUP_MODE_UNSPECIFIED";
+NSString * const kGTLRContainer_LinuxNodeConfig_CgroupMode_CgroupModeV1 = @"CGROUP_MODE_V1";
+NSString * const kGTLRContainer_LinuxNodeConfig_CgroupMode_CgroupModeV2 = @"CGROUP_MODE_V2";
+
 // GTLRContainer_LoggingComponentConfig.enableComponents
+NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_Apiserver = @"APISERVER";
 NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_ComponentUnspecified = @"COMPONENT_UNSPECIFIED";
+NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_ControllerManager = @"CONTROLLER_MANAGER";
+NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_Scheduler = @"SCHEDULER";
 NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_SystemComponents = @"SYSTEM_COMPONENTS";
 NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_Workloads = @"WORKLOADS";
 
@@ -542,6 +556,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          desiredBinaryAuthorization, desiredClusterAutoscaling,
          desiredCostManagementConfig, desiredDatabaseEncryption,
          desiredDatapathProvider, desiredDefaultSnatStatus, desiredDnsConfig,
+         desiredEnablePrivateEndpoint, desiredGatewayApiConfig,
          desiredGcfsConfig, desiredIdentityServiceConfig, desiredImageType,
          desiredIntraNodeVisibilityConfig, desiredL4ilbSubsettingConfig,
          desiredLocations, desiredLoggingConfig, desiredLoggingService,
@@ -734,6 +749,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_GatewayAPIConfig
+//
+
+@implementation GTLRContainer_GatewayAPIConfig
+@dynamic channel;
 @end
 
 
@@ -950,7 +975,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_LinuxNodeConfig
-@dynamic sysctls;
+@dynamic cgroupMode, sysctls;
 @end
 
 
@@ -1155,7 +1180,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_MasterAuthorizedNetworksConfig
-@dynamic cidrBlocks, enabled;
+@dynamic cidrBlocks, enabled, gcpPublicCidrsAccessEnabled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1232,8 +1257,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_NetworkConfig
 @dynamic datapathProvider, defaultSnatStatus, dnsConfig,
-         enableIntraNodeVisibility, enableL4ilbSubsetting, network,
-         privateIpv6GoogleAccess, serviceExternalIpsConfig, subnetwork;
+         enableIntraNodeVisibility, enableL4ilbSubsetting, gatewayApiConfig,
+         network, privateIpv6GoogleAccess, serviceExternalIpsConfig, subnetwork;
 @end
 
 
@@ -1295,8 +1320,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          confidentialNodes, diskSizeGb, diskType, gcfsConfig, gvnic, imageType,
          kubeletConfig, labels, linuxNodeConfig, localSsdCount, loggingConfig,
          machineType, metadata, minCpuPlatform, nodeGroup, oauthScopes,
-         preemptible, reservationAffinity, sandboxConfig, serviceAccount,
-         shieldedInstanceConfig, spot, tags, taints, workloadMetadataConfig;
+         preemptible, reservationAffinity, resourceLabels, sandboxConfig,
+         serviceAccount, shieldedInstanceConfig, spot, tags, taints,
+         workloadMetadataConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1331,6 +1357,20 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_NodeConfig_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_NodeConfig_ResourceLabels
+//
+
+@implementation GTLRContainer_NodeConfig_ResourceLabels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -1399,7 +1439,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_NodeNetworkConfig
-@dynamic createPodRange, networkPerformanceConfig, podIpv4CidrBlock, podRange;
+@dynamic createPodRange, enablePrivateNodes, networkPerformanceConfig,
+         podIpv4CidrBlock, podRange;
 @end
 
 
@@ -1556,7 +1597,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_PrivateClusterConfig
 @dynamic enablePrivateEndpoint, enablePrivateNodes, masterGlobalAccessConfig,
-         masterIpv4CidrBlock, peeringName, privateEndpoint, publicEndpoint;
+         masterIpv4CidrBlock, peeringName, privateEndpoint,
+         privateEndpointSubnetwork, publicEndpoint;
 @end
 
 
@@ -1631,6 +1673,30 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
     @"values" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_ResourceLabels
+//
+
+@implementation GTLRContainer_ResourceLabels
+@dynamic labels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_ResourceLabels_Labels
+//
+
+@implementation GTLRContainer_ResourceLabels_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -2083,8 +2149,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 @implementation GTLRContainer_UpdateNodePoolRequest
 @dynamic clusterId, confidentialNodes, gcfsConfig, gvnic, imageType,
          kubeletConfig, labels, linuxNodeConfig, locations, loggingConfig, name,
-         nodeNetworkConfig, nodePoolId, nodeVersion, projectId, tags, taints,
-         upgradeSettings, workloadMetadataConfig, zoneProperty;
+         nodeNetworkConfig, nodePoolId, nodeVersion, projectId, resourceLabels,
+         tags, taints, upgradeSettings, workloadMetadataConfig, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };

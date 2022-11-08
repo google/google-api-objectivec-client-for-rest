@@ -993,7 +993,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 
 /**
  *  Required. The version to archive. Format:
- *  projects/{project}/integrations/{integration}/versions/{version}
+ *  projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1015,7 +1015,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionRequest
  *    to include in the query.
  *  @param name Required. The version to archive. Format:
- *    projects/{project}/integrations/{integration}/versions/{version}
+ *    projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  *
  *  @return GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsArchive
  */
@@ -1045,7 +1045,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 
 /**
  *  Required. The parent resource where this version will be created. Format:
- *  projects/{project}/integrations/{integration}
+ *  projects/{project}/locations/{location}/integrations/{integration}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1059,7 +1059,8 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationVersion to
  *    include in the query.
  *  @param parent Required. The parent resource where this version will be
- *    created. Format: projects/{project}/integrations/{integration}
+ *    created. Format:
+ *    projects/{project}/locations/{location}/integrations/{integration}
  *
  *  @return GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsCreate
  */
@@ -1084,7 +1085,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 
 /**
  *  Required. The version to deactivate. Format:
- *  projects/{project}/integrations/{integration}/versions/{version}
+ *  projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1102,7 +1103,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionRequest
  *    to include in the query.
  *  @param name Required. The version to deactivate. Format:
- *    projects/{project}/integrations/{integration}/versions/{version}
+ *    projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  *
  *  @return GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsDeactivate
  */
@@ -1123,7 +1124,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 
 /**
  *  Required. The version to retrieve. Format:
- *  projects/{project}/integrations/{integration}/versions/{version}
+ *  projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1134,7 +1135,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *  Get a integration in the specified project.
  *
  *  @param name Required. The version to retrieve. Format:
- *    projects/{project}/integrations/{integration}/versions/{version}
+ *    projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  *
  *  @return GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsGet
  */
@@ -1194,9 +1195,9 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 
 /**
  *  Required. The parent resource where this version will be created. Format:
- *  projects/{project}/integrations/{integration} Specifically, when parent
- *  equals: 1. projects//locations//integrations/, Meaning: "List versions (with
- *  filter) for a particular integration". 2.
+ *  projects/{project}/locations/{location}/integrations/{integration}
+ *  Specifically, when parent equals: 1. projects//locations//integrations/,
+ *  Meaning: "List versions (with filter) for a particular integration". 2.
  *  projects//locations//integrations/- Meaning: "List versions (with filter)
  *  for a client within a particular region". 3.
  *  projects//locations/-/integrations/- Meaning: "List versions (with filter)
@@ -1211,7 +1212,8 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *  Returns the list of all integration versions in the specified project.
  *
  *  @param parent Required. The parent resource where this version will be
- *    created. Format: projects/{project}/integrations/{integration}
+ *    created. Format:
+ *    projects/{project}/locations/{location}/integrations/{integration}
  *    Specifically, when parent equals: 1. projects//locations//integrations/,
  *    Meaning: "List versions (with filter) for a particular integration". 2.
  *    projects//locations//integrations/- Meaning: "List versions (with filter)
@@ -1285,7 +1287,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 
 /**
  *  Required. The version to publish. Format:
- *  projects/{project}/integrations/{integration}/versions/{version}
+ *  projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1304,7 +1306,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest
  *    to include in the query.
  *  @param name Required. The version to publish. Format:
- *    projects/{project}/integrations/{integration}/versions/{version}
+ *    projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  *
  *  @return GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsPublish
  */
@@ -1335,7 +1337,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 
 /**
  *  Required. The version to take over edit lock. Format:
- *  projects/{project}/integrations/{integration}/versions/{version}
+ *  projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  */
 @property(nonatomic, copy, nullable) NSString *integrationVersion;
 
@@ -1359,7 +1361,8 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaTakeoverEditLockRequest to
  *    include in the query.
  *  @param integrationVersion Required. The version to take over edit lock.
- *    Format: projects/{project}/integrations/{integration}/versions/{version}
+ *    Format:
+ *    projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  *
  *  @return GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsTakeoverEditLock
  */
@@ -1382,7 +1385,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 
 /**
  *  Required. The version to validate. Format:
- *  projects/{project}/integrations/{integration}/versions/{version}
+ *  projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1398,7 +1401,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaValidateIntegrationVersionRequest
  *    to include in the query.
  *  @param name Required. The version to validate. Format:
- *    projects/{project}/integrations/{integration}/versions/{version}
+ *    projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  *
  *  @return GTLRIntegrationsQuery_ProjectsLocationsIntegrationsVersionsValidate
  */
@@ -1958,7 +1961,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 
 /**
  *  Required. The bundle to archive. Format:
- *  projects/{project}/integrations/{integration}
+ *  projects/{project}/locations/{location}/integrations/{integration}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1973,7 +1976,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveBundleRequest to
  *    include in the query.
  *  @param name Required. The bundle to archive. Format:
- *    projects/{project}/integrations/{integration}
+ *    projects/{project}/locations/{location}/integrations/{integration}
  *
  *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsArchiveBundle
  */
@@ -2527,7 +2530,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 
 /**
  *  Required. The version to archive. Format:
- *  projects/{project}/integrations/{integration}/versions/{version}
+ *  projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2549,7 +2552,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaArchiveIntegrationVersionRequest
  *    to include in the query.
  *  @param name Required. The version to archive. Format:
- *    projects/{project}/integrations/{integration}/versions/{version}
+ *    projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  *
  *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsArchive
  */
@@ -2579,7 +2582,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 
 /**
  *  Required. The parent resource where this version will be created. Format:
- *  projects/{project}/integrations/{integration}
+ *  projects/{project}/locations/{location}/integrations/{integration}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2593,7 +2596,8 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaIntegrationVersion to
  *    include in the query.
  *  @param parent Required. The parent resource where this version will be
- *    created. Format: projects/{project}/integrations/{integration}
+ *    created. Format:
+ *    projects/{project}/locations/{location}/integrations/{integration}
  *
  *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsCreate
  */
@@ -2618,7 +2622,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 
 /**
  *  Required. The version to deactivate. Format:
- *  projects/{project}/integrations/{integration}/versions/{version}
+ *  projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2636,7 +2640,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaDeactivateIntegrationVersionRequest
  *    to include in the query.
  *  @param name Required. The version to deactivate. Format:
- *    projects/{project}/integrations/{integration}/versions/{version}
+ *    projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  *
  *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsDeactivate
  */
@@ -2669,7 +2673,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 
 /**
  *  Required. The version to download. Format:
- *  projects/{project}/integrations/{integration}/versions/{version}
+ *  projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2681,7 +2685,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *  `integration_id` and returns the response as a string.
  *
  *  @param name Required. The version to download. Format:
- *    projects/{project}/integrations/{integration}/versions/{version}
+ *    projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  *
  *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsDownload
  */
@@ -2701,7 +2705,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 
 /**
  *  Required. The version to retrieve. Format:
- *  projects/{project}/integrations/{integration}/versions/{version}
+ *  projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2712,7 +2716,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *  Get a integration in the specified project.
  *
  *  @param name Required. The version to retrieve. Format:
- *    projects/{project}/integrations/{integration}/versions/{version}
+ *    projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  *
  *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsGet
  */
@@ -2801,9 +2805,9 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 
 /**
  *  Required. The parent resource where this version will be created. Format:
- *  projects/{project}/integrations/{integration} Specifically, when parent
- *  equals: 1. projects//locations//integrations/, Meaning: "List versions (with
- *  filter) for a particular integration". 2.
+ *  projects/{project}/locations/{location}/integrations/{integration}
+ *  Specifically, when parent equals: 1. projects//locations//integrations/,
+ *  Meaning: "List versions (with filter) for a particular integration". 2.
  *  projects//locations//integrations/- Meaning: "List versions (with filter)
  *  for a client within a particular region". 3.
  *  projects//locations/-/integrations/- Meaning: "List versions (with filter)
@@ -2818,7 +2822,8 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *  Returns the list of all integration versions in the specified project.
  *
  *  @param parent Required. The parent resource where this version will be
- *    created. Format: projects/{project}/integrations/{integration}
+ *    created. Format:
+ *    projects/{project}/locations/{location}/integrations/{integration}
  *    Specifically, when parent equals: 1. projects//locations//integrations/,
  *    Meaning: "List versions (with filter) for a particular integration". 2.
  *    projects//locations//integrations/- Meaning: "List versions (with filter)
@@ -2892,7 +2897,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 
 /**
  *  Required. The version to publish. Format:
- *  projects/{project}/integrations/{integration}/versions/{version}
+ *  projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2911,7 +2916,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest
  *    to include in the query.
  *  @param name Required. The version to publish. Format:
- *    projects/{project}/integrations/{integration}/versions/{version}
+ *    projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  *
  *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsPublish
  */
@@ -2942,7 +2947,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 
 /**
  *  Required. The version to take over edit lock. Format:
- *  projects/{project}/integrations/{integration}/versions/{version}
+ *  projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  */
 @property(nonatomic, copy, nullable) NSString *integrationVersion;
 
@@ -2966,7 +2971,8 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaTakeoverEditLockRequest to
  *    include in the query.
  *  @param integrationVersion Required. The version to take over edit lock.
- *    Format: projects/{project}/integrations/{integration}/versions/{version}
+ *    Format:
+ *    projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  *
  *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsTakeoverEditLock
  */
@@ -3021,7 +3027,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 
 /**
  *  Required. The version to upload. Format:
- *  projects/{project}/integrations/{integration}
+ *  projects/{project}/locations/{location}/integrations/{integration}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3038,7 +3044,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaUploadIntegrationVersionRequest
  *    to include in the query.
  *  @param parent Required. The version to upload. Format:
- *    projects/{project}/integrations/{integration}
+ *    projects/{project}/locations/{location}/integrations/{integration}
  *
  *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsUpload
  */
@@ -3061,7 +3067,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
 
 /**
  *  Required. The version to validate. Format:
- *  projects/{project}/integrations/{integration}/versions/{version}
+ *  projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3077,7 +3083,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIntegrationsProductUnspecifiedProduct;
  *    GTLRIntegrations_GoogleCloudIntegrationsV1alphaValidateIntegrationVersionRequest
  *    to include in the query.
  *  @param name Required. The version to validate. Format:
- *    projects/{project}/integrations/{integration}/versions/{version}
+ *    projects/{project}/locations/{location}/integrations/{integration}/versions/{version}
  *
  *  @return GTLRIntegrationsQuery_ProjectsLocationsProductsIntegrationsVersionsValidate
  */

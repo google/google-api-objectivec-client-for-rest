@@ -20,6 +20,7 @@ NSString * const kGTLRCloudIAP_AttributePropagationSettings_OutputCredentials_Ou
 NSString * const kGTLRCloudIAP_AttributePropagationSettings_OutputCredentials_Rctoken = @"RCTOKEN";
 
 // GTLRCloudIAP_ReauthSettings.method
+NSString * const kGTLRCloudIAP_ReauthSettings_Method_EnrolledSecondFactors = @"ENROLLED_SECOND_FACTORS";
 NSString * const kGTLRCloudIAP_ReauthSettings_Method_Login     = @"LOGIN";
 NSString * const kGTLRCloudIAP_ReauthSettings_Method_MethodUnspecified = @"METHOD_UNSPECIFIED";
 NSString * const kGTLRCloudIAP_ReauthSettings_Method_SecureKey = @"SECURE_KEY";

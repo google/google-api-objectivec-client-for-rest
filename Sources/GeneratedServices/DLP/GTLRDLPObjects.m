@@ -1204,6 +1204,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2ExcludeByHotword
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2ExcludeByHotword
+@dynamic hotwordRegex, proximity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2ExcludeInfoTypes
 //
 
@@ -1226,7 +1236,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2ExclusionRule
-@dynamic dictionary, excludeInfoTypes, matchingType, regex;
+@dynamic dictionary, excludeByHotword, excludeInfoTypes, matchingType, regex;
 @end
 
 

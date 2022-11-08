@@ -119,6 +119,7 @@ NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_Re
 NSString * const kGTLRCloudHealthcare_ParserConfig_Version_ParserVersionUnspecified = @"PARSER_VERSION_UNSPECIFIED";
 NSString * const kGTLRCloudHealthcare_ParserConfig_Version_V1  = @"V1";
 NSString * const kGTLRCloudHealthcare_ParserConfig_Version_V2  = @"V2";
+NSString * const kGTLRCloudHealthcare_ParserConfig_Version_V3  = @"V3";
 
 // GTLRCloudHealthcare_SchemaConfig.schemaType
 NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Analytics = @"ANALYTICS";

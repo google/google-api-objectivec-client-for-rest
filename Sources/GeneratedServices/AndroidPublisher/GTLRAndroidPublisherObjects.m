@@ -94,6 +94,17 @@ NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierNews1 
 NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierNews2 = @"TAX_TIER_NEWS_2";
 NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierUnspecified = @"TAX_TIER_UNSPECIFIED";
 
+// GTLRAndroidPublisher_SubscriptionItemPriceChangeDetails.priceChangeMode
+NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeMode_PriceChangeModeUnspecified = @"PRICE_CHANGE_MODE_UNSPECIFIED";
+NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeMode_PriceDecrease = @"PRICE_DECREASE";
+NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeMode_PriceIncrease = @"PRICE_INCREASE";
+
+// GTLRAndroidPublisher_SubscriptionItemPriceChangeDetails.priceChangeState
+NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_Applied = @"APPLIED";
+NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_Confirmed = @"CONFIRMED";
+NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_Outstanding = @"OUTSTANDING";
+NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_PriceChangeStateUnspecified = @"PRICE_CHANGE_STATE_UNSPECIFIED";
+
 // GTLRAndroidPublisher_SubscriptionOffer.state
 NSString * const kGTLRAndroidPublisher_SubscriptionOffer_State_Active = @"ACTIVE";
 NSString * const kGTLRAndroidPublisher_SubscriptionOffer_State_Draft = @"DRAFT";
@@ -294,7 +305,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_AutoRenewingPlan
-@dynamic autoRenewEnabled;
+@dynamic autoRenewEnabled, priceChangeDetails;
 @end
 
 
@@ -1173,6 +1184,24 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_OfferDetails
+//
+
+@implementation GTLRAndroidPublisher_OfferDetails
+@dynamic basePlanId, offerId, offerTags;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"offerTags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_OfferTag
 //
 
@@ -1488,6 +1517,17 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_SubscriptionItemPriceChangeDetails
+//
+
+@implementation GTLRAndroidPublisher_SubscriptionItemPriceChangeDetails
+@dynamic expectedNewPriceChargeTime, newPrice, priceChangeMode,
+         priceChangeState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_SubscriptionListing
 //
 
@@ -1597,7 +1637,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_SubscriptionPurchaseLineItem
-@dynamic autoRenewingPlan, expiryTime, prepaidPlan, productId;
+@dynamic autoRenewingPlan, expiryTime, offerDetails, prepaidPlan, productId;
 @end
 
 

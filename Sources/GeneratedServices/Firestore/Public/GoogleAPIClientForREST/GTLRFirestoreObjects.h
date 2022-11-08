@@ -443,6 +443,23 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDo
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata_OperationState_Successful;
 
 // ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1Index.apiScope
+
+/**
+ *  The index can be used by both Firestore Native and Firestore in Datastore
+ *  Mode query API. This is the default.
+ *
+ *  Value: "ANY_API"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_ApiScope_AnyApi;
+/**
+ *  The index can only be used by the Firestore in Datastore Mode query API.
+ *
+ *  Value: "DATASTORE_MODE_API"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_ApiScope_DatastoreModeApi;
+
+// ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1Index.queryScope
 
 /**
@@ -460,6 +477,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_Qu
  *  Value: "COLLECTION_GROUP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_CollectionGroup;
+/**
+ *  Include all the collections's ancestor in the index. Only available for
+ *  Datastore Mode databases.
+ *
+ *  Value: "COLLECTION_RECURSIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_CollectionRecursive;
 /**
  *  The query scope is unspecified. Not a valid option.
  *
@@ -1959,6 +1983,19 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_GoogleFirestoreAdminV1Index : GTLRObject
 
 /**
+ *  The API scope supported by this index.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_ApiScope_AnyApi The
+ *        index can be used by both Firestore Native and Firestore in Datastore
+ *        Mode query API. This is the default. (Value: "ANY_API")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_ApiScope_DatastoreModeApi
+ *        The index can only be used by the Firestore in Datastore Mode query
+ *        API. (Value: "DATASTORE_MODE_API")
+ */
+@property(nonatomic, copy, nullable) NSString *apiScope;
+
+/**
  *  The fields supported by this index. For composite indexes, this requires a
  *  minimum of 2 and a maximum of 100 fields. The last field entry is always for
  *  the field path `__name__`. If, on creation, `__name__` was not specified as
@@ -1996,6 +2033,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *        Indexes with a collection group query scope specified allow queries
  *        against all collections that has the collection id specified by the
  *        index. (Value: "COLLECTION_GROUP")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_CollectionRecursive
+ *        Include all the collections's ancestor in the index. Only available
+ *        for Datastore Mode databases. (Value: "COLLECTION_RECURSIVE")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_QueryScopeUnspecified
  *        The query scope is unspecified. Not a valid option. (Value:
  *        "QUERY_SCOPE_UNSPECIFIED")

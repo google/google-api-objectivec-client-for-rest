@@ -3694,7 +3694,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 /** The display name of the app. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** List of app events. The most recent 20 events are stored in the list. */
+/** The list of app events which have occurred in the last 30 hours. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ApplicationEvent *> *events;
 
 /** The package name of the app that installed this app. */

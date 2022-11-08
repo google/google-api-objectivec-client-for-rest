@@ -27,6 +27,7 @@
 @class GTLRBigtableAdmin_ClusterConfig;
 @class GTLRBigtableAdmin_ClusterState;
 @class GTLRBigtableAdmin_ColumnFamily;
+@class GTLRBigtableAdmin_ColumnFamilyStats;
 @class GTLRBigtableAdmin_CreateClusterMetadata_Tables;
 @class GTLRBigtableAdmin_CreateClusterRequest;
 @class GTLRBigtableAdmin_CreateInstanceRequest;
@@ -61,6 +62,7 @@
 @class GTLRBigtableAdmin_Table_ClusterStates;
 @class GTLRBigtableAdmin_Table_ColumnFamilies;
 @class GTLRBigtableAdmin_TableProgress;
+@class GTLRBigtableAdmin_TableStats;
 @class GTLRBigtableAdmin_Union;
 
 // Generated comments include content from the discovery document; avoid them
@@ -916,6 +918,60 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  matches the active GC expression for its family.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_GcRule *gcRule;
+
+/**
+ *  Only available with STATS_VIEW, this includes summary statistics about
+ *  column family contents. For statistics over an entire table, see TableStats
+ *  above.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_ColumnFamilyStats *stats;
+
+@end
+
+
+/**
+ *  Approximate statistics related to a single column family within a table.
+ *  This information may change rapidly, interpreting these values at a point in
+ *  time may already preset out-of-date information. Everything below is
+ *  approximate, unless otherwise specified.
+ */
+@interface GTLRBigtableAdmin_ColumnFamilyStats : GTLRObject
+
+/**
+ *  How many cells are present per column qualifier in this column family,
+ *  averaged over all rows containing any column in the column family. e.g. For
+ *  column family "family" in a table with 3 rows: * A row with 3 cells in
+ *  "family:col" and 1 cell in "other:col" (3 cells / 1 column in "family") * A
+ *  row with 1 cell in "family:col", 7 cells in "family:other_col", and 7 cells
+ *  in "other:data" (8 cells / 2 columns in "family") * A row with 3 cells in
+ *  "other:col" (0 columns in "family", "family" not present) would report (3 +
+ *  8 + 0)/(1 + 2 + 0) = 3.66 in this field.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageCellsPerColumn;
+
+/**
+ *  How many column qualifiers are present in this column family, averaged over
+ *  all rows in the table. e.g. For column family "family" in a table with 3
+ *  rows: * A row with cells in "family:col" and "other:col" (1 column in
+ *  "family") * A row with cells in "family:col", "family:other_col", and
+ *  "other:data" (2 columns in "family") * A row with cells in "other:col" (0
+ *  columns in "family", "family" not present) would report (1 + 2 + 0)/3 = 1.5
+ *  in this field.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageColumnsPerRow;
+
+/**
+ *  How much space the data in the column family occupies. This is roughly how
+ *  many bytes would be needed to read the contents of the entire column family
+ *  (e.g. by streaming all contents out).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *logicalDataBytes;
 
 @end
 
@@ -2407,9 +2463,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  The column families configured for this table, mapped by column family ID.
- *  Views: `SCHEMA_VIEW`, `FULL`
+ *  Views: `SCHEMA_VIEW`, `STATS_VIEW`, `FULL`
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Table_ColumnFamilies *columnFamilies;
+
+/**
+ *  Set to true to make the table protected against data loss. i.e. deleting the
+ *  following resources through Admin APIs are prohibited: - The table. - The
+ *  column families in the table. - The instance containing the table. Note one
+ *  can still delete the data stored in the table through Data APIs.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletionProtection;
 
 /**
  *  Immutable. The granularity (i.e. `MILLIS`) at which timestamps are stored in
@@ -2430,7 +2496,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 /**
  *  The unique name of the table. Values are of the form
  *  `projects/{project}/instances/{instance}/tables/_a-zA-Z0-9*`. Views:
- *  `NAME_ONLY`, `SCHEMA_VIEW`, `REPLICATION_VIEW`, `FULL`
+ *  `NAME_ONLY`, `SCHEMA_VIEW`, `REPLICATION_VIEW`, `STATS_VIEW`, `FULL`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2439,6 +2505,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  backup), this field will be populated with information about the restore.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_RestoreInfo *restoreInfo;
+
+/**
+ *  Only available with STATS_VIEW, this includes summary statistics about the
+ *  entire table contents. For statistics about a specific column family, see
+ *  ColumnFamilyStats in the mapped ColumnFamily collection above.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_TableStats *stats;
 
 @end
 
@@ -2461,7 +2534,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  The column families configured for this table, mapped by column family ID.
- *  Views: `SCHEMA_VIEW`, `FULL`
+ *  Views: `SCHEMA_VIEW`, `STATS_VIEW`, `FULL`
  *
  *  @note This class is documented as having more properties of
  *        GTLRBigtableAdmin_ColumnFamily. Use @c -additionalJSONKeys and @c
@@ -2510,6 +2583,57 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *        "STATE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Approximate statistics related to a table. These statistics are calculated
+ *  infrequently, while simultaneously, data in the table can change rapidly.
+ *  Thus the values reported here (e.g. row count) are very likely out-of date,
+ *  even the instant they are received in this API. Thus, only treat these
+ *  values as approximate. IMPORTANT: Everything below is approximate, unless
+ *  otherwise specified.
+ */
+@interface GTLRBigtableAdmin_TableStats : GTLRObject
+
+/**
+ *  How many cells are present per column (column family, column qualifier)
+ *  combinations, averaged over all columns in all rows in the table. e.g. A
+ *  table with 2 rows: * A row with 3 cells in "family:col" and 1 cell in
+ *  "other:col" (4 cells / 2 columns) * A row with 1 cell in "family:col", 7
+ *  cells in "family:other_col", and 7 cells in "other:data" (15 cells / 3
+ *  columns) would report (4 + 15)/(2 + 3) = 3.8 in this field.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageCellsPerColumn;
+
+/**
+ *  How many (column family, column qualifier) combinations are present per row
+ *  in the table, averaged over all rows in the table. e.g. A table with 2 rows:
+ *  * A row with cells in "family:col" and "other:col" (2 distinct columns) * A
+ *  row with cells in "family:col", "family:other_col", and "other:data" (3
+ *  distinct columns) would report (2 + 3)/2 = 2.5 in this field.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageColumnsPerRow;
+
+/**
+ *  This is roughly how many bytes would be needed to read the entire table
+ *  (e.g. by streaming all contents out).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *logicalDataBytes;
+
+/**
+ *  How many rows are in the table.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowCount;
 
 @end
 
@@ -2620,6 +2744,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /** The time at which the original request was received. */
 @property(nonatomic, strong, nullable) GTLRDateTime *requestTime;
+
+@end
+
+
+/**
+ *  Metadata type for the operation returned by UpdateTable.
+ */
+@interface GTLRBigtableAdmin_UpdateTableMetadata : GTLRObject
+
+/** If set, the time at which this operation finished or was canceled. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The name of the table being updated. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The time at which this operation started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 

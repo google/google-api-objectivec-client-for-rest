@@ -609,6 +609,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/Discovery/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Discovery/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'DiscoveryEngine' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/DiscoveryEngine/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/DiscoveryEngine/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'DisplayVideo' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/DisplayVideo/**/*.{h,m}'

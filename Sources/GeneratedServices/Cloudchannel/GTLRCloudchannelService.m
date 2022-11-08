@@ -13,9 +13,10 @@
 #import <GoogleAPIClientForREST/GTLRCloudchannel.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
-NSString * const kGTLRAuthScopeCloudchannelAppsOrder = @"https://www.googleapis.com/auth/apps.order";
+NSString * const kGTLRAuthScopeCloudchannelAppsOrder           = @"https://www.googleapis.com/auth/apps.order";
+NSString * const kGTLRAuthScopeCloudchannelAppsReportsUsageReadonly = @"https://www.googleapis.com/auth/apps.reports.usage.readonly";
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudchannelService

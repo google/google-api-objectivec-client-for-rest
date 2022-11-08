@@ -1041,7 +1041,7 @@ NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User  = @"USER";
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig
-@dynamic name, resourceValue, tagValues;
+@dynamic name, resourceType, resourceValue, scope, tagValues;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

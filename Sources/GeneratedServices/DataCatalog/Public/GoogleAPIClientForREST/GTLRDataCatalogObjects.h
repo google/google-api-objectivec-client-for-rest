@@ -863,6 +863,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Optional. Garbage collection policy for the column or column family. Applies
+ *  to systems like Cloud Bigtable.
+ */
+@property(nonatomic, copy, nullable) NSString *gcRule;
+
+/**
  *  Optional. A column's mode indicates whether values in this column are
  *  required, nullable, or repeated. Only `NULLABLE`, `REQUIRED`, and `REPEATED`
  *  values are supported. Default mode is `NULLABLE`.

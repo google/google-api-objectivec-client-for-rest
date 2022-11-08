@@ -136,6 +136,12 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsDisabl
 NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnabled = @"COMMENTS_ENABLED";
 NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnabledForExternalContributorsOnly = @"COMMENTS_ENABLED_FOR_EXTERNAL_CONTRIBUTORS_ONLY";
 
+// GTLRCloudBuild_RepositoryEventConfig.repositoryType
+NSString * const kGTLRCloudBuild_RepositoryEventConfig_RepositoryType_Github = @"GITHUB";
+NSString * const kGTLRCloudBuild_RepositoryEventConfig_RepositoryType_GithubEnterprise = @"GITHUB_ENTERPRISE";
+NSString * const kGTLRCloudBuild_RepositoryEventConfig_RepositoryType_GitlabEnterprise = @"GITLAB_ENTERPRISE";
+NSString * const kGTLRCloudBuild_RepositoryEventConfig_RepositoryType_RepositoryTypeUnspecified = @"REPOSITORY_TYPE_UNSPECIFIED";
+
 // GTLRCloudBuild_Warning.priority
 NSString * const kGTLRCloudBuild_Warning_Priority_Alert        = @"ALERT";
 NSString * const kGTLRCloudBuild_Warning_Priority_Info         = @"INFO";
@@ -549,8 +555,8 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
          createTime, descriptionProperty, disabled, eventType, filename, filter,
          gitFileSource, github, gitlabEnterpriseEventsConfig, identifier,
          ignoredFiles, includeBuildLogs, includedFiles, name, pubsubConfig,
-         resourceName, serviceAccount, sourceToBuild, substitutions, tags,
-         triggerTemplate, webhookConfig;
+         repositoryEventConfig, resourceName, serviceAccount, sourceToBuild,
+         substitutions, tags, triggerTemplate, webhookConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -900,17 +906,6 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 @implementation GTLRCloudBuild_GitRepoSource
 @dynamic bitbucketServerConfig, githubEnterpriseConfig, ref, repoType, uri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_GoogleDevtoolsCloudbuildV2OperationMetadata
-//
-
-@implementation GTLRCloudBuild_GoogleDevtoolsCloudbuildV2OperationMetadata
-@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
-         target, verb;
 @end
 
 
@@ -1429,6 +1424,16 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_RepositoryEventConfig
+//
+
+@implementation GTLRCloudBuild_RepositoryEventConfig
+@dynamic pullRequest, push, repository, repositoryType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_RepoSource
 //
 
@@ -1497,17 +1502,6 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 @implementation GTLRCloudBuild_RunBuildTriggerRequest
 @dynamic projectId, source, triggerId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_RunWorkflowCustomOperationMetadata
-//
-
-@implementation GTLRCloudBuild_RunWorkflowCustomOperationMetadata
-@dynamic apiVersion, createTime, endTime, pipelineRunId, requestedCancellation,
-         target, verb;
 @end
 
 

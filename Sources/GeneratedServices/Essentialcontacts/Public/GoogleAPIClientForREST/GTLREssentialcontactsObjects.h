@@ -215,28 +215,28 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontacts_GoogleCloudEssentialco
 @interface GTLREssentialcontacts_GoogleCloudEssentialcontactsV1Contact : GTLRObject
 
 /**
- *  Required. The email address to send notifications to. This does not need to
- *  be a Google account.
+ *  Required. The email address to send notifications to. The email address does
+ *  not need to be a Google Account.
  */
 @property(nonatomic, copy, nullable) NSString *email;
 
 /**
- *  The preferred language for notifications, as a ISO 639-1 language code. See
- *  [Supported
+ *  Required. The preferred language for notifications, as a ISO 639-1 language
+ *  code. See [Supported
  *  languages](https://cloud.google.com/resource-manager/docs/managing-notification-contacts#supported-languages)
  *  for a list of supported languages.
  */
 @property(nonatomic, copy, nullable) NSString *languageTag;
 
 /**
- *  The identifier for the contact. Format:
+ *  Output only. The identifier for the contact. Format:
  *  {resource_type}/{resource_id}/contacts/{contact_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The categories of notifications that the contact will receive communications
- *  for.
+ *  Required. The categories of notifications that the contact will receive
+ *  communications for.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *notificationCategorySubscriptions;
 

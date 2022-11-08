@@ -115,6 +115,13 @@ NSString * const kGTLRVMMigrationService_MigrationError_Code_TargetReplicationEr
 NSString * const kGTLRVMMigrationService_MigrationError_Code_UnknownError = @"UNKNOWN_ERROR";
 NSString * const kGTLRVMMigrationService_MigrationError_Code_UtilizationReportError = @"UTILIZATION_REPORT_ERROR";
 
+// GTLRVMMigrationService_ReplicationCycle.state
+NSString * const kGTLRVMMigrationService_ReplicationCycle_State_Failed = @"FAILED";
+NSString * const kGTLRVMMigrationService_ReplicationCycle_State_Paused = @"PAUSED";
+NSString * const kGTLRVMMigrationService_ReplicationCycle_State_Running = @"RUNNING";
+NSString * const kGTLRVMMigrationService_ReplicationCycle_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_ReplicationCycle_State_Succeeded = @"SUCCEEDED";
+
 // GTLRVMMigrationService_SchedulingNodeAffinity.operatorProperty
 NSString * const kGTLRVMMigrationService_SchedulingNodeAffinity_OperatorProperty_In = @"IN";
 NSString * const kGTLRVMMigrationService_SchedulingNodeAffinity_OperatorProperty_NotIn = @"NOT_IN";
@@ -148,6 +155,15 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Off = @"OFF"
 NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_On = @"ON";
 NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_PowerStateUnspecified = @"POWER_STATE_UNSPECIFIED";
 NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = @"SUSPENDED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_AdaptingOSStep
+//
+
+@implementation GTLRVMMigrationService_AdaptingOSStep
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -223,7 +239,26 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 @implementation GTLRVMMigrationService_CloneJob
 @dynamic computeEngineTargetDetails, createTime, endTime, error, name, state,
-         stateTime;
+         stateTime, steps;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"steps" : [GTLRVMMigrationService_CloneStep class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_CloneStep
+//
+
+@implementation GTLRVMMigrationService_CloneStep
+@dynamic adaptingOs, endTime, instantiatingMigratedVm, preparingVmDisks,
+         startTime;
 @end
 
 
@@ -362,7 +397,37 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 @implementation GTLRVMMigrationService_CutoverJob
 @dynamic computeEngineTargetDetails, createTime, endTime, error, name,
-         progressPercent, state, stateMessage, stateTime;
+         progressPercent, state, stateMessage, stateTime, steps;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"steps" : [GTLRVMMigrationService_CutoverStep class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_CutoverStep
+//
+
+@implementation GTLRVMMigrationService_CutoverStep
+@dynamic endTime, finalSync, instantiatingMigratedVm, preparingVmDisks,
+         previousReplicationCycle, shuttingDownSourceVm, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_CycleStep
+//
+
+@implementation GTLRVMMigrationService_CycleStep
+@dynamic endTime, initializingReplication, postProcessing, replicating,
+         startTime;
 @end
 
 
@@ -418,6 +483,24 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_InitializingReplicationStep
+//
+
+@implementation GTLRVMMigrationService_InitializingReplicationStep
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_InstantiatingMigratedVMStep
+//
+
+@implementation GTLRVMMigrationService_InstantiatingMigratedVMStep
 @end
 
 
@@ -863,6 +946,24 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_PostProcessingStep
+//
+
+@implementation GTLRVMMigrationService_PostProcessingStep
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_PreparingVMDisksStep
+//
+
+@implementation GTLRVMMigrationService_PreparingVMDisksStep
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_RemoveGroupMigrationRequest
 //
 
@@ -873,11 +974,31 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_ReplicatingStep
+//
+
+@implementation GTLRVMMigrationService_ReplicatingStep
+@dynamic lastThirtyMinutesAverageBytesPerSecond,
+         lastTwoMinutesAverageBytesPerSecond, replicatedBytes, totalBytes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_ReplicationCycle
 //
 
 @implementation GTLRVMMigrationService_ReplicationCycle
-@dynamic progressPercent, startTime;
+@dynamic cycleNumber, endTime, error, name, progressPercent, startTime, state,
+         steps, totalPauseDuration;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"steps" : [GTLRVMMigrationService_CycleStep class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -929,6 +1050,15 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_ShuttingDownSourceVMStep
+//
+
+@implementation GTLRVMMigrationService_ShuttingDownSourceVMStep
 @end
 
 

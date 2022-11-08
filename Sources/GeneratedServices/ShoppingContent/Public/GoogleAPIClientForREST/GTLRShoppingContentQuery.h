@@ -2265,10 +2265,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @interface GTLRShoppingContentQuery_DatafeedstatusesGet : GTLRShoppingContentQuery
 
 /**
- *  The country for which to get the datafeed status. If this parameter is
- *  provided then language must also be provided. Note that this parameter is
- *  required for feeds targeting multiple countries and languages, since a feed
- *  may have a different status for each target.
+ *  Deprecated. Use `feedLabel` instead. The country to get the datafeed status
+ *  for. If this parameter is provided then `language` must also be provided.
+ *  Note that this parameter is required for feeds targeting multiple countries
+ *  and languages, since a feed may have a different status for each target.
  */
 @property(nonatomic, copy, nullable) NSString *country;
 
@@ -2276,10 +2276,18 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @property(nonatomic, assign) unsigned long long datafeedId;
 
 /**
- *  The language for which to get the datafeed status. If this parameter is
- *  provided then country must also be provided. Note that this parameter is
- *  required for feeds targeting multiple countries and languages, since a feed
- *  may have a different status for each target.
+ *  The feed label to get the datafeed status for. If this parameter is provided
+ *  then `language` must also be provided. Note that this parameter is required
+ *  for feeds targeting multiple countries and languages, since a feed may have
+ *  a different status for each target.
+ */
+@property(nonatomic, copy, nullable) NSString *feedLabel;
+
+/**
+ *  The language to get the datafeed status for. If this parameter is provided
+ *  then `country` must also be provided. Note that this parameter is required
+ *  for feeds targeting multiple countries and languages, since a feed may have
+ *  a different status for each target.
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -5211,9 +5219,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 /**
  *  The comma-separated list of product attributes to be updated. Example:
  *  `"title,salePrice"`. Attributes specified in the update mask without a value
- *  specified in the body will be deleted from the product. Only top-level
- *  product attributes can be updated. If not defined, product attributes with
- *  set values will be updated and other attributes will stay unchanged.
+ *  specified in the body will be deleted from the product. *You must specify
+ *  the update mask to delete attributes.* Only top-level product attributes can
+ *  be updated. If not defined, product attributes with set values will be
+ *  updated and other attributes will stay unchanged.
  *
  *  String format is a comma-separated list of fields.
  */

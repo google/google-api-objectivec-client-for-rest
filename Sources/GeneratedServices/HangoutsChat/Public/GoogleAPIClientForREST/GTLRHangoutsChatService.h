@@ -23,7 +23,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 /**
  *  Authorization scope: View, add, and remove members from conversations in
@@ -32,6 +32,25 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value "https://www.googleapis.com/auth/chat.memberships"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMemberships;
+/**
+ *  Authorization scope: View, compose, send, update, and delete messages, and
+ *  add, view, and delete reactions to messages.
+ *
+ *  Value "https://www.googleapis.com/auth/chat.messages"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMessages;
+/**
+ *  Authorization scope: Compose and send messages in Google Chat
+ *
+ *  Value "https://www.googleapis.com/auth/chat.messages.create"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMessagesCreate;
+/**
+ *  Authorization scope: view messages and reactions in Google Chat
+ *
+ *  Value "https://www.googleapis.com/auth/chat.messages.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMessagesReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRHangoutsChatService

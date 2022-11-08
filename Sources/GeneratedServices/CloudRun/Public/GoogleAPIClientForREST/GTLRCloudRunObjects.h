@@ -733,78 +733,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_ExecutionE
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_ExecutionEnvironment_ExecutionEnvironmentUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRCloudRun_GoogleCloudRunV2Task.launchStage
-
-/**
- *  Alpha is a limited availability test for releases before they are cleared
- *  for widespread use. By Alpha, all significant design issues are resolved and
- *  we are in the process of verifying functionality. Alpha customers need to
- *  apply for access, agree to applicable terms, and have their projects
- *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
- *  provided, and there are no technical support obligations, but they will be
- *  far enough along that customers can actually use them in test environments
- *  or for limited-use tests -- just like they would in normal production cases.
- *
- *  Value: "ALPHA"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Alpha;
-/**
- *  Beta is the point at which we are ready to open a release for any customer
- *  to use. There are no SLA or technical support obligations in a Beta release.
- *  Products will be complete from a feature perspective, but may have some open
- *  outstanding issues. Beta releases are suitable for limited production use
- *  cases.
- *
- *  Value: "BETA"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Beta;
-/**
- *  Deprecated features are scheduled to be shut down and removed. For more
- *  information, see the "Deprecation Policy" section of our [Terms of
- *  Service](https://cloud.google.com/terms/) and the [Google Cloud Platform
- *  Subject to the Deprecation
- *  Policy](https://cloud.google.com/terms/deprecation) documentation.
- *
- *  Value: "DEPRECATED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Deprecated;
-/**
- *  Early Access features are limited to a closed group of testers. To use these
- *  features, you must sign up in advance and sign a Trusted Tester agreement
- *  (which includes confidentiality provisions). These features may be unstable,
- *  changed in backward-incompatible ways, and are not guaranteed to be
- *  released.
- *
- *  Value: "EARLY_ACCESS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_EarlyAccess;
-/**
- *  GA features are open to all developers and are considered stable and fully
- *  qualified for production use.
- *
- *  Value: "GA"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Ga;
-/**
- *  Do not use this default value.
- *
- *  Value: "LAUNCH_STAGE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_LaunchStageUnspecified;
-/**
- *  Prelaunch features are hidden from users and are only visible internally.
- *
- *  Value: "PRELAUNCH"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Prelaunch;
-/**
- *  The feature is not yet implemented. Users can not use it.
- *
- *  Value: "UNIMPLEMENTED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Unimplemented;
-
-// ----------------------------------------------------------------------------
 // GTLRCloudRun_GoogleCloudRunV2TaskTemplate.executionEnvironment
 
 /**
@@ -2956,56 +2884,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** Output only. Result of the last attempt of this Task. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2TaskAttemptResult *lastAttemptResult;
-
-/**
- *  Set the launch stage to a preview stage on write to allow use of preview
- *  features in that stage. On read, describes whether the resource uses preview
- *  features. Launch Stages are defined at [Google Cloud Platform Launch
- *  Stages](https://cloud.google.com/terms/launch-stages).
- *
- *  Likely values:
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Alpha Alpha is a
- *        limited availability test for releases before they are cleared for
- *        widespread use. By Alpha, all significant design issues are resolved
- *        and we are in the process of verifying functionality. Alpha customers
- *        need to apply for access, agree to applicable terms, and have their
- *        projects allowlisted. Alpha releases don't have to be feature
- *        complete, no SLAs are provided, and there are no technical support
- *        obligations, but they will be far enough along that customers can
- *        actually use them in test environments or for limited-use tests --
- *        just like they would in normal production cases. (Value: "ALPHA")
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Beta Beta is the
- *        point at which we are ready to open a release for any customer to use.
- *        There are no SLA or technical support obligations in a Beta release.
- *        Products will be complete from a feature perspective, but may have
- *        some open outstanding issues. Beta releases are suitable for limited
- *        production use cases. (Value: "BETA")
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Deprecated
- *        Deprecated features are scheduled to be shut down and removed. For
- *        more information, see the "Deprecation Policy" section of our [Terms
- *        of Service](https://cloud.google.com/terms/) and the [Google Cloud
- *        Platform Subject to the Deprecation
- *        Policy](https://cloud.google.com/terms/deprecation) documentation.
- *        (Value: "DEPRECATED")
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_EarlyAccess Early
- *        Access features are limited to a closed group of testers. To use these
- *        features, you must sign up in advance and sign a Trusted Tester
- *        agreement (which includes confidentiality provisions). These features
- *        may be unstable, changed in backward-incompatible ways, and are not
- *        guaranteed to be released. (Value: "EARLY_ACCESS")
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Ga GA features are
- *        open to all developers and are considered stable and fully qualified
- *        for production use. (Value: "GA")
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_LaunchStageUnspecified
- *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Prelaunch Prelaunch
- *        features are hidden from users and are only visible internally.
- *        (Value: "PRELAUNCH")
- *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Unimplemented The
- *        feature is not yet implemented. Users can not use it. (Value:
- *        "UNIMPLEMENTED")
- */
-@property(nonatomic, copy, nullable) NSString *launchStage;
 
 /**
  *  Number of retries allowed per Task, before marking this Task failed.

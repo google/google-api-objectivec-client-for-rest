@@ -19,14 +19,20 @@
 @class GTLRCloudchannel_GoogleCloudChannelV1AdminUser;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1AssociationInfo;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1ChannelPartnerEvent;
+@class GTLRCloudchannel_GoogleCloudChannelV1alpha1Column;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1CommitmentSettings;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1CustomerEvent;
+@class GTLRCloudchannel_GoogleCloudChannelV1alpha1DateRange;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1Entitlement;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1EntitlementEvent;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1Parameter;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1Period;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1ProvisionedService;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1RenewalSettings;
+@class GTLRCloudchannel_GoogleCloudChannelV1alpha1Report;
+@class GTLRCloudchannel_GoogleCloudChannelV1alpha1ReportJob;
+@class GTLRCloudchannel_GoogleCloudChannelV1alpha1ReportResultsMetadata;
+@class GTLRCloudchannel_GoogleCloudChannelV1alpha1ReportStatus;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1TrialSettings;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1Value;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1Value_ProtoValue;
@@ -35,6 +41,7 @@
 @class GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerRepricingConfig;
 @class GTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount;
 @class GTLRCloudchannel_GoogleCloudChannelV1CloudIdentityInfo;
+@class GTLRCloudchannel_GoogleCloudChannelV1Column;
 @class GTLRCloudchannel_GoogleCloudChannelV1CommitmentSettings;
 @class GTLRCloudchannel_GoogleCloudChannelV1Constraints;
 @class GTLRCloudchannel_GoogleCloudChannelV1ContactInfo;
@@ -42,6 +49,7 @@
 @class GTLRCloudchannel_GoogleCloudChannelV1CustomerConstraints;
 @class GTLRCloudchannel_GoogleCloudChannelV1CustomerEvent;
 @class GTLRCloudchannel_GoogleCloudChannelV1CustomerRepricingConfig;
+@class GTLRCloudchannel_GoogleCloudChannelV1DateRange;
 @class GTLRCloudchannel_GoogleCloudChannelV1EduData;
 @class GTLRCloudchannel_GoogleCloudChannelV1Entitlement;
 @class GTLRCloudchannel_GoogleCloudChannelV1EntitlementEvent;
@@ -62,10 +70,16 @@
 @class GTLRCloudchannel_GoogleCloudChannelV1PurchasableOffer;
 @class GTLRCloudchannel_GoogleCloudChannelV1PurchasableSku;
 @class GTLRCloudchannel_GoogleCloudChannelV1RenewalSettings;
+@class GTLRCloudchannel_GoogleCloudChannelV1Report;
+@class GTLRCloudchannel_GoogleCloudChannelV1ReportJob;
+@class GTLRCloudchannel_GoogleCloudChannelV1ReportResultsMetadata;
+@class GTLRCloudchannel_GoogleCloudChannelV1ReportStatus;
+@class GTLRCloudchannel_GoogleCloudChannelV1ReportValue;
 @class GTLRCloudchannel_GoogleCloudChannelV1RepricingAdjustment;
 @class GTLRCloudchannel_GoogleCloudChannelV1RepricingConfig;
 @class GTLRCloudchannel_GoogleCloudChannelV1RepricingConfigChannelPartnerGranularity;
 @class GTLRCloudchannel_GoogleCloudChannelV1RepricingConfigEntitlementGranularity;
+@class GTLRCloudchannel_GoogleCloudChannelV1Row;
 @class GTLRCloudchannel_GoogleCloudChannelV1Sku;
 @class GTLRCloudchannel_GoogleCloudChannelV1TransferableOffer;
 @class GTLRCloudchannel_GoogleCloudChannelV1TransferableSku;
@@ -79,9 +93,11 @@
 @class GTLRCloudchannel_GoogleRpcStatus;
 @class GTLRCloudchannel_GoogleRpcStatus_Details_Item;
 @class GTLRCloudchannel_GoogleTypeDate;
+@class GTLRCloudchannel_GoogleTypeDateTime;
 @class GTLRCloudchannel_GoogleTypeDecimal;
 @class GTLRCloudchannel_GoogleTypeMoney;
 @class GTLRCloudchannel_GoogleTypePostalAddress;
+@class GTLRCloudchannel_GoogleTypeTimeZone;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -116,6 +132,52 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1C
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1ChannelPartnerEvent_EventType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudchannel_GoogleCloudChannelV1alpha1Column.dataType
+
+/**
+ *  Not used.
+ *
+ *  Value: "DATA_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1Column_DataType_DataTypeUnspecified;
+/**
+ *  ReportValues for this column will use date_value.
+ *
+ *  Value: "DATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1Column_DataType_Date;
+/**
+ *  ReportValues for this column will use date_time_value.
+ *
+ *  Value: "DATE_TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1Column_DataType_DateTime;
+/**
+ *  ReportValues for this column will use decimal_value.
+ *
+ *  Value: "DECIMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1Column_DataType_Decimal;
+/**
+ *  ReportValues for this column will use int_value.
+ *
+ *  Value: "INT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1Column_DataType_Int;
+/**
+ *  ReportValues for this column will use money_value.
+ *
+ *  Value: "MONEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1Column_DataType_Money;
+/**
+ *  ReportValues for this column will use string_value.
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1Column_DataType_String;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudchannel_GoogleCloudChannelV1alpha1CustomerEvent.eventType
@@ -496,6 +558,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1R
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1RenewalSettings_PaymentPlan_Trial;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudchannel_GoogleCloudChannelV1alpha1ReportStatus.state
+
+/**
+ *  Report data is available for access.
+ *
+ *  Value: "AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1ReportStatus_State_Available;
+/**
+ *  Report failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1ReportStatus_State_Failed;
+/**
+ *  Report processing started.
+ *
+ *  Value: "STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1ReportStatus_State_Started;
+/**
+ *  Not used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1ReportStatus_State_StateUnspecified;
+/**
+ *  Data generated from the report is being staged.
+ *
+ *  Value: "WRITING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1ReportStatus_State_Writing;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink.linkState
 
 /**
@@ -551,6 +647,52 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CloudId
  *  Value: "TEAM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityInfo_CustomerType_Team;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudchannel_GoogleCloudChannelV1Column.dataType
+
+/**
+ *  Not used.
+ *
+ *  Value: "DATA_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_DataTypeUnspecified;
+/**
+ *  ReportValues for this column will use date_value.
+ *
+ *  Value: "DATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_Date;
+/**
+ *  ReportValues for this column will use date_time_value.
+ *
+ *  Value: "DATE_TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_DateTime;
+/**
+ *  ReportValues for this column will use decimal_value.
+ *
+ *  Value: "DECIMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_Decimal;
+/**
+ *  ReportValues for this column will use int_value.
+ *
+ *  Value: "INT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_Int;
+/**
+ *  ReportValues for this column will use money_value.
+ *
+ *  Value: "MONEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_Money;
+/**
+ *  ReportValues for this column will use string_value.
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_String;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudchannel_GoogleCloudChannelV1CustomerConstraints.allowedCustomerTypes
@@ -1181,6 +1323,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Renewal
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1RenewalSettings_PaymentPlan_Trial;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudchannel_GoogleCloudChannelV1ReportStatus.state
+
+/**
+ *  Report data is available for access.
+ *
+ *  Value: "AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ReportStatus_State_Available;
+/**
+ *  Report failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ReportStatus_State_Failed;
+/**
+ *  Report processing started.
+ *
+ *  Value: "STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ReportStatus_State_Started;
+/**
+ *  Not used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ReportStatus_State_StateUnspecified;
+/**
+ *  Data generated from the report is being staged.
+ *
+ *  Value: "WRITING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ReportStatus_State_Writing;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudchannel_GoogleCloudChannelV1RepricingConfig.rebillingBasis
 
 /**
@@ -1315,6 +1491,49 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 
 /**
+ *  The definition of a report column. Specifies the data properties in the
+ *  corresponding position of the report rows.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1alpha1Column : GTLRObject
+
+/**
+ *  The unique name of the column (for example, customer_domain,
+ *  channel_partner, customer_cost). You can use column IDs in
+ *  RunReportJobRequest.filter. To see all reports and their columns, call
+ *  CloudChannelReportsService.ListReports.
+ */
+@property(nonatomic, copy, nullable) NSString *columnId;
+
+/**
+ *  The type of the values for this column.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1Column_DataType_DataTypeUnspecified
+ *        Not used. (Value: "DATA_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1Column_DataType_Date
+ *        ReportValues for this column will use date_value. (Value: "DATE")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1Column_DataType_DateTime
+ *        ReportValues for this column will use date_time_value. (Value:
+ *        "DATE_TIME")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1Column_DataType_Decimal
+ *        ReportValues for this column will use decimal_value. (Value:
+ *        "DECIMAL")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1Column_DataType_Int
+ *        ReportValues for this column will use int_value. (Value: "INT")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1Column_DataType_Money
+ *        ReportValues for this column will use money_value. (Value: "MONEY")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1Column_DataType_String
+ *        ReportValues for this column will use string_value. (Value: "STRING")
+ */
+@property(nonatomic, copy, nullable) NSString *dataType;
+
+/** The column's display name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+@end
+
+
+/**
  *  Commitment settings for commitment-based offers.
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1alpha1CommitmentSettings : GTLRObject
@@ -1356,6 +1575,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *        Not used. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *eventType;
+
+@end
+
+
+/**
+ *  A representation of usage or invoice date ranges.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1alpha1DateRange : GTLRObject
+
+/**
+ *  The latest invoice date (exclusive). If your product uses monthly invoices,
+ *  and this value is not the beginning of a month, this will adjust the date to
+ *  the first day of the following month.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeDate *invoiceEndDate;
+
+/**
+ *  The earliest invoice date (inclusive). If your product uses monthly
+ *  invoices, and this value is not the beginning of a month, this will adjust
+ *  the date to the first day of the given month.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeDate *invoiceStartDate;
+
+/**
+ *  The latest usage date time (exclusive). If you use time groupings (daily,
+ *  weekly, etc), each group uses midnight to midnight (Pacific time). The usage
+ *  end date is rounded down to include all usage from the specified date. We
+ *  recommend that clients pass `usage_start_date_time` in Pacific time.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeDateTime *usageEndDateTime;
+
+/**
+ *  The earliest usage date time (inclusive). If you use time groupings (daily,
+ *  weekly, etc), each group uses midnight to midnight (Pacific time). The usage
+ *  start date is rounded down to include all usage from the specified date. We
+ *  recommend that clients pass `usage_start_date_time` in Pacific time.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeDateTime *usageStartDateTime;
 
 @end
 
@@ -1751,6 +2008,140 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *resizeUnitCount;
+
+@end
+
+
+/**
+ *  The ID and description of a report that was used to generate report data.
+ *  For example, "GCP Daily Spend", "Google Workspace License Activity", etc.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1alpha1Report : GTLRObject
+
+/**
+ *  The list of columns included in the report. This defines the schema of the
+ *  report results.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1alpha1Column *> *columns;
+
+/**
+ *  A description of other aspects of the report, such as the products it
+ *  supports.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** A human-readable name for this report. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Required. The report's resource name. Specifies the account and report used
+ *  to generate report data. The report_id identifier is a UID (for example,
+ *  `613bf59q`). Name uses the format: accounts/{account_id}/reports/{report_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  The result of a RunReportJob operation. Contains the name to use in
+ *  FetchReportResultsRequest.report_job and the status of the operation.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1alpha1ReportJob : GTLRObject
+
+/**
+ *  Required. The resource name of a report job. Name uses the format:
+ *  `accounts/{account_id}/reportJobs/{report_job_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The current status of report generation. */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1alpha1ReportStatus *reportStatus;
+
+@end
+
+
+/**
+ *  The features describing the data. Returned by
+ *  CloudChannelReportsService.RunReportJob and
+ *  CloudChannelReportsService.FetchReportResults.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1alpha1ReportResultsMetadata : GTLRObject
+
+/** The date range of reported usage. */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1alpha1DateRange *dateRange;
+
+/**
+ *  The usage dates immediately preceding `date_range` with the same duration.
+ *  Use this to calculate trending usage and costs. This is only populated if
+ *  you request trending data. For example, if `date_range` is July 1-15,
+ *  `preceding_date_range` will be June 16-30.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1alpha1DateRange *precedingDateRange;
+
+/** Details of the completed report. */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1alpha1Report *report;
+
+/**
+ *  The total number of rows of data in the final report.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowCount;
+
+@end
+
+
+/**
+ *  Status of a report generation process.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1alpha1ReportStatus : GTLRObject
+
+/** The report generation's completion time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The report generation's start time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  The current state of the report generation process.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1ReportStatus_State_Available
+ *        Report data is available for access. (Value: "AVAILABLE")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1ReportStatus_State_Failed
+ *        Report failed. (Value: "FAILED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1ReportStatus_State_Started
+ *        Report processing started. (Value: "STARTED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1ReportStatus_State_StateUnspecified
+ *        Not used. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1ReportStatus_State_Writing
+ *        Data generated from the report is being staged. (Value: "WRITING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Response message for CloudChannelReportsService.RunReportJob.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1alpha1RunReportJobResponse : GTLRObject
+
+/**
+ *  Pass `report_job.name` to FetchReportResultsRequest.report_job to retrieve
+ *  the report's results.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1alpha1ReportJob *reportJob;
+
+/**
+ *  The metadata for the report's results (display name, columns, row count, and
+ *  date range). If you view this before the operation finishes, you may see
+ *  incomplete data.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1alpha1ReportResultsMetadata *reportMetadata;
 
 @end
 
@@ -2167,6 +2558,49 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 
 /**
+ *  The definition of a report column. Specifies the data properties in the
+ *  corresponding position of the report rows.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1Column : GTLRObject
+
+/**
+ *  The unique name of the column (for example, customer_domain,
+ *  channel_partner, customer_cost). You can use column IDs in
+ *  RunReportJobRequest.filter. To see all reports and their columns, call
+ *  CloudChannelReportsService.ListReports.
+ */
+@property(nonatomic, copy, nullable) NSString *columnId;
+
+/**
+ *  The type of the values for this column.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_DataTypeUnspecified
+ *        Not used. (Value: "DATA_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_Date
+ *        ReportValues for this column will use date_value. (Value: "DATE")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_DateTime
+ *        ReportValues for this column will use date_time_value. (Value:
+ *        "DATE_TIME")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_Decimal
+ *        ReportValues for this column will use decimal_value. (Value:
+ *        "DECIMAL")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_Int
+ *        ReportValues for this column will use int_value. (Value: "INT")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_Money
+ *        ReportValues for this column will use money_value. (Value: "MONEY")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_String
+ *        ReportValues for this column will use string_value. (Value: "STRING")
+ */
+@property(nonatomic, copy, nullable) NSString *dataType;
+
+/** The column's display name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+@end
+
+
+/**
  *  Commitment settings for commitment-based offers.
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1CommitmentSettings : GTLRObject
@@ -2398,6 +2832,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 
 /**
+ *  A representation of usage or invoice date ranges.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1DateRange : GTLRObject
+
+/**
+ *  The latest invoice date (exclusive). If your product uses monthly invoices,
+ *  and this value is not the beginning of a month, this will adjust the date to
+ *  the first day of the following month.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeDate *invoiceEndDate;
+
+/**
+ *  The earliest invoice date (inclusive). If your product uses monthly
+ *  invoices, and this value is not the beginning of a month, this will adjust
+ *  the date to the first day of the given month.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeDate *invoiceStartDate;
+
+/**
+ *  The latest usage date time (exclusive). If you use time groupings (daily,
+ *  weekly, etc), each group uses midnight to midnight (Pacific time). The usage
+ *  end date is rounded down to include all usage from the specified date. We
+ *  recommend that clients pass `usage_start_date_time` in Pacific time.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeDateTime *usageEndDateTime;
+
+/**
+ *  The earliest usage date time (inclusive). If you use time groupings (daily,
+ *  weekly, etc), each group uses midnight to midnight (Pacific time). The usage
+ *  start date is rounded down to include all usage from the specified date. We
+ *  recommend that clients pass `usage_start_date_time` in Pacific time.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeDateTime *usageStartDateTime;
+
+@end
+
+
+/**
  *  Required Edu Attributes
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1EduData : GTLRObject
@@ -2575,6 +3047,66 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *        Not used. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *eventType;
+
+@end
+
+
+/**
+ *  Request message for CloudChannelReportsService.FetchReportResults.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1FetchReportResultsRequest : GTLRObject
+
+/**
+ *  Optional. Requested page size of the report. The server may return fewer
+ *  results than requested. If you don't specify a page size, the server uses a
+ *  sensible default (may change over time). The maximum value is 30,000; the
+ *  server will change larger values to 30,000.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  Optional. A token that specifies a page of results beyond the first page.
+ *  Obtained through FetchReportResultsResponse.next_page_token of the previous
+ *  CloudChannelReportsService.FetchReportResults call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+@end
+
+
+/**
+ *  Response message for CloudChannelReportsService.FetchReportResults. Contains
+ *  a tabular representation of the report results.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "rows" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1FetchReportResultsResponse : GTLRCollectionObject
+
+/**
+ *  Pass this token to FetchReportResultsRequest.page_token to retrieve the next
+ *  page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The metadata for the report results (display name, columns, row count, and
+ *  date ranges).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1ReportResultsMetadata *reportMetadata;
+
+/**
+ *  The report's lists of values. Each row follows the settings and ordering of
+ *  the columns from `report_metadata`.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1Row *> *rows;
 
 @end
 
@@ -2856,6 +3388,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 
 /**
+ *  Response message for CloudChannelReportsService.ListReports.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "reports" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1ListReportsResponse : GTLRCollectionObject
+
+/**
+ *  Pass this token to FetchReportResultsRequest.page_token to retrieve the next
+ *  page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The reports available to the partner.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1Report *> *reports;
+
+@end
+
+
+/**
  *  Response message for ListSkus.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3100,6 +3659,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 /** Constraints on transacting the Offer. */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1Constraints *constraints;
+
+/** The deal code of the offer to get a special promotion or discount. */
+@property(nonatomic, copy, nullable) NSString *dealCode;
 
 /** Output only. End of the Offer validity time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
@@ -3665,6 +4227,158 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 
 /**
+ *  The ID and description of a report that was used to generate report data.
+ *  For example, "GCP Daily Spend", "Google Workspace License Activity", etc.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1Report : GTLRObject
+
+/**
+ *  The list of columns included in the report. This defines the schema of the
+ *  report results.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1Column *> *columns;
+
+/**
+ *  A description of other aspects of the report, such as the products it
+ *  supports.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** A human-readable name for this report. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Required. The report's resource name. Specifies the account and report used
+ *  to generate report data. The report_id identifier is a UID (for example,
+ *  `613bf59q`). Name uses the format: accounts/{account_id}/reports/{report_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  The result of a RunReportJob operation. Contains the name to use in
+ *  FetchReportResultsRequest.report_job and the status of the operation.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1ReportJob : GTLRObject
+
+/**
+ *  Required. The resource name of a report job. Name uses the format:
+ *  `accounts/{account_id}/reportJobs/{report_job_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The current status of report generation. */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1ReportStatus *reportStatus;
+
+@end
+
+
+/**
+ *  The features describing the data. Returned by
+ *  CloudChannelReportsService.RunReportJob and
+ *  CloudChannelReportsService.FetchReportResults.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1ReportResultsMetadata : GTLRObject
+
+/** The date range of reported usage. */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1DateRange *dateRange;
+
+/**
+ *  The usage dates immediately preceding `date_range` with the same duration.
+ *  Use this to calculate trending usage and costs. This is only populated if
+ *  you request trending data. For example, if `date_range` is July 1-15,
+ *  `preceding_date_range` will be June 16-30.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1DateRange *precedingDateRange;
+
+/** Details of the completed report. */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1Report *report;
+
+/**
+ *  The total number of rows of data in the final report.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowCount;
+
+@end
+
+
+/**
+ *  Status of a report generation process.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1ReportStatus : GTLRObject
+
+/** The report generation's completion time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The report generation's start time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  The current state of the report generation process.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1ReportStatus_State_Available
+ *        Report data is available for access. (Value: "AVAILABLE")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1ReportStatus_State_Failed
+ *        Report failed. (Value: "FAILED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1ReportStatus_State_Started
+ *        Report processing started. (Value: "STARTED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1ReportStatus_State_StateUnspecified
+ *        Not used. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1ReportStatus_State_Writing
+ *        Data generated from the report is being staged. (Value: "WRITING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  A single report value.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1ReportValue : GTLRObject
+
+/**
+ *  A value of type `google.type.DateTime` (year, month, day, hour, minute,
+ *  second, and UTC offset or timezone.)
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeDateTime *dateTimeValue;
+
+/** A value of type `google.type.Date` (year, month, day). */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeDate *dateValue;
+
+/**
+ *  A value of type `google.type.Decimal`, representing non-integer numeric
+ *  values.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeDecimal *decimalValue;
+
+/**
+ *  A value of type `int`.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *intValue;
+
+/**
+ *  A value of type `google.type.Money` (currency code, whole units, decimal
+ *  units).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeMoney *moneyValue;
+
+/** A value of type `string`. */
+@property(nonatomic, copy, nullable) NSString *stringValue;
+
+@end
+
+
+/**
  *  A type that represents the various adjustments you can apply to a bill.
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1RepricingAdjustment : GTLRObject
@@ -3740,6 +4454,66 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
  */
 @property(nonatomic, copy, nullable) NSString *entitlement;
+
+@end
+
+
+/**
+ *  A row of report values.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1Row : GTLRObject
+
+/** The list of values in the row. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1ReportValue *> *values;
+
+@end
+
+
+/**
+ *  Request message for CloudChannelReportsService.RunReportJob.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1RunReportJobRequest : GTLRObject
+
+/** Optional. The range of usage or invoice dates to include in the result. */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1DateRange *dateRange;
+
+/**
+ *  Optional. A structured string that defines conditions on dimension columns
+ *  to restrict the report output. Filters support logical operators (AND, OR,
+ *  NOT) and conditional operators (=, !=, <, >, <=, and >=) using `column_id`
+ *  as keys. For example: `(customer:"accounts/C123abc/customers/S456def" OR
+ *  customer:"accounts/C123abc/customers/S789ghi") AND invoice_start_date.year
+ *  >= 2022`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The BCP-47 language code, such as "en-US". If specified, the
+ *  response is localized to the corresponding language code if the original
+ *  data sources support it. Default is "en-US".
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+@end
+
+
+/**
+ *  Response message for CloudChannelReportsService.RunReportJob.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1RunReportJobResponse : GTLRObject
+
+/**
+ *  Pass `report_job.name` to FetchReportResultsRequest.report_job to retrieve
+ *  the report's results.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1ReportJob *reportJob;
+
+/**
+ *  The metadata for the report's results (display name, columns, row count, and
+ *  date range). If you view this before the operation finishes, you may see
+ *  incomplete data.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1ReportResultsMetadata *reportMetadata;
 
 @end
 
@@ -4282,6 +5056,92 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 
 /**
+ *  Represents civil time (or occasionally physical time). This type can
+ *  represent a civil time in one of a few possible ways: * When utc_offset is
+ *  set and time_zone is unset: a civil time on a calendar day with a particular
+ *  offset from UTC. * When time_zone is set and utc_offset is unset: a civil
+ *  time on a calendar day in a particular time zone. * When neither time_zone
+ *  nor utc_offset is set: a civil time on a calendar day in local time. The
+ *  date is relative to the Proleptic Gregorian Calendar. If year, month, or day
+ *  are 0, the DateTime is considered not to have a specific year, month, or day
+ *  respectively. This type may also be used to represent a physical time if all
+ *  the date and time fields are set and either case of the `time_offset` oneof
+ *  is set. Consider using `Timestamp` message for physical time instead. If
+ *  your use case also would like to store the user's timezone, that can be done
+ *  in another field. This type is more flexible than some applications may
+ *  want. Make sure to document and validate your application's limitations.
+ */
+@interface GTLRCloudchannel_GoogleTypeDateTime : GTLRObject
+
+/**
+ *  Optional. Day of month. Must be from 1 to 31 and valid for the year and
+ *  month, or 0 if specifying a datetime without a day.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *day;
+
+/**
+ *  Optional. Hours of day in 24 hour format. Should be from 0 to 23, defaults
+ *  to 0 (midnight). An API may choose to allow the value "24:00:00" for
+ *  scenarios like business closing time.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hours;
+
+/**
+ *  Optional. Minutes of hour of day. Must be from 0 to 59, defaults to 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minutes;
+
+/**
+ *  Optional. Month of year. Must be from 1 to 12, or 0 if specifying a datetime
+ *  without a month.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *month;
+
+/**
+ *  Optional. Fractions of seconds in nanoseconds. Must be from 0 to
+ *  999,999,999, defaults to 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nanos;
+
+/**
+ *  Optional. Seconds of minutes of the time. Must normally be from 0 to 59,
+ *  defaults to 0. An API may allow the value 60 if it allows leap-seconds.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seconds;
+
+/** Time zone. */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeTimeZone *timeZone;
+
+/**
+ *  UTC offset. Must be whole seconds, between -18 hours and +18 hours. For
+ *  example, a UTC offset of -4:00 would be represented as { seconds: -14400 }.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *utcOffset;
+
+/**
+ *  Optional. Year of date. Must be from 1 to 9999, or 0 if specifying a
+ *  datetime without a year.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *year;
+
+@end
+
+
+/**
  *  A representation of a decimal value, such as 2.5. Clients may convert values
  *  into language-native decimal formats, such as Java's BigDecimal or Python's
  *  decimal.Decimal. [BigDecimal]:
@@ -4479,6 +5339,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  neighborhoods, boroughs, districts.
  */
 @property(nonatomic, copy, nullable) NSString *sublocality;
+
+@end
+
+
+/**
+ *  Represents a time zone from the [IANA Time Zone
+ *  Database](https://www.iana.org/time-zones).
+ */
+@interface GTLRCloudchannel_GoogleTypeTimeZone : GTLRObject
+
+/**
+ *  IANA Time Zone Database time zone, e.g. "America/New_York".
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Optional. IANA Time Zone Database version number, e.g. "2019a". */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 

@@ -2152,9 +2152,10 @@ NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_ContentCategory_Yo
 //
 
 @implementation GTLRDisplayVideo_Advertiser
-@dynamic adServerConfig, advertiserId, creativeConfig, dataAccessConfig,
-         displayName, entityStatus, generalConfig, integrationDetails, name,
-         partnerId, prismaEnabled, servingConfig, updateTime;
+@dynamic adServerConfig, advertiserId, billingConfig, creativeConfig,
+         dataAccessConfig, displayName, entityStatus, generalConfig,
+         integrationDetails, name, partnerId, prismaEnabled, servingConfig,
+         updateTime;
 @end
 
 
@@ -2165,6 +2166,15 @@ NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_ContentCategory_Yo
 
 @implementation GTLRDisplayVideo_AdvertiserAdServerConfig
 @dynamic cmHybridConfig, thirdPartyOnlyConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdvertiserBillingConfig
+//
+
+@implementation GTLRDisplayVideo_AdvertiserBillingConfig
 @end
 
 

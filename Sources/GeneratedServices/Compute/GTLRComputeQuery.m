@@ -17739,6 +17739,26 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_TargetTcpProxiesAggregatedList
+
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"projects/{project}/aggregated/targetTcpProxies";
+  GTLRComputeQuery_TargetTcpProxiesAggregatedList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_TargetTcpProxyAggregatedList class];
+  query.loggingName = @"compute.targetTcpProxies.aggregatedList";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_TargetTcpProxiesDelete
 
 @dynamic project, requestId, targetTcpProxy;

@@ -81,6 +81,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_AttributePropagationSettings_Ou
 // GTLRCloudIAP_ReauthSettings.method
 
 /**
+ *  User can use any enabled 2nd factor.
+ *
+ *  Value: "ENROLLED_SECOND_FACTORS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_Method_EnrolledSecondFactors;
+/**
  *  Prompts the user to log in again.
  *
  *  Value: "LOGIN"
@@ -792,6 +798,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *  Reauth method requested.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudIAP_ReauthSettings_Method_EnrolledSecondFactors User can
+ *        use any enabled 2nd factor. (Value: "ENROLLED_SECOND_FACTORS")
  *    @arg @c kGTLRCloudIAP_ReauthSettings_Method_Login Prompts the user to log
  *        in again. (Value: "LOGIN")
  *    @arg @c kGTLRCloudIAP_ReauthSettings_Method_MethodUnspecified
@@ -954,10 +962,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  */
 @interface GTLRCloudIAP_TunnelDestGroup : GTLRObject
 
-/** null List of CIDRs that this group applies to. */
+/** Unordered list. List of CIDRs that this group applies to. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *cidrs;
 
-/** null List of FQDNs that this group applies to. */
+/** Unordered list. List of FQDNs that this group applies to. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fqdns;
 
 /**

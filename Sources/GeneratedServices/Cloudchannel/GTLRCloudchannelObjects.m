@@ -20,6 +20,15 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1ChannelPartnerEvent
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1ChannelPartnerEvent_EventType_PartnerAdvantageInfoChanged = @"PARTNER_ADVANTAGE_INFO_CHANGED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1ChannelPartnerEvent_EventType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRCloudchannel_GoogleCloudChannelV1alpha1Column.dataType
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1Column_DataType_DataTypeUnspecified = @"DATA_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1Column_DataType_Date = @"DATE";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1Column_DataType_DateTime = @"DATE_TIME";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1Column_DataType_Decimal = @"DECIMAL";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1Column_DataType_Int = @"INT";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1Column_DataType_Money = @"MONEY";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1Column_DataType_String = @"STRING";
+
 // GTLRCloudchannel_GoogleCloudChannelV1alpha1CustomerEvent.eventType
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1CustomerEvent_EventType_PrimaryDomainChanged = @"PRIMARY_DOMAIN_CHANGED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1CustomerEvent_EventType_PrimaryDomainVerified = @"PRIMARY_DOMAIN_VERIFIED";
@@ -92,6 +101,13 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1RenewalSettings_Pay
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1RenewalSettings_PaymentPlan_PaymentPlanUnspecified = @"PAYMENT_PLAN_UNSPECIFIED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1RenewalSettings_PaymentPlan_Trial = @"TRIAL";
 
+// GTLRCloudchannel_GoogleCloudChannelV1alpha1ReportStatus.state
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1ReportStatus_State_Available = @"AVAILABLE";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1ReportStatus_State_Failed = @"FAILED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1ReportStatus_State_Started = @"STARTED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1ReportStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1ReportStatus_State_Writing = @"WRITING";
+
 // GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink.linkState
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink_LinkState_Active = @"ACTIVE";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink_LinkState_ChannelPartnerLinkStateUnspecified = @"CHANNEL_PARTNER_LINK_STATE_UNSPECIFIED";
@@ -103,6 +119,15 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink_LinkSt
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityInfo_CustomerType_CustomerTypeUnspecified = @"CUSTOMER_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityInfo_CustomerType_Domain = @"DOMAIN";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityInfo_CustomerType_Team = @"TEAM";
+
+// GTLRCloudchannel_GoogleCloudChannelV1Column.dataType
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_DataTypeUnspecified = @"DATA_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_Date = @"DATE";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_DateTime = @"DATE_TIME";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_Decimal = @"DECIMAL";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_Int = @"INT";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_Money = @"MONEY";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Column_DataType_String = @"STRING";
 
 // GTLRCloudchannel_GoogleCloudChannelV1CustomerConstraints.allowedCustomerTypes
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CustomerConstraints_AllowedCustomerTypes_CustomerTypeUnspecified = @"CUSTOMER_TYPE_UNSPECIFIED";
@@ -230,6 +255,13 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1RenewalSettings_PaymentPl
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1RenewalSettings_PaymentPlan_PaymentPlanUnspecified = @"PAYMENT_PLAN_UNSPECIFIED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1RenewalSettings_PaymentPlan_Trial = @"TRIAL";
 
+// GTLRCloudchannel_GoogleCloudChannelV1ReportStatus.state
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ReportStatus_State_Available = @"AVAILABLE";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ReportStatus_State_Failed = @"FAILED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ReportStatus_State_Started = @"STARTED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ReportStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ReportStatus_State_Writing = @"WRITING";
+
 // GTLRCloudchannel_GoogleCloudChannelV1RepricingConfig.rebillingBasis
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1RepricingConfig_RebillingBasis_CostAtList = @"COST_AT_LIST";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1RepricingConfig_RebillingBasis_DirectCustomerCost = @"DIRECT_CUSTOMER_COST";
@@ -283,6 +315,16 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudchannel_GoogleCloudChannelV1alpha1Column
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1alpha1Column
+@dynamic columnId, dataType, displayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudchannel_GoogleCloudChannelV1alpha1CommitmentSettings
 //
 
@@ -298,6 +340,16 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1alpha1CustomerEvent
 @dynamic customer, eventType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1alpha1DateRange
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1alpha1DateRange
+@dynamic invoiceEndDate, invoiceStartDate, usageEndDateTime, usageStartDateTime;
 @end
 
 
@@ -381,6 +433,68 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 @implementation GTLRCloudchannel_GoogleCloudChannelV1alpha1RenewalSettings
 @dynamic disableCommitment, enableRenewal, paymentCycle, paymentOption,
          paymentPlan, resizeUnitCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1alpha1Report
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1alpha1Report
+@dynamic columns, descriptionProperty, displayName, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"columns" : [GTLRCloudchannel_GoogleCloudChannelV1alpha1Column class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1alpha1ReportJob
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1alpha1ReportJob
+@dynamic name, reportStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1alpha1ReportResultsMetadata
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1alpha1ReportResultsMetadata
+@dynamic dateRange, precedingDateRange, report, rowCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1alpha1ReportStatus
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1alpha1ReportStatus
+@dynamic endTime, startTime, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1alpha1RunReportJobResponse
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1alpha1RunReportJobResponse
+@dynamic reportJob, reportMetadata;
 @end
 
 
@@ -584,6 +698,16 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudchannel_GoogleCloudChannelV1Column
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1Column
+@dynamic columnId, dataType, displayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudchannel_GoogleCloudChannelV1CommitmentSettings
 //
 
@@ -676,6 +800,16 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudchannel_GoogleCloudChannelV1DateRange
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1DateRange
+@dynamic invoiceEndDate, invoiceStartDate, usageEndDateTime, usageStartDateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudchannel_GoogleCloudChannelV1EduData
 //
 
@@ -712,6 +846,38 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1EntitlementEvent
 @dynamic entitlement, eventType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1FetchReportResultsRequest
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1FetchReportResultsRequest
+@dynamic pageSize, pageToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1FetchReportResultsResponse
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1FetchReportResultsResponse
+@dynamic nextPageToken, reportMetadata, rows;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rows" : [GTLRCloudchannel_GoogleCloudChannelV1Row class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"rows";
+}
+
 @end
 
 
@@ -926,6 +1092,28 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudchannel_GoogleCloudChannelV1ListReportsResponse
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1ListReportsResponse
+@dynamic nextPageToken, reports;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reports" : [GTLRCloudchannel_GoogleCloudChannelV1Report class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"reports";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudchannel_GoogleCloudChannelV1ListSkusResponse
 //
 
@@ -1060,8 +1248,8 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1Offer
-@dynamic constraints, endTime, marketingInfo, name, parameterDefinitions, plan,
-         priceByResources, sku, startTime;
+@dynamic constraints, dealCode, endTime, marketingInfo, name,
+         parameterDefinitions, plan, priceByResources, sku, startTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1280,6 +1468,69 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudchannel_GoogleCloudChannelV1Report
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1Report
+@dynamic columns, descriptionProperty, displayName, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"columns" : [GTLRCloudchannel_GoogleCloudChannelV1Column class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1ReportJob
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1ReportJob
+@dynamic name, reportStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1ReportResultsMetadata
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1ReportResultsMetadata
+@dynamic dateRange, precedingDateRange, report, rowCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1ReportStatus
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1ReportStatus
+@dynamic endTime, startTime, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1ReportValue
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1ReportValue
+@dynamic dateTimeValue, dateValue, decimalValue, intValue, moneyValue,
+         stringValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudchannel_GoogleCloudChannelV1RepricingAdjustment
 //
 
@@ -1315,6 +1566,44 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1RepricingConfigEntitlementGranularity
 @dynamic entitlement;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1Row
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1Row
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [GTLRCloudchannel_GoogleCloudChannelV1ReportValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1RunReportJobRequest
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1RunReportJobRequest
+@dynamic dateRange, filter, languageCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1RunReportJobResponse
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1RunReportJobResponse
+@dynamic reportJob, reportMetadata;
 @end
 
 
@@ -1633,6 +1922,16 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudchannel_GoogleTypeDateTime
+//
+
+@implementation GTLRCloudchannel_GoogleTypeDateTime
+@dynamic day, hours, minutes, month, nanos, seconds, timeZone, utcOffset, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudchannel_GoogleTypeDecimal
 //
 
@@ -1666,6 +1965,21 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
     @"recipients" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleTypeTimeZone
+//
+
+@implementation GTLRCloudchannel_GoogleTypeTimeZone
+@dynamic identifier, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
 }
 
 @end

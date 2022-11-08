@@ -43,6 +43,7 @@
 @class GTLRContainer_DnsCacheConfig;
 @class GTLRContainer_DNSConfig;
 @class GTLRContainer_Filter;
+@class GTLRContainer_GatewayAPIConfig;
 @class GTLRContainer_GcePersistentDiskCsiDriverConfig;
 @class GTLRContainer_GcfsConfig;
 @class GTLRContainer_GcpFilestoreCsiDriverConfig;
@@ -83,6 +84,7 @@
 @class GTLRContainer_NodeConfig;
 @class GTLRContainer_NodeConfig_Labels;
 @class GTLRContainer_NodeConfig_Metadata;
+@class GTLRContainer_NodeConfig_ResourceLabels;
 @class GTLRContainer_NodeConfigDefaults;
 @class GTLRContainer_NodeKubeletConfig;
 @class GTLRContainer_NodeLabels;
@@ -106,6 +108,8 @@
 @class GTLRContainer_ReleaseChannel;
 @class GTLRContainer_ReleaseChannelConfig;
 @class GTLRContainer_ReservationAffinity;
+@class GTLRContainer_ResourceLabels;
+@class GTLRContainer_ResourceLabels_Labels;
 @class GTLRContainer_ResourceLimit;
 @class GTLRContainer_ResourceUsageExportConfig;
 @class GTLRContainer_SandboxConfig;
@@ -451,6 +455,34 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Filter_EventType_UpgradeAvaila
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Filter_EventType_UpgradeEvent;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_GatewayAPIConfig.channel
+
+/**
+ *  Gateway API support is disabled
+ *
+ *  Value: "CHANNEL_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_GatewayAPIConfig_Channel_ChannelDisabled;
+/**
+ *  Gateway API support is enabled, experimental CRDs are installed
+ *
+ *  Value: "CHANNEL_EXPERIMENTAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_GatewayAPIConfig_Channel_ChannelExperimental;
+/**
+ *  Gateway API support is enabled, standard CRDs are installed
+ *
+ *  Value: "CHANNEL_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_GatewayAPIConfig_Channel_ChannelStandard;
+/**
+ *  Default value.
+ *
+ *  Value: "CHANNEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_GatewayAPIConfig_Channel_ChannelUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_GPUSharingConfig.gpuSharingStrategy
 
 /**
@@ -511,14 +543,57 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_IPAllocationPolicy_StackType_I
 FOUNDATION_EXTERN NSString * const kGTLRContainer_IPAllocationPolicy_StackType_StackTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_LinuxNodeConfig.cgroupMode
+
+/**
+ *  CGROUP_MODE_UNSPECIFIED is when unspecified cgroup configuration is used.
+ *  The default for the GKE node OS image will be used.
+ *
+ *  Value: "CGROUP_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_CgroupMode_CgroupModeUnspecified;
+/**
+ *  CGROUP_MODE_V1 specifies to use cgroupv1 for the cgroup configuration on the
+ *  node image.
+ *
+ *  Value: "CGROUP_MODE_V1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_CgroupMode_CgroupModeV1;
+/**
+ *  CGROUP_MODE_V2 specifies to use cgroupv2 for the cgroup configuration on the
+ *  node image.
+ *
+ *  Value: "CGROUP_MODE_V2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_CgroupMode_CgroupModeV2;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_LoggingComponentConfig.enableComponents
 
+/**
+ *  kube-apiserver
+ *
+ *  Value: "APISERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_Apiserver;
 /**
  *  Default value. This shouldn't be used.
  *
  *  Value: "COMPONENT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_ComponentUnspecified;
+/**
+ *  kube-controller-manager
+ *
+ *  Value: "CONTROLLER_MANAGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_ControllerManager;
+/**
+ *  kube-scheduler
+ *
+ *  Value: "SCHEDULER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_Scheduler;
 /**
  *  system components
  *
@@ -2418,6 +2493,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** DNSConfig contains clusterDNS config for this cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_DNSConfig *desiredDnsConfig;
 
+/**
+ *  Enable/Disable private endpoint for the cluster's master.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *desiredEnablePrivateEndpoint;
+
+/** The desired config of Gateway API on this cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_GatewayAPIConfig *desiredGatewayApiConfig;
+
 /** The desired GCFS config for the cluster */
 @property(nonatomic, strong, nullable) GTLRContainer_GcfsConfig *desiredGcfsConfig;
 
@@ -2908,6 +2993,31 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  GatewayAPIConfig contains the desired config of Gateway API on this cluster.
+ */
+@interface GTLRContainer_GatewayAPIConfig : GTLRObject
+
+/**
+ *  The Gateway API release channel to use for Gateway API.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_GatewayAPIConfig_Channel_ChannelDisabled Gateway
+ *        API support is disabled (Value: "CHANNEL_DISABLED")
+ *    @arg @c kGTLRContainer_GatewayAPIConfig_Channel_ChannelExperimental
+ *        Gateway API support is enabled, experimental CRDs are installed
+ *        (Value: "CHANNEL_EXPERIMENTAL")
+ *    @arg @c kGTLRContainer_GatewayAPIConfig_Channel_ChannelStandard Gateway
+ *        API support is enabled, standard CRDs are installed (Value:
+ *        "CHANNEL_STANDARD")
+ *    @arg @c kGTLRContainer_GatewayAPIConfig_Channel_ChannelUnspecified Default
+ *        value. (Value: "CHANNEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *channel;
+
+@end
+
+
+/**
  *  Configuration for the Compute Engine PD CSI driver.
  */
 @interface GTLRContainer_GcePersistentDiskCsiDriverConfig : GTLRObject
@@ -3374,6 +3484,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @interface GTLRContainer_LinuxNodeConfig : GTLRObject
 
 /**
+ *  cgroup_mode specifies the cgroup mode to be used on the node.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_LinuxNodeConfig_CgroupMode_CgroupModeUnspecified
+ *        CGROUP_MODE_UNSPECIFIED is when unspecified cgroup configuration is
+ *        used. The default for the GKE node OS image will be used. (Value:
+ *        "CGROUP_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_LinuxNodeConfig_CgroupMode_CgroupModeV1
+ *        CGROUP_MODE_V1 specifies to use cgroupv1 for the cgroup configuration
+ *        on the node image. (Value: "CGROUP_MODE_V1")
+ *    @arg @c kGTLRContainer_LinuxNodeConfig_CgroupMode_CgroupModeV2
+ *        CGROUP_MODE_V2 specifies to use cgroupv2 for the cgroup configuration
+ *        on the node image. (Value: "CGROUP_MODE_V2")
+ */
+@property(nonatomic, copy, nullable) NSString *cgroupMode;
+
+/**
  *  The Linux kernel parameters to be applied to the nodes and all pods running
  *  on the nodes. The following parameters are supported. net.core.busy_poll
  *  net.core.busy_read net.core.netdev_max_backlog net.core.rmem_max
@@ -3701,6 +3828,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
+/**
+ *  Whether master is accessbile via Google Compute Engine Public IP addresses.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gcpPublicCidrsAccessEnabled;
+
 @end
 
 
@@ -3842,6 +3976,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableL4ilbSubsetting;
+
+/**
+ *  GatewayAPIConfig contains the desired config of Gateway API on this cluster.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_GatewayAPIConfig *gatewayApiConfig;
 
 /**
  *  Output only. The relative name of the Google Compute Engine
@@ -4124,6 +4263,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) GTLRContainer_ReservationAffinity *reservationAffinity;
 
+/**
+ *  The resource labels for the node pool to use to annotate any related Google
+ *  Compute Engine resources.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeConfig_ResourceLabels *resourceLabels;
+
 /** Sandbox configuration for this node. */
 @property(nonatomic, strong, nullable) GTLRContainer_SandboxConfig *sandboxConfig;
 
@@ -4206,6 +4351,19 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        fetch them all at once.
  */
 @interface GTLRContainer_NodeConfig_Metadata : GTLRObject
+@end
+
+
+/**
+ *  The resource labels for the node pool to use to annotate any related Google
+ *  Compute Engine resources.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRContainer_NodeConfig_ResourceLabels : GTLRObject
 @end
 
 
@@ -4343,6 +4501,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *createPodRange;
+
+/**
+ *  Whether nodes have internal IP addresses only. If enable_private_nodes is
+ *  not specified, then the value is derived from
+ *  cluster.privateClusterConfig.enablePrivateNodes
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enablePrivateNodes;
 
 /** Network bandwidth tier configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_NetworkPerformanceConfig *networkPerformanceConfig;
@@ -4878,6 +5045,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Output only. The internal IP address of this cluster's master endpoint. */
 @property(nonatomic, copy, nullable) NSString *privateEndpoint;
 
+/**
+ *  Subnet to provision the master's private endpoint during cluster creation.
+ *  Specified in projects/ * /regions/ * /subnetworks/ * format.
+ */
+@property(nonatomic, copy, nullable) NSString *privateEndpointSubnetwork;
+
 /** Output only. The external IP address of this cluster's master endpoint. */
 @property(nonatomic, copy, nullable) NSString *publicEndpoint;
 
@@ -5060,6 +5233,30 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Corresponds to the label value(s) of reservation resource(s). */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
+@end
+
+
+/**
+ *  Collection of [GCP
+ *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels).
+ */
+@interface GTLRContainer_ResourceLabels : GTLRObject
+
+/** Map of node label keys and node label values. */
+@property(nonatomic, strong, nullable) GTLRContainer_ResourceLabels_Labels *labels;
+
+@end
+
+
+/**
+ *  Map of node label keys and node label values.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRContainer_ResourceLabels_Labels : GTLRObject
 @end
 
 
@@ -5918,7 +6115,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) NSNumber *batchNodeCount;
 
 /**
- *  Percentage of the bool pool nodes to drain in a batch. The range of this
+ *  Percentage of the blue pool nodes to drain in a batch. The range of this
  *  field should be (0.0, 1.0].
  *
  *  Uses NSNumber of floatValue.
@@ -6372,6 +6569,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  The resource labels for the node pool to use to annotate any related Google
+ *  Compute Engine resources.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_ResourceLabels *resourceLabels;
 
 /**
  *  The desired network tags to be applied to all nodes in the node pool. If

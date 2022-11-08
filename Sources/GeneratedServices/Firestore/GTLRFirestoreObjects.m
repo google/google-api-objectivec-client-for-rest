@@ -81,9 +81,14 @@ NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata_Op
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata_OperationState_Processing = @"PROCESSING";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata_OperationState_Successful = @"SUCCESSFUL";
 
+// GTLRFirestore_GoogleFirestoreAdminV1Index.apiScope
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_ApiScope_AnyApi = @"ANY_API";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_ApiScope_DatastoreModeApi = @"DATASTORE_MODE_API";
+
 // GTLRFirestore_GoogleFirestoreAdminV1Index.queryScope
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_Collection = @"COLLECTION";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_CollectionGroup = @"COLLECTION_GROUP";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_CollectionRecursive = @"COLLECTION_RECURSIVE";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_QueryScopeUnspecified = @"QUERY_SCOPE_UNSPECIFIED";
 
 // GTLRFirestore_GoogleFirestoreAdminV1Index.state
@@ -722,7 +727,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1Index
-@dynamic fields, name, queryScope, state;
+@dynamic apiScope, fields, name, queryScope, state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

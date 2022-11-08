@@ -268,7 +268,17 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_ColumnFamily
-@dynamic gcRule;
+@dynamic gcRule, stats;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_ColumnFamilyStats
+//
+
+@implementation GTLRBigtableAdmin_ColumnFamilyStats
+@dynamic averageCellsPerColumn, averageColumnsPerRow, logicalDataBytes;
 @end
 
 
@@ -1026,7 +1036,8 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_Table
-@dynamic clusterStates, columnFamilies, granularity, name, restoreInfo;
+@dynamic clusterStates, columnFamilies, deletionProtection, granularity, name,
+         restoreInfo, stats;
 @end
 
 
@@ -1065,6 +1076,17 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 @implementation GTLRBigtableAdmin_TableProgress
 @dynamic estimatedCopiedBytes, estimatedSizeBytes, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_TableStats
+//
+
+@implementation GTLRBigtableAdmin_TableStats
+@dynamic averageCellsPerColumn, averageColumnsPerRow, logicalDataBytes,
+         rowCount;
 @end
 
 
@@ -1167,4 +1189,14 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 @implementation GTLRBigtableAdmin_UpdateInstanceMetadata
 @dynamic finishTime, originalRequest, requestTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_UpdateTableMetadata
+//
+
+@implementation GTLRBigtableAdmin_UpdateTableMetadata
+@dynamic endTime, name, startTime;
 @end

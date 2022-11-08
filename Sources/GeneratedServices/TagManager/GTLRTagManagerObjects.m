@@ -327,11 +327,12 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 
 @implementation GTLRTagManager_Container
 @dynamic accountId, containerId, domainName, features, fingerprint, name, notes,
-         path, publicId, tagIds, tagManagerUrl, usageContext;
+         path, publicId, taggingServerUrls, tagIds, tagManagerUrl, usageContext;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"domainName" : [NSString class],
+    @"taggingServerUrls" : [NSString class],
     @"tagIds" : [NSString class],
     @"usageContext" : [NSString class]
   };

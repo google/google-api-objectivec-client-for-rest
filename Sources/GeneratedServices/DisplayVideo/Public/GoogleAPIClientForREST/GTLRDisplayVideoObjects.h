@@ -20,6 +20,7 @@
 @class GTLRDisplayVideo_Adloox;
 @class GTLRDisplayVideo_Advertiser;
 @class GTLRDisplayVideo_AdvertiserAdServerConfig;
+@class GTLRDisplayVideo_AdvertiserBillingConfig;
 @class GTLRDisplayVideo_AdvertiserCreativeConfig;
 @class GTLRDisplayVideo_AdvertiserDataAccessConfig;
 @class GTLRDisplayVideo_AdvertiserGeneralConfig;
@@ -12046,6 +12047,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
  */
 @property(nonatomic, strong, nullable) NSNumber *advertiserId;
 
+/** Billing related settings of the advertiser. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AdvertiserBillingConfig *billingConfig;
+
 /** Required. Creative related settings of the advertiser. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AdvertiserCreativeConfig *creativeConfig;
 
@@ -12148,6 +12152,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
 /** The configuration for advertisers that use third-party ad servers only. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ThirdPartyOnlyConfig *thirdPartyOnlyConfig;
 
+@end
+
+
+/**
+ *  Billing related settings of an advertiser.
+ */
+@interface GTLRDisplayVideo_AdvertiserBillingConfig : GTLRObject
 @end
 
 
@@ -17489,8 +17500,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
 @interface GTLRDisplayVideo_DuplicateLineItemRequest : GTLRObject
 
 /**
- *  The display name of the resulting line item. Must be UTF-8 encoded with a
- *  maximum size of 240 bytes.
+ *  The display name of the new line item. Must be UTF-8 encoded with a maximum
+ *  size of 240 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *targetDisplayName;
 
@@ -17498,12 +17509,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
 
 
 /**
- *  Response message for LineItemService.DuplicateLineItem.
+ *  GTLRDisplayVideo_DuplicateLineItemResponse
  */
 @interface GTLRDisplayVideo_DuplicateLineItemResponse : GTLRObject
 
 /**
- *  The ID of the successfully created line item.
+ *  The ID of the created line item.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -20137,7 +20148,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
 /**
  *  The budget segment description. It can be used to enter Purchase Order
  *  information for each budget segment and have that information printed on the
- *  invoices. Must be UTF-8 encoded with a length of no more than 80 characters.
+ *  invoices. Must be UTF-8 encoded.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -21407,10 +21418,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
 @property(nonatomic, copy, nullable) NSString *reservationType;
 
 /**
- *  The [targeting
- *  expansion](https://support.google.com/displayvideo/answer/10191558) settings
- *  of the line item. This config is only applicable when eligible audience list
- *  targeting is assigned to the line item.
+ *  The [targeting expansion](//support.google.com/displayvideo/answer/10191558)
+ *  settings of the line item. This config is only applicable when eligible
+ *  audience list targeting is assigned to the line item. Beginning November 7,
+ *  2022, these settings may represent the [optimized targeting
+ *  feature](//support.google.com/displayvideo/answer/12060859) in place of
+ *  targeting expansion. This feature will be rolled out to all partners by
+ *  November 9, 2022.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_TargetingExpansionConfig *targetingExpansion;
 
@@ -24537,7 +24551,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_GeoRegionSearchTerms *geoRegionSearchTerms;
 
 /**
- *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  Requested page size. Must be between `1` and `200`. If unspecified will
  *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
  *  is specified.
  *
@@ -24878,15 +24892,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
 /**
  *  Settings that control the targeting expansion of the line item. Targeting
  *  expansion allows the line item to reach a larger audience based on the
- *  original audience list and the targeting expansion level.
+ *  original audience list and the targeting expansion level. Beginning November
+ *  7, 2022, these settings may represent the [optimized targeting
+ *  feature](//support.google.com/displayvideo/answer/12060859) in place of
+ *  targeting expansion. This feature will be rolled out to all partners by
+ *  November 9, 2022.
  */
 @interface GTLRDisplayVideo_TargetingExpansionConfig : GTLRObject
 
 /**
- *  Required. Whether to exclude first party audiences from targeting. Similar
- *  audiences of the excluded first party lists will not be excluded. Only
- *  applicable when a first-party audience is positively targeted (directly or
- *  included in a combined audience), otherwise this selection will be ignored.
+ *  Required. Whether to exclude first-party audiences from use in targeting
+ *  expansion or optimized targeting. Similar audiences of the excluded
+ *  first-party lists will not be excluded. Only applicable when a first-party
+ *  audience is positively targeted (directly or included in a combined
+ *  audience), otherwise this selection will be ignored.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -24894,7 +24913,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
 
 /**
  *  Required. Magnitude of expansion for applicable targeting under this line
- *  item.
+ *  item. Beginning November 7, 2022, the behavior of this field will change in
+ *  the following ways with the replacement of targeting expansion with
+ *  [optimized targeting](//support.google.com/displayvideo/answer/12060859): *
+ *  This field will represent the optimized targeting checkbox, with a
+ *  `NO_EXPANSION` value representing optimized targeting turned off and a
+ *  `LEAST_EXPANSION` value representing optimized targeting turned on. *
+ *  `NO_EXPANSION` will be the default value for the field and will be
+ *  automatically assigned if you do not set the field. * If you set the field
+ *  to any value other than `NO_EXPANSION`, it will automatically be set to
+ *  `LEAST_EXPANSION`.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_TargetingExpansionConfig_TargetingExpansionLevel_BalancedExpansion

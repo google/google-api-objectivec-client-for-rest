@@ -718,7 +718,13 @@
 @class GTLRCompute_TargetSslProxy;
 @class GTLRCompute_TargetSslProxyList_Warning;
 @class GTLRCompute_TargetSslProxyList_Warning_Data_Item;
+@class GTLRCompute_TargetTcpProxiesScopedList;
+@class GTLRCompute_TargetTcpProxiesScopedList_Warning;
+@class GTLRCompute_TargetTcpProxiesScopedList_Warning_Data_Item;
 @class GTLRCompute_TargetTcpProxy;
+@class GTLRCompute_TargetTcpProxyAggregatedList_Items;
+@class GTLRCompute_TargetTcpProxyAggregatedList_Warning;
+@class GTLRCompute_TargetTcpProxyAggregatedList_Warning_Data_Item;
 @class GTLRCompute_TargetTcpProxyList_Warning;
 @class GTLRCompute_TargetTcpProxyList_Warning_Data_Item;
 @class GTLRCompute_TargetVpnGateway;
@@ -30732,6 +30738,183 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_TargetTcpProxiesScopedList_Warning.code
+
+/**
+ *  Warning about failed cleanup of transient changes made by a failed
+ *  operation.
+ *
+ *  Value: "CLEANUP_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_CleanupFailed;
+/**
+ *  A link to a deprecated resource was created.
+ *
+ *  Value: "DEPRECATED_RESOURCE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_DeprecatedResourceUsed;
+/**
+ *  When deploying and at least one of the resources has a type marked as
+ *  deprecated
+ *
+ *  Value: "DEPRECATED_TYPE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_DeprecatedTypeUsed;
+/**
+ *  The user created a boot disk that is larger than image size.
+ *
+ *  Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/**
+ *  When deploying and at least one of the resources has a type marked as
+ *  experimental
+ *
+ *  Value: "EXPERIMENTAL_TYPE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_ExperimentalTypeUsed;
+/**
+ *  Warning that is present in an external api call
+ *
+ *  Value: "EXTERNAL_API_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_ExternalApiWarning;
+/**
+ *  Warning that value of a field has been overridden. Deprecated unused field.
+ *
+ *  Value: "FIELD_VALUE_OVERRIDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_FieldValueOverriden;
+/**
+ *  The operation involved use of an injected kernel, which is deprecated.
+ *
+ *  Value: "INJECTED_KERNELS_DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
+ *  When deploying a deployment with a exceedingly large number of resources
+ *
+ *  Value: "LARGE_DEPLOYMENT_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  A resource depends on a missing type
+ *
+ *  Value: "MISSING_TYPE_DEPENDENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_MissingTypeDependency;
+/**
+ *  The route's nextHopIp address is not assigned to an instance on the network.
+ *
+ *  Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_NextHopAddressNotAssigned;
+/**
+ *  The route's next hop instance cannot ip forward.
+ *
+ *  Value: "NEXT_HOP_CANNOT_IP_FORWARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_NextHopCannotIpForward;
+/**
+ *  The route's nextHopInstance URL refers to an instance that does not have an
+ *  ipv6 interface on the same network as the route.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_NextHopInstanceHasNoIpv6Interface;
+/**
+ *  The route's nextHopInstance URL refers to an instance that does not exist.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_NextHopInstanceNotFound;
+/**
+ *  The route's nextHopInstance URL refers to an instance that is not on the
+ *  same network as the route.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+/**
+ *  The route's next hop instance does not have a status of RUNNING.
+ *
+ *  Value: "NEXT_HOP_NOT_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_NextHopNotRunning;
+/**
+ *  No results are present on a particular list page.
+ *
+ *  Value: "NO_RESULTS_ON_PAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_NoResultsOnPage;
+/**
+ *  Error which is not critical. We decided to continue the process despite the
+ *  mentioned error.
+ *
+ *  Value: "NOT_CRITICAL_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_NotCriticalError;
+/**
+ *  Success is reported, but some results may be missing due to errors
+ *
+ *  Value: "PARTIAL_SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_PartialSuccess;
+/**
+ *  The user attempted to use a resource that requires a TOS they have not
+ *  accepted.
+ *
+ *  Value: "REQUIRED_TOS_AGREEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_RequiredTosAgreement;
+/**
+ *  Warning that a resource is in use.
+ *
+ *  Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/**
+ *  One or more of the resources set to auto-delete could not be deleted because
+ *  they were in use.
+ *
+ *  Value: "RESOURCE_NOT_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_ResourceNotDeleted;
+/**
+ *  When a resource schema validation is ignored.
+ *
+ *  Value: "SCHEMA_VALIDATION_IGNORED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_SchemaValidationIgnored;
+/**
+ *  Instance template used in instance group manager is valid as such, but its
+ *  application does not make a lot of sense, because it allows only single
+ *  instance in instance group.
+ *
+ *  Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_SingleInstancePropertyTemplate;
+/**
+ *  When undeclared properties in the schema are present
+ *
+ *  Value: "UNDECLARED_PROPERTIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_UndeclaredProperties;
+/**
+ *  A given scope cannot be reached.
+ *
+ *  Value: "UNREACHABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_TargetTcpProxiesSetProxyHeaderRequest.proxyHeader
 
 /** Value: "NONE" */
@@ -30746,6 +30929,183 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesSetProxyHeaderRe
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxy_ProxyHeader_None;
 /** Value: "PROXY_V1" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxy_ProxyHeader_ProxyV1;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_TargetTcpProxyAggregatedList_Warning.code
+
+/**
+ *  Warning about failed cleanup of transient changes made by a failed
+ *  operation.
+ *
+ *  Value: "CLEANUP_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_CleanupFailed;
+/**
+ *  A link to a deprecated resource was created.
+ *
+ *  Value: "DEPRECATED_RESOURCE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/**
+ *  When deploying and at least one of the resources has a type marked as
+ *  deprecated
+ *
+ *  Value: "DEPRECATED_TYPE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_DeprecatedTypeUsed;
+/**
+ *  The user created a boot disk that is larger than image size.
+ *
+ *  Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/**
+ *  When deploying and at least one of the resources has a type marked as
+ *  experimental
+ *
+ *  Value: "EXPERIMENTAL_TYPE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_ExperimentalTypeUsed;
+/**
+ *  Warning that is present in an external api call
+ *
+ *  Value: "EXTERNAL_API_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_ExternalApiWarning;
+/**
+ *  Warning that value of a field has been overridden. Deprecated unused field.
+ *
+ *  Value: "FIELD_VALUE_OVERRIDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_FieldValueOverriden;
+/**
+ *  The operation involved use of an injected kernel, which is deprecated.
+ *
+ *  Value: "INJECTED_KERNELS_DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/**
+ *  A WEIGHTED_MAGLEV backend service is associated with a health check that is
+ *  not of type HTTP/HTTPS/HTTP2.
+ *
+ *  Value: "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb;
+/**
+ *  When deploying a deployment with a exceedingly large number of resources
+ *
+ *  Value: "LARGE_DEPLOYMENT_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_LargeDeploymentWarning;
+/**
+ *  A resource depends on a missing type
+ *
+ *  Value: "MISSING_TYPE_DEPENDENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_MissingTypeDependency;
+/**
+ *  The route's nextHopIp address is not assigned to an instance on the network.
+ *
+ *  Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+/**
+ *  The route's next hop instance cannot ip forward.
+ *
+ *  Value: "NEXT_HOP_CANNOT_IP_FORWARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_NextHopCannotIpForward;
+/**
+ *  The route's nextHopInstance URL refers to an instance that does not have an
+ *  ipv6 interface on the same network as the route.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_NextHopInstanceHasNoIpv6Interface;
+/**
+ *  The route's nextHopInstance URL refers to an instance that does not exist.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_NextHopInstanceNotFound;
+/**
+ *  The route's nextHopInstance URL refers to an instance that is not on the
+ *  same network as the route.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+/**
+ *  The route's next hop instance does not have a status of RUNNING.
+ *
+ *  Value: "NEXT_HOP_NOT_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_NextHopNotRunning;
+/**
+ *  No results are present on a particular list page.
+ *
+ *  Value: "NO_RESULTS_ON_PAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_NoResultsOnPage;
+/**
+ *  Error which is not critical. We decided to continue the process despite the
+ *  mentioned error.
+ *
+ *  Value: "NOT_CRITICAL_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_NotCriticalError;
+/**
+ *  Success is reported, but some results may be missing due to errors
+ *
+ *  Value: "PARTIAL_SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_PartialSuccess;
+/**
+ *  The user attempted to use a resource that requires a TOS they have not
+ *  accepted.
+ *
+ *  Value: "REQUIRED_TOS_AGREEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_RequiredTosAgreement;
+/**
+ *  Warning that a resource is in use.
+ *
+ *  Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/**
+ *  One or more of the resources set to auto-delete could not be deleted because
+ *  they were in use.
+ *
+ *  Value: "RESOURCE_NOT_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_ResourceNotDeleted;
+/**
+ *  When a resource schema validation is ignored.
+ *
+ *  Value: "SCHEMA_VALIDATION_IGNORED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_SchemaValidationIgnored;
+/**
+ *  Instance template used in instance group manager is valid as such, but its
+ *  application does not make a lot of sense, because it allows only single
+ *  instance in instance group.
+ *
+ *  Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+/**
+ *  When undeclared properties in the schema are present
+ *
+ *  Value: "UNDECLARED_PROPERTIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_UndeclaredProperties;
+/**
+ *  A given scope cannot be reached.
+ *
+ *  Value: "UNREACHABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetTcpProxyList_Warning.code
@@ -35868,12 +36228,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  default is pd-standard, specified using the full URL. For example:
  *  https://www.googleapis.com/compute/v1/projects/project/zones/zone
  *  /diskTypes/pd-standard For a full list of acceptable values, see Persistent
- *  disk types. If you define this field, you can provide either the full or
- *  partial URL. For example, the following are valid values: -
- *  https://www.googleapis.com/compute/v1/projects/project/zones/zone
+ *  disk types. If you specify this field when creating a VM, you can provide
+ *  either the full or partial URL. For example, the following values are valid:
+ *  - https://www.googleapis.com/compute/v1/projects/project/zones/zone
  *  /diskTypes/diskType - projects/project/zones/zone/diskTypes/diskType -
- *  zones/zone/diskTypes/diskType Note that for InstanceTemplate, this is the
- *  name of the disk type, not URL.
+ *  zones/zone/diskTypes/diskType If you specify this field when creating or
+ *  updating an instance template or all-instances configuration, specify the
+ *  type of the disk, not the URL. For example: pd-standard.
  */
 @property(nonatomic, copy, nullable) NSString *diskType;
 
@@ -35948,10 +36309,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The customer-supplied encryption key of the source image. Required if the
- *  source image is protected by a customer-supplied encryption key. Instance
- *  templates do not store customer-supplied encryption keys, so you cannot
- *  create disks for instances in a managed instance group if the source images
- *  are encrypted with your own keys.
+ *  source image is protected by a customer-supplied encryption key.
+ *  InstanceTemplate and InstancePropertiesPatch do not store customer-supplied
+ *  encryption keys, so you cannot create disks for instances in a managed
+ *  instance group if the source images are encrypted with your own keys.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_CustomerEncryptionKey *sourceImageEncryptionKey;
 
@@ -44477,10 +44838,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  existing static (reserved) IP address resource. When omitted, Google Cloud
  *  assigns an ephemeral IP address. Use one of the following formats to specify
  *  an IP address while creating a forwarding rule: * IP address number, as in
- *  `100.1.2.3` * Full resource URL, as in
- *  https://www.googleapis.com/compute/v1/projects/project_id/regions/region
- *  /addresses/address-name * Partial URL or by name, as in: -
- *  projects/project_id/regions/region/addresses/address-name -
+ *  `100.1.2.3` * IPv6 address range, as in `2600:1234::/96` * Full resource
+ *  URL, as in https://www.googleapis.com/compute/v1/projects/
+ *  project_id/regions/region/addresses/address-name * Partial URL or by name,
+ *  as in: - projects/project_id/regions/region/addresses/address-name -
  *  regions/region/addresses/address-name - global/addresses/address-name -
  *  address-name The forwarding rule's target or backendService, and in most
  *  cases, also the loadBalancingScheme, determine the type of IP address that
@@ -67696,7 +68057,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined fully-qualified URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
-/** Share-settings for shared-reservation */
+/**
+ *  Specify share-settings to create a shared reservation. This property is
+ *  optional. For more information about the syntax and options for this field
+ *  and its subfields, see the guide for creating a shared reservation.
+ */
 @property(nonatomic, strong, nullable) GTLRCompute_ShareSettings *shareSettings;
 
 /** Reservation for instances with specific machine shapes. */
@@ -72712,24 +73077,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  Determines the key to enforce the rate_limit_threshold on. Possible values
  *  are: - ALL: A single rate limit threshold is applied to all the requests
- *  matching this rule. This is the default value if this field 'enforce_on_key'
- *  is not configured. - IP: The source IP address of the request is the key.
- *  Each IP has this limit enforced separately. - HTTP_HEADER: The value of the
- *  HTTP header whose name is configured under "enforce_on_key_name". The key
- *  value is truncated to the first 128 bytes of the header value. If no such
- *  header is present in the request, the key type defaults to ALL. - XFF_IP:
- *  The first IP address (i.e. the originating client IP address) specified in
- *  the list of IPs under X-Forwarded-For HTTP header. If no such header is
- *  present or the value is not a valid IP, the key defaults to the source IP
- *  address of the request i.e. key type IP. - HTTP_COOKIE: The value of the
- *  HTTP cookie whose name is configured under "enforce_on_key_name". The key
- *  value is truncated to the first 128 bytes of the cookie value. If no such
- *  cookie is present in the request, the key type defaults to ALL. - HTTP_PATH:
- *  The URL path of the HTTP request. The key value is truncated to the first
- *  128 bytes. - SNI: Server name indication in the TLS session of the HTTPS
- *  request. The key value is truncated to the first 128 bytes. The key type
- *  defaults to ALL on a HTTP session. - REGION_CODE: The country/region from
- *  which the request originates.
+ *  matching this rule. This is the default value if "enforceOnKey" is not
+ *  configured. - IP: The source IP address of the request is the key. Each IP
+ *  has this limit enforced separately. - HTTP_HEADER: The value of the HTTP
+ *  header whose name is configured under "enforceOnKeyName". The key value is
+ *  truncated to the first 128 bytes of the header value. If no such header is
+ *  present in the request, the key type defaults to ALL. - XFF_IP: The first IP
+ *  address (i.e. the originating client IP address) specified in the list of
+ *  IPs under X-Forwarded-For HTTP header. If no such header is present or the
+ *  value is not a valid IP, the key defaults to the source IP address of the
+ *  request i.e. key type IP. - HTTP_COOKIE: The value of the HTTP cookie whose
+ *  name is configured under "enforceOnKeyName". The key value is truncated to
+ *  the first 128 bytes of the cookie value. If no such cookie is present in the
+ *  request, the key type defaults to ALL. - HTTP_PATH: The URL path of the HTTP
+ *  request. The key value is truncated to the first 128 bytes. - SNI: Server
+ *  name indication in the TLS session of the HTTPS request. The key value is
+ *  truncated to the first 128 bytes. The key type defaults to ALL on a HTTP
+ *  session. - REGION_CODE: The country/region from which the request
+ *  originates.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_All
@@ -76107,10 +76472,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, strong, nullable) NSNumber *enableFlowLogs;
 
-/**
- *  [Output Only] The external IPv6 address range that is assigned to this
- *  subnetwork.
- */
+/** The external IPv6 address range that is owned by this subnetwork. */
 @property(nonatomic, copy, nullable) NSString *externalIpv6Prefix;
 
 /**
@@ -80185,6 +80547,156 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  GTLRCompute_TargetTcpProxiesScopedList
+ */
+@interface GTLRCompute_TargetTcpProxiesScopedList : GTLRObject
+
+/** A list of TargetTcpProxies contained in this scope. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_TargetTcpProxy *> *targetTcpProxies;
+
+/**
+ *  Informational warning which replaces the list of backend services when the
+ *  list is empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_TargetTcpProxiesScopedList_Warning *warning;
+
+@end
+
+
+/**
+ *  Informational warning which replaces the list of backend services when the
+ *  list is empty.
+ */
+@interface GTLRCompute_TargetTcpProxiesScopedList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_CleanupFailed
+ *        Warning about failed cleanup of transient changes made by a failed
+ *        operation. (Value: "CLEANUP_FAILED")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_DeprecatedResourceUsed
+ *        A link to a deprecated resource was created. (Value:
+ *        "DEPRECATED_RESOURCE_USED")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_DeprecatedTypeUsed
+ *        When deploying and at least one of the resources has a type marked as
+ *        deprecated (Value: "DEPRECATED_TYPE_USED")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_DiskSizeLargerThanImageSize
+ *        The user created a boot disk that is larger than image size. (Value:
+ *        "DISK_SIZE_LARGER_THAN_IMAGE_SIZE")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_ExperimentalTypeUsed
+ *        When deploying and at least one of the resources has a type marked as
+ *        experimental (Value: "EXPERIMENTAL_TYPE_USED")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_ExternalApiWarning
+ *        Warning that is present in an external api call (Value:
+ *        "EXTERNAL_API_WARNING")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_FieldValueOverriden
+ *        Warning that value of a field has been overridden. Deprecated unused
+ *        field. (Value: "FIELD_VALUE_OVERRIDEN")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_InjectedKernelsDeprecated
+ *        The operation involved use of an injected kernel, which is deprecated.
+ *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_LargeDeploymentWarning
+ *        When deploying a deployment with a exceedingly large number of
+ *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_MissingTypeDependency
+ *        A resource depends on a missing type (Value:
+ *        "MISSING_TYPE_DEPENDENCY")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_NextHopAddressNotAssigned
+ *        The route's nextHopIp address is not assigned to an instance on the
+ *        network. (Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_NextHopCannotIpForward
+ *        The route's next hop instance cannot ip forward. (Value:
+ *        "NEXT_HOP_CANNOT_IP_FORWARD")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_NextHopInstanceHasNoIpv6Interface
+ *        The route's nextHopInstance URL refers to an instance that does not
+ *        have an ipv6 interface on the same network as the route. (Value:
+ *        "NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_NextHopInstanceNotFound
+ *        The route's nextHopInstance URL refers to an instance that does not
+ *        exist. (Value: "NEXT_HOP_INSTANCE_NOT_FOUND")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        The route's nextHopInstance URL refers to an instance that is not on
+ *        the same network as the route. (Value:
+ *        "NEXT_HOP_INSTANCE_NOT_ON_NETWORK")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_NextHopNotRunning
+ *        The route's next hop instance does not have a status of RUNNING.
+ *        (Value: "NEXT_HOP_NOT_RUNNING")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_NoResultsOnPage
+ *        No results are present on a particular list page. (Value:
+ *        "NO_RESULTS_ON_PAGE")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_NotCriticalError
+ *        Error which is not critical. We decided to continue the process
+ *        despite the mentioned error. (Value: "NOT_CRITICAL_ERROR")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_PartialSuccess
+ *        Success is reported, but some results may be missing due to errors
+ *        (Value: "PARTIAL_SUCCESS")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_RequiredTosAgreement
+ *        The user attempted to use a resource that requires a TOS they have not
+ *        accepted. (Value: "REQUIRED_TOS_AGREEMENT")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Warning that a resource is in use. (Value:
+ *        "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_ResourceNotDeleted
+ *        One or more of the resources set to auto-delete could not be deleted
+ *        because they were in use. (Value: "RESOURCE_NOT_DELETED")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_SchemaValidationIgnored
+ *        When a resource schema validation is ignored. (Value:
+ *        "SCHEMA_VALIDATION_IGNORED")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_SingleInstancePropertyTemplate
+ *        Instance template used in instance group manager is valid as such, but
+ *        its application does not make a lot of sense, because it allows only
+ *        single instance in instance group. (Value:
+ *        "SINGLE_INSTANCE_PROPERTY_TEMPLATE")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_UndeclaredProperties
+ *        When undeclared properties in the schema are present (Value:
+ *        "UNDECLARED_PROPERTIES")
+ *    @arg @c kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_Unreachable A
+ *        given scope cannot be reached. (Value: "UNREACHABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_TargetTcpProxiesScopedList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_TargetTcpProxiesScopedList_Warning_Data_Item
+ */
+@interface GTLRCompute_TargetTcpProxiesScopedList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  GTLRCompute_TargetTcpProxiesSetBackendServiceRequest
  */
 @interface GTLRCompute_TargetTcpProxiesSetBackendServiceRequest : GTLRObject
@@ -80296,6 +80808,192 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** URL to the BackendService resource. */
 @property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  GTLRCompute_TargetTcpProxyAggregatedList
+ */
+@interface GTLRCompute_TargetTcpProxyAggregatedList : GTLRObject
+
+/**
+ *  [Output Only] Unique identifier for the resource; defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** A list of TargetTcpProxiesScopedList resources. */
+@property(nonatomic, strong, nullable) GTLRCompute_TargetTcpProxyAggregatedList_Items *items;
+
+/**
+ *  [Output Only] Type of resource. Always compute#targetTcpProxyAggregatedList
+ *  for lists of Target TCP Proxies.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
+/** [Output Only] Informational warning message. */
+@property(nonatomic, strong, nullable) GTLRCompute_TargetTcpProxyAggregatedList_Warning *warning;
+
+@end
+
+
+/**
+ *  A list of TargetTcpProxiesScopedList resources.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCompute_TargetTcpProxiesScopedList. Use @c -additionalJSONKeys and
+ *        @c -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCompute_TargetTcpProxyAggregatedList_Items : GTLRObject
+@end
+
+
+/**
+ *  [Output Only] Informational warning message.
+ */
+@interface GTLRCompute_TargetTcpProxyAggregatedList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_CleanupFailed
+ *        Warning about failed cleanup of transient changes made by a failed
+ *        operation. (Value: "CLEANUP_FAILED")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_DeprecatedResourceUsed
+ *        A link to a deprecated resource was created. (Value:
+ *        "DEPRECATED_RESOURCE_USED")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        When deploying and at least one of the resources has a type marked as
+ *        deprecated (Value: "DEPRECATED_TYPE_USED")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
+ *        The user created a boot disk that is larger than image size. (Value:
+ *        "DISK_SIZE_LARGER_THAN_IMAGE_SIZE")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        When deploying and at least one of the resources has a type marked as
+ *        experimental (Value: "EXPERIMENTAL_TYPE_USED")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_ExternalApiWarning
+ *        Warning that is present in an external api call (Value:
+ *        "EXTERNAL_API_WARNING")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_FieldValueOverriden
+ *        Warning that value of a field has been overridden. Deprecated unused
+ *        field. (Value: "FIELD_VALUE_OVERRIDEN")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_InjectedKernelsDeprecated
+ *        The operation involved use of an injected kernel, which is deprecated.
+ *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb
+ *        A WEIGHTED_MAGLEV backend service is associated with a health check
+ *        that is not of type HTTP/HTTPS/HTTP2. (Value:
+ *        "INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        When deploying a deployment with a exceedingly large number of
+ *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_MissingTypeDependency
+ *        A resource depends on a missing type (Value:
+ *        "MISSING_TYPE_DEPENDENCY")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_NextHopAddressNotAssigned
+ *        The route's nextHopIp address is not assigned to an instance on the
+ *        network. (Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_NextHopCannotIpForward
+ *        The route's next hop instance cannot ip forward. (Value:
+ *        "NEXT_HOP_CANNOT_IP_FORWARD")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_NextHopInstanceHasNoIpv6Interface
+ *        The route's nextHopInstance URL refers to an instance that does not
+ *        have an ipv6 interface on the same network as the route. (Value:
+ *        "NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_NextHopInstanceNotFound
+ *        The route's nextHopInstance URL refers to an instance that does not
+ *        exist. (Value: "NEXT_HOP_INSTANCE_NOT_FOUND")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        The route's nextHopInstance URL refers to an instance that is not on
+ *        the same network as the route. (Value:
+ *        "NEXT_HOP_INSTANCE_NOT_ON_NETWORK")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_NextHopNotRunning
+ *        The route's next hop instance does not have a status of RUNNING.
+ *        (Value: "NEXT_HOP_NOT_RUNNING")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_NoResultsOnPage
+ *        No results are present on a particular list page. (Value:
+ *        "NO_RESULTS_ON_PAGE")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_NotCriticalError
+ *        Error which is not critical. We decided to continue the process
+ *        despite the mentioned error. (Value: "NOT_CRITICAL_ERROR")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_PartialSuccess
+ *        Success is reported, but some results may be missing due to errors
+ *        (Value: "PARTIAL_SUCCESS")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_RequiredTosAgreement
+ *        The user attempted to use a resource that requires a TOS they have not
+ *        accepted. (Value: "REQUIRED_TOS_AGREEMENT")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Warning that a resource is in use. (Value:
+ *        "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_ResourceNotDeleted
+ *        One or more of the resources set to auto-delete could not be deleted
+ *        because they were in use. (Value: "RESOURCE_NOT_DELETED")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_SchemaValidationIgnored
+ *        When a resource schema validation is ignored. (Value:
+ *        "SCHEMA_VALIDATION_IGNORED")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_SingleInstancePropertyTemplate
+ *        Instance template used in instance group manager is valid as such, but
+ *        its application does not make a lot of sense, because it allows only
+ *        single instance in instance group. (Value:
+ *        "SINGLE_INSTANCE_PROPERTY_TEMPLATE")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_UndeclaredProperties
+ *        When undeclared properties in the schema are present (Value:
+ *        "UNDECLARED_PROPERTIES")
+ *    @arg @c kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_Unreachable
+ *        A given scope cannot be reached. (Value: "UNREACHABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_TargetTcpProxyAggregatedList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_TargetTcpProxyAggregatedList_Warning_Data_Item
+ */
+@interface GTLRCompute_TargetTcpProxyAggregatedList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
