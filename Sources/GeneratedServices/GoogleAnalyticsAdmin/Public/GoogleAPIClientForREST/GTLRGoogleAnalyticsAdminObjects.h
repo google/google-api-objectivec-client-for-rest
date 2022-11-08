@@ -1242,11 +1242,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ChangeHistoryResourceTypeUnspecified;
 /**
- *  ChannelGrouping resource
+ *  ChannelGroup resource
  *
- *  Value: "CHANNEL_GROUPING"
+ *  Value: "CHANNEL_GROUP"
  */
-FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ChannelGrouping;
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ChannelGroup;
 /**
  *  ConversionEvent resource
  *
@@ -2034,8 +2034,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 @property(nonatomic, copy, nullable) NSString *exclusionDurationMode;
 
 /**
- *  Required. Immutable. null Filter clauses that define the Audience. All
- *  clauses will be AND’ed together.
+ *  Required. Immutable. Unordered list. Filter clauses that define the
+ *  Audience. All clauses will be AND’ed together.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaAudienceFilterClause *> *filterClauses;
 

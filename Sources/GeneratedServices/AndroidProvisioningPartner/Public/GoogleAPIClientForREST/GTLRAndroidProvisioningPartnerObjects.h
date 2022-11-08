@@ -377,6 +377,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  */
 @property(nonatomic, copy, nullable) NSString *sectionType;
 
+/**
+ *  Optional. Must and can only be set when DeviceProvisioningSectionType is
+ *  SECTION_TYPE_SIM_LOCK. The unique identifier of the SimLock profile
+ *  (go/simlock/profiles).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *simlockProfileId;
+
 @end
 
 

@@ -292,6 +292,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  `/v1/media/{+name}?alt=media`.
  *
  *  Method: chat.media.download
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatMessages
+ *    @c kGTLRAuthScopeHangoutsChatMessagesReadonly
  */
 @interface GTLRHangoutsChatQuery_MediaDownload : GTLRHangoutsChatQuery
 
@@ -651,8 +655,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @end
 
 /**
- *  Lists human memberships in a space for joined members. Requires [service
- *  account
+ *  Lists memberships in a space. Requires [service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  Method: chat.spaces.members.list
@@ -686,8 +689,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Fetches a @c GTLRHangoutsChat_ListMembershipsResponse.
  *
- *  Lists human memberships in a space for joined members. Requires [service
- *  account
+ *  Lists memberships in a space. Requires [service account
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  @param parent Required. The resource name of the space for which to fetch a
@@ -750,6 +752,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  requires the `chat.messages` or `chat.messages.create` authorization scope.
  *
  *  Method: chat.spaces.messages.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatMessages
+ *    @c kGTLRAuthScopeHangoutsChatMessagesCreate
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesCreate : GTLRHangoutsChatQuery
 
@@ -846,6 +852,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  requires the `chat.messages` authorization scope.
  *
  *  Method: chat.spaces.messages.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatMessages
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesDelete : GTLRHangoutsChatQuery
 
@@ -899,6 +908,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  scope. Note: Might return a message from a blocked member or space.
  *
  *  Method: chat.spaces.messages.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatMessages
+ *    @c kGTLRAuthScopeHangoutsChatMessagesReadonly
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesGet : GTLRHangoutsChatQuery
 
@@ -952,6 +965,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
  *
  *  Method: chat.spaces.messages.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatMessages
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesUpdate : GTLRHangoutsChatQuery
 

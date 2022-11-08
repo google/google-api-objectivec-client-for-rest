@@ -127,16 +127,6 @@ NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_ExecutionEnvironment_Executi
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_ExecutionEnvironment_ExecutionEnvironmentGen2 = @"EXECUTION_ENVIRONMENT_GEN2";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_ExecutionEnvironment_ExecutionEnvironmentUnspecified = @"EXECUTION_ENVIRONMENT_UNSPECIFIED";
 
-// GTLRCloudRun_GoogleCloudRunV2Task.launchStage
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Alpha = @"ALPHA";
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Beta = @"BETA";
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Deprecated = @"DEPRECATED";
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Ga = @"GA";
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Prelaunch = @"PRELAUNCH";
-NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
-
 // GTLRCloudRun_GoogleCloudRunV2TaskTemplate.executionEnvironment
 NSString * const kGTLRCloudRun_GoogleCloudRunV2TaskTemplate_ExecutionEnvironment_ExecutionEnvironmentGen1 = @"EXECUTION_ENVIRONMENT_GEN1";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2TaskTemplate_ExecutionEnvironment_ExecutionEnvironmentGen2 = @"EXECUTION_ENVIRONMENT_GEN2";
@@ -825,8 +815,8 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 @dynamic annotations, completionTime, conditions, containers, createTime,
          deleteTime, encryptionKey, ETag, execution, executionEnvironment,
          expireTime, generation, index, job, labels, lastAttemptResult,
-         launchStage, maxRetries, name, observedGeneration, reconciling,
-         retried, serviceAccount, startTime, timeout, uid, updateTime, volumes,
+         maxRetries, name, observedGeneration, reconciling, retried,
+         serviceAccount, startTime, timeout, uid, updateTime, volumes,
          vpcAccess;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

@@ -24,7 +24,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 /**
  *  Authorization scope: Manage users on your domain
@@ -32,6 +32,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value "https://www.googleapis.com/auth/apps.order"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudchannelAppsOrder;
+/**
+ *  Authorization scope: View usage reports for your G Suite domain
+ *
+ *  Value "https://www.googleapis.com/auth/apps.reports.usage.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudchannelAppsReportsUsageReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudchannelService

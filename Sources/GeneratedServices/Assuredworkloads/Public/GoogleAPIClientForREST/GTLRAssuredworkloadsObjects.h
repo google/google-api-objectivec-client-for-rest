@@ -143,6 +143,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest_RestrictionType_AllowCompliantResources;
 /**
+ *  Similar to ALLOW_COMPLIANT_RESOURCES but adds the list of compliant
+ *  resources to the existing list of resources. Effective org-policy of the
+ *  Folder is considered to ensure there is no disruption to the existing
+ *  customer workflows.
+ *
+ *  Value: "APPEND_COMPLIANT_RESOURCES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest_RestrictionType_AppendCompliantResources;
+/**
  *  Unknown restriction type.
  *
  *  Value: "RESTRICTION_TYPE_UNSPECIFIED"
@@ -333,6 +342,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "PARTNER_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_PartnerUnspecified;
+/**
+ *  TSystem regime/controls.
+ *
+ *  Value: "SOVEREIGN_CONTROLS_BY_T_SYSTEMS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByTSystems;
 
 // ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo.resourceType
@@ -622,6 +637,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Based on Workload's compliance regime, allowed list changes. See -
  *        https://cloud.google.com/assured-workloads/docs/supported-products for
  *        the list of supported resources. (Value: "ALLOW_COMPLIANT_RESOURCES")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest_RestrictionType_AppendCompliantResources
+ *        Similar to ALLOW_COMPLIANT_RESOURCES but adds the list of compliant
+ *        resources to the existing list of resources. Effective org-policy of
+ *        the Folder is considered to ensure there is no disruption to the
+ *        existing customer workflows. (Value: "APPEND_COMPLIANT_RESOURCES")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest_RestrictionType_RestrictionTypeUnspecified
  *        Unknown restriction type. (Value: "RESTRICTION_TYPE_UNSPECIFIED")
  */
@@ -960,6 +980,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        S3NS regime/controls. (Value: "LOCAL_CONTROLS_BY_S3NS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_PartnerUnspecified
  *        Unknown partner regime/controls. (Value: "PARTNER_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByTSystems
+ *        TSystem regime/controls. (Value: "SOVEREIGN_CONTROLS_BY_T_SYSTEMS")
  */
 @property(nonatomic, copy, nullable) NSString *partner;
 

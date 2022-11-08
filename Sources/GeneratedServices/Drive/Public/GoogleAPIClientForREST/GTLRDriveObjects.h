@@ -1046,7 +1046,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The full file extension extracted from the name field. May contain multiple
  *  concatenated extensions, such as "tar.gz". This is only available for files
  *  with binary content in Google Drive.
- *  This is automatically updated when the name field changes, however it is not
+ *  This is automatically updated when the name field changes, however it isn't
  *  cleared if the new name does not contain a valid extension.
  */
 @property(nonatomic, copy, nullable) NSString *fullFileExtension;
@@ -1212,14 +1212,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The SHA1 checksum associated with this file, if available. This field is
- *  only populated for files with content stored in Google Drive; it is not
+ *  only populated for files with content stored in Google Drive; it isn't
  *  populated for Docs Editors or shortcut files.
  */
 @property(nonatomic, copy, nullable) NSString *sha1Checksum;
 
 /**
  *  The SHA256 checksum associated with this file, if available. This field is
- *  only populated for files with content stored in Google Drive; it is not
+ *  only populated for files with content stored in Google Drive; it isn't
  *  populated for Docs Editors or shortcut files.
  */
 @property(nonatomic, copy, nullable) NSString *sha256Checksum;
@@ -1615,7 +1615,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Whether the current user can read the revisions resource of this file. For a
  *  shared drive item, whether revisions of non-folder descendants of this item,
- *  or this item itself if it is not a folder, can be read.
+ *  or this item itself if it isn't a folder, can be read.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1692,7 +1692,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Text to be indexed for the file to improve fullText queries. This is limited
- *  to 128KB in length and may contain HTML elements.
+ *  to 128 KB in length and may contain HTML elements. For more information, see
+ *  Manage file metadata.
  */
 @property(nonatomic, copy, nullable) NSString *indexableText;
 

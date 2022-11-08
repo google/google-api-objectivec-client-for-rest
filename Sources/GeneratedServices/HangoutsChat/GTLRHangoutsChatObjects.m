@@ -88,6 +88,10 @@ NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Message = @"MESSAGE";
 NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_RemovedFromSpace = @"REMOVED_FROM_SPACE";
 NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Unspecified = @"UNSPECIFIED";
 
+// GTLRHangoutsChat_GoogleAppsCardV1Action.interaction
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Action_Interaction_InteractionUnspecified = @"INTERACTION_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Action_Interaction_OpenDialog = @"OPEN_DIALOG";
+
 // GTLRHangoutsChat_GoogleAppsCardV1Action.loadIndicator
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Action_LoadIndicator_None = @"NONE";
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Action_LoadIndicator_Spinner = @"SPINNER";
@@ -538,7 +542,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_GoogleAppsCardV1Action
-@dynamic function, loadIndicator, parameters, persistValues;
+@dynamic function, interaction, loadIndicator, parameters, persistValues;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

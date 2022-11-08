@@ -5,7 +5,7 @@
 //   Transcoder API (transcoder/v1)
 // Description:
 //   This API converts video files into formats suitable for consumer
-//   distribution.
+//   distribution. For more information, see the Transcoder API overview.
 // Documentation:
 //   https://cloud.google.com/transcoder/docs/
 
@@ -41,7 +41,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeTranscoderCloudPlatform;
  *  Service for executing Transcoder API queries.
  *
  *  This API converts video files into formats suitable for consumer
- *  distribution.
+ *  distribution. For more information, see the Transcoder API overview.
  */
 @interface GTLRTranscoderService : GTLRService
 

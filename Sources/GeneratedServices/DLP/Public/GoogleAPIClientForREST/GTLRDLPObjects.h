@@ -72,6 +72,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2DocumentLocation;
 @class GTLRDLP_GooglePrivacyDlpV2EntityId;
 @class GTLRDLP_GooglePrivacyDlpV2Error;
+@class GTLRDLP_GooglePrivacyDlpV2ExcludeByHotword;
 @class GTLRDLP_GooglePrivacyDlpV2ExcludeInfoTypes;
 @class GTLRDLP_GooglePrivacyDlpV2ExclusionRule;
 @class GTLRDLP_GooglePrivacyDlpV2Export;
@@ -4043,6 +4044,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  The rule to exclude findings based on a hotword. For record inspection of
+ *  tables, column names are considered hotwords. An example of this is to
+ *  exclude a finding if a BigQuery column matches a specific pattern.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2ExcludeByHotword : GTLRObject
+
+/** Regular expression pattern defining what qualifies as a hotword. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Regex *hotwordRegex;
+
+/**
+ *  Range of characters within which the entire hotword must reside. The total
+ *  length of the window cannot exceed 1000 characters. The windowBefore
+ *  property in proximity should be set to 1 if the hotword needs to be included
+ *  in a column header.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Proximity *proximity;
+
+@end
+
+
+/**
  *  List of excluded infoTypes.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ExcludeInfoTypes : GTLRObject
@@ -4069,6 +4091,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** Dictionary which defines the rule. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Dictionary *dictionary;
+
+/**
+ *  Drop if the hotword rule is contained in the proximate context. For tabular
+ *  data, the context includes the column name.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ExcludeByHotword *excludeByHotword;
 
 /** Set of infoTypes for which findings would affect this rule. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ExcludeInfoTypes *excludeInfoTypes;

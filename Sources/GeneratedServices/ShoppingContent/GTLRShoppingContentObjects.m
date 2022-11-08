@@ -156,6 +156,11 @@ NSString * const kGTLRShoppingContent_Promotion_RedemptionChannel_InStore = @"IN
 NSString * const kGTLRShoppingContent_Promotion_RedemptionChannel_Online = @"ONLINE";
 NSString * const kGTLRShoppingContent_Promotion_RedemptionChannel_RedemptionChannelUnspecified = @"REDEMPTION_CHANNEL_UNSPECIFIED";
 
+// GTLRShoppingContent_Promotion.storeApplicability
+NSString * const kGTLRShoppingContent_Promotion_StoreApplicability_AllStores = @"ALL_STORES";
+NSString * const kGTLRShoppingContent_Promotion_StoreApplicability_SpecificStores = @"SPECIFIC_STORES";
+NSString * const kGTLRShoppingContent_Promotion_StoreApplicability_StoreApplicabilityUnspecified = @"STORE_APPLICABILITY_UNSPECIFIED";
+
 // GTLRShoppingContent_RepricingProductReport.type
 NSString * const kGTLRShoppingContent_RepricingProductReport_Type_RepricingRuleTypeUnspecified = @"REPRICING_RULE_TYPE_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_RepricingProductReport_Type_TypeCogsBased = @"TYPE_COGS_BASED";
@@ -1507,8 +1512,8 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_DatafeedStatus
-@dynamic country, datafeedId, errors, itemsTotal, itemsValid, kind, language,
-         lastUploadDate, processingStatus, warnings;
+@dynamic country, datafeedId, errors, feedLabel, itemsTotal, itemsValid, kind,
+         language, lastUploadDate, processingStatus, warnings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1569,7 +1574,7 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_DatafeedstatusesCustomBatchRequestEntry
-@dynamic batchId, country, datafeedId, language, merchantId, method;
+@dynamic batchId, country, datafeedId, feedLabel, language, merchantId, method;
 @end
 
 
@@ -1651,12 +1656,14 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_DatafeedTarget
-@dynamic country, excludedDestinations, includedDestinations, language;
+@dynamic country, excludedDestinations, feedLabel, includedDestinations,
+         language, targetCountries;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"excludedDestinations" : [NSString class],
-    @"includedDestinations" : [NSString class]
+    @"includedDestinations" : [NSString class],
+    @"targetCountries" : [NSString class]
   };
   return map;
 }
@@ -5077,8 +5084,9 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
          orderLimit, percentOff, productApplicability, productType,
          productTypeExclusion, promotionDestinationIds, promotionDisplayDates,
          promotionDisplayTimePeriod, promotionEffectiveDates,
-         promotionEffectiveTimePeriod, promotionId, redemptionChannel,
-         shippingServiceNames, targetCountry;
+         promotionEffectiveTimePeriod, promotionId, promotionUrl,
+         redemptionChannel, shippingServiceNames, storeApplicability, storeCode,
+         storeCodeExclusion, targetCountry;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -5096,7 +5104,9 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
     @"productTypeExclusion" : [NSString class],
     @"promotionDestinationIds" : [NSString class],
     @"redemptionChannel" : [NSString class],
-    @"shippingServiceNames" : [NSString class]
+    @"shippingServiceNames" : [NSString class],
+    @"storeCode" : [NSString class],
+    @"storeCodeExclusion" : [NSString class]
   };
   return map;
 }

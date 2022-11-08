@@ -996,6 +996,28 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_RedemptionChan
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_RedemptionChannel_RedemptionChannelUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRShoppingContent_Promotion.storeApplicability
+
+/**
+ *  Promotion applies to all stores.
+ *
+ *  Value: "ALL_STORES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_StoreApplicability_AllStores;
+/**
+ *  Promotion applies to only the specified stores.
+ *
+ *  Value: "SPECIFIC_STORES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_StoreApplicability_SpecificStores;
+/**
+ *  Which store codes the promotion applies to is unknown.
+ *
+ *  Value: "STORE_APPLICABILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_StoreApplicability_StoreApplicabilityUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRShoppingContent_RepricingProductReport.type
 
 /**
@@ -3978,6 +4000,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /** The list of errors occurring in the feed. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_DatafeedStatusError *> *errors;
 
+/** The feed label status is reported for. */
+@property(nonatomic, copy, nullable) NSString *feedLabel;
+
 /**
  *  The number of items in the feed that were processed.
  *
@@ -4068,9 +4093,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *batchId;
 
 /**
- *  The country for which to get the datafeed status. If this parameter is
- *  provided then language must also be provided. Note that for multi-target
- *  datafeeds this parameter is required.
+ *  Deprecated. Use `feedLabel` instead. The country to get the datafeed status
+ *  for. If this parameter is provided, then `language` must also be provided.
+ *  Note that for multi-target datafeeds this parameter is required.
  */
 @property(nonatomic, copy, nullable) NSString *country;
 
@@ -4082,9 +4107,16 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *datafeedId;
 
 /**
- *  The language for which to get the datafeed status. If this parameter is
- *  provided then country must also be provided. Note that for multi-target
+ *  The feed label to get the datafeed status for. If this parameter is
+ *  provided, then `language` must also be provided. Note that for multi-target
  *  datafeeds this parameter is required.
+ */
+@property(nonatomic, copy, nullable) NSString *feedLabel;
+
+/**
+ *  The language to get the datafeed status for. If this parameter is provided
+ *  then `country` must also be provided. Note that for multi-target datafeeds
+ *  this parameter is required.
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -4202,8 +4234,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @interface GTLRShoppingContent_DatafeedTarget : GTLRObject
 
 /**
- *  The country where the items in the feed will be included in the search
- *  index, represented as a CLDR territory code.
+ *  Deprecated. Use `feedLabel` instead. The country where the items in the feed
+ *  will be included in the search index, represented as a CLDR territory code.
  */
 @property(nonatomic, copy, nullable) NSString *country;
 
@@ -4212,6 +4244,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  check boxes in Merchant Center).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludedDestinations;
+
+/**
+ *  Feed label for the DatafeedTarget. Either `country` or `feedLabel` is
+ *  required. If both `feedLabel` and `country` is specified, the values must
+ *  match.
+ */
+@property(nonatomic, copy, nullable) NSString *feedLabel;
 
 /**
  *  The list of destinations to include for this target (corresponds to checked
@@ -4225,6 +4264,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  language for `targets[].country`.
  */
 @property(nonatomic, copy, nullable) NSString *language;
+
+/**
+ *  The countries where the items may be displayed. Represented as a CLDR
+ *  territory code. Will be ignored for "product inventory" feeds.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *targetCountries;
 
 @end
 
@@ -10475,10 +10520,11 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /**
  *  The comma-separated list of product attributes to be updated. Example:
  *  `"title,salePrice"`. Attributes specified in the update mask without a value
- *  specified in the body will be deleted from the product. Only top-level
- *  product attributes can be updated. If not defined, product attributes with
- *  set values will be updated and other attributes will stay unchanged. Only
- *  defined if the method is `update`.
+ *  specified in the body will be deleted from the product. *You must specify
+ *  the update mask to delete attributes.* Only top-level product attributes can
+ *  be updated. If not defined, product attributes with set values will be
+ *  updated and other attributes will stay unchanged. Only defined if the method
+ *  is `update`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -11466,6 +11512,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *promotionId;
 
 /**
+ *  URL to the page on the merchant's site where the promotion shows. Local
+ *  Inventory ads promotions throw an error if no promo url is included. URL is
+ *  used to confirm that the promotion is valid and can be redeemed.
+ */
+@property(nonatomic, copy, nullable) NSString *promotionUrl;
+
+/**
  *  Required. Redemption channel for the promotion. At least one channel is
  *  required.
  */
@@ -11473,6 +11526,30 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /** Shipping service names for the promotion. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *shippingServiceNames;
+
+/**
+ *  Whether the promotion applies to all stores, or only specified stores. Local
+ *  Inventory ads promotions throw an error if no store applicability is
+ *  included. An INVALID_ARGUMENT error is thrown if store_applicability is set
+ *  to ALL_STORES and store_code or score_code_exclusion is set to a value.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_Promotion_StoreApplicability_AllStores
+ *        Promotion applies to all stores. (Value: "ALL_STORES")
+ *    @arg @c kGTLRShoppingContent_Promotion_StoreApplicability_SpecificStores
+ *        Promotion applies to only the specified stores. (Value:
+ *        "SPECIFIC_STORES")
+ *    @arg @c kGTLRShoppingContent_Promotion_StoreApplicability_StoreApplicabilityUnspecified
+ *        Which store codes the promotion applies to is unknown. (Value:
+ *        "STORE_APPLICABILITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *storeApplicability;
+
+/** Store codes to include for the promotion. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *storeCode;
+
+/** Store codes to exclude for the promotion. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *storeCodeExclusion;
 
 /**
  *  Required. The target country used as part of the unique identifier. Can be

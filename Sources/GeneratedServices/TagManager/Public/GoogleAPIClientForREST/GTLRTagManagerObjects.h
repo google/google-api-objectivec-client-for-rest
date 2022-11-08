@@ -1098,6 +1098,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 /** Container Public ID. */
 @property(nonatomic, copy, nullable) NSString *publicId;
 
+/**
+ *  The URLs of the cloud environment for the GTM Container. \@mutable
+ *  tagmanager.accounts.containers.create \@mutable
+ *  tagmanager.accounts.containers.update
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *taggingServerUrls;
+
 /** All Tag IDs that refer to this Container. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tagIds;
 

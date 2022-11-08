@@ -2374,11 +2374,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 /** Output only. The time at which the EkmConnection was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/**
- *  Optional. This checksum is computed by the server based on the value of
- *  other fields, and may be sent on update requests to ensure the client has an
- *  up-to-date value before proceeding.
- */
+/** Optional. Etag of the currently stored EkmConnection. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**

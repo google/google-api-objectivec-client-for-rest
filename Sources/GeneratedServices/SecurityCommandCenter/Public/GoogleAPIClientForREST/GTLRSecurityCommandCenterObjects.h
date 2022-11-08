@@ -3627,6 +3627,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Apply resource_value only to resources that match resource_type.
+ *  resource_type will be checked with "AND" of other resources. E.g.
+ *  "storage.googleapis.com/Bucket" with resource_value "HIGH" will apply "HIGH"
+ *  value only to "storage.googleapis.com/Bucket" resources.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/**
  *  Required. Resource value level this expression represents
  *
  *  Likely values:
@@ -3642,6 +3650,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Subject_Kind_User;
  *        Unspecific value (Value: "RESOURCE_VALUE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *resourceValue;
+
+/**
+ *  Project or folder to scope this config to. For example, "project/456" would
+ *  apply this config only to resources in "project/456" scope will be checked
+ *  with "AND" of other resources.
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
 
 /**
  *  Required. Tag values combined with AND to check against. Values in the form

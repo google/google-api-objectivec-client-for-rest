@@ -1336,7 +1336,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
 
 @implementation GTLRShoppingContentQuery_DatafeedstatusesGet
 
-@dynamic country, datafeedId, language, merchantId;
+@dynamic country, datafeedId, feedLabel, language, merchantId;
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId
                          datafeedId:(unsigned long long)datafeedId {

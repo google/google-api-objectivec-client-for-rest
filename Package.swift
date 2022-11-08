@@ -466,6 +466,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Discovery"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_DiscoveryEngine",
+            targets: ["GoogleAPIClientForREST_DiscoveryEngine"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_DisplayVideo",
             targets: ["GoogleAPIClientForREST_DisplayVideo"]
         ),
@@ -1712,6 +1716,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Discovery",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Discovery",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_DiscoveryEngine",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/DiscoveryEngine",
             publicHeadersPath: "Public"
         ),
         .target(

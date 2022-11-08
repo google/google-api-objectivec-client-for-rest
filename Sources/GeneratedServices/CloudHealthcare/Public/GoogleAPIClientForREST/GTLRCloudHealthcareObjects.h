@@ -660,6 +660,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ParserConfig_Version_V1;
  *  Value: "V2"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ParserConfig_Version_V2;
+/**
+ *  This version is the same as V2, with the following change. The `parsed_data`
+ *  contains unescaped escaped field separators, component separators,
+ *  sub-component separators, repetition separators, escape characters, and
+ *  truncation characters. If `schema` is specified, the schematized parser uses
+ *  improved parsing heuristics compared to previous versions.
+ *
+ *  Value: "V3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ParserConfig_Version_V3;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudHealthcare_SchemaConfig.schemaType
@@ -4114,6 +4124,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *        to the HL7 standard. (Value: "V1")
  *    @arg @c kGTLRCloudHealthcare_ParserConfig_Version_V2 The `parsed_data`
  *        includes every given non-empty message field. (Value: "V2")
+ *    @arg @c kGTLRCloudHealthcare_ParserConfig_Version_V3 This version is the
+ *        same as V2, with the following change. The `parsed_data` contains
+ *        unescaped escaped field separators, component separators,
+ *        sub-component separators, repetition separators, escape characters,
+ *        and truncation characters. If `schema` is specified, the schematized
+ *        parser uses improved parsing heuristics compared to previous versions.
+ *        (Value: "V3")
  */
 @property(nonatomic, copy, nullable) NSString *version;
 

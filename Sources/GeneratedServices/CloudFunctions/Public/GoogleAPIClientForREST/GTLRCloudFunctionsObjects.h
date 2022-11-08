@@ -2211,7 +2211,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
 
 /**
  *  Describes the Service being deployed. Currently Supported : Cloud Run (fully
- *  managed).
+ *  managed). Next tag: 23
  */
 @interface GTLRCloudFunctions_ServiceConfig : GTLRObject
 

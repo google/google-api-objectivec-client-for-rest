@@ -1185,6 +1185,79 @@ NSString * const kGTLRCloudchannelViewUnspecified = @"UNSPECIFIED";
 
 @end
 
+@implementation GTLRCloudchannelQuery_AccountsReportJobsFetchReportResults
+
+@dynamic reportJob;
+
++ (instancetype)queryWithObject:(GTLRCloudchannel_GoogleCloudChannelV1FetchReportResultsRequest *)object
+                      reportJob:(NSString *)reportJob {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"reportJob" ];
+  NSString *pathURITemplate = @"v1/{+reportJob}:fetchReportResults";
+  GTLRCloudchannelQuery_AccountsReportJobsFetchReportResults *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.reportJob = reportJob;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1FetchReportResultsResponse class];
+  query.loggingName = @"cloudchannel.accounts.reportJobs.fetchReportResults";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudchannelQuery_AccountsReportsList
+
+@dynamic languageCode, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/reports";
+  GTLRCloudchannelQuery_AccountsReportsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1ListReportsResponse class];
+  query.loggingName = @"cloudchannel.accounts.reports.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudchannelQuery_AccountsReportsRun
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudchannel_GoogleCloudChannelV1RunReportJobRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:run";
+  GTLRCloudchannelQuery_AccountsReportsRun *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleLongrunningOperation class];
+  query.loggingName = @"cloudchannel.accounts.reports.run";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudchannelQuery_AccountsUnregister
 
 @dynamic account;

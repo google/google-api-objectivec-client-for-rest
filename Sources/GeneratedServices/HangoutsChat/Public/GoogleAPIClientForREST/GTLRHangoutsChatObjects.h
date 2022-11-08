@@ -507,6 +507,26 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Remove
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Unspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1Action.interaction
+
+/**
+ *  Default value. The `action` executes as normal.
+ *
+ *  Value: "INTERACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Action_Interaction_InteractionUnspecified;
+/**
+ *  Opens a [dialog](https://developers.google.com/chat/how-tos/dialogs), a
+ *  windowed, card-based interface that Chat apps use to interact with users.
+ *  Only supported by Chat apps in response to button-clicks on card messages.
+ *  Not supported by Google Workspace Add-ons. If specified for an add-on, the
+ *  entire card is stripped and nothing is shown in the client.
+ *
+ *  Value: "OPEN_DIALOG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Action_Interaction_OpenDialog;
+
+// ----------------------------------------------------------------------------
 // GTLRHangoutsChat_GoogleAppsCardV1Action.loadIndicator
 
 /**
@@ -2028,6 +2048,33 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  clicked/activated.
  */
 @property(nonatomic, copy, nullable) NSString *function;
+
+/**
+ *  Optional. Required when opening a
+ *  [dialog](https://developers.google.com/chat/how-tos/dialogs). What to do in
+ *  response to an interaction with a user, such as a user clicking button on a
+ *  card message. If unspecified, the app responds by executing an `action` -
+ *  like opening a link or running a function - as normal. By specifying an
+ *  `interaction`, the app can respond in special interactive ways. For example,
+ *  by setting `interaction` to `OPEN_DIALOG`, the app can open a
+ *  [dialog](https://developers.google.com/chat/how-tos/dialogs). When
+ *  specified, a loading indicator is not shown. Supported by Chat apps, but not
+ *  Google Workspace Add-ons. If specified for an add-on, the entire card is
+ *  stripped and nothing is shown in the client.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Action_Interaction_InteractionUnspecified
+ *        Default value. The `action` executes as normal. (Value:
+ *        "INTERACTION_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Action_Interaction_OpenDialog
+ *        Opens a [dialog](https://developers.google.com/chat/how-tos/dialogs),
+ *        a windowed, card-based interface that Chat apps use to interact with
+ *        users. Only supported by Chat apps in response to button-clicks on
+ *        card messages. Not supported by Google Workspace Add-ons. If specified
+ *        for an add-on, the entire card is stripped and nothing is shown in the
+ *        client. (Value: "OPEN_DIALOG")
+ */
+@property(nonatomic, copy, nullable) NSString *interaction;
 
 /**
  *  Specifies the loading indicator that the action displays while making the

@@ -1085,7 +1085,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 
 
 /**
- *  Individual line item definition of a subscription. Next id: 8
+ *  Individual line item definition of a subscription. Next id: 9
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionLineItem : GTLRObject
 

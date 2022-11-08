@@ -62,6 +62,7 @@
 @class GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings;
 @class GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_TaxRateInfoByRegionCode;
 @class GTLRAndroidPublisher_Money;
+@class GTLRAndroidPublisher_OfferDetails;
 @class GTLRAndroidPublisher_OfferTag;
 @class GTLRAndroidPublisher_OtherRegionsBasePlanConfig;
 @class GTLRAndroidPublisher_OtherRegionsSubscriptionOfferConfig;
@@ -85,6 +86,7 @@
 @class GTLRAndroidPublisher_Subscription;
 @class GTLRAndroidPublisher_SubscriptionCancelSurveyResult;
 @class GTLRAndroidPublisher_SubscriptionDeferralInfo;
+@class GTLRAndroidPublisher_SubscriptionItemPriceChangeDetails;
 @class GTLRAndroidPublisher_SubscriptionListing;
 @class GTLRAndroidPublisher_SubscriptionOffer;
 @class GTLRAndroidPublisher_SubscriptionOfferPhase;
@@ -473,6 +475,57 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_Tax
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierNews2;
 /** Value: "TAX_TIER_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_SubscriptionItemPriceChangeDetails.priceChangeMode
+
+/**
+ *  Price change mode unspecified. This value should never be set.
+ *
+ *  Value: "PRICE_CHANGE_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeMode_PriceChangeModeUnspecified;
+/**
+ *  If the subscription price is decreasing.
+ *
+ *  Value: "PRICE_DECREASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeMode_PriceDecrease;
+/**
+ *  If the subscription price is increasing and the user needs to accept it.
+ *
+ *  Value: "PRICE_INCREASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeMode_PriceIncrease;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_SubscriptionItemPriceChangeDetails.priceChangeState
+
+/**
+ *  The price change is applied, i.e. the user has started being charged the new
+ *  price.
+ *
+ *  Value: "APPLIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_Applied;
+/**
+ *  The price change is confirmed to happen for the user.
+ *
+ *  Value: "CONFIRMED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_Confirmed;
+/**
+ *  Waiting for the user to agree for the price change.
+ *
+ *  Value: "OUTSTANDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_Outstanding;
+/**
+ *  Price change state unspecified. This value should not be used.
+ *
+ *  Value: "PRICE_CHANGE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_PriceChangeStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_SubscriptionOffer.state
@@ -999,6 +1052,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *autoRenewEnabled;
+
+/**
+ *  The information of the last price change for the item since subscription
+ *  signup.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_SubscriptionItemPriceChangeDetails *priceChangeDetails;
 
 @end
 
@@ -2453,6 +2512,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 
 /**
+ *  Offer details information related to a purchase line item.
+ */
+@interface GTLRAndroidPublisher_OfferDetails : GTLRObject
+
+/** The base plan ID. Present for all base plan and offers. */
+@property(nonatomic, copy, nullable) NSString *basePlanId;
+
+/** The offer ID. Only present for discounted offers. */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/**
+ *  The latest offer tags associated with the offer. It includes tags inherited
+ *  from the base plan.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *offerTags;
+
+@end
+
+
+/**
  *  Represents a custom tag specified for base plans and subscription offers.
  */
 @interface GTLRAndroidPublisher_OfferTag : GTLRObject
@@ -3185,6 +3264,58 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 
 /**
+ *  Price change related information of a subscription item.
+ */
+@interface GTLRAndroidPublisher_SubscriptionItemPriceChangeDetails : GTLRObject
+
+/**
+ *  The renewal time at which the price change will become effective for the
+ *  user. This is subject to change(to a future time) due to cases where the
+ *  renewal time shifts like pause.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expectedNewPriceChargeTime;
+
+/** New recurring price for the subscription item. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *newPrice NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  Price change mode specifies how the subscription item price is changing.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeMode_PriceChangeModeUnspecified
+ *        Price change mode unspecified. This value should never be set. (Value:
+ *        "PRICE_CHANGE_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeMode_PriceDecrease
+ *        If the subscription price is decreasing. (Value: "PRICE_DECREASE")
+ *    @arg @c kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeMode_PriceIncrease
+ *        If the subscription price is increasing and the user needs to accept
+ *        it. (Value: "PRICE_INCREASE")
+ */
+@property(nonatomic, copy, nullable) NSString *priceChangeMode;
+
+/**
+ *  State the price change is currently in.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_Applied
+ *        The price change is applied, i.e. the user has started being charged
+ *        the new price. (Value: "APPLIED")
+ *    @arg @c kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_Confirmed
+ *        The price change is confirmed to happen for the user. (Value:
+ *        "CONFIRMED")
+ *    @arg @c kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_Outstanding
+ *        Waiting for the user to agree for the price change. (Value:
+ *        "OUTSTANDING")
+ *    @arg @c kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_PriceChangeStateUnspecified
+ *        Price change state unspecified. This value should not be used. (Value:
+ *        "PRICE_CHANGE_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *priceChangeState;
+
+@end
+
+
+/**
  *  The consumer-visible metadata of a subscription.
  */
 @interface GTLRAndroidPublisher_SubscriptionListing : GTLRObject
@@ -3623,6 +3754,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *  extended (ex. renews).
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expiryTime;
+
+/** The offer details for this item. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_OfferDetails *offerDetails;
 
 /** The item is prepaid. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_PrepaidPlan *prepaidPlan;

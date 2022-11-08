@@ -1567,8 +1567,9 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Required. null The list of filters that applies to event attributes. Only
- *  events that match all the provided filters are sent to the destination.
+ *  Required. Unordered list. The list of filters that applies to event
+ *  attributes. Only events that match all the provided filters are sent to the
+ *  destination.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLREventarc_EventFilter *> *eventFilters;
 

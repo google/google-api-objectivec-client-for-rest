@@ -243,7 +243,7 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema
-@dynamic column, descriptionProperty, mode, subcolumns, type;
+@dynamic column, descriptionProperty, gcRule, mode, subcolumns, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

@@ -739,8 +739,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  of the backup. The operation is associated with the destination backup. The
  *  metadata field type is CopyBackupMetadata. The response field type is
  *  Backup, if successful. Cancelling the returned operation will stop the
- *  copying and delete the backup. Concurrent CopyBackup requests can run on the
- *  same source backup.
+ *  copying and delete the destination backup. Concurrent CopyBackup requests
+ *  can run on the same source backup.
  *
  *  Method: spanner.projects.instances.backups.copy
  *
@@ -765,8 +765,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  of the backup. The operation is associated with the destination backup. The
  *  metadata field type is CopyBackupMetadata. The response field type is
  *  Backup, if successful. Cancelling the returned operation will stop the
- *  copying and delete the backup. Concurrent CopyBackup requests can run on the
- *  same source backup.
+ *  copying and delete the destination backup. Concurrent CopyBackup requests
+ *  can run on the same source backup.
  *
  *  @param object The @c GTLRSpanner_CopyBackupRequest to include in the query.
  *  @param parent Required. The name of the destination instance that will

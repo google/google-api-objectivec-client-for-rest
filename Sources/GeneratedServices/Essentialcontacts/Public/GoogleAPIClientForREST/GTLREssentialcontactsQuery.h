@@ -364,7 +364,7 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
 @interface GTLREssentialcontactsQuery_FoldersContactsPatch : GTLREssentialcontactsQuery
 
 /**
- *  The identifier for the contact. Format:
+ *  Output only. The identifier for the contact. Format:
  *  {resource_type}/{resource_id}/contacts/{contact_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -386,7 +386,7 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
  *  @param object The @c
  *    GTLREssentialcontacts_GoogleCloudEssentialcontactsV1Contact to include in
  *    the query.
- *  @param name The identifier for the contact. Format:
+ *  @param name Output only. The identifier for the contact. Format:
  *    {resource_type}/{resource_id}/contacts/{contact_id}
  *
  *  @return GTLREssentialcontactsQuery_FoldersContactsPatch
@@ -699,7 +699,7 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
 @interface GTLREssentialcontactsQuery_OrganizationsContactsPatch : GTLREssentialcontactsQuery
 
 /**
- *  The identifier for the contact. Format:
+ *  Output only. The identifier for the contact. Format:
  *  {resource_type}/{resource_id}/contacts/{contact_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -721,7 +721,7 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
  *  @param object The @c
  *    GTLREssentialcontacts_GoogleCloudEssentialcontactsV1Contact to include in
  *    the query.
- *  @param name The identifier for the contact. Format:
+ *  @param name Output only. The identifier for the contact. Format:
  *    {resource_type}/{resource_id}/contacts/{contact_id}
  *
  *  @return GTLREssentialcontactsQuery_OrganizationsContactsPatch
@@ -1034,7 +1034,7 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
 @interface GTLREssentialcontactsQuery_ProjectsContactsPatch : GTLREssentialcontactsQuery
 
 /**
- *  The identifier for the contact. Format:
+ *  Output only. The identifier for the contact. Format:
  *  {resource_type}/{resource_id}/contacts/{contact_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1056,7 +1056,7 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
  *  @param object The @c
  *    GTLREssentialcontacts_GoogleCloudEssentialcontactsV1Contact to include in
  *    the query.
- *  @param name The identifier for the contact. Format:
+ *  @param name Output only. The identifier for the contact. Format:
  *    {resource_type}/{resource_id}/contacts/{contact_id}
  *
  *  @return GTLREssentialcontactsQuery_ProjectsContactsPatch

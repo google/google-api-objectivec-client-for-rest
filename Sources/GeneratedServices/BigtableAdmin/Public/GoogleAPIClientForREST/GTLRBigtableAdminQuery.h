@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewEncryptionView;
 /**
- *  Populates all fields.
+ *  Populates all fields except for stats. See STATS_VIEW to request stats.
  *
  *  Value: "FULL"
  */
@@ -59,6 +59,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewReplicationView;
  *  Value: "SCHEMA_VIEW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewSchemaView;
+/**
+ *  Only populates `name` and fields related to the table's stats (e.g.
+ *  TableStats and ColumnFamilyStats).
+ *
+ *  Value: "STATS_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewStatsView;
 /**
  *  Uses the default view for each method as documented in its request.
  *
@@ -1809,7 +1816,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @arg @c kGTLRBigtableAdminViewEncryptionView Only populates `name` and
  *        fields related to the table's encryption state. (Value:
  *        "ENCRYPTION_VIEW")
- *    @arg @c kGTLRBigtableAdminViewFull Populates all fields. (Value: "FULL")
+ *    @arg @c kGTLRBigtableAdminViewStatsView Only populates `name` and fields
+ *        related to the table's stats (e.g. TableStats and ColumnFamilyStats).
+ *        (Value: "STATS_VIEW")
+ *    @arg @c kGTLRBigtableAdminViewFull Populates all fields except for stats.
+ *        See STATS_VIEW to request stats. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -1920,7 +1931,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @arg @c kGTLRBigtableAdminViewEncryptionView Only populates `name` and
  *        fields related to the table's encryption state. (Value:
  *        "ENCRYPTION_VIEW")
- *    @arg @c kGTLRBigtableAdminViewFull Populates all fields. (Value: "FULL")
+ *    @arg @c kGTLRBigtableAdminViewStatsView Only populates `name` and fields
+ *        related to the table's stats (e.g. TableStats and ColumnFamilyStats).
+ *        (Value: "STATS_VIEW")
+ *    @arg @c kGTLRBigtableAdminViewFull Populates all fields except for stats.
+ *        See STATS_VIEW to request stats. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -1989,11 +2004,62 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
- *  Create a new table by restoring from a completed backup. The new table must
- *  be in the same project as the instance containing the backup. The returned
- *  table long-running operation can be used to track the progress of the
- *  operation, and to cancel it. The metadata field type is
- *  RestoreTableMetadata. The response type is Table, if successful.
+ *  Updates a specified table.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesPatch : GTLRBigtableAdminQuery
+
+/**
+ *  The unique name of the table. Values are of the form
+ *  `projects/{project}/instances/{instance}/tables/_a-zA-Z0-9*`. Views:
+ *  `NAME_ONLY`, `SCHEMA_VIEW`, `REPLICATION_VIEW`, `STATS_VIEW`, `FULL`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to update. A mask specifying which fields (e.g.
+ *  `change_stream_config`) in the `table` field should be updated. This mask is
+ *  relative to the `table` field, not to the request message. The wildcard (*)
+ *  path is currently not supported. Currently UpdateTable is only supported for
+ *  the following fields: * `change_stream_config` *
+ *  `change_stream_config.retention_period` * `deletion_protection` If
+ *  `column_families` is set in `update_mask`, it will return an UNIMPLEMENTED
+ *  error.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Operation.
+ *
+ *  Updates a specified table.
+ *
+ *  @param object The @c GTLRBigtableAdmin_Table to include in the query.
+ *  @param name The unique name of the table. Values are of the form
+ *    `projects/{project}/instances/{instance}/tables/_a-zA-Z0-9*`. Views:
+ *    `NAME_ONLY`, `SCHEMA_VIEW`, `REPLICATION_VIEW`, `STATS_VIEW`, `FULL`
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesPatch
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_Table *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Create a new table by restoring from a completed backup. The returned table
+ *  long-running operation can be used to track the progress of the operation,
+ *  and to cancel it. The metadata field type is RestoreTableMetadata. The
+ *  response type is Table, if successful.
  *
  *  Method: bigtableadmin.projects.instances.tables.restore
  *
@@ -2008,25 +2074,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /**
  *  Required. The name of the instance in which to create the restored table.
- *  This instance must be in the same project as the source backup. Values are
- *  of the form `projects//instances/`.
+ *  Values are of the form `projects//instances/`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRBigtableAdmin_Operation.
  *
- *  Create a new table by restoring from a completed backup. The new table must
- *  be in the same project as the instance containing the backup. The returned
- *  table long-running operation can be used to track the progress of the
- *  operation, and to cancel it. The metadata field type is
- *  RestoreTableMetadata. The response type is Table, if successful.
+ *  Create a new table by restoring from a completed backup. The returned table
+ *  long-running operation can be used to track the progress of the operation,
+ *  and to cancel it. The metadata field type is RestoreTableMetadata. The
+ *  response type is Table, if successful.
  *
  *  @param object The @c GTLRBigtableAdmin_RestoreTableRequest to include in the
  *    query.
  *  @param parent Required. The name of the instance in which to create the
- *    restored table. This instance must be in the same project as the source
- *    backup. Values are of the form `projects//instances/`.
+ *    restored table. Values are of the form `projects//instances/`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesRestore
  */

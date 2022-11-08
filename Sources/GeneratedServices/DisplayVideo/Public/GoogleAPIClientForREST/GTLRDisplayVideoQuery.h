@@ -582,7 +582,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  Requested page size. Must be between `1` and `200`. If unspecified will
  *  default to `100`.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1586,7 +1586,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  Requested page size. Must be between `1` and `200`. If unspecified will
  *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
  *  is specified.
  */
@@ -2082,7 +2082,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  Requested page size. Must be between `1` and `200`. If unspecified will
  *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
  *  is specified.
  */
@@ -4048,7 +4048,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *loiSapinInvoiceType;
 
 /**
- *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  Requested page size. Must be between `1` and `200`. If unspecified will
  *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
  *  is specified.
  */
@@ -4326,7 +4326,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @end
 
 /**
- *  Duplicates a line item. Returns the newly created line item id if
+ *  Duplicates a line item. Returns the ID of the created line item if
  *  successful.
  *
  *  Method: displayvideo.advertisers.lineItems.duplicate
@@ -4345,7 +4345,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 /**
  *  Fetches a @c GTLRDisplayVideo_DuplicateLineItemResponse.
  *
- *  Duplicates a line item. Returns the newly created line item id if
+ *  Duplicates a line item. Returns the ID of the created line item if
  *  successful.
  *
  *  @param object The @c GTLRDisplayVideo_DuplicateLineItemRequest to include in
@@ -4490,7 +4490,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  Requested page size. Must be between `1` and `200`. If unspecified will
  *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
  *  is specified.
  */
@@ -5995,7 +5995,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  Requested page size. Must be between `1` and `200`. If unspecified will
  *  default to `100`.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -6271,7 +6271,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  Requested page size. Must be between `1` and `200`. If unspecified will
  *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
  *  is specified.
  */
@@ -6411,7 +6411,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Requested page size. Must be between `1` and `100`. Defaults to `100` if not
+ *  Requested page size. Must be between `1` and `200`. Defaults to `100` if not
  *  set. Returns error code `INVALID_ARGUMENT` if an invalid value is specified.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -6666,7 +6666,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  Requested page size. Must be between `1` and `200`. If unspecified will
  *  default to `100`.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -6871,7 +6871,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, assign) long long advertiserId;
 
 /**
- *  Requested page size. Must be between `1` and `100`. Defaults to `100` if not
+ *  Requested page size. Must be between `1` and `200`. Defaults to `100` if not
  *  set. Returns error code `INVALID_ARGUMENT` if an invalid value is specified.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -8668,7 +8668,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  Requested page size. Must be between `1` and `200`. If unspecified will
  *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
  *  is specified.
  */
@@ -8812,7 +8812,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  Requested page size. Must be between `1` and `200`. If unspecified will
  *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
  *  is specified.
  */
@@ -8999,7 +8999,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  Requested page size. Must be between `1` and `200`. If unspecified will
  *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
  *  is specified.
  */
@@ -9146,7 +9146,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  Requested page size. Must be between `1` and `200`. If unspecified will
  *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
  *  is specified.
  */
@@ -9320,7 +9320,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  Requested page size. Must be between `1` and `200`. If unspecified will
  *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
  *  is specified.
  */
@@ -9556,7 +9556,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  Requested page size. Must be between `1` and `200`. If unspecified will
  *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
  *  is specified.
  */
@@ -9729,8 +9729,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Requested page size. Must be between `1` and `100`. If unspecified or
- *  greater than `100` will default to `100`.
+ *  Requested page size. Must be between `1` and `200`. If unspecified will
+ *  default to `100`.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -10189,7 +10189,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  Requested page size. Must be between `1` and `200`. If unspecified will
  *  default to `100`.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -10414,7 +10414,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  Requested page size. Must be between `1` and `200`. If unspecified will
  *  default to `100`.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -10682,7 +10682,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  Requested page size. Must be between `1` and `200`. If unspecified will
  *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
  *  is specified.
  */
@@ -11087,7 +11087,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  Requested page size. Must be between `1` and `200`. If unspecified will
  *  default to `100`.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -12118,7 +12118,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  Requested page size. Must be between `1` and `200`. If unspecified will
  *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
  *  is specified.
  */
@@ -12899,7 +12899,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  Requested page size. Must be between `1` and `200`. If unspecified will
  *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
  *  is specified.
  */
@@ -13726,7 +13726,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  Requested page size. Must be between `1` and `200`. If unspecified will
  *  default to `100`.
  */
 @property(nonatomic, assign) NSInteger pageSize;
