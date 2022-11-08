@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'GoogleAPIClientForREST'
-  s.version      = '2.0.1'
+  s.version      = '3.0.0'
   s.author       = 'Google Inc.'
   s.homepage     = 'https://github.com/google/google-api-objectivec-client-for-rest'
   s.license      = { :type => 'Apache', :file => 'LICENSE' }
@@ -25,9 +25,7 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = tvos_deployment_target
   s.watchos.deployment_target = watchos_deployment_target
 
-  # Require at least 1.6.1 of the SessionFetcher since it has the same
-  # deployment targets.
-  s.dependency 'GTMSessionFetcher/Full', '>= 1.6.1', '< 3.0'
+  s.dependency 'GTMSessionFetcher/Full', '>= 1.6.1', '< 4.0'
 
   s.prefix_header_file = false
 
